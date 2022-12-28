@@ -1,0 +1,45 @@
+name: nanc_backend
+description: NANC project backend demo
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cms:
+    path: ../cms
+  nanc_webrtc:
+    path: ../nanc_webrtc
+  tools:
+    path: ../tools
+  model:
+    path: ../model
+  fields:
+    path: ../fields
+  ui_kit:
+    path: ../ui_kit
+  icons:
+    path: ../icons
+  animation_debugger:
+    path: ../../../3_open_source_projects/animation_debugger
+  cupertino_icons: ^1.0.2
+  pretty_qr_code: ^2.0.2
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+  equatable: ^2.0.5
+  json_annotation: ^4.7.0
+  copy_with_extension: ^4.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  json_serializable: ^6.4.1
+  copy_with_extension_gen: ^4.0.3
+  build_runner: ^2.2.1
+
+flutter:
+  uses-material-design: true

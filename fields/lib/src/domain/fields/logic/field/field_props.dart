@@ -1,0 +1,31 @@
+import 'package:fields/fields.dart';
+
+const String fieldIdProperty = 'id';
+const String fieldNameProperty = 'name';
+const String fieldShowInListProperty = 'showInList';
+const String fieldIsRequiredProperty = 'isRequired';
+const String fieldSortProperty = 'sort';
+const String fieldWidthProperty = 'width';
+const String fieldTypeProperty = 'type';
+const String fieldValidatorProperty = 'validator';
+const String fieldContentColorProperty = 'contentColor';
+const String fieldContentIconProperty = 'contentIcon';
+const String fieldIsScrollableProperty = 'isScrollable';
+const String fieldModelProperty = 'model';
+const String fieldTitleFieldProperty = 'titleField';
+const String fieldStructureProperty = 'structure';
+const String fieldThirdTableProperty = 'thirdTable';
+const String fieldMaxLinesProperty = 'maxLines';
+const String fieldDefaultValueProperty = 'defaultValue';
+
+final StringField fieldToModelName = StringField(id: fieldNameProperty, name: 'Field name', isRequired: true, maxLines: 1);
+final IdField fieldToModelId = IdField(id: fieldIdProperty, name: 'Field ID');
+final NumberField fieldToModelSort = NumberField(id: fieldSortProperty, name: 'Sort (in table view)');
+final NumberField fieldToModelMaxLines = NumberField(id: fieldMaxLinesProperty, name: 'Maximum lines');
+final NumberField fieldToModelWidth = NumberField(id: fieldWidthProperty, name: 'Width (in table view)');
+final BoolField fieldToModelShowInList = BoolField(id: fieldShowInListProperty, name: 'Show in table view?');
+final BoolField fieldToModelIsRequired = BoolField(id: fieldIsRequiredProperty, name: 'Is field required?');
+final BoolField fieldToModelDefaultValue = BoolField(id: fieldDefaultValueProperty, name: 'Default value');
+final StringField fieldToModelValidator = StringField(id: fieldValidatorProperty, name: 'Validator');
+final ColorField fieldToModelContentColor = ColorField(id: fieldContentColorProperty, name: 'Color');
+final IconField fieldToModelContentIcon = IconField(id: fieldContentIconProperty, name: 'Icon');

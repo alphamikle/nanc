@@ -1,0 +1,1 @@
+{"version":3,"file":"json.js","sourceRoot":"","sources":["../../../src/generators/asset-types/json.ts"],"names":[],"mappings":";;;;;;;;;;;AAEA,MAAM,SAAS,GAAkB;IAC/B,QAAQ,EAAE,CAAO,EAAE,aAAa,EAAE,EAAE,IAAI,EAAE,GAAG,EAAE,EAAE,UAAU,EAAE,EAAE,EAAE,kDAC/D,OAAA,IAAI,CAAC,SAAS,CAAC,UAAU,EAAE,IAAI,EAAE,IAAI,aAAJ,IAAI,uBAAJ,IAAI,CAAE,MAAM,CAAC,CAAA,GAAA;CACjD,CAAC;AAEF,kBAAe,SAAS,CAAC"}

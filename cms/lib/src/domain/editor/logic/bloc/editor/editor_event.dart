@@ -1,0 +1,4 @@
+enum EditorEvent {
+  changed,
+  scroll,
+}

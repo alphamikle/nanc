@@ -1,0 +1,83 @@
+import 'dart:async';
+
+import 'package:bloc/bloc.dart';
+import 'package:cms/src/domain/draft/logic/draft_service.dart';
+import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_state.dart';
+import 'package:flutter/material.dart';
+import 'package:tools/tools.dart';
+
+abstract class BasePageBloc<T extends BaseEntityPageState> extends Cubit<T> {
+  BasePageBloc({
+    required T state,
+    required this.draftService,
+  }) : super(state);
+
+  final DraftService draftService;
+
+  String? modelId;
+  String? pageId;
+
+  String? get draftKey {
+    if (modelId == null && pageId == null) {
+      return null;
+    }
+    return DraftService.generateKey({modelId, pageId});
+  }
+
+  dynamic valueForKey(String key) => state.data[key];
+
+  void updateValue(String fieldId, dynamic fieldValue) {
+    final Json data = <String, dynamic>{
+      ...state.data,
+    };
+    final bool isValueEmpty = isEmpty(fieldValue);
+    if (isValueEmpty) {
+      data.remove(fieldId);
+    } else {
+      data[fieldId] = fieldValue;
+    }
+    _updateData(data);
+  }
+
+  void updateValues(Json json) {
+    final Json data = <String, dynamic>{
+      ...state.data,
+    };
+    for (final MapEntry<String, dynamic> entry in json.entries) {
+      final bool isValueEmpty = isEmpty(entry.value);
+      if (isValueEmpty) {
+        data.remove(entry.key);
+      } else {
+        data[entry.key] = entry.value;
+      }
+    }
+    _updateData(data);
+  }
+
+  TextEditingController controllerFor(String fieldCode) {
+    if (!state.controllerMap.containsKey(fieldCode)) {
+      state.controllerMap[fieldCode] = TextEditingController();
+    }
+    return state.controllerMap[fieldCode]!;
+  }
+
+  bool fieldWasChanged(String field) {
+    return state.diff[field] ?? false;
+  }
+
+  void _updateData(Json data) {
+    if (state is PageState) {
+      final PageState pageState = state as PageState;
+      emit(pageState.copyWith(data: data) as T);
+      if (draftKey != null) {
+        unawaited(draftService.saveDraft(key: draftKey!, data: (state as PageState).toJson()));
+      }
+    } else {
+      emit(state.copyWith(data: data) as T);
+      if (draftKey != null) {
+        unawaited(draftService.saveDraft(key: draftKey!, data: state.toJson()));
+      }
+    }
+  }
+}

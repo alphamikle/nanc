@@ -1,0 +1,42 @@
+model:
+  field:
+    title: Field editing
+    save: Save
+    cancel: Cancel
+
+dataList:
+  create: Create
+
+modelEditorPage:
+  saveButton: Save
+  createButton: Create
+  header:
+    edited: Model was changed...
+    initial: Model was not changed...
+  helpers:
+    id: Entity Id
+    name: Entity Name
+    icon: Entity Icon
+    isCollection: Is Entity a collection?
+    showInMenu: Need to show Entity in the menu?
+    sort: Entity sorting index
+  placeholders:
+    id: Enter model id here...
+    name: Enter model name here...
+    icon: Choose an model icon...
+    isCollection: Select...
+    showInMenu: Select...
+    sort: Put model sort index here...
+  codeFirstModelEditing:
+    title: Potentially dangerous action!
+    subtitle: You are trying to change a pre-loaded model model. After this change the management of the model model will be done through the backend. Are you sure you want to continue?
+  backendModelEditing:
+    title: Dangerous action!
+    subtitle: You are trying to change the structure of the model model. This can have negative consequences. Are you sure you want to continue?
+  addModelField:
+    existRowTooltip: Add field to the current row
+    newRowTooltip: Add field to the new row
+
+#fields:
+#  enum_field:
+#    placeholder: Select value...

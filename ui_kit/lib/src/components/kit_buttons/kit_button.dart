@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+import 'package:ui_kit/src/components/kit_preloader.dart';
+
+class KitButton extends StatelessWidget {
+  const KitButton({
+    this.onPressed,
+    this.child,
+    this.text,
+    this.color,
+    this.isLoading = false,
+    super.key,
+  }) : assert(text != null && text != '' || child != null);
+
+  final VoidCallback? onPressed;
+  final String? text;
+  final Widget? child;
+  final Color? color;
+  final bool isLoading;
+
+  bool get withChild => child != null;
+
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+      onPressed: onPressed,
+      style: color == null
+          ? null
+          : ButtonStyle(
+              overlayColor: MaterialStatePropertyAll(color!.withOpacity(0.05)),
+              foregroundColor: MaterialStatePropertyAll(color!),
+            ),
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 250),
+        child: isLoading
+            ? const SizedBox(
+                width: 50,
+                child: KitPreloader(),
+              )
+            : withChild
+                ? child!
+                : Text(text!),
+      ),
+    );
+  }
+}

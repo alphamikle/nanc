@@ -1,0 +1,20 @@
+{
+  "name": "icons",
+  "version": "1.0.0",
+  "description": "<!-- This README describes the package. If you publish this package to pub.dev, this README's contents appear on the landing page for your package.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "export": "figma-export components SSMw3iyXLzvtvMpczD9a6O -O @figma-export/output-components-as-svg",
+    "optimize_solar_icons": "svgo -f ./solar_icons_raw -o ./solar_icons --config ./svgo.config.js",
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@figma-export/cli": "^4.5.0",
+    "@figma-export/output-components-as-svg": "^4.5.0",
+    "svgo": "^3.0.2"
+  }
+}

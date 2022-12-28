@@ -1,0 +1,42 @@
+name: nanc_client
+description: NANC project demo client
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  nanc_webrtc:
+    path: ../nanc_webrtc
+  tools:
+    path: ../tools
+  cms:
+    path: ../cms
+  rich_renderer:
+    path: ../rich_renderer
+  markdown_code_push:
+    path: ../markdown_code_push
+  ui_kit:
+    path: ../ui_kit
+  cupertino_icons: ^1.0.2
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+  equatable: ^2.0.5
+  json_annotation: ^4.7.0
+  copy_with_extension: ^4.0.3
+  vrouter: ^1.2.1
+  url_launcher: ^6.1.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  json_serializable: ^6.4.1
+  copy_with_extension_gen: ^4.0.3
+  build_runner: ^2.2.1
+
+flutter:
+  uses-material-design: true

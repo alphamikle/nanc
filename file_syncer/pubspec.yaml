@@ -1,0 +1,20 @@
+name: file_syncer
+description: Package for syncing code editor with the file system
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.4 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  file_picker: ^5.2.3
+  js: ^0.6.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:

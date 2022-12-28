@@ -1,0 +1,29 @@
+name: icons
+description: The icon pack for the NANC CMS
+version: 1.0.0
+homepage: none
+
+environment:
+  sdk: '>=2.18.4 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  jovial_svg: ^1.1.8
+  material_design_icons_flutter: ^6.0.7096
+  fluentui_system_icons: ^1.1.184
+  flutter_boxicons: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  path: ^1.8.2
+  basic_utils: ^5.4.2
+  args: ^2.3.1
+
+flutter:
+  assets:
+    - assets/
+    - assets/sicons/

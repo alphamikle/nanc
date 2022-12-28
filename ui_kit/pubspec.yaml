@@ -1,0 +1,37 @@
+name: ui_kit
+description: The UI KIT for the NANC project
+version: 1.0.0
+homepage: nope
+publish_to: none
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  tools:
+    path: ../tools
+  fields:
+    path: ../fields
+  model:
+    path: ../model
+  cms:
+    path: ../cms
+  icons:
+    path: ../icons
+  animations: ^2.0.7
+  mask_text_input_formatter: ^2.4.0
+  flutter_typeahead: ^4.1.1
+  vrouter: ^1.2.1
+  flex_color_scheme: ^6.0.1
+  shimmer: ^2.0.0
+  google_fonts: ^3.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:

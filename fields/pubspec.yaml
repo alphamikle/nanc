@@ -1,0 +1,41 @@
+name: fields
+description: A new Flutter package project.
+version: 0.0.1
+homepage: nope
+publish_to: none
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  tools:
+    path: ../tools
+  model:
+    path: ../model
+  ui_kit:
+    path: ../ui_kit
+  cms:
+    path: ../cms
+  icons:
+    path: ../icons
+  config:
+    path: ../config
+  equatable: ^2.0.5
+  json_annotation: ^4.7.0
+  copy_with_extension: ^4.0.3
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+  vrouter: ^1.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  json_serializable: ^6.4.1
+  copy_with_extension_gen: ^4.0.3
+  build_runner: ^2.2.1
+
+flutter:

@@ -1,0 +1,1 @@
+{"version":3,"file":"gridStyle.js","sourceRoot":"","sources":["../../../src/lib/figmaStyles/gridStyle.ts"],"names":[],"mappings":";;;AAEA,MAAM,KAAK,GAAG,CAAC,IAA2B,EAAyC,EAAE;IACjF,IAAI,IAAI,CAAC,SAAS,KAAK,MAAM,IAAI,IAAI,CAAC,IAAI,KAAK,OAAO,EAAE;QACpD,OAAO;YACH,SAAS,EAAE,MAAM;SACpB,CAAC;KACL;IAED,OAAO,SAAS,CAAC;AACrB,CAAC,CAAC;AAGE,sBAAK"}

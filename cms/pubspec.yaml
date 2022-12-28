@@ -1,0 +1,78 @@
+name: cms
+description: NANC - Next-Gen Backend-agnostic CMS
+publish_to: none
+version: 0.0.1
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  markdown_code_push:
+    path: ../markdown_code_push
+  markdown_code_push_core:
+    path: ../markdown_code_push_core
+  code_text_field:
+    path: ../code_text_field
+  rich_renderer:
+    path: ../rich_renderer
+  tools:
+    path: ../tools
+  fields:
+    path: ../fields
+  model:
+    path: ../model
+  ui_kit:
+    path: ../ui_kit
+  config:
+    path: ../config
+  animation_debugger:
+    path: ../../../3_open_source_projects/animation_debugger
+  file_syncer:
+    path: ../file_syncer
+  icons:
+    path: ../icons
+  cupertino_icons: ^1.0.2
+  device_frame: ^1.1.0
+  markdown: ^6.0.1
+  vrouter: ^1.2.1
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+  equatable: ^2.0.5
+  json_annotation: ^4.7.0
+  copy_with_extension: ^4.0.3
+  bot_toast: ^4.0.3
+  ulid: ^2.0.0
+  google_fonts: ^3.0.1
+  flutter_highlight: ^0.7.0
+  highlight: ^0.7.0
+  collection: ^1.16.0
+  mask_text_input_formatter: ^2.4.0
+  animations: ^2.0.7
+  rive: ^0.9.1
+  showcaseview: ^2.0.0+1
+  lottie: ^2.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  json_serializable: ^6.4.1
+  copy_with_extension_gen: ^4.0.3
+  build_runner: ^2.2.1
+  yalo: ^3.0.0
+  path: ^1.8.2
+
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: BluePrintNonCommercial
+      fonts:
+        - asset: assets/fonts/blueprint_font_non_commercial.ttf
+
+  assets:
+    - assets/
+    - assets/mock_data/
+    - assets/animations/
+    - assets/fonts/

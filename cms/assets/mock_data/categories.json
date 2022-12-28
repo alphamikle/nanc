@@ -1,0 +1,812 @@
+[
+	{
+		"id" : "32b3e0f9-51a0-4440-ab37-556bdd009749",
+		"title" : "Авто",
+		"color" : 4286742654,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "cc6fcbf6-33a8-4052-9ca0-1efe65362add",
+		"title" : "Счета",
+		"color" : 4286806123,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-17T01:37:36.782Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "8276b901-785b-4976-9915-153d465d675c",
+		"title" : "Аренда дома",
+		"color" : 4288977555,
+		"userId" : null,
+		"parentId" : "cc6fcbf6-33a8-4052-9ca0-1efe65362add",
+		"createdAt" : "2022-04-17T01:38:05.673Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "6f60d64f-18ca-4c22-96eb-9bbf7582e85d",
+		"title" : "Коммунальные услуги",
+		"color" : 4292401627,
+		"userId" : null,
+		"parentId" : "cc6fcbf6-33a8-4052-9ca0-1efe65362add",
+		"createdAt" : "2022-04-17T01:40:18.433Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "328a1594-9dd6-4c91-9ba2-6fa4b49c46ce",
+		"title" : "Ипотека",
+		"color" : 4289899690,
+		"userId" : null,
+		"parentId" : "cc6fcbf6-33a8-4052-9ca0-1efe65362add",
+		"createdAt" : "2022-04-17T01:56:10.476Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "cb80d050-cb95-4895-a1e2-1975e9e8e021",
+		"title" : "Кредит",
+		"color" : 4288634867,
+		"userId" : null,
+		"parentId" : "cc6fcbf6-33a8-4052-9ca0-1efe65362add",
+		"createdAt" : "2022-08-02T04:34:34.266Z",
+		"updatedAt" : "2022-08-02T04:34:34.266Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "8d0e97d7-94b8-4252-a955-dca8a3be79d5",
+		"title" : "Интернет и телефон",
+		"color" : 4288585118,
+		"userId" : null,
+		"parentId" : "cc6fcbf6-33a8-4052-9ca0-1efe65362add",
+		"createdAt" : "2022-04-17T16:35:05.670Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "39655a11-5be0-4b84-9336-e2daa5251f61",
+		"title" : "Топливо",
+		"color" : 4289899427,
+		"userId" : null,
+		"parentId" : "32b3e0f9-51a0-4440-ab37-556bdd009749",
+		"createdAt" : "2022-04-17T02:04:57.139Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "fd3e7c83-6ac1-4021-b217-f535218eebda",
+		"title" : "Аренда",
+		"color" : 4287796885,
+		"userId" : null,
+		"parentId" : "32b3e0f9-51a0-4440-ab37-556bdd009749",
+		"createdAt" : "2022-04-17T02:04:56.825Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "c4859695-f984-4070-be85-b964aab370ab",
+		"title" : "Ремонт",
+		"color" : 4284900198,
+		"userId" : null,
+		"parentId" : "32b3e0f9-51a0-4440-ab37-556bdd009749",
+		"createdAt" : "2022-04-17T02:04:57.610Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "bd8af364-f196-4f7e-ae5e-7a0fcf5f01cb",
+		"title" : "Штрафы",
+		"color" : 4289109396,
+		"userId" : null,
+		"parentId" : "32b3e0f9-51a0-4440-ab37-556bdd009749",
+		"createdAt" : "2022-04-17T02:04:57.455Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "3d1566c0-f243-4968-8c9e-c0a6557a41d2",
+		"title" : "Лизинг",
+		"color" : 4287533714,
+		"userId" : null,
+		"parentId" : "32b3e0f9-51a0-4440-ab37-556bdd009749",
+		"createdAt" : "2022-04-17T02:04:57.765Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "d70bedad-0109-4248-80b8-c7b488529741",
+		"title" : "Кредит",
+		"color" : 4289702826,
+		"userId" : null,
+		"parentId" : "32b3e0f9-51a0-4440-ab37-556bdd009749",
+		"createdAt" : "2022-04-17T02:04:56.977Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "9d48f44a-71fc-45a5-a0f5-35690882a445",
+		"title" : "Платные дороги",
+		"color" : 4286812563,
+		"userId" : null,
+		"parentId" : "32b3e0f9-51a0-4440-ab37-556bdd009749",
+		"createdAt" : "2022-04-17T02:04:58.093Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "32cb9169-ce6b-4951-ab03-5586267020ad",
+		"title" : "Аксессуары",
+		"color" : 4288716961,
+		"userId" : null,
+		"parentId" : "32b3e0f9-51a0-4440-ab37-556bdd009749",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "8d1d6319-3946-4ef4-bffe-6ff20c2ecb15",
+		"title" : "Одежда",
+		"color" : 4288384134,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "339a9832-932c-4368-96a0-832ecfe765cc",
+		"title" : "Обувь",
+		"color" : 4292387714,
+		"userId" : null,
+		"parentId" : "8d1d6319-3946-4ef4-bffe-6ff20c2ecb15",
+		"createdAt" : "2022-08-02T04:34:36.883Z",
+		"updatedAt" : "2022-08-02T04:34:36.883Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "d96a01a0-e2db-4593-8fcc-2fe40d20286a",
+		"title" : "Одежда",
+		"color" : 4289424266,
+		"userId" : null,
+		"parentId" : "8d1d6319-3946-4ef4-bffe-6ff20c2ecb15",
+		"createdAt" : "2022-08-02T04:34:37.266Z",
+		"updatedAt" : "2022-08-02T04:34:37.266Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "d842fa65-294d-4907-9820-922305fc30fc",
+		"title" : "Аксессуары",
+		"color" : 4288838344,
+		"userId" : null,
+		"parentId" : "8d1d6319-3946-4ef4-bffe-6ff20c2ecb15",
+		"createdAt" : "2022-08-02T04:34:37.639Z",
+		"updatedAt" : "2022-08-02T04:34:37.639Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "a39ddc57-a514-4290-b9d7-2ff6f8a449f1",
+		"title" : "Еда вне дома",
+		"color" : 4278247134,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-08-02T04:34:38.014Z",
+		"updatedAt" : "2022-08-02T04:34:38.014Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "ba24e9e4-2677-4d6e-838b-a6582939dff8",
+		"title" : "Кафе-рестораны",
+		"color" : 4285950558,
+		"userId" : null,
+		"parentId" : "a39ddc57-a514-4290-b9d7-2ff6f8a449f1",
+		"createdAt" : "2022-04-17T01:23:02.773Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "6bcc0136-265f-4983-a900-279bb3f2278b",
+		"title" : "Доставка еды",
+		"color" : 4290420634,
+		"userId" : null,
+		"parentId" : "a39ddc57-a514-4290-b9d7-2ff6f8a449f1",
+		"createdAt" : "2022-08-02T04:34:38.581Z",
+		"updatedAt" : "2022-08-02T04:34:38.581Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "624e11c1-b24f-4a2a-bd04-f725fd95f39f",
+		"title" : "Развлечения",
+		"color" : 4286869869,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-17T16:31:04.943Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "a3c07476-4056-4aed-939f-d371403ebbc9",
+		"title" : "Гостиницы",
+		"color" : 4282623493,
+		"userId" : null,
+		"parentId" : "624e11c1-b24f-4a2a-bd04-f725fd95f39f",
+		"createdAt" : "2022-08-02T04:34:39.140Z",
+		"updatedAt" : "2022-08-02T04:34:39.140Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "9a62717a-128f-4147-8fe9-399aabded09f",
+		"title" : "Кино",
+		"color" : 4285638097,
+		"userId" : null,
+		"parentId" : "624e11c1-b24f-4a2a-bd04-f725fd95f39f",
+		"createdAt" : "2022-08-02T04:34:39.513Z",
+		"updatedAt" : "2022-08-02T04:34:39.513Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "9c699235-3d47-4960-8359-17f65717673c",
+		"title" : "Подписки на сервисы",
+		"color" : 4289968314,
+		"userId" : null,
+		"parentId" : "624e11c1-b24f-4a2a-bd04-f725fd95f39f",
+		"createdAt" : "2022-04-17T16:35:05.513Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "fcc7328c-e69b-4f90-89e0-8bcc53fd40dc",
+		"title" : "Путешествия",
+		"color" : 4287271825,
+		"userId" : null,
+		"parentId" : "624e11c1-b24f-4a2a-bd04-f725fd95f39f",
+		"createdAt" : "2022-04-17T01:41:42.715Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "2f9c8aea-6a9b-4869-ab90-859ee5252b63",
+		"title" : "Игры",
+		"color" : 4291476137,
+		"userId" : null,
+		"parentId" : "624e11c1-b24f-4a2a-bd04-f725fd95f39f",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"title" : "Супермаркеты",
+		"color" : 4290421638,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "a1db4118-7012-481b-9c6e-73402a4e387a",
+		"title" : "Бакалея",
+		"color" : 4288184942,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "45cec1b2-8060-447e-8bac-64965a5bbcbd",
+		"title" : "Овощи",
+		"color" : 4289961593,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-04-17T01:20:44.807Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "48709731-48c5-41c6-8e76-9055571c9b85",
+		"title" : "Фрукты",
+		"color" : 4291077237,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-04-17T01:35:58.268Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "001ccd2f-5f73-4257-a6b9-bfcb2e3a90eb",
+		"title" : "Мясо и морепродукты",
+		"color" : 4291400587,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "d7ea124e-ade9-4b79-9d99-1261ad3bc34c",
+		"title" : "Молоко и яйца",
+		"color" : 4291281849,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "9bc6bd6e-368c-42e9-860a-3a62c0e3f646",
+		"title" : "Хлебобулочные",
+		"color" : 4287852628,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "88101532-773a-4719-a9ec-876f3586e3bf",
+		"title" : "Сладости",
+		"color" : 4289955693,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "6618e031-430b-490d-9915-cb2a89797e33",
+		"title" : "Напитки",
+		"color" : 4289963664,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "70a2f8c3-81e1-432b-9879-a3ed5823692e",
+		"title" : "Орехи и сухофрукты",
+		"color" : 4289564279,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-04-17T01:54:06.257Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "0e7e6c4d-731b-42bc-9692-6ba19a8de4a1",
+		"title" : "Алкоголь",
+		"color" : 4289173383,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "65345476-4b34-42bc-af3a-8cefd0f17536",
+		"title" : "Гигиена",
+		"color" : 4288183363,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-08-02T04:34:43.055Z",
+		"updatedAt" : "2022-08-02T04:34:43.055Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "0795cfec-61b8-4e31-b3d1-b3a2133a13fe",
+		"title" : "Товары для дома",
+		"color" : 4288744441,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-08-02T04:34:43.430Z",
+		"updatedAt" : "2022-08-02T04:34:43.430Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "df600acb-2da7-4240-a885-990cc4756e41",
+		"title" : "Снеки",
+		"color" : 4290617473,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "2445e19e-0acb-4981-b7a3-17046d4848b7",
+		"title" : "Канцелярские принадлежности",
+		"color" : 4291017397,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "3382c0f7-a2cd-48dd-98f5-cea25971329b",
+		"title" : "Полуфабрикаты",
+		"color" : 4286028733,
+		"userId" : null,
+		"parentId" : "b88f7fce-e520-4c6c-b722-43f421975232",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "5669a210-b96d-47e6-938d-dce153ed7e0d",
+		"title" : "Здоровье",
+		"color" : 4289573555,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "37f7781b-c60b-4e9a-b1a5-5d9f1ae71078",
+		"title" : "Медицина",
+		"color" : 4289904330,
+		"userId" : null,
+		"parentId" : "5669a210-b96d-47e6-938d-dce153ed7e0d",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "f1c693a0-0439-4382-8336-f0a0c473123a",
+		"title" : "Лекарства",
+		"color" : 4290098349,
+		"userId" : null,
+		"parentId" : "5669a210-b96d-47e6-938d-dce153ed7e0d",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "59b0564e-39ab-4bbe-a53e-bbca5232af7b",
+		"title" : "Страховка",
+		"color" : 4283321181,
+		"userId" : null,
+		"parentId" : "5669a210-b96d-47e6-938d-dce153ed7e0d",
+		"createdAt" : "2022-08-02T04:34:44.911Z",
+		"updatedAt" : "2022-08-02T04:34:44.911Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "6d072b7b-969f-494a-adea-793afb664bb2",
+		"title" : "Дом",
+		"color" : 4289570978,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "0a79e043-9685-4844-8b49-bf918fd1dc8d",
+		"title" : "Мебель",
+		"color" : 4288056449,
+		"userId" : null,
+		"parentId" : "6d072b7b-969f-494a-adea-793afb664bb2",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "3456ea4f-1670-489f-ad8a-8871695fe826",
+		"title" : "Ремонт",
+		"color" : 4278848492,
+		"userId" : null,
+		"parentId" : "6d072b7b-969f-494a-adea-793afb664bb2",
+		"createdAt" : "2022-08-02T04:34:46.221Z",
+		"updatedAt" : "2022-08-02T04:34:46.221Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "f54ba7de-a5da-45e1-b0b1-0311f11c1ec3",
+		"title" : "Услуги специалистов",
+		"color" : 4294041962,
+		"userId" : null,
+		"parentId" : "6d072b7b-969f-494a-adea-793afb664bb2",
+		"createdAt" : "2022-08-02T04:34:46.593Z",
+		"updatedAt" : "2022-08-02T04:34:46.593Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "c221be68-79f4-4341-a39f-8b792c2a5c42",
+		"title" : "Техника для дома",
+		"color" : 4283951795,
+		"userId" : null,
+		"parentId" : "6d072b7b-969f-494a-adea-793afb664bb2",
+		"createdAt" : "2022-08-02T04:34:46.960Z",
+		"updatedAt" : "2022-08-02T04:34:46.960Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "8cd79534-e0a6-4842-8252-b96ab2f24582",
+		"title" : "Домашние животные",
+		"color" : 4290753959,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "2b74fb89-0cb1-4760-855f-8ddb9eb1c98b",
+		"title" : "Зоотовары",
+		"color" : 4289965475,
+		"userId" : null,
+		"parentId" : "8cd79534-e0a6-4842-8252-b96ab2f24582",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "46b2e367-7d31-455d-b3e5-5a310a232d52",
+		"title" : "Услуги для животных",
+		"color" : 4281420599,
+		"userId" : null,
+		"parentId" : "8cd79534-e0a6-4842-8252-b96ab2f24582",
+		"createdAt" : "2022-08-02T04:34:47.697Z",
+		"updatedAt" : "2022-08-02T04:34:47.697Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "57949126-f31b-4430-b72d-b66027417c20",
+		"title" : "Спорт",
+		"color" : 4288910732,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "7502d92f-a5c7-4402-a689-add3de7fb39d",
+		"title" : "Абонементы",
+		"color" : 4290424998,
+		"userId" : null,
+		"parentId" : "57949126-f31b-4430-b72d-b66027417c20",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "a77e62d3-3036-4dc0-9c64-a5c68be8fac9",
+		"title" : "Спортивная форма",
+		"color" : 4282678793,
+		"userId" : null,
+		"parentId" : "57949126-f31b-4430-b72d-b66027417c20",
+		"createdAt" : "2022-08-02T04:34:48.444Z",
+		"updatedAt" : "2022-08-02T04:34:48.444Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "44e06231-9cb4-46b9-8117-7f2f816c8ddd",
+		"title" : "Спортивный инвентарь",
+		"color" : 4293980461,
+		"userId" : null,
+		"parentId" : "57949126-f31b-4430-b72d-b66027417c20",
+		"createdAt" : "2022-08-02T04:34:48.830Z",
+		"updatedAt" : "2022-08-02T04:34:48.830Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "3dbe7ec0-d5a1-4f31-aef1-4d75623b2cfb",
+		"title" : "Транспорт",
+		"color" : 4289113265,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-17T16:29:22.984Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "0763f39f-bda9-4e1a-8890-875c9c83c93b",
+		"title" : "Такси",
+		"color" : 4282307007,
+		"userId" : null,
+		"parentId" : "3dbe7ec0-d5a1-4f31-aef1-4d75623b2cfb",
+		"createdAt" : "2022-08-02T04:34:49.404Z",
+		"updatedAt" : "2022-08-02T04:34:49.404Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "1a112572-ab31-4f20-92ac-930aad3b95da",
+		"title" : "Общественный транспорт",
+		"color" : 4283255435,
+		"userId" : null,
+		"parentId" : "3dbe7ec0-d5a1-4f31-aef1-4d75623b2cfb",
+		"createdAt" : "2022-08-02T04:34:49.778Z",
+		"updatedAt" : "2022-08-02T04:34:49.778Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "2838345f-1d90-419d-ae9d-9000a8286e40",
+		"title" : "Перелет",
+		"color" : 4293893323,
+		"userId" : null,
+		"parentId" : "3dbe7ec0-d5a1-4f31-aef1-4d75623b2cfb",
+		"createdAt" : "2022-08-02T04:34:50.157Z",
+		"updatedAt" : "2022-08-02T04:34:50.157Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "92c8c6c0-576d-4b62-b3b8-fafc83aafcea",
+		"title" : "Электроника",
+		"color" : 4281558147,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "1ba766a7-48b4-48d4-9659-90060866ddc3",
+		"title" : "Телефоны",
+		"color" : 4287069940,
+		"userId" : null,
+		"parentId" : "92c8c6c0-576d-4b62-b3b8-fafc83aafcea",
+		"createdAt" : "2022-08-02T04:34:50.913Z",
+		"updatedAt" : "2022-08-02T04:34:50.913Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "5a7364e7-9ce6-4af5-b50c-8d2b47b31c93",
+		"title" : "Компьютеры",
+		"color" : 4281232108,
+		"userId" : null,
+		"parentId" : "92c8c6c0-576d-4b62-b3b8-fafc83aafcea",
+		"createdAt" : "2022-08-02T04:34:51.287Z",
+		"updatedAt" : "2022-08-02T04:34:51.287Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "fa000f20-91d3-4ccb-812d-401765127169",
+		"title" : "Программное обеспечение",
+		"color" : 4286681759,
+		"userId" : null,
+		"parentId" : "92c8c6c0-576d-4b62-b3b8-fafc83aafcea",
+		"createdAt" : "2022-04-17T16:27:54.038Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "b5649afb-bda3-44e2-8712-56a65d7806d2",
+		"title" : "Красота",
+		"color" : 4290953395,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "938340e5-4b26-4f3a-944a-154d562dd355",
+		"title" : "Парикмахерские",
+		"color" : 4289567890,
+		"userId" : null,
+		"parentId" : "b5649afb-bda3-44e2-8712-56a65d7806d2",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "1a2daa69-de5a-41d3-822c-60493186cc77",
+		"title" : "Дети",
+		"color" : 4292659650,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "a1d06acd-c645-4cbd-8fe6-7a7eb50ed8f8",
+		"title" : "Одежда",
+		"color" : 4292659650,
+		"userId" : null,
+		"parentId" : "1a2daa69-de5a-41d3-822c-60493186cc77",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "e3c881bc-7843-4b40-99d1-182f42bc50a7",
+		"title" : "Здоровье",
+		"color" : 4290296253,
+		"userId" : null,
+		"parentId" : "1a2daa69-de5a-41d3-822c-60493186cc77",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "9400cb81-8ce1-4c73-9c9e-2bf63c74a033",
+		"title" : "Еда",
+		"color" : 4289665859,
+		"userId" : null,
+		"parentId" : "1a2daa69-de5a-41d3-822c-60493186cc77",
+		"createdAt" : "2022-08-02T04:34:53.315Z",
+		"updatedAt" : "2022-08-02T04:34:53.315Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "1acd3b65-5bf1-4cfd-8120-3f0ca78387bd",
+		"title" : "Расходники",
+		"color" : 4290631718,
+		"userId" : null,
+		"parentId" : "1a2daa69-de5a-41d3-822c-60493186cc77",
+		"createdAt" : "2022-08-02T04:34:53.687Z",
+		"updatedAt" : "2022-08-02T04:34:53.687Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "ef5d24bb-d8e2-4351-b2ac-c9e776ab2a5b",
+		"title" : "Игрушки",
+		"color" : 4291478966,
+		"userId" : null,
+		"parentId" : "1a2daa69-de5a-41d3-822c-60493186cc77",
+		"createdAt" : "2022-04-14T22:31:07.356Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "cd5b20e7-b820-4fb6-93a6-06d0bb516a66",
+		"title" : "Подарки",
+		"color" : 4291408549,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-17T01:22:08.370Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "c13eb7fb-16ac-4b86-a2a7-81979f1cb3a9",
+		"title" : "Обучение",
+		"color" : 4290693306,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-17T01:34:02.399Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "c8546c0d-53e8-44bd-8d1c-0abc8eff280d",
+		"title" : "Услуги",
+		"color" : 4288984513,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-17T01:55:00.649Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "336dc075-0cfd-45d1-8b5a-2e05487e98b1",
+		"title" : "Пожертвования",
+		"color" : 4289442487,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-17T16:15:08.692Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	},
+	{
+		"id" : "f459602c-6036-48e7-94ac-2abb4108b1a2",
+		"title" : "Разное",
+		"color" : 4290688687,
+		"userId" : null,
+		"parentId" : null,
+		"createdAt" : "2022-04-17T01:47:47.940Z",
+		"updatedAt" : "2022-08-02T04:34:33.846Z",
+		"isDeleted" : false
+	}
+]

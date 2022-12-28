@@ -1,0 +1,155 @@
+[
+	{
+		"id" : "4219a820-4b98-4665-acb0-d3d1f1de7bb1",
+		"title" : "КАФЕ  РЕСТОРАНЫ",
+		"createdAt" : "2021-07-08T22:03:13.732Z",
+		"updatedAt" : "2022-05-27T19:54:56.928Z",
+		"color" : 4285949010,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "c8087e6a-c6a8-47a4-85fe-30b0a3d2cd90",
+		"title" : "ТРАТЫ НА РЕБЕНКА",
+		"createdAt" : "2021-07-09T10:50:25.428Z",
+		"updatedAt" : "2022-05-27T19:55:01.588Z",
+		"color" : 4290558645,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "e19253a1-260f-4207-ba11-e692c97373d7",
+		"title" : "ПОЕЗДКА В ПИТЕР",
+		"createdAt" : "2021-07-20T18:23:19.740Z",
+		"updatedAt" : "2022-05-27T19:55:05.844Z",
+		"color" : 4285034096,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "de44d86e-010b-46f1-bc83-9d5473f225a0",
+		"title" : "ЗДОРОВЬЕ",
+		"createdAt" : "2021-07-06T22:17:54.426Z",
+		"updatedAt" : "2022-05-27T19:55:09.703Z",
+		"color" : 4290757552,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "91899859-2865-4bf6-9b19-15b363b8899d",
+		"title" : "ОДЕЖДА",
+		"createdAt" : "2021-07-31T12:12:55.695Z",
+		"updatedAt" : "2022-05-27T19:55:13.549Z",
+		"color" : 4287858561,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "d6101010-0c33-44cd-b281-9ca5829c0cde",
+		"title" : "БРАЗИЛИЯ",
+		"createdAt" : "2021-08-13T01:20:41.949Z",
+		"updatedAt" : "2022-05-27T19:55:17.307Z",
+		"color" : 4286287249,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "520a47ca-fa42-48a7-b214-adf294a6a92e",
+		"title" : "АРЕНДА АВТО",
+		"createdAt" : "2021-08-14T16:21:43.665Z",
+		"updatedAt" : "2022-05-27T19:55:21.345Z",
+		"color" : 4287532431,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "b77cf6c4-028b-4e8a-87c2-abcf161bd9aa",
+		"title" : "АВТОМОБИЛЬНЫЕ ТОВАРЫ",
+		"createdAt" : "2021-08-18T14:38:47.166Z",
+		"updatedAt" : "2022-05-27T19:55:25.657Z",
+		"color" : 4290162343,
+		"userId" : "8776dab5-c9d2-4433-9fc9-bb2cf1ef1705",
+		"isDeleted" : false
+	},
+	{
+		"id" : "945792e6-5a4d-4c7d-b7ac-d388b2e94a00",
+		"title" : "ТОВАРЫ ДЛЯ ГАРАЖАДОМА",
+		"createdAt" : "2021-08-18T14:49:40.409Z",
+		"updatedAt" : "2022-05-27T19:55:30.262Z",
+		"color" : 4289767848,
+		"userId" : "8776dab5-c9d2-4433-9fc9-bb2cf1ef1705",
+		"isDeleted" : false
+	},
+	{
+		"id" : "7e579a86-0579-47b3-a963-0a8da2dd7cc3",
+		"title" : "ПОЕЗДКА В КАМБОРИО",
+		"createdAt" : "2021-12-01T02:35:17.289Z",
+		"updatedAt" : "2022-05-27T19:55:34.823Z",
+		"color" : 4286087043,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "f11ad307-07ce-4ccd-809e-cbdafea83527",
+		"title" : "ДОСТАВКА ЕДЫ",
+		"createdAt" : "2021-12-05T15:17:26.254Z",
+		"updatedAt" : "2022-05-27T19:55:39.387Z",
+		"color" : 4288777849,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "3cac8007-82b6-417a-a8fe-036260a76a50",
+		"title" : "ПОЕЗДКА В БАРНАУЛ",
+		"createdAt" : "2021-06-12T00:12:26.117Z",
+		"updatedAt" : "2022-05-27T19:55:40.187Z",
+		"color" : 4285691514,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "e88e5f3c-a63e-438a-90a7-2022364f6b43",
+		"title" : "ГОРНЫЙ АЛТАЙ",
+		"createdAt" : "2021-06-14T17:24:09.334Z",
+		"updatedAt" : "2022-05-27T19:55:44.723Z",
+		"color" : 4283984487,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "fe9ceec2-0304-4ded-8063-4545494fc119",
+		"title" : "ПРОДУКТЫ",
+		"createdAt" : "2021-06-30T20:44:40.102Z",
+		"updatedAt" : "2022-05-27T19:55:48.377Z",
+		"color" : 4290684807,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "ae37d297-08af-4389-a549-86f53bff8bca",
+		"title" : "КАФЕ РЕСТОРАНЫ",
+		"createdAt" : "2021-07-04T20:29:47.902Z",
+		"updatedAt" : "2022-05-27T19:55:53.988Z",
+		"color" : 4285949010,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "9e02b38d-0e15-4091-af4c-aca558c9ca22",
+		"title" : "ОТДЫХ",
+		"createdAt" : "2021-07-05T12:54:06.545Z",
+		"updatedAt" : "2022-05-27T19:55:57.539Z",
+		"color" : 4287471001,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	},
+	{
+		"id" : "d945ea98-3927-4c92-a574-0e54f2074eb6",
+		"title" : "ЗАТРАТЫ НА РЕЛОКЕЙТ",
+		"createdAt" : "2021-07-07T13:05:25.354Z",
+		"updatedAt" : "2022-05-27T19:56:01.846Z",
+		"color" : 4289896888,
+		"userId" : "01147b9b-02f4-44dd-8eb8-ab6684d87896",
+		"isDeleted" : false
+	}
+]

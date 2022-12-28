@@ -1,0 +1,2 @@
+dart ./generate_fluent_icons_map.dart /Users/alfa/dev/soft/flutter/.pub-cache/hosted/pub.dartlang.org/fluentui_system_icons-1.1.184/lib/src/fluent_icons.dart
+dart ./generate_boxi_icons_map.dart /Users/alfa/dev/soft/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_boxicons-3.0.0/lib/flutter_boxicons.dart

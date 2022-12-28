@@ -1,0 +1,10 @@
+const String alignment = 'alignment';
+const String padding = 'padding';
+const String decoration = 'decoration';
+const String borderRadius = 'borderRadius';
+const String border = 'border';
+const String shadow = 'shadow';
+const String gradient = 'gradient';
+const String color = 'color';
+const String stop = 'stop';
+const String textStyle = 'textStyle';

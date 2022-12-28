@@ -1,0 +1,1 @@
+{"version":3,"file":"paintStyle.d.ts","sourceRoot":"","sources":["../../../src/lib/figmaStyles/paintStyle.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,WAAW,MAAM,qBAAqB,CAAC;AAInD,QAAA,MAAM,YAAY,uBAA4B,YAAY,gBAAgB,KAAG,CAAC,YAAY,KAAK,GAAG,SAAS,CAuB1G,CAAC;AAyEF,QAAA,MAAM,KAAK,SAAU,YAAY,SAAS,KAAG,YAAY,aAAa,GAAG,SAYxE,CAAC;AAEF,OAAO,EACH,KAAK,EACL,YAAY,GACf,CAAC"}

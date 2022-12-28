@@ -1,0 +1,6 @@
+pubspec.lock
+.idea
+.dart_tool
+_examples
+.DS_Store
+.env

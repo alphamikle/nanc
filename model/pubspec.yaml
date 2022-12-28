@@ -1,0 +1,30 @@
+name: model
+description: A new Flutter package project.
+version: 0.0.1
+homepage: nope
+publish_to: none
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  tools:
+    path: ../tools
+  fields:
+    path: ../fields
+  equatable: ^2.0.5
+  json_annotation: ^4.7.0
+  copy_with_extension: ^4.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  json_serializable: ^6.4.1
+  copy_with_extension_gen: ^4.0.3
+  build_runner: ^2.2.1
+
+flutter:

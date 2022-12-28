@@ -1,0 +1,27 @@
+name: markdown_code_push
+description: A rich markdown renderer with custom elements
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  markdown_code_push_core:
+    path: ../markdown_code_push_core
+  tools:
+    path: ../tools
+  rich_renderer:
+    path: ../rich_renderer
+  markdown: ^6.0.0
+  xml2json: ^5.3.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+
+flutter:
