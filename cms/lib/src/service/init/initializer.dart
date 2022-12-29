@@ -47,33 +47,45 @@ class Initializer {
     final DraftService draftService = DraftService(dbService: dbService);
 
     /// ? PROVIDERS
-    final PageProvider entityPageProvider = PageProvider(api: pageApi);
-    final PageListProvider entityListProvider = PageListProvider(api: pageListApi);
-    final ModelProvider entityModelProvider = ModelProvider(pageProvider: entityPageProvider, pageListProvider: entityListProvider);
+    final PageProvider pageProvider = PageProvider(api: pageApi);
+    final PageListProvider pageListProvider = PageListProvider(api: pageListApi);
+    final ModelProvider modelProvider = ModelProvider(pageProvider: pageProvider, pageListProvider: pageListProvider);
 
     /// ? ENTITY WITH NAV
-    final ModelListBloc entityModelListBloc = ModelListBloc(modelProvider: entityModelProvider);
+    final ModelListBloc modelListProvider = ModelListBloc(modelProvider: modelProvider);
 
     /// ? BLOCS
     final PreviewBloc previewBloc = PreviewBloc(eventBus: eventBus);
     final EditorBloc editorBloc = EditorBloc(eventBus: eventBus, patternMap: patternMap);
-    final MenuBloc menuBloc = MenuBloc(entityModelListBloc: entityModelListBloc);
+    final MenuBloc menuBloc = MenuBloc(modelListBloc: modelListProvider);
     final HeaderBloc headerBloc = HeaderBloc();
-    final ModelPageBloc entityModelPageBloc =
-        ModelPageBloc(modelListBloc: entityModelListBloc, rootKey: rootKey, modelProvider: entityModelProvider, menuBloc: menuBloc);
+    final ModelPageBloc modelPageBloc = ModelPageBloc(
+      modelListBloc: modelListProvider,
+      rootKey: rootKey,
+      modelProvider: modelProvider,
+      menuBloc: menuBloc,
+    );
     final TutorialBloc tutorialBloc = TutorialBloc(dbService: dbService, rootKey: rootKey);
 
-    final CollectionBloc entityListBloc = CollectionBloc(modelListBloc: entityModelListBloc, pageListProvider: entityListProvider, eventBus: eventBus);
-    final BasePageBloc<BaseEntityPageState> entityPageBloc = PageBloc(
-      modelListBloc: entityModelListBloc,
-      pageProvider: entityPageProvider,
+    final CollectionBloc collectionBloc = CollectionBloc(modelListBloc: modelListProvider, pageListProvider: pageListProvider, eventBus: eventBus);
+    final BasePageBloc<BaseEntityPageState> pageBloc = PageBloc(
+      modelListBloc: modelListProvider,
+      pageProvider: pageProvider,
       eventBus: eventBus,
       draftService: draftService,
     );
-    final RoutesPreloadingService routesPreloadingService = RoutesPreloadingService(rootKey: rootKey);
+    final RoutesPreloadingService routesPreloadingService = RoutesPreloadingService(
+      collectionBloc: collectionBloc,
+      headerBloc: headerBloc,
+      menuBloc: menuBloc,
+      modelPageBloc: modelPageBloc,
+      pageBloc: pageBloc as PageBloc,
+      rootKey: rootKey,
+    );
 
     /// ? PRE-INITIALIZATION
-    unawaited(entityModelListBloc.loadDynamicModels(models));
+    await modelListProvider.preloadModelsFromCode(models);
+    unawaited(modelListProvider.loadDynamicModels(models));
     unawaited(headerBloc.initItems());
 
     blocProviders
@@ -82,10 +94,10 @@ class Initializer {
         BlocProvider<PreviewBloc>.value(value: previewBloc),
         BlocProvider<EditorBloc>.value(value: editorBloc),
         BlocProvider<MenuBloc>.value(value: menuBloc),
-        BlocProvider<ModelListBloc>.value(value: entityModelListBloc),
-        BlocProvider<CollectionBloc>.value(value: entityListBloc),
-        BlocProvider<BasePageBloc<BaseEntityPageState>>.value(value: entityPageBloc),
-        BlocProvider<ModelPageBloc>.value(value: entityModelPageBloc),
+        BlocProvider<ModelListBloc>.value(value: modelListProvider),
+        BlocProvider<CollectionBloc>.value(value: collectionBloc),
+        BlocProvider<BasePageBloc<BaseEntityPageState>>.value(value: pageBloc),
+        BlocProvider<ModelPageBloc>.value(value: modelPageBloc),
         BlocProvider<HeaderBloc>.value(value: headerBloc),
         BlocProvider<TutorialBloc>.value(value: tutorialBloc),
       ]);
@@ -95,11 +107,11 @@ class Initializer {
       ..addAll([
         RepositoryProvider<RootKey>.value(value: rootKey),
         RepositoryProvider<EventBus>.value(value: eventBus),
-        RepositoryProvider<ModelProvider>.value(value: entityModelProvider),
-        RepositoryProvider<PageListProvider>.value(value: entityListProvider),
-        RepositoryProvider<PageListProviderInterface>.value(value: entityListProvider),
-        RepositoryProvider<PageProvider>.value(value: entityPageProvider),
-        RepositoryProvider<PageProviderInterface>.value(value: entityPageProvider),
+        RepositoryProvider<ModelProvider>.value(value: modelProvider),
+        RepositoryProvider<PageListProvider>.value(value: pageListProvider),
+        RepositoryProvider<PageListProviderInterface>.value(value: pageListProvider),
+        RepositoryProvider<PageProvider>.value(value: pageProvider),
+        RepositoryProvider<PageProviderInterface>.value(value: pageProvider),
         RepositoryProvider<AdminConfig>.value(value: config),
         RepositoryProvider<RoutesPreloadingService>.value(value: routesPreloadingService),
         RepositoryProvider<DraftService>.value(value: draftService),

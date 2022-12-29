@@ -33,7 +33,7 @@ class ModelPageBloc extends Cubit<ModelPageState> {
   }
 
   Future<void> loadModel(String modelId) async {
-    final Model? model = modelListBloc.findModelById(modelId);
+    final Model? model = modelListBloc.findModelById(modelId) ?? await modelProvider.findModelById(modelId);
     if (model == null) {
       notFoundModelError(modelId);
     }

@@ -33,7 +33,7 @@ class ModelProvider {
     final List<Model> response = [];
     for (int i = 0; i < models.length; i++) {
       final Json encodedModel = models[i];
-      final String encryptedModelId = encodedModel[fieldDefaultValueProperty] as String;
+      final String encryptedModelId = encodedModel[fieldIdProperty] as String;
       final String encryptedModelJson = encodedModel[kModelField] as String;
       final String decryptedModelId = await decrypt(encryptedModelId);
       final Json decryptedModelJson = castToJson(jsonDecode(await decrypt(encryptedModelJson, salt: decryptedModelId)));
@@ -41,6 +41,12 @@ class ModelProvider {
       await wait();
     }
     return response;
+  }
+
+  Future<Model?> findModelById(String modelId) async {
+    final List<Model> models = await fetchModels();
+    final Model? model = models.firstWhereOrNull((Model it) => it.id == modelId);
+    return model;
   }
 
   Future<Model> saveModel({

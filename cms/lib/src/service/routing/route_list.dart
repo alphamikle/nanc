@@ -43,22 +43,45 @@ abstract class Routes {
     return [
       root,
       welcome,
-      collection(),
-      solo(),
-      editor(),
+      ...collectionRoutes,
+      ...soloRoutes,
+      ...editorRoutes,
       roles(),
       settings(),
-      icons(),
+    ];
+  }
+
+  static List<String> get collectionRoutes {
+    return [
+      collection(),
       collectionOf(Params.modelId.forPath),
+      pageOfCollectionModel(Params.modelId.forPath, Params.pageId.forPath),
+    ];
+  }
+
+  static List<String> get soloRoutes {
+    return [
+      solo(),
       soloModelGateway(Params.modelId.forPath),
       pageOfSoloModel(Params.modelId.forPath),
       createPageOfSoloModel(Params.modelId.forPath),
-      pageOfCollectionModel(Params.modelId.forPath, Params.pageId.forPath),
+    ];
+  }
+
+  static List<String> get editorRoutes {
+    return [
+      editor(),
       createModelPage(Params.modelId.forPath),
       editModel(Params.modelId.forPath),
       createModel(),
     ];
   }
+
+  static bool isCollectionRoute(String route) => collectionRoutes.contains(route);
+
+  static bool isSoloRoute(String route) => soloRoutes.contains(route);
+
+  static bool isEditorRoute(String route) => editorRoutes.contains(route);
 
   static String findRouteByUrlAndParams(String url, Map<String, String> pathParameters) {
     for (final String route in _allRoutes) {

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:animation_debugger/animation_debugger.dart';
 import 'package:bot_toast/bot_toast.dart';
+import 'package:cms/cms.dart';
 import 'package:cms/src/domain/collection/logic/logic/provider/page_list_api.dart';
 import 'package:cms/src/domain/page/logic/provider/entity_page_api.dart';
 import 'package:cms/src/domain/wrapper/admin_wrapper.dart';
@@ -114,6 +115,7 @@ class _FlutterAdminState extends State<FlutterAdmin> {
                           navigatorObservers: [
                             BotToastNavigatorObserver(),
                           ],
+                          initialUrl: '/editor/model/currencies',
                           theme: themeBuilder(context),
                           darkTheme: themeBuilder(context, dark: true),
                           scrollBehavior: AlwaysTouchScrollBehavior(),

@@ -1,7 +1,6 @@
 import 'package:cms/src/domain/collection/ui/view/collection_view.dart';
 import 'package:cms/src/domain/collection/ui/view/empty_collection_view.dart';
 import 'package:cms/src/domain/general/ui/view/general_view_v2.dart';
-import 'package:cms/src/domain/icons/ui/view/icons_view.dart';
 import 'package:cms/src/domain/model/ui/view/model_editor_initial_view.dart';
 import 'package:cms/src/domain/model/ui/view/model_page_view.dart';
 import 'package:cms/src/domain/page/ui/view/entity_page_view.dart';
@@ -30,21 +29,6 @@ List<VRouteElement> buildRoutes(BuildContext context) {
       path: Routes.root,
       widgetBuilder: (Widget child) => GeneralViewV2(child: child),
       nestedRoutes: [
-        // VGuard(
-        //   beforeEnter: (VRedirector vRedirector) async {
-        //     unawaited(context.read<EditorBloc>().loadPage(vRedirector.newVRouterData?.pathParameters[Params.pageId.name] ?? ''));
-        //   },
-        //   beforeUpdate: (VRedirector vRedirector) async {
-        //     unawaited(context.read<EditorBloc>().loadPage(vRedirector.newVRouterData?.pathParameters[Params.pageId.name] ?? ''));
-        //   },
-        //   stackedRoutes: [
-        //     VWidget.builder(
-        //       path: Routes.pageEditorPreview().path,
-        //       builder: (BuildContext context, VRouterData data) => const EditorPreviewView(),
-        //     ),
-        //   ],
-        // ),
-
         /// ? /welcome
         VWidget(
           path: Routes.welcome,
@@ -202,18 +186,6 @@ List<VRouteElement> buildRoutes(BuildContext context) {
             VWidget(
               path: Routes.settings(),
               widget: const RolesView(),
-            ),
-          ],
-        ),
-
-        /// ? /icons
-        VGuard(
-          beforeEnter: preloadingService.preloadAllModels,
-          beforeUpdate: preloadingService.preloadAllModels,
-          stackedRoutes: [
-            VWidget(
-              path: Routes.icons(),
-              widget: const IconsView(),
             ),
           ],
         ),

@@ -7,6 +7,8 @@ part of 'menu_element.dart';
 // **************************************************************************
 
 abstract class _$MenuElementCWProxy {
+  MenuElement aliases(List<String> aliases);
+
   MenuElement title(String title);
 
   MenuElement url(String url);
@@ -18,6 +20,7 @@ abstract class _$MenuElementCWProxy {
   /// MenuElement(...).copyWith(id: 12, name: "My name")
   /// ````
   MenuElement call({
+    List<String>? aliases,
     String? title,
     String? url,
   });
@@ -28,6 +31,9 @@ class _$MenuElementCWProxyImpl implements _$MenuElementCWProxy {
   final MenuElement _value;
 
   const _$MenuElementCWProxyImpl(this._value);
+
+  @override
+  MenuElement aliases(List<String> aliases) => this(aliases: aliases);
 
   @override
   MenuElement title(String title) => this(title: title);
@@ -44,10 +50,15 @@ class _$MenuElementCWProxyImpl implements _$MenuElementCWProxy {
   /// MenuElement(...).copyWith(id: 12, name: "My name")
   /// ````
   MenuElement call({
+    Object? aliases = const $CopyWithPlaceholder(),
     Object? title = const $CopyWithPlaceholder(),
     Object? url = const $CopyWithPlaceholder(),
   }) {
     return MenuElement(
+      aliases: aliases == const $CopyWithPlaceholder() || aliases == null
+          ? _value.aliases
+          // ignore: cast_nullable_to_non_nullable
+          : aliases as List<String>,
       title: title == const $CopyWithPlaceholder() || title == null
           ? _value.title
           // ignore: cast_nullable_to_non_nullable
@@ -73,10 +84,15 @@ extension $MenuElementCopyWith on MenuElement {
 MenuElement _$MenuElementFromJson(Map<String, dynamic> json) => MenuElement(
       title: json['title'] as String,
       url: json['url'] as String,
+      aliases: (json['aliases'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$MenuElementToJson(MenuElement instance) =>
     <String, dynamic>{
       'title': instance.title,
       'url': instance.url,
+      'aliases': instance.aliases,
     };

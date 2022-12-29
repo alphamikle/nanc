@@ -3,6 +3,7 @@ import 'package:cms/src/domain/model/logic/bloc/model_list_bloc/model_list_state
 import 'package:cms/src/domain/model/logic/provider/entity_model_provider.dart';
 import 'package:collection/collection.dart';
 import 'package:model/model.dart';
+import 'package:tools/tools.dart';
 
 class ModelListBloc extends Cubit<ModelListState> {
   ModelListBloc({
@@ -11,24 +12,38 @@ class ModelListBloc extends Cubit<ModelListState> {
 
   final ModelProvider modelProvider;
 
-  Future<void> loadDynamicModels(List<Model> preloadedEntities) async {
+  Future<void> preloadModelsFromCode(List<Model> modelsFromCode) async => _sortAndSplitModels(modelsFromCode: modelsFromCode, dynamicModels: []);
+
+  Future<void> loadDynamicModels(List<Model> modelsFromCode) async {
     emit(state.copyWith.isLoading(true));
     final List<Model> models = await modelProvider.fetchModels();
+    await _sortAndSplitModels(modelsFromCode: modelsFromCode, dynamicModels: models);
+    emit(state.copyWith.isLoading(false));
+  }
 
+  Future<void> _sortAndSplitModels({required List<Model> modelsFromCode, required List<Model> dynamicModels}) async {
     final Set<String> dynamicModelsIds = {};
-    for (final Model entity in models) {
+    for (final Model entity in dynamicModels) {
       dynamicModelsIds.add(entity.id);
     }
 
-    final List<Model> filteredPreloadedModels = preloadedEntities.where((Model entity) => dynamicModelsIds.contains(entity.id) == false).toList();
-    final List<Model> allModels = [...filteredPreloadedModels, ...models];
+    final List<Model> filteredPreloadedModels = modelsFromCode.where((Model entity) => dynamicModelsIds.contains(entity.id) == false).toList();
+    await wait();
+    final List<Model> allModels = [...filteredPreloadedModels, ...dynamicModels];
+    await wait();
     final List<Model> hiddenModels = allModels.where((Model entity) => entity.showInMenu == false).toList();
+    await wait();
     final List<Model> collectionModels = allModels.where((Model entity) => entity.isCollection && entity.showInMenu).toList();
+    await wait();
     final List<Model> soloModels = allModels.where((Model entity) => entity.isCollection == false && entity.showInMenu).toList();
+    await wait();
 
     collectionModels.sort((Model first, Model second) => first.sort.compareTo(second.sort));
+    await wait();
     soloModels.sort((Model first, Model second) => first.sort.compareTo(second.sort));
+    await wait();
     hiddenModels.sort((Model first, Model second) => first.sort.compareTo(second.sort));
+    await wait();
 
     emit(state.copyWith(
       preloadedModels: filteredPreloadedModels,
@@ -36,14 +51,12 @@ class ModelListBloc extends Cubit<ModelListState> {
       soloModels: soloModels,
       hiddenModels: hiddenModels,
     ));
-
-    emit(state.copyWith.isLoading(false));
   }
 
   Future<void> reloadDynamicModels() async => loadDynamicModels(state.preloadedModels);
 
-  Model? findModelById(String entityId) {
-    final Model? targetModel = state.allModels.firstWhereOrNull((Model entity) => entity.id == entityId);
+  Model? findModelById(String modelId) {
+    final Model? targetModel = state.allModels.firstWhereOrNull((Model entity) => entity.id == modelId);
     return targetModel;
   }
 }

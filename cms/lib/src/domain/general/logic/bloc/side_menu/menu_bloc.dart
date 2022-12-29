@@ -8,16 +8,16 @@ import 'package:tools/tools.dart';
 
 class MenuBloc extends Cubit<MenuState> {
   MenuBloc({
-    required this.entityModelListBloc,
+    required this.modelListBloc,
   }) : super(MenuState.empty());
 
-  final ModelListBloc entityModelListBloc;
+  final ModelListBloc modelListBloc;
 
   Future<void> initItems(String headerSegmentUrl) async {
     emit(state.copyWith(isLoading: true));
     final List<MenuElement> elements = [];
-    if (headerSegmentUrl == Routes.collection()) {
-      final List<Model> entities = [...entityModelListBloc.state.collectionModels];
+    if (Routes.isCollectionRoute(headerSegmentUrl)) {
+      final List<Model> entities = [...modelListBloc.state.collectionModels];
       entities.sort(_entitySortingPredicate);
       elements.addAll(entities.map(
         (Model entity) => MenuElement(
@@ -25,8 +25,8 @@ class MenuBloc extends Cubit<MenuState> {
           url: Routes.collectionOf(entity.id),
         ),
       ));
-    } else if (headerSegmentUrl == Routes.solo()) {
-      final List<Model> entities = [...entityModelListBloc.state.soloModels];
+    } else if (Routes.isSoloRoute(headerSegmentUrl)) {
+      final List<Model> entities = [...modelListBloc.state.soloModels];
       entities.sort(_entitySortingPredicate);
       elements.addAll(entities.map(
         (Model entity) => MenuElement(
@@ -34,8 +34,8 @@ class MenuBloc extends Cubit<MenuState> {
           url: Routes.soloModelGateway(entity.id),
         ),
       ));
-    } else if (headerSegmentUrl == Routes.editor()) {
-      final List<Model> entities = [...entityModelListBloc.state.allModels];
+    } else if (Routes.isEditorRoute(headerSegmentUrl)) {
+      final List<Model> entities = [...modelListBloc.state.allModels];
       entities.sort(_entitySortingPredicate);
       elements.addAll(
         entities.map(

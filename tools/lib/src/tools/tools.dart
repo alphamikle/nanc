@@ -1,5 +1,10 @@
+import 'dart:async';
+
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
+
+typedef Action<T> = FutureOr<T> Function();
+typedef Condition = FutureOr<bool> Function();
 
 T cast<T>(dynamic value) {
   return value as T;
@@ -21,4 +26,20 @@ String capitalize(String value) => StringUtils.capitalize(StringUtils.camelCaseT
 String generateEventHash() {
   final List<String> items = 'abcdefghijklmnopqrstuvwxyz1234567890'.split('')..shuffle();
   return items.join();
+}
+
+Future<T?> doSomethingWhen<T>({required Action<T> action, required Condition condition, required Duration interval, int maxTries = 100}) async {
+  bool conditionResult = await condition();
+  if (conditionResult) {
+    return action();
+  }
+  while (conditionResult == false && maxTries > 0) {
+    await Future<void>.delayed(interval);
+    conditionResult = await condition();
+    if (conditionResult) {
+      return action();
+    }
+    maxTries--;
+  }
+  return null;
 }

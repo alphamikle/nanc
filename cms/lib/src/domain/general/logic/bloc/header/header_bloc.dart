@@ -14,8 +14,14 @@ const String iconsMenuItemTitle = 'Icons';
 class HeaderBloc extends Cubit<MenuState> {
   HeaderBloc() : super(MenuState.empty());
 
-  void selectItem(String menuItemUrl) {
-    final MenuElement? menuElement = state.elements.firstWhereOrNull((MenuElement item) => item.url == menuItemUrl);
+  void selectItem(String route) {
+    final MenuElement? menuElement = state.elements.firstWhereOrNull((MenuElement item) {
+      final bool routeMatched = item.url == route;
+      if (routeMatched) {
+        return true;
+      }
+      return item.aliases.contains(route);
+    });
 
     emit(state.copyWith(
       activeElement: menuElement ?? MenuElement.empty(),
@@ -28,9 +34,9 @@ class HeaderBloc extends Cubit<MenuState> {
     ));
     final Set<MenuElement> items = {...state.elements};
     items.addAll([
-      MenuElement(title: collectionMenuItemTitle, url: Routes.collection()),
-      MenuElement(title: soloMenuItemTitle, url: Routes.solo()),
-      MenuElement(title: editorMenuItemTitle, url: Routes.editor()),
+      MenuElement(title: collectionMenuItemTitle, url: Routes.collection(), aliases: Routes.collectionRoutes),
+      MenuElement(title: soloMenuItemTitle, url: Routes.solo(), aliases: Routes.soloRoutes),
+      MenuElement(title: editorMenuItemTitle, url: Routes.editor(), aliases: Routes.editorRoutes),
       MenuElement(title: rolesMenuItemTitle, url: Routes.roles()),
       MenuElement(title: settingsMenuItemTitle, url: Routes.settings()),
       MenuElement(title: iconsMenuItemTitle, url: Routes.icons()),
