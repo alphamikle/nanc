@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/src/components/kit_ink_well.dart';
+import 'package:ui_kit/src/components/kit_tooltip.dart';
 import 'package:ui_kit/src/constants/gap.dart';
 
 class KitMenuItem extends StatefulWidget {
@@ -76,58 +77,62 @@ class _KitMenuItemState extends State<KitMenuItem> with SingleTickerProviderStat
           final double reversedValue = 1 - value;
           final Color? textColor = ColorTween(begin: baseTextColor, end: color).animate(animation).value;
 
-          return Stack(
-            children: [
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  color: color.withOpacity(0.15 * value),
-                  borderRadius: radius,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: Gap.large, top: Gap.large, right: Gap.small, bottom: Gap.large),
-                  child: Row(
-                    children: [
-                      Flexible(
-                        child: SIcon(
-                          iconPath: widget.iconPath ?? tryToGetIconPathByName(widget.iconName) ?? IconPack.bookmarkCircleBoldDuotone,
-                          color: textColor,
-                        ),
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: Gap.regular),
-                          child: Text(
-                            widget.text,
-                            style: context.theme.textTheme.subtitle1?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: textColor,
-                            ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
+          return KitTooltip(
+            text: widget.text,
+            child: Stack(
+              children: [
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: color.withOpacity(0.15 * value),
+                    borderRadius: radius,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: Gap.large, top: Gap.large, bottom: Gap.large),
+                    child: Row(
+                      children: [
+                        Flexible(
+                          child: SIcon(
+                            iconPath: widget.iconPath ?? tryToGetIconPathByName(widget.iconName) ?? IconPack.bookmarkCircleBoldDuotone,
+                            color: textColor,
                           ),
                         ),
-                      ),
-                      // if (widget.counter != null) Text(widget.counter.toString()),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 0,
-                top: (20 * reversedValue + 8),
-                bottom: (20 * reversedValue + 8),
-                width: 4,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: color.withOpacity(value),
-                    borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(3),
-                      bottomRight: Radius.circular(3),
+                        Expanded(
+                          flex: 4,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: Gap.regular),
+                            child: Text(
+                              widget.text,
+                              style: context.theme.textTheme.subtitle1?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: textColor,
+                                fontSize: 16,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.clip,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ),
-            ],
+                Positioned(
+                  left: 0,
+                  top: (20 * reversedValue + 8),
+                  bottom: (20 * reversedValue + 8),
+                  width: 4,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: color.withOpacity(value),
+                      borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(3),
+                        bottomRight: Radius.circular(3),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           );
         },
       ),

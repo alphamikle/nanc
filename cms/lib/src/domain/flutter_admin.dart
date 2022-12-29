@@ -115,7 +115,6 @@ class _FlutterAdminState extends State<FlutterAdmin> {
                           navigatorObservers: [
                             BotToastNavigatorObserver(),
                           ],
-                          initialUrl: '/editor/model/currencies',
                           theme: themeBuilder(context),
                           darkTheme: themeBuilder(context, dark: true),
                           scrollBehavior: AlwaysTouchScrollBehavior(),

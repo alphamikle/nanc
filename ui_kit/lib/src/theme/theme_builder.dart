@@ -16,7 +16,7 @@ ThemeData themeBuilder(BuildContext context, {bool dark = false}) {
     useMaterial3: true,
     useMaterial3ErrorColors: true,
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
-    textTheme: GoogleFonts.readexProTextTheme(),
+    textTheme: GoogleFonts.ubuntuTextTheme(),
     subThemesData: const FlexSubThemesData(
       blendOnLevel: 20,
     ),
