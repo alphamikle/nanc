@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:config/config.dart';
 import 'package:fields/src/domain/fields/logic/id_field/id_field.dart';
 import 'package:fields/src/domain/fields/logic/string_field/string_field.dart';
 import 'package:icons/icons.dart';
@@ -14,6 +15,7 @@ const String kStructureField = 'structure';
 final Model structureModel = Model(
   name: 'Structure',
   icon: IconPack.ssdSquareLineDuotone,
+  showInMenu: Env.isProduction == false,
   sort: 9999,
   fields: [
     [

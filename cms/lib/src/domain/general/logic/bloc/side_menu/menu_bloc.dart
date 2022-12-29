@@ -2,7 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:cms/src/domain/general/logic/bloc/header/menu_state.dart';
 import 'package:cms/src/domain/general/logic/model/menu_element.dart';
 import 'package:cms/src/domain/model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import 'package:cms/src/domain/model/logic/entity/model_model.dart';
 import 'package:cms/src/service/routing/route_list.dart';
+import 'package:config/config.dart';
+import 'package:fields/fields.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
@@ -35,7 +38,10 @@ class MenuBloc extends Cubit<MenuState> {
         ),
       ));
     } else if (Routes.isEditorRoute(headerSegmentUrl)) {
-      final List<Model> entities = [...modelListBloc.state.allModels];
+      List<Model> entities = [...modelListBloc.state.allModels];
+      if (Env.isProduction) {
+        entities = entities.where((Model model) => model.id != modelModel.id && model.id != structureModel.id).toList();
+      }
       entities.sort(_entitySortingPredicate);
       elements.addAll(
         entities.map(

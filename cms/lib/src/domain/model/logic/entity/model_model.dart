@@ -1,3 +1,4 @@
+import 'package:config/config.dart';
 import 'package:fields/fields.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
@@ -11,13 +12,14 @@ final Model modelModel = Model(
   name: 'Model',
   icon: IconPack.codeLineDuotone,
   sort: 9998,
+  showInMenu: Env.isProduction == false,
   fields: [
     [
       fieldToModelId,
     ],
     [
       StringField(id: kModelField, name: 'Model', maxLines: 15),
-    ]
+    ],
   ],
 );
 
