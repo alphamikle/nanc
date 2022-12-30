@@ -10,7 +10,10 @@ class DraftService {
   final DbService dbService;
   final Map<String, Timer> _savingTimers = {};
 
-  static String generateKey(Set<String?> params) => params.join(':::');
+  /// ? To prevent potential collisions
+  static String generateKey(List<String?> params) {
+    return params.join(':::5c9f6a20-deb4-4996-ac57-4945d43c3a1b:::');
+  }
 
   Future<void> saveDraft({required String key, required Json data}) async {
     _savingTimers[key]?.cancel();

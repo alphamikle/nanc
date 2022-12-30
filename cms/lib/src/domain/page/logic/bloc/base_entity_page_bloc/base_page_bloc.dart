@@ -22,7 +22,7 @@ abstract class BasePageBloc<T extends BaseEntityPageState> extends Cubit<T> {
     if (modelId == null && pageId == null) {
       return null;
     }
-    return DraftService.generateKey({modelId, pageId});
+    return DraftService.generateKey([modelId ?? 'no_model_id', pageId ?? 'no_page_id']);
   }
 
   dynamic valueForKey(String key) => state.data[key];

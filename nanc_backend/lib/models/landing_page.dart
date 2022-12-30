@@ -7,11 +7,15 @@ import 'package:nanc_backend/models/review.dart';
 
 final Model landingPage = Model(
   name: 'Landing page',
+  isCollection: false,
   icon: IconPackNames.flu_document_page_break_regular,
   fields: [
     [
       IdField(),
       StringField(name: 'Header', maxLines: 1, isRequired: true),
+    ],
+    [
+      ScreenField(name: 'Screen'),
     ],
     [
       StringField(name: 'Subtitle', maxLines: 2, isRequired: true),

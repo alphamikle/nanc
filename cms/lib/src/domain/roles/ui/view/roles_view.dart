@@ -1,5 +1,6 @@
 import 'package:cms/src/domain/roles/ui/component/multi_colored_text.dart';
 import 'package:cms/src/service/tools/assets_loader.dart';
+import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tools/tools.dart';
@@ -31,6 +32,7 @@ class RolesView extends StatelessWidget {
               style: const TextStyle(
                 fontFamily: 'BluePrintNonCommercial',
                 fontSize: 36,
+                package: Env.isPackageMode ? 'cms' : null,
               ),
             ),
           ],
