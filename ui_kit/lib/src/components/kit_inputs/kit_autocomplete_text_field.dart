@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show TextInputFormatter;
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:tools/tools.dart';
+import 'package:ui_kit/src/components/kit_circle_preloader.dart';
 import 'package:ui_kit/src/components/kit_inputs/kit_text_field.dart';
 import 'package:ui_kit/src/components/kit_list_tile.dart';
 import 'package:ui_kit/src/components/kit_preloader.dart';
@@ -125,27 +126,11 @@ class _KitAutocompleteTextFieldState<T extends Object> extends State<KitAutocomp
   Widget fieldPreloader({
     Widget? child,
   }) {
-    const double size = 16;
     return StreamBuilder(
       initialData: false,
       stream: loadingStream,
       builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-        final bool isLoading = snapshot.data ?? false;
-
-        return AnimatedSwitcher(
-          duration: const Duration(milliseconds: 250),
-          child: isLoading
-              ? const SizedBox(
-                  width: size,
-                  height: size,
-                  child: Center(
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2.5,
-                    ),
-                  ),
-                )
-              : child ?? const SizedBox.shrink(),
-        );
+        return KitCirclePreloader(isLoading: snapshot.data ?? false, child: child);
       },
     );
   }

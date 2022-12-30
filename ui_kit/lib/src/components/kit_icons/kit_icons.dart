@@ -23,9 +23,7 @@ Future<List<EnumValue>> iconFinder(String iconNameQuery) async {
     if (iconNameRegExp.hasMatch(value.title.toLowerCase())) {
       response.add(value);
     }
-    if (i % 50 == 0) {
-      await wait();
-    }
+    await wait(asyncIterator: true);
   }
   return response;
 }

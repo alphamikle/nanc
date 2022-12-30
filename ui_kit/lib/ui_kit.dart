@@ -15,7 +15,7 @@ export 'src/components/kit_color_picker/utils.dart';
 export 'src/components/kit_column.dart';
 export 'src/components/kit_container_transition.dart';
 export 'src/components/kit_divider.dart';
-export 'src/components/kit_icon_container.dart';
+export 'src/components/kit_icons/kit_icon_container.dart';
 export 'src/components/kit_icons/kit_icon_selector_modal.dart';
 export 'src/components/kit_icons/kit_icons.dart';
 export 'src/components/kit_ink_well.dart';

@@ -325,14 +325,14 @@ class WebRTCService {
   Future<void> _disposeClientHandler(Message message) async {
     log('DISPOSE CLIENT');
     await _sendResponse(message);
-    await wait(const Duration(seconds: 1));
+    await wait(duration: const Duration(seconds: 1));
     await _softDispose();
   }
 
   Future<void> _disposeHostHandler(Message message) async {
     log('DISPOSE HOST');
     await _sendResponse(message);
-    await wait(const Duration(seconds: 1));
+    await wait(duration: const Duration(seconds: 1));
     await _softDispose();
   }
 

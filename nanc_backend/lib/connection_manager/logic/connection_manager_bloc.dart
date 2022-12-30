@@ -88,7 +88,7 @@ class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
     emit(state.copyWith(
       clients: clientsWithOffline,
     ));
-    await wait(const Duration(seconds: 1));
+    await wait(duration: const Duration(seconds: 1));
     final List<Client> onlineClients = clientsWithOffline.where((Client client) => client.serviceId != serviceId).toList();
     emit(state.copyWith(
       clients: onlineClients,

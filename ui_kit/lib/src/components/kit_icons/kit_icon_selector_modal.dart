@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
+import 'package:ui_kit/src/components/kit_circle_preloader.dart';
 import 'package:ui_kit/src/components/kit_icons/kit_icons.dart';
 import 'package:ui_kit/src/components/kit_ink_well.dart';
 import 'package:ui_kit/src/components/kit_inputs/kit_text_field.dart';
@@ -33,21 +34,30 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
   late final TextEditingController searchController = TextEditingController(text: widget.query);
   final List<EnumValue> foundIcons = [];
   bool isLoading = false;
+  Timer? queryTimer;
 
   void controllerListener() => unawaited(finder(searchController.text));
 
-  Future<List<EnumValue>> finder(String query) async {
-    setState(() => isLoading = true);
-    final List<EnumValue> icons = await iconFinder(query);
-    foundIcons.clear();
-    foundIcons.addAll(icons);
-    setState(() => isLoading = false);
-    return foundIcons;
+  Future<void> finder(String query) async {
+    if (queryTimer != null) {
+      queryTimer?.cancel();
+      queryTimer = null;
+    } else {
+      setState(() => isLoading = true);
+    }
+    queryTimer = Timer(const Duration(milliseconds: 500), () async {
+      queryTimer = null;
+      logg('Will search icon by query "$query"');
+      final List<EnumValue> icons = await iconFinder(query);
+      foundIcons.clear();
+      foundIcons.addAll(icons);
+      setState(() => isLoading = false);
+    });
   }
 
   Future<void> selectIcon(EnumValue iconEnum) async {
     await copyTextToClipboard(iconEnum.title);
-    await wait(const Duration(milliseconds: 200));
+    await wait(duration: const Duration(milliseconds: 200));
     setState(() => selectedIcon = iconEnum);
   }
 
@@ -140,6 +150,7 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
                       controller: searchController,
                       label: 'Filter icons',
                       maxLines: 1,
+                      suffix: KitCirclePreloader(isLoading: isLoading),
                     ),
                   ),
                 ),

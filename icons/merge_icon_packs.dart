@@ -19,15 +19,18 @@ final List<String> iconMapCode = [];
 const String mdi = 'mdi';
 const String flu = 'flu';
 const String rmx = 'rmx';
+const String box = 'box';
 
 /// ? mdi: /Users/alfa/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-6.0.7096/lib/material_design_icons_flutter.dart
 /// ? flu: /Users/alfa/.pub-cache/hosted/pub.dartlang.org/fluentui_system_icons-1.1.189/lib/src/fluent_icons.dart
 /// ? rmx: /Users/alfa/.pub-cache/hosted/pub.dartlang.org/remixicon-1.0.0/lib/remixicon.dart
+/// ? box: /Users/alfa/.pub-cache/hosted/pub.dartlang.org/flutter_boxicons-3.0.0/lib/flutter_boxicons.dart
 
 final Map<String, Parser> parsers = {
   mdi: mdiParser,
   flu: fluParser,
   rmx: rmxParser,
+  box: boxParser,
 };
 
 Future<void> main(List<String> arguments) async {
@@ -101,6 +104,56 @@ Future<void> rmxParser(File file) async {
   log('Added $counter rmx icons');
 }
 
+Future<void> boxParser(File file) async {
+  final List<RegExpMatch> matches = findMatches(
+    file: file,
+    regExp: RegExp(r'static const IconData (?<name>\w+) =\n *IconData\((?<code>\w+),', multiLine: true),
+  );
+  const String bx = 'bx_';
+  const String bxs = 'bxs_';
+  const String bxl = 'bxl_';
+
+  final Map<IconName, Map<IconType, IconCode>> iconsByType = {};
+  for (final RegExpMatch match in matches) {
+    final String name = match.namedGroup('name')!;
+    final String code = match.namedGroup('code')!;
+    final String clearName = name.replaceFirst(RegExp(r'bxl_|bxs_|bx_'), '');
+    final bool isBx = name.startsWith(bx);
+    final bool isBxs = name.startsWith(bxs);
+    final bool isBxl = name.startsWith(bxl);
+    if (iconsByType.containsKey(clearName) == false) {
+      iconsByType[clearName] = {};
+    }
+    if (isBx) {
+      iconsByType[clearName]![bx] = code;
+    } else if (isBxs) {
+      iconsByType[clearName]![bxs] = code;
+    } else if (isBxl) {
+      iconsByType[clearName]![bxl] = code;
+    }
+  }
+  int counter = 0;
+  for (final MapEntry<IconName, Map<IconType, IconCode>> entry in iconsByType.entries) {
+    final String name = entry.key;
+    final Map<IconType, IconCode> data = entry.value;
+    late final String code;
+    if (data.containsKey(bx)) {
+      code = data[bx]!;
+    } else if (data.containsKey(bxl)) {
+      code = data[bxl]!;
+    } else {
+      code = data[bxs]!;
+    }
+    final String iconData = generateIconData(codePoint: code, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
+    iconPackClassCode.addAll([
+      '  static const ${box}_$name = $iconData;',
+    ]);
+
+    counter++;
+  }
+  log('Added $counter box icons');
+}
+
 Future<void> createIconPackFile() async {
   final RegExp iconNameRegExp = RegExp(r'static const (?<name>\w+) =');
   iconPackClassCode.sort((String first, String second) => first.compareTo(second));
@@ -152,6 +205,7 @@ void initArguments(List<String> arguments) {
   parser.addOption(mdi);
   parser.addOption(flu);
   parser.addOption(rmx);
+  parser.addOption(box);
   parsedArguments = parser.parse(arguments);
 }
 
