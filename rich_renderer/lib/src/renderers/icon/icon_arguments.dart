@@ -15,8 +15,8 @@ class IconArguments {
 
   factory IconArguments.fromJson(dynamic json) => _$IconArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: tryToGetIconPathByName, toJson: toNullJson)
-  final String? icon;
+  @JsonKey(fromJson: tryToGetIconByName, toJson: toNullJson)
+  final IconData? icon;
 
   @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
   final Color? color;

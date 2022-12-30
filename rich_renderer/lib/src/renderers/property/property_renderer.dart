@@ -53,8 +53,7 @@ Future<TagRendererFactory> propertyToRenderer(Property property) async {
 
   return () async {
     return PropertyTagRenderer(
-      // TODO(alphamikle): Replace by real icon
-      icon: IconPack.accessibilityBold,
+      icon: IconPack.mdi_code_braces_box,
       tag: 'prop:$name',
       pattern: RegExp('<prop:$name ?.*${haveChildren ? '' : '/'}>'),
       endPattern: haveChildren ? RegExp('</prop:$name') : null,

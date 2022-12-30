@@ -10,8 +10,7 @@ final RegExp _templateRegExp = RegExp(r'template\.(?<valueId>\w+)');
 
 TagRenderer templateRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.mdi_content_copy,
     tag: 'template',
     pattern: RegExp(r'<template.*>'),
     endPattern: RegExp('</template>'),

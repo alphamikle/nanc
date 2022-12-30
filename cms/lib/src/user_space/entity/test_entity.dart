@@ -1,11 +1,12 @@
 import 'package:cms/src/user_space/entity/currency_entity.dart';
 import 'package:cms/src/user_space/entity/tag_entity.dart';
 import 'package:fields/fields.dart';
+import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 
 final Model testEntity = Model(
   name: 'Test model',
-  icon: 'testTube',
+  icon: IconPackNames.mdi_test_tube,
   sort: 99,
   fields: [
     [

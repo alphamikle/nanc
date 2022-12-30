@@ -7,7 +7,7 @@ import 'package:nanc_backend/models/review.dart';
 
 final Model landingPage = Model(
   name: 'Landing page',
-  icon: IconPack.book2BoldDuotone,
+  icon: IconPackNames.flu_document_page_break_regular,
   fields: [
     [
       IdField(),

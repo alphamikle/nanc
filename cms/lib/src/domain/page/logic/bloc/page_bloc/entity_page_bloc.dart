@@ -129,7 +129,6 @@ class PageBloc extends BasePageBloc<PageState> {
   }
 
   Future<void> prepareForCreation(EntityId modelId) async {
-    // TODO(alphamikle): Preload existed draft
     this.modelId = modelId;
     pageId = null;
     emit(state.copyWith.isLoading(true));

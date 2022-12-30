@@ -9,8 +9,7 @@ import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 TagRenderer positionedRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.flu_position_to_front_regular,
     tag: 'positioned',
     pattern: RegExp(r'<positioned.*>'),
     endPattern: RegExp('</positioned>'),

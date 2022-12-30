@@ -1,15 +1,14 @@
 import 'package:fields/fields.dart';
+import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 
 final List<EnumValue> iconsEnums = () {
-  final List<EnumValue> iconEnums = iconsNames.map((String iconName) {
-    return EnumValue(title: iconName, value: getIconByName(iconName));
-  }).toList();
-  final List<EnumValue> scalableIconEnums = iconPackNameToIconPathMap.entries.map((e) {
-    return EnumValue(title: e.key, value: e.value);
-  }).toList();
-  return [...scalableIconEnums, ...iconEnums];
+  final List<EnumValue> values = [];
+  for (final MapEntry<String, IconData> entry in iconPackMap.entries) {
+    values.add(EnumValue(title: entry.key, value: entry.value));
+  }
+  return values;
 }();
 
 Future<List<EnumValue>> iconFinder(String iconNameQuery) async {
@@ -17,13 +16,14 @@ Future<List<EnumValue>> iconFinder(String iconNameQuery) async {
   if (prettyQuery.trim().isEmpty) {
     return iconsEnums;
   }
+  final RegExp iconNameRegExp = RegExp(iconNameQuery.toLowerCase());
   final List<EnumValue> response = [];
   for (int i = 0; i < iconsEnums.length; i++) {
     final EnumValue value = iconsEnums[i];
-    if (value.title.toLowerCase().contains(prettyQuery)) {
+    if (iconNameRegExp.hasMatch(value.title.toLowerCase())) {
       response.add(value);
     }
-    if (i % 25 == 0) {
+    if (i % 50 == 0) {
       await wait();
     }
   }

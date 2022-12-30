@@ -1,9 +1,12 @@
 import 'package:flutter/foundation.dart';
 
 abstract class Env {
-  static const bool isDemo = bool.fromEnvironment('IS_DEMO');
+  /// ? Usable, when cms using as a package for your own admin
   static const bool isPackageMode = bool.fromEnvironment('IS_PACKAGE_MODE', defaultValue: true);
+
+  /// ? Temp env for the development stage (to hide some not ended things in the demo mode)
   static const bool isRealCMS = isDemo == false;
+  static const bool isDemo = bool.fromEnvironment('IS_DEMO');
   static const bool isProduction = bool.fromEnvironment('IS_PRODUCTION') || kReleaseMode;
   static const bool clearDb = bool.fromEnvironment('CLEAR_DB');
   static const String theAught = String.fromEnvironment('TWZ8Z55DNJUMFLZWB8C3');

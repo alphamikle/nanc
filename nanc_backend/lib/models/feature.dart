@@ -4,7 +4,7 @@ import 'package:model/model.dart';
 
 final Model feature = Model(
   name: 'Feature',
-  icon: IconPack.starRainbowBoldDuotone,
+  icon: IconPackNames.flu_ribbon_star_filled,
   fields: [
     [
       IdField(),

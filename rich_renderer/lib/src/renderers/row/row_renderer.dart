@@ -8,8 +8,7 @@ import 'package:rich_renderer/src/tag_renderer.dart';
 
 TagRenderer rowRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.flu_table_insert_row_regular,
     tag: 'row',
     pattern: RegExp(r'<row.*>'),
     endPattern: RegExp(r'</row>'),

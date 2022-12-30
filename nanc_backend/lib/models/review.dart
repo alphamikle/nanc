@@ -4,7 +4,7 @@ import 'package:model/model.dart';
 
 final Model review = Model(
   name: 'Review',
-  icon: IconPack.medalRibbonsStarBoldDuotone,
+  icon: IconPackNames.flu_star_edit_regular,
   fields: [
     [
       IdField(),

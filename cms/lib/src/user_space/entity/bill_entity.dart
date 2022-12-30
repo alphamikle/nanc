@@ -2,11 +2,12 @@ import 'package:cms/src/user_space/entity/bill_tag_relations_entity.dart';
 import 'package:cms/src/user_space/entity/currency_entity.dart';
 import 'package:cms/src/user_space/entity/tag_entity.dart';
 import 'package:fields/fields.dart';
+import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 
 final Model billEntity = Model(
   name: 'Bills',
-  icon: 'fileDocumentOutline',
+  icon: IconPackNames.mdi_receipt_text_outline,
   fields: [
     [
       IdField(),

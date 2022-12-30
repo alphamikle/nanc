@@ -355,7 +355,6 @@ class ColorPickerArea extends StatelessWidget {
   final PaletteType paletteType = PaletteType.hsv;
 
   void _handleColorRectChange(double horizontal, double vertical) {
-    // TODO(alphamikle): Проблема где-то здесь или глубже, но точно в этом файте!
     onColorChanged(hsvColor.withSaturation(horizontal).withValue(vertical));
   }
 

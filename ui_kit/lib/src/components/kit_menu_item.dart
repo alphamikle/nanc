@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/src/components/kit_ink_well.dart';
 import 'package:ui_kit/src/components/kit_tooltip.dart';
@@ -11,15 +10,13 @@ class KitMenuItem extends StatefulWidget {
     this.onPressed,
     this.isActive = false,
     this.counter,
-    this.iconName,
-    this.iconPath,
+    this.icon,
     super.key,
-  }) : assert(iconName != null || iconPath != null);
+  });
 
   final String text;
   final VoidCallback? onPressed;
-  final String? iconName;
-  final String? iconPath;
+  final IconData? icon;
   final bool isActive;
   final int? counter;
 
@@ -91,8 +88,8 @@ class _KitMenuItemState extends State<KitMenuItem> with SingleTickerProviderStat
                     child: Row(
                       children: [
                         Flexible(
-                          child: SIcon(
-                            iconPath: widget.iconPath ?? tryToGetIconPathByName(widget.iconName) ?? IconPack.bookmarkCircleBoldDuotone,
+                          child: Icon(
+                            widget.icon,
                             color: textColor,
                           ),
                         ),

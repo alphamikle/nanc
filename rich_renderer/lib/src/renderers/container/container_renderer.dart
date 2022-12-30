@@ -69,8 +69,7 @@ https://api.flutter.dev/flutter/widgets/Container-class.html
 
 TagRenderer containerRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.mdi_texture_box,
     tag: 'container',
     pattern: RegExp(r'<container.*>'),
     endPattern: RegExp(r'</container>'),

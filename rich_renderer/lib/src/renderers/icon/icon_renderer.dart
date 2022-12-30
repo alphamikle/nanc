@@ -3,13 +3,13 @@ import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/src/renderers/icon/icon_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
+import 'package:rich_renderer/src/renderers/property/mapper/properties_list.dart';
 import 'package:rich_renderer/src/rich_renderer.dart';
 import 'package:rich_renderer/src/tag_renderer.dart';
 
 TagRenderer iconRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.flu_paint_brush_regular,
     tag: 'icon',
     pattern: RegExp(r'<icon.*/>'),
     endPattern: null,
@@ -41,15 +41,15 @@ https://api.flutter.dev/flutter/widgets/Icon-class.html
       final IconArguments arguments = IconArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
 
-      if (arguments.icon == null || isSIcon(arguments.icon) == false) {
+      if (arguments.icon == null) {
         return const SizedBox();
       }
 
-      return SIcon(
-        iconPath: arguments.icon!,
-        // color: arguments.color,
-        // size: arguments.size,
-        // shadows: extractor.getProperties(shadow),
+      return Icon(
+        arguments.icon,
+        color: arguments.color,
+        size: arguments.size,
+        shadows: extractor.getProperties(shadow),
       );
     },
   );

@@ -4,7 +4,7 @@ import 'package:model/model.dart';
 
 final Model developer = Model(
   name: 'Developer',
-  icon: IconPack.personLineDuotone,
+  icon: IconPackNames.mdi_code_greater_than_or_equal,
   fields: [
     [
       IdField(),

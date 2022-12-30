@@ -1,9 +1,10 @@
 import 'package:fields/fields.dart';
+import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 
 final Model tagEntity = Model(
   name: 'Tags',
-  icon: 'tagMultiple',
+  icon: IconPackNames.flu_tag_filled,
   sort: 1,
   fields: [
     [

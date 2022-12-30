@@ -9,8 +9,7 @@ import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 TagRenderer clipRRectRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.mdi_scissors_cutting,
     tag: 'clipRRect',
     pattern: RegExp(r'<clipRRect.*>'),
     endPattern: RegExp('</clipRRect>'),

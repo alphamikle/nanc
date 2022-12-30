@@ -10,8 +10,7 @@ import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 TagRenderer materialRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.mdi_material_design,
     tag: 'material',
     pattern: RegExp(r'<material.*>'),
     endPattern: RegExp('</material>'),

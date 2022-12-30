@@ -197,7 +197,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
       customColor: field.contentColor,
     );
     final ThemeData theme = context.theme;
-    final String? contentIcon = tryToGetIconPathByName(field.contentIcon);
+    final IconData? contentIcon = tryToGetIconByName(field.contentIcon);
     final Color? contentColor = field.contentColor;
 
     return DecoratedBox(
@@ -219,7 +219,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
                 if (contentIcon != null)
                   Padding(
                     padding: const EdgeInsets.only(right: Gap.regular),
-                    child: SIcon(iconPath: contentIcon),
+                    child: Icon(contentIcon),
                   ),
                 Text(helper, style: theme.textTheme.subtitle1),
                 const Spacer(),

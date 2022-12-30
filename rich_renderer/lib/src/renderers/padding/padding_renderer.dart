@@ -9,8 +9,7 @@ import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 TagRenderer paddingRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.flu_padding_right_regular,
     tag: 'padding',
     pattern: RegExp(r'<padding.*>'),
     endPattern: RegExp('</padding>'),

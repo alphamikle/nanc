@@ -12,8 +12,7 @@ import 'package:tools/tools.dart';
 // TODO(alphamikle): Need more time to implement; For now - moved to TODO
 TagRenderer forRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.mdi_reiterate,
     tag: 'for',
     pattern: RegExp(r'<for.*>'),
     endPattern: RegExp('</for>'),

@@ -1,9 +1,10 @@
 import 'package:fields/fields.dart';
+import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 
 final Model listFieldTestModel = Model(
   name: 'List field test model',
-  icon: 'abTesting',
+  icon: IconPackNames.box_test_tube,
   sort: -1,
   fields: [
     [

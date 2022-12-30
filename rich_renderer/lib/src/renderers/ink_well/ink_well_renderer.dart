@@ -11,8 +11,7 @@ import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 TagRenderer inkWellRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.mdi_button_pointer,
     tag: 'inkWell',
     pattern: RegExp(r'<inkWell.*>'),
     endPattern: RegExp('</inkWell>'),

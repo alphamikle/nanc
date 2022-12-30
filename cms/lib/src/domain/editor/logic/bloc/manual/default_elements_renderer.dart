@@ -5,8 +5,7 @@ import 'package:rich_renderer/rich_renderer.dart';
 
 TagRenderer defaultElementsRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.box_code_alt,
     tag: 'markdown',
     pattern: RegExp(''),
     endPattern: null,

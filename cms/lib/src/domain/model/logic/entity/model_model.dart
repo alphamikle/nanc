@@ -10,7 +10,7 @@ const String kModelField = 'model';
 
 final Model modelModel = Model(
   name: 'Model',
-  icon: IconPack.codeLineDuotone,
+  icon: IconPackNames.mdi_file_code,
   sort: 9998,
   showInMenu: Env.isProduction == false,
   fields: [

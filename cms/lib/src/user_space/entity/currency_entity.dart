@@ -1,9 +1,10 @@
 import 'package:fields/fields.dart';
+import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 
 final Model currencyEntity = Model(
   name: 'Currencies',
-  icon: 'currencyUsd',
+  icon: IconPackNames.flu_currency_dollar_euro_filled,
   sort: 2,
   fields: [
     [

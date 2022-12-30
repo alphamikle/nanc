@@ -12,8 +12,7 @@ import 'package:tools/tools.dart';
 
 TagRenderer textRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.flu_text_field_regular,
     tag: 'text',
     pattern: RegExp(r'<text.*>'),
     endPattern: RegExp('</text>'),

@@ -9,8 +9,7 @@ import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 TagRenderer expandedRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.flu_arrow_autofit_content_regular,
     tag: 'expanded',
     pattern: RegExp(r'<expanded.*>'),
     endPattern: RegExp('</expanded>'),

@@ -49,7 +49,7 @@ class _ManualMenuState extends State<ManualMenu> {
           padding: EdgeInsets.only(top: index == 0 ? kPadding : 0, bottom: kPadding),
           child: KitMenuItem(
             text: element.title,
-            iconPath: renderer.icon,
+            icon: renderer.icon,
             onPressed: () => manualBloc.selectTag(element, renderer),
             isActive: isActive,
           ),

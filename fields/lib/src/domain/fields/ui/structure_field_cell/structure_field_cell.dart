@@ -184,7 +184,7 @@ class _StructureFieldCellState extends State<StructureFieldCell> with FieldCellH
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = context.theme;
-    final String? contentIcon = tryToGetIconPathByName(field.contentIcon);
+    final IconData? contentIcon = tryToGetIconByName(field.contentIcon);
     final Color? contentColor = field.contentColor;
 
     return KitEmptyInput(
@@ -200,7 +200,7 @@ class _StructureFieldCellState extends State<StructureFieldCell> with FieldCellH
                 if (contentIcon != null)
                   Padding(
                     padding: const EdgeInsets.only(right: Gap.regular),
-                    child: SIcon(iconPath: contentIcon),
+                    child: Icon(contentIcon),
                   ),
                 Text(helper, style: theme.textTheme.subtitle1),
                 const Spacer(),

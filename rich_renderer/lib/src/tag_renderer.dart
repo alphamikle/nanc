@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:rich_renderer/src/types/types.dart';
 
 /// ? Entity, which configures an any custom tag rendering logic
@@ -11,7 +12,7 @@ class TagRenderer {
     required this.builder,
   });
 
-  final String icon;
+  final IconData icon;
   final String tag;
   final RegExp pattern;
   final RegExp? endPattern;

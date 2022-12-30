@@ -8,8 +8,7 @@ import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 TagRenderer sizedBoxRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.mdi_move_resize,
     tag: 'sizedBox',
     pattern: RegExp(r'<sizedBox.*>'),
     endPattern: RegExp('</sizedBox>'),

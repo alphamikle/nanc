@@ -6,6 +6,7 @@ import 'package:cms/src/service/config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -29,7 +30,7 @@ class SideMenu extends StatelessWidget {
       padding: EdgeInsets.only(top: index == 0 ? kPadding : 0, bottom: kPadding),
       child: KitMenuItem(
         text: element.title,
-        iconPath: entity?.icon ?? '',
+        icon: tryToGetIconByName(entity?.icon ?? '') ?? IconPack.flu_circle_small_regular,
         onPressed: () => context.vRouter.to(element.url),
         isActive: isActive,
       ),

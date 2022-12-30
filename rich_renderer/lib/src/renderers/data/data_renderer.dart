@@ -6,8 +6,7 @@ import 'package:rich_renderer/src/renderers/data/data_arguments.dart';
 
 TagRenderer dataRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.mdi_code_json,
     tag: 'data',
     pattern: RegExp(r'<data.*/>'),
     endPattern: null,

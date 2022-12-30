@@ -1,32 +1,36 @@
 import 'package:flutter/cupertino.dart';
 import 'package:icons/src/icon_pack.dart';
-import 'package:icons/src/icons_content/boxi_icons_map.dart';
-import 'package:icons/src/icons_content/fluent_icons_map.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-// TODO(alphamikle): Convert fonts to the SVG and then to the SI
-final Set<String> iconsNames = {
-  // ...MdiIcons.getIconsName(),
-  // ...fluentDesignIcons.keys,
-  // ...boxiIcons.keys,
-};
+IconData getIconByName(String iconName) => iconPackMap[iconName]!;
 
-IconData getIconByName(String iconName) {
-  return MdiIcons.fromString(iconName) ?? fluentDesignIcons[iconName] ?? boxiIcons[iconName] ?? MdiIcons.help;
-}
+bool isIconExist(String iconName) => iconPackMap.containsKey(iconName);
 
-bool isSIcon(String? iconName) => iconPackNameToIconPathMap.containsKey(iconName);
-
-String getSIconByName(String iconName) {
-  return iconPackNameToIconPathMap[iconName]!;
-}
-
-String? tryToGetIconPathByName(String? iconName) {
-  if (iconName == null || iconName.trim().isEmpty) {
+IconData? tryToGetIconByName(String? iconName) {
+  if (iconName == null) {
     return null;
   }
-  if (isSIcon(iconName)) {
-    return getSIconByName(iconName);
+  if (isIconExist(iconName)) {
+    return getIconByName(iconName);
   }
   return null;
+}
+
+Future<List<IconData>> findIconsByQuery(String? iconName) async {
+  if (iconName == null) {
+    return [];
+  }
+  int delayCounter = 0;
+  final List<IconData> icons = [];
+  final RegExp iconNameRegExp = RegExp(iconName);
+  for (final MapEntry<String, IconData> entry in iconPackMap.entries) {
+    if (iconNameRegExp.hasMatch(entry.key)) {
+      icons.add(entry.value);
+    }
+    delayCounter++;
+    if (delayCounter >= 50) {
+      delayCounter = 0;
+      await Future<void>.delayed(Duration.zero);
+    }
+  }
+  return icons;
 }

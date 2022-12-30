@@ -4,7 +4,7 @@ import 'package:model/model.dart';
 
 final Model article = Model(
   name: 'Article',
-  icon: IconPack.notebookMinimalisticLineDuotone,
+  icon: IconPackNames.flu_attach_text_regular,
   fields: [
     [
       IdField(),

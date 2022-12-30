@@ -8,8 +8,7 @@ import 'package:rich_renderer/src/tag_renderer.dart';
 
 TagRenderer stackRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.flu_stack_regular,
     tag: 'stack',
     pattern: RegExp(r'<stack.*>'),
     endPattern: RegExp('</stack>'),

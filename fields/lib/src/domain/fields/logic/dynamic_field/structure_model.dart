@@ -14,7 +14,7 @@ const String kStructureField = 'structure';
 
 final Model structureModel = Model(
   name: 'Structure',
-  icon: IconPack.ssdSquareLineDuotone,
+  icon: IconPackNames.box_abacus,
   showInMenu: Env.isProduction == false,
   sort: 9999,
   fields: [

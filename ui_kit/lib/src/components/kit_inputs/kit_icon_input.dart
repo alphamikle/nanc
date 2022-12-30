@@ -1,6 +1,5 @@
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/src/components/kit_buttons/kit_input_button.dart';
@@ -58,7 +57,7 @@ class _KitIconInputState extends State<KitIconInput> with KitFocusStreamMixin {
     if (iconName.isEmpty) {
       return null;
     }
-    final String? iconPath = tryToGetIconPathByName(iconName);
+    final IconData? iconPath = tryToGetIconByName(iconName);
     if (iconPath != null) {
       return EnumValue(title: iconName, value: iconPath);
     }
@@ -66,11 +65,6 @@ class _KitIconInputState extends State<KitIconInput> with KitFocusStreamMixin {
   }
 
   Widget buildIcon(EnumValue enumValue, {bool withOpacity = false}) {
-    if (isSIcon(enumValue.title)) {
-      return SIcon(
-        iconPath: enumValue.typedValue(),
-      );
-    }
     return Icon(
       enumValue.typedValue(),
       size: withOpacity ? 30 : null,
@@ -173,7 +167,7 @@ class _KitIconInputState extends State<KitIconInput> with KitFocusStreamMixin {
 
 String? _iconValidator(String? iconName) {
   if (iconName != null && iconName.trim() != '') {
-    if (iconsNames.contains(iconName) || isSIcon(iconName)) {
+    if (isIconExist(iconName)) {
       return null;
     }
     return '"$iconName" is not a valid icon name';

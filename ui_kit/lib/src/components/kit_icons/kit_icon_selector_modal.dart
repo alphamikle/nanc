@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
-import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/src/components/kit_icons/kit_icons.dart';
 import 'package:ui_kit/src/components/kit_ink_well.dart';
@@ -10,6 +9,7 @@ import 'package:ui_kit/src/components/kit_inputs/kit_text_field.dart';
 import 'package:ui_kit/src/components/kit_modal/kit_base_modal_bottom.dart';
 import 'package:ui_kit/src/components/kit_modal/kit_modal_card.dart';
 import 'package:ui_kit/src/components/kit_preloader.dart';
+import 'package:ui_kit/src/components/kit_tooltip.dart';
 import 'package:ui_kit/src/constants/gap.dart';
 import 'package:ui_kit/src/theme/kit_borders.dart';
 import 'package:ui_kit/src/theme/kit_colors.dart';
@@ -53,7 +53,7 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
 
   Widget iconBuilder(BuildContext context, int index) {
     final EnumValue value = foundIcons[index];
-    final String icon = value.typedValue();
+    final IconData icon = value.typedValue();
     final bool isSelected = value == selectedIcon;
 
     final Widget widget = KitInkWell(
@@ -63,8 +63,8 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
         children: [
           Expanded(
             child: Center(
-              child: SIcon(
-                iconPath: icon,
+              child: Icon(
+                icon,
                 size: 50,
                 color: context.theme.colorScheme.primary,
               ),
@@ -83,21 +83,24 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
         ],
       ),
     );
-    return isSelected
-        ? Stack(
-            children: [
-              Positioned.fill(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: context.theme.colorScheme.primaryContainer.translucent,
-                    borderRadius: context.kitBorders.smallRadius,
+    return KitTooltip(
+      text: value.title,
+      child: isSelected
+          ? Stack(
+              children: [
+                Positioned.fill(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: context.theme.colorScheme.primaryContainer.translucent,
+                      borderRadius: context.kitBorders.smallRadius,
+                    ),
                   ),
                 ),
-              ),
-              widget,
-            ],
-          )
-        : widget;
+                widget,
+              ],
+            )
+          : widget,
+    );
   }
 
   @override

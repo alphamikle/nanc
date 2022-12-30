@@ -27,8 +27,7 @@ md.Node _prepareText(md.Node node) {
 
 TagRenderer descriptionRenderer() {
   return DescriptionTagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.mdi_help_box,
     tag: 'description',
     pattern: RegExp(r'<description.*>'),
     endPattern: RegExp('</description>'),

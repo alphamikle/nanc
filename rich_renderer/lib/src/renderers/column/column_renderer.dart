@@ -10,8 +10,7 @@ import 'package:rich_renderer/src/tools/tags_arguments_extension.dart';
 
 TagRenderer columnRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.flu_table_insert_column_regular,
     tag: 'column',
     pattern: RegExp(r'<column.*>'),
     endPattern: RegExp('</column>'),

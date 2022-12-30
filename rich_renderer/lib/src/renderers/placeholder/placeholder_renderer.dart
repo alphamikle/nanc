@@ -7,8 +7,7 @@ import 'package:rich_renderer/src/tag_renderer.dart';
 
 TagRenderer placeholderRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.flu_border_all_regular,
     tag: 'placeholder',
     pattern: RegExp(r'<placeholder.*/>'),
     endPattern: null,

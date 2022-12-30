@@ -8,8 +8,7 @@ import 'package:rich_renderer/src/tag_renderer.dart';
 
 TagRenderer imageRenderer() {
   return TagRenderer(
-    // TODO(alphamikle): Replace by real icon
-    icon: IconPack.accessibilityBold,
+    icon: IconPack.box_image,
     tag: 'image',
     pattern: RegExp(r'<image.*/>'),
     endPattern: null,
