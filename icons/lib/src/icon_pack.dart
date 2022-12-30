@@ -4,1012 +4,6 @@
 import 'package:flutter/material.dart';
 
 abstract class IconPack {
-  static const box_500px = IconData(0xedd7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_abacus = IconData(0xed59, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_accessibility = IconData(0xed5a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_add_to_queue = IconData(0xed5b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_adjust = IconData(0xed5c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_adjust_alt = IconData(0xea4b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_adobe = IconData(0xedd8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_airbnb = IconData(0xedd9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_alarm = IconData(0xed5d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_alarm_add = IconData(0xea70, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_alarm_exclamation = IconData(0xea71, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_alarm_off = IconData(0xea72, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_alarm_snooze = IconData(0xea73, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_album = IconData(0xea74, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_algolia = IconData(0xedda, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_align_justify = IconData(0xea75, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_align_left = IconData(0xea76, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_align_middle = IconData(0xea77, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_align_right = IconData(0xea78, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_amazon = IconData(0xeddb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_ambulance = IconData(0xea52, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_analyse = IconData(0xea79, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_anchor = IconData(0xea7a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_android = IconData(0xed5e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_angry = IconData(0xea7b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_angular = IconData(0xed5f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_aperture = IconData(0xea7c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_apple = IconData(0xed60, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_arch = IconData(0xea7d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_archive = IconData(0xea7e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_archive_in = IconData(0xea7f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_archive_out = IconData(0xea80, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_area = IconData(0xea81, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_arrow_back = IconData(0xea82, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_arrow_from_bottom = IconData(0xea83, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_arrow_from_left = IconData(0xea84, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_arrow_from_right = IconData(0xea85, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_arrow_from_top = IconData(0xea86, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_arrow_to_bottom = IconData(0xea87, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_arrow_to_left = IconData(0xea88, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_arrow_to_right = IconData(0xea89, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_arrow_to_top = IconData(0xea8a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_at = IconData(0xea8b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_atom = IconData(0xea8c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_audible = IconData(0xed61, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_award = IconData(0xea8d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_baby_carriage = IconData(0xea63, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_backpack = IconData(0xea64, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_badge = IconData(0xea8e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_badge_check = IconData(0xea8f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_badge_dollar = IconData(0xea67, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_baidu = IconData(0xed62, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_ball = IconData(0xea90, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_band_aid = IconData(0xea91, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bank = IconData(0xea6a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bar_chart = IconData(0xea92, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bar_chart_alt = IconData(0xea93, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bar_chart_alt_2 = IconData(0xea94, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bar_chart_square = IconData(0xea95, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_barcode = IconData(0xea96, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_barcode_reader = IconData(0xea97, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_baseball = IconData(0xea6e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_baseball_ = IconData(0xea98, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_basket = IconData(0xea99, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_basketball = IconData(0xea9a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bath = IconData(0xea9b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_battery = IconData(0xea9c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_battery_charging = IconData(0xe803, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_battery_full = IconData(0xe804, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_battery_low = IconData(0xe805, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bed = IconData(0xea9d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_been_here = IconData(0xea9e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_beer = IconData(0xea9f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_behance = IconData(0xed63, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bell = IconData(0xeaa0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bell_minus = IconData(0xeaa1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bell_off = IconData(0xeaa2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bell_plus = IconData(0xeaa3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bell_ring = IconData(0xe80d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bible = IconData(0xeaa4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bing = IconData(0xed64, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_binoculars = IconData(0xe80f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bitcoin = IconData(0xeaa5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_blanket = IconData(0xeaa6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_blender = IconData(0xed66, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_block = IconData(0xeaa7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_blogger = IconData(0xed67, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bluetooth = IconData(0xeaa8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_body = IconData(0xeaa9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bold = IconData(0xeaaa, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bolt = IconData(0xe811, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bolt_circle = IconData(0xeaab, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bomb = IconData(0xeaac, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bone = IconData(0xeaad, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bong = IconData(0xeaae, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_book = IconData(0xeaaf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_book_add = IconData(0xeab0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_book_alt = IconData(0xeab1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_book_bookmark = IconData(0xeab2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_book_content = IconData(0xeab3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_book_heart = IconData(0xeab4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_book_open = IconData(0xeabd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_book_reader = IconData(0xeabe, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bookmark = IconData(0xeab5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bookmark_alt = IconData(0xeab6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bookmark_alt_minus = IconData(0xeab7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bookmark_alt_plus = IconData(0xeab8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bookmark_heart = IconData(0xeab9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bookmark_minus = IconData(0xeaba, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bookmark_plus = IconData(0xeabb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bookmark_star = IconData(0xe824, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bookmarks = IconData(0xeabc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bootstrap = IconData(0xed68, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_border_all = IconData(0xeabf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_border_bottom = IconData(0xeac0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_border_inner = IconData(0xeac1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_border_left = IconData(0xeac2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_border_none = IconData(0xeac3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_border_outer = IconData(0xeac4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_border_radius = IconData(0xeac5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_border_right = IconData(0xeac6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_border_top = IconData(0xeac7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bot = IconData(0xeac8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bowling_ball = IconData(0xeac9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_box = IconData(0xeaca, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bracket = IconData(0xeacb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_braille = IconData(0xeacc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_brain = IconData(0xeacd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_briefcase = IconData(0xeace, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_briefcase_alt = IconData(0xeacf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_briefcase_alt_2 = IconData(0xead0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_brightness = IconData(0xead1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_brightness_half = IconData(0xead2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_broadcast = IconData(0xead3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_brush = IconData(0xead4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_brush_alt = IconData(0xead5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bug = IconData(0xead6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bug_alt = IconData(0xead7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_building = IconData(0xead8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_building_house = IconData(0xead9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_buildings = IconData(0xeada, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bulb = IconData(0xeadb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bullseye = IconData(0xeadc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_buoy = IconData(0xeadd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bus = IconData(0xeade, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_bus_school = IconData(0xeadf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_business = IconData(0xe83b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_c_plus_plus = IconData(0xed6b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cabinet = IconData(0xeae0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cake = IconData(0xeae1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_calculator = IconData(0xeae2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_calendar = IconData(0xeae3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_calendar_alt = IconData(0xeae4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_calendar_check = IconData(0xeae5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_calendar_edit = IconData(0xeae6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_calendar_event = IconData(0xeae7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_calendar_exclamation = IconData(0xeae8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_calendar_heart = IconData(0xeae9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_calendar_minus = IconData(0xeaea, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_calendar_plus = IconData(0xeaeb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_calendar_star = IconData(0xeaec, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_calendar_week = IconData(0xeaed, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_calendar_x = IconData(0xeaee, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_camera = IconData(0xeaef, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_camera_home = IconData(0xeaf0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_camera_movie = IconData(0xeaf1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_camera_off = IconData(0xeaf2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_camera_plus = IconData(0xe850, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_capsule = IconData(0xeaf3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_captions = IconData(0xeaf4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_car = IconData(0xeaf5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_car_battery = IconData(0xe854, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_car_crash = IconData(0xe855, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_car_garage = IconData(0xe85f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_car_mechanic = IconData(0xe860, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_car_wash = IconData(0xe866, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_card = IconData(0xeaf6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_caret_down = IconData(0xeaf7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_caret_down_circle = IconData(0xeaf8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_caret_down_square = IconData(0xeaf9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_caret_left = IconData(0xeafa, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_caret_left_circle = IconData(0xeafb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_caret_left_square = IconData(0xeafc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_caret_right = IconData(0xeafd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_caret_right_circle = IconData(0xeafe, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_caret_right_square = IconData(0xeaff, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_caret_up = IconData(0xeb00, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_caret_up_circle = IconData(0xeb01, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_caret_up_square = IconData(0xeb02, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_carousel = IconData(0xeb03, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cart = IconData(0xeb04, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cart_add = IconData(0xe863, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cart_alt = IconData(0xeb05, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cart_download = IconData(0xe865, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cast = IconData(0xeb06, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_category = IconData(0xeb07, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_category_alt = IconData(0xeb08, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cctv = IconData(0xeb09, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_certification = IconData(0xeb0a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chair = IconData(0xeb0b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chalkboard = IconData(0xeb0c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chart = IconData(0xeb0d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chat = IconData(0xeb0e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_check = IconData(0xeb0f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_check_circle = IconData(0xeb13, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_check_double = IconData(0xeb14, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_check_shield = IconData(0xeb15, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_check_square = IconData(0xeb16, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_checkbox = IconData(0xeb10, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_checkbox_checked = IconData(0xeb11, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_checkbox_square = IconData(0xeb12, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chess = IconData(0xe873, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevron_down = IconData(0xeb17, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevron_down_circle = IconData(0xeb18, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevron_down_square = IconData(0xeb19, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevron_left = IconData(0xeb1a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevron_left_circle = IconData(0xeb1b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevron_left_square = IconData(0xeb1c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevron_right = IconData(0xeb1d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevron_right_circle = IconData(0xeb1e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevron_right_square = IconData(0xeb1f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevron_up = IconData(0xeb24, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevron_up_circle = IconData(0xeb25, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevron_up_square = IconData(0xeb26, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevrons_down = IconData(0xeb20, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevrons_left = IconData(0xeb21, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevrons_right = IconData(0xeb22, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chevrons_up = IconData(0xeb23, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chip = IconData(0xeb27, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_chrome = IconData(0xed69, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_church = IconData(0xeb28, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_circle = IconData(0xeb29, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_city = IconData(0xe887, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_clinic = IconData(0xeb2a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_clipboard = IconData(0xeb2b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_closet = IconData(0xeb2c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cloud = IconData(0xeb2d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cloud_download = IconData(0xeb2e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cloud_drizzle = IconData(0xeb2f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cloud_light_rain = IconData(0xeb31, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cloud_lightning = IconData(0xeb30, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cloud_rain = IconData(0xeb32, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cloud_snow = IconData(0xeb33, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cloud_upload = IconData(0xeb34, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_code = IconData(0xeb35, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_code_alt = IconData(0xeb36, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_code_block = IconData(0xeb37, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_code_curly = IconData(0xeb38, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_codepen = IconData(0xed6a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_coffee = IconData(0xeb39, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_coffee_alt = IconData(0xe88f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_coffee_togo = IconData(0xeb3a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cog = IconData(0xeb3b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_coin = IconData(0xeb3c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_coin_stack = IconData(0xeb3d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_collapse = IconData(0xeb3e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_collection = IconData(0xeb3f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_color_fill = IconData(0xeb40, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_columns = IconData(0xeb41, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_command = IconData(0xeb42, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_comment = IconData(0xeb43, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_comment_add = IconData(0xeb44, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_comment_check = IconData(0xeb45, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_comment_detail = IconData(0xeb46, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_comment_dots = IconData(0xeb47, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_comment_edit = IconData(0xeb48, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_comment_error = IconData(0xeb49, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_comment_minus = IconData(0xeb4a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_comment_x = IconData(0xeb4b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_compass = IconData(0xeb4c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_component = IconData(0xe8a0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_confused = IconData(0xeb4d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_contact = IconData(0xe8a2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_conversation = IconData(0xeb4e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cookie = IconData(0xeb4f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cool = IconData(0xeb50, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_copy = IconData(0xeb51, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_copy_alt = IconData(0xeb52, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_copyright = IconData(0xeb53, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_coupon = IconData(0xe8a9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_creative_commons = IconData(0xed6c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_credit_card = IconData(0xeb54, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_credit_card_alt = IconData(0xeb55, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_credit_card_front = IconData(0xeb56, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_crop = IconData(0xeb57, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_crosshair = IconData(0xeb58, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_crown = IconData(0xeb59, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_css3 = IconData(0xed6d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cube = IconData(0xeb5a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cube_alt = IconData(0xeb5b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cuboid = IconData(0xeb5c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_current_location = IconData(0xeb5d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_customize = IconData(0xeb5e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cut = IconData(0xeb5f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cycling = IconData(0xeb60, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_cylinder = IconData(0xeb61, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dailymotion = IconData(0xed6e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dashboard = IconData(0xe8b4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_data = IconData(0xeb62, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_desktop = IconData(0xeb63, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_detail = IconData(0xeb64, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dev_to = IconData(0xed70, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_deviantart = IconData(0xed6f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_devices = IconData(0xeb65, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dialpad = IconData(0xeb66, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dialpad_alt = IconData(0xeb67, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_diamond = IconData(0xeb68, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dice_1 = IconData(0xeb69, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dice_2 = IconData(0xeb6a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dice_3 = IconData(0xeb6b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dice_4 = IconData(0xeb6c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dice_5 = IconData(0xeb6d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dice_6 = IconData(0xeb6e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_digg = IconData(0xed71, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_digitalocean = IconData(0xed72, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_direction_left = IconData(0xe8bf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_direction_right = IconData(0xe8c0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_directions = IconData(0xeb6f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_disc = IconData(0xeb70, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_discord = IconData(0xed73, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_discount = IconData(0xe8c3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_discourse = IconData(0xed74, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dish = IconData(0xeb71, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dislike = IconData(0xeb72, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dizzy = IconData(0xeb73, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_django = IconData(0xed75, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dna = IconData(0xeb74, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dock_bottom = IconData(0xeb75, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dock_left = IconData(0xeb76, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dock_right = IconData(0xeb77, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dock_top = IconData(0xeb78, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dollar = IconData(0xeb79, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dollar_circle = IconData(0xeb7a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_donate_blood = IconData(0xeb7b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_donate_heart = IconData(0xeb7c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_door_open = IconData(0xeb7d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dots_horizontal = IconData(0xeb7e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dots_horizontal_rounded = IconData(0xeb7f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dots_vertical = IconData(0xeb80, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dots_vertical_rounded = IconData(0xeb81, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_doughnut_chart = IconData(0xeb82, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_down_arrow = IconData(0xeb83, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_down_arrow_alt = IconData(0xeb84, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_down_arrow_circle = IconData(0xeb85, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_down_arrow_square = IconData(0xe8d3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_download = IconData(0xeb86, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_downvote = IconData(0xeb87, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dribbble = IconData(0xed76, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_drink = IconData(0xeb88, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dropbox = IconData(0xed77, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_droplet = IconData(0xeb89, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_droplet_half = IconData(0xe8d8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_drupal = IconData(0xed78, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dryer = IconData(0xe8d9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_dumbbell = IconData(0xeb8a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_duplicate = IconData(0xeb8b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_ebay = IconData(0xed79, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_edge = IconData(0xed7a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_edit = IconData(0xeb8c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_edit_alt = IconData(0xeb8d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_edit_location = IconData(0xe8dd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_eject = IconData(0xe8de, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_envelope = IconData(0xeb8e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_envelope_open = IconData(0xeb8f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_equalizer = IconData(0xeb90, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_eraser = IconData(0xeb91, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_error = IconData(0xeb92, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_error_alt = IconData(0xeb93, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_error_circle = IconData(0xeb94, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_etsy = IconData(0xed7b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_euro = IconData(0xeb95, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_ev_station = IconData(0xe8e5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_exclude = IconData(0xeb96, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_exit = IconData(0xeb97, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_exit_fullscreen = IconData(0xeb98, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_expand = IconData(0xeb99, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_expand_alt = IconData(0xeb9a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_export = IconData(0xeb9b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_extension = IconData(0xeb9c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_eyedropper = IconData(0xe8e8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_face = IconData(0xeb9d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_face_mask = IconData(0xe8ea, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_facebook = IconData(0xed7c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_facebook_circle = IconData(0xed7d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_facebook_square = IconData(0xed7e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_factory = IconData(0xe8eb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_fast_forward = IconData(0xeb9e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_fast_forward_circle = IconData(0xeb9f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_female = IconData(0xeba0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_female_sign = IconData(0xeba1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_figma = IconData(0xed7f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file = IconData(0xeba2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_archive = IconData(0xe8ee, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_blank = IconData(0xeba3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_css = IconData(0xe8f0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_doc = IconData(0xe8f1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_export = IconData(0xe8f2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_find = IconData(0xeba4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_gif = IconData(0xe8f4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_html = IconData(0xe8f5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_image = IconData(0xe8f6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_import = IconData(0xe8f7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_jpg = IconData(0xe8f8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_js = IconData(0xe8f9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_json = IconData(0xe8fa, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_md = IconData(0xe8fb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_pdf = IconData(0xe8fc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_plus = IconData(0xe8fd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_png = IconData(0xe8fe, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_file_txt = IconData(0xe8ff, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_film = IconData(0xeba5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_filter = IconData(0xeba6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_filter_alt = IconData(0xeba7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_fingerprint = IconData(0xeba8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_firebase = IconData(0xed80, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_firefox = IconData(0xed81, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_first_aid = IconData(0xeba9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_first_page = IconData(0xebaa, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_flag = IconData(0xebab, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_flag_alt = IconData(0xe904, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_flag_checkered = IconData(0xe905, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_flame = IconData(0xe906, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_flask = IconData(0xe907, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_flickr = IconData(0xed82, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_flickr_square = IconData(0xed83, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_florist = IconData(0xe908, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_folder = IconData(0xebac, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_folder_minus = IconData(0xebad, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_folder_open = IconData(0xebae, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_folder_plus = IconData(0xebaf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_font = IconData(0xebb0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_font_color = IconData(0xebb1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_font_family = IconData(0xebb2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_font_size = IconData(0xebb3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_food_menu = IconData(0xebb4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_food_tag = IconData(0xebb5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_football = IconData(0xebb6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_foursquare = IconData(0xed84, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_fridge = IconData(0xebb7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_fullscreen = IconData(0xebb8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_game = IconData(0xebb9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_gas_pump = IconData(0xebba, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_ghost = IconData(0xebbb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_gift = IconData(0xebbc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_git = IconData(0xed85, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_git_branch = IconData(0xebbd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_git_commit = IconData(0xebbe, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_git_compare = IconData(0xebbf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_git_merge = IconData(0xebc0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_git_pull_request = IconData(0xebc1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_git_repo_forked = IconData(0xebc2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_github = IconData(0xed86, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_gitlab = IconData(0xed87, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_glasses = IconData(0xebc3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_glasses_alt = IconData(0xebc4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_globe = IconData(0xebc5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_globe_alt = IconData(0xebc6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_google = IconData(0xed88, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_google_cloud = IconData(0xed89, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_google_plus = IconData(0xed8a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_google_plus_circle = IconData(0xed8b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_graduation = IconData(0xe913, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_grid = IconData(0xebc7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_grid_alt = IconData(0xebc8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_grid_horizontal = IconData(0xebc9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_grid_small = IconData(0xebca, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_grid_vertical = IconData(0xebcb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_group = IconData(0xebcc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_guitar_amp = IconData(0xe917, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_hand_down = IconData(0xe918, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_hand_left = IconData(0xe919, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_hand_right = IconData(0xe91a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_hand_up = IconData(0xe91b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_handicap = IconData(0xebcd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_happy = IconData(0xebce, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_happy_alt = IconData(0xebcf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_happy_beaming = IconData(0xebd0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_happy_heart_eyes = IconData(0xebd1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_hash = IconData(0xebd2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_hdd = IconData(0xebd3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_heading = IconData(0xebd4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_headphone = IconData(0xebd5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_health = IconData(0xebd6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_heart = IconData(0xebd7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_heart_circle = IconData(0xebd8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_heart_square = IconData(0xebd9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_help_circle = IconData(0xebda, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_hide = IconData(0xebdb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_highlight = IconData(0xebdc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_history = IconData(0xebdd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_hive = IconData(0xebde, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_home = IconData(0xebdf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_home_alt = IconData(0xebe0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_home_circle = IconData(0xebe1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_home_heart = IconData(0xebe2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_home_smile = IconData(0xebe3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_horizontal_center = IconData(0xebe4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_hot = IconData(0xe92a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_hotel = IconData(0xebe5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_hourglass = IconData(0xebe6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_hourglass_bottom = IconData(0xe92d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_hourglass_top = IconData(0xe92e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_html5 = IconData(0xed8c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_id_card = IconData(0xebe7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_image = IconData(0xebe8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_image_add = IconData(0xebe9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_image_alt = IconData(0xebea, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_images = IconData(0xebeb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_imdb = IconData(0xed8d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_import = IconData(0xebec, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_inbox = IconData(0xe933, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_infinite = IconData(0xebed, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_info_circle = IconData(0xebee, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_info_square = IconData(0xebef, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_instagram = IconData(0xed8e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_instagram_alt = IconData(0xed8f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_institution = IconData(0xe936, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_internet_explorer = IconData(0xed90, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_intersect = IconData(0xebf0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_invision = IconData(0xed91, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_italic = IconData(0xebf1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_javascript = IconData(0xed92, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_joomla = IconData(0xed93, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_joystick = IconData(0xebf2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_joystick_alt = IconData(0xebf3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_joystick_button = IconData(0xebf4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_jquery = IconData(0xed94, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_jsfiddle = IconData(0xed95, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_key = IconData(0xebf5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_keyboard = IconData(0xe93b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_kickstarter = IconData(0xed96, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_kubernetes_ = IconData(0xed97, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_label = IconData(0xebf6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_landmark = IconData(0xe93d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_landscape = IconData(0xebf7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_laptop = IconData(0xebf8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_last_page = IconData(0xebf9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_laugh = IconData(0xebfa, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_layer = IconData(0xebfb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_layer_minus = IconData(0xebfc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_layer_plus = IconData(0xebfd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_layout = IconData(0xebfe, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_left_arrow = IconData(0xebff, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_left_arrow_alt = IconData(0xec00, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_left_arrow_circle = IconData(0xec01, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_left_arrow_square = IconData(0xe947, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_left_down_arrow_circle = IconData(0xec02, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_left_indent = IconData(0xec03, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_left_top_arrow_circle = IconData(0xec04, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_less = IconData(0xed98, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_library = IconData(0xec05, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_like = IconData(0xec06, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_line_chart = IconData(0xec07, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_line_chart_down = IconData(0xec08, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_link = IconData(0xec09, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_link_alt = IconData(0xec0a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_link_external = IconData(0xec0b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_linkedin = IconData(0xed99, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_linkedin_square = IconData(0xed9a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_lira = IconData(0xec0c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_list_check = IconData(0xec0d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_list_minus = IconData(0xec0e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_list_ol = IconData(0xec0f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_list_plus = IconData(0xec10, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_list_ul = IconData(0xec11, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_loader = IconData(0xec12, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_loader_alt = IconData(0xec13, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_loader_circle = IconData(0xec14, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_location_plus = IconData(0xec15, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_lock = IconData(0xec16, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_lock_alt = IconData(0xec17, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_lock_open = IconData(0xec18, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_lock_open_alt = IconData(0xec19, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_log_in = IconData(0xec1a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_log_in_circle = IconData(0xec1b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_log_out = IconData(0xec1c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_log_out_circle = IconData(0xec1d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_low_vision = IconData(0xec1e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_magento = IconData(0xed9b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_magic_wand = IconData(0xe955, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_magnet = IconData(0xec1f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_mail_send = IconData(0xec20, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_mailchimp = IconData(0xed9c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_male = IconData(0xec21, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_male_sign = IconData(0xec22, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_map = IconData(0xec23, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_map_alt = IconData(0xec24, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_map_pin = IconData(0xec25, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_markdown = IconData(0xed9d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_mask = IconData(0xec26, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_mastercard = IconData(0xed9e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_medal = IconData(0xec27, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_medium = IconData(0xed9f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_medium_old = IconData(0xeda0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_medium_square = IconData(0xeda1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_megaphone = IconData(0xe95c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_meh = IconData(0xec28, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_meh_alt = IconData(0xec29, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_meh_blank = IconData(0xec2a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_memory_card = IconData(0xec2b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_menu = IconData(0xec2c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_menu_alt_left = IconData(0xec2d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_menu_alt_right = IconData(0xec2e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_merge = IconData(0xec2f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message = IconData(0xec30, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_add = IconData(0xec31, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_alt = IconData(0xec32, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_alt_add = IconData(0xec33, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_alt_check = IconData(0xec34, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_alt_detail = IconData(0xec35, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_alt_dots = IconData(0xec36, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_alt_edit = IconData(0xec37, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_alt_error = IconData(0xec38, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_alt_minus = IconData(0xec39, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_alt_x = IconData(0xec3a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_check = IconData(0xec3b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_detail = IconData(0xec3c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_dots = IconData(0xec3d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_edit = IconData(0xec3e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_error = IconData(0xec3f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_minus = IconData(0xec40, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_rounded = IconData(0xec41, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_rounded_add = IconData(0xec42, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_rounded_check = IconData(0xec43, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_rounded_detail = IconData(0xec44, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_rounded_dots = IconData(0xec45, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_rounded_edit = IconData(0xec46, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_rounded_error = IconData(0xec47, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_rounded_minus = IconData(0xec48, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_rounded_x = IconData(0xec49, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_square = IconData(0xec4a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_square_add = IconData(0xec4b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_square_check = IconData(0xec4c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_square_detail = IconData(0xec4d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_square_dots = IconData(0xec4e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_square_edit = IconData(0xec4f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_square_error = IconData(0xec50, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_square_minus = IconData(0xec51, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_square_x = IconData(0xec52, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_message_x = IconData(0xec53, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_messenger = IconData(0xeda2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_meteor = IconData(0xec54, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_microchip = IconData(0xec55, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_microphone = IconData(0xec56, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_microphone_alt = IconData(0xe988, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_microphone_off = IconData(0xec57, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_microsoft = IconData(0xeda3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_microsoft_teams = IconData(0xeda4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_minus = IconData(0xec58, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_minus_back = IconData(0xec59, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_minus_circle = IconData(0xec5a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_minus_front = IconData(0xec5b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_minus_square = IconData(0xe98b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_mobile = IconData(0xec5c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_mobile_alt = IconData(0xec5d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_mobile_landscape = IconData(0xec5e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_mobile_vibration = IconData(0xec5f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_money = IconData(0xec60, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_moon = IconData(0xec61, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_mouse = IconData(0xec62, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_mouse_alt = IconData(0xec63, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_move = IconData(0xec64, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_move_horizontal = IconData(0xec65, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_move_vertical = IconData(0xec66, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_movie = IconData(0xec67, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_movie_play = IconData(0xec68, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_music = IconData(0xec69, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_navigation = IconData(0xec6a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_network_chart = IconData(0xec6b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_news = IconData(0xec6c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_no_entry = IconData(0xec6d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_nodejs = IconData(0xeda5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_note = IconData(0xec6e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_notepad = IconData(0xec6f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_notification = IconData(0xec70, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_notification_off = IconData(0xec71, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_offer = IconData(0xe99c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_ok_ru = IconData(0xeda6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_opera = IconData(0xeda7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_outline = IconData(0xec72, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_package = IconData(0xec73, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_paint = IconData(0xec74, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_paint_roll = IconData(0xec75, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_palette = IconData(0xec76, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_paper_plane = IconData(0xec78, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_paperclip = IconData(0xec77, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_paragraph = IconData(0xec79, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_parking = IconData(0xe9a2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_paste = IconData(0xec7a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_patreon = IconData(0xeda8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pause = IconData(0xec7b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pause_circle = IconData(0xec7c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_paypal = IconData(0xeda9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pen = IconData(0xec7d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pencil = IconData(0xec7e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_periscope = IconData(0xedaa, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_phone = IconData(0xec7f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_phone_call = IconData(0xec80, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_phone_incoming = IconData(0xec81, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_phone_outgoing = IconData(0xec82, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_photo_album = IconData(0xec83, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_piano = IconData(0xe9ab, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pie_chart = IconData(0xec84, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pie_chart_alt = IconData(0xec85, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pie_chart_alt_2 = IconData(0xec86, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pin = IconData(0xec87, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pinterest = IconData(0xedab, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pinterest_alt = IconData(0xedac, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pizza = IconData(0xe9b0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_plane = IconData(0xe9b1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_plane_alt = IconData(0xe9b2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_plane_land = IconData(0xe9b3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_plane_take_off = IconData(0xe9b5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_planet = IconData(0xec88, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_play = IconData(0xec89, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_play_circle = IconData(0xec8a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_play_store = IconData(0xedad, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_playlist = IconData(0xe9b6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_plug = IconData(0xec8b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_plus = IconData(0xec8c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_plus_circle = IconData(0xec8d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_plus_medical = IconData(0xec8e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_plus_square = IconData(0xe9b9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pocket = IconData(0xedae, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pointer = IconData(0xec8f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_poll = IconData(0xec90, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_polygon = IconData(0xec91, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pound = IconData(0xec92, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_power_off = IconData(0xec93, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_printer = IconData(0xec94, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_product_hunt = IconData(0xedaf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pulse = IconData(0xec95, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_purchase_tag = IconData(0xec96, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_purchase_tag_alt = IconData(0xec97, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_pyramid = IconData(0xec98, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_python = IconData(0xedb0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_question_mark = IconData(0xec99, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_quora = IconData(0xedb1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_quote_alt_left = IconData(0xe9c0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_quote_alt_right = IconData(0xe9c1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_quote_left = IconData(0xe9c2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_quote_right = IconData(0xe9c3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_quote_single_left = IconData(0xe9c4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_quote_single_right = IconData(0xe9c5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_radar = IconData(0xec9a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_radiation = IconData(0xe9c6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_radio = IconData(0xec9b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_radio_circle = IconData(0xec9c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_radio_circle_marked = IconData(0xec9d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_react = IconData(0xedb2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_receipt = IconData(0xec9e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_rectangle = IconData(0xec9f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_recycle = IconData(0xeca0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_redbubble = IconData(0xedb3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_reddit = IconData(0xedb4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_redo = IconData(0xeca1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_redux = IconData(0xedb5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_refresh = IconData(0xeca2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_rename = IconData(0xeca3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_repeat = IconData(0xeca4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_reply = IconData(0xeca5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_reply_all = IconData(0xeca6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_report = IconData(0xe9cb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_repost = IconData(0xeca7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_reset = IconData(0xeca8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_restaurant = IconData(0xeca9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_revision = IconData(0xecaa, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_rewind = IconData(0xecab, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_rewind_circle = IconData(0xecac, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_right_arrow = IconData(0xecad, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_right_arrow_alt = IconData(0xecae, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_right_arrow_circle = IconData(0xecaf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_right_arrow_square = IconData(0xe9d0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_right_down_arrow_circle = IconData(0xecb0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_right_indent = IconData(0xecb1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_right_top_arrow_circle = IconData(0xecb2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_rocket = IconData(0xecb3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_rotate_left = IconData(0xecb4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_rotate_right = IconData(0xecb5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_rss = IconData(0xecb6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_ruble = IconData(0xecb7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_ruler = IconData(0xecb8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_run = IconData(0xecb9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_rupee = IconData(0xecba, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sad = IconData(0xecbb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sass = IconData(0xedb6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_save = IconData(0xecbc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_scan = IconData(0xecbd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_school = IconData(0xe9d7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_screenshot = IconData(0xecbe, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_search = IconData(0xecbf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_search_alt = IconData(0xecc0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_search_alt_2 = IconData(0xecc1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_select_multiple = IconData(0xecc3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_selection = IconData(0xecc2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_send = IconData(0xecc4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_server = IconData(0xecc5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shape_circle = IconData(0xecc6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shape_polygon = IconData(0xecc7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shape_square = IconData(0xecc8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shape_triangle = IconData(0xecc9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shapes = IconData(0xe9dd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_share = IconData(0xecca, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_share_alt = IconData(0xeccb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shekel = IconData(0xeccc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shield = IconData(0xeccd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shield_alt = IconData(0xecce, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shield_alt_2 = IconData(0xeccf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shield_quarter = IconData(0xecd0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shield_x = IconData(0xecd1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_ship = IconData(0xe9e3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shocked = IconData(0xecd2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shopify = IconData(0xedb7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shopping_bag = IconData(0xecd3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shopping_bag_alt = IconData(0xe9e6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shopping_bags = IconData(0xe9e7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_show = IconData(0xecd4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_show_alt = IconData(0xecd5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_shuffle = IconData(0xecd6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sidebar = IconData(0xecd7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sitemap = IconData(0xecd8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_skip_next = IconData(0xecd9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_skip_next_circle = IconData(0xecda, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_skip_previous = IconData(0xecdb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_skip_previous_circle = IconData(0xecdc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_skull = IconData(0xe9eb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_skype = IconData(0xedb8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_slack = IconData(0xedb9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_slack_old = IconData(0xedba, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sleepy = IconData(0xecdd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_slider = IconData(0xecde, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_slider_alt = IconData(0xecdf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_slideshow = IconData(0xece0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_smile = IconData(0xece1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_snapchat = IconData(0xedbb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sort = IconData(0xece2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sort_a_z = IconData(0xece4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sort_alt = IconData(0xe9ef, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sort_alt_2 = IconData(0xece3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sort_down = IconData(0xece5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sort_up = IconData(0xece6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sort_z_a = IconData(0xece7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_soundcloud = IconData(0xedbc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_spa = IconData(0xece8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_space_bar = IconData(0xece9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_spotify = IconData(0xedbd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_spray_can = IconData(0xecea, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_spreadsheet = IconData(0xeceb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_spring_boot = IconData(0xedbe, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_square = IconData(0xecec, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_square_rounded = IconData(0xeced, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_squarespace = IconData(0xedbf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_stack_overflow = IconData(0xedc0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_star = IconData(0xecee, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_star_half = IconData(0xe9f6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_station = IconData(0xecef, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_stats = IconData(0xecf0, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sticker = IconData(0xecf1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_stop = IconData(0xecf2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_stop_circle = IconData(0xecf3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_stopwatch = IconData(0xecf4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_store = IconData(0xecf5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_store_alt = IconData(0xecf6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_street_view = IconData(0xecf7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_strikethrough = IconData(0xecf8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_stripe = IconData(0xedc1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_subdirectory_left = IconData(0xecf9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_subdirectory_right = IconData(0xecfa, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sun = IconData(0xecfb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_support = IconData(0xecfc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_swim = IconData(0xecfd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_sync = IconData(0xecfe, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_t_shirt = IconData(0xea16, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_tab = IconData(0xecff, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_table = IconData(0xed00, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_tachometer = IconData(0xed01, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_tag = IconData(0xed02, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_tag_alt = IconData(0xed03, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_tag_x = IconData(0xe9ff, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_target_lock = IconData(0xed04, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_task = IconData(0xed05, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_task_x = IconData(0xed06, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_taxi = IconData(0xed07, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_telegram = IconData(0xedc2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_tennis_ball = IconData(0xed08, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_terminal = IconData(0xed09, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_test_tube = IconData(0xed0a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_text = IconData(0xed0b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_thermometer = IconData(0xea03, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_time = IconData(0xed0c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_time_five = IconData(0xed0d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_timer = IconData(0xed0e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_tired = IconData(0xed0f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_to_top = IconData(0xea0c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_toggle_left = IconData(0xed10, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_toggle_right = IconData(0xed11, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_tone = IconData(0xed12, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_torch = IconData(0xea0b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_traffic = IconData(0xea0d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_traffic_barrier = IconData(0xea0e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_traffic_cone = IconData(0xed13, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_train = IconData(0xed14, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_transfer = IconData(0xed15, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_transfer_alt = IconData(0xed16, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_trash = IconData(0xed17, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_trash_alt = IconData(0xed18, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_tree = IconData(0xea13, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_trello = IconData(0xedc3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_trending_down = IconData(0xed19, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_trending_up = IconData(0xed1a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_trim = IconData(0xed1b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_trip = IconData(0xed1c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_trophy = IconData(0xed1d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_truck = IconData(0xea15, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_tumblr = IconData(0xedc4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_tux = IconData(0xedc5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_tv = IconData(0xed1e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_twitch = IconData(0xedc6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_twitter = IconData(0xedc7, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_underline = IconData(0xed1f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_undo = IconData(0xed20, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_unite = IconData(0xed21, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_unlink = IconData(0xed22, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_unsplash = IconData(0xedc8, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_up_arrow = IconData(0xed23, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_up_arrow_alt = IconData(0xed24, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_up_arrow_circle = IconData(0xed25, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_up_arrow_square = IconData(0xea1b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_upload = IconData(0xed26, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_upside_down = IconData(0xed27, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_upvote = IconData(0xed28, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_usb = IconData(0xed29, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_user = IconData(0xed2a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_user_account = IconData(0xea1f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_user_badge = IconData(0xea20, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_user_check = IconData(0xed2b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_user_circle = IconData(0xed2c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_user_detail = IconData(0xea23, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_user_minus = IconData(0xed2d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_user_pin = IconData(0xed2e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_user_plus = IconData(0xed2f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_user_rectangle = IconData(0xea27, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_user_voice = IconData(0xed30, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_user_x = IconData(0xed31, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_vector = IconData(0xed32, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_vertical_center = IconData(0xed33, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_vial = IconData(0xed34, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_video = IconData(0xed35, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_video_off = IconData(0xed36, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_video_plus = IconData(0xed37, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_video_recording = IconData(0xed38, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_videos = IconData(0xea30, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_vimeo = IconData(0xedc9, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_virus = IconData(0xea31, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_virus_block = IconData(0xea32, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_visa = IconData(0xedca, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_vk = IconData(0xedcb, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_voicemail = IconData(0xed39, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_volume = IconData(0xed3a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_volume_full = IconData(0xed3b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_volume_low = IconData(0xed3c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_volume_mute = IconData(0xed3d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_vuejs = IconData(0xedcc, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_walk = IconData(0xed3e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wallet = IconData(0xed3f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wallet_alt = IconData(0xed40, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_washer = IconData(0xea39, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_watch = IconData(0xea3a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_watch_alt = IconData(0xea3b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_water = IconData(0xed41, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_webcam = IconData(0xed42, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_whatsapp = IconData(0xedcd, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_whatsapp_square = IconData(0xedce, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_widget = IconData(0xea3d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wifi = IconData(0xed43, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wifi_0 = IconData(0xed44, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wifi_1 = IconData(0xed45, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wifi_2 = IconData(0xed46, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wifi_off = IconData(0xed47, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wikipedia = IconData(0xedcf, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wind = IconData(0xed48, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_window = IconData(0xed49, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_window_alt = IconData(0xed4a, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_window_close = IconData(0xed4b, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_window_open = IconData(0xed4c, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_windows = IconData(0xed4d, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wine = IconData(0xed4e, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wink_smile = IconData(0xed4f, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wink_tongue = IconData(0xed50, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wix = IconData(0xedd1, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_won = IconData(0xed51, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wordpress = IconData(0xedd2, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_world = IconData(0xed52, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_wrench = IconData(0xed53, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_x = IconData(0xed54, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_x_circle = IconData(0xed55, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_x_square = IconData(0xea44, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_yahoo = IconData(0xedd3, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_yelp = IconData(0xedd4, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_yen = IconData(0xed56, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_yin_yang = IconData(0xea45, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_youtube = IconData(0xedd5, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_zap = IconData(0xea46, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_zoom = IconData(0xedd6, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_zoom_in = IconData(0xed57, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
-  static const box_zoom_out = IconData(0xed58, fontFamily: 'BoxIcons', fontPackage: 'flutter_boxicons');
   static const flu_access_time_filled = IconData(61697, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_access_time_regular = IconData(61697, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_accessibility_checkmark_filled = IconData(57348, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -11709,1015 +10703,2280 @@ abstract class IconPack {
   static const mdi_zodiac_scorpio = IconData(0xf0a86, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_zodiac_taurus = IconData(0xf0a87, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_zodiac_virgo = IconData(0xf0a88, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const rmx_a24_hours_fill = IconData(0xea01, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_a24_hours_line = IconData(0xea02, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_a4k_fill = IconData(0xea03, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_a4k_line = IconData(0xea04, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_a_b = IconData(0xea05, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_account_box_fill = IconData(0xea06, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_account_box_line = IconData(0xea07, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_account_circle_fill = IconData(0xea08, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_account_circle_line = IconData(0xea09, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_account_pin_box_fill = IconData(0xea0a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_account_pin_box_line = IconData(0xea0b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_account_pin_circle_fill = IconData(0xea0c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_account_pin_circle_line = IconData(0xea0d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_add_box_fill = IconData(0xea0e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_add_box_line = IconData(0xea0f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_add_circle_fill = IconData(0xea10, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_add_circle_line = IconData(0xea11, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_add_fill = IconData(0xea12, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_add_line = IconData(0xea13, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_admin_fill = IconData(0xea14, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_admin_line = IconData(0xea15, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_advertisement_fill = IconData(0xea16, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_advertisement_line = IconData(0xea17, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_airplay_fill = IconData(0xea18, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_airplay_line = IconData(0xea19, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_alarm_fill = IconData(0xea1a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_alarm_line = IconData(0xea1b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_alarm_warning_fill = IconData(0xea1c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_alarm_warning_line = IconData(0xea1d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_album_fill = IconData(0xea1e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_album_line = IconData(0xea1f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_alert_fill = IconData(0xea20, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_alert_line = IconData(0xea21, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_aliens_fill = IconData(0xea22, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_aliens_line = IconData(0xea23, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_align_bottom = IconData(0xea24, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_align_center = IconData(0xea25, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_align_justify = IconData(0xea26, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_align_left = IconData(0xea27, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_align_right = IconData(0xea28, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_align_top = IconData(0xea29, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_align_vertically = IconData(0xea2a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_alipay_fill = IconData(0xea2b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_alipay_line = IconData(0xea2c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_amazon_fill = IconData(0xea2d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_amazon_line = IconData(0xea2e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_anchor_fill = IconData(0xea2f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_anchor_line = IconData(0xea30, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ancient_gate_fill = IconData(0xea31, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ancient_gate_line = IconData(0xea32, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ancient_pavilion_fill = IconData(0xea33, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ancient_pavilion_line = IconData(0xea34, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_android_fill = IconData(0xea35, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_android_line = IconData(0xea36, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_angularjs_fill = IconData(0xea37, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_angularjs_line = IconData(0xea38, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_anticlockwise_2_fill = IconData(0xea39, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_anticlockwise_2_line = IconData(0xea3a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_anticlockwise_fill = IconData(0xea3b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_anticlockwise_line = IconData(0xea3c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_app_store_fill = IconData(0xea3d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_app_store_line = IconData(0xea3e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_apple_fill = IconData(0xea3f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_apple_line = IconData(0xea40, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_apps_2_fill = IconData(0xea41, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_apps_2_line = IconData(0xea42, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_apps_fill = IconData(0xea43, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_apps_line = IconData(0xea44, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_archive_drawer_fill = IconData(0xea45, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_archive_drawer_line = IconData(0xea46, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_archive_fill = IconData(0xea47, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_archive_line = IconData(0xea48, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_down_circle_fill = IconData(0xea49, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_down_circle_line = IconData(0xea4a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_down_fill = IconData(0xea4b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_down_line = IconData(0xea4c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_down_s_fill = IconData(0xea4d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_down_s_line = IconData(0xea4e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_drop_down_fill = IconData(0xea4f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_drop_down_line = IconData(0xea50, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_drop_left_fill = IconData(0xea51, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_drop_left_line = IconData(0xea52, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_drop_right_fill = IconData(0xea53, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_drop_right_line = IconData(0xea54, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_drop_up_fill = IconData(0xea55, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_drop_up_line = IconData(0xea56, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_go_back_fill = IconData(0xea57, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_go_back_line = IconData(0xea58, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_go_forward_fill = IconData(0xea59, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_go_forward_line = IconData(0xea5a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_left_circle_fill = IconData(0xea5b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_left_circle_line = IconData(0xea5c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_left_down_fill = IconData(0xea5d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_left_down_line = IconData(0xea5e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_left_fill = IconData(0xea5f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_left_line = IconData(0xea60, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_left_right_fill = IconData(0xea61, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_left_right_line = IconData(0xea62, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_left_s_fill = IconData(0xea63, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_left_s_line = IconData(0xea64, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_left_up_fill = IconData(0xea65, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_left_up_line = IconData(0xea66, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_right_circle_fill = IconData(0xea67, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_right_circle_line = IconData(0xea68, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_right_down_fill = IconData(0xea69, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_right_down_line = IconData(0xea6a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_right_fill = IconData(0xea6b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_right_line = IconData(0xea6c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_right_s_fill = IconData(0xea6d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_right_s_line = IconData(0xea6e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_right_up_fill = IconData(0xea6f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_right_up_line = IconData(0xea70, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_up_circle_fill = IconData(0xea71, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_up_circle_line = IconData(0xea72, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_up_down_fill = IconData(0xea73, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_up_down_line = IconData(0xea74, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_up_fill = IconData(0xea75, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_up_line = IconData(0xea76, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_up_s_fill = IconData(0xea77, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_arrow_up_s_line = IconData(0xea78, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_artboard_2_fill = IconData(0xea79, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_artboard_2_line = IconData(0xea7a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_artboard_fill = IconData(0xea7b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_artboard_line = IconData(0xea7c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_article_fill = IconData(0xea7d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_article_line = IconData(0xea7e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_aspect_ratio_fill = IconData(0xea7f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_aspect_ratio_line = IconData(0xea80, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_asterisk = IconData(0xea81, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_at_fill = IconData(0xea82, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_at_line = IconData(0xea83, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_attachment_2 = IconData(0xea84, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_attachment_fill = IconData(0xea85, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_attachment_line = IconData(0xea86, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_auction_fill = IconData(0xea87, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_auction_line = IconData(0xea88, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_award_fill = IconData(0xea89, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_award_line = IconData(0xea8a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_baidu_fill = IconData(0xea8b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_baidu_line = IconData(0xea8c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ball_pen_fill = IconData(0xea8d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ball_pen_line = IconData(0xea8e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bank_card_2_fill = IconData(0xea8f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bank_card_2_line = IconData(0xea90, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bank_card_fill = IconData(0xea91, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bank_card_line = IconData(0xea92, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bank_fill = IconData(0xea93, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bank_line = IconData(0xea94, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bar_chart_2_fill = IconData(0xea95, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bar_chart_2_line = IconData(0xea96, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bar_chart_box_fill = IconData(0xea97, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bar_chart_box_line = IconData(0xea98, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bar_chart_fill = IconData(0xea99, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bar_chart_grouped_fill = IconData(0xea9a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bar_chart_grouped_line = IconData(0xea9b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bar_chart_horizontal_fill = IconData(0xea9c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bar_chart_horizontal_line = IconData(0xea9d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bar_chart_line = IconData(0xea9e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_barcode_box_fill = IconData(0xea9f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_barcode_box_line = IconData(0xeaa0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_barcode_fill = IconData(0xeaa1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_barcode_line = IconData(0xeaa2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_barricade_fill = IconData(0xeaa3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_barricade_line = IconData(0xeaa4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_base_station_fill = IconData(0xeaa5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_base_station_line = IconData(0xeaa6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_basketball_fill = IconData(0xeaa7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_basketball_line = IconData(0xeaa8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_2_charge_fill = IconData(0xeaa9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_2_charge_line = IconData(0xeaaa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_2_fill = IconData(0xeaab, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_2_line = IconData(0xeaac, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_charge_fill = IconData(0xeaad, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_charge_line = IconData(0xeaae, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_fill = IconData(0xeaaf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_line = IconData(0xeab0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_low_fill = IconData(0xeab1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_low_line = IconData(0xeab2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_saver_fill = IconData(0xeab3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_saver_line = IconData(0xeab4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_share_fill = IconData(0xeab5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_battery_share_line = IconData(0xeab6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bear_smile_fill = IconData(0xeab7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bear_smile_line = IconData(0xeab8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_behance_fill = IconData(0xeab9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_behance_line = IconData(0xeaba, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bell_fill = IconData(0xeabb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bell_line = IconData(0xeabc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bike_fill = IconData(0xeabd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bike_line = IconData(0xeabe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bilibili_fill = IconData(0xeabf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bilibili_line = IconData(0xeac0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bill_fill = IconData(0xeac1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bill_line = IconData(0xeac2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_billiards_fill = IconData(0xeac3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_billiards_line = IconData(0xeac4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bit_coin_fill = IconData(0xeac5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bit_coin_line = IconData(0xeac6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_blaze_fill = IconData(0xeac7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_blaze_line = IconData(0xeac8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bluetooth_connect_fill = IconData(0xeac9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bluetooth_connect_line = IconData(0xeaca, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bluetooth_fill = IconData(0xeacb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bluetooth_line = IconData(0xeacc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_blur_off_fill = IconData(0xeacd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_blur_off_line = IconData(0xeace, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_body_scan_fill = IconData(0xeacf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_body_scan_line = IconData(0xead0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bold = IconData(0xead1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_book_2_fill = IconData(0xead2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_book_2_line = IconData(0xead3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_book_3_fill = IconData(0xead4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_book_3_line = IconData(0xead5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_book_fill = IconData(0xead6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_book_line = IconData(0xead7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_book_mark_fill = IconData(0xead8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_book_mark_line = IconData(0xead9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_book_open_fill = IconData(0xeada, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_book_open_line = IconData(0xeadb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_book_read_fill = IconData(0xeadc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_book_read_line = IconData(0xeadd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_booklet_fill = IconData(0xeade, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_booklet_line = IconData(0xeadf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bookmark_2_fill = IconData(0xeae0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bookmark_2_line = IconData(0xeae1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bookmark_3_fill = IconData(0xeae2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bookmark_3_line = IconData(0xeae3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bookmark_fill = IconData(0xeae4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bookmark_line = IconData(0xeae5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_boxing_fill = IconData(0xeae6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_boxing_line = IconData(0xeae7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_braces_fill = IconData(0xeae8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_braces_line = IconData(0xeae9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_brackets_fill = IconData(0xeaea, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_brackets_line = IconData(0xeaeb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_briefcase_2_fill = IconData(0xeaec, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_briefcase_2_line = IconData(0xeaed, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_briefcase_3_fill = IconData(0xeaee, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_briefcase_3_line = IconData(0xeaef, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_briefcase_4_fill = IconData(0xeaf0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_briefcase_4_line = IconData(0xeaf1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_briefcase_5_fill = IconData(0xeaf2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_briefcase_5_line = IconData(0xeaf3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_briefcase_fill = IconData(0xeaf4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_briefcase_line = IconData(0xeaf5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bring_forward = IconData(0xeaf6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bring_to_front = IconData(0xeaf7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_broadcast_fill = IconData(0xeaf8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_broadcast_line = IconData(0xeaf9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_brush_2_fill = IconData(0xeafa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_brush_2_line = IconData(0xeafb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_brush_3_fill = IconData(0xeafc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_brush_3_line = IconData(0xeafd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_brush_4_fill = IconData(0xeafe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_brush_4_line = IconData(0xeaff, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_brush_fill = IconData(0xeb00, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_brush_line = IconData(0xeb01, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bubble_chart_fill = IconData(0xeb02, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bubble_chart_line = IconData(0xeb03, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bug_2_fill = IconData(0xeb04, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bug_2_line = IconData(0xeb05, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bug_fill = IconData(0xeb06, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bug_line = IconData(0xeb07, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_building_2_fill = IconData(0xeb08, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_building_2_line = IconData(0xeb09, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_building_3_fill = IconData(0xeb0a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_building_3_line = IconData(0xeb0b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_building_4_fill = IconData(0xeb0c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_building_4_line = IconData(0xeb0d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_building_fill = IconData(0xeb0e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_building_line = IconData(0xeb0f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bus_2_fill = IconData(0xeb10, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bus_2_line = IconData(0xeb11, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bus_fill = IconData(0xeb12, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bus_line = IconData(0xeb13, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bus_wifi_fill = IconData(0xeb14, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_bus_wifi_line = IconData(0xeb15, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cactus_fill = IconData(0xeb16, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cactus_line = IconData(0xeb17, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cake_2_fill = IconData(0xeb18, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cake_2_line = IconData(0xeb19, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cake_3_fill = IconData(0xeb1a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cake_3_line = IconData(0xeb1b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cake_fill = IconData(0xeb1c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cake_line = IconData(0xeb1d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_calculator_fill = IconData(0xeb1e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_calculator_line = IconData(0xeb1f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_calendar_2_fill = IconData(0xeb20, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_calendar_2_line = IconData(0xeb21, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_calendar_check_fill = IconData(0xeb22, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_calendar_check_line = IconData(0xeb23, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_calendar_event_fill = IconData(0xeb24, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_calendar_event_line = IconData(0xeb25, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_calendar_fill = IconData(0xeb26, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_calendar_line = IconData(0xeb27, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_calendar_todo_fill = IconData(0xeb28, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_calendar_todo_line = IconData(0xeb29, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_camera_2_fill = IconData(0xeb2a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_camera_2_line = IconData(0xeb2b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_camera_3_fill = IconData(0xeb2c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_camera_3_line = IconData(0xeb2d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_camera_fill = IconData(0xeb2e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_camera_lens_fill = IconData(0xeb2f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_camera_lens_line = IconData(0xeb30, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_camera_line = IconData(0xeb31, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_camera_off_fill = IconData(0xeb32, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_camera_off_line = IconData(0xeb33, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_camera_switch_fill = IconData(0xeb34, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_camera_switch_line = IconData(0xeb35, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_capsule_fill = IconData(0xeb36, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_capsule_line = IconData(0xeb37, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_car_fill = IconData(0xeb38, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_car_line = IconData(0xeb39, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_car_washing_fill = IconData(0xeb3a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_car_washing_line = IconData(0xeb3b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_caravan_fill = IconData(0xeb3c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_caravan_line = IconData(0xeb3d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cast_fill = IconData(0xeb3e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cast_line = IconData(0xeb3f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cellphone_fill = IconData(0xeb40, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cellphone_line = IconData(0xeb41, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_celsius_fill = IconData(0xeb42, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_celsius_line = IconData(0xeb43, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_centos_fill = IconData(0xeb44, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_centos_line = IconData(0xeb45, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_character_recognition_fill = IconData(0xeb46, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_character_recognition_line = IconData(0xeb47, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_charging_pile_2_fill = IconData(0xeb48, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_charging_pile_2_line = IconData(0xeb49, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_charging_pile_fill = IconData(0xeb4a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_charging_pile_line = IconData(0xeb4b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_1_fill = IconData(0xeb4c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_1_line = IconData(0xeb4d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_2_fill = IconData(0xeb4e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_2_line = IconData(0xeb4f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_3_fill = IconData(0xeb50, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_3_line = IconData(0xeb51, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_4_fill = IconData(0xeb52, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_4_line = IconData(0xeb53, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_check_fill = IconData(0xeb54, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_check_line = IconData(0xeb55, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_delete_fill = IconData(0xeb56, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_delete_line = IconData(0xeb57, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_download_fill = IconData(0xeb58, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_download_line = IconData(0xeb59, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_follow_up_fill = IconData(0xeb5a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_follow_up_line = IconData(0xeb5b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_forward_fill = IconData(0xeb5c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_forward_line = IconData(0xeb5d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_heart_fill = IconData(0xeb5e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_heart_line = IconData(0xeb5f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_history_fill = IconData(0xeb60, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_history_line = IconData(0xeb61, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_new_fill = IconData(0xeb62, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_new_line = IconData(0xeb63, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_off_fill = IconData(0xeb64, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_off_line = IconData(0xeb65, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_poll_fill = IconData(0xeb66, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_poll_line = IconData(0xeb67, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_private_fill = IconData(0xeb68, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_private_line = IconData(0xeb69, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_quote_fill = IconData(0xeb6a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_quote_line = IconData(0xeb6b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_settings_fill = IconData(0xeb6c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_settings_line = IconData(0xeb6d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_smile_2_fill = IconData(0xeb6e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_smile_2_line = IconData(0xeb6f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_smile_3_fill = IconData(0xeb70, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_smile_3_line = IconData(0xeb71, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_smile_fill = IconData(0xeb72, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_smile_line = IconData(0xeb73, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_upload_fill = IconData(0xeb74, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_upload_line = IconData(0xeb75, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_voice_fill = IconData(0xeb76, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chat_voice_line = IconData(0xeb77, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_check_double_fill = IconData(0xeb78, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_check_double_line = IconData(0xeb79, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_check_fill = IconData(0xeb7a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_check_line = IconData(0xeb7b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_blank_circle_fill = IconData(0xeb7c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_blank_circle_line = IconData(0xeb7d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_blank_fill = IconData(0xeb7e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_blank_line = IconData(0xeb7f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_circle_fill = IconData(0xeb80, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_circle_line = IconData(0xeb81, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_fill = IconData(0xeb82, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_indeterminate_fill = IconData(0xeb83, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_indeterminate_line = IconData(0xeb84, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_line = IconData(0xeb85, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_multiple_blank_fill = IconData(0xeb86, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_multiple_blank_line = IconData(0xeb87, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_multiple_fill = IconData(0xeb88, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_checkbox_multiple_line = IconData(0xeb89, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_china_railway_fill = IconData(0xeb8a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_china_railway_line = IconData(0xeb8b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chrome_fill = IconData(0xeb8c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_chrome_line = IconData(0xeb8d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_clapperboard_fill = IconData(0xeb8e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_clapperboard_line = IconData(0xeb8f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_clipboard_fill = IconData(0xeb90, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_clipboard_line = IconData(0xeb91, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_clockwise_2_fill = IconData(0xeb92, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_clockwise_2_line = IconData(0xeb93, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_clockwise_fill = IconData(0xeb94, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_clockwise_line = IconData(0xeb95, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_close_circle_fill = IconData(0xeb96, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_close_circle_line = IconData(0xeb97, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_close_fill = IconData(0xeb98, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_close_line = IconData(0xeb99, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_closed_captioning_fill = IconData(0xeb9a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_closed_captioning_line = IconData(0xeb9b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cloud_fill = IconData(0xeb9c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cloud_line = IconData(0xeb9d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cloud_off_fill = IconData(0xeb9e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cloud_off_line = IconData(0xeb9f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cloud_windy_fill = IconData(0xeba0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cloud_windy_line = IconData(0xeba1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cloudy_2_fill = IconData(0xeba2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cloudy_2_line = IconData(0xeba3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cloudy_fill = IconData(0xeba4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cloudy_line = IconData(0xeba5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_code_box_fill = IconData(0xeba6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_code_box_line = IconData(0xeba7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_code_fill = IconData(0xeba8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_code_line = IconData(0xeba9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_code_s_fill = IconData(0xebaa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_code_s_line = IconData(0xebab, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_code_s_slash_fill = IconData(0xebac, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_code_s_slash_line = IconData(0xebad, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_code_view = IconData(0xebae, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_codepen_fill = IconData(0xebaf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_codepen_line = IconData(0xebb0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coin_fill = IconData(0xebb1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coin_line = IconData(0xebb2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coins_fill = IconData(0xebb3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coins_line = IconData(0xebb4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_collage_fill = IconData(0xebb5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_collage_line = IconData(0xebb6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_command_fill = IconData(0xebb7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_command_line = IconData(0xebb8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_community_fill = IconData(0xebb9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_community_line = IconData(0xebba, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compass_2_fill = IconData(0xebbb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compass_2_line = IconData(0xebbc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compass_3_fill = IconData(0xebbd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compass_3_line = IconData(0xebbe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compass_4_fill = IconData(0xebbf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compass_4_line = IconData(0xebc0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compass_discover_fill = IconData(0xebc1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compass_discover_line = IconData(0xebc2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compass_fill = IconData(0xebc3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compass_line = IconData(0xebc4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compasses_2_fill = IconData(0xebc5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compasses_2_line = IconData(0xebc6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compasses_fill = IconData(0xebc7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_compasses_line = IconData(0xebc8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_computer_fill = IconData(0xebc9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_computer_line = IconData(0xebca, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contacts_book_2_fill = IconData(0xebcb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contacts_book_2_line = IconData(0xebcc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contacts_book_fill = IconData(0xebcd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contacts_book_line = IconData(0xebce, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contacts_book_upload_fill = IconData(0xebcf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contacts_book_upload_line = IconData(0xebd0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contacts_fill = IconData(0xebd1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contacts_line = IconData(0xebd2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contrast_2_fill = IconData(0xebd3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contrast_2_line = IconData(0xebd4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contrast_drop_2_fill = IconData(0xebd5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contrast_drop_2_line = IconData(0xebd6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contrast_drop_fill = IconData(0xebd7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contrast_drop_line = IconData(0xebd8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contrast_fill = IconData(0xebd9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_contrast_line = IconData(0xebda, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_copper_coin_fill = IconData(0xebdb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_copper_coin_line = IconData(0xebdc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_copper_diamond_fill = IconData(0xebdd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_copper_diamond_line = IconData(0xebde, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_copyleft_fill = IconData(0xebdf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_copyleft_line = IconData(0xebe0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_copyright_fill = IconData(0xebe1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_copyright_line = IconData(0xebe2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coreos_fill = IconData(0xebe3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coreos_line = IconData(0xebe4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coupon_2_fill = IconData(0xebe5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coupon_2_line = IconData(0xebe6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coupon_3_fill = IconData(0xebe7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coupon_3_line = IconData(0xebe8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coupon_4_fill = IconData(0xebe9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coupon_4_line = IconData(0xebea, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coupon_5_fill = IconData(0xebeb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coupon_5_line = IconData(0xebec, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coupon_fill = IconData(0xebed, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_coupon_line = IconData(0xebee, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cpu_fill = IconData(0xebef, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cpu_line = IconData(0xebf0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_creative_commons_by_fill = IconData(0xebf1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_creative_commons_by_line = IconData(0xebf2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_creative_commons_fill = IconData(0xebf3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_creative_commons_line = IconData(0xebf4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_creative_commons_nc_fill = IconData(0xebf5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_creative_commons_nc_line = IconData(0xebf6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_creative_commons_nd_fill = IconData(0xebf7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_creative_commons_nd_line = IconData(0xebf8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_creative_commons_sa_fill = IconData(0xebf9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_creative_commons_sa_line = IconData(0xebfa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_creative_commons_zero_fill = IconData(0xebfb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_creative_commons_zero_line = IconData(0xebfc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_criminal_fill = IconData(0xebfd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_criminal_line = IconData(0xebfe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_crop_2_fill = IconData(0xebff, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_crop_2_line = IconData(0xec00, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_crop_fill = IconData(0xec01, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_crop_line = IconData(0xec02, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_css3_fill = IconData(0xec03, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_css3_line = IconData(0xec04, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cup_fill = IconData(0xec05, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cup_line = IconData(0xec06, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_currency_fill = IconData(0xec07, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_currency_line = IconData(0xec08, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cursor_fill = IconData(0xec09, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_cursor_line = IconData(0xec0a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_customer_service_2_fill = IconData(0xec0b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_customer_service_2_line = IconData(0xec0c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_customer_service_fill = IconData(0xec0d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_customer_service_line = IconData(0xec0e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dashboard_2_fill = IconData(0xec0f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dashboard_2_line = IconData(0xec10, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dashboard_3_fill = IconData(0xec11, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dashboard_3_line = IconData(0xec12, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dashboard_fill = IconData(0xec13, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dashboard_line = IconData(0xec14, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_database_2_fill = IconData(0xec15, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_database_2_line = IconData(0xec16, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_database_fill = IconData(0xec17, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_database_line = IconData(0xec18, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_back_2_fill = IconData(0xec19, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_back_2_line = IconData(0xec1a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_back_fill = IconData(0xec1b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_back_line = IconData(0xec1c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_2_fill = IconData(0xec1d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_2_line = IconData(0xec1e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_3_fill = IconData(0xec1f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_3_line = IconData(0xec20, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_4_fill = IconData(0xec21, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_4_line = IconData(0xec22, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_5_fill = IconData(0xec23, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_5_line = IconData(0xec24, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_6_fill = IconData(0xec25, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_6_line = IconData(0xec26, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_7_fill = IconData(0xec27, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_7_line = IconData(0xec28, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_fill = IconData(0xec29, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_bin_line = IconData(0xec2a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_column = IconData(0xec2b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_delete_row = IconData(0xec2c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_device_fill = IconData(0xec2d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_device_line = IconData(0xec2e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_device_recover_fill = IconData(0xec2f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_device_recover_line = IconData(0xec30, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dingding_fill = IconData(0xec31, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dingding_line = IconData(0xec32, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_direction_fill = IconData(0xec33, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_direction_line = IconData(0xec34, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_disc_fill = IconData(0xec35, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_disc_line = IconData(0xec36, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_discord_fill = IconData(0xec37, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_discord_line = IconData(0xec38, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_discuss_fill = IconData(0xec39, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_discuss_line = IconData(0xec3a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dislike_fill = IconData(0xec3b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dislike_line = IconData(0xec3c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_disqus_fill = IconData(0xec3d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_disqus_line = IconData(0xec3e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_divide_fill = IconData(0xec3f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_divide_line = IconData(0xec40, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_donut_chart_fill = IconData(0xec41, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_donut_chart_line = IconData(0xec42, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_door_closed_fill = IconData(0xec43, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_door_closed_line = IconData(0xec44, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_door_fill = IconData(0xec45, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_door_line = IconData(0xec46, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_door_lock_box_fill = IconData(0xec47, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_door_lock_box_line = IconData(0xec48, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_door_lock_fill = IconData(0xec49, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_door_lock_line = IconData(0xec4a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_door_open_fill = IconData(0xec4b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_door_open_line = IconData(0xec4c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dossier_fill = IconData(0xec4d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dossier_line = IconData(0xec4e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_douban_fill = IconData(0xec4f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_douban_line = IconData(0xec50, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_double_quotes_l = IconData(0xec51, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_double_quotes_r = IconData(0xec52, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_download_2_fill = IconData(0xec53, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_download_2_line = IconData(0xec54, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_download_cloud_2_fill = IconData(0xec55, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_download_cloud_2_line = IconData(0xec56, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_download_cloud_fill = IconData(0xec57, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_download_cloud_line = IconData(0xec58, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_download_fill = IconData(0xec59, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_download_line = IconData(0xec5a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_draft_fill = IconData(0xec5b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_draft_line = IconData(0xec5c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_drag_drop_fill = IconData(0xec5d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_drag_drop_line = IconData(0xec5e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_drag_move_2_fill = IconData(0xec5f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_drag_move_2_line = IconData(0xec60, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_drag_move_fill = IconData(0xec61, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_drag_move_line = IconData(0xec62, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dribbble_fill = IconData(0xec63, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dribbble_line = IconData(0xec64, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_drive_fill = IconData(0xec65, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_drive_line = IconData(0xec66, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_drizzle_fill = IconData(0xec67, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_drizzle_line = IconData(0xec68, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_drop_fill = IconData(0xec69, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_drop_line = IconData(0xec6a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dropbox_fill = IconData(0xec6b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dropbox_line = IconData(0xec6c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dual_sim_1_fill = IconData(0xec6d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dual_sim_1_line = IconData(0xec6e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dual_sim_2_fill = IconData(0xec6f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dual_sim_2_line = IconData(0xec70, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dv_fill = IconData(0xec71, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dv_line = IconData(0xec72, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dvd_fill = IconData(0xec73, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_dvd_line = IconData(0xec74, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_e_bike_2_fill = IconData(0xec75, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_e_bike_2_line = IconData(0xec76, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_e_bike_fill = IconData(0xec77, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_e_bike_line = IconData(0xec78, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_earth_fill = IconData(0xec79, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_earth_line = IconData(0xec7a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_earthquake_fill = IconData(0xec7b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_earthquake_line = IconData(0xec7c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_edge_fill = IconData(0xec7d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_edge_line = IconData(0xec7e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_edit_2_fill = IconData(0xec7f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_edit_2_line = IconData(0xec80, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_edit_box_fill = IconData(0xec81, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_edit_box_line = IconData(0xec82, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_edit_circle_fill = IconData(0xec83, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_edit_circle_line = IconData(0xec84, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_edit_fill = IconData(0xec85, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_edit_line = IconData(0xec86, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_eject_fill = IconData(0xec87, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_eject_line = IconData(0xec88, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_2_fill = IconData(0xec89, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_2_line = IconData(0xec8a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_fill = IconData(0xec8b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_happy_fill = IconData(0xec8c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_happy_line = IconData(0xec8d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_laugh_fill = IconData(0xec8e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_laugh_line = IconData(0xec8f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_line = IconData(0xec90, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_normal_fill = IconData(0xec91, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_normal_line = IconData(0xec92, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_sad_fill = IconData(0xec93, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_sad_line = IconData(0xec94, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_unhappy_fill = IconData(0xec95, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emotion_unhappy_line = IconData(0xec96, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_empathize_fill = IconData(0xec97, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_empathize_line = IconData(0xec98, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emphasis = IconData(0xec9a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_emphasis_cn = IconData(0xec99, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_english_input = IconData(0xec9b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_equalizer_fill = IconData(0xec9c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_equalizer_line = IconData(0xec9d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_eraser_fill = IconData(0xec9e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_eraser_line = IconData(0xec9f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_error_warning_fill = IconData(0xeca0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_error_warning_line = IconData(0xeca1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_evernote_fill = IconData(0xeca2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_evernote_line = IconData(0xeca3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_exchange_box_fill = IconData(0xeca4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_exchange_box_line = IconData(0xeca5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_exchange_cny_fill = IconData(0xeca6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_exchange_cny_line = IconData(0xeca7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_exchange_dollar_fill = IconData(0xeca8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_exchange_dollar_line = IconData(0xeca9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_exchange_fill = IconData(0xecaa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_exchange_funds_fill = IconData(0xecab, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_exchange_funds_line = IconData(0xecac, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_exchange_line = IconData(0xecad, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_external_link_fill = IconData(0xecae, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_external_link_line = IconData(0xecaf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_eye_2_fill = IconData(0xecb0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_eye_2_line = IconData(0xecb1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_eye_close_fill = IconData(0xecb2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_eye_close_line = IconData(0xecb3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_eye_fill = IconData(0xecb4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_eye_line = IconData(0xecb5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_eye_off_fill = IconData(0xecb6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_eye_off_line = IconData(0xecb7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_facebook_box_fill = IconData(0xecb8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_facebook_box_line = IconData(0xecb9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_facebook_circle_fill = IconData(0xecba, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_facebook_circle_line = IconData(0xecbb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_facebook_fill = IconData(0xecbc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_facebook_line = IconData(0xecbd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fahrenheit_fill = IconData(0xecbe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fahrenheit_line = IconData(0xecbf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_feedback_fill = IconData(0xecc0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_feedback_line = IconData(0xecc1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_2_fill = IconData(0xecc2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_2_line = IconData(0xecc3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_3_fill = IconData(0xecc4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_3_line = IconData(0xecc5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_4_fill = IconData(0xecc6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_4_line = IconData(0xecc7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_add_fill = IconData(0xecc8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_add_line = IconData(0xecc9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_chart_2_fill = IconData(0xecca, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_chart_2_line = IconData(0xeccb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_chart_fill = IconData(0xeccc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_chart_line = IconData(0xeccd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_cloud_fill = IconData(0xecce, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_cloud_line = IconData(0xeccf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_code_fill = IconData(0xecd0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_code_line = IconData(0xecd1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_copy_2_fill = IconData(0xecd2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_copy_2_line = IconData(0xecd3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_copy_fill = IconData(0xecd4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_copy_line = IconData(0xecd5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_damage_fill = IconData(0xecd6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_damage_line = IconData(0xecd7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_download_fill = IconData(0xecd8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_download_line = IconData(0xecd9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_edit_fill = IconData(0xecda, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_edit_line = IconData(0xecdb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_excel_2_fill = IconData(0xecdc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_excel_2_line = IconData(0xecdd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_excel_fill = IconData(0xecde, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_excel_line = IconData(0xecdf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_fill = IconData(0xece0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_forbid_fill = IconData(0xece1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_forbid_line = IconData(0xece2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_gif_fill = IconData(0xece3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_gif_line = IconData(0xece4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_history_fill = IconData(0xece5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_history_line = IconData(0xece6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_hwp_fill = IconData(0xece7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_hwp_line = IconData(0xece8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_info_fill = IconData(0xece9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_info_line = IconData(0xecea, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_line = IconData(0xeceb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_list_2_fill = IconData(0xecec, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_list_2_line = IconData(0xeced, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_list_3_fill = IconData(0xecee, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_list_3_line = IconData(0xecef, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_list_fill = IconData(0xecf0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_list_line = IconData(0xecf1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_lock_fill = IconData(0xecf2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_lock_line = IconData(0xecf3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_mark_fill = IconData(0xecf4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_mark_line = IconData(0xecf5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_music_fill = IconData(0xecf6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_music_line = IconData(0xecf7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_paper_2_fill = IconData(0xecf8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_paper_2_line = IconData(0xecf9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_paper_fill = IconData(0xecfa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_paper_line = IconData(0xecfb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_pdf_fill = IconData(0xecfc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_pdf_line = IconData(0xecfd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_ppt_2_fill = IconData(0xecfe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_ppt_2_line = IconData(0xecff, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_ppt_fill = IconData(0xed00, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_ppt_line = IconData(0xed01, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_reduce_fill = IconData(0xed02, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_reduce_line = IconData(0xed03, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_search_fill = IconData(0xed04, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_search_line = IconData(0xed05, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_settings_fill = IconData(0xed06, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_settings_line = IconData(0xed07, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_shield_2_fill = IconData(0xed08, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_shield_2_line = IconData(0xed09, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_shield_fill = IconData(0xed0a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_shield_line = IconData(0xed0b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_shred_fill = IconData(0xed0c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_shred_line = IconData(0xed0d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_text_fill = IconData(0xed0e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_text_line = IconData(0xed0f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_transfer_fill = IconData(0xed10, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_transfer_line = IconData(0xed11, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_unknow_fill = IconData(0xed12, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_unknow_line = IconData(0xed13, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_upload_fill = IconData(0xed14, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_upload_line = IconData(0xed15, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_user_fill = IconData(0xed16, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_user_line = IconData(0xed17, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_warning_fill = IconData(0xed18, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_warning_line = IconData(0xed19, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_word_2_fill = IconData(0xed1a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_word_2_line = IconData(0xed1b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_word_fill = IconData(0xed1c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_word_line = IconData(0xed1d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_zip_fill = IconData(0xed1e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_file_zip_line = IconData(0xed1f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_film_fill = IconData(0xed20, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_film_line = IconData(0xed21, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_filter_2_fill = IconData(0xed22, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_filter_2_line = IconData(0xed23, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_filter_3_fill = IconData(0xed24, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_filter_3_line = IconData(0xed25, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_filter_fill = IconData(0xed26, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_filter_line = IconData(0xed27, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_filter_off_fill = IconData(0xed28, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_filter_off_line = IconData(0xed29, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_find_replace_fill = IconData(0xed2a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_find_replace_line = IconData(0xed2b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_finder_fill = IconData(0xed2c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_finder_line = IconData(0xed2d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fingerprint_2_fill = IconData(0xed2e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fingerprint_2_line = IconData(0xed2f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fingerprint_fill = IconData(0xed30, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fingerprint_line = IconData(0xed31, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fire_fill = IconData(0xed32, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fire_line = IconData(0xed33, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_firefox_fill = IconData(0xed34, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_firefox_line = IconData(0xed35, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_first_aid_kit_fill = IconData(0xed36, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_first_aid_kit_line = IconData(0xed37, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flag_2_fill = IconData(0xed38, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flag_2_line = IconData(0xed39, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flag_fill = IconData(0xed3a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flag_line = IconData(0xed3b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flashlight_fill = IconData(0xed3c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flashlight_line = IconData(0xed3d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flask_fill = IconData(0xed3e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flask_line = IconData(0xed3f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flight_land_fill = IconData(0xed40, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flight_land_line = IconData(0xed41, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flight_takeoff_fill = IconData(0xed42, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flight_takeoff_line = IconData(0xed43, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flood_fill = IconData(0xed44, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flood_line = IconData(0xed45, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flow_chart = IconData(0xed46, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flutter_fill = IconData(0xed47, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_flutter_line = IconData(0xed48, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_focus_2_fill = IconData(0xed49, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_focus_2_line = IconData(0xed4a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_focus_3_fill = IconData(0xed4b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_focus_3_line = IconData(0xed4c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_focus_fill = IconData(0xed4d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_focus_line = IconData(0xed4e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_foggy_fill = IconData(0xed4f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_foggy_line = IconData(0xed50, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_2_fill = IconData(0xed51, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_2_line = IconData(0xed52, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_3_fill = IconData(0xed53, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_3_line = IconData(0xed54, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_4_fill = IconData(0xed55, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_4_line = IconData(0xed56, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_5_fill = IconData(0xed57, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_5_line = IconData(0xed58, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_add_fill = IconData(0xed59, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_add_line = IconData(0xed5a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_chart_2_fill = IconData(0xed5b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_chart_2_line = IconData(0xed5c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_chart_fill = IconData(0xed5d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_chart_line = IconData(0xed5e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_download_fill = IconData(0xed5f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_download_line = IconData(0xed60, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_fill = IconData(0xed61, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_forbid_fill = IconData(0xed62, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_forbid_line = IconData(0xed63, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_history_fill = IconData(0xed64, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_history_line = IconData(0xed65, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_info_fill = IconData(0xed66, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_info_line = IconData(0xed67, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_keyhole_fill = IconData(0xed68, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_keyhole_line = IconData(0xed69, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_line = IconData(0xed6a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_lock_fill = IconData(0xed6b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_lock_line = IconData(0xed6c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_music_fill = IconData(0xed6d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_music_line = IconData(0xed6e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_open_fill = IconData(0xed6f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_open_line = IconData(0xed70, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_received_fill = IconData(0xed71, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_received_line = IconData(0xed72, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_reduce_fill = IconData(0xed73, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_reduce_line = IconData(0xed74, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_settings_fill = IconData(0xed75, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_settings_line = IconData(0xed76, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_shared_fill = IconData(0xed77, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_shared_line = IconData(0xed78, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_shield_2_fill = IconData(0xed79, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_shield_2_line = IconData(0xed7a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_shield_fill = IconData(0xed7b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_shield_line = IconData(0xed7c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_transfer_fill = IconData(0xed7d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_transfer_line = IconData(0xed7e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_unknow_fill = IconData(0xed7f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_unknow_line = IconData(0xed80, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_upload_fill = IconData(0xed81, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_upload_line = IconData(0xed82, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_user_fill = IconData(0xed83, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_user_line = IconData(0xed84, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_warning_fill = IconData(0xed85, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_warning_line = IconData(0xed86, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_zip_fill = IconData(0xed87, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folder_zip_line = IconData(0xed88, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folders_fill = IconData(0xed89, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_folders_line = IconData(0xed8a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_font_color = IconData(0xed8b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_font_size = IconData(0xed8d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_font_size_2 = IconData(0xed8c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_football_fill = IconData(0xed8e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_football_line = IconData(0xed8f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_footprint_fill = IconData(0xed90, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_footprint_line = IconData(0xed91, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_forbid_2_fill = IconData(0xed92, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_forbid_2_line = IconData(0xed93, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_forbid_fill = IconData(0xed94, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_forbid_line = IconData(0xed95, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_format_clear = IconData(0xed96, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fridge_fill = IconData(0xed97, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fridge_line = IconData(0xed98, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fullscreen_exit_fill = IconData(0xed99, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fullscreen_exit_line = IconData(0xed9a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fullscreen_fill = IconData(0xed9b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_fullscreen_line = IconData(0xed9c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_function_fill = IconData(0xed9d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_function_line = IconData(0xed9e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_functions = IconData(0xed9f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_funds_box_fill = IconData(0xeda0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_funds_box_line = IconData(0xeda1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_funds_fill = IconData(0xeda2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_funds_line = IconData(0xeda3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gallery_fill = IconData(0xeda4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gallery_line = IconData(0xeda5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gallery_upload_fill = IconData(0xeda6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gallery_upload_line = IconData(0xeda7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_game_fill = IconData(0xeda8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_game_line = IconData(0xeda9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gamepad_fill = IconData(0xedaa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gamepad_line = IconData(0xedab, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gas_station_fill = IconData(0xedac, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gas_station_line = IconData(0xedad, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gatsby_fill = IconData(0xedae, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gatsby_line = IconData(0xedaf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_genderless_fill = IconData(0xedb0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_genderless_line = IconData(0xedb1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ghost_2_fill = IconData(0xedb2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ghost_2_line = IconData(0xedb3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ghost_fill = IconData(0xedb4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ghost_line = IconData(0xedb5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ghost_smile_fill = IconData(0xedb6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ghost_smile_line = IconData(0xedb7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gift_2_fill = IconData(0xedb8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gift_2_line = IconData(0xedb9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gift_fill = IconData(0xedba, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gift_line = IconData(0xedbb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_branch_fill = IconData(0xedbc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_branch_line = IconData(0xedbd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_commit_fill = IconData(0xedbe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_commit_line = IconData(0xedbf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_merge_fill = IconData(0xedc0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_merge_line = IconData(0xedc1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_pull_request_fill = IconData(0xedc2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_pull_request_line = IconData(0xedc3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_repository_commits_fill = IconData(0xedc4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_repository_commits_line = IconData(0xedc5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_repository_fill = IconData(0xedc6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_repository_line = IconData(0xedc7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_repository_private_fill = IconData(0xedc8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_git_repository_private_line = IconData(0xedc9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_github_fill = IconData(0xedca, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_github_line = IconData(0xedcb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gitlab_fill = IconData(0xedcc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gitlab_line = IconData(0xedcd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_global_fill = IconData(0xedce, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_global_line = IconData(0xedcf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_globe_fill = IconData(0xedd0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_globe_line = IconData(0xedd1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_goblet_fill = IconData(0xedd2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_goblet_line = IconData(0xedd3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_google_fill = IconData(0xedd4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_google_line = IconData(0xedd5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_google_play_fill = IconData(0xedd6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_google_play_line = IconData(0xedd7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_government_fill = IconData(0xedd8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_government_line = IconData(0xedd9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gps_fill = IconData(0xedda, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gps_line = IconData(0xeddb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gradienter_fill = IconData(0xeddc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_gradienter_line = IconData(0xeddd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_grid_fill = IconData(0xedde, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_grid_line = IconData(0xeddf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_group_2_fill = IconData(0xede0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_group_2_line = IconData(0xede1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_group_fill = IconData(0xede2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_group_line = IconData(0xede3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_guide_fill = IconData(0xede4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_guide_line = IconData(0xede5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_h_1 = IconData(0xede6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_h_2 = IconData(0xede7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_h_3 = IconData(0xede8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_h_4 = IconData(0xede9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_h_5 = IconData(0xedea, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_h_6 = IconData(0xedeb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hail_fill = IconData(0xedec, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hail_line = IconData(0xeded, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hammer_fill = IconData(0xedee, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hammer_line = IconData(0xedef, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hand_coin_fill = IconData(0xedf0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hand_coin_line = IconData(0xedf1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hand_heart_fill = IconData(0xedf2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hand_heart_line = IconData(0xedf3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hand_sanitizer_fill = IconData(0xedf4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hand_sanitizer_line = IconData(0xedf5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_handbag_fill = IconData(0xedf6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_handbag_line = IconData(0xedf7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hard_drive_2_fill = IconData(0xedf8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hard_drive_2_line = IconData(0xedf9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hard_drive_fill = IconData(0xedfa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hard_drive_line = IconData(0xedfb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hashtag = IconData(0xedfc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_haze_2_fill = IconData(0xedfd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_haze_2_line = IconData(0xedfe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_haze_fill = IconData(0xedff, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_haze_line = IconData(0xee00, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hd_fill = IconData(0xee01, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hd_line = IconData(0xee02, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_heading = IconData(0xee03, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_headphone_fill = IconData(0xee04, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_headphone_line = IconData(0xee05, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_health_book_fill = IconData(0xee06, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_health_book_line = IconData(0xee07, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_heart_2_fill = IconData(0xee08, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_heart_2_line = IconData(0xee09, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_heart_3_fill = IconData(0xee0a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_heart_3_line = IconData(0xee0b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_heart_add_fill = IconData(0xee0c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_heart_add_line = IconData(0xee0d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_heart_fill = IconData(0xee0e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_heart_line = IconData(0xee0f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_heart_pulse_fill = IconData(0xee10, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_heart_pulse_line = IconData(0xee11, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hearts_fill = IconData(0xee12, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hearts_line = IconData(0xee13, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_heavy_showers_fill = IconData(0xee14, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_heavy_showers_line = IconData(0xee15, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_history_fill = IconData(0xee16, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_history_line = IconData(0xee17, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_2_fill = IconData(0xee18, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_2_line = IconData(0xee19, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_3_fill = IconData(0xee1a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_3_line = IconData(0xee1b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_4_fill = IconData(0xee1c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_4_line = IconData(0xee1d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_5_fill = IconData(0xee1e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_5_line = IconData(0xee1f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_6_fill = IconData(0xee20, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_6_line = IconData(0xee21, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_7_fill = IconData(0xee22, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_7_line = IconData(0xee23, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_8_fill = IconData(0xee24, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_8_line = IconData(0xee25, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_fill = IconData(0xee26, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_gear_fill = IconData(0xee27, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_gear_line = IconData(0xee28, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_heart_fill = IconData(0xee29, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_heart_line = IconData(0xee2a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_line = IconData(0xee2b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_smile_2_fill = IconData(0xee2c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_smile_2_line = IconData(0xee2d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_smile_fill = IconData(0xee2e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_smile_line = IconData(0xee2f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_wifi_fill = IconData(0xee30, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_home_wifi_line = IconData(0xee31, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_honor_of_kings_fill = IconData(0xee32, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_honor_of_kings_line = IconData(0xee33, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_honour_fill = IconData(0xee34, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_honour_line = IconData(0xee35, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hospital_fill = IconData(0xee36, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hospital_line = IconData(0xee37, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hotel_bed_fill = IconData(0xee38, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hotel_bed_line = IconData(0xee39, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hotel_fill = IconData(0xee3a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hotel_line = IconData(0xee3b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hotspot_fill = IconData(0xee3c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hotspot_line = IconData(0xee3d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hq_fill = IconData(0xee3e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_hq_line = IconData(0xee3f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_html5_fill = IconData(0xee40, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_html5_line = IconData(0xee41, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ie_fill = IconData(0xee42, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ie_line = IconData(0xee43, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_image_2_fill = IconData(0xee44, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_image_2_line = IconData(0xee45, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_image_add_fill = IconData(0xee46, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_image_add_line = IconData(0xee47, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_image_edit_fill = IconData(0xee48, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_image_edit_line = IconData(0xee49, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_image_fill = IconData(0xee4a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_image_line = IconData(0xee4b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_inbox_archive_fill = IconData(0xee4c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_inbox_archive_line = IconData(0xee4d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_inbox_fill = IconData(0xee4e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_inbox_line = IconData(0xee4f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_inbox_unarchive_fill = IconData(0xee50, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_inbox_unarchive_line = IconData(0xee51, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_increase_decrease_fill = IconData(0xee52, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_increase_decrease_line = IconData(0xee53, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_indent_decrease = IconData(0xee54, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_indent_increase = IconData(0xee55, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_indeterminate_circle_fill = IconData(0xee56, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_indeterminate_circle_line = IconData(0xee57, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_information_fill = IconData(0xee58, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_information_line = IconData(0xee59, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_infrared_thermometer_fill = IconData(0xee5a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_infrared_thermometer_line = IconData(0xee5b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ink_bottle_fill = IconData(0xee5c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ink_bottle_line = IconData(0xee5d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_input_cursor_move = IconData(0xee5e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_input_method_fill = IconData(0xee5f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_input_method_line = IconData(0xee60, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_insert_column_left = IconData(0xee61, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_insert_column_right = IconData(0xee62, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_insert_row_bottom = IconData(0xee63, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_insert_row_top = IconData(0xee64, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_instagram_fill = IconData(0xee65, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_instagram_line = IconData(0xee66, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_install_fill = IconData(0xee67, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_install_line = IconData(0xee68, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_invision_fill = IconData(0xee69, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_invision_line = IconData(0xee6a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_italic = IconData(0xee6b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_kakao_talk_fill = IconData(0xee6c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_kakao_talk_line = IconData(0xee6d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_key_2_fill = IconData(0xee6e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_key_2_line = IconData(0xee6f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_key_fill = IconData(0xee70, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_key_line = IconData(0xee71, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_keyboard_box_fill = IconData(0xee72, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_keyboard_box_line = IconData(0xee73, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_keyboard_fill = IconData(0xee74, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_keyboard_line = IconData(0xee75, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_keynote_fill = IconData(0xee76, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_keynote_line = IconData(0xee77, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_knife_blood_fill = IconData(0xee78, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_knife_blood_line = IconData(0xee79, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_knife_fill = IconData(0xee7a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_knife_line = IconData(0xee7b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_landscape_fill = IconData(0xee7c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_landscape_line = IconData(0xee7d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_2_fill = IconData(0xee7e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_2_line = IconData(0xee7f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_3_fill = IconData(0xee80, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_3_line = IconData(0xee81, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_4_fill = IconData(0xee82, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_4_line = IconData(0xee83, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_5_fill = IconData(0xee84, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_5_line = IconData(0xee85, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_6_fill = IconData(0xee86, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_6_line = IconData(0xee87, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_bottom_2_fill = IconData(0xee88, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_bottom_2_line = IconData(0xee89, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_bottom_fill = IconData(0xee8a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_bottom_line = IconData(0xee8b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_column_fill = IconData(0xee8c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_column_line = IconData(0xee8d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_fill = IconData(0xee8e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_grid_fill = IconData(0xee8f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_grid_line = IconData(0xee90, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_left_2_fill = IconData(0xee91, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_left_2_line = IconData(0xee92, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_left_fill = IconData(0xee93, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_left_line = IconData(0xee94, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_line = IconData(0xee95, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_masonry_fill = IconData(0xee96, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_masonry_line = IconData(0xee97, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_right_2_fill = IconData(0xee98, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_right_2_line = IconData(0xee99, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_right_fill = IconData(0xee9a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_right_line = IconData(0xee9b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_row_fill = IconData(0xee9c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_row_line = IconData(0xee9d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_top_2_fill = IconData(0xee9e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_top_2_line = IconData(0xee9f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_top_fill = IconData(0xeea0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_layout_top_line = IconData(0xeea1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_leaf_fill = IconData(0xeea2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_leaf_line = IconData(0xeea3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lifebuoy_fill = IconData(0xeea4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lifebuoy_line = IconData(0xeea5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lightbulb_fill = IconData(0xeea6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lightbulb_flash_fill = IconData(0xeea7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lightbulb_flash_line = IconData(0xeea8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lightbulb_line = IconData(0xeea9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_line_chart_fill = IconData(0xeeaa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_line_chart_line = IconData(0xeeab, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_line_fill = IconData(0xeeac, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_line_height = IconData(0xeead, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_line_line = IconData(0xeeae, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_link = IconData(0xeeb2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_link_m = IconData(0xeeaf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_link_unlink = IconData(0xeeb1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_link_unlink_m = IconData(0xeeb0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_linkedin_box_fill = IconData(0xeeb3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_linkedin_box_line = IconData(0xeeb4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_linkedin_fill = IconData(0xeeb5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_linkedin_line = IconData(0xeeb6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_links_fill = IconData(0xeeb7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_links_line = IconData(0xeeb8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_list_check = IconData(0xeeba, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_list_check_2 = IconData(0xeeb9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_list_ordered = IconData(0xeebb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_list_settings_fill = IconData(0xeebc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_list_settings_line = IconData(0xeebd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_list_unordered = IconData(0xeebe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_live_fill = IconData(0xeebf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_live_line = IconData(0xeec0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_loader_2_fill = IconData(0xeec1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_loader_2_line = IconData(0xeec2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_loader_3_fill = IconData(0xeec3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_loader_3_line = IconData(0xeec4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_loader_4_fill = IconData(0xeec5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_loader_4_line = IconData(0xeec6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_loader_5_fill = IconData(0xeec7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_loader_5_line = IconData(0xeec8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_loader_fill = IconData(0xeec9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_loader_line = IconData(0xeeca, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lock_2_fill = IconData(0xeecb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lock_2_line = IconData(0xeecc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lock_fill = IconData(0xeecd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lock_line = IconData(0xeece, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lock_password_fill = IconData(0xeecf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lock_password_line = IconData(0xeed0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lock_unlock_fill = IconData(0xeed1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lock_unlock_line = IconData(0xeed2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_login_box_fill = IconData(0xeed3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_login_box_line = IconData(0xeed4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_login_circle_fill = IconData(0xeed5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_login_circle_line = IconData(0xeed6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_logout_box_fill = IconData(0xeed7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_logout_box_line = IconData(0xeed8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_logout_box_r_fill = IconData(0xeed9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_logout_box_r_line = IconData(0xeeda, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_logout_circle_fill = IconData(0xeedb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_logout_circle_line = IconData(0xeedc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_logout_circle_r_fill = IconData(0xeedd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_logout_circle_r_line = IconData(0xeede, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_luggage_cart_fill = IconData(0xeedf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_luggage_cart_line = IconData(0xeee0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_luggage_deposit_fill = IconData(0xeee1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_luggage_deposit_line = IconData(0xeee2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lungs_fill = IconData(0xeee3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_lungs_line = IconData(0xeee4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mac_fill = IconData(0xeee5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mac_line = IconData(0xeee6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_macbook_fill = IconData(0xeee7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_macbook_line = IconData(0xeee8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_magic_fill = IconData(0xeee9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_magic_line = IconData(0xeeea, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_add_fill = IconData(0xeeeb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_add_line = IconData(0xeeec, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_check_fill = IconData(0xeeed, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_check_line = IconData(0xeeee, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_close_fill = IconData(0xeeef, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_close_line = IconData(0xeef0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_download_fill = IconData(0xeef1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_download_line = IconData(0xeef2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_fill = IconData(0xeef3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_forbid_fill = IconData(0xeef4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_forbid_line = IconData(0xeef5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_line = IconData(0xeef6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_lock_fill = IconData(0xeef7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_lock_line = IconData(0xeef8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_open_fill = IconData(0xeef9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_open_line = IconData(0xeefa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_send_fill = IconData(0xeefb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_send_line = IconData(0xeefc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_settings_fill = IconData(0xeefd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_settings_line = IconData(0xeefe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_star_fill = IconData(0xeeff, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_star_line = IconData(0xef00, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_unread_fill = IconData(0xef01, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_unread_line = IconData(0xef02, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_volume_fill = IconData(0xef03, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mail_volume_line = IconData(0xef04, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_2_fill = IconData(0xef05, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_2_line = IconData(0xef06, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_fill = IconData(0xef07, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_line = IconData(0xef08, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_2_fill = IconData(0xef09, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_2_line = IconData(0xef0a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_3_fill = IconData(0xef0b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_3_line = IconData(0xef0c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_4_fill = IconData(0xef0d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_4_line = IconData(0xef0e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_5_fill = IconData(0xef0f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_5_line = IconData(0xef10, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_add_fill = IconData(0xef11, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_add_line = IconData(0xef12, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_fill = IconData(0xef13, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_line = IconData(0xef14, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_range_fill = IconData(0xef15, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_range_line = IconData(0xef16, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_time_fill = IconData(0xef17, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_time_line = IconData(0xef18, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_user_fill = IconData(0xef19, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_map_pin_user_line = IconData(0xef1a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mark_pen_fill = IconData(0xef1b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mark_pen_line = IconData(0xef1c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_markdown_fill = IconData(0xef1d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_markdown_line = IconData(0xef1e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_markup_fill = IconData(0xef1f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_markup_line = IconData(0xef20, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mastercard_fill = IconData(0xef21, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mastercard_line = IconData(0xef22, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mastodon_fill = IconData(0xef23, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mastodon_line = IconData(0xef24, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_medal_2_fill = IconData(0xef25, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_medal_2_line = IconData(0xef26, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_medal_fill = IconData(0xef27, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_medal_line = IconData(0xef28, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_medicine_bottle_fill = IconData(0xef29, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_medicine_bottle_line = IconData(0xef2a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_medium_fill = IconData(0xef2b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_medium_line = IconData(0xef2c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_men_fill = IconData(0xef2d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_men_line = IconData(0xef2e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mental_health_fill = IconData(0xef2f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mental_health_line = IconData(0xef30, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_2_fill = IconData(0xef31, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_2_line = IconData(0xef32, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_3_fill = IconData(0xef33, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_3_line = IconData(0xef34, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_4_fill = IconData(0xef35, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_4_line = IconData(0xef36, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_5_fill = IconData(0xef37, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_5_line = IconData(0xef38, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_add_fill = IconData(0xef39, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_add_line = IconData(0xef3a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_fill = IconData(0xef3b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_fold_fill = IconData(0xef3c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_fold_line = IconData(0xef3d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_line = IconData(0xef3e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_unfold_fill = IconData(0xef3f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_menu_unfold_line = IconData(0xef40, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_merge_cells_horizontal = IconData(0xef41, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_merge_cells_vertical = IconData(0xef42, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_message_2_fill = IconData(0xef43, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_message_2_line = IconData(0xef44, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_message_3_fill = IconData(0xef45, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_message_3_line = IconData(0xef46, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_message_fill = IconData(0xef47, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_message_line = IconData(0xef48, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_messenger_fill = IconData(0xef49, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_messenger_line = IconData(0xef4a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_meteor_fill = IconData(0xef4b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_meteor_line = IconData(0xef4c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mic_2_fill = IconData(0xef4d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mic_2_line = IconData(0xef4e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mic_fill = IconData(0xef4f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mic_line = IconData(0xef50, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mic_off_fill = IconData(0xef51, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mic_off_line = IconData(0xef52, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mickey_fill = IconData(0xef53, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mickey_line = IconData(0xef54, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_microscope_fill = IconData(0xef55, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_microscope_line = IconData(0xef56, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_microsoft_fill = IconData(0xef57, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_microsoft_line = IconData(0xef58, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mind_map = IconData(0xef59, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mini_program_fill = IconData(0xef5a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mini_program_line = IconData(0xef5b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mist_fill = IconData(0xef5c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mist_line = IconData(0xef5d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_cny_box_fill = IconData(0xef5e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_cny_box_line = IconData(0xef5f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_cny_circle_fill = IconData(0xef60, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_cny_circle_line = IconData(0xef61, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_dollar_box_fill = IconData(0xef62, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_dollar_box_line = IconData(0xef63, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_dollar_circle_fill = IconData(0xef64, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_dollar_circle_line = IconData(0xef65, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_euro_box_fill = IconData(0xef66, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_euro_box_line = IconData(0xef67, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_euro_circle_fill = IconData(0xef68, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_euro_circle_line = IconData(0xef69, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_pound_box_fill = IconData(0xef6a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_pound_box_line = IconData(0xef6b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_pound_circle_fill = IconData(0xef6c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_money_pound_circle_line = IconData(0xef6d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_moon_clear_fill = IconData(0xef6e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_moon_clear_line = IconData(0xef6f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_moon_cloudy_fill = IconData(0xef70, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_moon_cloudy_line = IconData(0xef71, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_moon_fill = IconData(0xef72, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_moon_foggy_fill = IconData(0xef73, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_moon_foggy_line = IconData(0xef74, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_moon_line = IconData(0xef75, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_more_2_fill = IconData(0xef76, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_more_2_line = IconData(0xef77, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_more_fill = IconData(0xef78, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_more_line = IconData(0xef79, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_motorbike_fill = IconData(0xef7a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_motorbike_line = IconData(0xef7b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mouse_fill = IconData(0xef7c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mouse_line = IconData(0xef7d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_movie_2_fill = IconData(0xef7e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_movie_2_line = IconData(0xef7f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_movie_fill = IconData(0xef80, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_movie_line = IconData(0xef81, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_music_2_fill = IconData(0xef82, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_music_2_line = IconData(0xef83, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_music_fill = IconData(0xef84, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_music_line = IconData(0xef85, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mv_fill = IconData(0xef86, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_mv_line = IconData(0xef87, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_navigation_fill = IconData(0xef88, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_navigation_line = IconData(0xef89, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_netease_cloud_music_fill = IconData(0xef8a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_netease_cloud_music_line = IconData(0xef8b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_netflix_fill = IconData(0xef8c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_netflix_line = IconData(0xef8d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_newspaper_fill = IconData(0xef8e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_newspaper_line = IconData(0xef8f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_node_tree = IconData(0xef90, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_notification_2_fill = IconData(0xef91, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_notification_2_line = IconData(0xef92, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_notification_3_fill = IconData(0xef93, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_notification_3_line = IconData(0xef94, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_notification_4_fill = IconData(0xef95, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_notification_4_line = IconData(0xef96, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_notification_badge_fill = IconData(0xef97, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_notification_badge_line = IconData(0xef98, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_notification_fill = IconData(0xef99, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_notification_line = IconData(0xef9a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_notification_off_fill = IconData(0xef9b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_notification_off_line = IconData(0xef9c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_npmjs_fill = IconData(0xef9d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_npmjs_line = IconData(0xef9e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_number_0 = IconData(0xef9f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_number_1 = IconData(0xefa0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_number_2 = IconData(0xefa1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_number_3 = IconData(0xefa2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_number_4 = IconData(0xefa3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_number_5 = IconData(0xefa4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_number_6 = IconData(0xefa5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_number_7 = IconData(0xefa6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_number_8 = IconData(0xefa7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_number_9 = IconData(0xefa8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_numbers_fill = IconData(0xefa9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_numbers_line = IconData(0xefaa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_nurse_fill = IconData(0xefab, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_nurse_line = IconData(0xefac, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_oil_fill = IconData(0xefad, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_oil_line = IconData(0xefae, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_omega = IconData(0xefaf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_open_arm_fill = IconData(0xefb0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_open_arm_line = IconData(0xefb1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_open_source_fill = IconData(0xefb2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_open_source_line = IconData(0xefb3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_opera_fill = IconData(0xefb4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_opera_line = IconData(0xefb5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_order_play_fill = IconData(0xefb6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_order_play_line = IconData(0xefb7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_organization_chart = IconData(0xefb8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_outlet_2_fill = IconData(0xefb9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_outlet_2_line = IconData(0xefba, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_outlet_fill = IconData(0xefbb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_outlet_line = IconData(0xefbc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_page_separator = IconData(0xefbd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pages_fill = IconData(0xefbe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pages_line = IconData(0xefbf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_paint_brush_fill = IconData(0xefc0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_paint_brush_line = IconData(0xefc1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_paint_fill = IconData(0xefc2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_paint_line = IconData(0xefc3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_palette_fill = IconData(0xefc4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_palette_line = IconData(0xefc5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pantone_fill = IconData(0xefc6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pantone_line = IconData(0xefc7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_paragraph = IconData(0xefc8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_parent_fill = IconData(0xefc9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_parent_line = IconData(0xefca, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_parentheses_fill = IconData(0xefcb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_parentheses_line = IconData(0xefcc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_parking_box_fill = IconData(0xefcd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_parking_box_line = IconData(0xefce, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_parking_fill = IconData(0xefcf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_parking_line = IconData(0xefd0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_passport_fill = IconData(0xefd1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_passport_line = IconData(0xefd2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_patreon_fill = IconData(0xefd3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_patreon_line = IconData(0xefd4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pause_circle_fill = IconData(0xefd5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pause_circle_line = IconData(0xefd6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pause_fill = IconData(0xefd7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pause_line = IconData(0xefd8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pause_mini_fill = IconData(0xefd9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pause_mini_line = IconData(0xefda, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_paypal_fill = IconData(0xefdb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_paypal_line = IconData(0xefdc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pen_nib_fill = IconData(0xefdd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pen_nib_line = IconData(0xefde, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pencil_fill = IconData(0xefdf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pencil_line = IconData(0xefe0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pencil_ruler_2_fill = IconData(0xefe1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pencil_ruler_2_line = IconData(0xefe2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pencil_ruler_fill = IconData(0xefe3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pencil_ruler_line = IconData(0xefe4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_percent_fill = IconData(0xefe5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_percent_line = IconData(0xefe6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_phone_camera_fill = IconData(0xefe7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_phone_camera_line = IconData(0xefe8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_phone_fill = IconData(0xefe9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_phone_find_fill = IconData(0xefea, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_phone_find_line = IconData(0xefeb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_phone_line = IconData(0xefec, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_phone_lock_fill = IconData(0xefed, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_phone_lock_line = IconData(0xefee, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_picture_in_picture_2_fill = IconData(0xefef, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_picture_in_picture_2_line = IconData(0xeff0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_picture_in_picture_exit_fill = IconData(0xeff1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_picture_in_picture_exit_line = IconData(0xeff2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_picture_in_picture_fill = IconData(0xeff3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_picture_in_picture_line = IconData(0xeff4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pie_chart_2_fill = IconData(0xeff5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pie_chart_2_line = IconData(0xeff6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pie_chart_box_fill = IconData(0xeff7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pie_chart_box_line = IconData(0xeff8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pie_chart_fill = IconData(0xeff9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pie_chart_line = IconData(0xeffa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pin_distance_fill = IconData(0xeffb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pin_distance_line = IconData(0xeffc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ping_pong_fill = IconData(0xeffd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ping_pong_line = IconData(0xeffe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pinterest_fill = IconData(0xefff, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pinterest_line = IconData(0xf000, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pinyin_input = IconData(0xf001, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pixelfed_fill = IconData(0xf002, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pixelfed_line = IconData(0xf003, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_plane_fill = IconData(0xf004, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_plane_line = IconData(0xf005, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_plant_fill = IconData(0xf006, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_plant_line = IconData(0xf007, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_play_circle_fill = IconData(0xf008, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_play_circle_line = IconData(0xf009, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_play_fill = IconData(0xf00a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_play_line = IconData(0xf00b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_play_list_2_fill = IconData(0xf00c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_play_list_2_line = IconData(0xf00d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_play_list_add_fill = IconData(0xf00e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_play_list_add_line = IconData(0xf00f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_play_list_fill = IconData(0xf010, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_play_list_line = IconData(0xf011, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_play_mini_fill = IconData(0xf012, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_play_mini_line = IconData(0xf013, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_playstation_fill = IconData(0xf014, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_playstation_line = IconData(0xf015, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_plug_2_fill = IconData(0xf016, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_plug_2_line = IconData(0xf017, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_plug_fill = IconData(0xf018, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_plug_line = IconData(0xf019, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_polaroid_2_fill = IconData(0xf01a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_polaroid_2_line = IconData(0xf01b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_polaroid_fill = IconData(0xf01c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_polaroid_line = IconData(0xf01d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_police_car_fill = IconData(0xf01e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_police_car_line = IconData(0xf01f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_price_tag_2_fill = IconData(0xf020, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_price_tag_2_line = IconData(0xf021, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_price_tag_3_fill = IconData(0xf022, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_price_tag_3_line = IconData(0xf023, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_price_tag_fill = IconData(0xf024, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_price_tag_line = IconData(0xf025, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_printer_cloud_fill = IconData(0xf026, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_printer_cloud_line = IconData(0xf027, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_printer_fill = IconData(0xf028, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_printer_line = IconData(0xf029, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_product_hunt_fill = IconData(0xf02a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_product_hunt_line = IconData(0xf02b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_profile_fill = IconData(0xf02c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_profile_line = IconData(0xf02d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_projector_2_fill = IconData(0xf02e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_projector_2_line = IconData(0xf02f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_projector_fill = IconData(0xf030, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_projector_line = IconData(0xf031, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_psychotherapy_fill = IconData(0xf032, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_psychotherapy_line = IconData(0xf033, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pulse_fill = IconData(0xf034, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pulse_line = IconData(0xf035, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pushpin_2_fill = IconData(0xf036, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pushpin_2_line = IconData(0xf037, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pushpin_fill = IconData(0xf038, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_pushpin_line = IconData(0xf039, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_qq_fill = IconData(0xf03a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_qq_line = IconData(0xf03b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_qr_code_fill = IconData(0xf03c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_qr_code_line = IconData(0xf03d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_qr_scan_2_fill = IconData(0xf03e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_qr_scan_2_line = IconData(0xf03f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_qr_scan_fill = IconData(0xf040, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_qr_scan_line = IconData(0xf041, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_question_answer_fill = IconData(0xf042, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_question_answer_line = IconData(0xf043, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_question_fill = IconData(0xf044, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_question_line = IconData(0xf045, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_question_mark = IconData(0xf046, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_questionnaire_fill = IconData(0xf047, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_questionnaire_line = IconData(0xf048, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_quill_pen_fill = IconData(0xf049, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_quill_pen_line = IconData(0xf04a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_radar_fill = IconData(0xf04b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_radar_line = IconData(0xf04c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_radio_2_fill = IconData(0xf04d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_radio_2_line = IconData(0xf04e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_radio_button_fill = IconData(0xf04f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_radio_button_line = IconData(0xf050, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_radio_fill = IconData(0xf051, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_radio_line = IconData(0xf052, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rainbow_fill = IconData(0xf053, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rainbow_line = IconData(0xf054, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rainy_fill = IconData(0xf055, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rainy_line = IconData(0xf056, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_reactjs_fill = IconData(0xf057, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_reactjs_line = IconData(0xf058, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_record_circle_fill = IconData(0xf059, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_record_circle_line = IconData(0xf05a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_record_mail_fill = IconData(0xf05b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_record_mail_line = IconData(0xf05c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_recycle_fill = IconData(0xf05d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_recycle_line = IconData(0xf05e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_red_packet_fill = IconData(0xf05f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_red_packet_line = IconData(0xf060, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_reddit_fill = IconData(0xf061, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_reddit_line = IconData(0xf062, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_refresh_fill = IconData(0xf063, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_refresh_line = IconData(0xf064, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_refund_2_fill = IconData(0xf065, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_refund_2_line = IconData(0xf066, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_refund_fill = IconData(0xf067, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_refund_line = IconData(0xf068, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_registered_fill = IconData(0xf069, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_registered_line = IconData(0xf06a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_remixicon_fill = IconData(0xf06b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_remixicon_line = IconData(0xf06c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_remote_control_2_fill = IconData(0xf06d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_remote_control_2_line = IconData(0xf06e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_remote_control_fill = IconData(0xf06f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_remote_control_line = IconData(0xf070, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_repeat_2_fill = IconData(0xf071, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_repeat_2_line = IconData(0xf072, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_repeat_fill = IconData(0xf073, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_repeat_line = IconData(0xf074, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_repeat_one_fill = IconData(0xf075, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_repeat_one_line = IconData(0xf076, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_reply_all_fill = IconData(0xf077, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_reply_all_line = IconData(0xf078, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_reply_fill = IconData(0xf079, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_reply_line = IconData(0xf07a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_reserved_fill = IconData(0xf07b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_reserved_line = IconData(0xf07c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rest_time_fill = IconData(0xf07d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rest_time_line = IconData(0xf07e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_restart_fill = IconData(0xf07f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_restart_line = IconData(0xf080, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_restaurant_2_fill = IconData(0xf081, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_restaurant_2_line = IconData(0xf082, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_restaurant_fill = IconData(0xf083, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_restaurant_line = IconData(0xf084, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rewind_fill = IconData(0xf085, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rewind_line = IconData(0xf086, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rewind_mini_fill = IconData(0xf087, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rewind_mini_line = IconData(0xf088, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rhythm_fill = IconData(0xf089, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rhythm_line = IconData(0xf08a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_riding_fill = IconData(0xf08b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_riding_line = IconData(0xf08c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_road_map_fill = IconData(0xf08d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_road_map_line = IconData(0xf08e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_roadster_fill = IconData(0xf08f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_roadster_line = IconData(0xf090, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_robot_fill = IconData(0xf091, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_robot_line = IconData(0xf092, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rocket_2_fill = IconData(0xf093, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rocket_2_line = IconData(0xf094, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rocket_fill = IconData(0xf095, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rocket_line = IconData(0xf096, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rotate_lock_fill = IconData(0xf097, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rotate_lock_line = IconData(0xf098, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rounded_corner = IconData(0xf099, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_route_fill = IconData(0xf09a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_route_line = IconData(0xf09b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_router_fill = IconData(0xf09c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_router_line = IconData(0xf09d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rss_fill = IconData(0xf09e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_rss_line = IconData(0xf09f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ruler_2_fill = IconData(0xf0a0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ruler_2_line = IconData(0xf0a1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ruler_fill = IconData(0xf0a2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ruler_line = IconData(0xf0a3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_run_fill = IconData(0xf0a4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_run_line = IconData(0xf0a5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_safari_fill = IconData(0xf0a6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_safari_line = IconData(0xf0a7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_safe_2_fill = IconData(0xf0a8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_safe_2_line = IconData(0xf0a9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_safe_fill = IconData(0xf0aa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_safe_line = IconData(0xf0ab, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sailboat_fill = IconData(0xf0ac, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sailboat_line = IconData(0xf0ad, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_save_2_fill = IconData(0xf0ae, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_save_2_line = IconData(0xf0af, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_save_3_fill = IconData(0xf0b0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_save_3_line = IconData(0xf0b1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_save_fill = IconData(0xf0b2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_save_line = IconData(0xf0b3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scales_2_fill = IconData(0xf0b4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scales_2_line = IconData(0xf0b5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scales_3_fill = IconData(0xf0b6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scales_3_line = IconData(0xf0b7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scales_fill = IconData(0xf0b8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scales_line = IconData(0xf0b9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scan_2_fill = IconData(0xf0ba, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scan_2_line = IconData(0xf0bb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scan_fill = IconData(0xf0bc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scan_line = IconData(0xf0bd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scissors_2_fill = IconData(0xf0be, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scissors_2_line = IconData(0xf0bf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scissors_cut_fill = IconData(0xf0c0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scissors_cut_line = IconData(0xf0c1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scissors_fill = IconData(0xf0c2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_scissors_line = IconData(0xf0c3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_screenshot_2_fill = IconData(0xf0c4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_screenshot_2_line = IconData(0xf0c5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_screenshot_fill = IconData(0xf0c6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_screenshot_line = IconData(0xf0c7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sd_card_fill = IconData(0xf0c8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sd_card_line = IconData(0xf0c9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sd_card_mini_fill = IconData(0xf0ca, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sd_card_mini_line = IconData(0xf0cb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_search_2_fill = IconData(0xf0cc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_search_2_line = IconData(0xf0cd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_search_eye_fill = IconData(0xf0ce, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_search_eye_line = IconData(0xf0cf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_search_fill = IconData(0xf0d0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_search_line = IconData(0xf0d1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_secure_payment_fill = IconData(0xf0d2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_secure_payment_line = IconData(0xf0d3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_seedling_fill = IconData(0xf0d4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_seedling_line = IconData(0xf0d5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_send_backward = IconData(0xf0d6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_send_plane_2_fill = IconData(0xf0d7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_send_plane_2_line = IconData(0xf0d8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_send_plane_fill = IconData(0xf0d9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_send_plane_line = IconData(0xf0da, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_send_to_back = IconData(0xf0db, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sensor_fill = IconData(0xf0dc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sensor_line = IconData(0xf0dd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_separator = IconData(0xf0de, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_server_fill = IconData(0xf0df, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_server_line = IconData(0xf0e0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_service_fill = IconData(0xf0e1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_service_line = IconData(0xf0e2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_settings_2_fill = IconData(0xf0e3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_settings_2_line = IconData(0xf0e4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_settings_3_fill = IconData(0xf0e5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_settings_3_line = IconData(0xf0e6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_settings_4_fill = IconData(0xf0e7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_settings_4_line = IconData(0xf0e8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_settings_5_fill = IconData(0xf0e9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_settings_5_line = IconData(0xf0ea, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_settings_6_fill = IconData(0xf0eb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_settings_6_line = IconData(0xf0ec, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_settings_fill = IconData(0xf0ed, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_settings_line = IconData(0xf0ee, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shape_2_fill = IconData(0xf0ef, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shape_2_line = IconData(0xf0f0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shape_fill = IconData(0xf0f1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shape_line = IconData(0xf0f2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_share_box_fill = IconData(0xf0f3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_share_box_line = IconData(0xf0f4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_share_circle_fill = IconData(0xf0f5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_share_circle_line = IconData(0xf0f6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_share_fill = IconData(0xf0f7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_share_forward_2_fill = IconData(0xf0f8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_share_forward_2_line = IconData(0xf0f9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_share_forward_box_fill = IconData(0xf0fa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_share_forward_box_line = IconData(0xf0fb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_share_forward_fill = IconData(0xf0fc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_share_forward_line = IconData(0xf0fd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_share_line = IconData(0xf0fe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_check_fill = IconData(0xf0ff, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_check_line = IconData(0xf100, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_cross_fill = IconData(0xf101, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_cross_line = IconData(0xf102, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_fill = IconData(0xf103, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_flash_fill = IconData(0xf104, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_flash_line = IconData(0xf105, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_keyhole_fill = IconData(0xf106, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_keyhole_line = IconData(0xf107, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_line = IconData(0xf108, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_star_fill = IconData(0xf109, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_star_line = IconData(0xf10a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_user_fill = IconData(0xf10b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shield_user_line = IconData(0xf10c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ship_2_fill = IconData(0xf10d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ship_2_line = IconData(0xf10e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ship_fill = IconData(0xf10f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ship_line = IconData(0xf110, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shirt_fill = IconData(0xf111, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shirt_line = IconData(0xf112, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_bag_2_fill = IconData(0xf113, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_bag_2_line = IconData(0xf114, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_bag_3_fill = IconData(0xf115, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_bag_3_line = IconData(0xf116, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_bag_fill = IconData(0xf117, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_bag_line = IconData(0xf118, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_basket_2_fill = IconData(0xf119, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_basket_2_line = IconData(0xf11a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_basket_fill = IconData(0xf11b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_basket_line = IconData(0xf11c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_cart_2_fill = IconData(0xf11d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_cart_2_line = IconData(0xf11e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_cart_fill = IconData(0xf11f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shopping_cart_line = IconData(0xf120, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_showers_fill = IconData(0xf121, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_showers_line = IconData(0xf122, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shuffle_fill = IconData(0xf123, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shuffle_line = IconData(0xf124, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shut_down_fill = IconData(0xf125, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_shut_down_line = IconData(0xf126, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_side_bar_fill = IconData(0xf127, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_side_bar_line = IconData(0xf128, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_tower_fill = IconData(0xf129, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_tower_line = IconData(0xf12a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_wifi_1_fill = IconData(0xf12b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_wifi_1_line = IconData(0xf12c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_wifi_2_fill = IconData(0xf12d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_wifi_2_line = IconData(0xf12e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_wifi_3_fill = IconData(0xf12f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_wifi_3_line = IconData(0xf130, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_wifi_error_fill = IconData(0xf131, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_wifi_error_line = IconData(0xf132, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_wifi_fill = IconData(0xf133, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_wifi_line = IconData(0xf134, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_wifi_off_fill = IconData(0xf135, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_signal_wifi_off_line = IconData(0xf136, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sim_card_2_fill = IconData(0xf137, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sim_card_2_line = IconData(0xf138, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sim_card_fill = IconData(0xf139, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sim_card_line = IconData(0xf13a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_single_quotes_l = IconData(0xf13b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_single_quotes_r = IconData(0xf13c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sip_fill = IconData(0xf13d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sip_line = IconData(0xf13e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skip_back_fill = IconData(0xf13f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skip_back_line = IconData(0xf140, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skip_back_mini_fill = IconData(0xf141, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skip_back_mini_line = IconData(0xf142, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skip_forward_fill = IconData(0xf143, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skip_forward_line = IconData(0xf144, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skip_forward_mini_fill = IconData(0xf145, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skip_forward_mini_line = IconData(0xf146, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skull_2_fill = IconData(0xf147, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skull_2_line = IconData(0xf148, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skull_fill = IconData(0xf149, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skull_line = IconData(0xf14a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skype_fill = IconData(0xf14b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_skype_line = IconData(0xf14c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_slack_fill = IconData(0xf14d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_slack_line = IconData(0xf14e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_slice_fill = IconData(0xf14f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_slice_line = IconData(0xf150, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_slideshow_2_fill = IconData(0xf151, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_slideshow_2_line = IconData(0xf152, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_slideshow_3_fill = IconData(0xf153, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_slideshow_3_line = IconData(0xf154, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_slideshow_4_fill = IconData(0xf155, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_slideshow_4_line = IconData(0xf156, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_slideshow_fill = IconData(0xf157, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_slideshow_line = IconData(0xf158, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_smartphone_fill = IconData(0xf159, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_smartphone_line = IconData(0xf15a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_snapchat_fill = IconData(0xf15b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_snapchat_line = IconData(0xf15c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_snowy_fill = IconData(0xf15d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_snowy_line = IconData(0xf15e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sort_asc = IconData(0xf15f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sort_desc = IconData(0xf160, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sound_module_fill = IconData(0xf161, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sound_module_line = IconData(0xf162, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_soundcloud_fill = IconData(0xf163, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_soundcloud_line = IconData(0xf164, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_space = IconData(0xf167, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_space_ship_fill = IconData(0xf165, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_space_ship_line = IconData(0xf166, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_spam_2_fill = IconData(0xf168, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_spam_2_line = IconData(0xf169, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_spam_3_fill = IconData(0xf16a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_spam_3_line = IconData(0xf16b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_spam_fill = IconData(0xf16c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_spam_line = IconData(0xf16d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_speaker_2_fill = IconData(0xf16e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_speaker_2_line = IconData(0xf16f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_speaker_3_fill = IconData(0xf170, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_speaker_3_line = IconData(0xf171, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_speaker_fill = IconData(0xf172, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_speaker_line = IconData(0xf173, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_spectrum_fill = IconData(0xf174, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_spectrum_line = IconData(0xf175, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_speed_fill = IconData(0xf176, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_speed_line = IconData(0xf177, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_speed_mini_fill = IconData(0xf178, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_speed_mini_line = IconData(0xf179, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_split_cells_horizontal = IconData(0xf17a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_split_cells_vertical = IconData(0xf17b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_spotify_fill = IconData(0xf17c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_spotify_line = IconData(0xf17d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_spy_fill = IconData(0xf17e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_spy_line = IconData(0xf17f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stack_fill = IconData(0xf180, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stack_line = IconData(0xf181, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stack_overflow_fill = IconData(0xf182, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stack_overflow_line = IconData(0xf183, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stackshare_fill = IconData(0xf184, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stackshare_line = IconData(0xf185, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_star_fill = IconData(0xf186, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_star_half_fill = IconData(0xf187, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_star_half_line = IconData(0xf188, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_star_half_s_fill = IconData(0xf189, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_star_half_s_line = IconData(0xf18a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_star_line = IconData(0xf18b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_star_s_fill = IconData(0xf18c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_star_s_line = IconData(0xf18d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_star_smile_fill = IconData(0xf18e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_star_smile_line = IconData(0xf18f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_steam_fill = IconData(0xf190, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_steam_line = IconData(0xf191, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_steering_2_fill = IconData(0xf192, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_steering_2_line = IconData(0xf193, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_steering_fill = IconData(0xf194, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_steering_line = IconData(0xf195, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stethoscope_fill = IconData(0xf196, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stethoscope_line = IconData(0xf197, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sticky_note_2_fill = IconData(0xf198, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sticky_note_2_line = IconData(0xf199, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sticky_note_fill = IconData(0xf19a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sticky_note_line = IconData(0xf19b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stock_fill = IconData(0xf19c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stock_line = IconData(0xf19d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stop_circle_fill = IconData(0xf19e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stop_circle_line = IconData(0xf19f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stop_fill = IconData(0xf1a0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stop_line = IconData(0xf1a1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stop_mini_fill = IconData(0xf1a2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_stop_mini_line = IconData(0xf1a3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_store_2_fill = IconData(0xf1a4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_store_2_line = IconData(0xf1a5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_store_3_fill = IconData(0xf1a6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_store_3_line = IconData(0xf1a7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_store_fill = IconData(0xf1a8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_store_line = IconData(0xf1a9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_strikethrough = IconData(0xf1ab, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_strikethrough_2 = IconData(0xf1aa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_subscript = IconData(0xf1ad, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_subscript_2 = IconData(0xf1ac, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_subtract_fill = IconData(0xf1ae, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_subtract_line = IconData(0xf1af, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_subway_fill = IconData(0xf1b0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_subway_line = IconData(0xf1b1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_subway_wifi_fill = IconData(0xf1b2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_subway_wifi_line = IconData(0xf1b3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_suitcase_2_fill = IconData(0xf1b4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_suitcase_2_line = IconData(0xf1b5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_suitcase_3_fill = IconData(0xf1b6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_suitcase_3_line = IconData(0xf1b7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_suitcase_fill = IconData(0xf1b8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_suitcase_line = IconData(0xf1b9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sun_cloudy_fill = IconData(0xf1ba, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sun_cloudy_line = IconData(0xf1bb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sun_fill = IconData(0xf1bc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sun_foggy_fill = IconData(0xf1bd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sun_foggy_line = IconData(0xf1be, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sun_line = IconData(0xf1bf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_superscript = IconData(0xf1c1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_superscript_2 = IconData(0xf1c0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_surgical_mask_fill = IconData(0xf1c2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_surgical_mask_line = IconData(0xf1c3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_surround_sound_fill = IconData(0xf1c4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_surround_sound_line = IconData(0xf1c5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_survey_fill = IconData(0xf1c6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_survey_line = IconData(0xf1c7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_swap_box_fill = IconData(0xf1c8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_swap_box_line = IconData(0xf1c9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_swap_fill = IconData(0xf1ca, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_swap_line = IconData(0xf1cb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_switch_fill = IconData(0xf1cc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_switch_line = IconData(0xf1cd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sword_fill = IconData(0xf1ce, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_sword_line = IconData(0xf1cf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_syringe_fill = IconData(0xf1d0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_syringe_line = IconData(0xf1d1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_t_box_fill = IconData(0xf1d2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_t_box_line = IconData(0xf1d3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_t_shirt_2_fill = IconData(0xf1d4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_t_shirt_2_line = IconData(0xf1d5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_t_shirt_air_fill = IconData(0xf1d6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_t_shirt_air_line = IconData(0xf1d7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_t_shirt_fill = IconData(0xf1d8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_t_shirt_line = IconData(0xf1d9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_table_2 = IconData(0xf1da, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_table_alt_fill = IconData(0xf1db, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_table_alt_line = IconData(0xf1dc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_table_fill = IconData(0xf1dd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_table_line = IconData(0xf1de, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tablet_fill = IconData(0xf1df, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tablet_line = IconData(0xf1e0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_takeaway_fill = IconData(0xf1e1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_takeaway_line = IconData(0xf1e2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_taobao_fill = IconData(0xf1e3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_taobao_line = IconData(0xf1e4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tape_fill = IconData(0xf1e5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tape_line = IconData(0xf1e6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_task_fill = IconData(0xf1e7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_task_line = IconData(0xf1e8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_taxi_fill = IconData(0xf1e9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_taxi_line = IconData(0xf1ea, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_taxi_wifi_fill = IconData(0xf1eb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_taxi_wifi_line = IconData(0xf1ec, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_team_fill = IconData(0xf1ed, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_team_line = IconData(0xf1ee, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_telegram_fill = IconData(0xf1ef, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_telegram_line = IconData(0xf1f0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_temp_cold_fill = IconData(0xf1f1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_temp_cold_line = IconData(0xf1f2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_temp_hot_fill = IconData(0xf1f3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_temp_hot_line = IconData(0xf1f4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_terminal_box_fill = IconData(0xf1f5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_terminal_box_line = IconData(0xf1f6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_terminal_fill = IconData(0xf1f7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_terminal_line = IconData(0xf1f8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_terminal_window_fill = IconData(0xf1f9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_terminal_window_line = IconData(0xf1fa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_test_tube_fill = IconData(0xf1fb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_test_tube_line = IconData(0xf1fc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_text = IconData(0xf201, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_text_direction_l = IconData(0xf1fd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_text_direction_r = IconData(0xf1fe, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_text_spacing = IconData(0xf1ff, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_text_wrap = IconData(0xf200, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_thermometer_fill = IconData(0xf202, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_thermometer_line = IconData(0xf203, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_thumb_down_fill = IconData(0xf204, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_thumb_down_line = IconData(0xf205, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_thumb_up_fill = IconData(0xf206, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_thumb_up_line = IconData(0xf207, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_thunderstorms_fill = IconData(0xf208, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_thunderstorms_line = IconData(0xf209, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ticket_2_fill = IconData(0xf20a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ticket_2_line = IconData(0xf20b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ticket_fill = IconData(0xf20c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ticket_line = IconData(0xf20d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_time_fill = IconData(0xf20e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_time_line = IconData(0xf20f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_timer_2_fill = IconData(0xf210, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_timer_2_line = IconData(0xf211, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_timer_fill = IconData(0xf212, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_timer_flash_fill = IconData(0xf213, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_timer_flash_line = IconData(0xf214, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_timer_line = IconData(0xf215, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_todo_fill = IconData(0xf216, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_todo_line = IconData(0xf217, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_toggle_fill = IconData(0xf218, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_toggle_line = IconData(0xf219, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tools_fill = IconData(0xf21a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tools_line = IconData(0xf21b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tornado_fill = IconData(0xf21c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tornado_line = IconData(0xf21d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_trademark_fill = IconData(0xf21e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_trademark_line = IconData(0xf21f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_traffic_light_fill = IconData(0xf220, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_traffic_light_line = IconData(0xf221, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_train_fill = IconData(0xf222, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_train_line = IconData(0xf223, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_train_wifi_fill = IconData(0xf224, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_train_wifi_line = IconData(0xf225, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_translate = IconData(0xf227, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_translate_2 = IconData(0xf226, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_travesti_fill = IconData(0xf228, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_travesti_line = IconData(0xf229, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_treasure_map_fill = IconData(0xf22a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_treasure_map_line = IconData(0xf22b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_trello_fill = IconData(0xf22c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_trello_line = IconData(0xf22d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_trophy_fill = IconData(0xf22e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_trophy_line = IconData(0xf22f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_truck_fill = IconData(0xf230, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_truck_line = IconData(0xf231, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tumblr_fill = IconData(0xf232, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tumblr_line = IconData(0xf233, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tv_2_fill = IconData(0xf234, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tv_2_line = IconData(0xf235, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tv_fill = IconData(0xf236, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_tv_line = IconData(0xf237, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_twitch_fill = IconData(0xf238, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_twitch_line = IconData(0xf239, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_twitter_fill = IconData(0xf23a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_twitter_line = IconData(0xf23b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_typhoon_fill = IconData(0xf23c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_typhoon_line = IconData(0xf23d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_u_disk_fill = IconData(0xf23e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_u_disk_line = IconData(0xf23f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ubuntu_fill = IconData(0xf240, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_ubuntu_line = IconData(0xf241, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_umbrella_fill = IconData(0xf242, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_umbrella_line = IconData(0xf243, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_underline = IconData(0xf244, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_uninstall_fill = IconData(0xf245, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_uninstall_line = IconData(0xf246, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_unsplash_fill = IconData(0xf247, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_unsplash_line = IconData(0xf248, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_upload_2_fill = IconData(0xf249, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_upload_2_line = IconData(0xf24a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_upload_cloud_2_fill = IconData(0xf24b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_upload_cloud_2_line = IconData(0xf24c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_upload_cloud_fill = IconData(0xf24d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_upload_cloud_line = IconData(0xf24e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_upload_fill = IconData(0xf24f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_upload_line = IconData(0xf250, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_usb_fill = IconData(0xf251, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_usb_line = IconData(0xf252, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_2_fill = IconData(0xf253, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_2_line = IconData(0xf254, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_3_fill = IconData(0xf255, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_3_line = IconData(0xf256, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_4_fill = IconData(0xf257, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_4_line = IconData(0xf258, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_5_fill = IconData(0xf259, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_5_line = IconData(0xf25a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_6_fill = IconData(0xf25b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_6_line = IconData(0xf25c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_add_fill = IconData(0xf25d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_add_line = IconData(0xf25e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_fill = IconData(0xf25f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_follow_fill = IconData(0xf260, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_follow_line = IconData(0xf261, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_heart_fill = IconData(0xf262, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_heart_line = IconData(0xf263, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_line = IconData(0xf264, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_location_fill = IconData(0xf265, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_location_line = IconData(0xf266, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_received_2_fill = IconData(0xf267, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_received_2_line = IconData(0xf268, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_received_fill = IconData(0xf269, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_received_line = IconData(0xf26a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_search_fill = IconData(0xf26b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_search_line = IconData(0xf26c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_settings_fill = IconData(0xf26d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_settings_line = IconData(0xf26e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_shared_2_fill = IconData(0xf26f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_shared_2_line = IconData(0xf270, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_shared_fill = IconData(0xf271, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_shared_line = IconData(0xf272, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_smile_fill = IconData(0xf273, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_smile_line = IconData(0xf274, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_star_fill = IconData(0xf275, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_star_line = IconData(0xf276, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_unfollow_fill = IconData(0xf277, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_unfollow_line = IconData(0xf278, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_voice_fill = IconData(0xf279, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_user_voice_line = IconData(0xf27a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_video_add_fill = IconData(0xf27b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_video_add_line = IconData(0xf27c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_video_chat_fill = IconData(0xf27d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_video_chat_line = IconData(0xf27e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_video_download_fill = IconData(0xf27f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_video_download_line = IconData(0xf280, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_video_fill = IconData(0xf281, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_video_line = IconData(0xf282, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_video_upload_fill = IconData(0xf283, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_video_upload_line = IconData(0xf284, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vidicon_2_fill = IconData(0xf285, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vidicon_2_line = IconData(0xf286, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vidicon_fill = IconData(0xf287, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vidicon_line = IconData(0xf288, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vimeo_fill = IconData(0xf289, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vimeo_line = IconData(0xf28a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vip_crown_2_fill = IconData(0xf28b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vip_crown_2_line = IconData(0xf28c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vip_crown_fill = IconData(0xf28d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vip_crown_line = IconData(0xf28e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vip_diamond_fill = IconData(0xf28f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vip_diamond_line = IconData(0xf290, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vip_fill = IconData(0xf291, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vip_line = IconData(0xf292, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_virus_fill = IconData(0xf293, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_virus_line = IconData(0xf294, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_visa_fill = IconData(0xf295, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_visa_line = IconData(0xf296, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_voice_recognition_fill = IconData(0xf297, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_voice_recognition_line = IconData(0xf298, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_voiceprint_fill = IconData(0xf299, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_voiceprint_line = IconData(0xf29a, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_volume_down_fill = IconData(0xf29b, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_volume_down_line = IconData(0xf29c, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_volume_mute_fill = IconData(0xf29d, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_volume_mute_line = IconData(0xf29e, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_volume_off_vibrate_fill = IconData(0xf29f, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_volume_off_vibrate_line = IconData(0xf2a0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_volume_up_fill = IconData(0xf2a1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_volume_up_line = IconData(0xf2a2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_volume_vibrate_fill = IconData(0xf2a3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_volume_vibrate_line = IconData(0xf2a4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vuejs_fill = IconData(0xf2a5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_vuejs_line = IconData(0xf2a6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_walk_fill = IconData(0xf2a7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_walk_line = IconData(0xf2a8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wallet_2_fill = IconData(0xf2a9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wallet_2_line = IconData(0xf2aa, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wallet_3_fill = IconData(0xf2ab, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wallet_3_line = IconData(0xf2ac, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wallet_fill = IconData(0xf2ad, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wallet_line = IconData(0xf2ae, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_water_flash_fill = IconData(0xf2af, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_water_flash_line = IconData(0xf2b0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_webcam_fill = IconData(0xf2b1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_webcam_line = IconData(0xf2b2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wechat_2_fill = IconData(0xf2b3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wechat_2_line = IconData(0xf2b4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wechat_fill = IconData(0xf2b5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wechat_line = IconData(0xf2b6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wechat_pay_fill = IconData(0xf2b7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wechat_pay_line = IconData(0xf2b8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_weibo_fill = IconData(0xf2b9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_weibo_line = IconData(0xf2ba, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_whatsapp_fill = IconData(0xf2bb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_whatsapp_line = IconData(0xf2bc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wheelchair_fill = IconData(0xf2bd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wheelchair_line = IconData(0xf2be, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wifi_fill = IconData(0xf2bf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wifi_line = IconData(0xf2c0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wifi_off_fill = IconData(0xf2c1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wifi_off_line = IconData(0xf2c2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_window_2_fill = IconData(0xf2c3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_window_2_line = IconData(0xf2c4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_window_fill = IconData(0xf2c5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_window_line = IconData(0xf2c6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_windows_fill = IconData(0xf2c7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_windows_line = IconData(0xf2c8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_windy_fill = IconData(0xf2c9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_windy_line = IconData(0xf2ca, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wireless_charging_fill = IconData(0xf2cb, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wireless_charging_line = IconData(0xf2cc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_women_fill = IconData(0xf2cd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_women_line = IconData(0xf2ce, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_wubi_input = IconData(0xf2cf, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_xbox_fill = IconData(0xf2d0, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_xbox_line = IconData(0xf2d1, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_xing_fill = IconData(0xf2d2, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_xing_line = IconData(0xf2d3, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_youtube_fill = IconData(0xf2d4, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_youtube_line = IconData(0xf2d5, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_zcool_fill = IconData(0xf2d6, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_zcool_line = IconData(0xf2d7, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_zhihu_fill = IconData(0xf2d8, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_zhihu_line = IconData(0xf2d9, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_zoom_in_fill = IconData(0xf2da, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_zoom_in_line = IconData(0xf2db, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_zoom_out_fill = IconData(0xf2dc, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_zoom_out_line = IconData(0xf2dd, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_zzz_fill = IconData(0xf2de, fontFamily: 'Remix', fontPackage: 'remixicon');
+  static const rmx_zzz_line = IconData(0xf2df, fontFamily: 'Remix', fontPackage: 'remixicon');
 }
 
 abstract class IconPackNames {
-  static const box_500px = 'box_500px';
-  static const box_abacus = 'box_abacus';
-  static const box_accessibility = 'box_accessibility';
-  static const box_add_to_queue = 'box_add_to_queue';
-  static const box_adjust = 'box_adjust';
-  static const box_adjust_alt = 'box_adjust_alt';
-  static const box_adobe = 'box_adobe';
-  static const box_airbnb = 'box_airbnb';
-  static const box_alarm = 'box_alarm';
-  static const box_alarm_add = 'box_alarm_add';
-  static const box_alarm_exclamation = 'box_alarm_exclamation';
-  static const box_alarm_off = 'box_alarm_off';
-  static const box_alarm_snooze = 'box_alarm_snooze';
-  static const box_album = 'box_album';
-  static const box_algolia = 'box_algolia';
-  static const box_align_justify = 'box_align_justify';
-  static const box_align_left = 'box_align_left';
-  static const box_align_middle = 'box_align_middle';
-  static const box_align_right = 'box_align_right';
-  static const box_amazon = 'box_amazon';
-  static const box_ambulance = 'box_ambulance';
-  static const box_analyse = 'box_analyse';
-  static const box_anchor = 'box_anchor';
-  static const box_android = 'box_android';
-  static const box_angry = 'box_angry';
-  static const box_angular = 'box_angular';
-  static const box_aperture = 'box_aperture';
-  static const box_apple = 'box_apple';
-  static const box_arch = 'box_arch';
-  static const box_archive = 'box_archive';
-  static const box_archive_in = 'box_archive_in';
-  static const box_archive_out = 'box_archive_out';
-  static const box_area = 'box_area';
-  static const box_arrow_back = 'box_arrow_back';
-  static const box_arrow_from_bottom = 'box_arrow_from_bottom';
-  static const box_arrow_from_left = 'box_arrow_from_left';
-  static const box_arrow_from_right = 'box_arrow_from_right';
-  static const box_arrow_from_top = 'box_arrow_from_top';
-  static const box_arrow_to_bottom = 'box_arrow_to_bottom';
-  static const box_arrow_to_left = 'box_arrow_to_left';
-  static const box_arrow_to_right = 'box_arrow_to_right';
-  static const box_arrow_to_top = 'box_arrow_to_top';
-  static const box_at = 'box_at';
-  static const box_atom = 'box_atom';
-  static const box_audible = 'box_audible';
-  static const box_award = 'box_award';
-  static const box_baby_carriage = 'box_baby_carriage';
-  static const box_backpack = 'box_backpack';
-  static const box_badge = 'box_badge';
-  static const box_badge_check = 'box_badge_check';
-  static const box_badge_dollar = 'box_badge_dollar';
-  static const box_baidu = 'box_baidu';
-  static const box_ball = 'box_ball';
-  static const box_band_aid = 'box_band_aid';
-  static const box_bank = 'box_bank';
-  static const box_bar_chart = 'box_bar_chart';
-  static const box_bar_chart_alt = 'box_bar_chart_alt';
-  static const box_bar_chart_alt_2 = 'box_bar_chart_alt_2';
-  static const box_bar_chart_square = 'box_bar_chart_square';
-  static const box_barcode = 'box_barcode';
-  static const box_barcode_reader = 'box_barcode_reader';
-  static const box_baseball = 'box_baseball';
-  static const box_baseball_ = 'box_baseball_';
-  static const box_basket = 'box_basket';
-  static const box_basketball = 'box_basketball';
-  static const box_bath = 'box_bath';
-  static const box_battery = 'box_battery';
-  static const box_battery_charging = 'box_battery_charging';
-  static const box_battery_full = 'box_battery_full';
-  static const box_battery_low = 'box_battery_low';
-  static const box_bed = 'box_bed';
-  static const box_been_here = 'box_been_here';
-  static const box_beer = 'box_beer';
-  static const box_behance = 'box_behance';
-  static const box_bell = 'box_bell';
-  static const box_bell_minus = 'box_bell_minus';
-  static const box_bell_off = 'box_bell_off';
-  static const box_bell_plus = 'box_bell_plus';
-  static const box_bell_ring = 'box_bell_ring';
-  static const box_bible = 'box_bible';
-  static const box_bing = 'box_bing';
-  static const box_binoculars = 'box_binoculars';
-  static const box_bitcoin = 'box_bitcoin';
-  static const box_blanket = 'box_blanket';
-  static const box_blender = 'box_blender';
-  static const box_block = 'box_block';
-  static const box_blogger = 'box_blogger';
-  static const box_bluetooth = 'box_bluetooth';
-  static const box_body = 'box_body';
-  static const box_bold = 'box_bold';
-  static const box_bolt = 'box_bolt';
-  static const box_bolt_circle = 'box_bolt_circle';
-  static const box_bomb = 'box_bomb';
-  static const box_bone = 'box_bone';
-  static const box_bong = 'box_bong';
-  static const box_book = 'box_book';
-  static const box_book_add = 'box_book_add';
-  static const box_book_alt = 'box_book_alt';
-  static const box_book_bookmark = 'box_book_bookmark';
-  static const box_book_content = 'box_book_content';
-  static const box_book_heart = 'box_book_heart';
-  static const box_book_open = 'box_book_open';
-  static const box_book_reader = 'box_book_reader';
-  static const box_bookmark = 'box_bookmark';
-  static const box_bookmark_alt = 'box_bookmark_alt';
-  static const box_bookmark_alt_minus = 'box_bookmark_alt_minus';
-  static const box_bookmark_alt_plus = 'box_bookmark_alt_plus';
-  static const box_bookmark_heart = 'box_bookmark_heart';
-  static const box_bookmark_minus = 'box_bookmark_minus';
-  static const box_bookmark_plus = 'box_bookmark_plus';
-  static const box_bookmark_star = 'box_bookmark_star';
-  static const box_bookmarks = 'box_bookmarks';
-  static const box_bootstrap = 'box_bootstrap';
-  static const box_border_all = 'box_border_all';
-  static const box_border_bottom = 'box_border_bottom';
-  static const box_border_inner = 'box_border_inner';
-  static const box_border_left = 'box_border_left';
-  static const box_border_none = 'box_border_none';
-  static const box_border_outer = 'box_border_outer';
-  static const box_border_radius = 'box_border_radius';
-  static const box_border_right = 'box_border_right';
-  static const box_border_top = 'box_border_top';
-  static const box_bot = 'box_bot';
-  static const box_bowling_ball = 'box_bowling_ball';
-  static const box_box = 'box_box';
-  static const box_bracket = 'box_bracket';
-  static const box_braille = 'box_braille';
-  static const box_brain = 'box_brain';
-  static const box_briefcase = 'box_briefcase';
-  static const box_briefcase_alt = 'box_briefcase_alt';
-  static const box_briefcase_alt_2 = 'box_briefcase_alt_2';
-  static const box_brightness = 'box_brightness';
-  static const box_brightness_half = 'box_brightness_half';
-  static const box_broadcast = 'box_broadcast';
-  static const box_brush = 'box_brush';
-  static const box_brush_alt = 'box_brush_alt';
-  static const box_bug = 'box_bug';
-  static const box_bug_alt = 'box_bug_alt';
-  static const box_building = 'box_building';
-  static const box_building_house = 'box_building_house';
-  static const box_buildings = 'box_buildings';
-  static const box_bulb = 'box_bulb';
-  static const box_bullseye = 'box_bullseye';
-  static const box_buoy = 'box_buoy';
-  static const box_bus = 'box_bus';
-  static const box_bus_school = 'box_bus_school';
-  static const box_business = 'box_business';
-  static const box_c_plus_plus = 'box_c_plus_plus';
-  static const box_cabinet = 'box_cabinet';
-  static const box_cake = 'box_cake';
-  static const box_calculator = 'box_calculator';
-  static const box_calendar = 'box_calendar';
-  static const box_calendar_alt = 'box_calendar_alt';
-  static const box_calendar_check = 'box_calendar_check';
-  static const box_calendar_edit = 'box_calendar_edit';
-  static const box_calendar_event = 'box_calendar_event';
-  static const box_calendar_exclamation = 'box_calendar_exclamation';
-  static const box_calendar_heart = 'box_calendar_heart';
-  static const box_calendar_minus = 'box_calendar_minus';
-  static const box_calendar_plus = 'box_calendar_plus';
-  static const box_calendar_star = 'box_calendar_star';
-  static const box_calendar_week = 'box_calendar_week';
-  static const box_calendar_x = 'box_calendar_x';
-  static const box_camera = 'box_camera';
-  static const box_camera_home = 'box_camera_home';
-  static const box_camera_movie = 'box_camera_movie';
-  static const box_camera_off = 'box_camera_off';
-  static const box_camera_plus = 'box_camera_plus';
-  static const box_capsule = 'box_capsule';
-  static const box_captions = 'box_captions';
-  static const box_car = 'box_car';
-  static const box_car_battery = 'box_car_battery';
-  static const box_car_crash = 'box_car_crash';
-  static const box_car_garage = 'box_car_garage';
-  static const box_car_mechanic = 'box_car_mechanic';
-  static const box_car_wash = 'box_car_wash';
-  static const box_card = 'box_card';
-  static const box_caret_down = 'box_caret_down';
-  static const box_caret_down_circle = 'box_caret_down_circle';
-  static const box_caret_down_square = 'box_caret_down_square';
-  static const box_caret_left = 'box_caret_left';
-  static const box_caret_left_circle = 'box_caret_left_circle';
-  static const box_caret_left_square = 'box_caret_left_square';
-  static const box_caret_right = 'box_caret_right';
-  static const box_caret_right_circle = 'box_caret_right_circle';
-  static const box_caret_right_square = 'box_caret_right_square';
-  static const box_caret_up = 'box_caret_up';
-  static const box_caret_up_circle = 'box_caret_up_circle';
-  static const box_caret_up_square = 'box_caret_up_square';
-  static const box_carousel = 'box_carousel';
-  static const box_cart = 'box_cart';
-  static const box_cart_add = 'box_cart_add';
-  static const box_cart_alt = 'box_cart_alt';
-  static const box_cart_download = 'box_cart_download';
-  static const box_cast = 'box_cast';
-  static const box_category = 'box_category';
-  static const box_category_alt = 'box_category_alt';
-  static const box_cctv = 'box_cctv';
-  static const box_certification = 'box_certification';
-  static const box_chair = 'box_chair';
-  static const box_chalkboard = 'box_chalkboard';
-  static const box_chart = 'box_chart';
-  static const box_chat = 'box_chat';
-  static const box_check = 'box_check';
-  static const box_check_circle = 'box_check_circle';
-  static const box_check_double = 'box_check_double';
-  static const box_check_shield = 'box_check_shield';
-  static const box_check_square = 'box_check_square';
-  static const box_checkbox = 'box_checkbox';
-  static const box_checkbox_checked = 'box_checkbox_checked';
-  static const box_checkbox_square = 'box_checkbox_square';
-  static const box_chess = 'box_chess';
-  static const box_chevron_down = 'box_chevron_down';
-  static const box_chevron_down_circle = 'box_chevron_down_circle';
-  static const box_chevron_down_square = 'box_chevron_down_square';
-  static const box_chevron_left = 'box_chevron_left';
-  static const box_chevron_left_circle = 'box_chevron_left_circle';
-  static const box_chevron_left_square = 'box_chevron_left_square';
-  static const box_chevron_right = 'box_chevron_right';
-  static const box_chevron_right_circle = 'box_chevron_right_circle';
-  static const box_chevron_right_square = 'box_chevron_right_square';
-  static const box_chevron_up = 'box_chevron_up';
-  static const box_chevron_up_circle = 'box_chevron_up_circle';
-  static const box_chevron_up_square = 'box_chevron_up_square';
-  static const box_chevrons_down = 'box_chevrons_down';
-  static const box_chevrons_left = 'box_chevrons_left';
-  static const box_chevrons_right = 'box_chevrons_right';
-  static const box_chevrons_up = 'box_chevrons_up';
-  static const box_chip = 'box_chip';
-  static const box_chrome = 'box_chrome';
-  static const box_church = 'box_church';
-  static const box_circle = 'box_circle';
-  static const box_city = 'box_city';
-  static const box_clinic = 'box_clinic';
-  static const box_clipboard = 'box_clipboard';
-  static const box_closet = 'box_closet';
-  static const box_cloud = 'box_cloud';
-  static const box_cloud_download = 'box_cloud_download';
-  static const box_cloud_drizzle = 'box_cloud_drizzle';
-  static const box_cloud_light_rain = 'box_cloud_light_rain';
-  static const box_cloud_lightning = 'box_cloud_lightning';
-  static const box_cloud_rain = 'box_cloud_rain';
-  static const box_cloud_snow = 'box_cloud_snow';
-  static const box_cloud_upload = 'box_cloud_upload';
-  static const box_code = 'box_code';
-  static const box_code_alt = 'box_code_alt';
-  static const box_code_block = 'box_code_block';
-  static const box_code_curly = 'box_code_curly';
-  static const box_codepen = 'box_codepen';
-  static const box_coffee = 'box_coffee';
-  static const box_coffee_alt = 'box_coffee_alt';
-  static const box_coffee_togo = 'box_coffee_togo';
-  static const box_cog = 'box_cog';
-  static const box_coin = 'box_coin';
-  static const box_coin_stack = 'box_coin_stack';
-  static const box_collapse = 'box_collapse';
-  static const box_collection = 'box_collection';
-  static const box_color_fill = 'box_color_fill';
-  static const box_columns = 'box_columns';
-  static const box_command = 'box_command';
-  static const box_comment = 'box_comment';
-  static const box_comment_add = 'box_comment_add';
-  static const box_comment_check = 'box_comment_check';
-  static const box_comment_detail = 'box_comment_detail';
-  static const box_comment_dots = 'box_comment_dots';
-  static const box_comment_edit = 'box_comment_edit';
-  static const box_comment_error = 'box_comment_error';
-  static const box_comment_minus = 'box_comment_minus';
-  static const box_comment_x = 'box_comment_x';
-  static const box_compass = 'box_compass';
-  static const box_component = 'box_component';
-  static const box_confused = 'box_confused';
-  static const box_contact = 'box_contact';
-  static const box_conversation = 'box_conversation';
-  static const box_cookie = 'box_cookie';
-  static const box_cool = 'box_cool';
-  static const box_copy = 'box_copy';
-  static const box_copy_alt = 'box_copy_alt';
-  static const box_copyright = 'box_copyright';
-  static const box_coupon = 'box_coupon';
-  static const box_creative_commons = 'box_creative_commons';
-  static const box_credit_card = 'box_credit_card';
-  static const box_credit_card_alt = 'box_credit_card_alt';
-  static const box_credit_card_front = 'box_credit_card_front';
-  static const box_crop = 'box_crop';
-  static const box_crosshair = 'box_crosshair';
-  static const box_crown = 'box_crown';
-  static const box_css3 = 'box_css3';
-  static const box_cube = 'box_cube';
-  static const box_cube_alt = 'box_cube_alt';
-  static const box_cuboid = 'box_cuboid';
-  static const box_current_location = 'box_current_location';
-  static const box_customize = 'box_customize';
-  static const box_cut = 'box_cut';
-  static const box_cycling = 'box_cycling';
-  static const box_cylinder = 'box_cylinder';
-  static const box_dailymotion = 'box_dailymotion';
-  static const box_dashboard = 'box_dashboard';
-  static const box_data = 'box_data';
-  static const box_desktop = 'box_desktop';
-  static const box_detail = 'box_detail';
-  static const box_dev_to = 'box_dev_to';
-  static const box_deviantart = 'box_deviantart';
-  static const box_devices = 'box_devices';
-  static const box_dialpad = 'box_dialpad';
-  static const box_dialpad_alt = 'box_dialpad_alt';
-  static const box_diamond = 'box_diamond';
-  static const box_dice_1 = 'box_dice_1';
-  static const box_dice_2 = 'box_dice_2';
-  static const box_dice_3 = 'box_dice_3';
-  static const box_dice_4 = 'box_dice_4';
-  static const box_dice_5 = 'box_dice_5';
-  static const box_dice_6 = 'box_dice_6';
-  static const box_digg = 'box_digg';
-  static const box_digitalocean = 'box_digitalocean';
-  static const box_direction_left = 'box_direction_left';
-  static const box_direction_right = 'box_direction_right';
-  static const box_directions = 'box_directions';
-  static const box_disc = 'box_disc';
-  static const box_discord = 'box_discord';
-  static const box_discount = 'box_discount';
-  static const box_discourse = 'box_discourse';
-  static const box_dish = 'box_dish';
-  static const box_dislike = 'box_dislike';
-  static const box_dizzy = 'box_dizzy';
-  static const box_django = 'box_django';
-  static const box_dna = 'box_dna';
-  static const box_dock_bottom = 'box_dock_bottom';
-  static const box_dock_left = 'box_dock_left';
-  static const box_dock_right = 'box_dock_right';
-  static const box_dock_top = 'box_dock_top';
-  static const box_dollar = 'box_dollar';
-  static const box_dollar_circle = 'box_dollar_circle';
-  static const box_donate_blood = 'box_donate_blood';
-  static const box_donate_heart = 'box_donate_heart';
-  static const box_door_open = 'box_door_open';
-  static const box_dots_horizontal = 'box_dots_horizontal';
-  static const box_dots_horizontal_rounded = 'box_dots_horizontal_rounded';
-  static const box_dots_vertical = 'box_dots_vertical';
-  static const box_dots_vertical_rounded = 'box_dots_vertical_rounded';
-  static const box_doughnut_chart = 'box_doughnut_chart';
-  static const box_down_arrow = 'box_down_arrow';
-  static const box_down_arrow_alt = 'box_down_arrow_alt';
-  static const box_down_arrow_circle = 'box_down_arrow_circle';
-  static const box_down_arrow_square = 'box_down_arrow_square';
-  static const box_download = 'box_download';
-  static const box_downvote = 'box_downvote';
-  static const box_dribbble = 'box_dribbble';
-  static const box_drink = 'box_drink';
-  static const box_dropbox = 'box_dropbox';
-  static const box_droplet = 'box_droplet';
-  static const box_droplet_half = 'box_droplet_half';
-  static const box_drupal = 'box_drupal';
-  static const box_dryer = 'box_dryer';
-  static const box_dumbbell = 'box_dumbbell';
-  static const box_duplicate = 'box_duplicate';
-  static const box_ebay = 'box_ebay';
-  static const box_edge = 'box_edge';
-  static const box_edit = 'box_edit';
-  static const box_edit_alt = 'box_edit_alt';
-  static const box_edit_location = 'box_edit_location';
-  static const box_eject = 'box_eject';
-  static const box_envelope = 'box_envelope';
-  static const box_envelope_open = 'box_envelope_open';
-  static const box_equalizer = 'box_equalizer';
-  static const box_eraser = 'box_eraser';
-  static const box_error = 'box_error';
-  static const box_error_alt = 'box_error_alt';
-  static const box_error_circle = 'box_error_circle';
-  static const box_etsy = 'box_etsy';
-  static const box_euro = 'box_euro';
-  static const box_ev_station = 'box_ev_station';
-  static const box_exclude = 'box_exclude';
-  static const box_exit = 'box_exit';
-  static const box_exit_fullscreen = 'box_exit_fullscreen';
-  static const box_expand = 'box_expand';
-  static const box_expand_alt = 'box_expand_alt';
-  static const box_export = 'box_export';
-  static const box_extension = 'box_extension';
-  static const box_eyedropper = 'box_eyedropper';
-  static const box_face = 'box_face';
-  static const box_face_mask = 'box_face_mask';
-  static const box_facebook = 'box_facebook';
-  static const box_facebook_circle = 'box_facebook_circle';
-  static const box_facebook_square = 'box_facebook_square';
-  static const box_factory = 'box_factory';
-  static const box_fast_forward = 'box_fast_forward';
-  static const box_fast_forward_circle = 'box_fast_forward_circle';
-  static const box_female = 'box_female';
-  static const box_female_sign = 'box_female_sign';
-  static const box_figma = 'box_figma';
-  static const box_file = 'box_file';
-  static const box_file_archive = 'box_file_archive';
-  static const box_file_blank = 'box_file_blank';
-  static const box_file_css = 'box_file_css';
-  static const box_file_doc = 'box_file_doc';
-  static const box_file_export = 'box_file_export';
-  static const box_file_find = 'box_file_find';
-  static const box_file_gif = 'box_file_gif';
-  static const box_file_html = 'box_file_html';
-  static const box_file_image = 'box_file_image';
-  static const box_file_import = 'box_file_import';
-  static const box_file_jpg = 'box_file_jpg';
-  static const box_file_js = 'box_file_js';
-  static const box_file_json = 'box_file_json';
-  static const box_file_md = 'box_file_md';
-  static const box_file_pdf = 'box_file_pdf';
-  static const box_file_plus = 'box_file_plus';
-  static const box_file_png = 'box_file_png';
-  static const box_file_txt = 'box_file_txt';
-  static const box_film = 'box_film';
-  static const box_filter = 'box_filter';
-  static const box_filter_alt = 'box_filter_alt';
-  static const box_fingerprint = 'box_fingerprint';
-  static const box_firebase = 'box_firebase';
-  static const box_firefox = 'box_firefox';
-  static const box_first_aid = 'box_first_aid';
-  static const box_first_page = 'box_first_page';
-  static const box_flag = 'box_flag';
-  static const box_flag_alt = 'box_flag_alt';
-  static const box_flag_checkered = 'box_flag_checkered';
-  static const box_flame = 'box_flame';
-  static const box_flask = 'box_flask';
-  static const box_flickr = 'box_flickr';
-  static const box_flickr_square = 'box_flickr_square';
-  static const box_florist = 'box_florist';
-  static const box_folder = 'box_folder';
-  static const box_folder_minus = 'box_folder_minus';
-  static const box_folder_open = 'box_folder_open';
-  static const box_folder_plus = 'box_folder_plus';
-  static const box_font = 'box_font';
-  static const box_font_color = 'box_font_color';
-  static const box_font_family = 'box_font_family';
-  static const box_font_size = 'box_font_size';
-  static const box_food_menu = 'box_food_menu';
-  static const box_food_tag = 'box_food_tag';
-  static const box_football = 'box_football';
-  static const box_foursquare = 'box_foursquare';
-  static const box_fridge = 'box_fridge';
-  static const box_fullscreen = 'box_fullscreen';
-  static const box_game = 'box_game';
-  static const box_gas_pump = 'box_gas_pump';
-  static const box_ghost = 'box_ghost';
-  static const box_gift = 'box_gift';
-  static const box_git = 'box_git';
-  static const box_git_branch = 'box_git_branch';
-  static const box_git_commit = 'box_git_commit';
-  static const box_git_compare = 'box_git_compare';
-  static const box_git_merge = 'box_git_merge';
-  static const box_git_pull_request = 'box_git_pull_request';
-  static const box_git_repo_forked = 'box_git_repo_forked';
-  static const box_github = 'box_github';
-  static const box_gitlab = 'box_gitlab';
-  static const box_glasses = 'box_glasses';
-  static const box_glasses_alt = 'box_glasses_alt';
-  static const box_globe = 'box_globe';
-  static const box_globe_alt = 'box_globe_alt';
-  static const box_google = 'box_google';
-  static const box_google_cloud = 'box_google_cloud';
-  static const box_google_plus = 'box_google_plus';
-  static const box_google_plus_circle = 'box_google_plus_circle';
-  static const box_graduation = 'box_graduation';
-  static const box_grid = 'box_grid';
-  static const box_grid_alt = 'box_grid_alt';
-  static const box_grid_horizontal = 'box_grid_horizontal';
-  static const box_grid_small = 'box_grid_small';
-  static const box_grid_vertical = 'box_grid_vertical';
-  static const box_group = 'box_group';
-  static const box_guitar_amp = 'box_guitar_amp';
-  static const box_hand_down = 'box_hand_down';
-  static const box_hand_left = 'box_hand_left';
-  static const box_hand_right = 'box_hand_right';
-  static const box_hand_up = 'box_hand_up';
-  static const box_handicap = 'box_handicap';
-  static const box_happy = 'box_happy';
-  static const box_happy_alt = 'box_happy_alt';
-  static const box_happy_beaming = 'box_happy_beaming';
-  static const box_happy_heart_eyes = 'box_happy_heart_eyes';
-  static const box_hash = 'box_hash';
-  static const box_hdd = 'box_hdd';
-  static const box_heading = 'box_heading';
-  static const box_headphone = 'box_headphone';
-  static const box_health = 'box_health';
-  static const box_heart = 'box_heart';
-  static const box_heart_circle = 'box_heart_circle';
-  static const box_heart_square = 'box_heart_square';
-  static const box_help_circle = 'box_help_circle';
-  static const box_hide = 'box_hide';
-  static const box_highlight = 'box_highlight';
-  static const box_history = 'box_history';
-  static const box_hive = 'box_hive';
-  static const box_home = 'box_home';
-  static const box_home_alt = 'box_home_alt';
-  static const box_home_circle = 'box_home_circle';
-  static const box_home_heart = 'box_home_heart';
-  static const box_home_smile = 'box_home_smile';
-  static const box_horizontal_center = 'box_horizontal_center';
-  static const box_hot = 'box_hot';
-  static const box_hotel = 'box_hotel';
-  static const box_hourglass = 'box_hourglass';
-  static const box_hourglass_bottom = 'box_hourglass_bottom';
-  static const box_hourglass_top = 'box_hourglass_top';
-  static const box_html5 = 'box_html5';
-  static const box_id_card = 'box_id_card';
-  static const box_image = 'box_image';
-  static const box_image_add = 'box_image_add';
-  static const box_image_alt = 'box_image_alt';
-  static const box_images = 'box_images';
-  static const box_imdb = 'box_imdb';
-  static const box_import = 'box_import';
-  static const box_inbox = 'box_inbox';
-  static const box_infinite = 'box_infinite';
-  static const box_info_circle = 'box_info_circle';
-  static const box_info_square = 'box_info_square';
-  static const box_instagram = 'box_instagram';
-  static const box_instagram_alt = 'box_instagram_alt';
-  static const box_institution = 'box_institution';
-  static const box_internet_explorer = 'box_internet_explorer';
-  static const box_intersect = 'box_intersect';
-  static const box_invision = 'box_invision';
-  static const box_italic = 'box_italic';
-  static const box_javascript = 'box_javascript';
-  static const box_joomla = 'box_joomla';
-  static const box_joystick = 'box_joystick';
-  static const box_joystick_alt = 'box_joystick_alt';
-  static const box_joystick_button = 'box_joystick_button';
-  static const box_jquery = 'box_jquery';
-  static const box_jsfiddle = 'box_jsfiddle';
-  static const box_key = 'box_key';
-  static const box_keyboard = 'box_keyboard';
-  static const box_kickstarter = 'box_kickstarter';
-  static const box_kubernetes_ = 'box_kubernetes_';
-  static const box_label = 'box_label';
-  static const box_landmark = 'box_landmark';
-  static const box_landscape = 'box_landscape';
-  static const box_laptop = 'box_laptop';
-  static const box_last_page = 'box_last_page';
-  static const box_laugh = 'box_laugh';
-  static const box_layer = 'box_layer';
-  static const box_layer_minus = 'box_layer_minus';
-  static const box_layer_plus = 'box_layer_plus';
-  static const box_layout = 'box_layout';
-  static const box_left_arrow = 'box_left_arrow';
-  static const box_left_arrow_alt = 'box_left_arrow_alt';
-  static const box_left_arrow_circle = 'box_left_arrow_circle';
-  static const box_left_arrow_square = 'box_left_arrow_square';
-  static const box_left_down_arrow_circle = 'box_left_down_arrow_circle';
-  static const box_left_indent = 'box_left_indent';
-  static const box_left_top_arrow_circle = 'box_left_top_arrow_circle';
-  static const box_less = 'box_less';
-  static const box_library = 'box_library';
-  static const box_like = 'box_like';
-  static const box_line_chart = 'box_line_chart';
-  static const box_line_chart_down = 'box_line_chart_down';
-  static const box_link = 'box_link';
-  static const box_link_alt = 'box_link_alt';
-  static const box_link_external = 'box_link_external';
-  static const box_linkedin = 'box_linkedin';
-  static const box_linkedin_square = 'box_linkedin_square';
-  static const box_lira = 'box_lira';
-  static const box_list_check = 'box_list_check';
-  static const box_list_minus = 'box_list_minus';
-  static const box_list_ol = 'box_list_ol';
-  static const box_list_plus = 'box_list_plus';
-  static const box_list_ul = 'box_list_ul';
-  static const box_loader = 'box_loader';
-  static const box_loader_alt = 'box_loader_alt';
-  static const box_loader_circle = 'box_loader_circle';
-  static const box_location_plus = 'box_location_plus';
-  static const box_lock = 'box_lock';
-  static const box_lock_alt = 'box_lock_alt';
-  static const box_lock_open = 'box_lock_open';
-  static const box_lock_open_alt = 'box_lock_open_alt';
-  static const box_log_in = 'box_log_in';
-  static const box_log_in_circle = 'box_log_in_circle';
-  static const box_log_out = 'box_log_out';
-  static const box_log_out_circle = 'box_log_out_circle';
-  static const box_low_vision = 'box_low_vision';
-  static const box_magento = 'box_magento';
-  static const box_magic_wand = 'box_magic_wand';
-  static const box_magnet = 'box_magnet';
-  static const box_mail_send = 'box_mail_send';
-  static const box_mailchimp = 'box_mailchimp';
-  static const box_male = 'box_male';
-  static const box_male_sign = 'box_male_sign';
-  static const box_map = 'box_map';
-  static const box_map_alt = 'box_map_alt';
-  static const box_map_pin = 'box_map_pin';
-  static const box_markdown = 'box_markdown';
-  static const box_mask = 'box_mask';
-  static const box_mastercard = 'box_mastercard';
-  static const box_medal = 'box_medal';
-  static const box_medium = 'box_medium';
-  static const box_medium_old = 'box_medium_old';
-  static const box_medium_square = 'box_medium_square';
-  static const box_megaphone = 'box_megaphone';
-  static const box_meh = 'box_meh';
-  static const box_meh_alt = 'box_meh_alt';
-  static const box_meh_blank = 'box_meh_blank';
-  static const box_memory_card = 'box_memory_card';
-  static const box_menu = 'box_menu';
-  static const box_menu_alt_left = 'box_menu_alt_left';
-  static const box_menu_alt_right = 'box_menu_alt_right';
-  static const box_merge = 'box_merge';
-  static const box_message = 'box_message';
-  static const box_message_add = 'box_message_add';
-  static const box_message_alt = 'box_message_alt';
-  static const box_message_alt_add = 'box_message_alt_add';
-  static const box_message_alt_check = 'box_message_alt_check';
-  static const box_message_alt_detail = 'box_message_alt_detail';
-  static const box_message_alt_dots = 'box_message_alt_dots';
-  static const box_message_alt_edit = 'box_message_alt_edit';
-  static const box_message_alt_error = 'box_message_alt_error';
-  static const box_message_alt_minus = 'box_message_alt_minus';
-  static const box_message_alt_x = 'box_message_alt_x';
-  static const box_message_check = 'box_message_check';
-  static const box_message_detail = 'box_message_detail';
-  static const box_message_dots = 'box_message_dots';
-  static const box_message_edit = 'box_message_edit';
-  static const box_message_error = 'box_message_error';
-  static const box_message_minus = 'box_message_minus';
-  static const box_message_rounded = 'box_message_rounded';
-  static const box_message_rounded_add = 'box_message_rounded_add';
-  static const box_message_rounded_check = 'box_message_rounded_check';
-  static const box_message_rounded_detail = 'box_message_rounded_detail';
-  static const box_message_rounded_dots = 'box_message_rounded_dots';
-  static const box_message_rounded_edit = 'box_message_rounded_edit';
-  static const box_message_rounded_error = 'box_message_rounded_error';
-  static const box_message_rounded_minus = 'box_message_rounded_minus';
-  static const box_message_rounded_x = 'box_message_rounded_x';
-  static const box_message_square = 'box_message_square';
-  static const box_message_square_add = 'box_message_square_add';
-  static const box_message_square_check = 'box_message_square_check';
-  static const box_message_square_detail = 'box_message_square_detail';
-  static const box_message_square_dots = 'box_message_square_dots';
-  static const box_message_square_edit = 'box_message_square_edit';
-  static const box_message_square_error = 'box_message_square_error';
-  static const box_message_square_minus = 'box_message_square_minus';
-  static const box_message_square_x = 'box_message_square_x';
-  static const box_message_x = 'box_message_x';
-  static const box_messenger = 'box_messenger';
-  static const box_meteor = 'box_meteor';
-  static const box_microchip = 'box_microchip';
-  static const box_microphone = 'box_microphone';
-  static const box_microphone_alt = 'box_microphone_alt';
-  static const box_microphone_off = 'box_microphone_off';
-  static const box_microsoft = 'box_microsoft';
-  static const box_microsoft_teams = 'box_microsoft_teams';
-  static const box_minus = 'box_minus';
-  static const box_minus_back = 'box_minus_back';
-  static const box_minus_circle = 'box_minus_circle';
-  static const box_minus_front = 'box_minus_front';
-  static const box_minus_square = 'box_minus_square';
-  static const box_mobile = 'box_mobile';
-  static const box_mobile_alt = 'box_mobile_alt';
-  static const box_mobile_landscape = 'box_mobile_landscape';
-  static const box_mobile_vibration = 'box_mobile_vibration';
-  static const box_money = 'box_money';
-  static const box_moon = 'box_moon';
-  static const box_mouse = 'box_mouse';
-  static const box_mouse_alt = 'box_mouse_alt';
-  static const box_move = 'box_move';
-  static const box_move_horizontal = 'box_move_horizontal';
-  static const box_move_vertical = 'box_move_vertical';
-  static const box_movie = 'box_movie';
-  static const box_movie_play = 'box_movie_play';
-  static const box_music = 'box_music';
-  static const box_navigation = 'box_navigation';
-  static const box_network_chart = 'box_network_chart';
-  static const box_news = 'box_news';
-  static const box_no_entry = 'box_no_entry';
-  static const box_nodejs = 'box_nodejs';
-  static const box_note = 'box_note';
-  static const box_notepad = 'box_notepad';
-  static const box_notification = 'box_notification';
-  static const box_notification_off = 'box_notification_off';
-  static const box_offer = 'box_offer';
-  static const box_ok_ru = 'box_ok_ru';
-  static const box_opera = 'box_opera';
-  static const box_outline = 'box_outline';
-  static const box_package = 'box_package';
-  static const box_paint = 'box_paint';
-  static const box_paint_roll = 'box_paint_roll';
-  static const box_palette = 'box_palette';
-  static const box_paper_plane = 'box_paper_plane';
-  static const box_paperclip = 'box_paperclip';
-  static const box_paragraph = 'box_paragraph';
-  static const box_parking = 'box_parking';
-  static const box_paste = 'box_paste';
-  static const box_patreon = 'box_patreon';
-  static const box_pause = 'box_pause';
-  static const box_pause_circle = 'box_pause_circle';
-  static const box_paypal = 'box_paypal';
-  static const box_pen = 'box_pen';
-  static const box_pencil = 'box_pencil';
-  static const box_periscope = 'box_periscope';
-  static const box_phone = 'box_phone';
-  static const box_phone_call = 'box_phone_call';
-  static const box_phone_incoming = 'box_phone_incoming';
-  static const box_phone_outgoing = 'box_phone_outgoing';
-  static const box_photo_album = 'box_photo_album';
-  static const box_piano = 'box_piano';
-  static const box_pie_chart = 'box_pie_chart';
-  static const box_pie_chart_alt = 'box_pie_chart_alt';
-  static const box_pie_chart_alt_2 = 'box_pie_chart_alt_2';
-  static const box_pin = 'box_pin';
-  static const box_pinterest = 'box_pinterest';
-  static const box_pinterest_alt = 'box_pinterest_alt';
-  static const box_pizza = 'box_pizza';
-  static const box_plane = 'box_plane';
-  static const box_plane_alt = 'box_plane_alt';
-  static const box_plane_land = 'box_plane_land';
-  static const box_plane_take_off = 'box_plane_take_off';
-  static const box_planet = 'box_planet';
-  static const box_play = 'box_play';
-  static const box_play_circle = 'box_play_circle';
-  static const box_play_store = 'box_play_store';
-  static const box_playlist = 'box_playlist';
-  static const box_plug = 'box_plug';
-  static const box_plus = 'box_plus';
-  static const box_plus_circle = 'box_plus_circle';
-  static const box_plus_medical = 'box_plus_medical';
-  static const box_plus_square = 'box_plus_square';
-  static const box_pocket = 'box_pocket';
-  static const box_pointer = 'box_pointer';
-  static const box_poll = 'box_poll';
-  static const box_polygon = 'box_polygon';
-  static const box_pound = 'box_pound';
-  static const box_power_off = 'box_power_off';
-  static const box_printer = 'box_printer';
-  static const box_product_hunt = 'box_product_hunt';
-  static const box_pulse = 'box_pulse';
-  static const box_purchase_tag = 'box_purchase_tag';
-  static const box_purchase_tag_alt = 'box_purchase_tag_alt';
-  static const box_pyramid = 'box_pyramid';
-  static const box_python = 'box_python';
-  static const box_question_mark = 'box_question_mark';
-  static const box_quora = 'box_quora';
-  static const box_quote_alt_left = 'box_quote_alt_left';
-  static const box_quote_alt_right = 'box_quote_alt_right';
-  static const box_quote_left = 'box_quote_left';
-  static const box_quote_right = 'box_quote_right';
-  static const box_quote_single_left = 'box_quote_single_left';
-  static const box_quote_single_right = 'box_quote_single_right';
-  static const box_radar = 'box_radar';
-  static const box_radiation = 'box_radiation';
-  static const box_radio = 'box_radio';
-  static const box_radio_circle = 'box_radio_circle';
-  static const box_radio_circle_marked = 'box_radio_circle_marked';
-  static const box_react = 'box_react';
-  static const box_receipt = 'box_receipt';
-  static const box_rectangle = 'box_rectangle';
-  static const box_recycle = 'box_recycle';
-  static const box_redbubble = 'box_redbubble';
-  static const box_reddit = 'box_reddit';
-  static const box_redo = 'box_redo';
-  static const box_redux = 'box_redux';
-  static const box_refresh = 'box_refresh';
-  static const box_rename = 'box_rename';
-  static const box_repeat = 'box_repeat';
-  static const box_reply = 'box_reply';
-  static const box_reply_all = 'box_reply_all';
-  static const box_report = 'box_report';
-  static const box_repost = 'box_repost';
-  static const box_reset = 'box_reset';
-  static const box_restaurant = 'box_restaurant';
-  static const box_revision = 'box_revision';
-  static const box_rewind = 'box_rewind';
-  static const box_rewind_circle = 'box_rewind_circle';
-  static const box_right_arrow = 'box_right_arrow';
-  static const box_right_arrow_alt = 'box_right_arrow_alt';
-  static const box_right_arrow_circle = 'box_right_arrow_circle';
-  static const box_right_arrow_square = 'box_right_arrow_square';
-  static const box_right_down_arrow_circle = 'box_right_down_arrow_circle';
-  static const box_right_indent = 'box_right_indent';
-  static const box_right_top_arrow_circle = 'box_right_top_arrow_circle';
-  static const box_rocket = 'box_rocket';
-  static const box_rotate_left = 'box_rotate_left';
-  static const box_rotate_right = 'box_rotate_right';
-  static const box_rss = 'box_rss';
-  static const box_ruble = 'box_ruble';
-  static const box_ruler = 'box_ruler';
-  static const box_run = 'box_run';
-  static const box_rupee = 'box_rupee';
-  static const box_sad = 'box_sad';
-  static const box_sass = 'box_sass';
-  static const box_save = 'box_save';
-  static const box_scan = 'box_scan';
-  static const box_school = 'box_school';
-  static const box_screenshot = 'box_screenshot';
-  static const box_search = 'box_search';
-  static const box_search_alt = 'box_search_alt';
-  static const box_search_alt_2 = 'box_search_alt_2';
-  static const box_select_multiple = 'box_select_multiple';
-  static const box_selection = 'box_selection';
-  static const box_send = 'box_send';
-  static const box_server = 'box_server';
-  static const box_shape_circle = 'box_shape_circle';
-  static const box_shape_polygon = 'box_shape_polygon';
-  static const box_shape_square = 'box_shape_square';
-  static const box_shape_triangle = 'box_shape_triangle';
-  static const box_shapes = 'box_shapes';
-  static const box_share = 'box_share';
-  static const box_share_alt = 'box_share_alt';
-  static const box_shekel = 'box_shekel';
-  static const box_shield = 'box_shield';
-  static const box_shield_alt = 'box_shield_alt';
-  static const box_shield_alt_2 = 'box_shield_alt_2';
-  static const box_shield_quarter = 'box_shield_quarter';
-  static const box_shield_x = 'box_shield_x';
-  static const box_ship = 'box_ship';
-  static const box_shocked = 'box_shocked';
-  static const box_shopify = 'box_shopify';
-  static const box_shopping_bag = 'box_shopping_bag';
-  static const box_shopping_bag_alt = 'box_shopping_bag_alt';
-  static const box_shopping_bags = 'box_shopping_bags';
-  static const box_show = 'box_show';
-  static const box_show_alt = 'box_show_alt';
-  static const box_shuffle = 'box_shuffle';
-  static const box_sidebar = 'box_sidebar';
-  static const box_sitemap = 'box_sitemap';
-  static const box_skip_next = 'box_skip_next';
-  static const box_skip_next_circle = 'box_skip_next_circle';
-  static const box_skip_previous = 'box_skip_previous';
-  static const box_skip_previous_circle = 'box_skip_previous_circle';
-  static const box_skull = 'box_skull';
-  static const box_skype = 'box_skype';
-  static const box_slack = 'box_slack';
-  static const box_slack_old = 'box_slack_old';
-  static const box_sleepy = 'box_sleepy';
-  static const box_slider = 'box_slider';
-  static const box_slider_alt = 'box_slider_alt';
-  static const box_slideshow = 'box_slideshow';
-  static const box_smile = 'box_smile';
-  static const box_snapchat = 'box_snapchat';
-  static const box_sort = 'box_sort';
-  static const box_sort_a_z = 'box_sort_a_z';
-  static const box_sort_alt = 'box_sort_alt';
-  static const box_sort_alt_2 = 'box_sort_alt_2';
-  static const box_sort_down = 'box_sort_down';
-  static const box_sort_up = 'box_sort_up';
-  static const box_sort_z_a = 'box_sort_z_a';
-  static const box_soundcloud = 'box_soundcloud';
-  static const box_spa = 'box_spa';
-  static const box_space_bar = 'box_space_bar';
-  static const box_spotify = 'box_spotify';
-  static const box_spray_can = 'box_spray_can';
-  static const box_spreadsheet = 'box_spreadsheet';
-  static const box_spring_boot = 'box_spring_boot';
-  static const box_square = 'box_square';
-  static const box_square_rounded = 'box_square_rounded';
-  static const box_squarespace = 'box_squarespace';
-  static const box_stack_overflow = 'box_stack_overflow';
-  static const box_star = 'box_star';
-  static const box_star_half = 'box_star_half';
-  static const box_station = 'box_station';
-  static const box_stats = 'box_stats';
-  static const box_sticker = 'box_sticker';
-  static const box_stop = 'box_stop';
-  static const box_stop_circle = 'box_stop_circle';
-  static const box_stopwatch = 'box_stopwatch';
-  static const box_store = 'box_store';
-  static const box_store_alt = 'box_store_alt';
-  static const box_street_view = 'box_street_view';
-  static const box_strikethrough = 'box_strikethrough';
-  static const box_stripe = 'box_stripe';
-  static const box_subdirectory_left = 'box_subdirectory_left';
-  static const box_subdirectory_right = 'box_subdirectory_right';
-  static const box_sun = 'box_sun';
-  static const box_support = 'box_support';
-  static const box_swim = 'box_swim';
-  static const box_sync = 'box_sync';
-  static const box_t_shirt = 'box_t_shirt';
-  static const box_tab = 'box_tab';
-  static const box_table = 'box_table';
-  static const box_tachometer = 'box_tachometer';
-  static const box_tag = 'box_tag';
-  static const box_tag_alt = 'box_tag_alt';
-  static const box_tag_x = 'box_tag_x';
-  static const box_target_lock = 'box_target_lock';
-  static const box_task = 'box_task';
-  static const box_task_x = 'box_task_x';
-  static const box_taxi = 'box_taxi';
-  static const box_telegram = 'box_telegram';
-  static const box_tennis_ball = 'box_tennis_ball';
-  static const box_terminal = 'box_terminal';
-  static const box_test_tube = 'box_test_tube';
-  static const box_text = 'box_text';
-  static const box_thermometer = 'box_thermometer';
-  static const box_time = 'box_time';
-  static const box_time_five = 'box_time_five';
-  static const box_timer = 'box_timer';
-  static const box_tired = 'box_tired';
-  static const box_to_top = 'box_to_top';
-  static const box_toggle_left = 'box_toggle_left';
-  static const box_toggle_right = 'box_toggle_right';
-  static const box_tone = 'box_tone';
-  static const box_torch = 'box_torch';
-  static const box_traffic = 'box_traffic';
-  static const box_traffic_barrier = 'box_traffic_barrier';
-  static const box_traffic_cone = 'box_traffic_cone';
-  static const box_train = 'box_train';
-  static const box_transfer = 'box_transfer';
-  static const box_transfer_alt = 'box_transfer_alt';
-  static const box_trash = 'box_trash';
-  static const box_trash_alt = 'box_trash_alt';
-  static const box_tree = 'box_tree';
-  static const box_trello = 'box_trello';
-  static const box_trending_down = 'box_trending_down';
-  static const box_trending_up = 'box_trending_up';
-  static const box_trim = 'box_trim';
-  static const box_trip = 'box_trip';
-  static const box_trophy = 'box_trophy';
-  static const box_truck = 'box_truck';
-  static const box_tumblr = 'box_tumblr';
-  static const box_tux = 'box_tux';
-  static const box_tv = 'box_tv';
-  static const box_twitch = 'box_twitch';
-  static const box_twitter = 'box_twitter';
-  static const box_underline = 'box_underline';
-  static const box_undo = 'box_undo';
-  static const box_unite = 'box_unite';
-  static const box_unlink = 'box_unlink';
-  static const box_unsplash = 'box_unsplash';
-  static const box_up_arrow = 'box_up_arrow';
-  static const box_up_arrow_alt = 'box_up_arrow_alt';
-  static const box_up_arrow_circle = 'box_up_arrow_circle';
-  static const box_up_arrow_square = 'box_up_arrow_square';
-  static const box_upload = 'box_upload';
-  static const box_upside_down = 'box_upside_down';
-  static const box_upvote = 'box_upvote';
-  static const box_usb = 'box_usb';
-  static const box_user = 'box_user';
-  static const box_user_account = 'box_user_account';
-  static const box_user_badge = 'box_user_badge';
-  static const box_user_check = 'box_user_check';
-  static const box_user_circle = 'box_user_circle';
-  static const box_user_detail = 'box_user_detail';
-  static const box_user_minus = 'box_user_minus';
-  static const box_user_pin = 'box_user_pin';
-  static const box_user_plus = 'box_user_plus';
-  static const box_user_rectangle = 'box_user_rectangle';
-  static const box_user_voice = 'box_user_voice';
-  static const box_user_x = 'box_user_x';
-  static const box_vector = 'box_vector';
-  static const box_vertical_center = 'box_vertical_center';
-  static const box_vial = 'box_vial';
-  static const box_video = 'box_video';
-  static const box_video_off = 'box_video_off';
-  static const box_video_plus = 'box_video_plus';
-  static const box_video_recording = 'box_video_recording';
-  static const box_videos = 'box_videos';
-  static const box_vimeo = 'box_vimeo';
-  static const box_virus = 'box_virus';
-  static const box_virus_block = 'box_virus_block';
-  static const box_visa = 'box_visa';
-  static const box_vk = 'box_vk';
-  static const box_voicemail = 'box_voicemail';
-  static const box_volume = 'box_volume';
-  static const box_volume_full = 'box_volume_full';
-  static const box_volume_low = 'box_volume_low';
-  static const box_volume_mute = 'box_volume_mute';
-  static const box_vuejs = 'box_vuejs';
-  static const box_walk = 'box_walk';
-  static const box_wallet = 'box_wallet';
-  static const box_wallet_alt = 'box_wallet_alt';
-  static const box_washer = 'box_washer';
-  static const box_watch = 'box_watch';
-  static const box_watch_alt = 'box_watch_alt';
-  static const box_water = 'box_water';
-  static const box_webcam = 'box_webcam';
-  static const box_whatsapp = 'box_whatsapp';
-  static const box_whatsapp_square = 'box_whatsapp_square';
-  static const box_widget = 'box_widget';
-  static const box_wifi = 'box_wifi';
-  static const box_wifi_0 = 'box_wifi_0';
-  static const box_wifi_1 = 'box_wifi_1';
-  static const box_wifi_2 = 'box_wifi_2';
-  static const box_wifi_off = 'box_wifi_off';
-  static const box_wikipedia = 'box_wikipedia';
-  static const box_wind = 'box_wind';
-  static const box_window = 'box_window';
-  static const box_window_alt = 'box_window_alt';
-  static const box_window_close = 'box_window_close';
-  static const box_window_open = 'box_window_open';
-  static const box_windows = 'box_windows';
-  static const box_wine = 'box_wine';
-  static const box_wink_smile = 'box_wink_smile';
-  static const box_wink_tongue = 'box_wink_tongue';
-  static const box_wix = 'box_wix';
-  static const box_won = 'box_won';
-  static const box_wordpress = 'box_wordpress';
-  static const box_world = 'box_world';
-  static const box_wrench = 'box_wrench';
-  static const box_x = 'box_x';
-  static const box_x_circle = 'box_x_circle';
-  static const box_x_square = 'box_x_square';
-  static const box_yahoo = 'box_yahoo';
-  static const box_yelp = 'box_yelp';
-  static const box_yen = 'box_yen';
-  static const box_yin_yang = 'box_yin_yang';
-  static const box_youtube = 'box_youtube';
-  static const box_zap = 'box_zap';
-  static const box_zoom = 'box_zoom';
-  static const box_zoom_in = 'box_zoom_in';
-  static const box_zoom_out = 'box_zoom_out';
   static const flu_access_time_filled = 'flu_access_time_filled';
   static const flu_access_time_regular = 'flu_access_time_regular';
   static const flu_accessibility_checkmark_filled = 'flu_accessibility_checkmark_filled';
@@ -23417,1015 +23676,2280 @@ abstract class IconPackNames {
   static const mdi_zodiac_scorpio = 'mdi_zodiac_scorpio';
   static const mdi_zodiac_taurus = 'mdi_zodiac_taurus';
   static const mdi_zodiac_virgo = 'mdi_zodiac_virgo';
+  static const rmx_a24_hours_fill = 'rmx_a24_hours_fill';
+  static const rmx_a24_hours_line = 'rmx_a24_hours_line';
+  static const rmx_a4k_fill = 'rmx_a4k_fill';
+  static const rmx_a4k_line = 'rmx_a4k_line';
+  static const rmx_a_b = 'rmx_a_b';
+  static const rmx_account_box_fill = 'rmx_account_box_fill';
+  static const rmx_account_box_line = 'rmx_account_box_line';
+  static const rmx_account_circle_fill = 'rmx_account_circle_fill';
+  static const rmx_account_circle_line = 'rmx_account_circle_line';
+  static const rmx_account_pin_box_fill = 'rmx_account_pin_box_fill';
+  static const rmx_account_pin_box_line = 'rmx_account_pin_box_line';
+  static const rmx_account_pin_circle_fill = 'rmx_account_pin_circle_fill';
+  static const rmx_account_pin_circle_line = 'rmx_account_pin_circle_line';
+  static const rmx_add_box_fill = 'rmx_add_box_fill';
+  static const rmx_add_box_line = 'rmx_add_box_line';
+  static const rmx_add_circle_fill = 'rmx_add_circle_fill';
+  static const rmx_add_circle_line = 'rmx_add_circle_line';
+  static const rmx_add_fill = 'rmx_add_fill';
+  static const rmx_add_line = 'rmx_add_line';
+  static const rmx_admin_fill = 'rmx_admin_fill';
+  static const rmx_admin_line = 'rmx_admin_line';
+  static const rmx_advertisement_fill = 'rmx_advertisement_fill';
+  static const rmx_advertisement_line = 'rmx_advertisement_line';
+  static const rmx_airplay_fill = 'rmx_airplay_fill';
+  static const rmx_airplay_line = 'rmx_airplay_line';
+  static const rmx_alarm_fill = 'rmx_alarm_fill';
+  static const rmx_alarm_line = 'rmx_alarm_line';
+  static const rmx_alarm_warning_fill = 'rmx_alarm_warning_fill';
+  static const rmx_alarm_warning_line = 'rmx_alarm_warning_line';
+  static const rmx_album_fill = 'rmx_album_fill';
+  static const rmx_album_line = 'rmx_album_line';
+  static const rmx_alert_fill = 'rmx_alert_fill';
+  static const rmx_alert_line = 'rmx_alert_line';
+  static const rmx_aliens_fill = 'rmx_aliens_fill';
+  static const rmx_aliens_line = 'rmx_aliens_line';
+  static const rmx_align_bottom = 'rmx_align_bottom';
+  static const rmx_align_center = 'rmx_align_center';
+  static const rmx_align_justify = 'rmx_align_justify';
+  static const rmx_align_left = 'rmx_align_left';
+  static const rmx_align_right = 'rmx_align_right';
+  static const rmx_align_top = 'rmx_align_top';
+  static const rmx_align_vertically = 'rmx_align_vertically';
+  static const rmx_alipay_fill = 'rmx_alipay_fill';
+  static const rmx_alipay_line = 'rmx_alipay_line';
+  static const rmx_amazon_fill = 'rmx_amazon_fill';
+  static const rmx_amazon_line = 'rmx_amazon_line';
+  static const rmx_anchor_fill = 'rmx_anchor_fill';
+  static const rmx_anchor_line = 'rmx_anchor_line';
+  static const rmx_ancient_gate_fill = 'rmx_ancient_gate_fill';
+  static const rmx_ancient_gate_line = 'rmx_ancient_gate_line';
+  static const rmx_ancient_pavilion_fill = 'rmx_ancient_pavilion_fill';
+  static const rmx_ancient_pavilion_line = 'rmx_ancient_pavilion_line';
+  static const rmx_android_fill = 'rmx_android_fill';
+  static const rmx_android_line = 'rmx_android_line';
+  static const rmx_angularjs_fill = 'rmx_angularjs_fill';
+  static const rmx_angularjs_line = 'rmx_angularjs_line';
+  static const rmx_anticlockwise_2_fill = 'rmx_anticlockwise_2_fill';
+  static const rmx_anticlockwise_2_line = 'rmx_anticlockwise_2_line';
+  static const rmx_anticlockwise_fill = 'rmx_anticlockwise_fill';
+  static const rmx_anticlockwise_line = 'rmx_anticlockwise_line';
+  static const rmx_app_store_fill = 'rmx_app_store_fill';
+  static const rmx_app_store_line = 'rmx_app_store_line';
+  static const rmx_apple_fill = 'rmx_apple_fill';
+  static const rmx_apple_line = 'rmx_apple_line';
+  static const rmx_apps_2_fill = 'rmx_apps_2_fill';
+  static const rmx_apps_2_line = 'rmx_apps_2_line';
+  static const rmx_apps_fill = 'rmx_apps_fill';
+  static const rmx_apps_line = 'rmx_apps_line';
+  static const rmx_archive_drawer_fill = 'rmx_archive_drawer_fill';
+  static const rmx_archive_drawer_line = 'rmx_archive_drawer_line';
+  static const rmx_archive_fill = 'rmx_archive_fill';
+  static const rmx_archive_line = 'rmx_archive_line';
+  static const rmx_arrow_down_circle_fill = 'rmx_arrow_down_circle_fill';
+  static const rmx_arrow_down_circle_line = 'rmx_arrow_down_circle_line';
+  static const rmx_arrow_down_fill = 'rmx_arrow_down_fill';
+  static const rmx_arrow_down_line = 'rmx_arrow_down_line';
+  static const rmx_arrow_down_s_fill = 'rmx_arrow_down_s_fill';
+  static const rmx_arrow_down_s_line = 'rmx_arrow_down_s_line';
+  static const rmx_arrow_drop_down_fill = 'rmx_arrow_drop_down_fill';
+  static const rmx_arrow_drop_down_line = 'rmx_arrow_drop_down_line';
+  static const rmx_arrow_drop_left_fill = 'rmx_arrow_drop_left_fill';
+  static const rmx_arrow_drop_left_line = 'rmx_arrow_drop_left_line';
+  static const rmx_arrow_drop_right_fill = 'rmx_arrow_drop_right_fill';
+  static const rmx_arrow_drop_right_line = 'rmx_arrow_drop_right_line';
+  static const rmx_arrow_drop_up_fill = 'rmx_arrow_drop_up_fill';
+  static const rmx_arrow_drop_up_line = 'rmx_arrow_drop_up_line';
+  static const rmx_arrow_go_back_fill = 'rmx_arrow_go_back_fill';
+  static const rmx_arrow_go_back_line = 'rmx_arrow_go_back_line';
+  static const rmx_arrow_go_forward_fill = 'rmx_arrow_go_forward_fill';
+  static const rmx_arrow_go_forward_line = 'rmx_arrow_go_forward_line';
+  static const rmx_arrow_left_circle_fill = 'rmx_arrow_left_circle_fill';
+  static const rmx_arrow_left_circle_line = 'rmx_arrow_left_circle_line';
+  static const rmx_arrow_left_down_fill = 'rmx_arrow_left_down_fill';
+  static const rmx_arrow_left_down_line = 'rmx_arrow_left_down_line';
+  static const rmx_arrow_left_fill = 'rmx_arrow_left_fill';
+  static const rmx_arrow_left_line = 'rmx_arrow_left_line';
+  static const rmx_arrow_left_right_fill = 'rmx_arrow_left_right_fill';
+  static const rmx_arrow_left_right_line = 'rmx_arrow_left_right_line';
+  static const rmx_arrow_left_s_fill = 'rmx_arrow_left_s_fill';
+  static const rmx_arrow_left_s_line = 'rmx_arrow_left_s_line';
+  static const rmx_arrow_left_up_fill = 'rmx_arrow_left_up_fill';
+  static const rmx_arrow_left_up_line = 'rmx_arrow_left_up_line';
+  static const rmx_arrow_right_circle_fill = 'rmx_arrow_right_circle_fill';
+  static const rmx_arrow_right_circle_line = 'rmx_arrow_right_circle_line';
+  static const rmx_arrow_right_down_fill = 'rmx_arrow_right_down_fill';
+  static const rmx_arrow_right_down_line = 'rmx_arrow_right_down_line';
+  static const rmx_arrow_right_fill = 'rmx_arrow_right_fill';
+  static const rmx_arrow_right_line = 'rmx_arrow_right_line';
+  static const rmx_arrow_right_s_fill = 'rmx_arrow_right_s_fill';
+  static const rmx_arrow_right_s_line = 'rmx_arrow_right_s_line';
+  static const rmx_arrow_right_up_fill = 'rmx_arrow_right_up_fill';
+  static const rmx_arrow_right_up_line = 'rmx_arrow_right_up_line';
+  static const rmx_arrow_up_circle_fill = 'rmx_arrow_up_circle_fill';
+  static const rmx_arrow_up_circle_line = 'rmx_arrow_up_circle_line';
+  static const rmx_arrow_up_down_fill = 'rmx_arrow_up_down_fill';
+  static const rmx_arrow_up_down_line = 'rmx_arrow_up_down_line';
+  static const rmx_arrow_up_fill = 'rmx_arrow_up_fill';
+  static const rmx_arrow_up_line = 'rmx_arrow_up_line';
+  static const rmx_arrow_up_s_fill = 'rmx_arrow_up_s_fill';
+  static const rmx_arrow_up_s_line = 'rmx_arrow_up_s_line';
+  static const rmx_artboard_2_fill = 'rmx_artboard_2_fill';
+  static const rmx_artboard_2_line = 'rmx_artboard_2_line';
+  static const rmx_artboard_fill = 'rmx_artboard_fill';
+  static const rmx_artboard_line = 'rmx_artboard_line';
+  static const rmx_article_fill = 'rmx_article_fill';
+  static const rmx_article_line = 'rmx_article_line';
+  static const rmx_aspect_ratio_fill = 'rmx_aspect_ratio_fill';
+  static const rmx_aspect_ratio_line = 'rmx_aspect_ratio_line';
+  static const rmx_asterisk = 'rmx_asterisk';
+  static const rmx_at_fill = 'rmx_at_fill';
+  static const rmx_at_line = 'rmx_at_line';
+  static const rmx_attachment_2 = 'rmx_attachment_2';
+  static const rmx_attachment_fill = 'rmx_attachment_fill';
+  static const rmx_attachment_line = 'rmx_attachment_line';
+  static const rmx_auction_fill = 'rmx_auction_fill';
+  static const rmx_auction_line = 'rmx_auction_line';
+  static const rmx_award_fill = 'rmx_award_fill';
+  static const rmx_award_line = 'rmx_award_line';
+  static const rmx_baidu_fill = 'rmx_baidu_fill';
+  static const rmx_baidu_line = 'rmx_baidu_line';
+  static const rmx_ball_pen_fill = 'rmx_ball_pen_fill';
+  static const rmx_ball_pen_line = 'rmx_ball_pen_line';
+  static const rmx_bank_card_2_fill = 'rmx_bank_card_2_fill';
+  static const rmx_bank_card_2_line = 'rmx_bank_card_2_line';
+  static const rmx_bank_card_fill = 'rmx_bank_card_fill';
+  static const rmx_bank_card_line = 'rmx_bank_card_line';
+  static const rmx_bank_fill = 'rmx_bank_fill';
+  static const rmx_bank_line = 'rmx_bank_line';
+  static const rmx_bar_chart_2_fill = 'rmx_bar_chart_2_fill';
+  static const rmx_bar_chart_2_line = 'rmx_bar_chart_2_line';
+  static const rmx_bar_chart_box_fill = 'rmx_bar_chart_box_fill';
+  static const rmx_bar_chart_box_line = 'rmx_bar_chart_box_line';
+  static const rmx_bar_chart_fill = 'rmx_bar_chart_fill';
+  static const rmx_bar_chart_grouped_fill = 'rmx_bar_chart_grouped_fill';
+  static const rmx_bar_chart_grouped_line = 'rmx_bar_chart_grouped_line';
+  static const rmx_bar_chart_horizontal_fill = 'rmx_bar_chart_horizontal_fill';
+  static const rmx_bar_chart_horizontal_line = 'rmx_bar_chart_horizontal_line';
+  static const rmx_bar_chart_line = 'rmx_bar_chart_line';
+  static const rmx_barcode_box_fill = 'rmx_barcode_box_fill';
+  static const rmx_barcode_box_line = 'rmx_barcode_box_line';
+  static const rmx_barcode_fill = 'rmx_barcode_fill';
+  static const rmx_barcode_line = 'rmx_barcode_line';
+  static const rmx_barricade_fill = 'rmx_barricade_fill';
+  static const rmx_barricade_line = 'rmx_barricade_line';
+  static const rmx_base_station_fill = 'rmx_base_station_fill';
+  static const rmx_base_station_line = 'rmx_base_station_line';
+  static const rmx_basketball_fill = 'rmx_basketball_fill';
+  static const rmx_basketball_line = 'rmx_basketball_line';
+  static const rmx_battery_2_charge_fill = 'rmx_battery_2_charge_fill';
+  static const rmx_battery_2_charge_line = 'rmx_battery_2_charge_line';
+  static const rmx_battery_2_fill = 'rmx_battery_2_fill';
+  static const rmx_battery_2_line = 'rmx_battery_2_line';
+  static const rmx_battery_charge_fill = 'rmx_battery_charge_fill';
+  static const rmx_battery_charge_line = 'rmx_battery_charge_line';
+  static const rmx_battery_fill = 'rmx_battery_fill';
+  static const rmx_battery_line = 'rmx_battery_line';
+  static const rmx_battery_low_fill = 'rmx_battery_low_fill';
+  static const rmx_battery_low_line = 'rmx_battery_low_line';
+  static const rmx_battery_saver_fill = 'rmx_battery_saver_fill';
+  static const rmx_battery_saver_line = 'rmx_battery_saver_line';
+  static const rmx_battery_share_fill = 'rmx_battery_share_fill';
+  static const rmx_battery_share_line = 'rmx_battery_share_line';
+  static const rmx_bear_smile_fill = 'rmx_bear_smile_fill';
+  static const rmx_bear_smile_line = 'rmx_bear_smile_line';
+  static const rmx_behance_fill = 'rmx_behance_fill';
+  static const rmx_behance_line = 'rmx_behance_line';
+  static const rmx_bell_fill = 'rmx_bell_fill';
+  static const rmx_bell_line = 'rmx_bell_line';
+  static const rmx_bike_fill = 'rmx_bike_fill';
+  static const rmx_bike_line = 'rmx_bike_line';
+  static const rmx_bilibili_fill = 'rmx_bilibili_fill';
+  static const rmx_bilibili_line = 'rmx_bilibili_line';
+  static const rmx_bill_fill = 'rmx_bill_fill';
+  static const rmx_bill_line = 'rmx_bill_line';
+  static const rmx_billiards_fill = 'rmx_billiards_fill';
+  static const rmx_billiards_line = 'rmx_billiards_line';
+  static const rmx_bit_coin_fill = 'rmx_bit_coin_fill';
+  static const rmx_bit_coin_line = 'rmx_bit_coin_line';
+  static const rmx_blaze_fill = 'rmx_blaze_fill';
+  static const rmx_blaze_line = 'rmx_blaze_line';
+  static const rmx_bluetooth_connect_fill = 'rmx_bluetooth_connect_fill';
+  static const rmx_bluetooth_connect_line = 'rmx_bluetooth_connect_line';
+  static const rmx_bluetooth_fill = 'rmx_bluetooth_fill';
+  static const rmx_bluetooth_line = 'rmx_bluetooth_line';
+  static const rmx_blur_off_fill = 'rmx_blur_off_fill';
+  static const rmx_blur_off_line = 'rmx_blur_off_line';
+  static const rmx_body_scan_fill = 'rmx_body_scan_fill';
+  static const rmx_body_scan_line = 'rmx_body_scan_line';
+  static const rmx_bold = 'rmx_bold';
+  static const rmx_book_2_fill = 'rmx_book_2_fill';
+  static const rmx_book_2_line = 'rmx_book_2_line';
+  static const rmx_book_3_fill = 'rmx_book_3_fill';
+  static const rmx_book_3_line = 'rmx_book_3_line';
+  static const rmx_book_fill = 'rmx_book_fill';
+  static const rmx_book_line = 'rmx_book_line';
+  static const rmx_book_mark_fill = 'rmx_book_mark_fill';
+  static const rmx_book_mark_line = 'rmx_book_mark_line';
+  static const rmx_book_open_fill = 'rmx_book_open_fill';
+  static const rmx_book_open_line = 'rmx_book_open_line';
+  static const rmx_book_read_fill = 'rmx_book_read_fill';
+  static const rmx_book_read_line = 'rmx_book_read_line';
+  static const rmx_booklet_fill = 'rmx_booklet_fill';
+  static const rmx_booklet_line = 'rmx_booklet_line';
+  static const rmx_bookmark_2_fill = 'rmx_bookmark_2_fill';
+  static const rmx_bookmark_2_line = 'rmx_bookmark_2_line';
+  static const rmx_bookmark_3_fill = 'rmx_bookmark_3_fill';
+  static const rmx_bookmark_3_line = 'rmx_bookmark_3_line';
+  static const rmx_bookmark_fill = 'rmx_bookmark_fill';
+  static const rmx_bookmark_line = 'rmx_bookmark_line';
+  static const rmx_boxing_fill = 'rmx_boxing_fill';
+  static const rmx_boxing_line = 'rmx_boxing_line';
+  static const rmx_braces_fill = 'rmx_braces_fill';
+  static const rmx_braces_line = 'rmx_braces_line';
+  static const rmx_brackets_fill = 'rmx_brackets_fill';
+  static const rmx_brackets_line = 'rmx_brackets_line';
+  static const rmx_briefcase_2_fill = 'rmx_briefcase_2_fill';
+  static const rmx_briefcase_2_line = 'rmx_briefcase_2_line';
+  static const rmx_briefcase_3_fill = 'rmx_briefcase_3_fill';
+  static const rmx_briefcase_3_line = 'rmx_briefcase_3_line';
+  static const rmx_briefcase_4_fill = 'rmx_briefcase_4_fill';
+  static const rmx_briefcase_4_line = 'rmx_briefcase_4_line';
+  static const rmx_briefcase_5_fill = 'rmx_briefcase_5_fill';
+  static const rmx_briefcase_5_line = 'rmx_briefcase_5_line';
+  static const rmx_briefcase_fill = 'rmx_briefcase_fill';
+  static const rmx_briefcase_line = 'rmx_briefcase_line';
+  static const rmx_bring_forward = 'rmx_bring_forward';
+  static const rmx_bring_to_front = 'rmx_bring_to_front';
+  static const rmx_broadcast_fill = 'rmx_broadcast_fill';
+  static const rmx_broadcast_line = 'rmx_broadcast_line';
+  static const rmx_brush_2_fill = 'rmx_brush_2_fill';
+  static const rmx_brush_2_line = 'rmx_brush_2_line';
+  static const rmx_brush_3_fill = 'rmx_brush_3_fill';
+  static const rmx_brush_3_line = 'rmx_brush_3_line';
+  static const rmx_brush_4_fill = 'rmx_brush_4_fill';
+  static const rmx_brush_4_line = 'rmx_brush_4_line';
+  static const rmx_brush_fill = 'rmx_brush_fill';
+  static const rmx_brush_line = 'rmx_brush_line';
+  static const rmx_bubble_chart_fill = 'rmx_bubble_chart_fill';
+  static const rmx_bubble_chart_line = 'rmx_bubble_chart_line';
+  static const rmx_bug_2_fill = 'rmx_bug_2_fill';
+  static const rmx_bug_2_line = 'rmx_bug_2_line';
+  static const rmx_bug_fill = 'rmx_bug_fill';
+  static const rmx_bug_line = 'rmx_bug_line';
+  static const rmx_building_2_fill = 'rmx_building_2_fill';
+  static const rmx_building_2_line = 'rmx_building_2_line';
+  static const rmx_building_3_fill = 'rmx_building_3_fill';
+  static const rmx_building_3_line = 'rmx_building_3_line';
+  static const rmx_building_4_fill = 'rmx_building_4_fill';
+  static const rmx_building_4_line = 'rmx_building_4_line';
+  static const rmx_building_fill = 'rmx_building_fill';
+  static const rmx_building_line = 'rmx_building_line';
+  static const rmx_bus_2_fill = 'rmx_bus_2_fill';
+  static const rmx_bus_2_line = 'rmx_bus_2_line';
+  static const rmx_bus_fill = 'rmx_bus_fill';
+  static const rmx_bus_line = 'rmx_bus_line';
+  static const rmx_bus_wifi_fill = 'rmx_bus_wifi_fill';
+  static const rmx_bus_wifi_line = 'rmx_bus_wifi_line';
+  static const rmx_cactus_fill = 'rmx_cactus_fill';
+  static const rmx_cactus_line = 'rmx_cactus_line';
+  static const rmx_cake_2_fill = 'rmx_cake_2_fill';
+  static const rmx_cake_2_line = 'rmx_cake_2_line';
+  static const rmx_cake_3_fill = 'rmx_cake_3_fill';
+  static const rmx_cake_3_line = 'rmx_cake_3_line';
+  static const rmx_cake_fill = 'rmx_cake_fill';
+  static const rmx_cake_line = 'rmx_cake_line';
+  static const rmx_calculator_fill = 'rmx_calculator_fill';
+  static const rmx_calculator_line = 'rmx_calculator_line';
+  static const rmx_calendar_2_fill = 'rmx_calendar_2_fill';
+  static const rmx_calendar_2_line = 'rmx_calendar_2_line';
+  static const rmx_calendar_check_fill = 'rmx_calendar_check_fill';
+  static const rmx_calendar_check_line = 'rmx_calendar_check_line';
+  static const rmx_calendar_event_fill = 'rmx_calendar_event_fill';
+  static const rmx_calendar_event_line = 'rmx_calendar_event_line';
+  static const rmx_calendar_fill = 'rmx_calendar_fill';
+  static const rmx_calendar_line = 'rmx_calendar_line';
+  static const rmx_calendar_todo_fill = 'rmx_calendar_todo_fill';
+  static const rmx_calendar_todo_line = 'rmx_calendar_todo_line';
+  static const rmx_camera_2_fill = 'rmx_camera_2_fill';
+  static const rmx_camera_2_line = 'rmx_camera_2_line';
+  static const rmx_camera_3_fill = 'rmx_camera_3_fill';
+  static const rmx_camera_3_line = 'rmx_camera_3_line';
+  static const rmx_camera_fill = 'rmx_camera_fill';
+  static const rmx_camera_lens_fill = 'rmx_camera_lens_fill';
+  static const rmx_camera_lens_line = 'rmx_camera_lens_line';
+  static const rmx_camera_line = 'rmx_camera_line';
+  static const rmx_camera_off_fill = 'rmx_camera_off_fill';
+  static const rmx_camera_off_line = 'rmx_camera_off_line';
+  static const rmx_camera_switch_fill = 'rmx_camera_switch_fill';
+  static const rmx_camera_switch_line = 'rmx_camera_switch_line';
+  static const rmx_capsule_fill = 'rmx_capsule_fill';
+  static const rmx_capsule_line = 'rmx_capsule_line';
+  static const rmx_car_fill = 'rmx_car_fill';
+  static const rmx_car_line = 'rmx_car_line';
+  static const rmx_car_washing_fill = 'rmx_car_washing_fill';
+  static const rmx_car_washing_line = 'rmx_car_washing_line';
+  static const rmx_caravan_fill = 'rmx_caravan_fill';
+  static const rmx_caravan_line = 'rmx_caravan_line';
+  static const rmx_cast_fill = 'rmx_cast_fill';
+  static const rmx_cast_line = 'rmx_cast_line';
+  static const rmx_cellphone_fill = 'rmx_cellphone_fill';
+  static const rmx_cellphone_line = 'rmx_cellphone_line';
+  static const rmx_celsius_fill = 'rmx_celsius_fill';
+  static const rmx_celsius_line = 'rmx_celsius_line';
+  static const rmx_centos_fill = 'rmx_centos_fill';
+  static const rmx_centos_line = 'rmx_centos_line';
+  static const rmx_character_recognition_fill = 'rmx_character_recognition_fill';
+  static const rmx_character_recognition_line = 'rmx_character_recognition_line';
+  static const rmx_charging_pile_2_fill = 'rmx_charging_pile_2_fill';
+  static const rmx_charging_pile_2_line = 'rmx_charging_pile_2_line';
+  static const rmx_charging_pile_fill = 'rmx_charging_pile_fill';
+  static const rmx_charging_pile_line = 'rmx_charging_pile_line';
+  static const rmx_chat_1_fill = 'rmx_chat_1_fill';
+  static const rmx_chat_1_line = 'rmx_chat_1_line';
+  static const rmx_chat_2_fill = 'rmx_chat_2_fill';
+  static const rmx_chat_2_line = 'rmx_chat_2_line';
+  static const rmx_chat_3_fill = 'rmx_chat_3_fill';
+  static const rmx_chat_3_line = 'rmx_chat_3_line';
+  static const rmx_chat_4_fill = 'rmx_chat_4_fill';
+  static const rmx_chat_4_line = 'rmx_chat_4_line';
+  static const rmx_chat_check_fill = 'rmx_chat_check_fill';
+  static const rmx_chat_check_line = 'rmx_chat_check_line';
+  static const rmx_chat_delete_fill = 'rmx_chat_delete_fill';
+  static const rmx_chat_delete_line = 'rmx_chat_delete_line';
+  static const rmx_chat_download_fill = 'rmx_chat_download_fill';
+  static const rmx_chat_download_line = 'rmx_chat_download_line';
+  static const rmx_chat_follow_up_fill = 'rmx_chat_follow_up_fill';
+  static const rmx_chat_follow_up_line = 'rmx_chat_follow_up_line';
+  static const rmx_chat_forward_fill = 'rmx_chat_forward_fill';
+  static const rmx_chat_forward_line = 'rmx_chat_forward_line';
+  static const rmx_chat_heart_fill = 'rmx_chat_heart_fill';
+  static const rmx_chat_heart_line = 'rmx_chat_heart_line';
+  static const rmx_chat_history_fill = 'rmx_chat_history_fill';
+  static const rmx_chat_history_line = 'rmx_chat_history_line';
+  static const rmx_chat_new_fill = 'rmx_chat_new_fill';
+  static const rmx_chat_new_line = 'rmx_chat_new_line';
+  static const rmx_chat_off_fill = 'rmx_chat_off_fill';
+  static const rmx_chat_off_line = 'rmx_chat_off_line';
+  static const rmx_chat_poll_fill = 'rmx_chat_poll_fill';
+  static const rmx_chat_poll_line = 'rmx_chat_poll_line';
+  static const rmx_chat_private_fill = 'rmx_chat_private_fill';
+  static const rmx_chat_private_line = 'rmx_chat_private_line';
+  static const rmx_chat_quote_fill = 'rmx_chat_quote_fill';
+  static const rmx_chat_quote_line = 'rmx_chat_quote_line';
+  static const rmx_chat_settings_fill = 'rmx_chat_settings_fill';
+  static const rmx_chat_settings_line = 'rmx_chat_settings_line';
+  static const rmx_chat_smile_2_fill = 'rmx_chat_smile_2_fill';
+  static const rmx_chat_smile_2_line = 'rmx_chat_smile_2_line';
+  static const rmx_chat_smile_3_fill = 'rmx_chat_smile_3_fill';
+  static const rmx_chat_smile_3_line = 'rmx_chat_smile_3_line';
+  static const rmx_chat_smile_fill = 'rmx_chat_smile_fill';
+  static const rmx_chat_smile_line = 'rmx_chat_smile_line';
+  static const rmx_chat_upload_fill = 'rmx_chat_upload_fill';
+  static const rmx_chat_upload_line = 'rmx_chat_upload_line';
+  static const rmx_chat_voice_fill = 'rmx_chat_voice_fill';
+  static const rmx_chat_voice_line = 'rmx_chat_voice_line';
+  static const rmx_check_double_fill = 'rmx_check_double_fill';
+  static const rmx_check_double_line = 'rmx_check_double_line';
+  static const rmx_check_fill = 'rmx_check_fill';
+  static const rmx_check_line = 'rmx_check_line';
+  static const rmx_checkbox_blank_circle_fill = 'rmx_checkbox_blank_circle_fill';
+  static const rmx_checkbox_blank_circle_line = 'rmx_checkbox_blank_circle_line';
+  static const rmx_checkbox_blank_fill = 'rmx_checkbox_blank_fill';
+  static const rmx_checkbox_blank_line = 'rmx_checkbox_blank_line';
+  static const rmx_checkbox_circle_fill = 'rmx_checkbox_circle_fill';
+  static const rmx_checkbox_circle_line = 'rmx_checkbox_circle_line';
+  static const rmx_checkbox_fill = 'rmx_checkbox_fill';
+  static const rmx_checkbox_indeterminate_fill = 'rmx_checkbox_indeterminate_fill';
+  static const rmx_checkbox_indeterminate_line = 'rmx_checkbox_indeterminate_line';
+  static const rmx_checkbox_line = 'rmx_checkbox_line';
+  static const rmx_checkbox_multiple_blank_fill = 'rmx_checkbox_multiple_blank_fill';
+  static const rmx_checkbox_multiple_blank_line = 'rmx_checkbox_multiple_blank_line';
+  static const rmx_checkbox_multiple_fill = 'rmx_checkbox_multiple_fill';
+  static const rmx_checkbox_multiple_line = 'rmx_checkbox_multiple_line';
+  static const rmx_china_railway_fill = 'rmx_china_railway_fill';
+  static const rmx_china_railway_line = 'rmx_china_railway_line';
+  static const rmx_chrome_fill = 'rmx_chrome_fill';
+  static const rmx_chrome_line = 'rmx_chrome_line';
+  static const rmx_clapperboard_fill = 'rmx_clapperboard_fill';
+  static const rmx_clapperboard_line = 'rmx_clapperboard_line';
+  static const rmx_clipboard_fill = 'rmx_clipboard_fill';
+  static const rmx_clipboard_line = 'rmx_clipboard_line';
+  static const rmx_clockwise_2_fill = 'rmx_clockwise_2_fill';
+  static const rmx_clockwise_2_line = 'rmx_clockwise_2_line';
+  static const rmx_clockwise_fill = 'rmx_clockwise_fill';
+  static const rmx_clockwise_line = 'rmx_clockwise_line';
+  static const rmx_close_circle_fill = 'rmx_close_circle_fill';
+  static const rmx_close_circle_line = 'rmx_close_circle_line';
+  static const rmx_close_fill = 'rmx_close_fill';
+  static const rmx_close_line = 'rmx_close_line';
+  static const rmx_closed_captioning_fill = 'rmx_closed_captioning_fill';
+  static const rmx_closed_captioning_line = 'rmx_closed_captioning_line';
+  static const rmx_cloud_fill = 'rmx_cloud_fill';
+  static const rmx_cloud_line = 'rmx_cloud_line';
+  static const rmx_cloud_off_fill = 'rmx_cloud_off_fill';
+  static const rmx_cloud_off_line = 'rmx_cloud_off_line';
+  static const rmx_cloud_windy_fill = 'rmx_cloud_windy_fill';
+  static const rmx_cloud_windy_line = 'rmx_cloud_windy_line';
+  static const rmx_cloudy_2_fill = 'rmx_cloudy_2_fill';
+  static const rmx_cloudy_2_line = 'rmx_cloudy_2_line';
+  static const rmx_cloudy_fill = 'rmx_cloudy_fill';
+  static const rmx_cloudy_line = 'rmx_cloudy_line';
+  static const rmx_code_box_fill = 'rmx_code_box_fill';
+  static const rmx_code_box_line = 'rmx_code_box_line';
+  static const rmx_code_fill = 'rmx_code_fill';
+  static const rmx_code_line = 'rmx_code_line';
+  static const rmx_code_s_fill = 'rmx_code_s_fill';
+  static const rmx_code_s_line = 'rmx_code_s_line';
+  static const rmx_code_s_slash_fill = 'rmx_code_s_slash_fill';
+  static const rmx_code_s_slash_line = 'rmx_code_s_slash_line';
+  static const rmx_code_view = 'rmx_code_view';
+  static const rmx_codepen_fill = 'rmx_codepen_fill';
+  static const rmx_codepen_line = 'rmx_codepen_line';
+  static const rmx_coin_fill = 'rmx_coin_fill';
+  static const rmx_coin_line = 'rmx_coin_line';
+  static const rmx_coins_fill = 'rmx_coins_fill';
+  static const rmx_coins_line = 'rmx_coins_line';
+  static const rmx_collage_fill = 'rmx_collage_fill';
+  static const rmx_collage_line = 'rmx_collage_line';
+  static const rmx_command_fill = 'rmx_command_fill';
+  static const rmx_command_line = 'rmx_command_line';
+  static const rmx_community_fill = 'rmx_community_fill';
+  static const rmx_community_line = 'rmx_community_line';
+  static const rmx_compass_2_fill = 'rmx_compass_2_fill';
+  static const rmx_compass_2_line = 'rmx_compass_2_line';
+  static const rmx_compass_3_fill = 'rmx_compass_3_fill';
+  static const rmx_compass_3_line = 'rmx_compass_3_line';
+  static const rmx_compass_4_fill = 'rmx_compass_4_fill';
+  static const rmx_compass_4_line = 'rmx_compass_4_line';
+  static const rmx_compass_discover_fill = 'rmx_compass_discover_fill';
+  static const rmx_compass_discover_line = 'rmx_compass_discover_line';
+  static const rmx_compass_fill = 'rmx_compass_fill';
+  static const rmx_compass_line = 'rmx_compass_line';
+  static const rmx_compasses_2_fill = 'rmx_compasses_2_fill';
+  static const rmx_compasses_2_line = 'rmx_compasses_2_line';
+  static const rmx_compasses_fill = 'rmx_compasses_fill';
+  static const rmx_compasses_line = 'rmx_compasses_line';
+  static const rmx_computer_fill = 'rmx_computer_fill';
+  static const rmx_computer_line = 'rmx_computer_line';
+  static const rmx_contacts_book_2_fill = 'rmx_contacts_book_2_fill';
+  static const rmx_contacts_book_2_line = 'rmx_contacts_book_2_line';
+  static const rmx_contacts_book_fill = 'rmx_contacts_book_fill';
+  static const rmx_contacts_book_line = 'rmx_contacts_book_line';
+  static const rmx_contacts_book_upload_fill = 'rmx_contacts_book_upload_fill';
+  static const rmx_contacts_book_upload_line = 'rmx_contacts_book_upload_line';
+  static const rmx_contacts_fill = 'rmx_contacts_fill';
+  static const rmx_contacts_line = 'rmx_contacts_line';
+  static const rmx_contrast_2_fill = 'rmx_contrast_2_fill';
+  static const rmx_contrast_2_line = 'rmx_contrast_2_line';
+  static const rmx_contrast_drop_2_fill = 'rmx_contrast_drop_2_fill';
+  static const rmx_contrast_drop_2_line = 'rmx_contrast_drop_2_line';
+  static const rmx_contrast_drop_fill = 'rmx_contrast_drop_fill';
+  static const rmx_contrast_drop_line = 'rmx_contrast_drop_line';
+  static const rmx_contrast_fill = 'rmx_contrast_fill';
+  static const rmx_contrast_line = 'rmx_contrast_line';
+  static const rmx_copper_coin_fill = 'rmx_copper_coin_fill';
+  static const rmx_copper_coin_line = 'rmx_copper_coin_line';
+  static const rmx_copper_diamond_fill = 'rmx_copper_diamond_fill';
+  static const rmx_copper_diamond_line = 'rmx_copper_diamond_line';
+  static const rmx_copyleft_fill = 'rmx_copyleft_fill';
+  static const rmx_copyleft_line = 'rmx_copyleft_line';
+  static const rmx_copyright_fill = 'rmx_copyright_fill';
+  static const rmx_copyright_line = 'rmx_copyright_line';
+  static const rmx_coreos_fill = 'rmx_coreos_fill';
+  static const rmx_coreos_line = 'rmx_coreos_line';
+  static const rmx_coupon_2_fill = 'rmx_coupon_2_fill';
+  static const rmx_coupon_2_line = 'rmx_coupon_2_line';
+  static const rmx_coupon_3_fill = 'rmx_coupon_3_fill';
+  static const rmx_coupon_3_line = 'rmx_coupon_3_line';
+  static const rmx_coupon_4_fill = 'rmx_coupon_4_fill';
+  static const rmx_coupon_4_line = 'rmx_coupon_4_line';
+  static const rmx_coupon_5_fill = 'rmx_coupon_5_fill';
+  static const rmx_coupon_5_line = 'rmx_coupon_5_line';
+  static const rmx_coupon_fill = 'rmx_coupon_fill';
+  static const rmx_coupon_line = 'rmx_coupon_line';
+  static const rmx_cpu_fill = 'rmx_cpu_fill';
+  static const rmx_cpu_line = 'rmx_cpu_line';
+  static const rmx_creative_commons_by_fill = 'rmx_creative_commons_by_fill';
+  static const rmx_creative_commons_by_line = 'rmx_creative_commons_by_line';
+  static const rmx_creative_commons_fill = 'rmx_creative_commons_fill';
+  static const rmx_creative_commons_line = 'rmx_creative_commons_line';
+  static const rmx_creative_commons_nc_fill = 'rmx_creative_commons_nc_fill';
+  static const rmx_creative_commons_nc_line = 'rmx_creative_commons_nc_line';
+  static const rmx_creative_commons_nd_fill = 'rmx_creative_commons_nd_fill';
+  static const rmx_creative_commons_nd_line = 'rmx_creative_commons_nd_line';
+  static const rmx_creative_commons_sa_fill = 'rmx_creative_commons_sa_fill';
+  static const rmx_creative_commons_sa_line = 'rmx_creative_commons_sa_line';
+  static const rmx_creative_commons_zero_fill = 'rmx_creative_commons_zero_fill';
+  static const rmx_creative_commons_zero_line = 'rmx_creative_commons_zero_line';
+  static const rmx_criminal_fill = 'rmx_criminal_fill';
+  static const rmx_criminal_line = 'rmx_criminal_line';
+  static const rmx_crop_2_fill = 'rmx_crop_2_fill';
+  static const rmx_crop_2_line = 'rmx_crop_2_line';
+  static const rmx_crop_fill = 'rmx_crop_fill';
+  static const rmx_crop_line = 'rmx_crop_line';
+  static const rmx_css3_fill = 'rmx_css3_fill';
+  static const rmx_css3_line = 'rmx_css3_line';
+  static const rmx_cup_fill = 'rmx_cup_fill';
+  static const rmx_cup_line = 'rmx_cup_line';
+  static const rmx_currency_fill = 'rmx_currency_fill';
+  static const rmx_currency_line = 'rmx_currency_line';
+  static const rmx_cursor_fill = 'rmx_cursor_fill';
+  static const rmx_cursor_line = 'rmx_cursor_line';
+  static const rmx_customer_service_2_fill = 'rmx_customer_service_2_fill';
+  static const rmx_customer_service_2_line = 'rmx_customer_service_2_line';
+  static const rmx_customer_service_fill = 'rmx_customer_service_fill';
+  static const rmx_customer_service_line = 'rmx_customer_service_line';
+  static const rmx_dashboard_2_fill = 'rmx_dashboard_2_fill';
+  static const rmx_dashboard_2_line = 'rmx_dashboard_2_line';
+  static const rmx_dashboard_3_fill = 'rmx_dashboard_3_fill';
+  static const rmx_dashboard_3_line = 'rmx_dashboard_3_line';
+  static const rmx_dashboard_fill = 'rmx_dashboard_fill';
+  static const rmx_dashboard_line = 'rmx_dashboard_line';
+  static const rmx_database_2_fill = 'rmx_database_2_fill';
+  static const rmx_database_2_line = 'rmx_database_2_line';
+  static const rmx_database_fill = 'rmx_database_fill';
+  static const rmx_database_line = 'rmx_database_line';
+  static const rmx_delete_back_2_fill = 'rmx_delete_back_2_fill';
+  static const rmx_delete_back_2_line = 'rmx_delete_back_2_line';
+  static const rmx_delete_back_fill = 'rmx_delete_back_fill';
+  static const rmx_delete_back_line = 'rmx_delete_back_line';
+  static const rmx_delete_bin_2_fill = 'rmx_delete_bin_2_fill';
+  static const rmx_delete_bin_2_line = 'rmx_delete_bin_2_line';
+  static const rmx_delete_bin_3_fill = 'rmx_delete_bin_3_fill';
+  static const rmx_delete_bin_3_line = 'rmx_delete_bin_3_line';
+  static const rmx_delete_bin_4_fill = 'rmx_delete_bin_4_fill';
+  static const rmx_delete_bin_4_line = 'rmx_delete_bin_4_line';
+  static const rmx_delete_bin_5_fill = 'rmx_delete_bin_5_fill';
+  static const rmx_delete_bin_5_line = 'rmx_delete_bin_5_line';
+  static const rmx_delete_bin_6_fill = 'rmx_delete_bin_6_fill';
+  static const rmx_delete_bin_6_line = 'rmx_delete_bin_6_line';
+  static const rmx_delete_bin_7_fill = 'rmx_delete_bin_7_fill';
+  static const rmx_delete_bin_7_line = 'rmx_delete_bin_7_line';
+  static const rmx_delete_bin_fill = 'rmx_delete_bin_fill';
+  static const rmx_delete_bin_line = 'rmx_delete_bin_line';
+  static const rmx_delete_column = 'rmx_delete_column';
+  static const rmx_delete_row = 'rmx_delete_row';
+  static const rmx_device_fill = 'rmx_device_fill';
+  static const rmx_device_line = 'rmx_device_line';
+  static const rmx_device_recover_fill = 'rmx_device_recover_fill';
+  static const rmx_device_recover_line = 'rmx_device_recover_line';
+  static const rmx_dingding_fill = 'rmx_dingding_fill';
+  static const rmx_dingding_line = 'rmx_dingding_line';
+  static const rmx_direction_fill = 'rmx_direction_fill';
+  static const rmx_direction_line = 'rmx_direction_line';
+  static const rmx_disc_fill = 'rmx_disc_fill';
+  static const rmx_disc_line = 'rmx_disc_line';
+  static const rmx_discord_fill = 'rmx_discord_fill';
+  static const rmx_discord_line = 'rmx_discord_line';
+  static const rmx_discuss_fill = 'rmx_discuss_fill';
+  static const rmx_discuss_line = 'rmx_discuss_line';
+  static const rmx_dislike_fill = 'rmx_dislike_fill';
+  static const rmx_dislike_line = 'rmx_dislike_line';
+  static const rmx_disqus_fill = 'rmx_disqus_fill';
+  static const rmx_disqus_line = 'rmx_disqus_line';
+  static const rmx_divide_fill = 'rmx_divide_fill';
+  static const rmx_divide_line = 'rmx_divide_line';
+  static const rmx_donut_chart_fill = 'rmx_donut_chart_fill';
+  static const rmx_donut_chart_line = 'rmx_donut_chart_line';
+  static const rmx_door_closed_fill = 'rmx_door_closed_fill';
+  static const rmx_door_closed_line = 'rmx_door_closed_line';
+  static const rmx_door_fill = 'rmx_door_fill';
+  static const rmx_door_line = 'rmx_door_line';
+  static const rmx_door_lock_box_fill = 'rmx_door_lock_box_fill';
+  static const rmx_door_lock_box_line = 'rmx_door_lock_box_line';
+  static const rmx_door_lock_fill = 'rmx_door_lock_fill';
+  static const rmx_door_lock_line = 'rmx_door_lock_line';
+  static const rmx_door_open_fill = 'rmx_door_open_fill';
+  static const rmx_door_open_line = 'rmx_door_open_line';
+  static const rmx_dossier_fill = 'rmx_dossier_fill';
+  static const rmx_dossier_line = 'rmx_dossier_line';
+  static const rmx_douban_fill = 'rmx_douban_fill';
+  static const rmx_douban_line = 'rmx_douban_line';
+  static const rmx_double_quotes_l = 'rmx_double_quotes_l';
+  static const rmx_double_quotes_r = 'rmx_double_quotes_r';
+  static const rmx_download_2_fill = 'rmx_download_2_fill';
+  static const rmx_download_2_line = 'rmx_download_2_line';
+  static const rmx_download_cloud_2_fill = 'rmx_download_cloud_2_fill';
+  static const rmx_download_cloud_2_line = 'rmx_download_cloud_2_line';
+  static const rmx_download_cloud_fill = 'rmx_download_cloud_fill';
+  static const rmx_download_cloud_line = 'rmx_download_cloud_line';
+  static const rmx_download_fill = 'rmx_download_fill';
+  static const rmx_download_line = 'rmx_download_line';
+  static const rmx_draft_fill = 'rmx_draft_fill';
+  static const rmx_draft_line = 'rmx_draft_line';
+  static const rmx_drag_drop_fill = 'rmx_drag_drop_fill';
+  static const rmx_drag_drop_line = 'rmx_drag_drop_line';
+  static const rmx_drag_move_2_fill = 'rmx_drag_move_2_fill';
+  static const rmx_drag_move_2_line = 'rmx_drag_move_2_line';
+  static const rmx_drag_move_fill = 'rmx_drag_move_fill';
+  static const rmx_drag_move_line = 'rmx_drag_move_line';
+  static const rmx_dribbble_fill = 'rmx_dribbble_fill';
+  static const rmx_dribbble_line = 'rmx_dribbble_line';
+  static const rmx_drive_fill = 'rmx_drive_fill';
+  static const rmx_drive_line = 'rmx_drive_line';
+  static const rmx_drizzle_fill = 'rmx_drizzle_fill';
+  static const rmx_drizzle_line = 'rmx_drizzle_line';
+  static const rmx_drop_fill = 'rmx_drop_fill';
+  static const rmx_drop_line = 'rmx_drop_line';
+  static const rmx_dropbox_fill = 'rmx_dropbox_fill';
+  static const rmx_dropbox_line = 'rmx_dropbox_line';
+  static const rmx_dual_sim_1_fill = 'rmx_dual_sim_1_fill';
+  static const rmx_dual_sim_1_line = 'rmx_dual_sim_1_line';
+  static const rmx_dual_sim_2_fill = 'rmx_dual_sim_2_fill';
+  static const rmx_dual_sim_2_line = 'rmx_dual_sim_2_line';
+  static const rmx_dv_fill = 'rmx_dv_fill';
+  static const rmx_dv_line = 'rmx_dv_line';
+  static const rmx_dvd_fill = 'rmx_dvd_fill';
+  static const rmx_dvd_line = 'rmx_dvd_line';
+  static const rmx_e_bike_2_fill = 'rmx_e_bike_2_fill';
+  static const rmx_e_bike_2_line = 'rmx_e_bike_2_line';
+  static const rmx_e_bike_fill = 'rmx_e_bike_fill';
+  static const rmx_e_bike_line = 'rmx_e_bike_line';
+  static const rmx_earth_fill = 'rmx_earth_fill';
+  static const rmx_earth_line = 'rmx_earth_line';
+  static const rmx_earthquake_fill = 'rmx_earthquake_fill';
+  static const rmx_earthquake_line = 'rmx_earthquake_line';
+  static const rmx_edge_fill = 'rmx_edge_fill';
+  static const rmx_edge_line = 'rmx_edge_line';
+  static const rmx_edit_2_fill = 'rmx_edit_2_fill';
+  static const rmx_edit_2_line = 'rmx_edit_2_line';
+  static const rmx_edit_box_fill = 'rmx_edit_box_fill';
+  static const rmx_edit_box_line = 'rmx_edit_box_line';
+  static const rmx_edit_circle_fill = 'rmx_edit_circle_fill';
+  static const rmx_edit_circle_line = 'rmx_edit_circle_line';
+  static const rmx_edit_fill = 'rmx_edit_fill';
+  static const rmx_edit_line = 'rmx_edit_line';
+  static const rmx_eject_fill = 'rmx_eject_fill';
+  static const rmx_eject_line = 'rmx_eject_line';
+  static const rmx_emotion_2_fill = 'rmx_emotion_2_fill';
+  static const rmx_emotion_2_line = 'rmx_emotion_2_line';
+  static const rmx_emotion_fill = 'rmx_emotion_fill';
+  static const rmx_emotion_happy_fill = 'rmx_emotion_happy_fill';
+  static const rmx_emotion_happy_line = 'rmx_emotion_happy_line';
+  static const rmx_emotion_laugh_fill = 'rmx_emotion_laugh_fill';
+  static const rmx_emotion_laugh_line = 'rmx_emotion_laugh_line';
+  static const rmx_emotion_line = 'rmx_emotion_line';
+  static const rmx_emotion_normal_fill = 'rmx_emotion_normal_fill';
+  static const rmx_emotion_normal_line = 'rmx_emotion_normal_line';
+  static const rmx_emotion_sad_fill = 'rmx_emotion_sad_fill';
+  static const rmx_emotion_sad_line = 'rmx_emotion_sad_line';
+  static const rmx_emotion_unhappy_fill = 'rmx_emotion_unhappy_fill';
+  static const rmx_emotion_unhappy_line = 'rmx_emotion_unhappy_line';
+  static const rmx_empathize_fill = 'rmx_empathize_fill';
+  static const rmx_empathize_line = 'rmx_empathize_line';
+  static const rmx_emphasis = 'rmx_emphasis';
+  static const rmx_emphasis_cn = 'rmx_emphasis_cn';
+  static const rmx_english_input = 'rmx_english_input';
+  static const rmx_equalizer_fill = 'rmx_equalizer_fill';
+  static const rmx_equalizer_line = 'rmx_equalizer_line';
+  static const rmx_eraser_fill = 'rmx_eraser_fill';
+  static const rmx_eraser_line = 'rmx_eraser_line';
+  static const rmx_error_warning_fill = 'rmx_error_warning_fill';
+  static const rmx_error_warning_line = 'rmx_error_warning_line';
+  static const rmx_evernote_fill = 'rmx_evernote_fill';
+  static const rmx_evernote_line = 'rmx_evernote_line';
+  static const rmx_exchange_box_fill = 'rmx_exchange_box_fill';
+  static const rmx_exchange_box_line = 'rmx_exchange_box_line';
+  static const rmx_exchange_cny_fill = 'rmx_exchange_cny_fill';
+  static const rmx_exchange_cny_line = 'rmx_exchange_cny_line';
+  static const rmx_exchange_dollar_fill = 'rmx_exchange_dollar_fill';
+  static const rmx_exchange_dollar_line = 'rmx_exchange_dollar_line';
+  static const rmx_exchange_fill = 'rmx_exchange_fill';
+  static const rmx_exchange_funds_fill = 'rmx_exchange_funds_fill';
+  static const rmx_exchange_funds_line = 'rmx_exchange_funds_line';
+  static const rmx_exchange_line = 'rmx_exchange_line';
+  static const rmx_external_link_fill = 'rmx_external_link_fill';
+  static const rmx_external_link_line = 'rmx_external_link_line';
+  static const rmx_eye_2_fill = 'rmx_eye_2_fill';
+  static const rmx_eye_2_line = 'rmx_eye_2_line';
+  static const rmx_eye_close_fill = 'rmx_eye_close_fill';
+  static const rmx_eye_close_line = 'rmx_eye_close_line';
+  static const rmx_eye_fill = 'rmx_eye_fill';
+  static const rmx_eye_line = 'rmx_eye_line';
+  static const rmx_eye_off_fill = 'rmx_eye_off_fill';
+  static const rmx_eye_off_line = 'rmx_eye_off_line';
+  static const rmx_facebook_box_fill = 'rmx_facebook_box_fill';
+  static const rmx_facebook_box_line = 'rmx_facebook_box_line';
+  static const rmx_facebook_circle_fill = 'rmx_facebook_circle_fill';
+  static const rmx_facebook_circle_line = 'rmx_facebook_circle_line';
+  static const rmx_facebook_fill = 'rmx_facebook_fill';
+  static const rmx_facebook_line = 'rmx_facebook_line';
+  static const rmx_fahrenheit_fill = 'rmx_fahrenheit_fill';
+  static const rmx_fahrenheit_line = 'rmx_fahrenheit_line';
+  static const rmx_feedback_fill = 'rmx_feedback_fill';
+  static const rmx_feedback_line = 'rmx_feedback_line';
+  static const rmx_file_2_fill = 'rmx_file_2_fill';
+  static const rmx_file_2_line = 'rmx_file_2_line';
+  static const rmx_file_3_fill = 'rmx_file_3_fill';
+  static const rmx_file_3_line = 'rmx_file_3_line';
+  static const rmx_file_4_fill = 'rmx_file_4_fill';
+  static const rmx_file_4_line = 'rmx_file_4_line';
+  static const rmx_file_add_fill = 'rmx_file_add_fill';
+  static const rmx_file_add_line = 'rmx_file_add_line';
+  static const rmx_file_chart_2_fill = 'rmx_file_chart_2_fill';
+  static const rmx_file_chart_2_line = 'rmx_file_chart_2_line';
+  static const rmx_file_chart_fill = 'rmx_file_chart_fill';
+  static const rmx_file_chart_line = 'rmx_file_chart_line';
+  static const rmx_file_cloud_fill = 'rmx_file_cloud_fill';
+  static const rmx_file_cloud_line = 'rmx_file_cloud_line';
+  static const rmx_file_code_fill = 'rmx_file_code_fill';
+  static const rmx_file_code_line = 'rmx_file_code_line';
+  static const rmx_file_copy_2_fill = 'rmx_file_copy_2_fill';
+  static const rmx_file_copy_2_line = 'rmx_file_copy_2_line';
+  static const rmx_file_copy_fill = 'rmx_file_copy_fill';
+  static const rmx_file_copy_line = 'rmx_file_copy_line';
+  static const rmx_file_damage_fill = 'rmx_file_damage_fill';
+  static const rmx_file_damage_line = 'rmx_file_damage_line';
+  static const rmx_file_download_fill = 'rmx_file_download_fill';
+  static const rmx_file_download_line = 'rmx_file_download_line';
+  static const rmx_file_edit_fill = 'rmx_file_edit_fill';
+  static const rmx_file_edit_line = 'rmx_file_edit_line';
+  static const rmx_file_excel_2_fill = 'rmx_file_excel_2_fill';
+  static const rmx_file_excel_2_line = 'rmx_file_excel_2_line';
+  static const rmx_file_excel_fill = 'rmx_file_excel_fill';
+  static const rmx_file_excel_line = 'rmx_file_excel_line';
+  static const rmx_file_fill = 'rmx_file_fill';
+  static const rmx_file_forbid_fill = 'rmx_file_forbid_fill';
+  static const rmx_file_forbid_line = 'rmx_file_forbid_line';
+  static const rmx_file_gif_fill = 'rmx_file_gif_fill';
+  static const rmx_file_gif_line = 'rmx_file_gif_line';
+  static const rmx_file_history_fill = 'rmx_file_history_fill';
+  static const rmx_file_history_line = 'rmx_file_history_line';
+  static const rmx_file_hwp_fill = 'rmx_file_hwp_fill';
+  static const rmx_file_hwp_line = 'rmx_file_hwp_line';
+  static const rmx_file_info_fill = 'rmx_file_info_fill';
+  static const rmx_file_info_line = 'rmx_file_info_line';
+  static const rmx_file_line = 'rmx_file_line';
+  static const rmx_file_list_2_fill = 'rmx_file_list_2_fill';
+  static const rmx_file_list_2_line = 'rmx_file_list_2_line';
+  static const rmx_file_list_3_fill = 'rmx_file_list_3_fill';
+  static const rmx_file_list_3_line = 'rmx_file_list_3_line';
+  static const rmx_file_list_fill = 'rmx_file_list_fill';
+  static const rmx_file_list_line = 'rmx_file_list_line';
+  static const rmx_file_lock_fill = 'rmx_file_lock_fill';
+  static const rmx_file_lock_line = 'rmx_file_lock_line';
+  static const rmx_file_mark_fill = 'rmx_file_mark_fill';
+  static const rmx_file_mark_line = 'rmx_file_mark_line';
+  static const rmx_file_music_fill = 'rmx_file_music_fill';
+  static const rmx_file_music_line = 'rmx_file_music_line';
+  static const rmx_file_paper_2_fill = 'rmx_file_paper_2_fill';
+  static const rmx_file_paper_2_line = 'rmx_file_paper_2_line';
+  static const rmx_file_paper_fill = 'rmx_file_paper_fill';
+  static const rmx_file_paper_line = 'rmx_file_paper_line';
+  static const rmx_file_pdf_fill = 'rmx_file_pdf_fill';
+  static const rmx_file_pdf_line = 'rmx_file_pdf_line';
+  static const rmx_file_ppt_2_fill = 'rmx_file_ppt_2_fill';
+  static const rmx_file_ppt_2_line = 'rmx_file_ppt_2_line';
+  static const rmx_file_ppt_fill = 'rmx_file_ppt_fill';
+  static const rmx_file_ppt_line = 'rmx_file_ppt_line';
+  static const rmx_file_reduce_fill = 'rmx_file_reduce_fill';
+  static const rmx_file_reduce_line = 'rmx_file_reduce_line';
+  static const rmx_file_search_fill = 'rmx_file_search_fill';
+  static const rmx_file_search_line = 'rmx_file_search_line';
+  static const rmx_file_settings_fill = 'rmx_file_settings_fill';
+  static const rmx_file_settings_line = 'rmx_file_settings_line';
+  static const rmx_file_shield_2_fill = 'rmx_file_shield_2_fill';
+  static const rmx_file_shield_2_line = 'rmx_file_shield_2_line';
+  static const rmx_file_shield_fill = 'rmx_file_shield_fill';
+  static const rmx_file_shield_line = 'rmx_file_shield_line';
+  static const rmx_file_shred_fill = 'rmx_file_shred_fill';
+  static const rmx_file_shred_line = 'rmx_file_shred_line';
+  static const rmx_file_text_fill = 'rmx_file_text_fill';
+  static const rmx_file_text_line = 'rmx_file_text_line';
+  static const rmx_file_transfer_fill = 'rmx_file_transfer_fill';
+  static const rmx_file_transfer_line = 'rmx_file_transfer_line';
+  static const rmx_file_unknow_fill = 'rmx_file_unknow_fill';
+  static const rmx_file_unknow_line = 'rmx_file_unknow_line';
+  static const rmx_file_upload_fill = 'rmx_file_upload_fill';
+  static const rmx_file_upload_line = 'rmx_file_upload_line';
+  static const rmx_file_user_fill = 'rmx_file_user_fill';
+  static const rmx_file_user_line = 'rmx_file_user_line';
+  static const rmx_file_warning_fill = 'rmx_file_warning_fill';
+  static const rmx_file_warning_line = 'rmx_file_warning_line';
+  static const rmx_file_word_2_fill = 'rmx_file_word_2_fill';
+  static const rmx_file_word_2_line = 'rmx_file_word_2_line';
+  static const rmx_file_word_fill = 'rmx_file_word_fill';
+  static const rmx_file_word_line = 'rmx_file_word_line';
+  static const rmx_file_zip_fill = 'rmx_file_zip_fill';
+  static const rmx_file_zip_line = 'rmx_file_zip_line';
+  static const rmx_film_fill = 'rmx_film_fill';
+  static const rmx_film_line = 'rmx_film_line';
+  static const rmx_filter_2_fill = 'rmx_filter_2_fill';
+  static const rmx_filter_2_line = 'rmx_filter_2_line';
+  static const rmx_filter_3_fill = 'rmx_filter_3_fill';
+  static const rmx_filter_3_line = 'rmx_filter_3_line';
+  static const rmx_filter_fill = 'rmx_filter_fill';
+  static const rmx_filter_line = 'rmx_filter_line';
+  static const rmx_filter_off_fill = 'rmx_filter_off_fill';
+  static const rmx_filter_off_line = 'rmx_filter_off_line';
+  static const rmx_find_replace_fill = 'rmx_find_replace_fill';
+  static const rmx_find_replace_line = 'rmx_find_replace_line';
+  static const rmx_finder_fill = 'rmx_finder_fill';
+  static const rmx_finder_line = 'rmx_finder_line';
+  static const rmx_fingerprint_2_fill = 'rmx_fingerprint_2_fill';
+  static const rmx_fingerprint_2_line = 'rmx_fingerprint_2_line';
+  static const rmx_fingerprint_fill = 'rmx_fingerprint_fill';
+  static const rmx_fingerprint_line = 'rmx_fingerprint_line';
+  static const rmx_fire_fill = 'rmx_fire_fill';
+  static const rmx_fire_line = 'rmx_fire_line';
+  static const rmx_firefox_fill = 'rmx_firefox_fill';
+  static const rmx_firefox_line = 'rmx_firefox_line';
+  static const rmx_first_aid_kit_fill = 'rmx_first_aid_kit_fill';
+  static const rmx_first_aid_kit_line = 'rmx_first_aid_kit_line';
+  static const rmx_flag_2_fill = 'rmx_flag_2_fill';
+  static const rmx_flag_2_line = 'rmx_flag_2_line';
+  static const rmx_flag_fill = 'rmx_flag_fill';
+  static const rmx_flag_line = 'rmx_flag_line';
+  static const rmx_flashlight_fill = 'rmx_flashlight_fill';
+  static const rmx_flashlight_line = 'rmx_flashlight_line';
+  static const rmx_flask_fill = 'rmx_flask_fill';
+  static const rmx_flask_line = 'rmx_flask_line';
+  static const rmx_flight_land_fill = 'rmx_flight_land_fill';
+  static const rmx_flight_land_line = 'rmx_flight_land_line';
+  static const rmx_flight_takeoff_fill = 'rmx_flight_takeoff_fill';
+  static const rmx_flight_takeoff_line = 'rmx_flight_takeoff_line';
+  static const rmx_flood_fill = 'rmx_flood_fill';
+  static const rmx_flood_line = 'rmx_flood_line';
+  static const rmx_flow_chart = 'rmx_flow_chart';
+  static const rmx_flutter_fill = 'rmx_flutter_fill';
+  static const rmx_flutter_line = 'rmx_flutter_line';
+  static const rmx_focus_2_fill = 'rmx_focus_2_fill';
+  static const rmx_focus_2_line = 'rmx_focus_2_line';
+  static const rmx_focus_3_fill = 'rmx_focus_3_fill';
+  static const rmx_focus_3_line = 'rmx_focus_3_line';
+  static const rmx_focus_fill = 'rmx_focus_fill';
+  static const rmx_focus_line = 'rmx_focus_line';
+  static const rmx_foggy_fill = 'rmx_foggy_fill';
+  static const rmx_foggy_line = 'rmx_foggy_line';
+  static const rmx_folder_2_fill = 'rmx_folder_2_fill';
+  static const rmx_folder_2_line = 'rmx_folder_2_line';
+  static const rmx_folder_3_fill = 'rmx_folder_3_fill';
+  static const rmx_folder_3_line = 'rmx_folder_3_line';
+  static const rmx_folder_4_fill = 'rmx_folder_4_fill';
+  static const rmx_folder_4_line = 'rmx_folder_4_line';
+  static const rmx_folder_5_fill = 'rmx_folder_5_fill';
+  static const rmx_folder_5_line = 'rmx_folder_5_line';
+  static const rmx_folder_add_fill = 'rmx_folder_add_fill';
+  static const rmx_folder_add_line = 'rmx_folder_add_line';
+  static const rmx_folder_chart_2_fill = 'rmx_folder_chart_2_fill';
+  static const rmx_folder_chart_2_line = 'rmx_folder_chart_2_line';
+  static const rmx_folder_chart_fill = 'rmx_folder_chart_fill';
+  static const rmx_folder_chart_line = 'rmx_folder_chart_line';
+  static const rmx_folder_download_fill = 'rmx_folder_download_fill';
+  static const rmx_folder_download_line = 'rmx_folder_download_line';
+  static const rmx_folder_fill = 'rmx_folder_fill';
+  static const rmx_folder_forbid_fill = 'rmx_folder_forbid_fill';
+  static const rmx_folder_forbid_line = 'rmx_folder_forbid_line';
+  static const rmx_folder_history_fill = 'rmx_folder_history_fill';
+  static const rmx_folder_history_line = 'rmx_folder_history_line';
+  static const rmx_folder_info_fill = 'rmx_folder_info_fill';
+  static const rmx_folder_info_line = 'rmx_folder_info_line';
+  static const rmx_folder_keyhole_fill = 'rmx_folder_keyhole_fill';
+  static const rmx_folder_keyhole_line = 'rmx_folder_keyhole_line';
+  static const rmx_folder_line = 'rmx_folder_line';
+  static const rmx_folder_lock_fill = 'rmx_folder_lock_fill';
+  static const rmx_folder_lock_line = 'rmx_folder_lock_line';
+  static const rmx_folder_music_fill = 'rmx_folder_music_fill';
+  static const rmx_folder_music_line = 'rmx_folder_music_line';
+  static const rmx_folder_open_fill = 'rmx_folder_open_fill';
+  static const rmx_folder_open_line = 'rmx_folder_open_line';
+  static const rmx_folder_received_fill = 'rmx_folder_received_fill';
+  static const rmx_folder_received_line = 'rmx_folder_received_line';
+  static const rmx_folder_reduce_fill = 'rmx_folder_reduce_fill';
+  static const rmx_folder_reduce_line = 'rmx_folder_reduce_line';
+  static const rmx_folder_settings_fill = 'rmx_folder_settings_fill';
+  static const rmx_folder_settings_line = 'rmx_folder_settings_line';
+  static const rmx_folder_shared_fill = 'rmx_folder_shared_fill';
+  static const rmx_folder_shared_line = 'rmx_folder_shared_line';
+  static const rmx_folder_shield_2_fill = 'rmx_folder_shield_2_fill';
+  static const rmx_folder_shield_2_line = 'rmx_folder_shield_2_line';
+  static const rmx_folder_shield_fill = 'rmx_folder_shield_fill';
+  static const rmx_folder_shield_line = 'rmx_folder_shield_line';
+  static const rmx_folder_transfer_fill = 'rmx_folder_transfer_fill';
+  static const rmx_folder_transfer_line = 'rmx_folder_transfer_line';
+  static const rmx_folder_unknow_fill = 'rmx_folder_unknow_fill';
+  static const rmx_folder_unknow_line = 'rmx_folder_unknow_line';
+  static const rmx_folder_upload_fill = 'rmx_folder_upload_fill';
+  static const rmx_folder_upload_line = 'rmx_folder_upload_line';
+  static const rmx_folder_user_fill = 'rmx_folder_user_fill';
+  static const rmx_folder_user_line = 'rmx_folder_user_line';
+  static const rmx_folder_warning_fill = 'rmx_folder_warning_fill';
+  static const rmx_folder_warning_line = 'rmx_folder_warning_line';
+  static const rmx_folder_zip_fill = 'rmx_folder_zip_fill';
+  static const rmx_folder_zip_line = 'rmx_folder_zip_line';
+  static const rmx_folders_fill = 'rmx_folders_fill';
+  static const rmx_folders_line = 'rmx_folders_line';
+  static const rmx_font_color = 'rmx_font_color';
+  static const rmx_font_size = 'rmx_font_size';
+  static const rmx_font_size_2 = 'rmx_font_size_2';
+  static const rmx_football_fill = 'rmx_football_fill';
+  static const rmx_football_line = 'rmx_football_line';
+  static const rmx_footprint_fill = 'rmx_footprint_fill';
+  static const rmx_footprint_line = 'rmx_footprint_line';
+  static const rmx_forbid_2_fill = 'rmx_forbid_2_fill';
+  static const rmx_forbid_2_line = 'rmx_forbid_2_line';
+  static const rmx_forbid_fill = 'rmx_forbid_fill';
+  static const rmx_forbid_line = 'rmx_forbid_line';
+  static const rmx_format_clear = 'rmx_format_clear';
+  static const rmx_fridge_fill = 'rmx_fridge_fill';
+  static const rmx_fridge_line = 'rmx_fridge_line';
+  static const rmx_fullscreen_exit_fill = 'rmx_fullscreen_exit_fill';
+  static const rmx_fullscreen_exit_line = 'rmx_fullscreen_exit_line';
+  static const rmx_fullscreen_fill = 'rmx_fullscreen_fill';
+  static const rmx_fullscreen_line = 'rmx_fullscreen_line';
+  static const rmx_function_fill = 'rmx_function_fill';
+  static const rmx_function_line = 'rmx_function_line';
+  static const rmx_functions = 'rmx_functions';
+  static const rmx_funds_box_fill = 'rmx_funds_box_fill';
+  static const rmx_funds_box_line = 'rmx_funds_box_line';
+  static const rmx_funds_fill = 'rmx_funds_fill';
+  static const rmx_funds_line = 'rmx_funds_line';
+  static const rmx_gallery_fill = 'rmx_gallery_fill';
+  static const rmx_gallery_line = 'rmx_gallery_line';
+  static const rmx_gallery_upload_fill = 'rmx_gallery_upload_fill';
+  static const rmx_gallery_upload_line = 'rmx_gallery_upload_line';
+  static const rmx_game_fill = 'rmx_game_fill';
+  static const rmx_game_line = 'rmx_game_line';
+  static const rmx_gamepad_fill = 'rmx_gamepad_fill';
+  static const rmx_gamepad_line = 'rmx_gamepad_line';
+  static const rmx_gas_station_fill = 'rmx_gas_station_fill';
+  static const rmx_gas_station_line = 'rmx_gas_station_line';
+  static const rmx_gatsby_fill = 'rmx_gatsby_fill';
+  static const rmx_gatsby_line = 'rmx_gatsby_line';
+  static const rmx_genderless_fill = 'rmx_genderless_fill';
+  static const rmx_genderless_line = 'rmx_genderless_line';
+  static const rmx_ghost_2_fill = 'rmx_ghost_2_fill';
+  static const rmx_ghost_2_line = 'rmx_ghost_2_line';
+  static const rmx_ghost_fill = 'rmx_ghost_fill';
+  static const rmx_ghost_line = 'rmx_ghost_line';
+  static const rmx_ghost_smile_fill = 'rmx_ghost_smile_fill';
+  static const rmx_ghost_smile_line = 'rmx_ghost_smile_line';
+  static const rmx_gift_2_fill = 'rmx_gift_2_fill';
+  static const rmx_gift_2_line = 'rmx_gift_2_line';
+  static const rmx_gift_fill = 'rmx_gift_fill';
+  static const rmx_gift_line = 'rmx_gift_line';
+  static const rmx_git_branch_fill = 'rmx_git_branch_fill';
+  static const rmx_git_branch_line = 'rmx_git_branch_line';
+  static const rmx_git_commit_fill = 'rmx_git_commit_fill';
+  static const rmx_git_commit_line = 'rmx_git_commit_line';
+  static const rmx_git_merge_fill = 'rmx_git_merge_fill';
+  static const rmx_git_merge_line = 'rmx_git_merge_line';
+  static const rmx_git_pull_request_fill = 'rmx_git_pull_request_fill';
+  static const rmx_git_pull_request_line = 'rmx_git_pull_request_line';
+  static const rmx_git_repository_commits_fill = 'rmx_git_repository_commits_fill';
+  static const rmx_git_repository_commits_line = 'rmx_git_repository_commits_line';
+  static const rmx_git_repository_fill = 'rmx_git_repository_fill';
+  static const rmx_git_repository_line = 'rmx_git_repository_line';
+  static const rmx_git_repository_private_fill = 'rmx_git_repository_private_fill';
+  static const rmx_git_repository_private_line = 'rmx_git_repository_private_line';
+  static const rmx_github_fill = 'rmx_github_fill';
+  static const rmx_github_line = 'rmx_github_line';
+  static const rmx_gitlab_fill = 'rmx_gitlab_fill';
+  static const rmx_gitlab_line = 'rmx_gitlab_line';
+  static const rmx_global_fill = 'rmx_global_fill';
+  static const rmx_global_line = 'rmx_global_line';
+  static const rmx_globe_fill = 'rmx_globe_fill';
+  static const rmx_globe_line = 'rmx_globe_line';
+  static const rmx_goblet_fill = 'rmx_goblet_fill';
+  static const rmx_goblet_line = 'rmx_goblet_line';
+  static const rmx_google_fill = 'rmx_google_fill';
+  static const rmx_google_line = 'rmx_google_line';
+  static const rmx_google_play_fill = 'rmx_google_play_fill';
+  static const rmx_google_play_line = 'rmx_google_play_line';
+  static const rmx_government_fill = 'rmx_government_fill';
+  static const rmx_government_line = 'rmx_government_line';
+  static const rmx_gps_fill = 'rmx_gps_fill';
+  static const rmx_gps_line = 'rmx_gps_line';
+  static const rmx_gradienter_fill = 'rmx_gradienter_fill';
+  static const rmx_gradienter_line = 'rmx_gradienter_line';
+  static const rmx_grid_fill = 'rmx_grid_fill';
+  static const rmx_grid_line = 'rmx_grid_line';
+  static const rmx_group_2_fill = 'rmx_group_2_fill';
+  static const rmx_group_2_line = 'rmx_group_2_line';
+  static const rmx_group_fill = 'rmx_group_fill';
+  static const rmx_group_line = 'rmx_group_line';
+  static const rmx_guide_fill = 'rmx_guide_fill';
+  static const rmx_guide_line = 'rmx_guide_line';
+  static const rmx_h_1 = 'rmx_h_1';
+  static const rmx_h_2 = 'rmx_h_2';
+  static const rmx_h_3 = 'rmx_h_3';
+  static const rmx_h_4 = 'rmx_h_4';
+  static const rmx_h_5 = 'rmx_h_5';
+  static const rmx_h_6 = 'rmx_h_6';
+  static const rmx_hail_fill = 'rmx_hail_fill';
+  static const rmx_hail_line = 'rmx_hail_line';
+  static const rmx_hammer_fill = 'rmx_hammer_fill';
+  static const rmx_hammer_line = 'rmx_hammer_line';
+  static const rmx_hand_coin_fill = 'rmx_hand_coin_fill';
+  static const rmx_hand_coin_line = 'rmx_hand_coin_line';
+  static const rmx_hand_heart_fill = 'rmx_hand_heart_fill';
+  static const rmx_hand_heart_line = 'rmx_hand_heart_line';
+  static const rmx_hand_sanitizer_fill = 'rmx_hand_sanitizer_fill';
+  static const rmx_hand_sanitizer_line = 'rmx_hand_sanitizer_line';
+  static const rmx_handbag_fill = 'rmx_handbag_fill';
+  static const rmx_handbag_line = 'rmx_handbag_line';
+  static const rmx_hard_drive_2_fill = 'rmx_hard_drive_2_fill';
+  static const rmx_hard_drive_2_line = 'rmx_hard_drive_2_line';
+  static const rmx_hard_drive_fill = 'rmx_hard_drive_fill';
+  static const rmx_hard_drive_line = 'rmx_hard_drive_line';
+  static const rmx_hashtag = 'rmx_hashtag';
+  static const rmx_haze_2_fill = 'rmx_haze_2_fill';
+  static const rmx_haze_2_line = 'rmx_haze_2_line';
+  static const rmx_haze_fill = 'rmx_haze_fill';
+  static const rmx_haze_line = 'rmx_haze_line';
+  static const rmx_hd_fill = 'rmx_hd_fill';
+  static const rmx_hd_line = 'rmx_hd_line';
+  static const rmx_heading = 'rmx_heading';
+  static const rmx_headphone_fill = 'rmx_headphone_fill';
+  static const rmx_headphone_line = 'rmx_headphone_line';
+  static const rmx_health_book_fill = 'rmx_health_book_fill';
+  static const rmx_health_book_line = 'rmx_health_book_line';
+  static const rmx_heart_2_fill = 'rmx_heart_2_fill';
+  static const rmx_heart_2_line = 'rmx_heart_2_line';
+  static const rmx_heart_3_fill = 'rmx_heart_3_fill';
+  static const rmx_heart_3_line = 'rmx_heart_3_line';
+  static const rmx_heart_add_fill = 'rmx_heart_add_fill';
+  static const rmx_heart_add_line = 'rmx_heart_add_line';
+  static const rmx_heart_fill = 'rmx_heart_fill';
+  static const rmx_heart_line = 'rmx_heart_line';
+  static const rmx_heart_pulse_fill = 'rmx_heart_pulse_fill';
+  static const rmx_heart_pulse_line = 'rmx_heart_pulse_line';
+  static const rmx_hearts_fill = 'rmx_hearts_fill';
+  static const rmx_hearts_line = 'rmx_hearts_line';
+  static const rmx_heavy_showers_fill = 'rmx_heavy_showers_fill';
+  static const rmx_heavy_showers_line = 'rmx_heavy_showers_line';
+  static const rmx_history_fill = 'rmx_history_fill';
+  static const rmx_history_line = 'rmx_history_line';
+  static const rmx_home_2_fill = 'rmx_home_2_fill';
+  static const rmx_home_2_line = 'rmx_home_2_line';
+  static const rmx_home_3_fill = 'rmx_home_3_fill';
+  static const rmx_home_3_line = 'rmx_home_3_line';
+  static const rmx_home_4_fill = 'rmx_home_4_fill';
+  static const rmx_home_4_line = 'rmx_home_4_line';
+  static const rmx_home_5_fill = 'rmx_home_5_fill';
+  static const rmx_home_5_line = 'rmx_home_5_line';
+  static const rmx_home_6_fill = 'rmx_home_6_fill';
+  static const rmx_home_6_line = 'rmx_home_6_line';
+  static const rmx_home_7_fill = 'rmx_home_7_fill';
+  static const rmx_home_7_line = 'rmx_home_7_line';
+  static const rmx_home_8_fill = 'rmx_home_8_fill';
+  static const rmx_home_8_line = 'rmx_home_8_line';
+  static const rmx_home_fill = 'rmx_home_fill';
+  static const rmx_home_gear_fill = 'rmx_home_gear_fill';
+  static const rmx_home_gear_line = 'rmx_home_gear_line';
+  static const rmx_home_heart_fill = 'rmx_home_heart_fill';
+  static const rmx_home_heart_line = 'rmx_home_heart_line';
+  static const rmx_home_line = 'rmx_home_line';
+  static const rmx_home_smile_2_fill = 'rmx_home_smile_2_fill';
+  static const rmx_home_smile_2_line = 'rmx_home_smile_2_line';
+  static const rmx_home_smile_fill = 'rmx_home_smile_fill';
+  static const rmx_home_smile_line = 'rmx_home_smile_line';
+  static const rmx_home_wifi_fill = 'rmx_home_wifi_fill';
+  static const rmx_home_wifi_line = 'rmx_home_wifi_line';
+  static const rmx_honor_of_kings_fill = 'rmx_honor_of_kings_fill';
+  static const rmx_honor_of_kings_line = 'rmx_honor_of_kings_line';
+  static const rmx_honour_fill = 'rmx_honour_fill';
+  static const rmx_honour_line = 'rmx_honour_line';
+  static const rmx_hospital_fill = 'rmx_hospital_fill';
+  static const rmx_hospital_line = 'rmx_hospital_line';
+  static const rmx_hotel_bed_fill = 'rmx_hotel_bed_fill';
+  static const rmx_hotel_bed_line = 'rmx_hotel_bed_line';
+  static const rmx_hotel_fill = 'rmx_hotel_fill';
+  static const rmx_hotel_line = 'rmx_hotel_line';
+  static const rmx_hotspot_fill = 'rmx_hotspot_fill';
+  static const rmx_hotspot_line = 'rmx_hotspot_line';
+  static const rmx_hq_fill = 'rmx_hq_fill';
+  static const rmx_hq_line = 'rmx_hq_line';
+  static const rmx_html5_fill = 'rmx_html5_fill';
+  static const rmx_html5_line = 'rmx_html5_line';
+  static const rmx_ie_fill = 'rmx_ie_fill';
+  static const rmx_ie_line = 'rmx_ie_line';
+  static const rmx_image_2_fill = 'rmx_image_2_fill';
+  static const rmx_image_2_line = 'rmx_image_2_line';
+  static const rmx_image_add_fill = 'rmx_image_add_fill';
+  static const rmx_image_add_line = 'rmx_image_add_line';
+  static const rmx_image_edit_fill = 'rmx_image_edit_fill';
+  static const rmx_image_edit_line = 'rmx_image_edit_line';
+  static const rmx_image_fill = 'rmx_image_fill';
+  static const rmx_image_line = 'rmx_image_line';
+  static const rmx_inbox_archive_fill = 'rmx_inbox_archive_fill';
+  static const rmx_inbox_archive_line = 'rmx_inbox_archive_line';
+  static const rmx_inbox_fill = 'rmx_inbox_fill';
+  static const rmx_inbox_line = 'rmx_inbox_line';
+  static const rmx_inbox_unarchive_fill = 'rmx_inbox_unarchive_fill';
+  static const rmx_inbox_unarchive_line = 'rmx_inbox_unarchive_line';
+  static const rmx_increase_decrease_fill = 'rmx_increase_decrease_fill';
+  static const rmx_increase_decrease_line = 'rmx_increase_decrease_line';
+  static const rmx_indent_decrease = 'rmx_indent_decrease';
+  static const rmx_indent_increase = 'rmx_indent_increase';
+  static const rmx_indeterminate_circle_fill = 'rmx_indeterminate_circle_fill';
+  static const rmx_indeterminate_circle_line = 'rmx_indeterminate_circle_line';
+  static const rmx_information_fill = 'rmx_information_fill';
+  static const rmx_information_line = 'rmx_information_line';
+  static const rmx_infrared_thermometer_fill = 'rmx_infrared_thermometer_fill';
+  static const rmx_infrared_thermometer_line = 'rmx_infrared_thermometer_line';
+  static const rmx_ink_bottle_fill = 'rmx_ink_bottle_fill';
+  static const rmx_ink_bottle_line = 'rmx_ink_bottle_line';
+  static const rmx_input_cursor_move = 'rmx_input_cursor_move';
+  static const rmx_input_method_fill = 'rmx_input_method_fill';
+  static const rmx_input_method_line = 'rmx_input_method_line';
+  static const rmx_insert_column_left = 'rmx_insert_column_left';
+  static const rmx_insert_column_right = 'rmx_insert_column_right';
+  static const rmx_insert_row_bottom = 'rmx_insert_row_bottom';
+  static const rmx_insert_row_top = 'rmx_insert_row_top';
+  static const rmx_instagram_fill = 'rmx_instagram_fill';
+  static const rmx_instagram_line = 'rmx_instagram_line';
+  static const rmx_install_fill = 'rmx_install_fill';
+  static const rmx_install_line = 'rmx_install_line';
+  static const rmx_invision_fill = 'rmx_invision_fill';
+  static const rmx_invision_line = 'rmx_invision_line';
+  static const rmx_italic = 'rmx_italic';
+  static const rmx_kakao_talk_fill = 'rmx_kakao_talk_fill';
+  static const rmx_kakao_talk_line = 'rmx_kakao_talk_line';
+  static const rmx_key_2_fill = 'rmx_key_2_fill';
+  static const rmx_key_2_line = 'rmx_key_2_line';
+  static const rmx_key_fill = 'rmx_key_fill';
+  static const rmx_key_line = 'rmx_key_line';
+  static const rmx_keyboard_box_fill = 'rmx_keyboard_box_fill';
+  static const rmx_keyboard_box_line = 'rmx_keyboard_box_line';
+  static const rmx_keyboard_fill = 'rmx_keyboard_fill';
+  static const rmx_keyboard_line = 'rmx_keyboard_line';
+  static const rmx_keynote_fill = 'rmx_keynote_fill';
+  static const rmx_keynote_line = 'rmx_keynote_line';
+  static const rmx_knife_blood_fill = 'rmx_knife_blood_fill';
+  static const rmx_knife_blood_line = 'rmx_knife_blood_line';
+  static const rmx_knife_fill = 'rmx_knife_fill';
+  static const rmx_knife_line = 'rmx_knife_line';
+  static const rmx_landscape_fill = 'rmx_landscape_fill';
+  static const rmx_landscape_line = 'rmx_landscape_line';
+  static const rmx_layout_2_fill = 'rmx_layout_2_fill';
+  static const rmx_layout_2_line = 'rmx_layout_2_line';
+  static const rmx_layout_3_fill = 'rmx_layout_3_fill';
+  static const rmx_layout_3_line = 'rmx_layout_3_line';
+  static const rmx_layout_4_fill = 'rmx_layout_4_fill';
+  static const rmx_layout_4_line = 'rmx_layout_4_line';
+  static const rmx_layout_5_fill = 'rmx_layout_5_fill';
+  static const rmx_layout_5_line = 'rmx_layout_5_line';
+  static const rmx_layout_6_fill = 'rmx_layout_6_fill';
+  static const rmx_layout_6_line = 'rmx_layout_6_line';
+  static const rmx_layout_bottom_2_fill = 'rmx_layout_bottom_2_fill';
+  static const rmx_layout_bottom_2_line = 'rmx_layout_bottom_2_line';
+  static const rmx_layout_bottom_fill = 'rmx_layout_bottom_fill';
+  static const rmx_layout_bottom_line = 'rmx_layout_bottom_line';
+  static const rmx_layout_column_fill = 'rmx_layout_column_fill';
+  static const rmx_layout_column_line = 'rmx_layout_column_line';
+  static const rmx_layout_fill = 'rmx_layout_fill';
+  static const rmx_layout_grid_fill = 'rmx_layout_grid_fill';
+  static const rmx_layout_grid_line = 'rmx_layout_grid_line';
+  static const rmx_layout_left_2_fill = 'rmx_layout_left_2_fill';
+  static const rmx_layout_left_2_line = 'rmx_layout_left_2_line';
+  static const rmx_layout_left_fill = 'rmx_layout_left_fill';
+  static const rmx_layout_left_line = 'rmx_layout_left_line';
+  static const rmx_layout_line = 'rmx_layout_line';
+  static const rmx_layout_masonry_fill = 'rmx_layout_masonry_fill';
+  static const rmx_layout_masonry_line = 'rmx_layout_masonry_line';
+  static const rmx_layout_right_2_fill = 'rmx_layout_right_2_fill';
+  static const rmx_layout_right_2_line = 'rmx_layout_right_2_line';
+  static const rmx_layout_right_fill = 'rmx_layout_right_fill';
+  static const rmx_layout_right_line = 'rmx_layout_right_line';
+  static const rmx_layout_row_fill = 'rmx_layout_row_fill';
+  static const rmx_layout_row_line = 'rmx_layout_row_line';
+  static const rmx_layout_top_2_fill = 'rmx_layout_top_2_fill';
+  static const rmx_layout_top_2_line = 'rmx_layout_top_2_line';
+  static const rmx_layout_top_fill = 'rmx_layout_top_fill';
+  static const rmx_layout_top_line = 'rmx_layout_top_line';
+  static const rmx_leaf_fill = 'rmx_leaf_fill';
+  static const rmx_leaf_line = 'rmx_leaf_line';
+  static const rmx_lifebuoy_fill = 'rmx_lifebuoy_fill';
+  static const rmx_lifebuoy_line = 'rmx_lifebuoy_line';
+  static const rmx_lightbulb_fill = 'rmx_lightbulb_fill';
+  static const rmx_lightbulb_flash_fill = 'rmx_lightbulb_flash_fill';
+  static const rmx_lightbulb_flash_line = 'rmx_lightbulb_flash_line';
+  static const rmx_lightbulb_line = 'rmx_lightbulb_line';
+  static const rmx_line_chart_fill = 'rmx_line_chart_fill';
+  static const rmx_line_chart_line = 'rmx_line_chart_line';
+  static const rmx_line_fill = 'rmx_line_fill';
+  static const rmx_line_height = 'rmx_line_height';
+  static const rmx_line_line = 'rmx_line_line';
+  static const rmx_link = 'rmx_link';
+  static const rmx_link_m = 'rmx_link_m';
+  static const rmx_link_unlink = 'rmx_link_unlink';
+  static const rmx_link_unlink_m = 'rmx_link_unlink_m';
+  static const rmx_linkedin_box_fill = 'rmx_linkedin_box_fill';
+  static const rmx_linkedin_box_line = 'rmx_linkedin_box_line';
+  static const rmx_linkedin_fill = 'rmx_linkedin_fill';
+  static const rmx_linkedin_line = 'rmx_linkedin_line';
+  static const rmx_links_fill = 'rmx_links_fill';
+  static const rmx_links_line = 'rmx_links_line';
+  static const rmx_list_check = 'rmx_list_check';
+  static const rmx_list_check_2 = 'rmx_list_check_2';
+  static const rmx_list_ordered = 'rmx_list_ordered';
+  static const rmx_list_settings_fill = 'rmx_list_settings_fill';
+  static const rmx_list_settings_line = 'rmx_list_settings_line';
+  static const rmx_list_unordered = 'rmx_list_unordered';
+  static const rmx_live_fill = 'rmx_live_fill';
+  static const rmx_live_line = 'rmx_live_line';
+  static const rmx_loader_2_fill = 'rmx_loader_2_fill';
+  static const rmx_loader_2_line = 'rmx_loader_2_line';
+  static const rmx_loader_3_fill = 'rmx_loader_3_fill';
+  static const rmx_loader_3_line = 'rmx_loader_3_line';
+  static const rmx_loader_4_fill = 'rmx_loader_4_fill';
+  static const rmx_loader_4_line = 'rmx_loader_4_line';
+  static const rmx_loader_5_fill = 'rmx_loader_5_fill';
+  static const rmx_loader_5_line = 'rmx_loader_5_line';
+  static const rmx_loader_fill = 'rmx_loader_fill';
+  static const rmx_loader_line = 'rmx_loader_line';
+  static const rmx_lock_2_fill = 'rmx_lock_2_fill';
+  static const rmx_lock_2_line = 'rmx_lock_2_line';
+  static const rmx_lock_fill = 'rmx_lock_fill';
+  static const rmx_lock_line = 'rmx_lock_line';
+  static const rmx_lock_password_fill = 'rmx_lock_password_fill';
+  static const rmx_lock_password_line = 'rmx_lock_password_line';
+  static const rmx_lock_unlock_fill = 'rmx_lock_unlock_fill';
+  static const rmx_lock_unlock_line = 'rmx_lock_unlock_line';
+  static const rmx_login_box_fill = 'rmx_login_box_fill';
+  static const rmx_login_box_line = 'rmx_login_box_line';
+  static const rmx_login_circle_fill = 'rmx_login_circle_fill';
+  static const rmx_login_circle_line = 'rmx_login_circle_line';
+  static const rmx_logout_box_fill = 'rmx_logout_box_fill';
+  static const rmx_logout_box_line = 'rmx_logout_box_line';
+  static const rmx_logout_box_r_fill = 'rmx_logout_box_r_fill';
+  static const rmx_logout_box_r_line = 'rmx_logout_box_r_line';
+  static const rmx_logout_circle_fill = 'rmx_logout_circle_fill';
+  static const rmx_logout_circle_line = 'rmx_logout_circle_line';
+  static const rmx_logout_circle_r_fill = 'rmx_logout_circle_r_fill';
+  static const rmx_logout_circle_r_line = 'rmx_logout_circle_r_line';
+  static const rmx_luggage_cart_fill = 'rmx_luggage_cart_fill';
+  static const rmx_luggage_cart_line = 'rmx_luggage_cart_line';
+  static const rmx_luggage_deposit_fill = 'rmx_luggage_deposit_fill';
+  static const rmx_luggage_deposit_line = 'rmx_luggage_deposit_line';
+  static const rmx_lungs_fill = 'rmx_lungs_fill';
+  static const rmx_lungs_line = 'rmx_lungs_line';
+  static const rmx_mac_fill = 'rmx_mac_fill';
+  static const rmx_mac_line = 'rmx_mac_line';
+  static const rmx_macbook_fill = 'rmx_macbook_fill';
+  static const rmx_macbook_line = 'rmx_macbook_line';
+  static const rmx_magic_fill = 'rmx_magic_fill';
+  static const rmx_magic_line = 'rmx_magic_line';
+  static const rmx_mail_add_fill = 'rmx_mail_add_fill';
+  static const rmx_mail_add_line = 'rmx_mail_add_line';
+  static const rmx_mail_check_fill = 'rmx_mail_check_fill';
+  static const rmx_mail_check_line = 'rmx_mail_check_line';
+  static const rmx_mail_close_fill = 'rmx_mail_close_fill';
+  static const rmx_mail_close_line = 'rmx_mail_close_line';
+  static const rmx_mail_download_fill = 'rmx_mail_download_fill';
+  static const rmx_mail_download_line = 'rmx_mail_download_line';
+  static const rmx_mail_fill = 'rmx_mail_fill';
+  static const rmx_mail_forbid_fill = 'rmx_mail_forbid_fill';
+  static const rmx_mail_forbid_line = 'rmx_mail_forbid_line';
+  static const rmx_mail_line = 'rmx_mail_line';
+  static const rmx_mail_lock_fill = 'rmx_mail_lock_fill';
+  static const rmx_mail_lock_line = 'rmx_mail_lock_line';
+  static const rmx_mail_open_fill = 'rmx_mail_open_fill';
+  static const rmx_mail_open_line = 'rmx_mail_open_line';
+  static const rmx_mail_send_fill = 'rmx_mail_send_fill';
+  static const rmx_mail_send_line = 'rmx_mail_send_line';
+  static const rmx_mail_settings_fill = 'rmx_mail_settings_fill';
+  static const rmx_mail_settings_line = 'rmx_mail_settings_line';
+  static const rmx_mail_star_fill = 'rmx_mail_star_fill';
+  static const rmx_mail_star_line = 'rmx_mail_star_line';
+  static const rmx_mail_unread_fill = 'rmx_mail_unread_fill';
+  static const rmx_mail_unread_line = 'rmx_mail_unread_line';
+  static const rmx_mail_volume_fill = 'rmx_mail_volume_fill';
+  static const rmx_mail_volume_line = 'rmx_mail_volume_line';
+  static const rmx_map_2_fill = 'rmx_map_2_fill';
+  static const rmx_map_2_line = 'rmx_map_2_line';
+  static const rmx_map_fill = 'rmx_map_fill';
+  static const rmx_map_line = 'rmx_map_line';
+  static const rmx_map_pin_2_fill = 'rmx_map_pin_2_fill';
+  static const rmx_map_pin_2_line = 'rmx_map_pin_2_line';
+  static const rmx_map_pin_3_fill = 'rmx_map_pin_3_fill';
+  static const rmx_map_pin_3_line = 'rmx_map_pin_3_line';
+  static const rmx_map_pin_4_fill = 'rmx_map_pin_4_fill';
+  static const rmx_map_pin_4_line = 'rmx_map_pin_4_line';
+  static const rmx_map_pin_5_fill = 'rmx_map_pin_5_fill';
+  static const rmx_map_pin_5_line = 'rmx_map_pin_5_line';
+  static const rmx_map_pin_add_fill = 'rmx_map_pin_add_fill';
+  static const rmx_map_pin_add_line = 'rmx_map_pin_add_line';
+  static const rmx_map_pin_fill = 'rmx_map_pin_fill';
+  static const rmx_map_pin_line = 'rmx_map_pin_line';
+  static const rmx_map_pin_range_fill = 'rmx_map_pin_range_fill';
+  static const rmx_map_pin_range_line = 'rmx_map_pin_range_line';
+  static const rmx_map_pin_time_fill = 'rmx_map_pin_time_fill';
+  static const rmx_map_pin_time_line = 'rmx_map_pin_time_line';
+  static const rmx_map_pin_user_fill = 'rmx_map_pin_user_fill';
+  static const rmx_map_pin_user_line = 'rmx_map_pin_user_line';
+  static const rmx_mark_pen_fill = 'rmx_mark_pen_fill';
+  static const rmx_mark_pen_line = 'rmx_mark_pen_line';
+  static const rmx_markdown_fill = 'rmx_markdown_fill';
+  static const rmx_markdown_line = 'rmx_markdown_line';
+  static const rmx_markup_fill = 'rmx_markup_fill';
+  static const rmx_markup_line = 'rmx_markup_line';
+  static const rmx_mastercard_fill = 'rmx_mastercard_fill';
+  static const rmx_mastercard_line = 'rmx_mastercard_line';
+  static const rmx_mastodon_fill = 'rmx_mastodon_fill';
+  static const rmx_mastodon_line = 'rmx_mastodon_line';
+  static const rmx_medal_2_fill = 'rmx_medal_2_fill';
+  static const rmx_medal_2_line = 'rmx_medal_2_line';
+  static const rmx_medal_fill = 'rmx_medal_fill';
+  static const rmx_medal_line = 'rmx_medal_line';
+  static const rmx_medicine_bottle_fill = 'rmx_medicine_bottle_fill';
+  static const rmx_medicine_bottle_line = 'rmx_medicine_bottle_line';
+  static const rmx_medium_fill = 'rmx_medium_fill';
+  static const rmx_medium_line = 'rmx_medium_line';
+  static const rmx_men_fill = 'rmx_men_fill';
+  static const rmx_men_line = 'rmx_men_line';
+  static const rmx_mental_health_fill = 'rmx_mental_health_fill';
+  static const rmx_mental_health_line = 'rmx_mental_health_line';
+  static const rmx_menu_2_fill = 'rmx_menu_2_fill';
+  static const rmx_menu_2_line = 'rmx_menu_2_line';
+  static const rmx_menu_3_fill = 'rmx_menu_3_fill';
+  static const rmx_menu_3_line = 'rmx_menu_3_line';
+  static const rmx_menu_4_fill = 'rmx_menu_4_fill';
+  static const rmx_menu_4_line = 'rmx_menu_4_line';
+  static const rmx_menu_5_fill = 'rmx_menu_5_fill';
+  static const rmx_menu_5_line = 'rmx_menu_5_line';
+  static const rmx_menu_add_fill = 'rmx_menu_add_fill';
+  static const rmx_menu_add_line = 'rmx_menu_add_line';
+  static const rmx_menu_fill = 'rmx_menu_fill';
+  static const rmx_menu_fold_fill = 'rmx_menu_fold_fill';
+  static const rmx_menu_fold_line = 'rmx_menu_fold_line';
+  static const rmx_menu_line = 'rmx_menu_line';
+  static const rmx_menu_unfold_fill = 'rmx_menu_unfold_fill';
+  static const rmx_menu_unfold_line = 'rmx_menu_unfold_line';
+  static const rmx_merge_cells_horizontal = 'rmx_merge_cells_horizontal';
+  static const rmx_merge_cells_vertical = 'rmx_merge_cells_vertical';
+  static const rmx_message_2_fill = 'rmx_message_2_fill';
+  static const rmx_message_2_line = 'rmx_message_2_line';
+  static const rmx_message_3_fill = 'rmx_message_3_fill';
+  static const rmx_message_3_line = 'rmx_message_3_line';
+  static const rmx_message_fill = 'rmx_message_fill';
+  static const rmx_message_line = 'rmx_message_line';
+  static const rmx_messenger_fill = 'rmx_messenger_fill';
+  static const rmx_messenger_line = 'rmx_messenger_line';
+  static const rmx_meteor_fill = 'rmx_meteor_fill';
+  static const rmx_meteor_line = 'rmx_meteor_line';
+  static const rmx_mic_2_fill = 'rmx_mic_2_fill';
+  static const rmx_mic_2_line = 'rmx_mic_2_line';
+  static const rmx_mic_fill = 'rmx_mic_fill';
+  static const rmx_mic_line = 'rmx_mic_line';
+  static const rmx_mic_off_fill = 'rmx_mic_off_fill';
+  static const rmx_mic_off_line = 'rmx_mic_off_line';
+  static const rmx_mickey_fill = 'rmx_mickey_fill';
+  static const rmx_mickey_line = 'rmx_mickey_line';
+  static const rmx_microscope_fill = 'rmx_microscope_fill';
+  static const rmx_microscope_line = 'rmx_microscope_line';
+  static const rmx_microsoft_fill = 'rmx_microsoft_fill';
+  static const rmx_microsoft_line = 'rmx_microsoft_line';
+  static const rmx_mind_map = 'rmx_mind_map';
+  static const rmx_mini_program_fill = 'rmx_mini_program_fill';
+  static const rmx_mini_program_line = 'rmx_mini_program_line';
+  static const rmx_mist_fill = 'rmx_mist_fill';
+  static const rmx_mist_line = 'rmx_mist_line';
+  static const rmx_money_cny_box_fill = 'rmx_money_cny_box_fill';
+  static const rmx_money_cny_box_line = 'rmx_money_cny_box_line';
+  static const rmx_money_cny_circle_fill = 'rmx_money_cny_circle_fill';
+  static const rmx_money_cny_circle_line = 'rmx_money_cny_circle_line';
+  static const rmx_money_dollar_box_fill = 'rmx_money_dollar_box_fill';
+  static const rmx_money_dollar_box_line = 'rmx_money_dollar_box_line';
+  static const rmx_money_dollar_circle_fill = 'rmx_money_dollar_circle_fill';
+  static const rmx_money_dollar_circle_line = 'rmx_money_dollar_circle_line';
+  static const rmx_money_euro_box_fill = 'rmx_money_euro_box_fill';
+  static const rmx_money_euro_box_line = 'rmx_money_euro_box_line';
+  static const rmx_money_euro_circle_fill = 'rmx_money_euro_circle_fill';
+  static const rmx_money_euro_circle_line = 'rmx_money_euro_circle_line';
+  static const rmx_money_pound_box_fill = 'rmx_money_pound_box_fill';
+  static const rmx_money_pound_box_line = 'rmx_money_pound_box_line';
+  static const rmx_money_pound_circle_fill = 'rmx_money_pound_circle_fill';
+  static const rmx_money_pound_circle_line = 'rmx_money_pound_circle_line';
+  static const rmx_moon_clear_fill = 'rmx_moon_clear_fill';
+  static const rmx_moon_clear_line = 'rmx_moon_clear_line';
+  static const rmx_moon_cloudy_fill = 'rmx_moon_cloudy_fill';
+  static const rmx_moon_cloudy_line = 'rmx_moon_cloudy_line';
+  static const rmx_moon_fill = 'rmx_moon_fill';
+  static const rmx_moon_foggy_fill = 'rmx_moon_foggy_fill';
+  static const rmx_moon_foggy_line = 'rmx_moon_foggy_line';
+  static const rmx_moon_line = 'rmx_moon_line';
+  static const rmx_more_2_fill = 'rmx_more_2_fill';
+  static const rmx_more_2_line = 'rmx_more_2_line';
+  static const rmx_more_fill = 'rmx_more_fill';
+  static const rmx_more_line = 'rmx_more_line';
+  static const rmx_motorbike_fill = 'rmx_motorbike_fill';
+  static const rmx_motorbike_line = 'rmx_motorbike_line';
+  static const rmx_mouse_fill = 'rmx_mouse_fill';
+  static const rmx_mouse_line = 'rmx_mouse_line';
+  static const rmx_movie_2_fill = 'rmx_movie_2_fill';
+  static const rmx_movie_2_line = 'rmx_movie_2_line';
+  static const rmx_movie_fill = 'rmx_movie_fill';
+  static const rmx_movie_line = 'rmx_movie_line';
+  static const rmx_music_2_fill = 'rmx_music_2_fill';
+  static const rmx_music_2_line = 'rmx_music_2_line';
+  static const rmx_music_fill = 'rmx_music_fill';
+  static const rmx_music_line = 'rmx_music_line';
+  static const rmx_mv_fill = 'rmx_mv_fill';
+  static const rmx_mv_line = 'rmx_mv_line';
+  static const rmx_navigation_fill = 'rmx_navigation_fill';
+  static const rmx_navigation_line = 'rmx_navigation_line';
+  static const rmx_netease_cloud_music_fill = 'rmx_netease_cloud_music_fill';
+  static const rmx_netease_cloud_music_line = 'rmx_netease_cloud_music_line';
+  static const rmx_netflix_fill = 'rmx_netflix_fill';
+  static const rmx_netflix_line = 'rmx_netflix_line';
+  static const rmx_newspaper_fill = 'rmx_newspaper_fill';
+  static const rmx_newspaper_line = 'rmx_newspaper_line';
+  static const rmx_node_tree = 'rmx_node_tree';
+  static const rmx_notification_2_fill = 'rmx_notification_2_fill';
+  static const rmx_notification_2_line = 'rmx_notification_2_line';
+  static const rmx_notification_3_fill = 'rmx_notification_3_fill';
+  static const rmx_notification_3_line = 'rmx_notification_3_line';
+  static const rmx_notification_4_fill = 'rmx_notification_4_fill';
+  static const rmx_notification_4_line = 'rmx_notification_4_line';
+  static const rmx_notification_badge_fill = 'rmx_notification_badge_fill';
+  static const rmx_notification_badge_line = 'rmx_notification_badge_line';
+  static const rmx_notification_fill = 'rmx_notification_fill';
+  static const rmx_notification_line = 'rmx_notification_line';
+  static const rmx_notification_off_fill = 'rmx_notification_off_fill';
+  static const rmx_notification_off_line = 'rmx_notification_off_line';
+  static const rmx_npmjs_fill = 'rmx_npmjs_fill';
+  static const rmx_npmjs_line = 'rmx_npmjs_line';
+  static const rmx_number_0 = 'rmx_number_0';
+  static const rmx_number_1 = 'rmx_number_1';
+  static const rmx_number_2 = 'rmx_number_2';
+  static const rmx_number_3 = 'rmx_number_3';
+  static const rmx_number_4 = 'rmx_number_4';
+  static const rmx_number_5 = 'rmx_number_5';
+  static const rmx_number_6 = 'rmx_number_6';
+  static const rmx_number_7 = 'rmx_number_7';
+  static const rmx_number_8 = 'rmx_number_8';
+  static const rmx_number_9 = 'rmx_number_9';
+  static const rmx_numbers_fill = 'rmx_numbers_fill';
+  static const rmx_numbers_line = 'rmx_numbers_line';
+  static const rmx_nurse_fill = 'rmx_nurse_fill';
+  static const rmx_nurse_line = 'rmx_nurse_line';
+  static const rmx_oil_fill = 'rmx_oil_fill';
+  static const rmx_oil_line = 'rmx_oil_line';
+  static const rmx_omega = 'rmx_omega';
+  static const rmx_open_arm_fill = 'rmx_open_arm_fill';
+  static const rmx_open_arm_line = 'rmx_open_arm_line';
+  static const rmx_open_source_fill = 'rmx_open_source_fill';
+  static const rmx_open_source_line = 'rmx_open_source_line';
+  static const rmx_opera_fill = 'rmx_opera_fill';
+  static const rmx_opera_line = 'rmx_opera_line';
+  static const rmx_order_play_fill = 'rmx_order_play_fill';
+  static const rmx_order_play_line = 'rmx_order_play_line';
+  static const rmx_organization_chart = 'rmx_organization_chart';
+  static const rmx_outlet_2_fill = 'rmx_outlet_2_fill';
+  static const rmx_outlet_2_line = 'rmx_outlet_2_line';
+  static const rmx_outlet_fill = 'rmx_outlet_fill';
+  static const rmx_outlet_line = 'rmx_outlet_line';
+  static const rmx_page_separator = 'rmx_page_separator';
+  static const rmx_pages_fill = 'rmx_pages_fill';
+  static const rmx_pages_line = 'rmx_pages_line';
+  static const rmx_paint_brush_fill = 'rmx_paint_brush_fill';
+  static const rmx_paint_brush_line = 'rmx_paint_brush_line';
+  static const rmx_paint_fill = 'rmx_paint_fill';
+  static const rmx_paint_line = 'rmx_paint_line';
+  static const rmx_palette_fill = 'rmx_palette_fill';
+  static const rmx_palette_line = 'rmx_palette_line';
+  static const rmx_pantone_fill = 'rmx_pantone_fill';
+  static const rmx_pantone_line = 'rmx_pantone_line';
+  static const rmx_paragraph = 'rmx_paragraph';
+  static const rmx_parent_fill = 'rmx_parent_fill';
+  static const rmx_parent_line = 'rmx_parent_line';
+  static const rmx_parentheses_fill = 'rmx_parentheses_fill';
+  static const rmx_parentheses_line = 'rmx_parentheses_line';
+  static const rmx_parking_box_fill = 'rmx_parking_box_fill';
+  static const rmx_parking_box_line = 'rmx_parking_box_line';
+  static const rmx_parking_fill = 'rmx_parking_fill';
+  static const rmx_parking_line = 'rmx_parking_line';
+  static const rmx_passport_fill = 'rmx_passport_fill';
+  static const rmx_passport_line = 'rmx_passport_line';
+  static const rmx_patreon_fill = 'rmx_patreon_fill';
+  static const rmx_patreon_line = 'rmx_patreon_line';
+  static const rmx_pause_circle_fill = 'rmx_pause_circle_fill';
+  static const rmx_pause_circle_line = 'rmx_pause_circle_line';
+  static const rmx_pause_fill = 'rmx_pause_fill';
+  static const rmx_pause_line = 'rmx_pause_line';
+  static const rmx_pause_mini_fill = 'rmx_pause_mini_fill';
+  static const rmx_pause_mini_line = 'rmx_pause_mini_line';
+  static const rmx_paypal_fill = 'rmx_paypal_fill';
+  static const rmx_paypal_line = 'rmx_paypal_line';
+  static const rmx_pen_nib_fill = 'rmx_pen_nib_fill';
+  static const rmx_pen_nib_line = 'rmx_pen_nib_line';
+  static const rmx_pencil_fill = 'rmx_pencil_fill';
+  static const rmx_pencil_line = 'rmx_pencil_line';
+  static const rmx_pencil_ruler_2_fill = 'rmx_pencil_ruler_2_fill';
+  static const rmx_pencil_ruler_2_line = 'rmx_pencil_ruler_2_line';
+  static const rmx_pencil_ruler_fill = 'rmx_pencil_ruler_fill';
+  static const rmx_pencil_ruler_line = 'rmx_pencil_ruler_line';
+  static const rmx_percent_fill = 'rmx_percent_fill';
+  static const rmx_percent_line = 'rmx_percent_line';
+  static const rmx_phone_camera_fill = 'rmx_phone_camera_fill';
+  static const rmx_phone_camera_line = 'rmx_phone_camera_line';
+  static const rmx_phone_fill = 'rmx_phone_fill';
+  static const rmx_phone_find_fill = 'rmx_phone_find_fill';
+  static const rmx_phone_find_line = 'rmx_phone_find_line';
+  static const rmx_phone_line = 'rmx_phone_line';
+  static const rmx_phone_lock_fill = 'rmx_phone_lock_fill';
+  static const rmx_phone_lock_line = 'rmx_phone_lock_line';
+  static const rmx_picture_in_picture_2_fill = 'rmx_picture_in_picture_2_fill';
+  static const rmx_picture_in_picture_2_line = 'rmx_picture_in_picture_2_line';
+  static const rmx_picture_in_picture_exit_fill = 'rmx_picture_in_picture_exit_fill';
+  static const rmx_picture_in_picture_exit_line = 'rmx_picture_in_picture_exit_line';
+  static const rmx_picture_in_picture_fill = 'rmx_picture_in_picture_fill';
+  static const rmx_picture_in_picture_line = 'rmx_picture_in_picture_line';
+  static const rmx_pie_chart_2_fill = 'rmx_pie_chart_2_fill';
+  static const rmx_pie_chart_2_line = 'rmx_pie_chart_2_line';
+  static const rmx_pie_chart_box_fill = 'rmx_pie_chart_box_fill';
+  static const rmx_pie_chart_box_line = 'rmx_pie_chart_box_line';
+  static const rmx_pie_chart_fill = 'rmx_pie_chart_fill';
+  static const rmx_pie_chart_line = 'rmx_pie_chart_line';
+  static const rmx_pin_distance_fill = 'rmx_pin_distance_fill';
+  static const rmx_pin_distance_line = 'rmx_pin_distance_line';
+  static const rmx_ping_pong_fill = 'rmx_ping_pong_fill';
+  static const rmx_ping_pong_line = 'rmx_ping_pong_line';
+  static const rmx_pinterest_fill = 'rmx_pinterest_fill';
+  static const rmx_pinterest_line = 'rmx_pinterest_line';
+  static const rmx_pinyin_input = 'rmx_pinyin_input';
+  static const rmx_pixelfed_fill = 'rmx_pixelfed_fill';
+  static const rmx_pixelfed_line = 'rmx_pixelfed_line';
+  static const rmx_plane_fill = 'rmx_plane_fill';
+  static const rmx_plane_line = 'rmx_plane_line';
+  static const rmx_plant_fill = 'rmx_plant_fill';
+  static const rmx_plant_line = 'rmx_plant_line';
+  static const rmx_play_circle_fill = 'rmx_play_circle_fill';
+  static const rmx_play_circle_line = 'rmx_play_circle_line';
+  static const rmx_play_fill = 'rmx_play_fill';
+  static const rmx_play_line = 'rmx_play_line';
+  static const rmx_play_list_2_fill = 'rmx_play_list_2_fill';
+  static const rmx_play_list_2_line = 'rmx_play_list_2_line';
+  static const rmx_play_list_add_fill = 'rmx_play_list_add_fill';
+  static const rmx_play_list_add_line = 'rmx_play_list_add_line';
+  static const rmx_play_list_fill = 'rmx_play_list_fill';
+  static const rmx_play_list_line = 'rmx_play_list_line';
+  static const rmx_play_mini_fill = 'rmx_play_mini_fill';
+  static const rmx_play_mini_line = 'rmx_play_mini_line';
+  static const rmx_playstation_fill = 'rmx_playstation_fill';
+  static const rmx_playstation_line = 'rmx_playstation_line';
+  static const rmx_plug_2_fill = 'rmx_plug_2_fill';
+  static const rmx_plug_2_line = 'rmx_plug_2_line';
+  static const rmx_plug_fill = 'rmx_plug_fill';
+  static const rmx_plug_line = 'rmx_plug_line';
+  static const rmx_polaroid_2_fill = 'rmx_polaroid_2_fill';
+  static const rmx_polaroid_2_line = 'rmx_polaroid_2_line';
+  static const rmx_polaroid_fill = 'rmx_polaroid_fill';
+  static const rmx_polaroid_line = 'rmx_polaroid_line';
+  static const rmx_police_car_fill = 'rmx_police_car_fill';
+  static const rmx_police_car_line = 'rmx_police_car_line';
+  static const rmx_price_tag_2_fill = 'rmx_price_tag_2_fill';
+  static const rmx_price_tag_2_line = 'rmx_price_tag_2_line';
+  static const rmx_price_tag_3_fill = 'rmx_price_tag_3_fill';
+  static const rmx_price_tag_3_line = 'rmx_price_tag_3_line';
+  static const rmx_price_tag_fill = 'rmx_price_tag_fill';
+  static const rmx_price_tag_line = 'rmx_price_tag_line';
+  static const rmx_printer_cloud_fill = 'rmx_printer_cloud_fill';
+  static const rmx_printer_cloud_line = 'rmx_printer_cloud_line';
+  static const rmx_printer_fill = 'rmx_printer_fill';
+  static const rmx_printer_line = 'rmx_printer_line';
+  static const rmx_product_hunt_fill = 'rmx_product_hunt_fill';
+  static const rmx_product_hunt_line = 'rmx_product_hunt_line';
+  static const rmx_profile_fill = 'rmx_profile_fill';
+  static const rmx_profile_line = 'rmx_profile_line';
+  static const rmx_projector_2_fill = 'rmx_projector_2_fill';
+  static const rmx_projector_2_line = 'rmx_projector_2_line';
+  static const rmx_projector_fill = 'rmx_projector_fill';
+  static const rmx_projector_line = 'rmx_projector_line';
+  static const rmx_psychotherapy_fill = 'rmx_psychotherapy_fill';
+  static const rmx_psychotherapy_line = 'rmx_psychotherapy_line';
+  static const rmx_pulse_fill = 'rmx_pulse_fill';
+  static const rmx_pulse_line = 'rmx_pulse_line';
+  static const rmx_pushpin_2_fill = 'rmx_pushpin_2_fill';
+  static const rmx_pushpin_2_line = 'rmx_pushpin_2_line';
+  static const rmx_pushpin_fill = 'rmx_pushpin_fill';
+  static const rmx_pushpin_line = 'rmx_pushpin_line';
+  static const rmx_qq_fill = 'rmx_qq_fill';
+  static const rmx_qq_line = 'rmx_qq_line';
+  static const rmx_qr_code_fill = 'rmx_qr_code_fill';
+  static const rmx_qr_code_line = 'rmx_qr_code_line';
+  static const rmx_qr_scan_2_fill = 'rmx_qr_scan_2_fill';
+  static const rmx_qr_scan_2_line = 'rmx_qr_scan_2_line';
+  static const rmx_qr_scan_fill = 'rmx_qr_scan_fill';
+  static const rmx_qr_scan_line = 'rmx_qr_scan_line';
+  static const rmx_question_answer_fill = 'rmx_question_answer_fill';
+  static const rmx_question_answer_line = 'rmx_question_answer_line';
+  static const rmx_question_fill = 'rmx_question_fill';
+  static const rmx_question_line = 'rmx_question_line';
+  static const rmx_question_mark = 'rmx_question_mark';
+  static const rmx_questionnaire_fill = 'rmx_questionnaire_fill';
+  static const rmx_questionnaire_line = 'rmx_questionnaire_line';
+  static const rmx_quill_pen_fill = 'rmx_quill_pen_fill';
+  static const rmx_quill_pen_line = 'rmx_quill_pen_line';
+  static const rmx_radar_fill = 'rmx_radar_fill';
+  static const rmx_radar_line = 'rmx_radar_line';
+  static const rmx_radio_2_fill = 'rmx_radio_2_fill';
+  static const rmx_radio_2_line = 'rmx_radio_2_line';
+  static const rmx_radio_button_fill = 'rmx_radio_button_fill';
+  static const rmx_radio_button_line = 'rmx_radio_button_line';
+  static const rmx_radio_fill = 'rmx_radio_fill';
+  static const rmx_radio_line = 'rmx_radio_line';
+  static const rmx_rainbow_fill = 'rmx_rainbow_fill';
+  static const rmx_rainbow_line = 'rmx_rainbow_line';
+  static const rmx_rainy_fill = 'rmx_rainy_fill';
+  static const rmx_rainy_line = 'rmx_rainy_line';
+  static const rmx_reactjs_fill = 'rmx_reactjs_fill';
+  static const rmx_reactjs_line = 'rmx_reactjs_line';
+  static const rmx_record_circle_fill = 'rmx_record_circle_fill';
+  static const rmx_record_circle_line = 'rmx_record_circle_line';
+  static const rmx_record_mail_fill = 'rmx_record_mail_fill';
+  static const rmx_record_mail_line = 'rmx_record_mail_line';
+  static const rmx_recycle_fill = 'rmx_recycle_fill';
+  static const rmx_recycle_line = 'rmx_recycle_line';
+  static const rmx_red_packet_fill = 'rmx_red_packet_fill';
+  static const rmx_red_packet_line = 'rmx_red_packet_line';
+  static const rmx_reddit_fill = 'rmx_reddit_fill';
+  static const rmx_reddit_line = 'rmx_reddit_line';
+  static const rmx_refresh_fill = 'rmx_refresh_fill';
+  static const rmx_refresh_line = 'rmx_refresh_line';
+  static const rmx_refund_2_fill = 'rmx_refund_2_fill';
+  static const rmx_refund_2_line = 'rmx_refund_2_line';
+  static const rmx_refund_fill = 'rmx_refund_fill';
+  static const rmx_refund_line = 'rmx_refund_line';
+  static const rmx_registered_fill = 'rmx_registered_fill';
+  static const rmx_registered_line = 'rmx_registered_line';
+  static const rmx_remixicon_fill = 'rmx_remixicon_fill';
+  static const rmx_remixicon_line = 'rmx_remixicon_line';
+  static const rmx_remote_control_2_fill = 'rmx_remote_control_2_fill';
+  static const rmx_remote_control_2_line = 'rmx_remote_control_2_line';
+  static const rmx_remote_control_fill = 'rmx_remote_control_fill';
+  static const rmx_remote_control_line = 'rmx_remote_control_line';
+  static const rmx_repeat_2_fill = 'rmx_repeat_2_fill';
+  static const rmx_repeat_2_line = 'rmx_repeat_2_line';
+  static const rmx_repeat_fill = 'rmx_repeat_fill';
+  static const rmx_repeat_line = 'rmx_repeat_line';
+  static const rmx_repeat_one_fill = 'rmx_repeat_one_fill';
+  static const rmx_repeat_one_line = 'rmx_repeat_one_line';
+  static const rmx_reply_all_fill = 'rmx_reply_all_fill';
+  static const rmx_reply_all_line = 'rmx_reply_all_line';
+  static const rmx_reply_fill = 'rmx_reply_fill';
+  static const rmx_reply_line = 'rmx_reply_line';
+  static const rmx_reserved_fill = 'rmx_reserved_fill';
+  static const rmx_reserved_line = 'rmx_reserved_line';
+  static const rmx_rest_time_fill = 'rmx_rest_time_fill';
+  static const rmx_rest_time_line = 'rmx_rest_time_line';
+  static const rmx_restart_fill = 'rmx_restart_fill';
+  static const rmx_restart_line = 'rmx_restart_line';
+  static const rmx_restaurant_2_fill = 'rmx_restaurant_2_fill';
+  static const rmx_restaurant_2_line = 'rmx_restaurant_2_line';
+  static const rmx_restaurant_fill = 'rmx_restaurant_fill';
+  static const rmx_restaurant_line = 'rmx_restaurant_line';
+  static const rmx_rewind_fill = 'rmx_rewind_fill';
+  static const rmx_rewind_line = 'rmx_rewind_line';
+  static const rmx_rewind_mini_fill = 'rmx_rewind_mini_fill';
+  static const rmx_rewind_mini_line = 'rmx_rewind_mini_line';
+  static const rmx_rhythm_fill = 'rmx_rhythm_fill';
+  static const rmx_rhythm_line = 'rmx_rhythm_line';
+  static const rmx_riding_fill = 'rmx_riding_fill';
+  static const rmx_riding_line = 'rmx_riding_line';
+  static const rmx_road_map_fill = 'rmx_road_map_fill';
+  static const rmx_road_map_line = 'rmx_road_map_line';
+  static const rmx_roadster_fill = 'rmx_roadster_fill';
+  static const rmx_roadster_line = 'rmx_roadster_line';
+  static const rmx_robot_fill = 'rmx_robot_fill';
+  static const rmx_robot_line = 'rmx_robot_line';
+  static const rmx_rocket_2_fill = 'rmx_rocket_2_fill';
+  static const rmx_rocket_2_line = 'rmx_rocket_2_line';
+  static const rmx_rocket_fill = 'rmx_rocket_fill';
+  static const rmx_rocket_line = 'rmx_rocket_line';
+  static const rmx_rotate_lock_fill = 'rmx_rotate_lock_fill';
+  static const rmx_rotate_lock_line = 'rmx_rotate_lock_line';
+  static const rmx_rounded_corner = 'rmx_rounded_corner';
+  static const rmx_route_fill = 'rmx_route_fill';
+  static const rmx_route_line = 'rmx_route_line';
+  static const rmx_router_fill = 'rmx_router_fill';
+  static const rmx_router_line = 'rmx_router_line';
+  static const rmx_rss_fill = 'rmx_rss_fill';
+  static const rmx_rss_line = 'rmx_rss_line';
+  static const rmx_ruler_2_fill = 'rmx_ruler_2_fill';
+  static const rmx_ruler_2_line = 'rmx_ruler_2_line';
+  static const rmx_ruler_fill = 'rmx_ruler_fill';
+  static const rmx_ruler_line = 'rmx_ruler_line';
+  static const rmx_run_fill = 'rmx_run_fill';
+  static const rmx_run_line = 'rmx_run_line';
+  static const rmx_safari_fill = 'rmx_safari_fill';
+  static const rmx_safari_line = 'rmx_safari_line';
+  static const rmx_safe_2_fill = 'rmx_safe_2_fill';
+  static const rmx_safe_2_line = 'rmx_safe_2_line';
+  static const rmx_safe_fill = 'rmx_safe_fill';
+  static const rmx_safe_line = 'rmx_safe_line';
+  static const rmx_sailboat_fill = 'rmx_sailboat_fill';
+  static const rmx_sailboat_line = 'rmx_sailboat_line';
+  static const rmx_save_2_fill = 'rmx_save_2_fill';
+  static const rmx_save_2_line = 'rmx_save_2_line';
+  static const rmx_save_3_fill = 'rmx_save_3_fill';
+  static const rmx_save_3_line = 'rmx_save_3_line';
+  static const rmx_save_fill = 'rmx_save_fill';
+  static const rmx_save_line = 'rmx_save_line';
+  static const rmx_scales_2_fill = 'rmx_scales_2_fill';
+  static const rmx_scales_2_line = 'rmx_scales_2_line';
+  static const rmx_scales_3_fill = 'rmx_scales_3_fill';
+  static const rmx_scales_3_line = 'rmx_scales_3_line';
+  static const rmx_scales_fill = 'rmx_scales_fill';
+  static const rmx_scales_line = 'rmx_scales_line';
+  static const rmx_scan_2_fill = 'rmx_scan_2_fill';
+  static const rmx_scan_2_line = 'rmx_scan_2_line';
+  static const rmx_scan_fill = 'rmx_scan_fill';
+  static const rmx_scan_line = 'rmx_scan_line';
+  static const rmx_scissors_2_fill = 'rmx_scissors_2_fill';
+  static const rmx_scissors_2_line = 'rmx_scissors_2_line';
+  static const rmx_scissors_cut_fill = 'rmx_scissors_cut_fill';
+  static const rmx_scissors_cut_line = 'rmx_scissors_cut_line';
+  static const rmx_scissors_fill = 'rmx_scissors_fill';
+  static const rmx_scissors_line = 'rmx_scissors_line';
+  static const rmx_screenshot_2_fill = 'rmx_screenshot_2_fill';
+  static const rmx_screenshot_2_line = 'rmx_screenshot_2_line';
+  static const rmx_screenshot_fill = 'rmx_screenshot_fill';
+  static const rmx_screenshot_line = 'rmx_screenshot_line';
+  static const rmx_sd_card_fill = 'rmx_sd_card_fill';
+  static const rmx_sd_card_line = 'rmx_sd_card_line';
+  static const rmx_sd_card_mini_fill = 'rmx_sd_card_mini_fill';
+  static const rmx_sd_card_mini_line = 'rmx_sd_card_mini_line';
+  static const rmx_search_2_fill = 'rmx_search_2_fill';
+  static const rmx_search_2_line = 'rmx_search_2_line';
+  static const rmx_search_eye_fill = 'rmx_search_eye_fill';
+  static const rmx_search_eye_line = 'rmx_search_eye_line';
+  static const rmx_search_fill = 'rmx_search_fill';
+  static const rmx_search_line = 'rmx_search_line';
+  static const rmx_secure_payment_fill = 'rmx_secure_payment_fill';
+  static const rmx_secure_payment_line = 'rmx_secure_payment_line';
+  static const rmx_seedling_fill = 'rmx_seedling_fill';
+  static const rmx_seedling_line = 'rmx_seedling_line';
+  static const rmx_send_backward = 'rmx_send_backward';
+  static const rmx_send_plane_2_fill = 'rmx_send_plane_2_fill';
+  static const rmx_send_plane_2_line = 'rmx_send_plane_2_line';
+  static const rmx_send_plane_fill = 'rmx_send_plane_fill';
+  static const rmx_send_plane_line = 'rmx_send_plane_line';
+  static const rmx_send_to_back = 'rmx_send_to_back';
+  static const rmx_sensor_fill = 'rmx_sensor_fill';
+  static const rmx_sensor_line = 'rmx_sensor_line';
+  static const rmx_separator = 'rmx_separator';
+  static const rmx_server_fill = 'rmx_server_fill';
+  static const rmx_server_line = 'rmx_server_line';
+  static const rmx_service_fill = 'rmx_service_fill';
+  static const rmx_service_line = 'rmx_service_line';
+  static const rmx_settings_2_fill = 'rmx_settings_2_fill';
+  static const rmx_settings_2_line = 'rmx_settings_2_line';
+  static const rmx_settings_3_fill = 'rmx_settings_3_fill';
+  static const rmx_settings_3_line = 'rmx_settings_3_line';
+  static const rmx_settings_4_fill = 'rmx_settings_4_fill';
+  static const rmx_settings_4_line = 'rmx_settings_4_line';
+  static const rmx_settings_5_fill = 'rmx_settings_5_fill';
+  static const rmx_settings_5_line = 'rmx_settings_5_line';
+  static const rmx_settings_6_fill = 'rmx_settings_6_fill';
+  static const rmx_settings_6_line = 'rmx_settings_6_line';
+  static const rmx_settings_fill = 'rmx_settings_fill';
+  static const rmx_settings_line = 'rmx_settings_line';
+  static const rmx_shape_2_fill = 'rmx_shape_2_fill';
+  static const rmx_shape_2_line = 'rmx_shape_2_line';
+  static const rmx_shape_fill = 'rmx_shape_fill';
+  static const rmx_shape_line = 'rmx_shape_line';
+  static const rmx_share_box_fill = 'rmx_share_box_fill';
+  static const rmx_share_box_line = 'rmx_share_box_line';
+  static const rmx_share_circle_fill = 'rmx_share_circle_fill';
+  static const rmx_share_circle_line = 'rmx_share_circle_line';
+  static const rmx_share_fill = 'rmx_share_fill';
+  static const rmx_share_forward_2_fill = 'rmx_share_forward_2_fill';
+  static const rmx_share_forward_2_line = 'rmx_share_forward_2_line';
+  static const rmx_share_forward_box_fill = 'rmx_share_forward_box_fill';
+  static const rmx_share_forward_box_line = 'rmx_share_forward_box_line';
+  static const rmx_share_forward_fill = 'rmx_share_forward_fill';
+  static const rmx_share_forward_line = 'rmx_share_forward_line';
+  static const rmx_share_line = 'rmx_share_line';
+  static const rmx_shield_check_fill = 'rmx_shield_check_fill';
+  static const rmx_shield_check_line = 'rmx_shield_check_line';
+  static const rmx_shield_cross_fill = 'rmx_shield_cross_fill';
+  static const rmx_shield_cross_line = 'rmx_shield_cross_line';
+  static const rmx_shield_fill = 'rmx_shield_fill';
+  static const rmx_shield_flash_fill = 'rmx_shield_flash_fill';
+  static const rmx_shield_flash_line = 'rmx_shield_flash_line';
+  static const rmx_shield_keyhole_fill = 'rmx_shield_keyhole_fill';
+  static const rmx_shield_keyhole_line = 'rmx_shield_keyhole_line';
+  static const rmx_shield_line = 'rmx_shield_line';
+  static const rmx_shield_star_fill = 'rmx_shield_star_fill';
+  static const rmx_shield_star_line = 'rmx_shield_star_line';
+  static const rmx_shield_user_fill = 'rmx_shield_user_fill';
+  static const rmx_shield_user_line = 'rmx_shield_user_line';
+  static const rmx_ship_2_fill = 'rmx_ship_2_fill';
+  static const rmx_ship_2_line = 'rmx_ship_2_line';
+  static const rmx_ship_fill = 'rmx_ship_fill';
+  static const rmx_ship_line = 'rmx_ship_line';
+  static const rmx_shirt_fill = 'rmx_shirt_fill';
+  static const rmx_shirt_line = 'rmx_shirt_line';
+  static const rmx_shopping_bag_2_fill = 'rmx_shopping_bag_2_fill';
+  static const rmx_shopping_bag_2_line = 'rmx_shopping_bag_2_line';
+  static const rmx_shopping_bag_3_fill = 'rmx_shopping_bag_3_fill';
+  static const rmx_shopping_bag_3_line = 'rmx_shopping_bag_3_line';
+  static const rmx_shopping_bag_fill = 'rmx_shopping_bag_fill';
+  static const rmx_shopping_bag_line = 'rmx_shopping_bag_line';
+  static const rmx_shopping_basket_2_fill = 'rmx_shopping_basket_2_fill';
+  static const rmx_shopping_basket_2_line = 'rmx_shopping_basket_2_line';
+  static const rmx_shopping_basket_fill = 'rmx_shopping_basket_fill';
+  static const rmx_shopping_basket_line = 'rmx_shopping_basket_line';
+  static const rmx_shopping_cart_2_fill = 'rmx_shopping_cart_2_fill';
+  static const rmx_shopping_cart_2_line = 'rmx_shopping_cart_2_line';
+  static const rmx_shopping_cart_fill = 'rmx_shopping_cart_fill';
+  static const rmx_shopping_cart_line = 'rmx_shopping_cart_line';
+  static const rmx_showers_fill = 'rmx_showers_fill';
+  static const rmx_showers_line = 'rmx_showers_line';
+  static const rmx_shuffle_fill = 'rmx_shuffle_fill';
+  static const rmx_shuffle_line = 'rmx_shuffle_line';
+  static const rmx_shut_down_fill = 'rmx_shut_down_fill';
+  static const rmx_shut_down_line = 'rmx_shut_down_line';
+  static const rmx_side_bar_fill = 'rmx_side_bar_fill';
+  static const rmx_side_bar_line = 'rmx_side_bar_line';
+  static const rmx_signal_tower_fill = 'rmx_signal_tower_fill';
+  static const rmx_signal_tower_line = 'rmx_signal_tower_line';
+  static const rmx_signal_wifi_1_fill = 'rmx_signal_wifi_1_fill';
+  static const rmx_signal_wifi_1_line = 'rmx_signal_wifi_1_line';
+  static const rmx_signal_wifi_2_fill = 'rmx_signal_wifi_2_fill';
+  static const rmx_signal_wifi_2_line = 'rmx_signal_wifi_2_line';
+  static const rmx_signal_wifi_3_fill = 'rmx_signal_wifi_3_fill';
+  static const rmx_signal_wifi_3_line = 'rmx_signal_wifi_3_line';
+  static const rmx_signal_wifi_error_fill = 'rmx_signal_wifi_error_fill';
+  static const rmx_signal_wifi_error_line = 'rmx_signal_wifi_error_line';
+  static const rmx_signal_wifi_fill = 'rmx_signal_wifi_fill';
+  static const rmx_signal_wifi_line = 'rmx_signal_wifi_line';
+  static const rmx_signal_wifi_off_fill = 'rmx_signal_wifi_off_fill';
+  static const rmx_signal_wifi_off_line = 'rmx_signal_wifi_off_line';
+  static const rmx_sim_card_2_fill = 'rmx_sim_card_2_fill';
+  static const rmx_sim_card_2_line = 'rmx_sim_card_2_line';
+  static const rmx_sim_card_fill = 'rmx_sim_card_fill';
+  static const rmx_sim_card_line = 'rmx_sim_card_line';
+  static const rmx_single_quotes_l = 'rmx_single_quotes_l';
+  static const rmx_single_quotes_r = 'rmx_single_quotes_r';
+  static const rmx_sip_fill = 'rmx_sip_fill';
+  static const rmx_sip_line = 'rmx_sip_line';
+  static const rmx_skip_back_fill = 'rmx_skip_back_fill';
+  static const rmx_skip_back_line = 'rmx_skip_back_line';
+  static const rmx_skip_back_mini_fill = 'rmx_skip_back_mini_fill';
+  static const rmx_skip_back_mini_line = 'rmx_skip_back_mini_line';
+  static const rmx_skip_forward_fill = 'rmx_skip_forward_fill';
+  static const rmx_skip_forward_line = 'rmx_skip_forward_line';
+  static const rmx_skip_forward_mini_fill = 'rmx_skip_forward_mini_fill';
+  static const rmx_skip_forward_mini_line = 'rmx_skip_forward_mini_line';
+  static const rmx_skull_2_fill = 'rmx_skull_2_fill';
+  static const rmx_skull_2_line = 'rmx_skull_2_line';
+  static const rmx_skull_fill = 'rmx_skull_fill';
+  static const rmx_skull_line = 'rmx_skull_line';
+  static const rmx_skype_fill = 'rmx_skype_fill';
+  static const rmx_skype_line = 'rmx_skype_line';
+  static const rmx_slack_fill = 'rmx_slack_fill';
+  static const rmx_slack_line = 'rmx_slack_line';
+  static const rmx_slice_fill = 'rmx_slice_fill';
+  static const rmx_slice_line = 'rmx_slice_line';
+  static const rmx_slideshow_2_fill = 'rmx_slideshow_2_fill';
+  static const rmx_slideshow_2_line = 'rmx_slideshow_2_line';
+  static const rmx_slideshow_3_fill = 'rmx_slideshow_3_fill';
+  static const rmx_slideshow_3_line = 'rmx_slideshow_3_line';
+  static const rmx_slideshow_4_fill = 'rmx_slideshow_4_fill';
+  static const rmx_slideshow_4_line = 'rmx_slideshow_4_line';
+  static const rmx_slideshow_fill = 'rmx_slideshow_fill';
+  static const rmx_slideshow_line = 'rmx_slideshow_line';
+  static const rmx_smartphone_fill = 'rmx_smartphone_fill';
+  static const rmx_smartphone_line = 'rmx_smartphone_line';
+  static const rmx_snapchat_fill = 'rmx_snapchat_fill';
+  static const rmx_snapchat_line = 'rmx_snapchat_line';
+  static const rmx_snowy_fill = 'rmx_snowy_fill';
+  static const rmx_snowy_line = 'rmx_snowy_line';
+  static const rmx_sort_asc = 'rmx_sort_asc';
+  static const rmx_sort_desc = 'rmx_sort_desc';
+  static const rmx_sound_module_fill = 'rmx_sound_module_fill';
+  static const rmx_sound_module_line = 'rmx_sound_module_line';
+  static const rmx_soundcloud_fill = 'rmx_soundcloud_fill';
+  static const rmx_soundcloud_line = 'rmx_soundcloud_line';
+  static const rmx_space = 'rmx_space';
+  static const rmx_space_ship_fill = 'rmx_space_ship_fill';
+  static const rmx_space_ship_line = 'rmx_space_ship_line';
+  static const rmx_spam_2_fill = 'rmx_spam_2_fill';
+  static const rmx_spam_2_line = 'rmx_spam_2_line';
+  static const rmx_spam_3_fill = 'rmx_spam_3_fill';
+  static const rmx_spam_3_line = 'rmx_spam_3_line';
+  static const rmx_spam_fill = 'rmx_spam_fill';
+  static const rmx_spam_line = 'rmx_spam_line';
+  static const rmx_speaker_2_fill = 'rmx_speaker_2_fill';
+  static const rmx_speaker_2_line = 'rmx_speaker_2_line';
+  static const rmx_speaker_3_fill = 'rmx_speaker_3_fill';
+  static const rmx_speaker_3_line = 'rmx_speaker_3_line';
+  static const rmx_speaker_fill = 'rmx_speaker_fill';
+  static const rmx_speaker_line = 'rmx_speaker_line';
+  static const rmx_spectrum_fill = 'rmx_spectrum_fill';
+  static const rmx_spectrum_line = 'rmx_spectrum_line';
+  static const rmx_speed_fill = 'rmx_speed_fill';
+  static const rmx_speed_line = 'rmx_speed_line';
+  static const rmx_speed_mini_fill = 'rmx_speed_mini_fill';
+  static const rmx_speed_mini_line = 'rmx_speed_mini_line';
+  static const rmx_split_cells_horizontal = 'rmx_split_cells_horizontal';
+  static const rmx_split_cells_vertical = 'rmx_split_cells_vertical';
+  static const rmx_spotify_fill = 'rmx_spotify_fill';
+  static const rmx_spotify_line = 'rmx_spotify_line';
+  static const rmx_spy_fill = 'rmx_spy_fill';
+  static const rmx_spy_line = 'rmx_spy_line';
+  static const rmx_stack_fill = 'rmx_stack_fill';
+  static const rmx_stack_line = 'rmx_stack_line';
+  static const rmx_stack_overflow_fill = 'rmx_stack_overflow_fill';
+  static const rmx_stack_overflow_line = 'rmx_stack_overflow_line';
+  static const rmx_stackshare_fill = 'rmx_stackshare_fill';
+  static const rmx_stackshare_line = 'rmx_stackshare_line';
+  static const rmx_star_fill = 'rmx_star_fill';
+  static const rmx_star_half_fill = 'rmx_star_half_fill';
+  static const rmx_star_half_line = 'rmx_star_half_line';
+  static const rmx_star_half_s_fill = 'rmx_star_half_s_fill';
+  static const rmx_star_half_s_line = 'rmx_star_half_s_line';
+  static const rmx_star_line = 'rmx_star_line';
+  static const rmx_star_s_fill = 'rmx_star_s_fill';
+  static const rmx_star_s_line = 'rmx_star_s_line';
+  static const rmx_star_smile_fill = 'rmx_star_smile_fill';
+  static const rmx_star_smile_line = 'rmx_star_smile_line';
+  static const rmx_steam_fill = 'rmx_steam_fill';
+  static const rmx_steam_line = 'rmx_steam_line';
+  static const rmx_steering_2_fill = 'rmx_steering_2_fill';
+  static const rmx_steering_2_line = 'rmx_steering_2_line';
+  static const rmx_steering_fill = 'rmx_steering_fill';
+  static const rmx_steering_line = 'rmx_steering_line';
+  static const rmx_stethoscope_fill = 'rmx_stethoscope_fill';
+  static const rmx_stethoscope_line = 'rmx_stethoscope_line';
+  static const rmx_sticky_note_2_fill = 'rmx_sticky_note_2_fill';
+  static const rmx_sticky_note_2_line = 'rmx_sticky_note_2_line';
+  static const rmx_sticky_note_fill = 'rmx_sticky_note_fill';
+  static const rmx_sticky_note_line = 'rmx_sticky_note_line';
+  static const rmx_stock_fill = 'rmx_stock_fill';
+  static const rmx_stock_line = 'rmx_stock_line';
+  static const rmx_stop_circle_fill = 'rmx_stop_circle_fill';
+  static const rmx_stop_circle_line = 'rmx_stop_circle_line';
+  static const rmx_stop_fill = 'rmx_stop_fill';
+  static const rmx_stop_line = 'rmx_stop_line';
+  static const rmx_stop_mini_fill = 'rmx_stop_mini_fill';
+  static const rmx_stop_mini_line = 'rmx_stop_mini_line';
+  static const rmx_store_2_fill = 'rmx_store_2_fill';
+  static const rmx_store_2_line = 'rmx_store_2_line';
+  static const rmx_store_3_fill = 'rmx_store_3_fill';
+  static const rmx_store_3_line = 'rmx_store_3_line';
+  static const rmx_store_fill = 'rmx_store_fill';
+  static const rmx_store_line = 'rmx_store_line';
+  static const rmx_strikethrough = 'rmx_strikethrough';
+  static const rmx_strikethrough_2 = 'rmx_strikethrough_2';
+  static const rmx_subscript = 'rmx_subscript';
+  static const rmx_subscript_2 = 'rmx_subscript_2';
+  static const rmx_subtract_fill = 'rmx_subtract_fill';
+  static const rmx_subtract_line = 'rmx_subtract_line';
+  static const rmx_subway_fill = 'rmx_subway_fill';
+  static const rmx_subway_line = 'rmx_subway_line';
+  static const rmx_subway_wifi_fill = 'rmx_subway_wifi_fill';
+  static const rmx_subway_wifi_line = 'rmx_subway_wifi_line';
+  static const rmx_suitcase_2_fill = 'rmx_suitcase_2_fill';
+  static const rmx_suitcase_2_line = 'rmx_suitcase_2_line';
+  static const rmx_suitcase_3_fill = 'rmx_suitcase_3_fill';
+  static const rmx_suitcase_3_line = 'rmx_suitcase_3_line';
+  static const rmx_suitcase_fill = 'rmx_suitcase_fill';
+  static const rmx_suitcase_line = 'rmx_suitcase_line';
+  static const rmx_sun_cloudy_fill = 'rmx_sun_cloudy_fill';
+  static const rmx_sun_cloudy_line = 'rmx_sun_cloudy_line';
+  static const rmx_sun_fill = 'rmx_sun_fill';
+  static const rmx_sun_foggy_fill = 'rmx_sun_foggy_fill';
+  static const rmx_sun_foggy_line = 'rmx_sun_foggy_line';
+  static const rmx_sun_line = 'rmx_sun_line';
+  static const rmx_superscript = 'rmx_superscript';
+  static const rmx_superscript_2 = 'rmx_superscript_2';
+  static const rmx_surgical_mask_fill = 'rmx_surgical_mask_fill';
+  static const rmx_surgical_mask_line = 'rmx_surgical_mask_line';
+  static const rmx_surround_sound_fill = 'rmx_surround_sound_fill';
+  static const rmx_surround_sound_line = 'rmx_surround_sound_line';
+  static const rmx_survey_fill = 'rmx_survey_fill';
+  static const rmx_survey_line = 'rmx_survey_line';
+  static const rmx_swap_box_fill = 'rmx_swap_box_fill';
+  static const rmx_swap_box_line = 'rmx_swap_box_line';
+  static const rmx_swap_fill = 'rmx_swap_fill';
+  static const rmx_swap_line = 'rmx_swap_line';
+  static const rmx_switch_fill = 'rmx_switch_fill';
+  static const rmx_switch_line = 'rmx_switch_line';
+  static const rmx_sword_fill = 'rmx_sword_fill';
+  static const rmx_sword_line = 'rmx_sword_line';
+  static const rmx_syringe_fill = 'rmx_syringe_fill';
+  static const rmx_syringe_line = 'rmx_syringe_line';
+  static const rmx_t_box_fill = 'rmx_t_box_fill';
+  static const rmx_t_box_line = 'rmx_t_box_line';
+  static const rmx_t_shirt_2_fill = 'rmx_t_shirt_2_fill';
+  static const rmx_t_shirt_2_line = 'rmx_t_shirt_2_line';
+  static const rmx_t_shirt_air_fill = 'rmx_t_shirt_air_fill';
+  static const rmx_t_shirt_air_line = 'rmx_t_shirt_air_line';
+  static const rmx_t_shirt_fill = 'rmx_t_shirt_fill';
+  static const rmx_t_shirt_line = 'rmx_t_shirt_line';
+  static const rmx_table_2 = 'rmx_table_2';
+  static const rmx_table_alt_fill = 'rmx_table_alt_fill';
+  static const rmx_table_alt_line = 'rmx_table_alt_line';
+  static const rmx_table_fill = 'rmx_table_fill';
+  static const rmx_table_line = 'rmx_table_line';
+  static const rmx_tablet_fill = 'rmx_tablet_fill';
+  static const rmx_tablet_line = 'rmx_tablet_line';
+  static const rmx_takeaway_fill = 'rmx_takeaway_fill';
+  static const rmx_takeaway_line = 'rmx_takeaway_line';
+  static const rmx_taobao_fill = 'rmx_taobao_fill';
+  static const rmx_taobao_line = 'rmx_taobao_line';
+  static const rmx_tape_fill = 'rmx_tape_fill';
+  static const rmx_tape_line = 'rmx_tape_line';
+  static const rmx_task_fill = 'rmx_task_fill';
+  static const rmx_task_line = 'rmx_task_line';
+  static const rmx_taxi_fill = 'rmx_taxi_fill';
+  static const rmx_taxi_line = 'rmx_taxi_line';
+  static const rmx_taxi_wifi_fill = 'rmx_taxi_wifi_fill';
+  static const rmx_taxi_wifi_line = 'rmx_taxi_wifi_line';
+  static const rmx_team_fill = 'rmx_team_fill';
+  static const rmx_team_line = 'rmx_team_line';
+  static const rmx_telegram_fill = 'rmx_telegram_fill';
+  static const rmx_telegram_line = 'rmx_telegram_line';
+  static const rmx_temp_cold_fill = 'rmx_temp_cold_fill';
+  static const rmx_temp_cold_line = 'rmx_temp_cold_line';
+  static const rmx_temp_hot_fill = 'rmx_temp_hot_fill';
+  static const rmx_temp_hot_line = 'rmx_temp_hot_line';
+  static const rmx_terminal_box_fill = 'rmx_terminal_box_fill';
+  static const rmx_terminal_box_line = 'rmx_terminal_box_line';
+  static const rmx_terminal_fill = 'rmx_terminal_fill';
+  static const rmx_terminal_line = 'rmx_terminal_line';
+  static const rmx_terminal_window_fill = 'rmx_terminal_window_fill';
+  static const rmx_terminal_window_line = 'rmx_terminal_window_line';
+  static const rmx_test_tube_fill = 'rmx_test_tube_fill';
+  static const rmx_test_tube_line = 'rmx_test_tube_line';
+  static const rmx_text = 'rmx_text';
+  static const rmx_text_direction_l = 'rmx_text_direction_l';
+  static const rmx_text_direction_r = 'rmx_text_direction_r';
+  static const rmx_text_spacing = 'rmx_text_spacing';
+  static const rmx_text_wrap = 'rmx_text_wrap';
+  static const rmx_thermometer_fill = 'rmx_thermometer_fill';
+  static const rmx_thermometer_line = 'rmx_thermometer_line';
+  static const rmx_thumb_down_fill = 'rmx_thumb_down_fill';
+  static const rmx_thumb_down_line = 'rmx_thumb_down_line';
+  static const rmx_thumb_up_fill = 'rmx_thumb_up_fill';
+  static const rmx_thumb_up_line = 'rmx_thumb_up_line';
+  static const rmx_thunderstorms_fill = 'rmx_thunderstorms_fill';
+  static const rmx_thunderstorms_line = 'rmx_thunderstorms_line';
+  static const rmx_ticket_2_fill = 'rmx_ticket_2_fill';
+  static const rmx_ticket_2_line = 'rmx_ticket_2_line';
+  static const rmx_ticket_fill = 'rmx_ticket_fill';
+  static const rmx_ticket_line = 'rmx_ticket_line';
+  static const rmx_time_fill = 'rmx_time_fill';
+  static const rmx_time_line = 'rmx_time_line';
+  static const rmx_timer_2_fill = 'rmx_timer_2_fill';
+  static const rmx_timer_2_line = 'rmx_timer_2_line';
+  static const rmx_timer_fill = 'rmx_timer_fill';
+  static const rmx_timer_flash_fill = 'rmx_timer_flash_fill';
+  static const rmx_timer_flash_line = 'rmx_timer_flash_line';
+  static const rmx_timer_line = 'rmx_timer_line';
+  static const rmx_todo_fill = 'rmx_todo_fill';
+  static const rmx_todo_line = 'rmx_todo_line';
+  static const rmx_toggle_fill = 'rmx_toggle_fill';
+  static const rmx_toggle_line = 'rmx_toggle_line';
+  static const rmx_tools_fill = 'rmx_tools_fill';
+  static const rmx_tools_line = 'rmx_tools_line';
+  static const rmx_tornado_fill = 'rmx_tornado_fill';
+  static const rmx_tornado_line = 'rmx_tornado_line';
+  static const rmx_trademark_fill = 'rmx_trademark_fill';
+  static const rmx_trademark_line = 'rmx_trademark_line';
+  static const rmx_traffic_light_fill = 'rmx_traffic_light_fill';
+  static const rmx_traffic_light_line = 'rmx_traffic_light_line';
+  static const rmx_train_fill = 'rmx_train_fill';
+  static const rmx_train_line = 'rmx_train_line';
+  static const rmx_train_wifi_fill = 'rmx_train_wifi_fill';
+  static const rmx_train_wifi_line = 'rmx_train_wifi_line';
+  static const rmx_translate = 'rmx_translate';
+  static const rmx_translate_2 = 'rmx_translate_2';
+  static const rmx_travesti_fill = 'rmx_travesti_fill';
+  static const rmx_travesti_line = 'rmx_travesti_line';
+  static const rmx_treasure_map_fill = 'rmx_treasure_map_fill';
+  static const rmx_treasure_map_line = 'rmx_treasure_map_line';
+  static const rmx_trello_fill = 'rmx_trello_fill';
+  static const rmx_trello_line = 'rmx_trello_line';
+  static const rmx_trophy_fill = 'rmx_trophy_fill';
+  static const rmx_trophy_line = 'rmx_trophy_line';
+  static const rmx_truck_fill = 'rmx_truck_fill';
+  static const rmx_truck_line = 'rmx_truck_line';
+  static const rmx_tumblr_fill = 'rmx_tumblr_fill';
+  static const rmx_tumblr_line = 'rmx_tumblr_line';
+  static const rmx_tv_2_fill = 'rmx_tv_2_fill';
+  static const rmx_tv_2_line = 'rmx_tv_2_line';
+  static const rmx_tv_fill = 'rmx_tv_fill';
+  static const rmx_tv_line = 'rmx_tv_line';
+  static const rmx_twitch_fill = 'rmx_twitch_fill';
+  static const rmx_twitch_line = 'rmx_twitch_line';
+  static const rmx_twitter_fill = 'rmx_twitter_fill';
+  static const rmx_twitter_line = 'rmx_twitter_line';
+  static const rmx_typhoon_fill = 'rmx_typhoon_fill';
+  static const rmx_typhoon_line = 'rmx_typhoon_line';
+  static const rmx_u_disk_fill = 'rmx_u_disk_fill';
+  static const rmx_u_disk_line = 'rmx_u_disk_line';
+  static const rmx_ubuntu_fill = 'rmx_ubuntu_fill';
+  static const rmx_ubuntu_line = 'rmx_ubuntu_line';
+  static const rmx_umbrella_fill = 'rmx_umbrella_fill';
+  static const rmx_umbrella_line = 'rmx_umbrella_line';
+  static const rmx_underline = 'rmx_underline';
+  static const rmx_uninstall_fill = 'rmx_uninstall_fill';
+  static const rmx_uninstall_line = 'rmx_uninstall_line';
+  static const rmx_unsplash_fill = 'rmx_unsplash_fill';
+  static const rmx_unsplash_line = 'rmx_unsplash_line';
+  static const rmx_upload_2_fill = 'rmx_upload_2_fill';
+  static const rmx_upload_2_line = 'rmx_upload_2_line';
+  static const rmx_upload_cloud_2_fill = 'rmx_upload_cloud_2_fill';
+  static const rmx_upload_cloud_2_line = 'rmx_upload_cloud_2_line';
+  static const rmx_upload_cloud_fill = 'rmx_upload_cloud_fill';
+  static const rmx_upload_cloud_line = 'rmx_upload_cloud_line';
+  static const rmx_upload_fill = 'rmx_upload_fill';
+  static const rmx_upload_line = 'rmx_upload_line';
+  static const rmx_usb_fill = 'rmx_usb_fill';
+  static const rmx_usb_line = 'rmx_usb_line';
+  static const rmx_user_2_fill = 'rmx_user_2_fill';
+  static const rmx_user_2_line = 'rmx_user_2_line';
+  static const rmx_user_3_fill = 'rmx_user_3_fill';
+  static const rmx_user_3_line = 'rmx_user_3_line';
+  static const rmx_user_4_fill = 'rmx_user_4_fill';
+  static const rmx_user_4_line = 'rmx_user_4_line';
+  static const rmx_user_5_fill = 'rmx_user_5_fill';
+  static const rmx_user_5_line = 'rmx_user_5_line';
+  static const rmx_user_6_fill = 'rmx_user_6_fill';
+  static const rmx_user_6_line = 'rmx_user_6_line';
+  static const rmx_user_add_fill = 'rmx_user_add_fill';
+  static const rmx_user_add_line = 'rmx_user_add_line';
+  static const rmx_user_fill = 'rmx_user_fill';
+  static const rmx_user_follow_fill = 'rmx_user_follow_fill';
+  static const rmx_user_follow_line = 'rmx_user_follow_line';
+  static const rmx_user_heart_fill = 'rmx_user_heart_fill';
+  static const rmx_user_heart_line = 'rmx_user_heart_line';
+  static const rmx_user_line = 'rmx_user_line';
+  static const rmx_user_location_fill = 'rmx_user_location_fill';
+  static const rmx_user_location_line = 'rmx_user_location_line';
+  static const rmx_user_received_2_fill = 'rmx_user_received_2_fill';
+  static const rmx_user_received_2_line = 'rmx_user_received_2_line';
+  static const rmx_user_received_fill = 'rmx_user_received_fill';
+  static const rmx_user_received_line = 'rmx_user_received_line';
+  static const rmx_user_search_fill = 'rmx_user_search_fill';
+  static const rmx_user_search_line = 'rmx_user_search_line';
+  static const rmx_user_settings_fill = 'rmx_user_settings_fill';
+  static const rmx_user_settings_line = 'rmx_user_settings_line';
+  static const rmx_user_shared_2_fill = 'rmx_user_shared_2_fill';
+  static const rmx_user_shared_2_line = 'rmx_user_shared_2_line';
+  static const rmx_user_shared_fill = 'rmx_user_shared_fill';
+  static const rmx_user_shared_line = 'rmx_user_shared_line';
+  static const rmx_user_smile_fill = 'rmx_user_smile_fill';
+  static const rmx_user_smile_line = 'rmx_user_smile_line';
+  static const rmx_user_star_fill = 'rmx_user_star_fill';
+  static const rmx_user_star_line = 'rmx_user_star_line';
+  static const rmx_user_unfollow_fill = 'rmx_user_unfollow_fill';
+  static const rmx_user_unfollow_line = 'rmx_user_unfollow_line';
+  static const rmx_user_voice_fill = 'rmx_user_voice_fill';
+  static const rmx_user_voice_line = 'rmx_user_voice_line';
+  static const rmx_video_add_fill = 'rmx_video_add_fill';
+  static const rmx_video_add_line = 'rmx_video_add_line';
+  static const rmx_video_chat_fill = 'rmx_video_chat_fill';
+  static const rmx_video_chat_line = 'rmx_video_chat_line';
+  static const rmx_video_download_fill = 'rmx_video_download_fill';
+  static const rmx_video_download_line = 'rmx_video_download_line';
+  static const rmx_video_fill = 'rmx_video_fill';
+  static const rmx_video_line = 'rmx_video_line';
+  static const rmx_video_upload_fill = 'rmx_video_upload_fill';
+  static const rmx_video_upload_line = 'rmx_video_upload_line';
+  static const rmx_vidicon_2_fill = 'rmx_vidicon_2_fill';
+  static const rmx_vidicon_2_line = 'rmx_vidicon_2_line';
+  static const rmx_vidicon_fill = 'rmx_vidicon_fill';
+  static const rmx_vidicon_line = 'rmx_vidicon_line';
+  static const rmx_vimeo_fill = 'rmx_vimeo_fill';
+  static const rmx_vimeo_line = 'rmx_vimeo_line';
+  static const rmx_vip_crown_2_fill = 'rmx_vip_crown_2_fill';
+  static const rmx_vip_crown_2_line = 'rmx_vip_crown_2_line';
+  static const rmx_vip_crown_fill = 'rmx_vip_crown_fill';
+  static const rmx_vip_crown_line = 'rmx_vip_crown_line';
+  static const rmx_vip_diamond_fill = 'rmx_vip_diamond_fill';
+  static const rmx_vip_diamond_line = 'rmx_vip_diamond_line';
+  static const rmx_vip_fill = 'rmx_vip_fill';
+  static const rmx_vip_line = 'rmx_vip_line';
+  static const rmx_virus_fill = 'rmx_virus_fill';
+  static const rmx_virus_line = 'rmx_virus_line';
+  static const rmx_visa_fill = 'rmx_visa_fill';
+  static const rmx_visa_line = 'rmx_visa_line';
+  static const rmx_voice_recognition_fill = 'rmx_voice_recognition_fill';
+  static const rmx_voice_recognition_line = 'rmx_voice_recognition_line';
+  static const rmx_voiceprint_fill = 'rmx_voiceprint_fill';
+  static const rmx_voiceprint_line = 'rmx_voiceprint_line';
+  static const rmx_volume_down_fill = 'rmx_volume_down_fill';
+  static const rmx_volume_down_line = 'rmx_volume_down_line';
+  static const rmx_volume_mute_fill = 'rmx_volume_mute_fill';
+  static const rmx_volume_mute_line = 'rmx_volume_mute_line';
+  static const rmx_volume_off_vibrate_fill = 'rmx_volume_off_vibrate_fill';
+  static const rmx_volume_off_vibrate_line = 'rmx_volume_off_vibrate_line';
+  static const rmx_volume_up_fill = 'rmx_volume_up_fill';
+  static const rmx_volume_up_line = 'rmx_volume_up_line';
+  static const rmx_volume_vibrate_fill = 'rmx_volume_vibrate_fill';
+  static const rmx_volume_vibrate_line = 'rmx_volume_vibrate_line';
+  static const rmx_vuejs_fill = 'rmx_vuejs_fill';
+  static const rmx_vuejs_line = 'rmx_vuejs_line';
+  static const rmx_walk_fill = 'rmx_walk_fill';
+  static const rmx_walk_line = 'rmx_walk_line';
+  static const rmx_wallet_2_fill = 'rmx_wallet_2_fill';
+  static const rmx_wallet_2_line = 'rmx_wallet_2_line';
+  static const rmx_wallet_3_fill = 'rmx_wallet_3_fill';
+  static const rmx_wallet_3_line = 'rmx_wallet_3_line';
+  static const rmx_wallet_fill = 'rmx_wallet_fill';
+  static const rmx_wallet_line = 'rmx_wallet_line';
+  static const rmx_water_flash_fill = 'rmx_water_flash_fill';
+  static const rmx_water_flash_line = 'rmx_water_flash_line';
+  static const rmx_webcam_fill = 'rmx_webcam_fill';
+  static const rmx_webcam_line = 'rmx_webcam_line';
+  static const rmx_wechat_2_fill = 'rmx_wechat_2_fill';
+  static const rmx_wechat_2_line = 'rmx_wechat_2_line';
+  static const rmx_wechat_fill = 'rmx_wechat_fill';
+  static const rmx_wechat_line = 'rmx_wechat_line';
+  static const rmx_wechat_pay_fill = 'rmx_wechat_pay_fill';
+  static const rmx_wechat_pay_line = 'rmx_wechat_pay_line';
+  static const rmx_weibo_fill = 'rmx_weibo_fill';
+  static const rmx_weibo_line = 'rmx_weibo_line';
+  static const rmx_whatsapp_fill = 'rmx_whatsapp_fill';
+  static const rmx_whatsapp_line = 'rmx_whatsapp_line';
+  static const rmx_wheelchair_fill = 'rmx_wheelchair_fill';
+  static const rmx_wheelchair_line = 'rmx_wheelchair_line';
+  static const rmx_wifi_fill = 'rmx_wifi_fill';
+  static const rmx_wifi_line = 'rmx_wifi_line';
+  static const rmx_wifi_off_fill = 'rmx_wifi_off_fill';
+  static const rmx_wifi_off_line = 'rmx_wifi_off_line';
+  static const rmx_window_2_fill = 'rmx_window_2_fill';
+  static const rmx_window_2_line = 'rmx_window_2_line';
+  static const rmx_window_fill = 'rmx_window_fill';
+  static const rmx_window_line = 'rmx_window_line';
+  static const rmx_windows_fill = 'rmx_windows_fill';
+  static const rmx_windows_line = 'rmx_windows_line';
+  static const rmx_windy_fill = 'rmx_windy_fill';
+  static const rmx_windy_line = 'rmx_windy_line';
+  static const rmx_wireless_charging_fill = 'rmx_wireless_charging_fill';
+  static const rmx_wireless_charging_line = 'rmx_wireless_charging_line';
+  static const rmx_women_fill = 'rmx_women_fill';
+  static const rmx_women_line = 'rmx_women_line';
+  static const rmx_wubi_input = 'rmx_wubi_input';
+  static const rmx_xbox_fill = 'rmx_xbox_fill';
+  static const rmx_xbox_line = 'rmx_xbox_line';
+  static const rmx_xing_fill = 'rmx_xing_fill';
+  static const rmx_xing_line = 'rmx_xing_line';
+  static const rmx_youtube_fill = 'rmx_youtube_fill';
+  static const rmx_youtube_line = 'rmx_youtube_line';
+  static const rmx_zcool_fill = 'rmx_zcool_fill';
+  static const rmx_zcool_line = 'rmx_zcool_line';
+  static const rmx_zhihu_fill = 'rmx_zhihu_fill';
+  static const rmx_zhihu_line = 'rmx_zhihu_line';
+  static const rmx_zoom_in_fill = 'rmx_zoom_in_fill';
+  static const rmx_zoom_in_line = 'rmx_zoom_in_line';
+  static const rmx_zoom_out_fill = 'rmx_zoom_out_fill';
+  static const rmx_zoom_out_line = 'rmx_zoom_out_line';
+  static const rmx_zzz_fill = 'rmx_zzz_fill';
+  static const rmx_zzz_line = 'rmx_zzz_line';
 }
 
 const Map<String, IconData> iconPackMap = {
-  'box_500px': IconPack.box_500px,
-  'box_abacus': IconPack.box_abacus,
-  'box_accessibility': IconPack.box_accessibility,
-  'box_add_to_queue': IconPack.box_add_to_queue,
-  'box_adjust': IconPack.box_adjust,
-  'box_adjust_alt': IconPack.box_adjust_alt,
-  'box_adobe': IconPack.box_adobe,
-  'box_airbnb': IconPack.box_airbnb,
-  'box_alarm': IconPack.box_alarm,
-  'box_alarm_add': IconPack.box_alarm_add,
-  'box_alarm_exclamation': IconPack.box_alarm_exclamation,
-  'box_alarm_off': IconPack.box_alarm_off,
-  'box_alarm_snooze': IconPack.box_alarm_snooze,
-  'box_album': IconPack.box_album,
-  'box_algolia': IconPack.box_algolia,
-  'box_align_justify': IconPack.box_align_justify,
-  'box_align_left': IconPack.box_align_left,
-  'box_align_middle': IconPack.box_align_middle,
-  'box_align_right': IconPack.box_align_right,
-  'box_amazon': IconPack.box_amazon,
-  'box_ambulance': IconPack.box_ambulance,
-  'box_analyse': IconPack.box_analyse,
-  'box_anchor': IconPack.box_anchor,
-  'box_android': IconPack.box_android,
-  'box_angry': IconPack.box_angry,
-  'box_angular': IconPack.box_angular,
-  'box_aperture': IconPack.box_aperture,
-  'box_apple': IconPack.box_apple,
-  'box_arch': IconPack.box_arch,
-  'box_archive': IconPack.box_archive,
-  'box_archive_in': IconPack.box_archive_in,
-  'box_archive_out': IconPack.box_archive_out,
-  'box_area': IconPack.box_area,
-  'box_arrow_back': IconPack.box_arrow_back,
-  'box_arrow_from_bottom': IconPack.box_arrow_from_bottom,
-  'box_arrow_from_left': IconPack.box_arrow_from_left,
-  'box_arrow_from_right': IconPack.box_arrow_from_right,
-  'box_arrow_from_top': IconPack.box_arrow_from_top,
-  'box_arrow_to_bottom': IconPack.box_arrow_to_bottom,
-  'box_arrow_to_left': IconPack.box_arrow_to_left,
-  'box_arrow_to_right': IconPack.box_arrow_to_right,
-  'box_arrow_to_top': IconPack.box_arrow_to_top,
-  'box_at': IconPack.box_at,
-  'box_atom': IconPack.box_atom,
-  'box_audible': IconPack.box_audible,
-  'box_award': IconPack.box_award,
-  'box_baby_carriage': IconPack.box_baby_carriage,
-  'box_backpack': IconPack.box_backpack,
-  'box_badge': IconPack.box_badge,
-  'box_badge_check': IconPack.box_badge_check,
-  'box_badge_dollar': IconPack.box_badge_dollar,
-  'box_baidu': IconPack.box_baidu,
-  'box_ball': IconPack.box_ball,
-  'box_band_aid': IconPack.box_band_aid,
-  'box_bank': IconPack.box_bank,
-  'box_bar_chart': IconPack.box_bar_chart,
-  'box_bar_chart_alt': IconPack.box_bar_chart_alt,
-  'box_bar_chart_alt_2': IconPack.box_bar_chart_alt_2,
-  'box_bar_chart_square': IconPack.box_bar_chart_square,
-  'box_barcode': IconPack.box_barcode,
-  'box_barcode_reader': IconPack.box_barcode_reader,
-  'box_baseball': IconPack.box_baseball,
-  'box_baseball_': IconPack.box_baseball_,
-  'box_basket': IconPack.box_basket,
-  'box_basketball': IconPack.box_basketball,
-  'box_bath': IconPack.box_bath,
-  'box_battery': IconPack.box_battery,
-  'box_battery_charging': IconPack.box_battery_charging,
-  'box_battery_full': IconPack.box_battery_full,
-  'box_battery_low': IconPack.box_battery_low,
-  'box_bed': IconPack.box_bed,
-  'box_been_here': IconPack.box_been_here,
-  'box_beer': IconPack.box_beer,
-  'box_behance': IconPack.box_behance,
-  'box_bell': IconPack.box_bell,
-  'box_bell_minus': IconPack.box_bell_minus,
-  'box_bell_off': IconPack.box_bell_off,
-  'box_bell_plus': IconPack.box_bell_plus,
-  'box_bell_ring': IconPack.box_bell_ring,
-  'box_bible': IconPack.box_bible,
-  'box_bing': IconPack.box_bing,
-  'box_binoculars': IconPack.box_binoculars,
-  'box_bitcoin': IconPack.box_bitcoin,
-  'box_blanket': IconPack.box_blanket,
-  'box_blender': IconPack.box_blender,
-  'box_block': IconPack.box_block,
-  'box_blogger': IconPack.box_blogger,
-  'box_bluetooth': IconPack.box_bluetooth,
-  'box_body': IconPack.box_body,
-  'box_bold': IconPack.box_bold,
-  'box_bolt': IconPack.box_bolt,
-  'box_bolt_circle': IconPack.box_bolt_circle,
-  'box_bomb': IconPack.box_bomb,
-  'box_bone': IconPack.box_bone,
-  'box_bong': IconPack.box_bong,
-  'box_book': IconPack.box_book,
-  'box_book_add': IconPack.box_book_add,
-  'box_book_alt': IconPack.box_book_alt,
-  'box_book_bookmark': IconPack.box_book_bookmark,
-  'box_book_content': IconPack.box_book_content,
-  'box_book_heart': IconPack.box_book_heart,
-  'box_book_open': IconPack.box_book_open,
-  'box_book_reader': IconPack.box_book_reader,
-  'box_bookmark': IconPack.box_bookmark,
-  'box_bookmark_alt': IconPack.box_bookmark_alt,
-  'box_bookmark_alt_minus': IconPack.box_bookmark_alt_minus,
-  'box_bookmark_alt_plus': IconPack.box_bookmark_alt_plus,
-  'box_bookmark_heart': IconPack.box_bookmark_heart,
-  'box_bookmark_minus': IconPack.box_bookmark_minus,
-  'box_bookmark_plus': IconPack.box_bookmark_plus,
-  'box_bookmark_star': IconPack.box_bookmark_star,
-  'box_bookmarks': IconPack.box_bookmarks,
-  'box_bootstrap': IconPack.box_bootstrap,
-  'box_border_all': IconPack.box_border_all,
-  'box_border_bottom': IconPack.box_border_bottom,
-  'box_border_inner': IconPack.box_border_inner,
-  'box_border_left': IconPack.box_border_left,
-  'box_border_none': IconPack.box_border_none,
-  'box_border_outer': IconPack.box_border_outer,
-  'box_border_radius': IconPack.box_border_radius,
-  'box_border_right': IconPack.box_border_right,
-  'box_border_top': IconPack.box_border_top,
-  'box_bot': IconPack.box_bot,
-  'box_bowling_ball': IconPack.box_bowling_ball,
-  'box_box': IconPack.box_box,
-  'box_bracket': IconPack.box_bracket,
-  'box_braille': IconPack.box_braille,
-  'box_brain': IconPack.box_brain,
-  'box_briefcase': IconPack.box_briefcase,
-  'box_briefcase_alt': IconPack.box_briefcase_alt,
-  'box_briefcase_alt_2': IconPack.box_briefcase_alt_2,
-  'box_brightness': IconPack.box_brightness,
-  'box_brightness_half': IconPack.box_brightness_half,
-  'box_broadcast': IconPack.box_broadcast,
-  'box_brush': IconPack.box_brush,
-  'box_brush_alt': IconPack.box_brush_alt,
-  'box_bug': IconPack.box_bug,
-  'box_bug_alt': IconPack.box_bug_alt,
-  'box_building': IconPack.box_building,
-  'box_building_house': IconPack.box_building_house,
-  'box_buildings': IconPack.box_buildings,
-  'box_bulb': IconPack.box_bulb,
-  'box_bullseye': IconPack.box_bullseye,
-  'box_buoy': IconPack.box_buoy,
-  'box_bus': IconPack.box_bus,
-  'box_bus_school': IconPack.box_bus_school,
-  'box_business': IconPack.box_business,
-  'box_c_plus_plus': IconPack.box_c_plus_plus,
-  'box_cabinet': IconPack.box_cabinet,
-  'box_cake': IconPack.box_cake,
-  'box_calculator': IconPack.box_calculator,
-  'box_calendar': IconPack.box_calendar,
-  'box_calendar_alt': IconPack.box_calendar_alt,
-  'box_calendar_check': IconPack.box_calendar_check,
-  'box_calendar_edit': IconPack.box_calendar_edit,
-  'box_calendar_event': IconPack.box_calendar_event,
-  'box_calendar_exclamation': IconPack.box_calendar_exclamation,
-  'box_calendar_heart': IconPack.box_calendar_heart,
-  'box_calendar_minus': IconPack.box_calendar_minus,
-  'box_calendar_plus': IconPack.box_calendar_plus,
-  'box_calendar_star': IconPack.box_calendar_star,
-  'box_calendar_week': IconPack.box_calendar_week,
-  'box_calendar_x': IconPack.box_calendar_x,
-  'box_camera': IconPack.box_camera,
-  'box_camera_home': IconPack.box_camera_home,
-  'box_camera_movie': IconPack.box_camera_movie,
-  'box_camera_off': IconPack.box_camera_off,
-  'box_camera_plus': IconPack.box_camera_plus,
-  'box_capsule': IconPack.box_capsule,
-  'box_captions': IconPack.box_captions,
-  'box_car': IconPack.box_car,
-  'box_car_battery': IconPack.box_car_battery,
-  'box_car_crash': IconPack.box_car_crash,
-  'box_car_garage': IconPack.box_car_garage,
-  'box_car_mechanic': IconPack.box_car_mechanic,
-  'box_car_wash': IconPack.box_car_wash,
-  'box_card': IconPack.box_card,
-  'box_caret_down': IconPack.box_caret_down,
-  'box_caret_down_circle': IconPack.box_caret_down_circle,
-  'box_caret_down_square': IconPack.box_caret_down_square,
-  'box_caret_left': IconPack.box_caret_left,
-  'box_caret_left_circle': IconPack.box_caret_left_circle,
-  'box_caret_left_square': IconPack.box_caret_left_square,
-  'box_caret_right': IconPack.box_caret_right,
-  'box_caret_right_circle': IconPack.box_caret_right_circle,
-  'box_caret_right_square': IconPack.box_caret_right_square,
-  'box_caret_up': IconPack.box_caret_up,
-  'box_caret_up_circle': IconPack.box_caret_up_circle,
-  'box_caret_up_square': IconPack.box_caret_up_square,
-  'box_carousel': IconPack.box_carousel,
-  'box_cart': IconPack.box_cart,
-  'box_cart_add': IconPack.box_cart_add,
-  'box_cart_alt': IconPack.box_cart_alt,
-  'box_cart_download': IconPack.box_cart_download,
-  'box_cast': IconPack.box_cast,
-  'box_category': IconPack.box_category,
-  'box_category_alt': IconPack.box_category_alt,
-  'box_cctv': IconPack.box_cctv,
-  'box_certification': IconPack.box_certification,
-  'box_chair': IconPack.box_chair,
-  'box_chalkboard': IconPack.box_chalkboard,
-  'box_chart': IconPack.box_chart,
-  'box_chat': IconPack.box_chat,
-  'box_check': IconPack.box_check,
-  'box_check_circle': IconPack.box_check_circle,
-  'box_check_double': IconPack.box_check_double,
-  'box_check_shield': IconPack.box_check_shield,
-  'box_check_square': IconPack.box_check_square,
-  'box_checkbox': IconPack.box_checkbox,
-  'box_checkbox_checked': IconPack.box_checkbox_checked,
-  'box_checkbox_square': IconPack.box_checkbox_square,
-  'box_chess': IconPack.box_chess,
-  'box_chevron_down': IconPack.box_chevron_down,
-  'box_chevron_down_circle': IconPack.box_chevron_down_circle,
-  'box_chevron_down_square': IconPack.box_chevron_down_square,
-  'box_chevron_left': IconPack.box_chevron_left,
-  'box_chevron_left_circle': IconPack.box_chevron_left_circle,
-  'box_chevron_left_square': IconPack.box_chevron_left_square,
-  'box_chevron_right': IconPack.box_chevron_right,
-  'box_chevron_right_circle': IconPack.box_chevron_right_circle,
-  'box_chevron_right_square': IconPack.box_chevron_right_square,
-  'box_chevron_up': IconPack.box_chevron_up,
-  'box_chevron_up_circle': IconPack.box_chevron_up_circle,
-  'box_chevron_up_square': IconPack.box_chevron_up_square,
-  'box_chevrons_down': IconPack.box_chevrons_down,
-  'box_chevrons_left': IconPack.box_chevrons_left,
-  'box_chevrons_right': IconPack.box_chevrons_right,
-  'box_chevrons_up': IconPack.box_chevrons_up,
-  'box_chip': IconPack.box_chip,
-  'box_chrome': IconPack.box_chrome,
-  'box_church': IconPack.box_church,
-  'box_circle': IconPack.box_circle,
-  'box_city': IconPack.box_city,
-  'box_clinic': IconPack.box_clinic,
-  'box_clipboard': IconPack.box_clipboard,
-  'box_closet': IconPack.box_closet,
-  'box_cloud': IconPack.box_cloud,
-  'box_cloud_download': IconPack.box_cloud_download,
-  'box_cloud_drizzle': IconPack.box_cloud_drizzle,
-  'box_cloud_light_rain': IconPack.box_cloud_light_rain,
-  'box_cloud_lightning': IconPack.box_cloud_lightning,
-  'box_cloud_rain': IconPack.box_cloud_rain,
-  'box_cloud_snow': IconPack.box_cloud_snow,
-  'box_cloud_upload': IconPack.box_cloud_upload,
-  'box_code': IconPack.box_code,
-  'box_code_alt': IconPack.box_code_alt,
-  'box_code_block': IconPack.box_code_block,
-  'box_code_curly': IconPack.box_code_curly,
-  'box_codepen': IconPack.box_codepen,
-  'box_coffee': IconPack.box_coffee,
-  'box_coffee_alt': IconPack.box_coffee_alt,
-  'box_coffee_togo': IconPack.box_coffee_togo,
-  'box_cog': IconPack.box_cog,
-  'box_coin': IconPack.box_coin,
-  'box_coin_stack': IconPack.box_coin_stack,
-  'box_collapse': IconPack.box_collapse,
-  'box_collection': IconPack.box_collection,
-  'box_color_fill': IconPack.box_color_fill,
-  'box_columns': IconPack.box_columns,
-  'box_command': IconPack.box_command,
-  'box_comment': IconPack.box_comment,
-  'box_comment_add': IconPack.box_comment_add,
-  'box_comment_check': IconPack.box_comment_check,
-  'box_comment_detail': IconPack.box_comment_detail,
-  'box_comment_dots': IconPack.box_comment_dots,
-  'box_comment_edit': IconPack.box_comment_edit,
-  'box_comment_error': IconPack.box_comment_error,
-  'box_comment_minus': IconPack.box_comment_minus,
-  'box_comment_x': IconPack.box_comment_x,
-  'box_compass': IconPack.box_compass,
-  'box_component': IconPack.box_component,
-  'box_confused': IconPack.box_confused,
-  'box_contact': IconPack.box_contact,
-  'box_conversation': IconPack.box_conversation,
-  'box_cookie': IconPack.box_cookie,
-  'box_cool': IconPack.box_cool,
-  'box_copy': IconPack.box_copy,
-  'box_copy_alt': IconPack.box_copy_alt,
-  'box_copyright': IconPack.box_copyright,
-  'box_coupon': IconPack.box_coupon,
-  'box_creative_commons': IconPack.box_creative_commons,
-  'box_credit_card': IconPack.box_credit_card,
-  'box_credit_card_alt': IconPack.box_credit_card_alt,
-  'box_credit_card_front': IconPack.box_credit_card_front,
-  'box_crop': IconPack.box_crop,
-  'box_crosshair': IconPack.box_crosshair,
-  'box_crown': IconPack.box_crown,
-  'box_css3': IconPack.box_css3,
-  'box_cube': IconPack.box_cube,
-  'box_cube_alt': IconPack.box_cube_alt,
-  'box_cuboid': IconPack.box_cuboid,
-  'box_current_location': IconPack.box_current_location,
-  'box_customize': IconPack.box_customize,
-  'box_cut': IconPack.box_cut,
-  'box_cycling': IconPack.box_cycling,
-  'box_cylinder': IconPack.box_cylinder,
-  'box_dailymotion': IconPack.box_dailymotion,
-  'box_dashboard': IconPack.box_dashboard,
-  'box_data': IconPack.box_data,
-  'box_desktop': IconPack.box_desktop,
-  'box_detail': IconPack.box_detail,
-  'box_dev_to': IconPack.box_dev_to,
-  'box_deviantart': IconPack.box_deviantart,
-  'box_devices': IconPack.box_devices,
-  'box_dialpad': IconPack.box_dialpad,
-  'box_dialpad_alt': IconPack.box_dialpad_alt,
-  'box_diamond': IconPack.box_diamond,
-  'box_dice_1': IconPack.box_dice_1,
-  'box_dice_2': IconPack.box_dice_2,
-  'box_dice_3': IconPack.box_dice_3,
-  'box_dice_4': IconPack.box_dice_4,
-  'box_dice_5': IconPack.box_dice_5,
-  'box_dice_6': IconPack.box_dice_6,
-  'box_digg': IconPack.box_digg,
-  'box_digitalocean': IconPack.box_digitalocean,
-  'box_direction_left': IconPack.box_direction_left,
-  'box_direction_right': IconPack.box_direction_right,
-  'box_directions': IconPack.box_directions,
-  'box_disc': IconPack.box_disc,
-  'box_discord': IconPack.box_discord,
-  'box_discount': IconPack.box_discount,
-  'box_discourse': IconPack.box_discourse,
-  'box_dish': IconPack.box_dish,
-  'box_dislike': IconPack.box_dislike,
-  'box_dizzy': IconPack.box_dizzy,
-  'box_django': IconPack.box_django,
-  'box_dna': IconPack.box_dna,
-  'box_dock_bottom': IconPack.box_dock_bottom,
-  'box_dock_left': IconPack.box_dock_left,
-  'box_dock_right': IconPack.box_dock_right,
-  'box_dock_top': IconPack.box_dock_top,
-  'box_dollar': IconPack.box_dollar,
-  'box_dollar_circle': IconPack.box_dollar_circle,
-  'box_donate_blood': IconPack.box_donate_blood,
-  'box_donate_heart': IconPack.box_donate_heart,
-  'box_door_open': IconPack.box_door_open,
-  'box_dots_horizontal': IconPack.box_dots_horizontal,
-  'box_dots_horizontal_rounded': IconPack.box_dots_horizontal_rounded,
-  'box_dots_vertical': IconPack.box_dots_vertical,
-  'box_dots_vertical_rounded': IconPack.box_dots_vertical_rounded,
-  'box_doughnut_chart': IconPack.box_doughnut_chart,
-  'box_down_arrow': IconPack.box_down_arrow,
-  'box_down_arrow_alt': IconPack.box_down_arrow_alt,
-  'box_down_arrow_circle': IconPack.box_down_arrow_circle,
-  'box_down_arrow_square': IconPack.box_down_arrow_square,
-  'box_download': IconPack.box_download,
-  'box_downvote': IconPack.box_downvote,
-  'box_dribbble': IconPack.box_dribbble,
-  'box_drink': IconPack.box_drink,
-  'box_dropbox': IconPack.box_dropbox,
-  'box_droplet': IconPack.box_droplet,
-  'box_droplet_half': IconPack.box_droplet_half,
-  'box_drupal': IconPack.box_drupal,
-  'box_dryer': IconPack.box_dryer,
-  'box_dumbbell': IconPack.box_dumbbell,
-  'box_duplicate': IconPack.box_duplicate,
-  'box_ebay': IconPack.box_ebay,
-  'box_edge': IconPack.box_edge,
-  'box_edit': IconPack.box_edit,
-  'box_edit_alt': IconPack.box_edit_alt,
-  'box_edit_location': IconPack.box_edit_location,
-  'box_eject': IconPack.box_eject,
-  'box_envelope': IconPack.box_envelope,
-  'box_envelope_open': IconPack.box_envelope_open,
-  'box_equalizer': IconPack.box_equalizer,
-  'box_eraser': IconPack.box_eraser,
-  'box_error': IconPack.box_error,
-  'box_error_alt': IconPack.box_error_alt,
-  'box_error_circle': IconPack.box_error_circle,
-  'box_etsy': IconPack.box_etsy,
-  'box_euro': IconPack.box_euro,
-  'box_ev_station': IconPack.box_ev_station,
-  'box_exclude': IconPack.box_exclude,
-  'box_exit': IconPack.box_exit,
-  'box_exit_fullscreen': IconPack.box_exit_fullscreen,
-  'box_expand': IconPack.box_expand,
-  'box_expand_alt': IconPack.box_expand_alt,
-  'box_export': IconPack.box_export,
-  'box_extension': IconPack.box_extension,
-  'box_eyedropper': IconPack.box_eyedropper,
-  'box_face': IconPack.box_face,
-  'box_face_mask': IconPack.box_face_mask,
-  'box_facebook': IconPack.box_facebook,
-  'box_facebook_circle': IconPack.box_facebook_circle,
-  'box_facebook_square': IconPack.box_facebook_square,
-  'box_factory': IconPack.box_factory,
-  'box_fast_forward': IconPack.box_fast_forward,
-  'box_fast_forward_circle': IconPack.box_fast_forward_circle,
-  'box_female': IconPack.box_female,
-  'box_female_sign': IconPack.box_female_sign,
-  'box_figma': IconPack.box_figma,
-  'box_file': IconPack.box_file,
-  'box_file_archive': IconPack.box_file_archive,
-  'box_file_blank': IconPack.box_file_blank,
-  'box_file_css': IconPack.box_file_css,
-  'box_file_doc': IconPack.box_file_doc,
-  'box_file_export': IconPack.box_file_export,
-  'box_file_find': IconPack.box_file_find,
-  'box_file_gif': IconPack.box_file_gif,
-  'box_file_html': IconPack.box_file_html,
-  'box_file_image': IconPack.box_file_image,
-  'box_file_import': IconPack.box_file_import,
-  'box_file_jpg': IconPack.box_file_jpg,
-  'box_file_js': IconPack.box_file_js,
-  'box_file_json': IconPack.box_file_json,
-  'box_file_md': IconPack.box_file_md,
-  'box_file_pdf': IconPack.box_file_pdf,
-  'box_file_plus': IconPack.box_file_plus,
-  'box_file_png': IconPack.box_file_png,
-  'box_file_txt': IconPack.box_file_txt,
-  'box_film': IconPack.box_film,
-  'box_filter': IconPack.box_filter,
-  'box_filter_alt': IconPack.box_filter_alt,
-  'box_fingerprint': IconPack.box_fingerprint,
-  'box_firebase': IconPack.box_firebase,
-  'box_firefox': IconPack.box_firefox,
-  'box_first_aid': IconPack.box_first_aid,
-  'box_first_page': IconPack.box_first_page,
-  'box_flag': IconPack.box_flag,
-  'box_flag_alt': IconPack.box_flag_alt,
-  'box_flag_checkered': IconPack.box_flag_checkered,
-  'box_flame': IconPack.box_flame,
-  'box_flask': IconPack.box_flask,
-  'box_flickr': IconPack.box_flickr,
-  'box_flickr_square': IconPack.box_flickr_square,
-  'box_florist': IconPack.box_florist,
-  'box_folder': IconPack.box_folder,
-  'box_folder_minus': IconPack.box_folder_minus,
-  'box_folder_open': IconPack.box_folder_open,
-  'box_folder_plus': IconPack.box_folder_plus,
-  'box_font': IconPack.box_font,
-  'box_font_color': IconPack.box_font_color,
-  'box_font_family': IconPack.box_font_family,
-  'box_font_size': IconPack.box_font_size,
-  'box_food_menu': IconPack.box_food_menu,
-  'box_food_tag': IconPack.box_food_tag,
-  'box_football': IconPack.box_football,
-  'box_foursquare': IconPack.box_foursquare,
-  'box_fridge': IconPack.box_fridge,
-  'box_fullscreen': IconPack.box_fullscreen,
-  'box_game': IconPack.box_game,
-  'box_gas_pump': IconPack.box_gas_pump,
-  'box_ghost': IconPack.box_ghost,
-  'box_gift': IconPack.box_gift,
-  'box_git': IconPack.box_git,
-  'box_git_branch': IconPack.box_git_branch,
-  'box_git_commit': IconPack.box_git_commit,
-  'box_git_compare': IconPack.box_git_compare,
-  'box_git_merge': IconPack.box_git_merge,
-  'box_git_pull_request': IconPack.box_git_pull_request,
-  'box_git_repo_forked': IconPack.box_git_repo_forked,
-  'box_github': IconPack.box_github,
-  'box_gitlab': IconPack.box_gitlab,
-  'box_glasses': IconPack.box_glasses,
-  'box_glasses_alt': IconPack.box_glasses_alt,
-  'box_globe': IconPack.box_globe,
-  'box_globe_alt': IconPack.box_globe_alt,
-  'box_google': IconPack.box_google,
-  'box_google_cloud': IconPack.box_google_cloud,
-  'box_google_plus': IconPack.box_google_plus,
-  'box_google_plus_circle': IconPack.box_google_plus_circle,
-  'box_graduation': IconPack.box_graduation,
-  'box_grid': IconPack.box_grid,
-  'box_grid_alt': IconPack.box_grid_alt,
-  'box_grid_horizontal': IconPack.box_grid_horizontal,
-  'box_grid_small': IconPack.box_grid_small,
-  'box_grid_vertical': IconPack.box_grid_vertical,
-  'box_group': IconPack.box_group,
-  'box_guitar_amp': IconPack.box_guitar_amp,
-  'box_hand_down': IconPack.box_hand_down,
-  'box_hand_left': IconPack.box_hand_left,
-  'box_hand_right': IconPack.box_hand_right,
-  'box_hand_up': IconPack.box_hand_up,
-  'box_handicap': IconPack.box_handicap,
-  'box_happy': IconPack.box_happy,
-  'box_happy_alt': IconPack.box_happy_alt,
-  'box_happy_beaming': IconPack.box_happy_beaming,
-  'box_happy_heart_eyes': IconPack.box_happy_heart_eyes,
-  'box_hash': IconPack.box_hash,
-  'box_hdd': IconPack.box_hdd,
-  'box_heading': IconPack.box_heading,
-  'box_headphone': IconPack.box_headphone,
-  'box_health': IconPack.box_health,
-  'box_heart': IconPack.box_heart,
-  'box_heart_circle': IconPack.box_heart_circle,
-  'box_heart_square': IconPack.box_heart_square,
-  'box_help_circle': IconPack.box_help_circle,
-  'box_hide': IconPack.box_hide,
-  'box_highlight': IconPack.box_highlight,
-  'box_history': IconPack.box_history,
-  'box_hive': IconPack.box_hive,
-  'box_home': IconPack.box_home,
-  'box_home_alt': IconPack.box_home_alt,
-  'box_home_circle': IconPack.box_home_circle,
-  'box_home_heart': IconPack.box_home_heart,
-  'box_home_smile': IconPack.box_home_smile,
-  'box_horizontal_center': IconPack.box_horizontal_center,
-  'box_hot': IconPack.box_hot,
-  'box_hotel': IconPack.box_hotel,
-  'box_hourglass': IconPack.box_hourglass,
-  'box_hourglass_bottom': IconPack.box_hourglass_bottom,
-  'box_hourglass_top': IconPack.box_hourglass_top,
-  'box_html5': IconPack.box_html5,
-  'box_id_card': IconPack.box_id_card,
-  'box_image': IconPack.box_image,
-  'box_image_add': IconPack.box_image_add,
-  'box_image_alt': IconPack.box_image_alt,
-  'box_images': IconPack.box_images,
-  'box_imdb': IconPack.box_imdb,
-  'box_import': IconPack.box_import,
-  'box_inbox': IconPack.box_inbox,
-  'box_infinite': IconPack.box_infinite,
-  'box_info_circle': IconPack.box_info_circle,
-  'box_info_square': IconPack.box_info_square,
-  'box_instagram': IconPack.box_instagram,
-  'box_instagram_alt': IconPack.box_instagram_alt,
-  'box_institution': IconPack.box_institution,
-  'box_internet_explorer': IconPack.box_internet_explorer,
-  'box_intersect': IconPack.box_intersect,
-  'box_invision': IconPack.box_invision,
-  'box_italic': IconPack.box_italic,
-  'box_javascript': IconPack.box_javascript,
-  'box_joomla': IconPack.box_joomla,
-  'box_joystick': IconPack.box_joystick,
-  'box_joystick_alt': IconPack.box_joystick_alt,
-  'box_joystick_button': IconPack.box_joystick_button,
-  'box_jquery': IconPack.box_jquery,
-  'box_jsfiddle': IconPack.box_jsfiddle,
-  'box_key': IconPack.box_key,
-  'box_keyboard': IconPack.box_keyboard,
-  'box_kickstarter': IconPack.box_kickstarter,
-  'box_kubernetes_': IconPack.box_kubernetes_,
-  'box_label': IconPack.box_label,
-  'box_landmark': IconPack.box_landmark,
-  'box_landscape': IconPack.box_landscape,
-  'box_laptop': IconPack.box_laptop,
-  'box_last_page': IconPack.box_last_page,
-  'box_laugh': IconPack.box_laugh,
-  'box_layer': IconPack.box_layer,
-  'box_layer_minus': IconPack.box_layer_minus,
-  'box_layer_plus': IconPack.box_layer_plus,
-  'box_layout': IconPack.box_layout,
-  'box_left_arrow': IconPack.box_left_arrow,
-  'box_left_arrow_alt': IconPack.box_left_arrow_alt,
-  'box_left_arrow_circle': IconPack.box_left_arrow_circle,
-  'box_left_arrow_square': IconPack.box_left_arrow_square,
-  'box_left_down_arrow_circle': IconPack.box_left_down_arrow_circle,
-  'box_left_indent': IconPack.box_left_indent,
-  'box_left_top_arrow_circle': IconPack.box_left_top_arrow_circle,
-  'box_less': IconPack.box_less,
-  'box_library': IconPack.box_library,
-  'box_like': IconPack.box_like,
-  'box_line_chart': IconPack.box_line_chart,
-  'box_line_chart_down': IconPack.box_line_chart_down,
-  'box_link': IconPack.box_link,
-  'box_link_alt': IconPack.box_link_alt,
-  'box_link_external': IconPack.box_link_external,
-  'box_linkedin': IconPack.box_linkedin,
-  'box_linkedin_square': IconPack.box_linkedin_square,
-  'box_lira': IconPack.box_lira,
-  'box_list_check': IconPack.box_list_check,
-  'box_list_minus': IconPack.box_list_minus,
-  'box_list_ol': IconPack.box_list_ol,
-  'box_list_plus': IconPack.box_list_plus,
-  'box_list_ul': IconPack.box_list_ul,
-  'box_loader': IconPack.box_loader,
-  'box_loader_alt': IconPack.box_loader_alt,
-  'box_loader_circle': IconPack.box_loader_circle,
-  'box_location_plus': IconPack.box_location_plus,
-  'box_lock': IconPack.box_lock,
-  'box_lock_alt': IconPack.box_lock_alt,
-  'box_lock_open': IconPack.box_lock_open,
-  'box_lock_open_alt': IconPack.box_lock_open_alt,
-  'box_log_in': IconPack.box_log_in,
-  'box_log_in_circle': IconPack.box_log_in_circle,
-  'box_log_out': IconPack.box_log_out,
-  'box_log_out_circle': IconPack.box_log_out_circle,
-  'box_low_vision': IconPack.box_low_vision,
-  'box_magento': IconPack.box_magento,
-  'box_magic_wand': IconPack.box_magic_wand,
-  'box_magnet': IconPack.box_magnet,
-  'box_mail_send': IconPack.box_mail_send,
-  'box_mailchimp': IconPack.box_mailchimp,
-  'box_male': IconPack.box_male,
-  'box_male_sign': IconPack.box_male_sign,
-  'box_map': IconPack.box_map,
-  'box_map_alt': IconPack.box_map_alt,
-  'box_map_pin': IconPack.box_map_pin,
-  'box_markdown': IconPack.box_markdown,
-  'box_mask': IconPack.box_mask,
-  'box_mastercard': IconPack.box_mastercard,
-  'box_medal': IconPack.box_medal,
-  'box_medium': IconPack.box_medium,
-  'box_medium_old': IconPack.box_medium_old,
-  'box_medium_square': IconPack.box_medium_square,
-  'box_megaphone': IconPack.box_megaphone,
-  'box_meh': IconPack.box_meh,
-  'box_meh_alt': IconPack.box_meh_alt,
-  'box_meh_blank': IconPack.box_meh_blank,
-  'box_memory_card': IconPack.box_memory_card,
-  'box_menu': IconPack.box_menu,
-  'box_menu_alt_left': IconPack.box_menu_alt_left,
-  'box_menu_alt_right': IconPack.box_menu_alt_right,
-  'box_merge': IconPack.box_merge,
-  'box_message': IconPack.box_message,
-  'box_message_add': IconPack.box_message_add,
-  'box_message_alt': IconPack.box_message_alt,
-  'box_message_alt_add': IconPack.box_message_alt_add,
-  'box_message_alt_check': IconPack.box_message_alt_check,
-  'box_message_alt_detail': IconPack.box_message_alt_detail,
-  'box_message_alt_dots': IconPack.box_message_alt_dots,
-  'box_message_alt_edit': IconPack.box_message_alt_edit,
-  'box_message_alt_error': IconPack.box_message_alt_error,
-  'box_message_alt_minus': IconPack.box_message_alt_minus,
-  'box_message_alt_x': IconPack.box_message_alt_x,
-  'box_message_check': IconPack.box_message_check,
-  'box_message_detail': IconPack.box_message_detail,
-  'box_message_dots': IconPack.box_message_dots,
-  'box_message_edit': IconPack.box_message_edit,
-  'box_message_error': IconPack.box_message_error,
-  'box_message_minus': IconPack.box_message_minus,
-  'box_message_rounded': IconPack.box_message_rounded,
-  'box_message_rounded_add': IconPack.box_message_rounded_add,
-  'box_message_rounded_check': IconPack.box_message_rounded_check,
-  'box_message_rounded_detail': IconPack.box_message_rounded_detail,
-  'box_message_rounded_dots': IconPack.box_message_rounded_dots,
-  'box_message_rounded_edit': IconPack.box_message_rounded_edit,
-  'box_message_rounded_error': IconPack.box_message_rounded_error,
-  'box_message_rounded_minus': IconPack.box_message_rounded_minus,
-  'box_message_rounded_x': IconPack.box_message_rounded_x,
-  'box_message_square': IconPack.box_message_square,
-  'box_message_square_add': IconPack.box_message_square_add,
-  'box_message_square_check': IconPack.box_message_square_check,
-  'box_message_square_detail': IconPack.box_message_square_detail,
-  'box_message_square_dots': IconPack.box_message_square_dots,
-  'box_message_square_edit': IconPack.box_message_square_edit,
-  'box_message_square_error': IconPack.box_message_square_error,
-  'box_message_square_minus': IconPack.box_message_square_minus,
-  'box_message_square_x': IconPack.box_message_square_x,
-  'box_message_x': IconPack.box_message_x,
-  'box_messenger': IconPack.box_messenger,
-  'box_meteor': IconPack.box_meteor,
-  'box_microchip': IconPack.box_microchip,
-  'box_microphone': IconPack.box_microphone,
-  'box_microphone_alt': IconPack.box_microphone_alt,
-  'box_microphone_off': IconPack.box_microphone_off,
-  'box_microsoft': IconPack.box_microsoft,
-  'box_microsoft_teams': IconPack.box_microsoft_teams,
-  'box_minus': IconPack.box_minus,
-  'box_minus_back': IconPack.box_minus_back,
-  'box_minus_circle': IconPack.box_minus_circle,
-  'box_minus_front': IconPack.box_minus_front,
-  'box_minus_square': IconPack.box_minus_square,
-  'box_mobile': IconPack.box_mobile,
-  'box_mobile_alt': IconPack.box_mobile_alt,
-  'box_mobile_landscape': IconPack.box_mobile_landscape,
-  'box_mobile_vibration': IconPack.box_mobile_vibration,
-  'box_money': IconPack.box_money,
-  'box_moon': IconPack.box_moon,
-  'box_mouse': IconPack.box_mouse,
-  'box_mouse_alt': IconPack.box_mouse_alt,
-  'box_move': IconPack.box_move,
-  'box_move_horizontal': IconPack.box_move_horizontal,
-  'box_move_vertical': IconPack.box_move_vertical,
-  'box_movie': IconPack.box_movie,
-  'box_movie_play': IconPack.box_movie_play,
-  'box_music': IconPack.box_music,
-  'box_navigation': IconPack.box_navigation,
-  'box_network_chart': IconPack.box_network_chart,
-  'box_news': IconPack.box_news,
-  'box_no_entry': IconPack.box_no_entry,
-  'box_nodejs': IconPack.box_nodejs,
-  'box_note': IconPack.box_note,
-  'box_notepad': IconPack.box_notepad,
-  'box_notification': IconPack.box_notification,
-  'box_notification_off': IconPack.box_notification_off,
-  'box_offer': IconPack.box_offer,
-  'box_ok_ru': IconPack.box_ok_ru,
-  'box_opera': IconPack.box_opera,
-  'box_outline': IconPack.box_outline,
-  'box_package': IconPack.box_package,
-  'box_paint': IconPack.box_paint,
-  'box_paint_roll': IconPack.box_paint_roll,
-  'box_palette': IconPack.box_palette,
-  'box_paper_plane': IconPack.box_paper_plane,
-  'box_paperclip': IconPack.box_paperclip,
-  'box_paragraph': IconPack.box_paragraph,
-  'box_parking': IconPack.box_parking,
-  'box_paste': IconPack.box_paste,
-  'box_patreon': IconPack.box_patreon,
-  'box_pause': IconPack.box_pause,
-  'box_pause_circle': IconPack.box_pause_circle,
-  'box_paypal': IconPack.box_paypal,
-  'box_pen': IconPack.box_pen,
-  'box_pencil': IconPack.box_pencil,
-  'box_periscope': IconPack.box_periscope,
-  'box_phone': IconPack.box_phone,
-  'box_phone_call': IconPack.box_phone_call,
-  'box_phone_incoming': IconPack.box_phone_incoming,
-  'box_phone_outgoing': IconPack.box_phone_outgoing,
-  'box_photo_album': IconPack.box_photo_album,
-  'box_piano': IconPack.box_piano,
-  'box_pie_chart': IconPack.box_pie_chart,
-  'box_pie_chart_alt': IconPack.box_pie_chart_alt,
-  'box_pie_chart_alt_2': IconPack.box_pie_chart_alt_2,
-  'box_pin': IconPack.box_pin,
-  'box_pinterest': IconPack.box_pinterest,
-  'box_pinterest_alt': IconPack.box_pinterest_alt,
-  'box_pizza': IconPack.box_pizza,
-  'box_plane': IconPack.box_plane,
-  'box_plane_alt': IconPack.box_plane_alt,
-  'box_plane_land': IconPack.box_plane_land,
-  'box_plane_take_off': IconPack.box_plane_take_off,
-  'box_planet': IconPack.box_planet,
-  'box_play': IconPack.box_play,
-  'box_play_circle': IconPack.box_play_circle,
-  'box_play_store': IconPack.box_play_store,
-  'box_playlist': IconPack.box_playlist,
-  'box_plug': IconPack.box_plug,
-  'box_plus': IconPack.box_plus,
-  'box_plus_circle': IconPack.box_plus_circle,
-  'box_plus_medical': IconPack.box_plus_medical,
-  'box_plus_square': IconPack.box_plus_square,
-  'box_pocket': IconPack.box_pocket,
-  'box_pointer': IconPack.box_pointer,
-  'box_poll': IconPack.box_poll,
-  'box_polygon': IconPack.box_polygon,
-  'box_pound': IconPack.box_pound,
-  'box_power_off': IconPack.box_power_off,
-  'box_printer': IconPack.box_printer,
-  'box_product_hunt': IconPack.box_product_hunt,
-  'box_pulse': IconPack.box_pulse,
-  'box_purchase_tag': IconPack.box_purchase_tag,
-  'box_purchase_tag_alt': IconPack.box_purchase_tag_alt,
-  'box_pyramid': IconPack.box_pyramid,
-  'box_python': IconPack.box_python,
-  'box_question_mark': IconPack.box_question_mark,
-  'box_quora': IconPack.box_quora,
-  'box_quote_alt_left': IconPack.box_quote_alt_left,
-  'box_quote_alt_right': IconPack.box_quote_alt_right,
-  'box_quote_left': IconPack.box_quote_left,
-  'box_quote_right': IconPack.box_quote_right,
-  'box_quote_single_left': IconPack.box_quote_single_left,
-  'box_quote_single_right': IconPack.box_quote_single_right,
-  'box_radar': IconPack.box_radar,
-  'box_radiation': IconPack.box_radiation,
-  'box_radio': IconPack.box_radio,
-  'box_radio_circle': IconPack.box_radio_circle,
-  'box_radio_circle_marked': IconPack.box_radio_circle_marked,
-  'box_react': IconPack.box_react,
-  'box_receipt': IconPack.box_receipt,
-  'box_rectangle': IconPack.box_rectangle,
-  'box_recycle': IconPack.box_recycle,
-  'box_redbubble': IconPack.box_redbubble,
-  'box_reddit': IconPack.box_reddit,
-  'box_redo': IconPack.box_redo,
-  'box_redux': IconPack.box_redux,
-  'box_refresh': IconPack.box_refresh,
-  'box_rename': IconPack.box_rename,
-  'box_repeat': IconPack.box_repeat,
-  'box_reply': IconPack.box_reply,
-  'box_reply_all': IconPack.box_reply_all,
-  'box_report': IconPack.box_report,
-  'box_repost': IconPack.box_repost,
-  'box_reset': IconPack.box_reset,
-  'box_restaurant': IconPack.box_restaurant,
-  'box_revision': IconPack.box_revision,
-  'box_rewind': IconPack.box_rewind,
-  'box_rewind_circle': IconPack.box_rewind_circle,
-  'box_right_arrow': IconPack.box_right_arrow,
-  'box_right_arrow_alt': IconPack.box_right_arrow_alt,
-  'box_right_arrow_circle': IconPack.box_right_arrow_circle,
-  'box_right_arrow_square': IconPack.box_right_arrow_square,
-  'box_right_down_arrow_circle': IconPack.box_right_down_arrow_circle,
-  'box_right_indent': IconPack.box_right_indent,
-  'box_right_top_arrow_circle': IconPack.box_right_top_arrow_circle,
-  'box_rocket': IconPack.box_rocket,
-  'box_rotate_left': IconPack.box_rotate_left,
-  'box_rotate_right': IconPack.box_rotate_right,
-  'box_rss': IconPack.box_rss,
-  'box_ruble': IconPack.box_ruble,
-  'box_ruler': IconPack.box_ruler,
-  'box_run': IconPack.box_run,
-  'box_rupee': IconPack.box_rupee,
-  'box_sad': IconPack.box_sad,
-  'box_sass': IconPack.box_sass,
-  'box_save': IconPack.box_save,
-  'box_scan': IconPack.box_scan,
-  'box_school': IconPack.box_school,
-  'box_screenshot': IconPack.box_screenshot,
-  'box_search': IconPack.box_search,
-  'box_search_alt': IconPack.box_search_alt,
-  'box_search_alt_2': IconPack.box_search_alt_2,
-  'box_select_multiple': IconPack.box_select_multiple,
-  'box_selection': IconPack.box_selection,
-  'box_send': IconPack.box_send,
-  'box_server': IconPack.box_server,
-  'box_shape_circle': IconPack.box_shape_circle,
-  'box_shape_polygon': IconPack.box_shape_polygon,
-  'box_shape_square': IconPack.box_shape_square,
-  'box_shape_triangle': IconPack.box_shape_triangle,
-  'box_shapes': IconPack.box_shapes,
-  'box_share': IconPack.box_share,
-  'box_share_alt': IconPack.box_share_alt,
-  'box_shekel': IconPack.box_shekel,
-  'box_shield': IconPack.box_shield,
-  'box_shield_alt': IconPack.box_shield_alt,
-  'box_shield_alt_2': IconPack.box_shield_alt_2,
-  'box_shield_quarter': IconPack.box_shield_quarter,
-  'box_shield_x': IconPack.box_shield_x,
-  'box_ship': IconPack.box_ship,
-  'box_shocked': IconPack.box_shocked,
-  'box_shopify': IconPack.box_shopify,
-  'box_shopping_bag': IconPack.box_shopping_bag,
-  'box_shopping_bag_alt': IconPack.box_shopping_bag_alt,
-  'box_shopping_bags': IconPack.box_shopping_bags,
-  'box_show': IconPack.box_show,
-  'box_show_alt': IconPack.box_show_alt,
-  'box_shuffle': IconPack.box_shuffle,
-  'box_sidebar': IconPack.box_sidebar,
-  'box_sitemap': IconPack.box_sitemap,
-  'box_skip_next': IconPack.box_skip_next,
-  'box_skip_next_circle': IconPack.box_skip_next_circle,
-  'box_skip_previous': IconPack.box_skip_previous,
-  'box_skip_previous_circle': IconPack.box_skip_previous_circle,
-  'box_skull': IconPack.box_skull,
-  'box_skype': IconPack.box_skype,
-  'box_slack': IconPack.box_slack,
-  'box_slack_old': IconPack.box_slack_old,
-  'box_sleepy': IconPack.box_sleepy,
-  'box_slider': IconPack.box_slider,
-  'box_slider_alt': IconPack.box_slider_alt,
-  'box_slideshow': IconPack.box_slideshow,
-  'box_smile': IconPack.box_smile,
-  'box_snapchat': IconPack.box_snapchat,
-  'box_sort': IconPack.box_sort,
-  'box_sort_a_z': IconPack.box_sort_a_z,
-  'box_sort_alt': IconPack.box_sort_alt,
-  'box_sort_alt_2': IconPack.box_sort_alt_2,
-  'box_sort_down': IconPack.box_sort_down,
-  'box_sort_up': IconPack.box_sort_up,
-  'box_sort_z_a': IconPack.box_sort_z_a,
-  'box_soundcloud': IconPack.box_soundcloud,
-  'box_spa': IconPack.box_spa,
-  'box_space_bar': IconPack.box_space_bar,
-  'box_spotify': IconPack.box_spotify,
-  'box_spray_can': IconPack.box_spray_can,
-  'box_spreadsheet': IconPack.box_spreadsheet,
-  'box_spring_boot': IconPack.box_spring_boot,
-  'box_square': IconPack.box_square,
-  'box_square_rounded': IconPack.box_square_rounded,
-  'box_squarespace': IconPack.box_squarespace,
-  'box_stack_overflow': IconPack.box_stack_overflow,
-  'box_star': IconPack.box_star,
-  'box_star_half': IconPack.box_star_half,
-  'box_station': IconPack.box_station,
-  'box_stats': IconPack.box_stats,
-  'box_sticker': IconPack.box_sticker,
-  'box_stop': IconPack.box_stop,
-  'box_stop_circle': IconPack.box_stop_circle,
-  'box_stopwatch': IconPack.box_stopwatch,
-  'box_store': IconPack.box_store,
-  'box_store_alt': IconPack.box_store_alt,
-  'box_street_view': IconPack.box_street_view,
-  'box_strikethrough': IconPack.box_strikethrough,
-  'box_stripe': IconPack.box_stripe,
-  'box_subdirectory_left': IconPack.box_subdirectory_left,
-  'box_subdirectory_right': IconPack.box_subdirectory_right,
-  'box_sun': IconPack.box_sun,
-  'box_support': IconPack.box_support,
-  'box_swim': IconPack.box_swim,
-  'box_sync': IconPack.box_sync,
-  'box_t_shirt': IconPack.box_t_shirt,
-  'box_tab': IconPack.box_tab,
-  'box_table': IconPack.box_table,
-  'box_tachometer': IconPack.box_tachometer,
-  'box_tag': IconPack.box_tag,
-  'box_tag_alt': IconPack.box_tag_alt,
-  'box_tag_x': IconPack.box_tag_x,
-  'box_target_lock': IconPack.box_target_lock,
-  'box_task': IconPack.box_task,
-  'box_task_x': IconPack.box_task_x,
-  'box_taxi': IconPack.box_taxi,
-  'box_telegram': IconPack.box_telegram,
-  'box_tennis_ball': IconPack.box_tennis_ball,
-  'box_terminal': IconPack.box_terminal,
-  'box_test_tube': IconPack.box_test_tube,
-  'box_text': IconPack.box_text,
-  'box_thermometer': IconPack.box_thermometer,
-  'box_time': IconPack.box_time,
-  'box_time_five': IconPack.box_time_five,
-  'box_timer': IconPack.box_timer,
-  'box_tired': IconPack.box_tired,
-  'box_to_top': IconPack.box_to_top,
-  'box_toggle_left': IconPack.box_toggle_left,
-  'box_toggle_right': IconPack.box_toggle_right,
-  'box_tone': IconPack.box_tone,
-  'box_torch': IconPack.box_torch,
-  'box_traffic': IconPack.box_traffic,
-  'box_traffic_barrier': IconPack.box_traffic_barrier,
-  'box_traffic_cone': IconPack.box_traffic_cone,
-  'box_train': IconPack.box_train,
-  'box_transfer': IconPack.box_transfer,
-  'box_transfer_alt': IconPack.box_transfer_alt,
-  'box_trash': IconPack.box_trash,
-  'box_trash_alt': IconPack.box_trash_alt,
-  'box_tree': IconPack.box_tree,
-  'box_trello': IconPack.box_trello,
-  'box_trending_down': IconPack.box_trending_down,
-  'box_trending_up': IconPack.box_trending_up,
-  'box_trim': IconPack.box_trim,
-  'box_trip': IconPack.box_trip,
-  'box_trophy': IconPack.box_trophy,
-  'box_truck': IconPack.box_truck,
-  'box_tumblr': IconPack.box_tumblr,
-  'box_tux': IconPack.box_tux,
-  'box_tv': IconPack.box_tv,
-  'box_twitch': IconPack.box_twitch,
-  'box_twitter': IconPack.box_twitter,
-  'box_underline': IconPack.box_underline,
-  'box_undo': IconPack.box_undo,
-  'box_unite': IconPack.box_unite,
-  'box_unlink': IconPack.box_unlink,
-  'box_unsplash': IconPack.box_unsplash,
-  'box_up_arrow': IconPack.box_up_arrow,
-  'box_up_arrow_alt': IconPack.box_up_arrow_alt,
-  'box_up_arrow_circle': IconPack.box_up_arrow_circle,
-  'box_up_arrow_square': IconPack.box_up_arrow_square,
-  'box_upload': IconPack.box_upload,
-  'box_upside_down': IconPack.box_upside_down,
-  'box_upvote': IconPack.box_upvote,
-  'box_usb': IconPack.box_usb,
-  'box_user': IconPack.box_user,
-  'box_user_account': IconPack.box_user_account,
-  'box_user_badge': IconPack.box_user_badge,
-  'box_user_check': IconPack.box_user_check,
-  'box_user_circle': IconPack.box_user_circle,
-  'box_user_detail': IconPack.box_user_detail,
-  'box_user_minus': IconPack.box_user_minus,
-  'box_user_pin': IconPack.box_user_pin,
-  'box_user_plus': IconPack.box_user_plus,
-  'box_user_rectangle': IconPack.box_user_rectangle,
-  'box_user_voice': IconPack.box_user_voice,
-  'box_user_x': IconPack.box_user_x,
-  'box_vector': IconPack.box_vector,
-  'box_vertical_center': IconPack.box_vertical_center,
-  'box_vial': IconPack.box_vial,
-  'box_video': IconPack.box_video,
-  'box_video_off': IconPack.box_video_off,
-  'box_video_plus': IconPack.box_video_plus,
-  'box_video_recording': IconPack.box_video_recording,
-  'box_videos': IconPack.box_videos,
-  'box_vimeo': IconPack.box_vimeo,
-  'box_virus': IconPack.box_virus,
-  'box_virus_block': IconPack.box_virus_block,
-  'box_visa': IconPack.box_visa,
-  'box_vk': IconPack.box_vk,
-  'box_voicemail': IconPack.box_voicemail,
-  'box_volume': IconPack.box_volume,
-  'box_volume_full': IconPack.box_volume_full,
-  'box_volume_low': IconPack.box_volume_low,
-  'box_volume_mute': IconPack.box_volume_mute,
-  'box_vuejs': IconPack.box_vuejs,
-  'box_walk': IconPack.box_walk,
-  'box_wallet': IconPack.box_wallet,
-  'box_wallet_alt': IconPack.box_wallet_alt,
-  'box_washer': IconPack.box_washer,
-  'box_watch': IconPack.box_watch,
-  'box_watch_alt': IconPack.box_watch_alt,
-  'box_water': IconPack.box_water,
-  'box_webcam': IconPack.box_webcam,
-  'box_whatsapp': IconPack.box_whatsapp,
-  'box_whatsapp_square': IconPack.box_whatsapp_square,
-  'box_widget': IconPack.box_widget,
-  'box_wifi': IconPack.box_wifi,
-  'box_wifi_0': IconPack.box_wifi_0,
-  'box_wifi_1': IconPack.box_wifi_1,
-  'box_wifi_2': IconPack.box_wifi_2,
-  'box_wifi_off': IconPack.box_wifi_off,
-  'box_wikipedia': IconPack.box_wikipedia,
-  'box_wind': IconPack.box_wind,
-  'box_window': IconPack.box_window,
-  'box_window_alt': IconPack.box_window_alt,
-  'box_window_close': IconPack.box_window_close,
-  'box_window_open': IconPack.box_window_open,
-  'box_windows': IconPack.box_windows,
-  'box_wine': IconPack.box_wine,
-  'box_wink_smile': IconPack.box_wink_smile,
-  'box_wink_tongue': IconPack.box_wink_tongue,
-  'box_wix': IconPack.box_wix,
-  'box_won': IconPack.box_won,
-  'box_wordpress': IconPack.box_wordpress,
-  'box_world': IconPack.box_world,
-  'box_wrench': IconPack.box_wrench,
-  'box_x': IconPack.box_x,
-  'box_x_circle': IconPack.box_x_circle,
-  'box_x_square': IconPack.box_x_square,
-  'box_yahoo': IconPack.box_yahoo,
-  'box_yelp': IconPack.box_yelp,
-  'box_yen': IconPack.box_yen,
-  'box_yin_yang': IconPack.box_yin_yang,
-  'box_youtube': IconPack.box_youtube,
-  'box_zap': IconPack.box_zap,
-  'box_zoom': IconPack.box_zoom,
-  'box_zoom_in': IconPack.box_zoom_in,
-  'box_zoom_out': IconPack.box_zoom_out,
   'flu_access_time_filled': IconPack.flu_access_time_filled,
   'flu_access_time_regular': IconPack.flu_access_time_regular,
   'flu_accessibility_checkmark_filled': IconPack.flu_accessibility_checkmark_filled,
@@ -35125,4 +36649,2275 @@ const Map<String, IconData> iconPackMap = {
   'mdi_zodiac_scorpio': IconPack.mdi_zodiac_scorpio,
   'mdi_zodiac_taurus': IconPack.mdi_zodiac_taurus,
   'mdi_zodiac_virgo': IconPack.mdi_zodiac_virgo,
+  'rmx_a24_hours_fill': IconPack.rmx_a24_hours_fill,
+  'rmx_a24_hours_line': IconPack.rmx_a24_hours_line,
+  'rmx_a4k_fill': IconPack.rmx_a4k_fill,
+  'rmx_a4k_line': IconPack.rmx_a4k_line,
+  'rmx_a_b': IconPack.rmx_a_b,
+  'rmx_account_box_fill': IconPack.rmx_account_box_fill,
+  'rmx_account_box_line': IconPack.rmx_account_box_line,
+  'rmx_account_circle_fill': IconPack.rmx_account_circle_fill,
+  'rmx_account_circle_line': IconPack.rmx_account_circle_line,
+  'rmx_account_pin_box_fill': IconPack.rmx_account_pin_box_fill,
+  'rmx_account_pin_box_line': IconPack.rmx_account_pin_box_line,
+  'rmx_account_pin_circle_fill': IconPack.rmx_account_pin_circle_fill,
+  'rmx_account_pin_circle_line': IconPack.rmx_account_pin_circle_line,
+  'rmx_add_box_fill': IconPack.rmx_add_box_fill,
+  'rmx_add_box_line': IconPack.rmx_add_box_line,
+  'rmx_add_circle_fill': IconPack.rmx_add_circle_fill,
+  'rmx_add_circle_line': IconPack.rmx_add_circle_line,
+  'rmx_add_fill': IconPack.rmx_add_fill,
+  'rmx_add_line': IconPack.rmx_add_line,
+  'rmx_admin_fill': IconPack.rmx_admin_fill,
+  'rmx_admin_line': IconPack.rmx_admin_line,
+  'rmx_advertisement_fill': IconPack.rmx_advertisement_fill,
+  'rmx_advertisement_line': IconPack.rmx_advertisement_line,
+  'rmx_airplay_fill': IconPack.rmx_airplay_fill,
+  'rmx_airplay_line': IconPack.rmx_airplay_line,
+  'rmx_alarm_fill': IconPack.rmx_alarm_fill,
+  'rmx_alarm_line': IconPack.rmx_alarm_line,
+  'rmx_alarm_warning_fill': IconPack.rmx_alarm_warning_fill,
+  'rmx_alarm_warning_line': IconPack.rmx_alarm_warning_line,
+  'rmx_album_fill': IconPack.rmx_album_fill,
+  'rmx_album_line': IconPack.rmx_album_line,
+  'rmx_alert_fill': IconPack.rmx_alert_fill,
+  'rmx_alert_line': IconPack.rmx_alert_line,
+  'rmx_aliens_fill': IconPack.rmx_aliens_fill,
+  'rmx_aliens_line': IconPack.rmx_aliens_line,
+  'rmx_align_bottom': IconPack.rmx_align_bottom,
+  'rmx_align_center': IconPack.rmx_align_center,
+  'rmx_align_justify': IconPack.rmx_align_justify,
+  'rmx_align_left': IconPack.rmx_align_left,
+  'rmx_align_right': IconPack.rmx_align_right,
+  'rmx_align_top': IconPack.rmx_align_top,
+  'rmx_align_vertically': IconPack.rmx_align_vertically,
+  'rmx_alipay_fill': IconPack.rmx_alipay_fill,
+  'rmx_alipay_line': IconPack.rmx_alipay_line,
+  'rmx_amazon_fill': IconPack.rmx_amazon_fill,
+  'rmx_amazon_line': IconPack.rmx_amazon_line,
+  'rmx_anchor_fill': IconPack.rmx_anchor_fill,
+  'rmx_anchor_line': IconPack.rmx_anchor_line,
+  'rmx_ancient_gate_fill': IconPack.rmx_ancient_gate_fill,
+  'rmx_ancient_gate_line': IconPack.rmx_ancient_gate_line,
+  'rmx_ancient_pavilion_fill': IconPack.rmx_ancient_pavilion_fill,
+  'rmx_ancient_pavilion_line': IconPack.rmx_ancient_pavilion_line,
+  'rmx_android_fill': IconPack.rmx_android_fill,
+  'rmx_android_line': IconPack.rmx_android_line,
+  'rmx_angularjs_fill': IconPack.rmx_angularjs_fill,
+  'rmx_angularjs_line': IconPack.rmx_angularjs_line,
+  'rmx_anticlockwise_2_fill': IconPack.rmx_anticlockwise_2_fill,
+  'rmx_anticlockwise_2_line': IconPack.rmx_anticlockwise_2_line,
+  'rmx_anticlockwise_fill': IconPack.rmx_anticlockwise_fill,
+  'rmx_anticlockwise_line': IconPack.rmx_anticlockwise_line,
+  'rmx_app_store_fill': IconPack.rmx_app_store_fill,
+  'rmx_app_store_line': IconPack.rmx_app_store_line,
+  'rmx_apple_fill': IconPack.rmx_apple_fill,
+  'rmx_apple_line': IconPack.rmx_apple_line,
+  'rmx_apps_2_fill': IconPack.rmx_apps_2_fill,
+  'rmx_apps_2_line': IconPack.rmx_apps_2_line,
+  'rmx_apps_fill': IconPack.rmx_apps_fill,
+  'rmx_apps_line': IconPack.rmx_apps_line,
+  'rmx_archive_drawer_fill': IconPack.rmx_archive_drawer_fill,
+  'rmx_archive_drawer_line': IconPack.rmx_archive_drawer_line,
+  'rmx_archive_fill': IconPack.rmx_archive_fill,
+  'rmx_archive_line': IconPack.rmx_archive_line,
+  'rmx_arrow_down_circle_fill': IconPack.rmx_arrow_down_circle_fill,
+  'rmx_arrow_down_circle_line': IconPack.rmx_arrow_down_circle_line,
+  'rmx_arrow_down_fill': IconPack.rmx_arrow_down_fill,
+  'rmx_arrow_down_line': IconPack.rmx_arrow_down_line,
+  'rmx_arrow_down_s_fill': IconPack.rmx_arrow_down_s_fill,
+  'rmx_arrow_down_s_line': IconPack.rmx_arrow_down_s_line,
+  'rmx_arrow_drop_down_fill': IconPack.rmx_arrow_drop_down_fill,
+  'rmx_arrow_drop_down_line': IconPack.rmx_arrow_drop_down_line,
+  'rmx_arrow_drop_left_fill': IconPack.rmx_arrow_drop_left_fill,
+  'rmx_arrow_drop_left_line': IconPack.rmx_arrow_drop_left_line,
+  'rmx_arrow_drop_right_fill': IconPack.rmx_arrow_drop_right_fill,
+  'rmx_arrow_drop_right_line': IconPack.rmx_arrow_drop_right_line,
+  'rmx_arrow_drop_up_fill': IconPack.rmx_arrow_drop_up_fill,
+  'rmx_arrow_drop_up_line': IconPack.rmx_arrow_drop_up_line,
+  'rmx_arrow_go_back_fill': IconPack.rmx_arrow_go_back_fill,
+  'rmx_arrow_go_back_line': IconPack.rmx_arrow_go_back_line,
+  'rmx_arrow_go_forward_fill': IconPack.rmx_arrow_go_forward_fill,
+  'rmx_arrow_go_forward_line': IconPack.rmx_arrow_go_forward_line,
+  'rmx_arrow_left_circle_fill': IconPack.rmx_arrow_left_circle_fill,
+  'rmx_arrow_left_circle_line': IconPack.rmx_arrow_left_circle_line,
+  'rmx_arrow_left_down_fill': IconPack.rmx_arrow_left_down_fill,
+  'rmx_arrow_left_down_line': IconPack.rmx_arrow_left_down_line,
+  'rmx_arrow_left_fill': IconPack.rmx_arrow_left_fill,
+  'rmx_arrow_left_line': IconPack.rmx_arrow_left_line,
+  'rmx_arrow_left_right_fill': IconPack.rmx_arrow_left_right_fill,
+  'rmx_arrow_left_right_line': IconPack.rmx_arrow_left_right_line,
+  'rmx_arrow_left_s_fill': IconPack.rmx_arrow_left_s_fill,
+  'rmx_arrow_left_s_line': IconPack.rmx_arrow_left_s_line,
+  'rmx_arrow_left_up_fill': IconPack.rmx_arrow_left_up_fill,
+  'rmx_arrow_left_up_line': IconPack.rmx_arrow_left_up_line,
+  'rmx_arrow_right_circle_fill': IconPack.rmx_arrow_right_circle_fill,
+  'rmx_arrow_right_circle_line': IconPack.rmx_arrow_right_circle_line,
+  'rmx_arrow_right_down_fill': IconPack.rmx_arrow_right_down_fill,
+  'rmx_arrow_right_down_line': IconPack.rmx_arrow_right_down_line,
+  'rmx_arrow_right_fill': IconPack.rmx_arrow_right_fill,
+  'rmx_arrow_right_line': IconPack.rmx_arrow_right_line,
+  'rmx_arrow_right_s_fill': IconPack.rmx_arrow_right_s_fill,
+  'rmx_arrow_right_s_line': IconPack.rmx_arrow_right_s_line,
+  'rmx_arrow_right_up_fill': IconPack.rmx_arrow_right_up_fill,
+  'rmx_arrow_right_up_line': IconPack.rmx_arrow_right_up_line,
+  'rmx_arrow_up_circle_fill': IconPack.rmx_arrow_up_circle_fill,
+  'rmx_arrow_up_circle_line': IconPack.rmx_arrow_up_circle_line,
+  'rmx_arrow_up_down_fill': IconPack.rmx_arrow_up_down_fill,
+  'rmx_arrow_up_down_line': IconPack.rmx_arrow_up_down_line,
+  'rmx_arrow_up_fill': IconPack.rmx_arrow_up_fill,
+  'rmx_arrow_up_line': IconPack.rmx_arrow_up_line,
+  'rmx_arrow_up_s_fill': IconPack.rmx_arrow_up_s_fill,
+  'rmx_arrow_up_s_line': IconPack.rmx_arrow_up_s_line,
+  'rmx_artboard_2_fill': IconPack.rmx_artboard_2_fill,
+  'rmx_artboard_2_line': IconPack.rmx_artboard_2_line,
+  'rmx_artboard_fill': IconPack.rmx_artboard_fill,
+  'rmx_artboard_line': IconPack.rmx_artboard_line,
+  'rmx_article_fill': IconPack.rmx_article_fill,
+  'rmx_article_line': IconPack.rmx_article_line,
+  'rmx_aspect_ratio_fill': IconPack.rmx_aspect_ratio_fill,
+  'rmx_aspect_ratio_line': IconPack.rmx_aspect_ratio_line,
+  'rmx_asterisk': IconPack.rmx_asterisk,
+  'rmx_at_fill': IconPack.rmx_at_fill,
+  'rmx_at_line': IconPack.rmx_at_line,
+  'rmx_attachment_2': IconPack.rmx_attachment_2,
+  'rmx_attachment_fill': IconPack.rmx_attachment_fill,
+  'rmx_attachment_line': IconPack.rmx_attachment_line,
+  'rmx_auction_fill': IconPack.rmx_auction_fill,
+  'rmx_auction_line': IconPack.rmx_auction_line,
+  'rmx_award_fill': IconPack.rmx_award_fill,
+  'rmx_award_line': IconPack.rmx_award_line,
+  'rmx_baidu_fill': IconPack.rmx_baidu_fill,
+  'rmx_baidu_line': IconPack.rmx_baidu_line,
+  'rmx_ball_pen_fill': IconPack.rmx_ball_pen_fill,
+  'rmx_ball_pen_line': IconPack.rmx_ball_pen_line,
+  'rmx_bank_card_2_fill': IconPack.rmx_bank_card_2_fill,
+  'rmx_bank_card_2_line': IconPack.rmx_bank_card_2_line,
+  'rmx_bank_card_fill': IconPack.rmx_bank_card_fill,
+  'rmx_bank_card_line': IconPack.rmx_bank_card_line,
+  'rmx_bank_fill': IconPack.rmx_bank_fill,
+  'rmx_bank_line': IconPack.rmx_bank_line,
+  'rmx_bar_chart_2_fill': IconPack.rmx_bar_chart_2_fill,
+  'rmx_bar_chart_2_line': IconPack.rmx_bar_chart_2_line,
+  'rmx_bar_chart_box_fill': IconPack.rmx_bar_chart_box_fill,
+  'rmx_bar_chart_box_line': IconPack.rmx_bar_chart_box_line,
+  'rmx_bar_chart_fill': IconPack.rmx_bar_chart_fill,
+  'rmx_bar_chart_grouped_fill': IconPack.rmx_bar_chart_grouped_fill,
+  'rmx_bar_chart_grouped_line': IconPack.rmx_bar_chart_grouped_line,
+  'rmx_bar_chart_horizontal_fill': IconPack.rmx_bar_chart_horizontal_fill,
+  'rmx_bar_chart_horizontal_line': IconPack.rmx_bar_chart_horizontal_line,
+  'rmx_bar_chart_line': IconPack.rmx_bar_chart_line,
+  'rmx_barcode_box_fill': IconPack.rmx_barcode_box_fill,
+  'rmx_barcode_box_line': IconPack.rmx_barcode_box_line,
+  'rmx_barcode_fill': IconPack.rmx_barcode_fill,
+  'rmx_barcode_line': IconPack.rmx_barcode_line,
+  'rmx_barricade_fill': IconPack.rmx_barricade_fill,
+  'rmx_barricade_line': IconPack.rmx_barricade_line,
+  'rmx_base_station_fill': IconPack.rmx_base_station_fill,
+  'rmx_base_station_line': IconPack.rmx_base_station_line,
+  'rmx_basketball_fill': IconPack.rmx_basketball_fill,
+  'rmx_basketball_line': IconPack.rmx_basketball_line,
+  'rmx_battery_2_charge_fill': IconPack.rmx_battery_2_charge_fill,
+  'rmx_battery_2_charge_line': IconPack.rmx_battery_2_charge_line,
+  'rmx_battery_2_fill': IconPack.rmx_battery_2_fill,
+  'rmx_battery_2_line': IconPack.rmx_battery_2_line,
+  'rmx_battery_charge_fill': IconPack.rmx_battery_charge_fill,
+  'rmx_battery_charge_line': IconPack.rmx_battery_charge_line,
+  'rmx_battery_fill': IconPack.rmx_battery_fill,
+  'rmx_battery_line': IconPack.rmx_battery_line,
+  'rmx_battery_low_fill': IconPack.rmx_battery_low_fill,
+  'rmx_battery_low_line': IconPack.rmx_battery_low_line,
+  'rmx_battery_saver_fill': IconPack.rmx_battery_saver_fill,
+  'rmx_battery_saver_line': IconPack.rmx_battery_saver_line,
+  'rmx_battery_share_fill': IconPack.rmx_battery_share_fill,
+  'rmx_battery_share_line': IconPack.rmx_battery_share_line,
+  'rmx_bear_smile_fill': IconPack.rmx_bear_smile_fill,
+  'rmx_bear_smile_line': IconPack.rmx_bear_smile_line,
+  'rmx_behance_fill': IconPack.rmx_behance_fill,
+  'rmx_behance_line': IconPack.rmx_behance_line,
+  'rmx_bell_fill': IconPack.rmx_bell_fill,
+  'rmx_bell_line': IconPack.rmx_bell_line,
+  'rmx_bike_fill': IconPack.rmx_bike_fill,
+  'rmx_bike_line': IconPack.rmx_bike_line,
+  'rmx_bilibili_fill': IconPack.rmx_bilibili_fill,
+  'rmx_bilibili_line': IconPack.rmx_bilibili_line,
+  'rmx_bill_fill': IconPack.rmx_bill_fill,
+  'rmx_bill_line': IconPack.rmx_bill_line,
+  'rmx_billiards_fill': IconPack.rmx_billiards_fill,
+  'rmx_billiards_line': IconPack.rmx_billiards_line,
+  'rmx_bit_coin_fill': IconPack.rmx_bit_coin_fill,
+  'rmx_bit_coin_line': IconPack.rmx_bit_coin_line,
+  'rmx_blaze_fill': IconPack.rmx_blaze_fill,
+  'rmx_blaze_line': IconPack.rmx_blaze_line,
+  'rmx_bluetooth_connect_fill': IconPack.rmx_bluetooth_connect_fill,
+  'rmx_bluetooth_connect_line': IconPack.rmx_bluetooth_connect_line,
+  'rmx_bluetooth_fill': IconPack.rmx_bluetooth_fill,
+  'rmx_bluetooth_line': IconPack.rmx_bluetooth_line,
+  'rmx_blur_off_fill': IconPack.rmx_blur_off_fill,
+  'rmx_blur_off_line': IconPack.rmx_blur_off_line,
+  'rmx_body_scan_fill': IconPack.rmx_body_scan_fill,
+  'rmx_body_scan_line': IconPack.rmx_body_scan_line,
+  'rmx_bold': IconPack.rmx_bold,
+  'rmx_book_2_fill': IconPack.rmx_book_2_fill,
+  'rmx_book_2_line': IconPack.rmx_book_2_line,
+  'rmx_book_3_fill': IconPack.rmx_book_3_fill,
+  'rmx_book_3_line': IconPack.rmx_book_3_line,
+  'rmx_book_fill': IconPack.rmx_book_fill,
+  'rmx_book_line': IconPack.rmx_book_line,
+  'rmx_book_mark_fill': IconPack.rmx_book_mark_fill,
+  'rmx_book_mark_line': IconPack.rmx_book_mark_line,
+  'rmx_book_open_fill': IconPack.rmx_book_open_fill,
+  'rmx_book_open_line': IconPack.rmx_book_open_line,
+  'rmx_book_read_fill': IconPack.rmx_book_read_fill,
+  'rmx_book_read_line': IconPack.rmx_book_read_line,
+  'rmx_booklet_fill': IconPack.rmx_booklet_fill,
+  'rmx_booklet_line': IconPack.rmx_booklet_line,
+  'rmx_bookmark_2_fill': IconPack.rmx_bookmark_2_fill,
+  'rmx_bookmark_2_line': IconPack.rmx_bookmark_2_line,
+  'rmx_bookmark_3_fill': IconPack.rmx_bookmark_3_fill,
+  'rmx_bookmark_3_line': IconPack.rmx_bookmark_3_line,
+  'rmx_bookmark_fill': IconPack.rmx_bookmark_fill,
+  'rmx_bookmark_line': IconPack.rmx_bookmark_line,
+  'rmx_boxing_fill': IconPack.rmx_boxing_fill,
+  'rmx_boxing_line': IconPack.rmx_boxing_line,
+  'rmx_braces_fill': IconPack.rmx_braces_fill,
+  'rmx_braces_line': IconPack.rmx_braces_line,
+  'rmx_brackets_fill': IconPack.rmx_brackets_fill,
+  'rmx_brackets_line': IconPack.rmx_brackets_line,
+  'rmx_briefcase_2_fill': IconPack.rmx_briefcase_2_fill,
+  'rmx_briefcase_2_line': IconPack.rmx_briefcase_2_line,
+  'rmx_briefcase_3_fill': IconPack.rmx_briefcase_3_fill,
+  'rmx_briefcase_3_line': IconPack.rmx_briefcase_3_line,
+  'rmx_briefcase_4_fill': IconPack.rmx_briefcase_4_fill,
+  'rmx_briefcase_4_line': IconPack.rmx_briefcase_4_line,
+  'rmx_briefcase_5_fill': IconPack.rmx_briefcase_5_fill,
+  'rmx_briefcase_5_line': IconPack.rmx_briefcase_5_line,
+  'rmx_briefcase_fill': IconPack.rmx_briefcase_fill,
+  'rmx_briefcase_line': IconPack.rmx_briefcase_line,
+  'rmx_bring_forward': IconPack.rmx_bring_forward,
+  'rmx_bring_to_front': IconPack.rmx_bring_to_front,
+  'rmx_broadcast_fill': IconPack.rmx_broadcast_fill,
+  'rmx_broadcast_line': IconPack.rmx_broadcast_line,
+  'rmx_brush_2_fill': IconPack.rmx_brush_2_fill,
+  'rmx_brush_2_line': IconPack.rmx_brush_2_line,
+  'rmx_brush_3_fill': IconPack.rmx_brush_3_fill,
+  'rmx_brush_3_line': IconPack.rmx_brush_3_line,
+  'rmx_brush_4_fill': IconPack.rmx_brush_4_fill,
+  'rmx_brush_4_line': IconPack.rmx_brush_4_line,
+  'rmx_brush_fill': IconPack.rmx_brush_fill,
+  'rmx_brush_line': IconPack.rmx_brush_line,
+  'rmx_bubble_chart_fill': IconPack.rmx_bubble_chart_fill,
+  'rmx_bubble_chart_line': IconPack.rmx_bubble_chart_line,
+  'rmx_bug_2_fill': IconPack.rmx_bug_2_fill,
+  'rmx_bug_2_line': IconPack.rmx_bug_2_line,
+  'rmx_bug_fill': IconPack.rmx_bug_fill,
+  'rmx_bug_line': IconPack.rmx_bug_line,
+  'rmx_building_2_fill': IconPack.rmx_building_2_fill,
+  'rmx_building_2_line': IconPack.rmx_building_2_line,
+  'rmx_building_3_fill': IconPack.rmx_building_3_fill,
+  'rmx_building_3_line': IconPack.rmx_building_3_line,
+  'rmx_building_4_fill': IconPack.rmx_building_4_fill,
+  'rmx_building_4_line': IconPack.rmx_building_4_line,
+  'rmx_building_fill': IconPack.rmx_building_fill,
+  'rmx_building_line': IconPack.rmx_building_line,
+  'rmx_bus_2_fill': IconPack.rmx_bus_2_fill,
+  'rmx_bus_2_line': IconPack.rmx_bus_2_line,
+  'rmx_bus_fill': IconPack.rmx_bus_fill,
+  'rmx_bus_line': IconPack.rmx_bus_line,
+  'rmx_bus_wifi_fill': IconPack.rmx_bus_wifi_fill,
+  'rmx_bus_wifi_line': IconPack.rmx_bus_wifi_line,
+  'rmx_cactus_fill': IconPack.rmx_cactus_fill,
+  'rmx_cactus_line': IconPack.rmx_cactus_line,
+  'rmx_cake_2_fill': IconPack.rmx_cake_2_fill,
+  'rmx_cake_2_line': IconPack.rmx_cake_2_line,
+  'rmx_cake_3_fill': IconPack.rmx_cake_3_fill,
+  'rmx_cake_3_line': IconPack.rmx_cake_3_line,
+  'rmx_cake_fill': IconPack.rmx_cake_fill,
+  'rmx_cake_line': IconPack.rmx_cake_line,
+  'rmx_calculator_fill': IconPack.rmx_calculator_fill,
+  'rmx_calculator_line': IconPack.rmx_calculator_line,
+  'rmx_calendar_2_fill': IconPack.rmx_calendar_2_fill,
+  'rmx_calendar_2_line': IconPack.rmx_calendar_2_line,
+  'rmx_calendar_check_fill': IconPack.rmx_calendar_check_fill,
+  'rmx_calendar_check_line': IconPack.rmx_calendar_check_line,
+  'rmx_calendar_event_fill': IconPack.rmx_calendar_event_fill,
+  'rmx_calendar_event_line': IconPack.rmx_calendar_event_line,
+  'rmx_calendar_fill': IconPack.rmx_calendar_fill,
+  'rmx_calendar_line': IconPack.rmx_calendar_line,
+  'rmx_calendar_todo_fill': IconPack.rmx_calendar_todo_fill,
+  'rmx_calendar_todo_line': IconPack.rmx_calendar_todo_line,
+  'rmx_camera_2_fill': IconPack.rmx_camera_2_fill,
+  'rmx_camera_2_line': IconPack.rmx_camera_2_line,
+  'rmx_camera_3_fill': IconPack.rmx_camera_3_fill,
+  'rmx_camera_3_line': IconPack.rmx_camera_3_line,
+  'rmx_camera_fill': IconPack.rmx_camera_fill,
+  'rmx_camera_lens_fill': IconPack.rmx_camera_lens_fill,
+  'rmx_camera_lens_line': IconPack.rmx_camera_lens_line,
+  'rmx_camera_line': IconPack.rmx_camera_line,
+  'rmx_camera_off_fill': IconPack.rmx_camera_off_fill,
+  'rmx_camera_off_line': IconPack.rmx_camera_off_line,
+  'rmx_camera_switch_fill': IconPack.rmx_camera_switch_fill,
+  'rmx_camera_switch_line': IconPack.rmx_camera_switch_line,
+  'rmx_capsule_fill': IconPack.rmx_capsule_fill,
+  'rmx_capsule_line': IconPack.rmx_capsule_line,
+  'rmx_car_fill': IconPack.rmx_car_fill,
+  'rmx_car_line': IconPack.rmx_car_line,
+  'rmx_car_washing_fill': IconPack.rmx_car_washing_fill,
+  'rmx_car_washing_line': IconPack.rmx_car_washing_line,
+  'rmx_caravan_fill': IconPack.rmx_caravan_fill,
+  'rmx_caravan_line': IconPack.rmx_caravan_line,
+  'rmx_cast_fill': IconPack.rmx_cast_fill,
+  'rmx_cast_line': IconPack.rmx_cast_line,
+  'rmx_cellphone_fill': IconPack.rmx_cellphone_fill,
+  'rmx_cellphone_line': IconPack.rmx_cellphone_line,
+  'rmx_celsius_fill': IconPack.rmx_celsius_fill,
+  'rmx_celsius_line': IconPack.rmx_celsius_line,
+  'rmx_centos_fill': IconPack.rmx_centos_fill,
+  'rmx_centos_line': IconPack.rmx_centos_line,
+  'rmx_character_recognition_fill': IconPack.rmx_character_recognition_fill,
+  'rmx_character_recognition_line': IconPack.rmx_character_recognition_line,
+  'rmx_charging_pile_2_fill': IconPack.rmx_charging_pile_2_fill,
+  'rmx_charging_pile_2_line': IconPack.rmx_charging_pile_2_line,
+  'rmx_charging_pile_fill': IconPack.rmx_charging_pile_fill,
+  'rmx_charging_pile_line': IconPack.rmx_charging_pile_line,
+  'rmx_chat_1_fill': IconPack.rmx_chat_1_fill,
+  'rmx_chat_1_line': IconPack.rmx_chat_1_line,
+  'rmx_chat_2_fill': IconPack.rmx_chat_2_fill,
+  'rmx_chat_2_line': IconPack.rmx_chat_2_line,
+  'rmx_chat_3_fill': IconPack.rmx_chat_3_fill,
+  'rmx_chat_3_line': IconPack.rmx_chat_3_line,
+  'rmx_chat_4_fill': IconPack.rmx_chat_4_fill,
+  'rmx_chat_4_line': IconPack.rmx_chat_4_line,
+  'rmx_chat_check_fill': IconPack.rmx_chat_check_fill,
+  'rmx_chat_check_line': IconPack.rmx_chat_check_line,
+  'rmx_chat_delete_fill': IconPack.rmx_chat_delete_fill,
+  'rmx_chat_delete_line': IconPack.rmx_chat_delete_line,
+  'rmx_chat_download_fill': IconPack.rmx_chat_download_fill,
+  'rmx_chat_download_line': IconPack.rmx_chat_download_line,
+  'rmx_chat_follow_up_fill': IconPack.rmx_chat_follow_up_fill,
+  'rmx_chat_follow_up_line': IconPack.rmx_chat_follow_up_line,
+  'rmx_chat_forward_fill': IconPack.rmx_chat_forward_fill,
+  'rmx_chat_forward_line': IconPack.rmx_chat_forward_line,
+  'rmx_chat_heart_fill': IconPack.rmx_chat_heart_fill,
+  'rmx_chat_heart_line': IconPack.rmx_chat_heart_line,
+  'rmx_chat_history_fill': IconPack.rmx_chat_history_fill,
+  'rmx_chat_history_line': IconPack.rmx_chat_history_line,
+  'rmx_chat_new_fill': IconPack.rmx_chat_new_fill,
+  'rmx_chat_new_line': IconPack.rmx_chat_new_line,
+  'rmx_chat_off_fill': IconPack.rmx_chat_off_fill,
+  'rmx_chat_off_line': IconPack.rmx_chat_off_line,
+  'rmx_chat_poll_fill': IconPack.rmx_chat_poll_fill,
+  'rmx_chat_poll_line': IconPack.rmx_chat_poll_line,
+  'rmx_chat_private_fill': IconPack.rmx_chat_private_fill,
+  'rmx_chat_private_line': IconPack.rmx_chat_private_line,
+  'rmx_chat_quote_fill': IconPack.rmx_chat_quote_fill,
+  'rmx_chat_quote_line': IconPack.rmx_chat_quote_line,
+  'rmx_chat_settings_fill': IconPack.rmx_chat_settings_fill,
+  'rmx_chat_settings_line': IconPack.rmx_chat_settings_line,
+  'rmx_chat_smile_2_fill': IconPack.rmx_chat_smile_2_fill,
+  'rmx_chat_smile_2_line': IconPack.rmx_chat_smile_2_line,
+  'rmx_chat_smile_3_fill': IconPack.rmx_chat_smile_3_fill,
+  'rmx_chat_smile_3_line': IconPack.rmx_chat_smile_3_line,
+  'rmx_chat_smile_fill': IconPack.rmx_chat_smile_fill,
+  'rmx_chat_smile_line': IconPack.rmx_chat_smile_line,
+  'rmx_chat_upload_fill': IconPack.rmx_chat_upload_fill,
+  'rmx_chat_upload_line': IconPack.rmx_chat_upload_line,
+  'rmx_chat_voice_fill': IconPack.rmx_chat_voice_fill,
+  'rmx_chat_voice_line': IconPack.rmx_chat_voice_line,
+  'rmx_check_double_fill': IconPack.rmx_check_double_fill,
+  'rmx_check_double_line': IconPack.rmx_check_double_line,
+  'rmx_check_fill': IconPack.rmx_check_fill,
+  'rmx_check_line': IconPack.rmx_check_line,
+  'rmx_checkbox_blank_circle_fill': IconPack.rmx_checkbox_blank_circle_fill,
+  'rmx_checkbox_blank_circle_line': IconPack.rmx_checkbox_blank_circle_line,
+  'rmx_checkbox_blank_fill': IconPack.rmx_checkbox_blank_fill,
+  'rmx_checkbox_blank_line': IconPack.rmx_checkbox_blank_line,
+  'rmx_checkbox_circle_fill': IconPack.rmx_checkbox_circle_fill,
+  'rmx_checkbox_circle_line': IconPack.rmx_checkbox_circle_line,
+  'rmx_checkbox_fill': IconPack.rmx_checkbox_fill,
+  'rmx_checkbox_indeterminate_fill': IconPack.rmx_checkbox_indeterminate_fill,
+  'rmx_checkbox_indeterminate_line': IconPack.rmx_checkbox_indeterminate_line,
+  'rmx_checkbox_line': IconPack.rmx_checkbox_line,
+  'rmx_checkbox_multiple_blank_fill': IconPack.rmx_checkbox_multiple_blank_fill,
+  'rmx_checkbox_multiple_blank_line': IconPack.rmx_checkbox_multiple_blank_line,
+  'rmx_checkbox_multiple_fill': IconPack.rmx_checkbox_multiple_fill,
+  'rmx_checkbox_multiple_line': IconPack.rmx_checkbox_multiple_line,
+  'rmx_china_railway_fill': IconPack.rmx_china_railway_fill,
+  'rmx_china_railway_line': IconPack.rmx_china_railway_line,
+  'rmx_chrome_fill': IconPack.rmx_chrome_fill,
+  'rmx_chrome_line': IconPack.rmx_chrome_line,
+  'rmx_clapperboard_fill': IconPack.rmx_clapperboard_fill,
+  'rmx_clapperboard_line': IconPack.rmx_clapperboard_line,
+  'rmx_clipboard_fill': IconPack.rmx_clipboard_fill,
+  'rmx_clipboard_line': IconPack.rmx_clipboard_line,
+  'rmx_clockwise_2_fill': IconPack.rmx_clockwise_2_fill,
+  'rmx_clockwise_2_line': IconPack.rmx_clockwise_2_line,
+  'rmx_clockwise_fill': IconPack.rmx_clockwise_fill,
+  'rmx_clockwise_line': IconPack.rmx_clockwise_line,
+  'rmx_close_circle_fill': IconPack.rmx_close_circle_fill,
+  'rmx_close_circle_line': IconPack.rmx_close_circle_line,
+  'rmx_close_fill': IconPack.rmx_close_fill,
+  'rmx_close_line': IconPack.rmx_close_line,
+  'rmx_closed_captioning_fill': IconPack.rmx_closed_captioning_fill,
+  'rmx_closed_captioning_line': IconPack.rmx_closed_captioning_line,
+  'rmx_cloud_fill': IconPack.rmx_cloud_fill,
+  'rmx_cloud_line': IconPack.rmx_cloud_line,
+  'rmx_cloud_off_fill': IconPack.rmx_cloud_off_fill,
+  'rmx_cloud_off_line': IconPack.rmx_cloud_off_line,
+  'rmx_cloud_windy_fill': IconPack.rmx_cloud_windy_fill,
+  'rmx_cloud_windy_line': IconPack.rmx_cloud_windy_line,
+  'rmx_cloudy_2_fill': IconPack.rmx_cloudy_2_fill,
+  'rmx_cloudy_2_line': IconPack.rmx_cloudy_2_line,
+  'rmx_cloudy_fill': IconPack.rmx_cloudy_fill,
+  'rmx_cloudy_line': IconPack.rmx_cloudy_line,
+  'rmx_code_box_fill': IconPack.rmx_code_box_fill,
+  'rmx_code_box_line': IconPack.rmx_code_box_line,
+  'rmx_code_fill': IconPack.rmx_code_fill,
+  'rmx_code_line': IconPack.rmx_code_line,
+  'rmx_code_s_fill': IconPack.rmx_code_s_fill,
+  'rmx_code_s_line': IconPack.rmx_code_s_line,
+  'rmx_code_s_slash_fill': IconPack.rmx_code_s_slash_fill,
+  'rmx_code_s_slash_line': IconPack.rmx_code_s_slash_line,
+  'rmx_code_view': IconPack.rmx_code_view,
+  'rmx_codepen_fill': IconPack.rmx_codepen_fill,
+  'rmx_codepen_line': IconPack.rmx_codepen_line,
+  'rmx_coin_fill': IconPack.rmx_coin_fill,
+  'rmx_coin_line': IconPack.rmx_coin_line,
+  'rmx_coins_fill': IconPack.rmx_coins_fill,
+  'rmx_coins_line': IconPack.rmx_coins_line,
+  'rmx_collage_fill': IconPack.rmx_collage_fill,
+  'rmx_collage_line': IconPack.rmx_collage_line,
+  'rmx_command_fill': IconPack.rmx_command_fill,
+  'rmx_command_line': IconPack.rmx_command_line,
+  'rmx_community_fill': IconPack.rmx_community_fill,
+  'rmx_community_line': IconPack.rmx_community_line,
+  'rmx_compass_2_fill': IconPack.rmx_compass_2_fill,
+  'rmx_compass_2_line': IconPack.rmx_compass_2_line,
+  'rmx_compass_3_fill': IconPack.rmx_compass_3_fill,
+  'rmx_compass_3_line': IconPack.rmx_compass_3_line,
+  'rmx_compass_4_fill': IconPack.rmx_compass_4_fill,
+  'rmx_compass_4_line': IconPack.rmx_compass_4_line,
+  'rmx_compass_discover_fill': IconPack.rmx_compass_discover_fill,
+  'rmx_compass_discover_line': IconPack.rmx_compass_discover_line,
+  'rmx_compass_fill': IconPack.rmx_compass_fill,
+  'rmx_compass_line': IconPack.rmx_compass_line,
+  'rmx_compasses_2_fill': IconPack.rmx_compasses_2_fill,
+  'rmx_compasses_2_line': IconPack.rmx_compasses_2_line,
+  'rmx_compasses_fill': IconPack.rmx_compasses_fill,
+  'rmx_compasses_line': IconPack.rmx_compasses_line,
+  'rmx_computer_fill': IconPack.rmx_computer_fill,
+  'rmx_computer_line': IconPack.rmx_computer_line,
+  'rmx_contacts_book_2_fill': IconPack.rmx_contacts_book_2_fill,
+  'rmx_contacts_book_2_line': IconPack.rmx_contacts_book_2_line,
+  'rmx_contacts_book_fill': IconPack.rmx_contacts_book_fill,
+  'rmx_contacts_book_line': IconPack.rmx_contacts_book_line,
+  'rmx_contacts_book_upload_fill': IconPack.rmx_contacts_book_upload_fill,
+  'rmx_contacts_book_upload_line': IconPack.rmx_contacts_book_upload_line,
+  'rmx_contacts_fill': IconPack.rmx_contacts_fill,
+  'rmx_contacts_line': IconPack.rmx_contacts_line,
+  'rmx_contrast_2_fill': IconPack.rmx_contrast_2_fill,
+  'rmx_contrast_2_line': IconPack.rmx_contrast_2_line,
+  'rmx_contrast_drop_2_fill': IconPack.rmx_contrast_drop_2_fill,
+  'rmx_contrast_drop_2_line': IconPack.rmx_contrast_drop_2_line,
+  'rmx_contrast_drop_fill': IconPack.rmx_contrast_drop_fill,
+  'rmx_contrast_drop_line': IconPack.rmx_contrast_drop_line,
+  'rmx_contrast_fill': IconPack.rmx_contrast_fill,
+  'rmx_contrast_line': IconPack.rmx_contrast_line,
+  'rmx_copper_coin_fill': IconPack.rmx_copper_coin_fill,
+  'rmx_copper_coin_line': IconPack.rmx_copper_coin_line,
+  'rmx_copper_diamond_fill': IconPack.rmx_copper_diamond_fill,
+  'rmx_copper_diamond_line': IconPack.rmx_copper_diamond_line,
+  'rmx_copyleft_fill': IconPack.rmx_copyleft_fill,
+  'rmx_copyleft_line': IconPack.rmx_copyleft_line,
+  'rmx_copyright_fill': IconPack.rmx_copyright_fill,
+  'rmx_copyright_line': IconPack.rmx_copyright_line,
+  'rmx_coreos_fill': IconPack.rmx_coreos_fill,
+  'rmx_coreos_line': IconPack.rmx_coreos_line,
+  'rmx_coupon_2_fill': IconPack.rmx_coupon_2_fill,
+  'rmx_coupon_2_line': IconPack.rmx_coupon_2_line,
+  'rmx_coupon_3_fill': IconPack.rmx_coupon_3_fill,
+  'rmx_coupon_3_line': IconPack.rmx_coupon_3_line,
+  'rmx_coupon_4_fill': IconPack.rmx_coupon_4_fill,
+  'rmx_coupon_4_line': IconPack.rmx_coupon_4_line,
+  'rmx_coupon_5_fill': IconPack.rmx_coupon_5_fill,
+  'rmx_coupon_5_line': IconPack.rmx_coupon_5_line,
+  'rmx_coupon_fill': IconPack.rmx_coupon_fill,
+  'rmx_coupon_line': IconPack.rmx_coupon_line,
+  'rmx_cpu_fill': IconPack.rmx_cpu_fill,
+  'rmx_cpu_line': IconPack.rmx_cpu_line,
+  'rmx_creative_commons_by_fill': IconPack.rmx_creative_commons_by_fill,
+  'rmx_creative_commons_by_line': IconPack.rmx_creative_commons_by_line,
+  'rmx_creative_commons_fill': IconPack.rmx_creative_commons_fill,
+  'rmx_creative_commons_line': IconPack.rmx_creative_commons_line,
+  'rmx_creative_commons_nc_fill': IconPack.rmx_creative_commons_nc_fill,
+  'rmx_creative_commons_nc_line': IconPack.rmx_creative_commons_nc_line,
+  'rmx_creative_commons_nd_fill': IconPack.rmx_creative_commons_nd_fill,
+  'rmx_creative_commons_nd_line': IconPack.rmx_creative_commons_nd_line,
+  'rmx_creative_commons_sa_fill': IconPack.rmx_creative_commons_sa_fill,
+  'rmx_creative_commons_sa_line': IconPack.rmx_creative_commons_sa_line,
+  'rmx_creative_commons_zero_fill': IconPack.rmx_creative_commons_zero_fill,
+  'rmx_creative_commons_zero_line': IconPack.rmx_creative_commons_zero_line,
+  'rmx_criminal_fill': IconPack.rmx_criminal_fill,
+  'rmx_criminal_line': IconPack.rmx_criminal_line,
+  'rmx_crop_2_fill': IconPack.rmx_crop_2_fill,
+  'rmx_crop_2_line': IconPack.rmx_crop_2_line,
+  'rmx_crop_fill': IconPack.rmx_crop_fill,
+  'rmx_crop_line': IconPack.rmx_crop_line,
+  'rmx_css3_fill': IconPack.rmx_css3_fill,
+  'rmx_css3_line': IconPack.rmx_css3_line,
+  'rmx_cup_fill': IconPack.rmx_cup_fill,
+  'rmx_cup_line': IconPack.rmx_cup_line,
+  'rmx_currency_fill': IconPack.rmx_currency_fill,
+  'rmx_currency_line': IconPack.rmx_currency_line,
+  'rmx_cursor_fill': IconPack.rmx_cursor_fill,
+  'rmx_cursor_line': IconPack.rmx_cursor_line,
+  'rmx_customer_service_2_fill': IconPack.rmx_customer_service_2_fill,
+  'rmx_customer_service_2_line': IconPack.rmx_customer_service_2_line,
+  'rmx_customer_service_fill': IconPack.rmx_customer_service_fill,
+  'rmx_customer_service_line': IconPack.rmx_customer_service_line,
+  'rmx_dashboard_2_fill': IconPack.rmx_dashboard_2_fill,
+  'rmx_dashboard_2_line': IconPack.rmx_dashboard_2_line,
+  'rmx_dashboard_3_fill': IconPack.rmx_dashboard_3_fill,
+  'rmx_dashboard_3_line': IconPack.rmx_dashboard_3_line,
+  'rmx_dashboard_fill': IconPack.rmx_dashboard_fill,
+  'rmx_dashboard_line': IconPack.rmx_dashboard_line,
+  'rmx_database_2_fill': IconPack.rmx_database_2_fill,
+  'rmx_database_2_line': IconPack.rmx_database_2_line,
+  'rmx_database_fill': IconPack.rmx_database_fill,
+  'rmx_database_line': IconPack.rmx_database_line,
+  'rmx_delete_back_2_fill': IconPack.rmx_delete_back_2_fill,
+  'rmx_delete_back_2_line': IconPack.rmx_delete_back_2_line,
+  'rmx_delete_back_fill': IconPack.rmx_delete_back_fill,
+  'rmx_delete_back_line': IconPack.rmx_delete_back_line,
+  'rmx_delete_bin_2_fill': IconPack.rmx_delete_bin_2_fill,
+  'rmx_delete_bin_2_line': IconPack.rmx_delete_bin_2_line,
+  'rmx_delete_bin_3_fill': IconPack.rmx_delete_bin_3_fill,
+  'rmx_delete_bin_3_line': IconPack.rmx_delete_bin_3_line,
+  'rmx_delete_bin_4_fill': IconPack.rmx_delete_bin_4_fill,
+  'rmx_delete_bin_4_line': IconPack.rmx_delete_bin_4_line,
+  'rmx_delete_bin_5_fill': IconPack.rmx_delete_bin_5_fill,
+  'rmx_delete_bin_5_line': IconPack.rmx_delete_bin_5_line,
+  'rmx_delete_bin_6_fill': IconPack.rmx_delete_bin_6_fill,
+  'rmx_delete_bin_6_line': IconPack.rmx_delete_bin_6_line,
+  'rmx_delete_bin_7_fill': IconPack.rmx_delete_bin_7_fill,
+  'rmx_delete_bin_7_line': IconPack.rmx_delete_bin_7_line,
+  'rmx_delete_bin_fill': IconPack.rmx_delete_bin_fill,
+  'rmx_delete_bin_line': IconPack.rmx_delete_bin_line,
+  'rmx_delete_column': IconPack.rmx_delete_column,
+  'rmx_delete_row': IconPack.rmx_delete_row,
+  'rmx_device_fill': IconPack.rmx_device_fill,
+  'rmx_device_line': IconPack.rmx_device_line,
+  'rmx_device_recover_fill': IconPack.rmx_device_recover_fill,
+  'rmx_device_recover_line': IconPack.rmx_device_recover_line,
+  'rmx_dingding_fill': IconPack.rmx_dingding_fill,
+  'rmx_dingding_line': IconPack.rmx_dingding_line,
+  'rmx_direction_fill': IconPack.rmx_direction_fill,
+  'rmx_direction_line': IconPack.rmx_direction_line,
+  'rmx_disc_fill': IconPack.rmx_disc_fill,
+  'rmx_disc_line': IconPack.rmx_disc_line,
+  'rmx_discord_fill': IconPack.rmx_discord_fill,
+  'rmx_discord_line': IconPack.rmx_discord_line,
+  'rmx_discuss_fill': IconPack.rmx_discuss_fill,
+  'rmx_discuss_line': IconPack.rmx_discuss_line,
+  'rmx_dislike_fill': IconPack.rmx_dislike_fill,
+  'rmx_dislike_line': IconPack.rmx_dislike_line,
+  'rmx_disqus_fill': IconPack.rmx_disqus_fill,
+  'rmx_disqus_line': IconPack.rmx_disqus_line,
+  'rmx_divide_fill': IconPack.rmx_divide_fill,
+  'rmx_divide_line': IconPack.rmx_divide_line,
+  'rmx_donut_chart_fill': IconPack.rmx_donut_chart_fill,
+  'rmx_donut_chart_line': IconPack.rmx_donut_chart_line,
+  'rmx_door_closed_fill': IconPack.rmx_door_closed_fill,
+  'rmx_door_closed_line': IconPack.rmx_door_closed_line,
+  'rmx_door_fill': IconPack.rmx_door_fill,
+  'rmx_door_line': IconPack.rmx_door_line,
+  'rmx_door_lock_box_fill': IconPack.rmx_door_lock_box_fill,
+  'rmx_door_lock_box_line': IconPack.rmx_door_lock_box_line,
+  'rmx_door_lock_fill': IconPack.rmx_door_lock_fill,
+  'rmx_door_lock_line': IconPack.rmx_door_lock_line,
+  'rmx_door_open_fill': IconPack.rmx_door_open_fill,
+  'rmx_door_open_line': IconPack.rmx_door_open_line,
+  'rmx_dossier_fill': IconPack.rmx_dossier_fill,
+  'rmx_dossier_line': IconPack.rmx_dossier_line,
+  'rmx_douban_fill': IconPack.rmx_douban_fill,
+  'rmx_douban_line': IconPack.rmx_douban_line,
+  'rmx_double_quotes_l': IconPack.rmx_double_quotes_l,
+  'rmx_double_quotes_r': IconPack.rmx_double_quotes_r,
+  'rmx_download_2_fill': IconPack.rmx_download_2_fill,
+  'rmx_download_2_line': IconPack.rmx_download_2_line,
+  'rmx_download_cloud_2_fill': IconPack.rmx_download_cloud_2_fill,
+  'rmx_download_cloud_2_line': IconPack.rmx_download_cloud_2_line,
+  'rmx_download_cloud_fill': IconPack.rmx_download_cloud_fill,
+  'rmx_download_cloud_line': IconPack.rmx_download_cloud_line,
+  'rmx_download_fill': IconPack.rmx_download_fill,
+  'rmx_download_line': IconPack.rmx_download_line,
+  'rmx_draft_fill': IconPack.rmx_draft_fill,
+  'rmx_draft_line': IconPack.rmx_draft_line,
+  'rmx_drag_drop_fill': IconPack.rmx_drag_drop_fill,
+  'rmx_drag_drop_line': IconPack.rmx_drag_drop_line,
+  'rmx_drag_move_2_fill': IconPack.rmx_drag_move_2_fill,
+  'rmx_drag_move_2_line': IconPack.rmx_drag_move_2_line,
+  'rmx_drag_move_fill': IconPack.rmx_drag_move_fill,
+  'rmx_drag_move_line': IconPack.rmx_drag_move_line,
+  'rmx_dribbble_fill': IconPack.rmx_dribbble_fill,
+  'rmx_dribbble_line': IconPack.rmx_dribbble_line,
+  'rmx_drive_fill': IconPack.rmx_drive_fill,
+  'rmx_drive_line': IconPack.rmx_drive_line,
+  'rmx_drizzle_fill': IconPack.rmx_drizzle_fill,
+  'rmx_drizzle_line': IconPack.rmx_drizzle_line,
+  'rmx_drop_fill': IconPack.rmx_drop_fill,
+  'rmx_drop_line': IconPack.rmx_drop_line,
+  'rmx_dropbox_fill': IconPack.rmx_dropbox_fill,
+  'rmx_dropbox_line': IconPack.rmx_dropbox_line,
+  'rmx_dual_sim_1_fill': IconPack.rmx_dual_sim_1_fill,
+  'rmx_dual_sim_1_line': IconPack.rmx_dual_sim_1_line,
+  'rmx_dual_sim_2_fill': IconPack.rmx_dual_sim_2_fill,
+  'rmx_dual_sim_2_line': IconPack.rmx_dual_sim_2_line,
+  'rmx_dv_fill': IconPack.rmx_dv_fill,
+  'rmx_dv_line': IconPack.rmx_dv_line,
+  'rmx_dvd_fill': IconPack.rmx_dvd_fill,
+  'rmx_dvd_line': IconPack.rmx_dvd_line,
+  'rmx_e_bike_2_fill': IconPack.rmx_e_bike_2_fill,
+  'rmx_e_bike_2_line': IconPack.rmx_e_bike_2_line,
+  'rmx_e_bike_fill': IconPack.rmx_e_bike_fill,
+  'rmx_e_bike_line': IconPack.rmx_e_bike_line,
+  'rmx_earth_fill': IconPack.rmx_earth_fill,
+  'rmx_earth_line': IconPack.rmx_earth_line,
+  'rmx_earthquake_fill': IconPack.rmx_earthquake_fill,
+  'rmx_earthquake_line': IconPack.rmx_earthquake_line,
+  'rmx_edge_fill': IconPack.rmx_edge_fill,
+  'rmx_edge_line': IconPack.rmx_edge_line,
+  'rmx_edit_2_fill': IconPack.rmx_edit_2_fill,
+  'rmx_edit_2_line': IconPack.rmx_edit_2_line,
+  'rmx_edit_box_fill': IconPack.rmx_edit_box_fill,
+  'rmx_edit_box_line': IconPack.rmx_edit_box_line,
+  'rmx_edit_circle_fill': IconPack.rmx_edit_circle_fill,
+  'rmx_edit_circle_line': IconPack.rmx_edit_circle_line,
+  'rmx_edit_fill': IconPack.rmx_edit_fill,
+  'rmx_edit_line': IconPack.rmx_edit_line,
+  'rmx_eject_fill': IconPack.rmx_eject_fill,
+  'rmx_eject_line': IconPack.rmx_eject_line,
+  'rmx_emotion_2_fill': IconPack.rmx_emotion_2_fill,
+  'rmx_emotion_2_line': IconPack.rmx_emotion_2_line,
+  'rmx_emotion_fill': IconPack.rmx_emotion_fill,
+  'rmx_emotion_happy_fill': IconPack.rmx_emotion_happy_fill,
+  'rmx_emotion_happy_line': IconPack.rmx_emotion_happy_line,
+  'rmx_emotion_laugh_fill': IconPack.rmx_emotion_laugh_fill,
+  'rmx_emotion_laugh_line': IconPack.rmx_emotion_laugh_line,
+  'rmx_emotion_line': IconPack.rmx_emotion_line,
+  'rmx_emotion_normal_fill': IconPack.rmx_emotion_normal_fill,
+  'rmx_emotion_normal_line': IconPack.rmx_emotion_normal_line,
+  'rmx_emotion_sad_fill': IconPack.rmx_emotion_sad_fill,
+  'rmx_emotion_sad_line': IconPack.rmx_emotion_sad_line,
+  'rmx_emotion_unhappy_fill': IconPack.rmx_emotion_unhappy_fill,
+  'rmx_emotion_unhappy_line': IconPack.rmx_emotion_unhappy_line,
+  'rmx_empathize_fill': IconPack.rmx_empathize_fill,
+  'rmx_empathize_line': IconPack.rmx_empathize_line,
+  'rmx_emphasis': IconPack.rmx_emphasis,
+  'rmx_emphasis_cn': IconPack.rmx_emphasis_cn,
+  'rmx_english_input': IconPack.rmx_english_input,
+  'rmx_equalizer_fill': IconPack.rmx_equalizer_fill,
+  'rmx_equalizer_line': IconPack.rmx_equalizer_line,
+  'rmx_eraser_fill': IconPack.rmx_eraser_fill,
+  'rmx_eraser_line': IconPack.rmx_eraser_line,
+  'rmx_error_warning_fill': IconPack.rmx_error_warning_fill,
+  'rmx_error_warning_line': IconPack.rmx_error_warning_line,
+  'rmx_evernote_fill': IconPack.rmx_evernote_fill,
+  'rmx_evernote_line': IconPack.rmx_evernote_line,
+  'rmx_exchange_box_fill': IconPack.rmx_exchange_box_fill,
+  'rmx_exchange_box_line': IconPack.rmx_exchange_box_line,
+  'rmx_exchange_cny_fill': IconPack.rmx_exchange_cny_fill,
+  'rmx_exchange_cny_line': IconPack.rmx_exchange_cny_line,
+  'rmx_exchange_dollar_fill': IconPack.rmx_exchange_dollar_fill,
+  'rmx_exchange_dollar_line': IconPack.rmx_exchange_dollar_line,
+  'rmx_exchange_fill': IconPack.rmx_exchange_fill,
+  'rmx_exchange_funds_fill': IconPack.rmx_exchange_funds_fill,
+  'rmx_exchange_funds_line': IconPack.rmx_exchange_funds_line,
+  'rmx_exchange_line': IconPack.rmx_exchange_line,
+  'rmx_external_link_fill': IconPack.rmx_external_link_fill,
+  'rmx_external_link_line': IconPack.rmx_external_link_line,
+  'rmx_eye_2_fill': IconPack.rmx_eye_2_fill,
+  'rmx_eye_2_line': IconPack.rmx_eye_2_line,
+  'rmx_eye_close_fill': IconPack.rmx_eye_close_fill,
+  'rmx_eye_close_line': IconPack.rmx_eye_close_line,
+  'rmx_eye_fill': IconPack.rmx_eye_fill,
+  'rmx_eye_line': IconPack.rmx_eye_line,
+  'rmx_eye_off_fill': IconPack.rmx_eye_off_fill,
+  'rmx_eye_off_line': IconPack.rmx_eye_off_line,
+  'rmx_facebook_box_fill': IconPack.rmx_facebook_box_fill,
+  'rmx_facebook_box_line': IconPack.rmx_facebook_box_line,
+  'rmx_facebook_circle_fill': IconPack.rmx_facebook_circle_fill,
+  'rmx_facebook_circle_line': IconPack.rmx_facebook_circle_line,
+  'rmx_facebook_fill': IconPack.rmx_facebook_fill,
+  'rmx_facebook_line': IconPack.rmx_facebook_line,
+  'rmx_fahrenheit_fill': IconPack.rmx_fahrenheit_fill,
+  'rmx_fahrenheit_line': IconPack.rmx_fahrenheit_line,
+  'rmx_feedback_fill': IconPack.rmx_feedback_fill,
+  'rmx_feedback_line': IconPack.rmx_feedback_line,
+  'rmx_file_2_fill': IconPack.rmx_file_2_fill,
+  'rmx_file_2_line': IconPack.rmx_file_2_line,
+  'rmx_file_3_fill': IconPack.rmx_file_3_fill,
+  'rmx_file_3_line': IconPack.rmx_file_3_line,
+  'rmx_file_4_fill': IconPack.rmx_file_4_fill,
+  'rmx_file_4_line': IconPack.rmx_file_4_line,
+  'rmx_file_add_fill': IconPack.rmx_file_add_fill,
+  'rmx_file_add_line': IconPack.rmx_file_add_line,
+  'rmx_file_chart_2_fill': IconPack.rmx_file_chart_2_fill,
+  'rmx_file_chart_2_line': IconPack.rmx_file_chart_2_line,
+  'rmx_file_chart_fill': IconPack.rmx_file_chart_fill,
+  'rmx_file_chart_line': IconPack.rmx_file_chart_line,
+  'rmx_file_cloud_fill': IconPack.rmx_file_cloud_fill,
+  'rmx_file_cloud_line': IconPack.rmx_file_cloud_line,
+  'rmx_file_code_fill': IconPack.rmx_file_code_fill,
+  'rmx_file_code_line': IconPack.rmx_file_code_line,
+  'rmx_file_copy_2_fill': IconPack.rmx_file_copy_2_fill,
+  'rmx_file_copy_2_line': IconPack.rmx_file_copy_2_line,
+  'rmx_file_copy_fill': IconPack.rmx_file_copy_fill,
+  'rmx_file_copy_line': IconPack.rmx_file_copy_line,
+  'rmx_file_damage_fill': IconPack.rmx_file_damage_fill,
+  'rmx_file_damage_line': IconPack.rmx_file_damage_line,
+  'rmx_file_download_fill': IconPack.rmx_file_download_fill,
+  'rmx_file_download_line': IconPack.rmx_file_download_line,
+  'rmx_file_edit_fill': IconPack.rmx_file_edit_fill,
+  'rmx_file_edit_line': IconPack.rmx_file_edit_line,
+  'rmx_file_excel_2_fill': IconPack.rmx_file_excel_2_fill,
+  'rmx_file_excel_2_line': IconPack.rmx_file_excel_2_line,
+  'rmx_file_excel_fill': IconPack.rmx_file_excel_fill,
+  'rmx_file_excel_line': IconPack.rmx_file_excel_line,
+  'rmx_file_fill': IconPack.rmx_file_fill,
+  'rmx_file_forbid_fill': IconPack.rmx_file_forbid_fill,
+  'rmx_file_forbid_line': IconPack.rmx_file_forbid_line,
+  'rmx_file_gif_fill': IconPack.rmx_file_gif_fill,
+  'rmx_file_gif_line': IconPack.rmx_file_gif_line,
+  'rmx_file_history_fill': IconPack.rmx_file_history_fill,
+  'rmx_file_history_line': IconPack.rmx_file_history_line,
+  'rmx_file_hwp_fill': IconPack.rmx_file_hwp_fill,
+  'rmx_file_hwp_line': IconPack.rmx_file_hwp_line,
+  'rmx_file_info_fill': IconPack.rmx_file_info_fill,
+  'rmx_file_info_line': IconPack.rmx_file_info_line,
+  'rmx_file_line': IconPack.rmx_file_line,
+  'rmx_file_list_2_fill': IconPack.rmx_file_list_2_fill,
+  'rmx_file_list_2_line': IconPack.rmx_file_list_2_line,
+  'rmx_file_list_3_fill': IconPack.rmx_file_list_3_fill,
+  'rmx_file_list_3_line': IconPack.rmx_file_list_3_line,
+  'rmx_file_list_fill': IconPack.rmx_file_list_fill,
+  'rmx_file_list_line': IconPack.rmx_file_list_line,
+  'rmx_file_lock_fill': IconPack.rmx_file_lock_fill,
+  'rmx_file_lock_line': IconPack.rmx_file_lock_line,
+  'rmx_file_mark_fill': IconPack.rmx_file_mark_fill,
+  'rmx_file_mark_line': IconPack.rmx_file_mark_line,
+  'rmx_file_music_fill': IconPack.rmx_file_music_fill,
+  'rmx_file_music_line': IconPack.rmx_file_music_line,
+  'rmx_file_paper_2_fill': IconPack.rmx_file_paper_2_fill,
+  'rmx_file_paper_2_line': IconPack.rmx_file_paper_2_line,
+  'rmx_file_paper_fill': IconPack.rmx_file_paper_fill,
+  'rmx_file_paper_line': IconPack.rmx_file_paper_line,
+  'rmx_file_pdf_fill': IconPack.rmx_file_pdf_fill,
+  'rmx_file_pdf_line': IconPack.rmx_file_pdf_line,
+  'rmx_file_ppt_2_fill': IconPack.rmx_file_ppt_2_fill,
+  'rmx_file_ppt_2_line': IconPack.rmx_file_ppt_2_line,
+  'rmx_file_ppt_fill': IconPack.rmx_file_ppt_fill,
+  'rmx_file_ppt_line': IconPack.rmx_file_ppt_line,
+  'rmx_file_reduce_fill': IconPack.rmx_file_reduce_fill,
+  'rmx_file_reduce_line': IconPack.rmx_file_reduce_line,
+  'rmx_file_search_fill': IconPack.rmx_file_search_fill,
+  'rmx_file_search_line': IconPack.rmx_file_search_line,
+  'rmx_file_settings_fill': IconPack.rmx_file_settings_fill,
+  'rmx_file_settings_line': IconPack.rmx_file_settings_line,
+  'rmx_file_shield_2_fill': IconPack.rmx_file_shield_2_fill,
+  'rmx_file_shield_2_line': IconPack.rmx_file_shield_2_line,
+  'rmx_file_shield_fill': IconPack.rmx_file_shield_fill,
+  'rmx_file_shield_line': IconPack.rmx_file_shield_line,
+  'rmx_file_shred_fill': IconPack.rmx_file_shred_fill,
+  'rmx_file_shred_line': IconPack.rmx_file_shred_line,
+  'rmx_file_text_fill': IconPack.rmx_file_text_fill,
+  'rmx_file_text_line': IconPack.rmx_file_text_line,
+  'rmx_file_transfer_fill': IconPack.rmx_file_transfer_fill,
+  'rmx_file_transfer_line': IconPack.rmx_file_transfer_line,
+  'rmx_file_unknow_fill': IconPack.rmx_file_unknow_fill,
+  'rmx_file_unknow_line': IconPack.rmx_file_unknow_line,
+  'rmx_file_upload_fill': IconPack.rmx_file_upload_fill,
+  'rmx_file_upload_line': IconPack.rmx_file_upload_line,
+  'rmx_file_user_fill': IconPack.rmx_file_user_fill,
+  'rmx_file_user_line': IconPack.rmx_file_user_line,
+  'rmx_file_warning_fill': IconPack.rmx_file_warning_fill,
+  'rmx_file_warning_line': IconPack.rmx_file_warning_line,
+  'rmx_file_word_2_fill': IconPack.rmx_file_word_2_fill,
+  'rmx_file_word_2_line': IconPack.rmx_file_word_2_line,
+  'rmx_file_word_fill': IconPack.rmx_file_word_fill,
+  'rmx_file_word_line': IconPack.rmx_file_word_line,
+  'rmx_file_zip_fill': IconPack.rmx_file_zip_fill,
+  'rmx_file_zip_line': IconPack.rmx_file_zip_line,
+  'rmx_film_fill': IconPack.rmx_film_fill,
+  'rmx_film_line': IconPack.rmx_film_line,
+  'rmx_filter_2_fill': IconPack.rmx_filter_2_fill,
+  'rmx_filter_2_line': IconPack.rmx_filter_2_line,
+  'rmx_filter_3_fill': IconPack.rmx_filter_3_fill,
+  'rmx_filter_3_line': IconPack.rmx_filter_3_line,
+  'rmx_filter_fill': IconPack.rmx_filter_fill,
+  'rmx_filter_line': IconPack.rmx_filter_line,
+  'rmx_filter_off_fill': IconPack.rmx_filter_off_fill,
+  'rmx_filter_off_line': IconPack.rmx_filter_off_line,
+  'rmx_find_replace_fill': IconPack.rmx_find_replace_fill,
+  'rmx_find_replace_line': IconPack.rmx_find_replace_line,
+  'rmx_finder_fill': IconPack.rmx_finder_fill,
+  'rmx_finder_line': IconPack.rmx_finder_line,
+  'rmx_fingerprint_2_fill': IconPack.rmx_fingerprint_2_fill,
+  'rmx_fingerprint_2_line': IconPack.rmx_fingerprint_2_line,
+  'rmx_fingerprint_fill': IconPack.rmx_fingerprint_fill,
+  'rmx_fingerprint_line': IconPack.rmx_fingerprint_line,
+  'rmx_fire_fill': IconPack.rmx_fire_fill,
+  'rmx_fire_line': IconPack.rmx_fire_line,
+  'rmx_firefox_fill': IconPack.rmx_firefox_fill,
+  'rmx_firefox_line': IconPack.rmx_firefox_line,
+  'rmx_first_aid_kit_fill': IconPack.rmx_first_aid_kit_fill,
+  'rmx_first_aid_kit_line': IconPack.rmx_first_aid_kit_line,
+  'rmx_flag_2_fill': IconPack.rmx_flag_2_fill,
+  'rmx_flag_2_line': IconPack.rmx_flag_2_line,
+  'rmx_flag_fill': IconPack.rmx_flag_fill,
+  'rmx_flag_line': IconPack.rmx_flag_line,
+  'rmx_flashlight_fill': IconPack.rmx_flashlight_fill,
+  'rmx_flashlight_line': IconPack.rmx_flashlight_line,
+  'rmx_flask_fill': IconPack.rmx_flask_fill,
+  'rmx_flask_line': IconPack.rmx_flask_line,
+  'rmx_flight_land_fill': IconPack.rmx_flight_land_fill,
+  'rmx_flight_land_line': IconPack.rmx_flight_land_line,
+  'rmx_flight_takeoff_fill': IconPack.rmx_flight_takeoff_fill,
+  'rmx_flight_takeoff_line': IconPack.rmx_flight_takeoff_line,
+  'rmx_flood_fill': IconPack.rmx_flood_fill,
+  'rmx_flood_line': IconPack.rmx_flood_line,
+  'rmx_flow_chart': IconPack.rmx_flow_chart,
+  'rmx_flutter_fill': IconPack.rmx_flutter_fill,
+  'rmx_flutter_line': IconPack.rmx_flutter_line,
+  'rmx_focus_2_fill': IconPack.rmx_focus_2_fill,
+  'rmx_focus_2_line': IconPack.rmx_focus_2_line,
+  'rmx_focus_3_fill': IconPack.rmx_focus_3_fill,
+  'rmx_focus_3_line': IconPack.rmx_focus_3_line,
+  'rmx_focus_fill': IconPack.rmx_focus_fill,
+  'rmx_focus_line': IconPack.rmx_focus_line,
+  'rmx_foggy_fill': IconPack.rmx_foggy_fill,
+  'rmx_foggy_line': IconPack.rmx_foggy_line,
+  'rmx_folder_2_fill': IconPack.rmx_folder_2_fill,
+  'rmx_folder_2_line': IconPack.rmx_folder_2_line,
+  'rmx_folder_3_fill': IconPack.rmx_folder_3_fill,
+  'rmx_folder_3_line': IconPack.rmx_folder_3_line,
+  'rmx_folder_4_fill': IconPack.rmx_folder_4_fill,
+  'rmx_folder_4_line': IconPack.rmx_folder_4_line,
+  'rmx_folder_5_fill': IconPack.rmx_folder_5_fill,
+  'rmx_folder_5_line': IconPack.rmx_folder_5_line,
+  'rmx_folder_add_fill': IconPack.rmx_folder_add_fill,
+  'rmx_folder_add_line': IconPack.rmx_folder_add_line,
+  'rmx_folder_chart_2_fill': IconPack.rmx_folder_chart_2_fill,
+  'rmx_folder_chart_2_line': IconPack.rmx_folder_chart_2_line,
+  'rmx_folder_chart_fill': IconPack.rmx_folder_chart_fill,
+  'rmx_folder_chart_line': IconPack.rmx_folder_chart_line,
+  'rmx_folder_download_fill': IconPack.rmx_folder_download_fill,
+  'rmx_folder_download_line': IconPack.rmx_folder_download_line,
+  'rmx_folder_fill': IconPack.rmx_folder_fill,
+  'rmx_folder_forbid_fill': IconPack.rmx_folder_forbid_fill,
+  'rmx_folder_forbid_line': IconPack.rmx_folder_forbid_line,
+  'rmx_folder_history_fill': IconPack.rmx_folder_history_fill,
+  'rmx_folder_history_line': IconPack.rmx_folder_history_line,
+  'rmx_folder_info_fill': IconPack.rmx_folder_info_fill,
+  'rmx_folder_info_line': IconPack.rmx_folder_info_line,
+  'rmx_folder_keyhole_fill': IconPack.rmx_folder_keyhole_fill,
+  'rmx_folder_keyhole_line': IconPack.rmx_folder_keyhole_line,
+  'rmx_folder_line': IconPack.rmx_folder_line,
+  'rmx_folder_lock_fill': IconPack.rmx_folder_lock_fill,
+  'rmx_folder_lock_line': IconPack.rmx_folder_lock_line,
+  'rmx_folder_music_fill': IconPack.rmx_folder_music_fill,
+  'rmx_folder_music_line': IconPack.rmx_folder_music_line,
+  'rmx_folder_open_fill': IconPack.rmx_folder_open_fill,
+  'rmx_folder_open_line': IconPack.rmx_folder_open_line,
+  'rmx_folder_received_fill': IconPack.rmx_folder_received_fill,
+  'rmx_folder_received_line': IconPack.rmx_folder_received_line,
+  'rmx_folder_reduce_fill': IconPack.rmx_folder_reduce_fill,
+  'rmx_folder_reduce_line': IconPack.rmx_folder_reduce_line,
+  'rmx_folder_settings_fill': IconPack.rmx_folder_settings_fill,
+  'rmx_folder_settings_line': IconPack.rmx_folder_settings_line,
+  'rmx_folder_shared_fill': IconPack.rmx_folder_shared_fill,
+  'rmx_folder_shared_line': IconPack.rmx_folder_shared_line,
+  'rmx_folder_shield_2_fill': IconPack.rmx_folder_shield_2_fill,
+  'rmx_folder_shield_2_line': IconPack.rmx_folder_shield_2_line,
+  'rmx_folder_shield_fill': IconPack.rmx_folder_shield_fill,
+  'rmx_folder_shield_line': IconPack.rmx_folder_shield_line,
+  'rmx_folder_transfer_fill': IconPack.rmx_folder_transfer_fill,
+  'rmx_folder_transfer_line': IconPack.rmx_folder_transfer_line,
+  'rmx_folder_unknow_fill': IconPack.rmx_folder_unknow_fill,
+  'rmx_folder_unknow_line': IconPack.rmx_folder_unknow_line,
+  'rmx_folder_upload_fill': IconPack.rmx_folder_upload_fill,
+  'rmx_folder_upload_line': IconPack.rmx_folder_upload_line,
+  'rmx_folder_user_fill': IconPack.rmx_folder_user_fill,
+  'rmx_folder_user_line': IconPack.rmx_folder_user_line,
+  'rmx_folder_warning_fill': IconPack.rmx_folder_warning_fill,
+  'rmx_folder_warning_line': IconPack.rmx_folder_warning_line,
+  'rmx_folder_zip_fill': IconPack.rmx_folder_zip_fill,
+  'rmx_folder_zip_line': IconPack.rmx_folder_zip_line,
+  'rmx_folders_fill': IconPack.rmx_folders_fill,
+  'rmx_folders_line': IconPack.rmx_folders_line,
+  'rmx_font_color': IconPack.rmx_font_color,
+  'rmx_font_size': IconPack.rmx_font_size,
+  'rmx_font_size_2': IconPack.rmx_font_size_2,
+  'rmx_football_fill': IconPack.rmx_football_fill,
+  'rmx_football_line': IconPack.rmx_football_line,
+  'rmx_footprint_fill': IconPack.rmx_footprint_fill,
+  'rmx_footprint_line': IconPack.rmx_footprint_line,
+  'rmx_forbid_2_fill': IconPack.rmx_forbid_2_fill,
+  'rmx_forbid_2_line': IconPack.rmx_forbid_2_line,
+  'rmx_forbid_fill': IconPack.rmx_forbid_fill,
+  'rmx_forbid_line': IconPack.rmx_forbid_line,
+  'rmx_format_clear': IconPack.rmx_format_clear,
+  'rmx_fridge_fill': IconPack.rmx_fridge_fill,
+  'rmx_fridge_line': IconPack.rmx_fridge_line,
+  'rmx_fullscreen_exit_fill': IconPack.rmx_fullscreen_exit_fill,
+  'rmx_fullscreen_exit_line': IconPack.rmx_fullscreen_exit_line,
+  'rmx_fullscreen_fill': IconPack.rmx_fullscreen_fill,
+  'rmx_fullscreen_line': IconPack.rmx_fullscreen_line,
+  'rmx_function_fill': IconPack.rmx_function_fill,
+  'rmx_function_line': IconPack.rmx_function_line,
+  'rmx_functions': IconPack.rmx_functions,
+  'rmx_funds_box_fill': IconPack.rmx_funds_box_fill,
+  'rmx_funds_box_line': IconPack.rmx_funds_box_line,
+  'rmx_funds_fill': IconPack.rmx_funds_fill,
+  'rmx_funds_line': IconPack.rmx_funds_line,
+  'rmx_gallery_fill': IconPack.rmx_gallery_fill,
+  'rmx_gallery_line': IconPack.rmx_gallery_line,
+  'rmx_gallery_upload_fill': IconPack.rmx_gallery_upload_fill,
+  'rmx_gallery_upload_line': IconPack.rmx_gallery_upload_line,
+  'rmx_game_fill': IconPack.rmx_game_fill,
+  'rmx_game_line': IconPack.rmx_game_line,
+  'rmx_gamepad_fill': IconPack.rmx_gamepad_fill,
+  'rmx_gamepad_line': IconPack.rmx_gamepad_line,
+  'rmx_gas_station_fill': IconPack.rmx_gas_station_fill,
+  'rmx_gas_station_line': IconPack.rmx_gas_station_line,
+  'rmx_gatsby_fill': IconPack.rmx_gatsby_fill,
+  'rmx_gatsby_line': IconPack.rmx_gatsby_line,
+  'rmx_genderless_fill': IconPack.rmx_genderless_fill,
+  'rmx_genderless_line': IconPack.rmx_genderless_line,
+  'rmx_ghost_2_fill': IconPack.rmx_ghost_2_fill,
+  'rmx_ghost_2_line': IconPack.rmx_ghost_2_line,
+  'rmx_ghost_fill': IconPack.rmx_ghost_fill,
+  'rmx_ghost_line': IconPack.rmx_ghost_line,
+  'rmx_ghost_smile_fill': IconPack.rmx_ghost_smile_fill,
+  'rmx_ghost_smile_line': IconPack.rmx_ghost_smile_line,
+  'rmx_gift_2_fill': IconPack.rmx_gift_2_fill,
+  'rmx_gift_2_line': IconPack.rmx_gift_2_line,
+  'rmx_gift_fill': IconPack.rmx_gift_fill,
+  'rmx_gift_line': IconPack.rmx_gift_line,
+  'rmx_git_branch_fill': IconPack.rmx_git_branch_fill,
+  'rmx_git_branch_line': IconPack.rmx_git_branch_line,
+  'rmx_git_commit_fill': IconPack.rmx_git_commit_fill,
+  'rmx_git_commit_line': IconPack.rmx_git_commit_line,
+  'rmx_git_merge_fill': IconPack.rmx_git_merge_fill,
+  'rmx_git_merge_line': IconPack.rmx_git_merge_line,
+  'rmx_git_pull_request_fill': IconPack.rmx_git_pull_request_fill,
+  'rmx_git_pull_request_line': IconPack.rmx_git_pull_request_line,
+  'rmx_git_repository_commits_fill': IconPack.rmx_git_repository_commits_fill,
+  'rmx_git_repository_commits_line': IconPack.rmx_git_repository_commits_line,
+  'rmx_git_repository_fill': IconPack.rmx_git_repository_fill,
+  'rmx_git_repository_line': IconPack.rmx_git_repository_line,
+  'rmx_git_repository_private_fill': IconPack.rmx_git_repository_private_fill,
+  'rmx_git_repository_private_line': IconPack.rmx_git_repository_private_line,
+  'rmx_github_fill': IconPack.rmx_github_fill,
+  'rmx_github_line': IconPack.rmx_github_line,
+  'rmx_gitlab_fill': IconPack.rmx_gitlab_fill,
+  'rmx_gitlab_line': IconPack.rmx_gitlab_line,
+  'rmx_global_fill': IconPack.rmx_global_fill,
+  'rmx_global_line': IconPack.rmx_global_line,
+  'rmx_globe_fill': IconPack.rmx_globe_fill,
+  'rmx_globe_line': IconPack.rmx_globe_line,
+  'rmx_goblet_fill': IconPack.rmx_goblet_fill,
+  'rmx_goblet_line': IconPack.rmx_goblet_line,
+  'rmx_google_fill': IconPack.rmx_google_fill,
+  'rmx_google_line': IconPack.rmx_google_line,
+  'rmx_google_play_fill': IconPack.rmx_google_play_fill,
+  'rmx_google_play_line': IconPack.rmx_google_play_line,
+  'rmx_government_fill': IconPack.rmx_government_fill,
+  'rmx_government_line': IconPack.rmx_government_line,
+  'rmx_gps_fill': IconPack.rmx_gps_fill,
+  'rmx_gps_line': IconPack.rmx_gps_line,
+  'rmx_gradienter_fill': IconPack.rmx_gradienter_fill,
+  'rmx_gradienter_line': IconPack.rmx_gradienter_line,
+  'rmx_grid_fill': IconPack.rmx_grid_fill,
+  'rmx_grid_line': IconPack.rmx_grid_line,
+  'rmx_group_2_fill': IconPack.rmx_group_2_fill,
+  'rmx_group_2_line': IconPack.rmx_group_2_line,
+  'rmx_group_fill': IconPack.rmx_group_fill,
+  'rmx_group_line': IconPack.rmx_group_line,
+  'rmx_guide_fill': IconPack.rmx_guide_fill,
+  'rmx_guide_line': IconPack.rmx_guide_line,
+  'rmx_h_1': IconPack.rmx_h_1,
+  'rmx_h_2': IconPack.rmx_h_2,
+  'rmx_h_3': IconPack.rmx_h_3,
+  'rmx_h_4': IconPack.rmx_h_4,
+  'rmx_h_5': IconPack.rmx_h_5,
+  'rmx_h_6': IconPack.rmx_h_6,
+  'rmx_hail_fill': IconPack.rmx_hail_fill,
+  'rmx_hail_line': IconPack.rmx_hail_line,
+  'rmx_hammer_fill': IconPack.rmx_hammer_fill,
+  'rmx_hammer_line': IconPack.rmx_hammer_line,
+  'rmx_hand_coin_fill': IconPack.rmx_hand_coin_fill,
+  'rmx_hand_coin_line': IconPack.rmx_hand_coin_line,
+  'rmx_hand_heart_fill': IconPack.rmx_hand_heart_fill,
+  'rmx_hand_heart_line': IconPack.rmx_hand_heart_line,
+  'rmx_hand_sanitizer_fill': IconPack.rmx_hand_sanitizer_fill,
+  'rmx_hand_sanitizer_line': IconPack.rmx_hand_sanitizer_line,
+  'rmx_handbag_fill': IconPack.rmx_handbag_fill,
+  'rmx_handbag_line': IconPack.rmx_handbag_line,
+  'rmx_hard_drive_2_fill': IconPack.rmx_hard_drive_2_fill,
+  'rmx_hard_drive_2_line': IconPack.rmx_hard_drive_2_line,
+  'rmx_hard_drive_fill': IconPack.rmx_hard_drive_fill,
+  'rmx_hard_drive_line': IconPack.rmx_hard_drive_line,
+  'rmx_hashtag': IconPack.rmx_hashtag,
+  'rmx_haze_2_fill': IconPack.rmx_haze_2_fill,
+  'rmx_haze_2_line': IconPack.rmx_haze_2_line,
+  'rmx_haze_fill': IconPack.rmx_haze_fill,
+  'rmx_haze_line': IconPack.rmx_haze_line,
+  'rmx_hd_fill': IconPack.rmx_hd_fill,
+  'rmx_hd_line': IconPack.rmx_hd_line,
+  'rmx_heading': IconPack.rmx_heading,
+  'rmx_headphone_fill': IconPack.rmx_headphone_fill,
+  'rmx_headphone_line': IconPack.rmx_headphone_line,
+  'rmx_health_book_fill': IconPack.rmx_health_book_fill,
+  'rmx_health_book_line': IconPack.rmx_health_book_line,
+  'rmx_heart_2_fill': IconPack.rmx_heart_2_fill,
+  'rmx_heart_2_line': IconPack.rmx_heart_2_line,
+  'rmx_heart_3_fill': IconPack.rmx_heart_3_fill,
+  'rmx_heart_3_line': IconPack.rmx_heart_3_line,
+  'rmx_heart_add_fill': IconPack.rmx_heart_add_fill,
+  'rmx_heart_add_line': IconPack.rmx_heart_add_line,
+  'rmx_heart_fill': IconPack.rmx_heart_fill,
+  'rmx_heart_line': IconPack.rmx_heart_line,
+  'rmx_heart_pulse_fill': IconPack.rmx_heart_pulse_fill,
+  'rmx_heart_pulse_line': IconPack.rmx_heart_pulse_line,
+  'rmx_hearts_fill': IconPack.rmx_hearts_fill,
+  'rmx_hearts_line': IconPack.rmx_hearts_line,
+  'rmx_heavy_showers_fill': IconPack.rmx_heavy_showers_fill,
+  'rmx_heavy_showers_line': IconPack.rmx_heavy_showers_line,
+  'rmx_history_fill': IconPack.rmx_history_fill,
+  'rmx_history_line': IconPack.rmx_history_line,
+  'rmx_home_2_fill': IconPack.rmx_home_2_fill,
+  'rmx_home_2_line': IconPack.rmx_home_2_line,
+  'rmx_home_3_fill': IconPack.rmx_home_3_fill,
+  'rmx_home_3_line': IconPack.rmx_home_3_line,
+  'rmx_home_4_fill': IconPack.rmx_home_4_fill,
+  'rmx_home_4_line': IconPack.rmx_home_4_line,
+  'rmx_home_5_fill': IconPack.rmx_home_5_fill,
+  'rmx_home_5_line': IconPack.rmx_home_5_line,
+  'rmx_home_6_fill': IconPack.rmx_home_6_fill,
+  'rmx_home_6_line': IconPack.rmx_home_6_line,
+  'rmx_home_7_fill': IconPack.rmx_home_7_fill,
+  'rmx_home_7_line': IconPack.rmx_home_7_line,
+  'rmx_home_8_fill': IconPack.rmx_home_8_fill,
+  'rmx_home_8_line': IconPack.rmx_home_8_line,
+  'rmx_home_fill': IconPack.rmx_home_fill,
+  'rmx_home_gear_fill': IconPack.rmx_home_gear_fill,
+  'rmx_home_gear_line': IconPack.rmx_home_gear_line,
+  'rmx_home_heart_fill': IconPack.rmx_home_heart_fill,
+  'rmx_home_heart_line': IconPack.rmx_home_heart_line,
+  'rmx_home_line': IconPack.rmx_home_line,
+  'rmx_home_smile_2_fill': IconPack.rmx_home_smile_2_fill,
+  'rmx_home_smile_2_line': IconPack.rmx_home_smile_2_line,
+  'rmx_home_smile_fill': IconPack.rmx_home_smile_fill,
+  'rmx_home_smile_line': IconPack.rmx_home_smile_line,
+  'rmx_home_wifi_fill': IconPack.rmx_home_wifi_fill,
+  'rmx_home_wifi_line': IconPack.rmx_home_wifi_line,
+  'rmx_honor_of_kings_fill': IconPack.rmx_honor_of_kings_fill,
+  'rmx_honor_of_kings_line': IconPack.rmx_honor_of_kings_line,
+  'rmx_honour_fill': IconPack.rmx_honour_fill,
+  'rmx_honour_line': IconPack.rmx_honour_line,
+  'rmx_hospital_fill': IconPack.rmx_hospital_fill,
+  'rmx_hospital_line': IconPack.rmx_hospital_line,
+  'rmx_hotel_bed_fill': IconPack.rmx_hotel_bed_fill,
+  'rmx_hotel_bed_line': IconPack.rmx_hotel_bed_line,
+  'rmx_hotel_fill': IconPack.rmx_hotel_fill,
+  'rmx_hotel_line': IconPack.rmx_hotel_line,
+  'rmx_hotspot_fill': IconPack.rmx_hotspot_fill,
+  'rmx_hotspot_line': IconPack.rmx_hotspot_line,
+  'rmx_hq_fill': IconPack.rmx_hq_fill,
+  'rmx_hq_line': IconPack.rmx_hq_line,
+  'rmx_html5_fill': IconPack.rmx_html5_fill,
+  'rmx_html5_line': IconPack.rmx_html5_line,
+  'rmx_ie_fill': IconPack.rmx_ie_fill,
+  'rmx_ie_line': IconPack.rmx_ie_line,
+  'rmx_image_2_fill': IconPack.rmx_image_2_fill,
+  'rmx_image_2_line': IconPack.rmx_image_2_line,
+  'rmx_image_add_fill': IconPack.rmx_image_add_fill,
+  'rmx_image_add_line': IconPack.rmx_image_add_line,
+  'rmx_image_edit_fill': IconPack.rmx_image_edit_fill,
+  'rmx_image_edit_line': IconPack.rmx_image_edit_line,
+  'rmx_image_fill': IconPack.rmx_image_fill,
+  'rmx_image_line': IconPack.rmx_image_line,
+  'rmx_inbox_archive_fill': IconPack.rmx_inbox_archive_fill,
+  'rmx_inbox_archive_line': IconPack.rmx_inbox_archive_line,
+  'rmx_inbox_fill': IconPack.rmx_inbox_fill,
+  'rmx_inbox_line': IconPack.rmx_inbox_line,
+  'rmx_inbox_unarchive_fill': IconPack.rmx_inbox_unarchive_fill,
+  'rmx_inbox_unarchive_line': IconPack.rmx_inbox_unarchive_line,
+  'rmx_increase_decrease_fill': IconPack.rmx_increase_decrease_fill,
+  'rmx_increase_decrease_line': IconPack.rmx_increase_decrease_line,
+  'rmx_indent_decrease': IconPack.rmx_indent_decrease,
+  'rmx_indent_increase': IconPack.rmx_indent_increase,
+  'rmx_indeterminate_circle_fill': IconPack.rmx_indeterminate_circle_fill,
+  'rmx_indeterminate_circle_line': IconPack.rmx_indeterminate_circle_line,
+  'rmx_information_fill': IconPack.rmx_information_fill,
+  'rmx_information_line': IconPack.rmx_information_line,
+  'rmx_infrared_thermometer_fill': IconPack.rmx_infrared_thermometer_fill,
+  'rmx_infrared_thermometer_line': IconPack.rmx_infrared_thermometer_line,
+  'rmx_ink_bottle_fill': IconPack.rmx_ink_bottle_fill,
+  'rmx_ink_bottle_line': IconPack.rmx_ink_bottle_line,
+  'rmx_input_cursor_move': IconPack.rmx_input_cursor_move,
+  'rmx_input_method_fill': IconPack.rmx_input_method_fill,
+  'rmx_input_method_line': IconPack.rmx_input_method_line,
+  'rmx_insert_column_left': IconPack.rmx_insert_column_left,
+  'rmx_insert_column_right': IconPack.rmx_insert_column_right,
+  'rmx_insert_row_bottom': IconPack.rmx_insert_row_bottom,
+  'rmx_insert_row_top': IconPack.rmx_insert_row_top,
+  'rmx_instagram_fill': IconPack.rmx_instagram_fill,
+  'rmx_instagram_line': IconPack.rmx_instagram_line,
+  'rmx_install_fill': IconPack.rmx_install_fill,
+  'rmx_install_line': IconPack.rmx_install_line,
+  'rmx_invision_fill': IconPack.rmx_invision_fill,
+  'rmx_invision_line': IconPack.rmx_invision_line,
+  'rmx_italic': IconPack.rmx_italic,
+  'rmx_kakao_talk_fill': IconPack.rmx_kakao_talk_fill,
+  'rmx_kakao_talk_line': IconPack.rmx_kakao_talk_line,
+  'rmx_key_2_fill': IconPack.rmx_key_2_fill,
+  'rmx_key_2_line': IconPack.rmx_key_2_line,
+  'rmx_key_fill': IconPack.rmx_key_fill,
+  'rmx_key_line': IconPack.rmx_key_line,
+  'rmx_keyboard_box_fill': IconPack.rmx_keyboard_box_fill,
+  'rmx_keyboard_box_line': IconPack.rmx_keyboard_box_line,
+  'rmx_keyboard_fill': IconPack.rmx_keyboard_fill,
+  'rmx_keyboard_line': IconPack.rmx_keyboard_line,
+  'rmx_keynote_fill': IconPack.rmx_keynote_fill,
+  'rmx_keynote_line': IconPack.rmx_keynote_line,
+  'rmx_knife_blood_fill': IconPack.rmx_knife_blood_fill,
+  'rmx_knife_blood_line': IconPack.rmx_knife_blood_line,
+  'rmx_knife_fill': IconPack.rmx_knife_fill,
+  'rmx_knife_line': IconPack.rmx_knife_line,
+  'rmx_landscape_fill': IconPack.rmx_landscape_fill,
+  'rmx_landscape_line': IconPack.rmx_landscape_line,
+  'rmx_layout_2_fill': IconPack.rmx_layout_2_fill,
+  'rmx_layout_2_line': IconPack.rmx_layout_2_line,
+  'rmx_layout_3_fill': IconPack.rmx_layout_3_fill,
+  'rmx_layout_3_line': IconPack.rmx_layout_3_line,
+  'rmx_layout_4_fill': IconPack.rmx_layout_4_fill,
+  'rmx_layout_4_line': IconPack.rmx_layout_4_line,
+  'rmx_layout_5_fill': IconPack.rmx_layout_5_fill,
+  'rmx_layout_5_line': IconPack.rmx_layout_5_line,
+  'rmx_layout_6_fill': IconPack.rmx_layout_6_fill,
+  'rmx_layout_6_line': IconPack.rmx_layout_6_line,
+  'rmx_layout_bottom_2_fill': IconPack.rmx_layout_bottom_2_fill,
+  'rmx_layout_bottom_2_line': IconPack.rmx_layout_bottom_2_line,
+  'rmx_layout_bottom_fill': IconPack.rmx_layout_bottom_fill,
+  'rmx_layout_bottom_line': IconPack.rmx_layout_bottom_line,
+  'rmx_layout_column_fill': IconPack.rmx_layout_column_fill,
+  'rmx_layout_column_line': IconPack.rmx_layout_column_line,
+  'rmx_layout_fill': IconPack.rmx_layout_fill,
+  'rmx_layout_grid_fill': IconPack.rmx_layout_grid_fill,
+  'rmx_layout_grid_line': IconPack.rmx_layout_grid_line,
+  'rmx_layout_left_2_fill': IconPack.rmx_layout_left_2_fill,
+  'rmx_layout_left_2_line': IconPack.rmx_layout_left_2_line,
+  'rmx_layout_left_fill': IconPack.rmx_layout_left_fill,
+  'rmx_layout_left_line': IconPack.rmx_layout_left_line,
+  'rmx_layout_line': IconPack.rmx_layout_line,
+  'rmx_layout_masonry_fill': IconPack.rmx_layout_masonry_fill,
+  'rmx_layout_masonry_line': IconPack.rmx_layout_masonry_line,
+  'rmx_layout_right_2_fill': IconPack.rmx_layout_right_2_fill,
+  'rmx_layout_right_2_line': IconPack.rmx_layout_right_2_line,
+  'rmx_layout_right_fill': IconPack.rmx_layout_right_fill,
+  'rmx_layout_right_line': IconPack.rmx_layout_right_line,
+  'rmx_layout_row_fill': IconPack.rmx_layout_row_fill,
+  'rmx_layout_row_line': IconPack.rmx_layout_row_line,
+  'rmx_layout_top_2_fill': IconPack.rmx_layout_top_2_fill,
+  'rmx_layout_top_2_line': IconPack.rmx_layout_top_2_line,
+  'rmx_layout_top_fill': IconPack.rmx_layout_top_fill,
+  'rmx_layout_top_line': IconPack.rmx_layout_top_line,
+  'rmx_leaf_fill': IconPack.rmx_leaf_fill,
+  'rmx_leaf_line': IconPack.rmx_leaf_line,
+  'rmx_lifebuoy_fill': IconPack.rmx_lifebuoy_fill,
+  'rmx_lifebuoy_line': IconPack.rmx_lifebuoy_line,
+  'rmx_lightbulb_fill': IconPack.rmx_lightbulb_fill,
+  'rmx_lightbulb_flash_fill': IconPack.rmx_lightbulb_flash_fill,
+  'rmx_lightbulb_flash_line': IconPack.rmx_lightbulb_flash_line,
+  'rmx_lightbulb_line': IconPack.rmx_lightbulb_line,
+  'rmx_line_chart_fill': IconPack.rmx_line_chart_fill,
+  'rmx_line_chart_line': IconPack.rmx_line_chart_line,
+  'rmx_line_fill': IconPack.rmx_line_fill,
+  'rmx_line_height': IconPack.rmx_line_height,
+  'rmx_line_line': IconPack.rmx_line_line,
+  'rmx_link': IconPack.rmx_link,
+  'rmx_link_m': IconPack.rmx_link_m,
+  'rmx_link_unlink': IconPack.rmx_link_unlink,
+  'rmx_link_unlink_m': IconPack.rmx_link_unlink_m,
+  'rmx_linkedin_box_fill': IconPack.rmx_linkedin_box_fill,
+  'rmx_linkedin_box_line': IconPack.rmx_linkedin_box_line,
+  'rmx_linkedin_fill': IconPack.rmx_linkedin_fill,
+  'rmx_linkedin_line': IconPack.rmx_linkedin_line,
+  'rmx_links_fill': IconPack.rmx_links_fill,
+  'rmx_links_line': IconPack.rmx_links_line,
+  'rmx_list_check': IconPack.rmx_list_check,
+  'rmx_list_check_2': IconPack.rmx_list_check_2,
+  'rmx_list_ordered': IconPack.rmx_list_ordered,
+  'rmx_list_settings_fill': IconPack.rmx_list_settings_fill,
+  'rmx_list_settings_line': IconPack.rmx_list_settings_line,
+  'rmx_list_unordered': IconPack.rmx_list_unordered,
+  'rmx_live_fill': IconPack.rmx_live_fill,
+  'rmx_live_line': IconPack.rmx_live_line,
+  'rmx_loader_2_fill': IconPack.rmx_loader_2_fill,
+  'rmx_loader_2_line': IconPack.rmx_loader_2_line,
+  'rmx_loader_3_fill': IconPack.rmx_loader_3_fill,
+  'rmx_loader_3_line': IconPack.rmx_loader_3_line,
+  'rmx_loader_4_fill': IconPack.rmx_loader_4_fill,
+  'rmx_loader_4_line': IconPack.rmx_loader_4_line,
+  'rmx_loader_5_fill': IconPack.rmx_loader_5_fill,
+  'rmx_loader_5_line': IconPack.rmx_loader_5_line,
+  'rmx_loader_fill': IconPack.rmx_loader_fill,
+  'rmx_loader_line': IconPack.rmx_loader_line,
+  'rmx_lock_2_fill': IconPack.rmx_lock_2_fill,
+  'rmx_lock_2_line': IconPack.rmx_lock_2_line,
+  'rmx_lock_fill': IconPack.rmx_lock_fill,
+  'rmx_lock_line': IconPack.rmx_lock_line,
+  'rmx_lock_password_fill': IconPack.rmx_lock_password_fill,
+  'rmx_lock_password_line': IconPack.rmx_lock_password_line,
+  'rmx_lock_unlock_fill': IconPack.rmx_lock_unlock_fill,
+  'rmx_lock_unlock_line': IconPack.rmx_lock_unlock_line,
+  'rmx_login_box_fill': IconPack.rmx_login_box_fill,
+  'rmx_login_box_line': IconPack.rmx_login_box_line,
+  'rmx_login_circle_fill': IconPack.rmx_login_circle_fill,
+  'rmx_login_circle_line': IconPack.rmx_login_circle_line,
+  'rmx_logout_box_fill': IconPack.rmx_logout_box_fill,
+  'rmx_logout_box_line': IconPack.rmx_logout_box_line,
+  'rmx_logout_box_r_fill': IconPack.rmx_logout_box_r_fill,
+  'rmx_logout_box_r_line': IconPack.rmx_logout_box_r_line,
+  'rmx_logout_circle_fill': IconPack.rmx_logout_circle_fill,
+  'rmx_logout_circle_line': IconPack.rmx_logout_circle_line,
+  'rmx_logout_circle_r_fill': IconPack.rmx_logout_circle_r_fill,
+  'rmx_logout_circle_r_line': IconPack.rmx_logout_circle_r_line,
+  'rmx_luggage_cart_fill': IconPack.rmx_luggage_cart_fill,
+  'rmx_luggage_cart_line': IconPack.rmx_luggage_cart_line,
+  'rmx_luggage_deposit_fill': IconPack.rmx_luggage_deposit_fill,
+  'rmx_luggage_deposit_line': IconPack.rmx_luggage_deposit_line,
+  'rmx_lungs_fill': IconPack.rmx_lungs_fill,
+  'rmx_lungs_line': IconPack.rmx_lungs_line,
+  'rmx_mac_fill': IconPack.rmx_mac_fill,
+  'rmx_mac_line': IconPack.rmx_mac_line,
+  'rmx_macbook_fill': IconPack.rmx_macbook_fill,
+  'rmx_macbook_line': IconPack.rmx_macbook_line,
+  'rmx_magic_fill': IconPack.rmx_magic_fill,
+  'rmx_magic_line': IconPack.rmx_magic_line,
+  'rmx_mail_add_fill': IconPack.rmx_mail_add_fill,
+  'rmx_mail_add_line': IconPack.rmx_mail_add_line,
+  'rmx_mail_check_fill': IconPack.rmx_mail_check_fill,
+  'rmx_mail_check_line': IconPack.rmx_mail_check_line,
+  'rmx_mail_close_fill': IconPack.rmx_mail_close_fill,
+  'rmx_mail_close_line': IconPack.rmx_mail_close_line,
+  'rmx_mail_download_fill': IconPack.rmx_mail_download_fill,
+  'rmx_mail_download_line': IconPack.rmx_mail_download_line,
+  'rmx_mail_fill': IconPack.rmx_mail_fill,
+  'rmx_mail_forbid_fill': IconPack.rmx_mail_forbid_fill,
+  'rmx_mail_forbid_line': IconPack.rmx_mail_forbid_line,
+  'rmx_mail_line': IconPack.rmx_mail_line,
+  'rmx_mail_lock_fill': IconPack.rmx_mail_lock_fill,
+  'rmx_mail_lock_line': IconPack.rmx_mail_lock_line,
+  'rmx_mail_open_fill': IconPack.rmx_mail_open_fill,
+  'rmx_mail_open_line': IconPack.rmx_mail_open_line,
+  'rmx_mail_send_fill': IconPack.rmx_mail_send_fill,
+  'rmx_mail_send_line': IconPack.rmx_mail_send_line,
+  'rmx_mail_settings_fill': IconPack.rmx_mail_settings_fill,
+  'rmx_mail_settings_line': IconPack.rmx_mail_settings_line,
+  'rmx_mail_star_fill': IconPack.rmx_mail_star_fill,
+  'rmx_mail_star_line': IconPack.rmx_mail_star_line,
+  'rmx_mail_unread_fill': IconPack.rmx_mail_unread_fill,
+  'rmx_mail_unread_line': IconPack.rmx_mail_unread_line,
+  'rmx_mail_volume_fill': IconPack.rmx_mail_volume_fill,
+  'rmx_mail_volume_line': IconPack.rmx_mail_volume_line,
+  'rmx_map_2_fill': IconPack.rmx_map_2_fill,
+  'rmx_map_2_line': IconPack.rmx_map_2_line,
+  'rmx_map_fill': IconPack.rmx_map_fill,
+  'rmx_map_line': IconPack.rmx_map_line,
+  'rmx_map_pin_2_fill': IconPack.rmx_map_pin_2_fill,
+  'rmx_map_pin_2_line': IconPack.rmx_map_pin_2_line,
+  'rmx_map_pin_3_fill': IconPack.rmx_map_pin_3_fill,
+  'rmx_map_pin_3_line': IconPack.rmx_map_pin_3_line,
+  'rmx_map_pin_4_fill': IconPack.rmx_map_pin_4_fill,
+  'rmx_map_pin_4_line': IconPack.rmx_map_pin_4_line,
+  'rmx_map_pin_5_fill': IconPack.rmx_map_pin_5_fill,
+  'rmx_map_pin_5_line': IconPack.rmx_map_pin_5_line,
+  'rmx_map_pin_add_fill': IconPack.rmx_map_pin_add_fill,
+  'rmx_map_pin_add_line': IconPack.rmx_map_pin_add_line,
+  'rmx_map_pin_fill': IconPack.rmx_map_pin_fill,
+  'rmx_map_pin_line': IconPack.rmx_map_pin_line,
+  'rmx_map_pin_range_fill': IconPack.rmx_map_pin_range_fill,
+  'rmx_map_pin_range_line': IconPack.rmx_map_pin_range_line,
+  'rmx_map_pin_time_fill': IconPack.rmx_map_pin_time_fill,
+  'rmx_map_pin_time_line': IconPack.rmx_map_pin_time_line,
+  'rmx_map_pin_user_fill': IconPack.rmx_map_pin_user_fill,
+  'rmx_map_pin_user_line': IconPack.rmx_map_pin_user_line,
+  'rmx_mark_pen_fill': IconPack.rmx_mark_pen_fill,
+  'rmx_mark_pen_line': IconPack.rmx_mark_pen_line,
+  'rmx_markdown_fill': IconPack.rmx_markdown_fill,
+  'rmx_markdown_line': IconPack.rmx_markdown_line,
+  'rmx_markup_fill': IconPack.rmx_markup_fill,
+  'rmx_markup_line': IconPack.rmx_markup_line,
+  'rmx_mastercard_fill': IconPack.rmx_mastercard_fill,
+  'rmx_mastercard_line': IconPack.rmx_mastercard_line,
+  'rmx_mastodon_fill': IconPack.rmx_mastodon_fill,
+  'rmx_mastodon_line': IconPack.rmx_mastodon_line,
+  'rmx_medal_2_fill': IconPack.rmx_medal_2_fill,
+  'rmx_medal_2_line': IconPack.rmx_medal_2_line,
+  'rmx_medal_fill': IconPack.rmx_medal_fill,
+  'rmx_medal_line': IconPack.rmx_medal_line,
+  'rmx_medicine_bottle_fill': IconPack.rmx_medicine_bottle_fill,
+  'rmx_medicine_bottle_line': IconPack.rmx_medicine_bottle_line,
+  'rmx_medium_fill': IconPack.rmx_medium_fill,
+  'rmx_medium_line': IconPack.rmx_medium_line,
+  'rmx_men_fill': IconPack.rmx_men_fill,
+  'rmx_men_line': IconPack.rmx_men_line,
+  'rmx_mental_health_fill': IconPack.rmx_mental_health_fill,
+  'rmx_mental_health_line': IconPack.rmx_mental_health_line,
+  'rmx_menu_2_fill': IconPack.rmx_menu_2_fill,
+  'rmx_menu_2_line': IconPack.rmx_menu_2_line,
+  'rmx_menu_3_fill': IconPack.rmx_menu_3_fill,
+  'rmx_menu_3_line': IconPack.rmx_menu_3_line,
+  'rmx_menu_4_fill': IconPack.rmx_menu_4_fill,
+  'rmx_menu_4_line': IconPack.rmx_menu_4_line,
+  'rmx_menu_5_fill': IconPack.rmx_menu_5_fill,
+  'rmx_menu_5_line': IconPack.rmx_menu_5_line,
+  'rmx_menu_add_fill': IconPack.rmx_menu_add_fill,
+  'rmx_menu_add_line': IconPack.rmx_menu_add_line,
+  'rmx_menu_fill': IconPack.rmx_menu_fill,
+  'rmx_menu_fold_fill': IconPack.rmx_menu_fold_fill,
+  'rmx_menu_fold_line': IconPack.rmx_menu_fold_line,
+  'rmx_menu_line': IconPack.rmx_menu_line,
+  'rmx_menu_unfold_fill': IconPack.rmx_menu_unfold_fill,
+  'rmx_menu_unfold_line': IconPack.rmx_menu_unfold_line,
+  'rmx_merge_cells_horizontal': IconPack.rmx_merge_cells_horizontal,
+  'rmx_merge_cells_vertical': IconPack.rmx_merge_cells_vertical,
+  'rmx_message_2_fill': IconPack.rmx_message_2_fill,
+  'rmx_message_2_line': IconPack.rmx_message_2_line,
+  'rmx_message_3_fill': IconPack.rmx_message_3_fill,
+  'rmx_message_3_line': IconPack.rmx_message_3_line,
+  'rmx_message_fill': IconPack.rmx_message_fill,
+  'rmx_message_line': IconPack.rmx_message_line,
+  'rmx_messenger_fill': IconPack.rmx_messenger_fill,
+  'rmx_messenger_line': IconPack.rmx_messenger_line,
+  'rmx_meteor_fill': IconPack.rmx_meteor_fill,
+  'rmx_meteor_line': IconPack.rmx_meteor_line,
+  'rmx_mic_2_fill': IconPack.rmx_mic_2_fill,
+  'rmx_mic_2_line': IconPack.rmx_mic_2_line,
+  'rmx_mic_fill': IconPack.rmx_mic_fill,
+  'rmx_mic_line': IconPack.rmx_mic_line,
+  'rmx_mic_off_fill': IconPack.rmx_mic_off_fill,
+  'rmx_mic_off_line': IconPack.rmx_mic_off_line,
+  'rmx_mickey_fill': IconPack.rmx_mickey_fill,
+  'rmx_mickey_line': IconPack.rmx_mickey_line,
+  'rmx_microscope_fill': IconPack.rmx_microscope_fill,
+  'rmx_microscope_line': IconPack.rmx_microscope_line,
+  'rmx_microsoft_fill': IconPack.rmx_microsoft_fill,
+  'rmx_microsoft_line': IconPack.rmx_microsoft_line,
+  'rmx_mind_map': IconPack.rmx_mind_map,
+  'rmx_mini_program_fill': IconPack.rmx_mini_program_fill,
+  'rmx_mini_program_line': IconPack.rmx_mini_program_line,
+  'rmx_mist_fill': IconPack.rmx_mist_fill,
+  'rmx_mist_line': IconPack.rmx_mist_line,
+  'rmx_money_cny_box_fill': IconPack.rmx_money_cny_box_fill,
+  'rmx_money_cny_box_line': IconPack.rmx_money_cny_box_line,
+  'rmx_money_cny_circle_fill': IconPack.rmx_money_cny_circle_fill,
+  'rmx_money_cny_circle_line': IconPack.rmx_money_cny_circle_line,
+  'rmx_money_dollar_box_fill': IconPack.rmx_money_dollar_box_fill,
+  'rmx_money_dollar_box_line': IconPack.rmx_money_dollar_box_line,
+  'rmx_money_dollar_circle_fill': IconPack.rmx_money_dollar_circle_fill,
+  'rmx_money_dollar_circle_line': IconPack.rmx_money_dollar_circle_line,
+  'rmx_money_euro_box_fill': IconPack.rmx_money_euro_box_fill,
+  'rmx_money_euro_box_line': IconPack.rmx_money_euro_box_line,
+  'rmx_money_euro_circle_fill': IconPack.rmx_money_euro_circle_fill,
+  'rmx_money_euro_circle_line': IconPack.rmx_money_euro_circle_line,
+  'rmx_money_pound_box_fill': IconPack.rmx_money_pound_box_fill,
+  'rmx_money_pound_box_line': IconPack.rmx_money_pound_box_line,
+  'rmx_money_pound_circle_fill': IconPack.rmx_money_pound_circle_fill,
+  'rmx_money_pound_circle_line': IconPack.rmx_money_pound_circle_line,
+  'rmx_moon_clear_fill': IconPack.rmx_moon_clear_fill,
+  'rmx_moon_clear_line': IconPack.rmx_moon_clear_line,
+  'rmx_moon_cloudy_fill': IconPack.rmx_moon_cloudy_fill,
+  'rmx_moon_cloudy_line': IconPack.rmx_moon_cloudy_line,
+  'rmx_moon_fill': IconPack.rmx_moon_fill,
+  'rmx_moon_foggy_fill': IconPack.rmx_moon_foggy_fill,
+  'rmx_moon_foggy_line': IconPack.rmx_moon_foggy_line,
+  'rmx_moon_line': IconPack.rmx_moon_line,
+  'rmx_more_2_fill': IconPack.rmx_more_2_fill,
+  'rmx_more_2_line': IconPack.rmx_more_2_line,
+  'rmx_more_fill': IconPack.rmx_more_fill,
+  'rmx_more_line': IconPack.rmx_more_line,
+  'rmx_motorbike_fill': IconPack.rmx_motorbike_fill,
+  'rmx_motorbike_line': IconPack.rmx_motorbike_line,
+  'rmx_mouse_fill': IconPack.rmx_mouse_fill,
+  'rmx_mouse_line': IconPack.rmx_mouse_line,
+  'rmx_movie_2_fill': IconPack.rmx_movie_2_fill,
+  'rmx_movie_2_line': IconPack.rmx_movie_2_line,
+  'rmx_movie_fill': IconPack.rmx_movie_fill,
+  'rmx_movie_line': IconPack.rmx_movie_line,
+  'rmx_music_2_fill': IconPack.rmx_music_2_fill,
+  'rmx_music_2_line': IconPack.rmx_music_2_line,
+  'rmx_music_fill': IconPack.rmx_music_fill,
+  'rmx_music_line': IconPack.rmx_music_line,
+  'rmx_mv_fill': IconPack.rmx_mv_fill,
+  'rmx_mv_line': IconPack.rmx_mv_line,
+  'rmx_navigation_fill': IconPack.rmx_navigation_fill,
+  'rmx_navigation_line': IconPack.rmx_navigation_line,
+  'rmx_netease_cloud_music_fill': IconPack.rmx_netease_cloud_music_fill,
+  'rmx_netease_cloud_music_line': IconPack.rmx_netease_cloud_music_line,
+  'rmx_netflix_fill': IconPack.rmx_netflix_fill,
+  'rmx_netflix_line': IconPack.rmx_netflix_line,
+  'rmx_newspaper_fill': IconPack.rmx_newspaper_fill,
+  'rmx_newspaper_line': IconPack.rmx_newspaper_line,
+  'rmx_node_tree': IconPack.rmx_node_tree,
+  'rmx_notification_2_fill': IconPack.rmx_notification_2_fill,
+  'rmx_notification_2_line': IconPack.rmx_notification_2_line,
+  'rmx_notification_3_fill': IconPack.rmx_notification_3_fill,
+  'rmx_notification_3_line': IconPack.rmx_notification_3_line,
+  'rmx_notification_4_fill': IconPack.rmx_notification_4_fill,
+  'rmx_notification_4_line': IconPack.rmx_notification_4_line,
+  'rmx_notification_badge_fill': IconPack.rmx_notification_badge_fill,
+  'rmx_notification_badge_line': IconPack.rmx_notification_badge_line,
+  'rmx_notification_fill': IconPack.rmx_notification_fill,
+  'rmx_notification_line': IconPack.rmx_notification_line,
+  'rmx_notification_off_fill': IconPack.rmx_notification_off_fill,
+  'rmx_notification_off_line': IconPack.rmx_notification_off_line,
+  'rmx_npmjs_fill': IconPack.rmx_npmjs_fill,
+  'rmx_npmjs_line': IconPack.rmx_npmjs_line,
+  'rmx_number_0': IconPack.rmx_number_0,
+  'rmx_number_1': IconPack.rmx_number_1,
+  'rmx_number_2': IconPack.rmx_number_2,
+  'rmx_number_3': IconPack.rmx_number_3,
+  'rmx_number_4': IconPack.rmx_number_4,
+  'rmx_number_5': IconPack.rmx_number_5,
+  'rmx_number_6': IconPack.rmx_number_6,
+  'rmx_number_7': IconPack.rmx_number_7,
+  'rmx_number_8': IconPack.rmx_number_8,
+  'rmx_number_9': IconPack.rmx_number_9,
+  'rmx_numbers_fill': IconPack.rmx_numbers_fill,
+  'rmx_numbers_line': IconPack.rmx_numbers_line,
+  'rmx_nurse_fill': IconPack.rmx_nurse_fill,
+  'rmx_nurse_line': IconPack.rmx_nurse_line,
+  'rmx_oil_fill': IconPack.rmx_oil_fill,
+  'rmx_oil_line': IconPack.rmx_oil_line,
+  'rmx_omega': IconPack.rmx_omega,
+  'rmx_open_arm_fill': IconPack.rmx_open_arm_fill,
+  'rmx_open_arm_line': IconPack.rmx_open_arm_line,
+  'rmx_open_source_fill': IconPack.rmx_open_source_fill,
+  'rmx_open_source_line': IconPack.rmx_open_source_line,
+  'rmx_opera_fill': IconPack.rmx_opera_fill,
+  'rmx_opera_line': IconPack.rmx_opera_line,
+  'rmx_order_play_fill': IconPack.rmx_order_play_fill,
+  'rmx_order_play_line': IconPack.rmx_order_play_line,
+  'rmx_organization_chart': IconPack.rmx_organization_chart,
+  'rmx_outlet_2_fill': IconPack.rmx_outlet_2_fill,
+  'rmx_outlet_2_line': IconPack.rmx_outlet_2_line,
+  'rmx_outlet_fill': IconPack.rmx_outlet_fill,
+  'rmx_outlet_line': IconPack.rmx_outlet_line,
+  'rmx_page_separator': IconPack.rmx_page_separator,
+  'rmx_pages_fill': IconPack.rmx_pages_fill,
+  'rmx_pages_line': IconPack.rmx_pages_line,
+  'rmx_paint_brush_fill': IconPack.rmx_paint_brush_fill,
+  'rmx_paint_brush_line': IconPack.rmx_paint_brush_line,
+  'rmx_paint_fill': IconPack.rmx_paint_fill,
+  'rmx_paint_line': IconPack.rmx_paint_line,
+  'rmx_palette_fill': IconPack.rmx_palette_fill,
+  'rmx_palette_line': IconPack.rmx_palette_line,
+  'rmx_pantone_fill': IconPack.rmx_pantone_fill,
+  'rmx_pantone_line': IconPack.rmx_pantone_line,
+  'rmx_paragraph': IconPack.rmx_paragraph,
+  'rmx_parent_fill': IconPack.rmx_parent_fill,
+  'rmx_parent_line': IconPack.rmx_parent_line,
+  'rmx_parentheses_fill': IconPack.rmx_parentheses_fill,
+  'rmx_parentheses_line': IconPack.rmx_parentheses_line,
+  'rmx_parking_box_fill': IconPack.rmx_parking_box_fill,
+  'rmx_parking_box_line': IconPack.rmx_parking_box_line,
+  'rmx_parking_fill': IconPack.rmx_parking_fill,
+  'rmx_parking_line': IconPack.rmx_parking_line,
+  'rmx_passport_fill': IconPack.rmx_passport_fill,
+  'rmx_passport_line': IconPack.rmx_passport_line,
+  'rmx_patreon_fill': IconPack.rmx_patreon_fill,
+  'rmx_patreon_line': IconPack.rmx_patreon_line,
+  'rmx_pause_circle_fill': IconPack.rmx_pause_circle_fill,
+  'rmx_pause_circle_line': IconPack.rmx_pause_circle_line,
+  'rmx_pause_fill': IconPack.rmx_pause_fill,
+  'rmx_pause_line': IconPack.rmx_pause_line,
+  'rmx_pause_mini_fill': IconPack.rmx_pause_mini_fill,
+  'rmx_pause_mini_line': IconPack.rmx_pause_mini_line,
+  'rmx_paypal_fill': IconPack.rmx_paypal_fill,
+  'rmx_paypal_line': IconPack.rmx_paypal_line,
+  'rmx_pen_nib_fill': IconPack.rmx_pen_nib_fill,
+  'rmx_pen_nib_line': IconPack.rmx_pen_nib_line,
+  'rmx_pencil_fill': IconPack.rmx_pencil_fill,
+  'rmx_pencil_line': IconPack.rmx_pencil_line,
+  'rmx_pencil_ruler_2_fill': IconPack.rmx_pencil_ruler_2_fill,
+  'rmx_pencil_ruler_2_line': IconPack.rmx_pencil_ruler_2_line,
+  'rmx_pencil_ruler_fill': IconPack.rmx_pencil_ruler_fill,
+  'rmx_pencil_ruler_line': IconPack.rmx_pencil_ruler_line,
+  'rmx_percent_fill': IconPack.rmx_percent_fill,
+  'rmx_percent_line': IconPack.rmx_percent_line,
+  'rmx_phone_camera_fill': IconPack.rmx_phone_camera_fill,
+  'rmx_phone_camera_line': IconPack.rmx_phone_camera_line,
+  'rmx_phone_fill': IconPack.rmx_phone_fill,
+  'rmx_phone_find_fill': IconPack.rmx_phone_find_fill,
+  'rmx_phone_find_line': IconPack.rmx_phone_find_line,
+  'rmx_phone_line': IconPack.rmx_phone_line,
+  'rmx_phone_lock_fill': IconPack.rmx_phone_lock_fill,
+  'rmx_phone_lock_line': IconPack.rmx_phone_lock_line,
+  'rmx_picture_in_picture_2_fill': IconPack.rmx_picture_in_picture_2_fill,
+  'rmx_picture_in_picture_2_line': IconPack.rmx_picture_in_picture_2_line,
+  'rmx_picture_in_picture_exit_fill': IconPack.rmx_picture_in_picture_exit_fill,
+  'rmx_picture_in_picture_exit_line': IconPack.rmx_picture_in_picture_exit_line,
+  'rmx_picture_in_picture_fill': IconPack.rmx_picture_in_picture_fill,
+  'rmx_picture_in_picture_line': IconPack.rmx_picture_in_picture_line,
+  'rmx_pie_chart_2_fill': IconPack.rmx_pie_chart_2_fill,
+  'rmx_pie_chart_2_line': IconPack.rmx_pie_chart_2_line,
+  'rmx_pie_chart_box_fill': IconPack.rmx_pie_chart_box_fill,
+  'rmx_pie_chart_box_line': IconPack.rmx_pie_chart_box_line,
+  'rmx_pie_chart_fill': IconPack.rmx_pie_chart_fill,
+  'rmx_pie_chart_line': IconPack.rmx_pie_chart_line,
+  'rmx_pin_distance_fill': IconPack.rmx_pin_distance_fill,
+  'rmx_pin_distance_line': IconPack.rmx_pin_distance_line,
+  'rmx_ping_pong_fill': IconPack.rmx_ping_pong_fill,
+  'rmx_ping_pong_line': IconPack.rmx_ping_pong_line,
+  'rmx_pinterest_fill': IconPack.rmx_pinterest_fill,
+  'rmx_pinterest_line': IconPack.rmx_pinterest_line,
+  'rmx_pinyin_input': IconPack.rmx_pinyin_input,
+  'rmx_pixelfed_fill': IconPack.rmx_pixelfed_fill,
+  'rmx_pixelfed_line': IconPack.rmx_pixelfed_line,
+  'rmx_plane_fill': IconPack.rmx_plane_fill,
+  'rmx_plane_line': IconPack.rmx_plane_line,
+  'rmx_plant_fill': IconPack.rmx_plant_fill,
+  'rmx_plant_line': IconPack.rmx_plant_line,
+  'rmx_play_circle_fill': IconPack.rmx_play_circle_fill,
+  'rmx_play_circle_line': IconPack.rmx_play_circle_line,
+  'rmx_play_fill': IconPack.rmx_play_fill,
+  'rmx_play_line': IconPack.rmx_play_line,
+  'rmx_play_list_2_fill': IconPack.rmx_play_list_2_fill,
+  'rmx_play_list_2_line': IconPack.rmx_play_list_2_line,
+  'rmx_play_list_add_fill': IconPack.rmx_play_list_add_fill,
+  'rmx_play_list_add_line': IconPack.rmx_play_list_add_line,
+  'rmx_play_list_fill': IconPack.rmx_play_list_fill,
+  'rmx_play_list_line': IconPack.rmx_play_list_line,
+  'rmx_play_mini_fill': IconPack.rmx_play_mini_fill,
+  'rmx_play_mini_line': IconPack.rmx_play_mini_line,
+  'rmx_playstation_fill': IconPack.rmx_playstation_fill,
+  'rmx_playstation_line': IconPack.rmx_playstation_line,
+  'rmx_plug_2_fill': IconPack.rmx_plug_2_fill,
+  'rmx_plug_2_line': IconPack.rmx_plug_2_line,
+  'rmx_plug_fill': IconPack.rmx_plug_fill,
+  'rmx_plug_line': IconPack.rmx_plug_line,
+  'rmx_polaroid_2_fill': IconPack.rmx_polaroid_2_fill,
+  'rmx_polaroid_2_line': IconPack.rmx_polaroid_2_line,
+  'rmx_polaroid_fill': IconPack.rmx_polaroid_fill,
+  'rmx_polaroid_line': IconPack.rmx_polaroid_line,
+  'rmx_police_car_fill': IconPack.rmx_police_car_fill,
+  'rmx_police_car_line': IconPack.rmx_police_car_line,
+  'rmx_price_tag_2_fill': IconPack.rmx_price_tag_2_fill,
+  'rmx_price_tag_2_line': IconPack.rmx_price_tag_2_line,
+  'rmx_price_tag_3_fill': IconPack.rmx_price_tag_3_fill,
+  'rmx_price_tag_3_line': IconPack.rmx_price_tag_3_line,
+  'rmx_price_tag_fill': IconPack.rmx_price_tag_fill,
+  'rmx_price_tag_line': IconPack.rmx_price_tag_line,
+  'rmx_printer_cloud_fill': IconPack.rmx_printer_cloud_fill,
+  'rmx_printer_cloud_line': IconPack.rmx_printer_cloud_line,
+  'rmx_printer_fill': IconPack.rmx_printer_fill,
+  'rmx_printer_line': IconPack.rmx_printer_line,
+  'rmx_product_hunt_fill': IconPack.rmx_product_hunt_fill,
+  'rmx_product_hunt_line': IconPack.rmx_product_hunt_line,
+  'rmx_profile_fill': IconPack.rmx_profile_fill,
+  'rmx_profile_line': IconPack.rmx_profile_line,
+  'rmx_projector_2_fill': IconPack.rmx_projector_2_fill,
+  'rmx_projector_2_line': IconPack.rmx_projector_2_line,
+  'rmx_projector_fill': IconPack.rmx_projector_fill,
+  'rmx_projector_line': IconPack.rmx_projector_line,
+  'rmx_psychotherapy_fill': IconPack.rmx_psychotherapy_fill,
+  'rmx_psychotherapy_line': IconPack.rmx_psychotherapy_line,
+  'rmx_pulse_fill': IconPack.rmx_pulse_fill,
+  'rmx_pulse_line': IconPack.rmx_pulse_line,
+  'rmx_pushpin_2_fill': IconPack.rmx_pushpin_2_fill,
+  'rmx_pushpin_2_line': IconPack.rmx_pushpin_2_line,
+  'rmx_pushpin_fill': IconPack.rmx_pushpin_fill,
+  'rmx_pushpin_line': IconPack.rmx_pushpin_line,
+  'rmx_qq_fill': IconPack.rmx_qq_fill,
+  'rmx_qq_line': IconPack.rmx_qq_line,
+  'rmx_qr_code_fill': IconPack.rmx_qr_code_fill,
+  'rmx_qr_code_line': IconPack.rmx_qr_code_line,
+  'rmx_qr_scan_2_fill': IconPack.rmx_qr_scan_2_fill,
+  'rmx_qr_scan_2_line': IconPack.rmx_qr_scan_2_line,
+  'rmx_qr_scan_fill': IconPack.rmx_qr_scan_fill,
+  'rmx_qr_scan_line': IconPack.rmx_qr_scan_line,
+  'rmx_question_answer_fill': IconPack.rmx_question_answer_fill,
+  'rmx_question_answer_line': IconPack.rmx_question_answer_line,
+  'rmx_question_fill': IconPack.rmx_question_fill,
+  'rmx_question_line': IconPack.rmx_question_line,
+  'rmx_question_mark': IconPack.rmx_question_mark,
+  'rmx_questionnaire_fill': IconPack.rmx_questionnaire_fill,
+  'rmx_questionnaire_line': IconPack.rmx_questionnaire_line,
+  'rmx_quill_pen_fill': IconPack.rmx_quill_pen_fill,
+  'rmx_quill_pen_line': IconPack.rmx_quill_pen_line,
+  'rmx_radar_fill': IconPack.rmx_radar_fill,
+  'rmx_radar_line': IconPack.rmx_radar_line,
+  'rmx_radio_2_fill': IconPack.rmx_radio_2_fill,
+  'rmx_radio_2_line': IconPack.rmx_radio_2_line,
+  'rmx_radio_button_fill': IconPack.rmx_radio_button_fill,
+  'rmx_radio_button_line': IconPack.rmx_radio_button_line,
+  'rmx_radio_fill': IconPack.rmx_radio_fill,
+  'rmx_radio_line': IconPack.rmx_radio_line,
+  'rmx_rainbow_fill': IconPack.rmx_rainbow_fill,
+  'rmx_rainbow_line': IconPack.rmx_rainbow_line,
+  'rmx_rainy_fill': IconPack.rmx_rainy_fill,
+  'rmx_rainy_line': IconPack.rmx_rainy_line,
+  'rmx_reactjs_fill': IconPack.rmx_reactjs_fill,
+  'rmx_reactjs_line': IconPack.rmx_reactjs_line,
+  'rmx_record_circle_fill': IconPack.rmx_record_circle_fill,
+  'rmx_record_circle_line': IconPack.rmx_record_circle_line,
+  'rmx_record_mail_fill': IconPack.rmx_record_mail_fill,
+  'rmx_record_mail_line': IconPack.rmx_record_mail_line,
+  'rmx_recycle_fill': IconPack.rmx_recycle_fill,
+  'rmx_recycle_line': IconPack.rmx_recycle_line,
+  'rmx_red_packet_fill': IconPack.rmx_red_packet_fill,
+  'rmx_red_packet_line': IconPack.rmx_red_packet_line,
+  'rmx_reddit_fill': IconPack.rmx_reddit_fill,
+  'rmx_reddit_line': IconPack.rmx_reddit_line,
+  'rmx_refresh_fill': IconPack.rmx_refresh_fill,
+  'rmx_refresh_line': IconPack.rmx_refresh_line,
+  'rmx_refund_2_fill': IconPack.rmx_refund_2_fill,
+  'rmx_refund_2_line': IconPack.rmx_refund_2_line,
+  'rmx_refund_fill': IconPack.rmx_refund_fill,
+  'rmx_refund_line': IconPack.rmx_refund_line,
+  'rmx_registered_fill': IconPack.rmx_registered_fill,
+  'rmx_registered_line': IconPack.rmx_registered_line,
+  'rmx_remixicon_fill': IconPack.rmx_remixicon_fill,
+  'rmx_remixicon_line': IconPack.rmx_remixicon_line,
+  'rmx_remote_control_2_fill': IconPack.rmx_remote_control_2_fill,
+  'rmx_remote_control_2_line': IconPack.rmx_remote_control_2_line,
+  'rmx_remote_control_fill': IconPack.rmx_remote_control_fill,
+  'rmx_remote_control_line': IconPack.rmx_remote_control_line,
+  'rmx_repeat_2_fill': IconPack.rmx_repeat_2_fill,
+  'rmx_repeat_2_line': IconPack.rmx_repeat_2_line,
+  'rmx_repeat_fill': IconPack.rmx_repeat_fill,
+  'rmx_repeat_line': IconPack.rmx_repeat_line,
+  'rmx_repeat_one_fill': IconPack.rmx_repeat_one_fill,
+  'rmx_repeat_one_line': IconPack.rmx_repeat_one_line,
+  'rmx_reply_all_fill': IconPack.rmx_reply_all_fill,
+  'rmx_reply_all_line': IconPack.rmx_reply_all_line,
+  'rmx_reply_fill': IconPack.rmx_reply_fill,
+  'rmx_reply_line': IconPack.rmx_reply_line,
+  'rmx_reserved_fill': IconPack.rmx_reserved_fill,
+  'rmx_reserved_line': IconPack.rmx_reserved_line,
+  'rmx_rest_time_fill': IconPack.rmx_rest_time_fill,
+  'rmx_rest_time_line': IconPack.rmx_rest_time_line,
+  'rmx_restart_fill': IconPack.rmx_restart_fill,
+  'rmx_restart_line': IconPack.rmx_restart_line,
+  'rmx_restaurant_2_fill': IconPack.rmx_restaurant_2_fill,
+  'rmx_restaurant_2_line': IconPack.rmx_restaurant_2_line,
+  'rmx_restaurant_fill': IconPack.rmx_restaurant_fill,
+  'rmx_restaurant_line': IconPack.rmx_restaurant_line,
+  'rmx_rewind_fill': IconPack.rmx_rewind_fill,
+  'rmx_rewind_line': IconPack.rmx_rewind_line,
+  'rmx_rewind_mini_fill': IconPack.rmx_rewind_mini_fill,
+  'rmx_rewind_mini_line': IconPack.rmx_rewind_mini_line,
+  'rmx_rhythm_fill': IconPack.rmx_rhythm_fill,
+  'rmx_rhythm_line': IconPack.rmx_rhythm_line,
+  'rmx_riding_fill': IconPack.rmx_riding_fill,
+  'rmx_riding_line': IconPack.rmx_riding_line,
+  'rmx_road_map_fill': IconPack.rmx_road_map_fill,
+  'rmx_road_map_line': IconPack.rmx_road_map_line,
+  'rmx_roadster_fill': IconPack.rmx_roadster_fill,
+  'rmx_roadster_line': IconPack.rmx_roadster_line,
+  'rmx_robot_fill': IconPack.rmx_robot_fill,
+  'rmx_robot_line': IconPack.rmx_robot_line,
+  'rmx_rocket_2_fill': IconPack.rmx_rocket_2_fill,
+  'rmx_rocket_2_line': IconPack.rmx_rocket_2_line,
+  'rmx_rocket_fill': IconPack.rmx_rocket_fill,
+  'rmx_rocket_line': IconPack.rmx_rocket_line,
+  'rmx_rotate_lock_fill': IconPack.rmx_rotate_lock_fill,
+  'rmx_rotate_lock_line': IconPack.rmx_rotate_lock_line,
+  'rmx_rounded_corner': IconPack.rmx_rounded_corner,
+  'rmx_route_fill': IconPack.rmx_route_fill,
+  'rmx_route_line': IconPack.rmx_route_line,
+  'rmx_router_fill': IconPack.rmx_router_fill,
+  'rmx_router_line': IconPack.rmx_router_line,
+  'rmx_rss_fill': IconPack.rmx_rss_fill,
+  'rmx_rss_line': IconPack.rmx_rss_line,
+  'rmx_ruler_2_fill': IconPack.rmx_ruler_2_fill,
+  'rmx_ruler_2_line': IconPack.rmx_ruler_2_line,
+  'rmx_ruler_fill': IconPack.rmx_ruler_fill,
+  'rmx_ruler_line': IconPack.rmx_ruler_line,
+  'rmx_run_fill': IconPack.rmx_run_fill,
+  'rmx_run_line': IconPack.rmx_run_line,
+  'rmx_safari_fill': IconPack.rmx_safari_fill,
+  'rmx_safari_line': IconPack.rmx_safari_line,
+  'rmx_safe_2_fill': IconPack.rmx_safe_2_fill,
+  'rmx_safe_2_line': IconPack.rmx_safe_2_line,
+  'rmx_safe_fill': IconPack.rmx_safe_fill,
+  'rmx_safe_line': IconPack.rmx_safe_line,
+  'rmx_sailboat_fill': IconPack.rmx_sailboat_fill,
+  'rmx_sailboat_line': IconPack.rmx_sailboat_line,
+  'rmx_save_2_fill': IconPack.rmx_save_2_fill,
+  'rmx_save_2_line': IconPack.rmx_save_2_line,
+  'rmx_save_3_fill': IconPack.rmx_save_3_fill,
+  'rmx_save_3_line': IconPack.rmx_save_3_line,
+  'rmx_save_fill': IconPack.rmx_save_fill,
+  'rmx_save_line': IconPack.rmx_save_line,
+  'rmx_scales_2_fill': IconPack.rmx_scales_2_fill,
+  'rmx_scales_2_line': IconPack.rmx_scales_2_line,
+  'rmx_scales_3_fill': IconPack.rmx_scales_3_fill,
+  'rmx_scales_3_line': IconPack.rmx_scales_3_line,
+  'rmx_scales_fill': IconPack.rmx_scales_fill,
+  'rmx_scales_line': IconPack.rmx_scales_line,
+  'rmx_scan_2_fill': IconPack.rmx_scan_2_fill,
+  'rmx_scan_2_line': IconPack.rmx_scan_2_line,
+  'rmx_scan_fill': IconPack.rmx_scan_fill,
+  'rmx_scan_line': IconPack.rmx_scan_line,
+  'rmx_scissors_2_fill': IconPack.rmx_scissors_2_fill,
+  'rmx_scissors_2_line': IconPack.rmx_scissors_2_line,
+  'rmx_scissors_cut_fill': IconPack.rmx_scissors_cut_fill,
+  'rmx_scissors_cut_line': IconPack.rmx_scissors_cut_line,
+  'rmx_scissors_fill': IconPack.rmx_scissors_fill,
+  'rmx_scissors_line': IconPack.rmx_scissors_line,
+  'rmx_screenshot_2_fill': IconPack.rmx_screenshot_2_fill,
+  'rmx_screenshot_2_line': IconPack.rmx_screenshot_2_line,
+  'rmx_screenshot_fill': IconPack.rmx_screenshot_fill,
+  'rmx_screenshot_line': IconPack.rmx_screenshot_line,
+  'rmx_sd_card_fill': IconPack.rmx_sd_card_fill,
+  'rmx_sd_card_line': IconPack.rmx_sd_card_line,
+  'rmx_sd_card_mini_fill': IconPack.rmx_sd_card_mini_fill,
+  'rmx_sd_card_mini_line': IconPack.rmx_sd_card_mini_line,
+  'rmx_search_2_fill': IconPack.rmx_search_2_fill,
+  'rmx_search_2_line': IconPack.rmx_search_2_line,
+  'rmx_search_eye_fill': IconPack.rmx_search_eye_fill,
+  'rmx_search_eye_line': IconPack.rmx_search_eye_line,
+  'rmx_search_fill': IconPack.rmx_search_fill,
+  'rmx_search_line': IconPack.rmx_search_line,
+  'rmx_secure_payment_fill': IconPack.rmx_secure_payment_fill,
+  'rmx_secure_payment_line': IconPack.rmx_secure_payment_line,
+  'rmx_seedling_fill': IconPack.rmx_seedling_fill,
+  'rmx_seedling_line': IconPack.rmx_seedling_line,
+  'rmx_send_backward': IconPack.rmx_send_backward,
+  'rmx_send_plane_2_fill': IconPack.rmx_send_plane_2_fill,
+  'rmx_send_plane_2_line': IconPack.rmx_send_plane_2_line,
+  'rmx_send_plane_fill': IconPack.rmx_send_plane_fill,
+  'rmx_send_plane_line': IconPack.rmx_send_plane_line,
+  'rmx_send_to_back': IconPack.rmx_send_to_back,
+  'rmx_sensor_fill': IconPack.rmx_sensor_fill,
+  'rmx_sensor_line': IconPack.rmx_sensor_line,
+  'rmx_separator': IconPack.rmx_separator,
+  'rmx_server_fill': IconPack.rmx_server_fill,
+  'rmx_server_line': IconPack.rmx_server_line,
+  'rmx_service_fill': IconPack.rmx_service_fill,
+  'rmx_service_line': IconPack.rmx_service_line,
+  'rmx_settings_2_fill': IconPack.rmx_settings_2_fill,
+  'rmx_settings_2_line': IconPack.rmx_settings_2_line,
+  'rmx_settings_3_fill': IconPack.rmx_settings_3_fill,
+  'rmx_settings_3_line': IconPack.rmx_settings_3_line,
+  'rmx_settings_4_fill': IconPack.rmx_settings_4_fill,
+  'rmx_settings_4_line': IconPack.rmx_settings_4_line,
+  'rmx_settings_5_fill': IconPack.rmx_settings_5_fill,
+  'rmx_settings_5_line': IconPack.rmx_settings_5_line,
+  'rmx_settings_6_fill': IconPack.rmx_settings_6_fill,
+  'rmx_settings_6_line': IconPack.rmx_settings_6_line,
+  'rmx_settings_fill': IconPack.rmx_settings_fill,
+  'rmx_settings_line': IconPack.rmx_settings_line,
+  'rmx_shape_2_fill': IconPack.rmx_shape_2_fill,
+  'rmx_shape_2_line': IconPack.rmx_shape_2_line,
+  'rmx_shape_fill': IconPack.rmx_shape_fill,
+  'rmx_shape_line': IconPack.rmx_shape_line,
+  'rmx_share_box_fill': IconPack.rmx_share_box_fill,
+  'rmx_share_box_line': IconPack.rmx_share_box_line,
+  'rmx_share_circle_fill': IconPack.rmx_share_circle_fill,
+  'rmx_share_circle_line': IconPack.rmx_share_circle_line,
+  'rmx_share_fill': IconPack.rmx_share_fill,
+  'rmx_share_forward_2_fill': IconPack.rmx_share_forward_2_fill,
+  'rmx_share_forward_2_line': IconPack.rmx_share_forward_2_line,
+  'rmx_share_forward_box_fill': IconPack.rmx_share_forward_box_fill,
+  'rmx_share_forward_box_line': IconPack.rmx_share_forward_box_line,
+  'rmx_share_forward_fill': IconPack.rmx_share_forward_fill,
+  'rmx_share_forward_line': IconPack.rmx_share_forward_line,
+  'rmx_share_line': IconPack.rmx_share_line,
+  'rmx_shield_check_fill': IconPack.rmx_shield_check_fill,
+  'rmx_shield_check_line': IconPack.rmx_shield_check_line,
+  'rmx_shield_cross_fill': IconPack.rmx_shield_cross_fill,
+  'rmx_shield_cross_line': IconPack.rmx_shield_cross_line,
+  'rmx_shield_fill': IconPack.rmx_shield_fill,
+  'rmx_shield_flash_fill': IconPack.rmx_shield_flash_fill,
+  'rmx_shield_flash_line': IconPack.rmx_shield_flash_line,
+  'rmx_shield_keyhole_fill': IconPack.rmx_shield_keyhole_fill,
+  'rmx_shield_keyhole_line': IconPack.rmx_shield_keyhole_line,
+  'rmx_shield_line': IconPack.rmx_shield_line,
+  'rmx_shield_star_fill': IconPack.rmx_shield_star_fill,
+  'rmx_shield_star_line': IconPack.rmx_shield_star_line,
+  'rmx_shield_user_fill': IconPack.rmx_shield_user_fill,
+  'rmx_shield_user_line': IconPack.rmx_shield_user_line,
+  'rmx_ship_2_fill': IconPack.rmx_ship_2_fill,
+  'rmx_ship_2_line': IconPack.rmx_ship_2_line,
+  'rmx_ship_fill': IconPack.rmx_ship_fill,
+  'rmx_ship_line': IconPack.rmx_ship_line,
+  'rmx_shirt_fill': IconPack.rmx_shirt_fill,
+  'rmx_shirt_line': IconPack.rmx_shirt_line,
+  'rmx_shopping_bag_2_fill': IconPack.rmx_shopping_bag_2_fill,
+  'rmx_shopping_bag_2_line': IconPack.rmx_shopping_bag_2_line,
+  'rmx_shopping_bag_3_fill': IconPack.rmx_shopping_bag_3_fill,
+  'rmx_shopping_bag_3_line': IconPack.rmx_shopping_bag_3_line,
+  'rmx_shopping_bag_fill': IconPack.rmx_shopping_bag_fill,
+  'rmx_shopping_bag_line': IconPack.rmx_shopping_bag_line,
+  'rmx_shopping_basket_2_fill': IconPack.rmx_shopping_basket_2_fill,
+  'rmx_shopping_basket_2_line': IconPack.rmx_shopping_basket_2_line,
+  'rmx_shopping_basket_fill': IconPack.rmx_shopping_basket_fill,
+  'rmx_shopping_basket_line': IconPack.rmx_shopping_basket_line,
+  'rmx_shopping_cart_2_fill': IconPack.rmx_shopping_cart_2_fill,
+  'rmx_shopping_cart_2_line': IconPack.rmx_shopping_cart_2_line,
+  'rmx_shopping_cart_fill': IconPack.rmx_shopping_cart_fill,
+  'rmx_shopping_cart_line': IconPack.rmx_shopping_cart_line,
+  'rmx_showers_fill': IconPack.rmx_showers_fill,
+  'rmx_showers_line': IconPack.rmx_showers_line,
+  'rmx_shuffle_fill': IconPack.rmx_shuffle_fill,
+  'rmx_shuffle_line': IconPack.rmx_shuffle_line,
+  'rmx_shut_down_fill': IconPack.rmx_shut_down_fill,
+  'rmx_shut_down_line': IconPack.rmx_shut_down_line,
+  'rmx_side_bar_fill': IconPack.rmx_side_bar_fill,
+  'rmx_side_bar_line': IconPack.rmx_side_bar_line,
+  'rmx_signal_tower_fill': IconPack.rmx_signal_tower_fill,
+  'rmx_signal_tower_line': IconPack.rmx_signal_tower_line,
+  'rmx_signal_wifi_1_fill': IconPack.rmx_signal_wifi_1_fill,
+  'rmx_signal_wifi_1_line': IconPack.rmx_signal_wifi_1_line,
+  'rmx_signal_wifi_2_fill': IconPack.rmx_signal_wifi_2_fill,
+  'rmx_signal_wifi_2_line': IconPack.rmx_signal_wifi_2_line,
+  'rmx_signal_wifi_3_fill': IconPack.rmx_signal_wifi_3_fill,
+  'rmx_signal_wifi_3_line': IconPack.rmx_signal_wifi_3_line,
+  'rmx_signal_wifi_error_fill': IconPack.rmx_signal_wifi_error_fill,
+  'rmx_signal_wifi_error_line': IconPack.rmx_signal_wifi_error_line,
+  'rmx_signal_wifi_fill': IconPack.rmx_signal_wifi_fill,
+  'rmx_signal_wifi_line': IconPack.rmx_signal_wifi_line,
+  'rmx_signal_wifi_off_fill': IconPack.rmx_signal_wifi_off_fill,
+  'rmx_signal_wifi_off_line': IconPack.rmx_signal_wifi_off_line,
+  'rmx_sim_card_2_fill': IconPack.rmx_sim_card_2_fill,
+  'rmx_sim_card_2_line': IconPack.rmx_sim_card_2_line,
+  'rmx_sim_card_fill': IconPack.rmx_sim_card_fill,
+  'rmx_sim_card_line': IconPack.rmx_sim_card_line,
+  'rmx_single_quotes_l': IconPack.rmx_single_quotes_l,
+  'rmx_single_quotes_r': IconPack.rmx_single_quotes_r,
+  'rmx_sip_fill': IconPack.rmx_sip_fill,
+  'rmx_sip_line': IconPack.rmx_sip_line,
+  'rmx_skip_back_fill': IconPack.rmx_skip_back_fill,
+  'rmx_skip_back_line': IconPack.rmx_skip_back_line,
+  'rmx_skip_back_mini_fill': IconPack.rmx_skip_back_mini_fill,
+  'rmx_skip_back_mini_line': IconPack.rmx_skip_back_mini_line,
+  'rmx_skip_forward_fill': IconPack.rmx_skip_forward_fill,
+  'rmx_skip_forward_line': IconPack.rmx_skip_forward_line,
+  'rmx_skip_forward_mini_fill': IconPack.rmx_skip_forward_mini_fill,
+  'rmx_skip_forward_mini_line': IconPack.rmx_skip_forward_mini_line,
+  'rmx_skull_2_fill': IconPack.rmx_skull_2_fill,
+  'rmx_skull_2_line': IconPack.rmx_skull_2_line,
+  'rmx_skull_fill': IconPack.rmx_skull_fill,
+  'rmx_skull_line': IconPack.rmx_skull_line,
+  'rmx_skype_fill': IconPack.rmx_skype_fill,
+  'rmx_skype_line': IconPack.rmx_skype_line,
+  'rmx_slack_fill': IconPack.rmx_slack_fill,
+  'rmx_slack_line': IconPack.rmx_slack_line,
+  'rmx_slice_fill': IconPack.rmx_slice_fill,
+  'rmx_slice_line': IconPack.rmx_slice_line,
+  'rmx_slideshow_2_fill': IconPack.rmx_slideshow_2_fill,
+  'rmx_slideshow_2_line': IconPack.rmx_slideshow_2_line,
+  'rmx_slideshow_3_fill': IconPack.rmx_slideshow_3_fill,
+  'rmx_slideshow_3_line': IconPack.rmx_slideshow_3_line,
+  'rmx_slideshow_4_fill': IconPack.rmx_slideshow_4_fill,
+  'rmx_slideshow_4_line': IconPack.rmx_slideshow_4_line,
+  'rmx_slideshow_fill': IconPack.rmx_slideshow_fill,
+  'rmx_slideshow_line': IconPack.rmx_slideshow_line,
+  'rmx_smartphone_fill': IconPack.rmx_smartphone_fill,
+  'rmx_smartphone_line': IconPack.rmx_smartphone_line,
+  'rmx_snapchat_fill': IconPack.rmx_snapchat_fill,
+  'rmx_snapchat_line': IconPack.rmx_snapchat_line,
+  'rmx_snowy_fill': IconPack.rmx_snowy_fill,
+  'rmx_snowy_line': IconPack.rmx_snowy_line,
+  'rmx_sort_asc': IconPack.rmx_sort_asc,
+  'rmx_sort_desc': IconPack.rmx_sort_desc,
+  'rmx_sound_module_fill': IconPack.rmx_sound_module_fill,
+  'rmx_sound_module_line': IconPack.rmx_sound_module_line,
+  'rmx_soundcloud_fill': IconPack.rmx_soundcloud_fill,
+  'rmx_soundcloud_line': IconPack.rmx_soundcloud_line,
+  'rmx_space': IconPack.rmx_space,
+  'rmx_space_ship_fill': IconPack.rmx_space_ship_fill,
+  'rmx_space_ship_line': IconPack.rmx_space_ship_line,
+  'rmx_spam_2_fill': IconPack.rmx_spam_2_fill,
+  'rmx_spam_2_line': IconPack.rmx_spam_2_line,
+  'rmx_spam_3_fill': IconPack.rmx_spam_3_fill,
+  'rmx_spam_3_line': IconPack.rmx_spam_3_line,
+  'rmx_spam_fill': IconPack.rmx_spam_fill,
+  'rmx_spam_line': IconPack.rmx_spam_line,
+  'rmx_speaker_2_fill': IconPack.rmx_speaker_2_fill,
+  'rmx_speaker_2_line': IconPack.rmx_speaker_2_line,
+  'rmx_speaker_3_fill': IconPack.rmx_speaker_3_fill,
+  'rmx_speaker_3_line': IconPack.rmx_speaker_3_line,
+  'rmx_speaker_fill': IconPack.rmx_speaker_fill,
+  'rmx_speaker_line': IconPack.rmx_speaker_line,
+  'rmx_spectrum_fill': IconPack.rmx_spectrum_fill,
+  'rmx_spectrum_line': IconPack.rmx_spectrum_line,
+  'rmx_speed_fill': IconPack.rmx_speed_fill,
+  'rmx_speed_line': IconPack.rmx_speed_line,
+  'rmx_speed_mini_fill': IconPack.rmx_speed_mini_fill,
+  'rmx_speed_mini_line': IconPack.rmx_speed_mini_line,
+  'rmx_split_cells_horizontal': IconPack.rmx_split_cells_horizontal,
+  'rmx_split_cells_vertical': IconPack.rmx_split_cells_vertical,
+  'rmx_spotify_fill': IconPack.rmx_spotify_fill,
+  'rmx_spotify_line': IconPack.rmx_spotify_line,
+  'rmx_spy_fill': IconPack.rmx_spy_fill,
+  'rmx_spy_line': IconPack.rmx_spy_line,
+  'rmx_stack_fill': IconPack.rmx_stack_fill,
+  'rmx_stack_line': IconPack.rmx_stack_line,
+  'rmx_stack_overflow_fill': IconPack.rmx_stack_overflow_fill,
+  'rmx_stack_overflow_line': IconPack.rmx_stack_overflow_line,
+  'rmx_stackshare_fill': IconPack.rmx_stackshare_fill,
+  'rmx_stackshare_line': IconPack.rmx_stackshare_line,
+  'rmx_star_fill': IconPack.rmx_star_fill,
+  'rmx_star_half_fill': IconPack.rmx_star_half_fill,
+  'rmx_star_half_line': IconPack.rmx_star_half_line,
+  'rmx_star_half_s_fill': IconPack.rmx_star_half_s_fill,
+  'rmx_star_half_s_line': IconPack.rmx_star_half_s_line,
+  'rmx_star_line': IconPack.rmx_star_line,
+  'rmx_star_s_fill': IconPack.rmx_star_s_fill,
+  'rmx_star_s_line': IconPack.rmx_star_s_line,
+  'rmx_star_smile_fill': IconPack.rmx_star_smile_fill,
+  'rmx_star_smile_line': IconPack.rmx_star_smile_line,
+  'rmx_steam_fill': IconPack.rmx_steam_fill,
+  'rmx_steam_line': IconPack.rmx_steam_line,
+  'rmx_steering_2_fill': IconPack.rmx_steering_2_fill,
+  'rmx_steering_2_line': IconPack.rmx_steering_2_line,
+  'rmx_steering_fill': IconPack.rmx_steering_fill,
+  'rmx_steering_line': IconPack.rmx_steering_line,
+  'rmx_stethoscope_fill': IconPack.rmx_stethoscope_fill,
+  'rmx_stethoscope_line': IconPack.rmx_stethoscope_line,
+  'rmx_sticky_note_2_fill': IconPack.rmx_sticky_note_2_fill,
+  'rmx_sticky_note_2_line': IconPack.rmx_sticky_note_2_line,
+  'rmx_sticky_note_fill': IconPack.rmx_sticky_note_fill,
+  'rmx_sticky_note_line': IconPack.rmx_sticky_note_line,
+  'rmx_stock_fill': IconPack.rmx_stock_fill,
+  'rmx_stock_line': IconPack.rmx_stock_line,
+  'rmx_stop_circle_fill': IconPack.rmx_stop_circle_fill,
+  'rmx_stop_circle_line': IconPack.rmx_stop_circle_line,
+  'rmx_stop_fill': IconPack.rmx_stop_fill,
+  'rmx_stop_line': IconPack.rmx_stop_line,
+  'rmx_stop_mini_fill': IconPack.rmx_stop_mini_fill,
+  'rmx_stop_mini_line': IconPack.rmx_stop_mini_line,
+  'rmx_store_2_fill': IconPack.rmx_store_2_fill,
+  'rmx_store_2_line': IconPack.rmx_store_2_line,
+  'rmx_store_3_fill': IconPack.rmx_store_3_fill,
+  'rmx_store_3_line': IconPack.rmx_store_3_line,
+  'rmx_store_fill': IconPack.rmx_store_fill,
+  'rmx_store_line': IconPack.rmx_store_line,
+  'rmx_strikethrough': IconPack.rmx_strikethrough,
+  'rmx_strikethrough_2': IconPack.rmx_strikethrough_2,
+  'rmx_subscript': IconPack.rmx_subscript,
+  'rmx_subscript_2': IconPack.rmx_subscript_2,
+  'rmx_subtract_fill': IconPack.rmx_subtract_fill,
+  'rmx_subtract_line': IconPack.rmx_subtract_line,
+  'rmx_subway_fill': IconPack.rmx_subway_fill,
+  'rmx_subway_line': IconPack.rmx_subway_line,
+  'rmx_subway_wifi_fill': IconPack.rmx_subway_wifi_fill,
+  'rmx_subway_wifi_line': IconPack.rmx_subway_wifi_line,
+  'rmx_suitcase_2_fill': IconPack.rmx_suitcase_2_fill,
+  'rmx_suitcase_2_line': IconPack.rmx_suitcase_2_line,
+  'rmx_suitcase_3_fill': IconPack.rmx_suitcase_3_fill,
+  'rmx_suitcase_3_line': IconPack.rmx_suitcase_3_line,
+  'rmx_suitcase_fill': IconPack.rmx_suitcase_fill,
+  'rmx_suitcase_line': IconPack.rmx_suitcase_line,
+  'rmx_sun_cloudy_fill': IconPack.rmx_sun_cloudy_fill,
+  'rmx_sun_cloudy_line': IconPack.rmx_sun_cloudy_line,
+  'rmx_sun_fill': IconPack.rmx_sun_fill,
+  'rmx_sun_foggy_fill': IconPack.rmx_sun_foggy_fill,
+  'rmx_sun_foggy_line': IconPack.rmx_sun_foggy_line,
+  'rmx_sun_line': IconPack.rmx_sun_line,
+  'rmx_superscript': IconPack.rmx_superscript,
+  'rmx_superscript_2': IconPack.rmx_superscript_2,
+  'rmx_surgical_mask_fill': IconPack.rmx_surgical_mask_fill,
+  'rmx_surgical_mask_line': IconPack.rmx_surgical_mask_line,
+  'rmx_surround_sound_fill': IconPack.rmx_surround_sound_fill,
+  'rmx_surround_sound_line': IconPack.rmx_surround_sound_line,
+  'rmx_survey_fill': IconPack.rmx_survey_fill,
+  'rmx_survey_line': IconPack.rmx_survey_line,
+  'rmx_swap_box_fill': IconPack.rmx_swap_box_fill,
+  'rmx_swap_box_line': IconPack.rmx_swap_box_line,
+  'rmx_swap_fill': IconPack.rmx_swap_fill,
+  'rmx_swap_line': IconPack.rmx_swap_line,
+  'rmx_switch_fill': IconPack.rmx_switch_fill,
+  'rmx_switch_line': IconPack.rmx_switch_line,
+  'rmx_sword_fill': IconPack.rmx_sword_fill,
+  'rmx_sword_line': IconPack.rmx_sword_line,
+  'rmx_syringe_fill': IconPack.rmx_syringe_fill,
+  'rmx_syringe_line': IconPack.rmx_syringe_line,
+  'rmx_t_box_fill': IconPack.rmx_t_box_fill,
+  'rmx_t_box_line': IconPack.rmx_t_box_line,
+  'rmx_t_shirt_2_fill': IconPack.rmx_t_shirt_2_fill,
+  'rmx_t_shirt_2_line': IconPack.rmx_t_shirt_2_line,
+  'rmx_t_shirt_air_fill': IconPack.rmx_t_shirt_air_fill,
+  'rmx_t_shirt_air_line': IconPack.rmx_t_shirt_air_line,
+  'rmx_t_shirt_fill': IconPack.rmx_t_shirt_fill,
+  'rmx_t_shirt_line': IconPack.rmx_t_shirt_line,
+  'rmx_table_2': IconPack.rmx_table_2,
+  'rmx_table_alt_fill': IconPack.rmx_table_alt_fill,
+  'rmx_table_alt_line': IconPack.rmx_table_alt_line,
+  'rmx_table_fill': IconPack.rmx_table_fill,
+  'rmx_table_line': IconPack.rmx_table_line,
+  'rmx_tablet_fill': IconPack.rmx_tablet_fill,
+  'rmx_tablet_line': IconPack.rmx_tablet_line,
+  'rmx_takeaway_fill': IconPack.rmx_takeaway_fill,
+  'rmx_takeaway_line': IconPack.rmx_takeaway_line,
+  'rmx_taobao_fill': IconPack.rmx_taobao_fill,
+  'rmx_taobao_line': IconPack.rmx_taobao_line,
+  'rmx_tape_fill': IconPack.rmx_tape_fill,
+  'rmx_tape_line': IconPack.rmx_tape_line,
+  'rmx_task_fill': IconPack.rmx_task_fill,
+  'rmx_task_line': IconPack.rmx_task_line,
+  'rmx_taxi_fill': IconPack.rmx_taxi_fill,
+  'rmx_taxi_line': IconPack.rmx_taxi_line,
+  'rmx_taxi_wifi_fill': IconPack.rmx_taxi_wifi_fill,
+  'rmx_taxi_wifi_line': IconPack.rmx_taxi_wifi_line,
+  'rmx_team_fill': IconPack.rmx_team_fill,
+  'rmx_team_line': IconPack.rmx_team_line,
+  'rmx_telegram_fill': IconPack.rmx_telegram_fill,
+  'rmx_telegram_line': IconPack.rmx_telegram_line,
+  'rmx_temp_cold_fill': IconPack.rmx_temp_cold_fill,
+  'rmx_temp_cold_line': IconPack.rmx_temp_cold_line,
+  'rmx_temp_hot_fill': IconPack.rmx_temp_hot_fill,
+  'rmx_temp_hot_line': IconPack.rmx_temp_hot_line,
+  'rmx_terminal_box_fill': IconPack.rmx_terminal_box_fill,
+  'rmx_terminal_box_line': IconPack.rmx_terminal_box_line,
+  'rmx_terminal_fill': IconPack.rmx_terminal_fill,
+  'rmx_terminal_line': IconPack.rmx_terminal_line,
+  'rmx_terminal_window_fill': IconPack.rmx_terminal_window_fill,
+  'rmx_terminal_window_line': IconPack.rmx_terminal_window_line,
+  'rmx_test_tube_fill': IconPack.rmx_test_tube_fill,
+  'rmx_test_tube_line': IconPack.rmx_test_tube_line,
+  'rmx_text': IconPack.rmx_text,
+  'rmx_text_direction_l': IconPack.rmx_text_direction_l,
+  'rmx_text_direction_r': IconPack.rmx_text_direction_r,
+  'rmx_text_spacing': IconPack.rmx_text_spacing,
+  'rmx_text_wrap': IconPack.rmx_text_wrap,
+  'rmx_thermometer_fill': IconPack.rmx_thermometer_fill,
+  'rmx_thermometer_line': IconPack.rmx_thermometer_line,
+  'rmx_thumb_down_fill': IconPack.rmx_thumb_down_fill,
+  'rmx_thumb_down_line': IconPack.rmx_thumb_down_line,
+  'rmx_thumb_up_fill': IconPack.rmx_thumb_up_fill,
+  'rmx_thumb_up_line': IconPack.rmx_thumb_up_line,
+  'rmx_thunderstorms_fill': IconPack.rmx_thunderstorms_fill,
+  'rmx_thunderstorms_line': IconPack.rmx_thunderstorms_line,
+  'rmx_ticket_2_fill': IconPack.rmx_ticket_2_fill,
+  'rmx_ticket_2_line': IconPack.rmx_ticket_2_line,
+  'rmx_ticket_fill': IconPack.rmx_ticket_fill,
+  'rmx_ticket_line': IconPack.rmx_ticket_line,
+  'rmx_time_fill': IconPack.rmx_time_fill,
+  'rmx_time_line': IconPack.rmx_time_line,
+  'rmx_timer_2_fill': IconPack.rmx_timer_2_fill,
+  'rmx_timer_2_line': IconPack.rmx_timer_2_line,
+  'rmx_timer_fill': IconPack.rmx_timer_fill,
+  'rmx_timer_flash_fill': IconPack.rmx_timer_flash_fill,
+  'rmx_timer_flash_line': IconPack.rmx_timer_flash_line,
+  'rmx_timer_line': IconPack.rmx_timer_line,
+  'rmx_todo_fill': IconPack.rmx_todo_fill,
+  'rmx_todo_line': IconPack.rmx_todo_line,
+  'rmx_toggle_fill': IconPack.rmx_toggle_fill,
+  'rmx_toggle_line': IconPack.rmx_toggle_line,
+  'rmx_tools_fill': IconPack.rmx_tools_fill,
+  'rmx_tools_line': IconPack.rmx_tools_line,
+  'rmx_tornado_fill': IconPack.rmx_tornado_fill,
+  'rmx_tornado_line': IconPack.rmx_tornado_line,
+  'rmx_trademark_fill': IconPack.rmx_trademark_fill,
+  'rmx_trademark_line': IconPack.rmx_trademark_line,
+  'rmx_traffic_light_fill': IconPack.rmx_traffic_light_fill,
+  'rmx_traffic_light_line': IconPack.rmx_traffic_light_line,
+  'rmx_train_fill': IconPack.rmx_train_fill,
+  'rmx_train_line': IconPack.rmx_train_line,
+  'rmx_train_wifi_fill': IconPack.rmx_train_wifi_fill,
+  'rmx_train_wifi_line': IconPack.rmx_train_wifi_line,
+  'rmx_translate': IconPack.rmx_translate,
+  'rmx_translate_2': IconPack.rmx_translate_2,
+  'rmx_travesti_fill': IconPack.rmx_travesti_fill,
+  'rmx_travesti_line': IconPack.rmx_travesti_line,
+  'rmx_treasure_map_fill': IconPack.rmx_treasure_map_fill,
+  'rmx_treasure_map_line': IconPack.rmx_treasure_map_line,
+  'rmx_trello_fill': IconPack.rmx_trello_fill,
+  'rmx_trello_line': IconPack.rmx_trello_line,
+  'rmx_trophy_fill': IconPack.rmx_trophy_fill,
+  'rmx_trophy_line': IconPack.rmx_trophy_line,
+  'rmx_truck_fill': IconPack.rmx_truck_fill,
+  'rmx_truck_line': IconPack.rmx_truck_line,
+  'rmx_tumblr_fill': IconPack.rmx_tumblr_fill,
+  'rmx_tumblr_line': IconPack.rmx_tumblr_line,
+  'rmx_tv_2_fill': IconPack.rmx_tv_2_fill,
+  'rmx_tv_2_line': IconPack.rmx_tv_2_line,
+  'rmx_tv_fill': IconPack.rmx_tv_fill,
+  'rmx_tv_line': IconPack.rmx_tv_line,
+  'rmx_twitch_fill': IconPack.rmx_twitch_fill,
+  'rmx_twitch_line': IconPack.rmx_twitch_line,
+  'rmx_twitter_fill': IconPack.rmx_twitter_fill,
+  'rmx_twitter_line': IconPack.rmx_twitter_line,
+  'rmx_typhoon_fill': IconPack.rmx_typhoon_fill,
+  'rmx_typhoon_line': IconPack.rmx_typhoon_line,
+  'rmx_u_disk_fill': IconPack.rmx_u_disk_fill,
+  'rmx_u_disk_line': IconPack.rmx_u_disk_line,
+  'rmx_ubuntu_fill': IconPack.rmx_ubuntu_fill,
+  'rmx_ubuntu_line': IconPack.rmx_ubuntu_line,
+  'rmx_umbrella_fill': IconPack.rmx_umbrella_fill,
+  'rmx_umbrella_line': IconPack.rmx_umbrella_line,
+  'rmx_underline': IconPack.rmx_underline,
+  'rmx_uninstall_fill': IconPack.rmx_uninstall_fill,
+  'rmx_uninstall_line': IconPack.rmx_uninstall_line,
+  'rmx_unsplash_fill': IconPack.rmx_unsplash_fill,
+  'rmx_unsplash_line': IconPack.rmx_unsplash_line,
+  'rmx_upload_2_fill': IconPack.rmx_upload_2_fill,
+  'rmx_upload_2_line': IconPack.rmx_upload_2_line,
+  'rmx_upload_cloud_2_fill': IconPack.rmx_upload_cloud_2_fill,
+  'rmx_upload_cloud_2_line': IconPack.rmx_upload_cloud_2_line,
+  'rmx_upload_cloud_fill': IconPack.rmx_upload_cloud_fill,
+  'rmx_upload_cloud_line': IconPack.rmx_upload_cloud_line,
+  'rmx_upload_fill': IconPack.rmx_upload_fill,
+  'rmx_upload_line': IconPack.rmx_upload_line,
+  'rmx_usb_fill': IconPack.rmx_usb_fill,
+  'rmx_usb_line': IconPack.rmx_usb_line,
+  'rmx_user_2_fill': IconPack.rmx_user_2_fill,
+  'rmx_user_2_line': IconPack.rmx_user_2_line,
+  'rmx_user_3_fill': IconPack.rmx_user_3_fill,
+  'rmx_user_3_line': IconPack.rmx_user_3_line,
+  'rmx_user_4_fill': IconPack.rmx_user_4_fill,
+  'rmx_user_4_line': IconPack.rmx_user_4_line,
+  'rmx_user_5_fill': IconPack.rmx_user_5_fill,
+  'rmx_user_5_line': IconPack.rmx_user_5_line,
+  'rmx_user_6_fill': IconPack.rmx_user_6_fill,
+  'rmx_user_6_line': IconPack.rmx_user_6_line,
+  'rmx_user_add_fill': IconPack.rmx_user_add_fill,
+  'rmx_user_add_line': IconPack.rmx_user_add_line,
+  'rmx_user_fill': IconPack.rmx_user_fill,
+  'rmx_user_follow_fill': IconPack.rmx_user_follow_fill,
+  'rmx_user_follow_line': IconPack.rmx_user_follow_line,
+  'rmx_user_heart_fill': IconPack.rmx_user_heart_fill,
+  'rmx_user_heart_line': IconPack.rmx_user_heart_line,
+  'rmx_user_line': IconPack.rmx_user_line,
+  'rmx_user_location_fill': IconPack.rmx_user_location_fill,
+  'rmx_user_location_line': IconPack.rmx_user_location_line,
+  'rmx_user_received_2_fill': IconPack.rmx_user_received_2_fill,
+  'rmx_user_received_2_line': IconPack.rmx_user_received_2_line,
+  'rmx_user_received_fill': IconPack.rmx_user_received_fill,
+  'rmx_user_received_line': IconPack.rmx_user_received_line,
+  'rmx_user_search_fill': IconPack.rmx_user_search_fill,
+  'rmx_user_search_line': IconPack.rmx_user_search_line,
+  'rmx_user_settings_fill': IconPack.rmx_user_settings_fill,
+  'rmx_user_settings_line': IconPack.rmx_user_settings_line,
+  'rmx_user_shared_2_fill': IconPack.rmx_user_shared_2_fill,
+  'rmx_user_shared_2_line': IconPack.rmx_user_shared_2_line,
+  'rmx_user_shared_fill': IconPack.rmx_user_shared_fill,
+  'rmx_user_shared_line': IconPack.rmx_user_shared_line,
+  'rmx_user_smile_fill': IconPack.rmx_user_smile_fill,
+  'rmx_user_smile_line': IconPack.rmx_user_smile_line,
+  'rmx_user_star_fill': IconPack.rmx_user_star_fill,
+  'rmx_user_star_line': IconPack.rmx_user_star_line,
+  'rmx_user_unfollow_fill': IconPack.rmx_user_unfollow_fill,
+  'rmx_user_unfollow_line': IconPack.rmx_user_unfollow_line,
+  'rmx_user_voice_fill': IconPack.rmx_user_voice_fill,
+  'rmx_user_voice_line': IconPack.rmx_user_voice_line,
+  'rmx_video_add_fill': IconPack.rmx_video_add_fill,
+  'rmx_video_add_line': IconPack.rmx_video_add_line,
+  'rmx_video_chat_fill': IconPack.rmx_video_chat_fill,
+  'rmx_video_chat_line': IconPack.rmx_video_chat_line,
+  'rmx_video_download_fill': IconPack.rmx_video_download_fill,
+  'rmx_video_download_line': IconPack.rmx_video_download_line,
+  'rmx_video_fill': IconPack.rmx_video_fill,
+  'rmx_video_line': IconPack.rmx_video_line,
+  'rmx_video_upload_fill': IconPack.rmx_video_upload_fill,
+  'rmx_video_upload_line': IconPack.rmx_video_upload_line,
+  'rmx_vidicon_2_fill': IconPack.rmx_vidicon_2_fill,
+  'rmx_vidicon_2_line': IconPack.rmx_vidicon_2_line,
+  'rmx_vidicon_fill': IconPack.rmx_vidicon_fill,
+  'rmx_vidicon_line': IconPack.rmx_vidicon_line,
+  'rmx_vimeo_fill': IconPack.rmx_vimeo_fill,
+  'rmx_vimeo_line': IconPack.rmx_vimeo_line,
+  'rmx_vip_crown_2_fill': IconPack.rmx_vip_crown_2_fill,
+  'rmx_vip_crown_2_line': IconPack.rmx_vip_crown_2_line,
+  'rmx_vip_crown_fill': IconPack.rmx_vip_crown_fill,
+  'rmx_vip_crown_line': IconPack.rmx_vip_crown_line,
+  'rmx_vip_diamond_fill': IconPack.rmx_vip_diamond_fill,
+  'rmx_vip_diamond_line': IconPack.rmx_vip_diamond_line,
+  'rmx_vip_fill': IconPack.rmx_vip_fill,
+  'rmx_vip_line': IconPack.rmx_vip_line,
+  'rmx_virus_fill': IconPack.rmx_virus_fill,
+  'rmx_virus_line': IconPack.rmx_virus_line,
+  'rmx_visa_fill': IconPack.rmx_visa_fill,
+  'rmx_visa_line': IconPack.rmx_visa_line,
+  'rmx_voice_recognition_fill': IconPack.rmx_voice_recognition_fill,
+  'rmx_voice_recognition_line': IconPack.rmx_voice_recognition_line,
+  'rmx_voiceprint_fill': IconPack.rmx_voiceprint_fill,
+  'rmx_voiceprint_line': IconPack.rmx_voiceprint_line,
+  'rmx_volume_down_fill': IconPack.rmx_volume_down_fill,
+  'rmx_volume_down_line': IconPack.rmx_volume_down_line,
+  'rmx_volume_mute_fill': IconPack.rmx_volume_mute_fill,
+  'rmx_volume_mute_line': IconPack.rmx_volume_mute_line,
+  'rmx_volume_off_vibrate_fill': IconPack.rmx_volume_off_vibrate_fill,
+  'rmx_volume_off_vibrate_line': IconPack.rmx_volume_off_vibrate_line,
+  'rmx_volume_up_fill': IconPack.rmx_volume_up_fill,
+  'rmx_volume_up_line': IconPack.rmx_volume_up_line,
+  'rmx_volume_vibrate_fill': IconPack.rmx_volume_vibrate_fill,
+  'rmx_volume_vibrate_line': IconPack.rmx_volume_vibrate_line,
+  'rmx_vuejs_fill': IconPack.rmx_vuejs_fill,
+  'rmx_vuejs_line': IconPack.rmx_vuejs_line,
+  'rmx_walk_fill': IconPack.rmx_walk_fill,
+  'rmx_walk_line': IconPack.rmx_walk_line,
+  'rmx_wallet_2_fill': IconPack.rmx_wallet_2_fill,
+  'rmx_wallet_2_line': IconPack.rmx_wallet_2_line,
+  'rmx_wallet_3_fill': IconPack.rmx_wallet_3_fill,
+  'rmx_wallet_3_line': IconPack.rmx_wallet_3_line,
+  'rmx_wallet_fill': IconPack.rmx_wallet_fill,
+  'rmx_wallet_line': IconPack.rmx_wallet_line,
+  'rmx_water_flash_fill': IconPack.rmx_water_flash_fill,
+  'rmx_water_flash_line': IconPack.rmx_water_flash_line,
+  'rmx_webcam_fill': IconPack.rmx_webcam_fill,
+  'rmx_webcam_line': IconPack.rmx_webcam_line,
+  'rmx_wechat_2_fill': IconPack.rmx_wechat_2_fill,
+  'rmx_wechat_2_line': IconPack.rmx_wechat_2_line,
+  'rmx_wechat_fill': IconPack.rmx_wechat_fill,
+  'rmx_wechat_line': IconPack.rmx_wechat_line,
+  'rmx_wechat_pay_fill': IconPack.rmx_wechat_pay_fill,
+  'rmx_wechat_pay_line': IconPack.rmx_wechat_pay_line,
+  'rmx_weibo_fill': IconPack.rmx_weibo_fill,
+  'rmx_weibo_line': IconPack.rmx_weibo_line,
+  'rmx_whatsapp_fill': IconPack.rmx_whatsapp_fill,
+  'rmx_whatsapp_line': IconPack.rmx_whatsapp_line,
+  'rmx_wheelchair_fill': IconPack.rmx_wheelchair_fill,
+  'rmx_wheelchair_line': IconPack.rmx_wheelchair_line,
+  'rmx_wifi_fill': IconPack.rmx_wifi_fill,
+  'rmx_wifi_line': IconPack.rmx_wifi_line,
+  'rmx_wifi_off_fill': IconPack.rmx_wifi_off_fill,
+  'rmx_wifi_off_line': IconPack.rmx_wifi_off_line,
+  'rmx_window_2_fill': IconPack.rmx_window_2_fill,
+  'rmx_window_2_line': IconPack.rmx_window_2_line,
+  'rmx_window_fill': IconPack.rmx_window_fill,
+  'rmx_window_line': IconPack.rmx_window_line,
+  'rmx_windows_fill': IconPack.rmx_windows_fill,
+  'rmx_windows_line': IconPack.rmx_windows_line,
+  'rmx_windy_fill': IconPack.rmx_windy_fill,
+  'rmx_windy_line': IconPack.rmx_windy_line,
+  'rmx_wireless_charging_fill': IconPack.rmx_wireless_charging_fill,
+  'rmx_wireless_charging_line': IconPack.rmx_wireless_charging_line,
+  'rmx_women_fill': IconPack.rmx_women_fill,
+  'rmx_women_line': IconPack.rmx_women_line,
+  'rmx_wubi_input': IconPack.rmx_wubi_input,
+  'rmx_xbox_fill': IconPack.rmx_xbox_fill,
+  'rmx_xbox_line': IconPack.rmx_xbox_line,
+  'rmx_xing_fill': IconPack.rmx_xing_fill,
+  'rmx_xing_line': IconPack.rmx_xing_line,
+  'rmx_youtube_fill': IconPack.rmx_youtube_fill,
+  'rmx_youtube_line': IconPack.rmx_youtube_line,
+  'rmx_zcool_fill': IconPack.rmx_zcool_fill,
+  'rmx_zcool_line': IconPack.rmx_zcool_line,
+  'rmx_zhihu_fill': IconPack.rmx_zhihu_fill,
+  'rmx_zhihu_line': IconPack.rmx_zhihu_line,
+  'rmx_zoom_in_fill': IconPack.rmx_zoom_in_fill,
+  'rmx_zoom_in_line': IconPack.rmx_zoom_in_line,
+  'rmx_zoom_out_fill': IconPack.rmx_zoom_out_fill,
+  'rmx_zoom_out_line': IconPack.rmx_zoom_out_line,
+  'rmx_zzz_fill': IconPack.rmx_zzz_fill,
+  'rmx_zzz_line': IconPack.rmx_zzz_line,
 };

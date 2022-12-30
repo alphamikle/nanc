@@ -8,7 +8,7 @@ import 'package:rich_renderer/src/tag_renderer.dart';
 
 TagRenderer imageRenderer() {
   return TagRenderer(
-    icon: IconPack.box_image,
+    icon: IconPack.flu_image_filled,
     tag: 'image',
     pattern: RegExp(r'<image.*/>'),
     endPattern: null,

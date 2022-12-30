@@ -5,7 +5,7 @@ import 'package:rich_renderer/rich_renderer.dart';
 
 TagRenderer defaultElementsRenderer() {
   return TagRenderer(
-    icon: IconPack.box_code_alt,
+    icon: IconPack.mdi_language_markdown,
     tag: 'markdown',
     pattern: RegExp(''),
     endPattern: null,

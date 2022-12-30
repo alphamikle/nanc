@@ -10,7 +10,7 @@ const String kHashAttribute = r'_$componentDataHash';
 
 TagRenderer componentRenderer() {
   return TagRenderer(
-    icon: IconPack.box_component,
+    icon: IconPack.mdi_widgets_outline,
     tag: 'component',
     // TODO(alphamikle): Components should be of both types - single line and multiline tags
     pattern: RegExp(r'<component.*/>'),

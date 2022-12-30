@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
   material_design_icons_flutter: ^6.0.7096
   fluentui_system_icons: ^1.1.184
-  flutter_boxicons: ^3.0.0
+  remixicon: ^1.0.0
 
 dev_dependencies:
   flutter_test:
