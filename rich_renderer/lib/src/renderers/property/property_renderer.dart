@@ -28,13 +28,14 @@ import 'package:tools/tools.dart';
 List<Property> properties() => [
       Property(alignment),
       Property(padding),
-      Property.children(decoration),
+      Property(minimum),
+      Property.withChildren(decoration),
       Property(borderRadius),
       Property(border),
       Property(shadow),
       Property(color),
       Property(stop),
-      Property.children(gradient),
+      Property.withChildren(gradient),
       Property(textStyle),
       // TODO(alphamikle): Add new properties here
     ];
@@ -51,7 +52,7 @@ Future<TagRendererFactory> propertyToRenderer(Property property) async {
   final String name = property.name;
   final bool haveChildren = property.haveChildren;
 
-  return () async {
+  return () {
     return PropertyTagRenderer(
       icon: IconPack.mdi_code_braces_box,
       tag: 'prop:$name',
@@ -65,6 +66,7 @@ Future<TagRendererFactory> propertyToRenderer(Property property) async {
         final Map<String, PropertyWidgetFactory> factories = {
           alignment: () => AlignmentPropertyWidget(name: alignment, property: AlignmentArguments.fromJson(arguments).toAlignment()),
           padding: () => PaddingPropertyWidget(name: padding, property: PaddingArguments.fromJson(arguments).toPadding()),
+          minimum: () => PaddingPropertyWidget(name: minimum, property: PaddingArguments.fromJson(arguments).toPadding()),
           borderRadius: () => BorderRadiusPropertyWidget(name: borderRadius, property: BorderRadiusArguments.fromJson(arguments).toBorderRadius()),
           border: () => BorderPropertyWidget(name: border, property: BorderArguments.fromJson(arguments).toBorder(context)),
           shadow: () => ShadowPropertyWidget(name: shadow, property: ShadowArguments.fromJson(arguments).toBoxShadow(context)),

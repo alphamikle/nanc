@@ -1,6 +1,5 @@
 import 'package:cms/src/domain/editor/logic/bloc/editor/editor_bloc.dart';
 import 'package:cms/src/domain/editor/logic/bloc/editor/editor_state.dart';
-import 'package:cms/src/domain/editor/logic/bloc/manual/default_elements_renderer.dart';
 import 'package:cms/src/domain/editor/logic/bloc/manual/manual_bloc.dart';
 import 'package:cms/src/domain/editor/logic/bloc/manual/manual_state.dart';
 import 'package:cms/src/domain/general/logic/model/menu_element.dart';
@@ -22,7 +21,7 @@ class ManualMenu extends StatefulWidget {
 
 class _ManualMenuState extends State<ManualMenu> {
   Future<List<TagRenderer>> prepareRenderers() async {
-    final List<TagRendererFactory> allFactories = [defaultElementsRenderer, ...(await TagsRenderer().renderers)];
+    final List<TagRendererFactory> allFactories = [...(await TagsRenderer().renderers)];
     final List<TagRenderer> renderers = [];
 
     for (final TagRendererFactory factory in allFactories) {

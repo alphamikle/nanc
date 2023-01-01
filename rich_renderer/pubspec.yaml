@@ -22,6 +22,7 @@ dependencies:
   copy_with_extension: ^4.0.3
   google_fonts: ^3.0.1
   cached_network_image: ^3.2.2
+  flutter_highlight2: ^0.8.3
 
 dev_dependencies:
   flutter_test:

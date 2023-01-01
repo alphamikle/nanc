@@ -1,5 +1,10 @@
+import 'package:flutter/material.dart';
+
 const String alignment = 'alignment';
 const String padding = 'padding';
+
+/// ? The same, as padding, but for [SafeArea.minimum]
+const String minimum = 'minimum';
 const String decoration = 'decoration';
 const String borderRadius = 'borderRadius';
 const String border = 'border';

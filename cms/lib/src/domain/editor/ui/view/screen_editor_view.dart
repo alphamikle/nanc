@@ -5,7 +5,7 @@ import 'package:cms/src/domain/editor/logic/bloc/editor/editor_state.dart';
 import 'package:cms/src/domain/editor/logic/bloc/manual/manual_bloc.dart';
 import 'package:cms/src/domain/editor/ui/component/page_editor.dart';
 import 'package:cms/src/domain/editor/ui/view/page_data_preview.dart';
-import 'package:cms/src/domain/editor/ui/view/tags_manual.dart';
+import 'package:cms/src/domain/editor/ui/view/tags_manual_view.dart';
 import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
 import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
 import 'package:cms/src/domain/preview/logic/bloc/preview_bloc.dart';
@@ -44,7 +44,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
         BlocProvider<EditorBloc>.value(value: manualBloc),
         BlocProvider<PreviewBloc>.value(value: previewBloc),
       ],
-      child: const TagsManual(),
+      child: const TagsManualView(),
     );
   }
 

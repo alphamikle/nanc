@@ -9,6 +9,8 @@ part of 'manual_state.dart';
 abstract class _$ManualStateCWProxy {
   ManualState activeElement(MenuElement activeElement);
 
+  ManualState activeTagRenderer(TagRenderer activeTagRenderer);
+
   ManualState isLoading(bool isLoading);
 
   ManualState isSyncedWithFile(bool isSyncedWithFile);
@@ -23,6 +25,7 @@ abstract class _$ManualStateCWProxy {
   /// ````
   ManualState call({
     MenuElement? activeElement,
+    TagRenderer? activeTagRenderer,
     bool? isLoading,
     bool? isSyncedWithFile,
     String? markdownContent,
@@ -38,6 +41,10 @@ class _$ManualStateCWProxyImpl implements _$ManualStateCWProxy {
   @override
   ManualState activeElement(MenuElement activeElement) =>
       this(activeElement: activeElement);
+
+  @override
+  ManualState activeTagRenderer(TagRenderer activeTagRenderer) =>
+      this(activeTagRenderer: activeTagRenderer);
 
   @override
   ManualState isLoading(bool isLoading) => this(isLoading: isLoading);
@@ -60,6 +67,7 @@ class _$ManualStateCWProxyImpl implements _$ManualStateCWProxy {
   /// ````
   ManualState call({
     Object? activeElement = const $CopyWithPlaceholder(),
+    Object? activeTagRenderer = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
     Object? isSyncedWithFile = const $CopyWithPlaceholder(),
     Object? markdownContent = const $CopyWithPlaceholder(),
@@ -70,6 +78,11 @@ class _$ManualStateCWProxyImpl implements _$ManualStateCWProxy {
               ? _value.activeElement
               // ignore: cast_nullable_to_non_nullable
               : activeElement as MenuElement,
+      activeTagRenderer: activeTagRenderer == const $CopyWithPlaceholder() ||
+              activeTagRenderer == null
+          ? _value.activeTagRenderer
+          // ignore: cast_nullable_to_non_nullable
+          : activeTagRenderer as TagRenderer,
       isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
           ? _value.isLoading
           // ignore: cast_nullable_to_non_nullable
@@ -102,6 +115,7 @@ ManualState _$ManualStateFromJson(Map<String, dynamic> json) => ManualState(
       isLoading: json['isLoading'] as bool,
       markdownContent: json['markdownContent'] as String,
       activeElement: MenuElement.fromJson(json['activeElement']),
+      activeTagRenderer: _rendererFrom(json['activeTagRenderer']),
       isSyncedWithFile: json['isSyncedWithFile'] as bool,
     );
 
@@ -111,4 +125,5 @@ Map<String, dynamic> _$ManualStateToJson(ManualState instance) =>
       'markdownContent': instance.markdownContent,
       'isSyncedWithFile': instance.isSyncedWithFile,
       'activeElement': instance.activeElement.toJson(),
+      'activeTagRenderer': _rendererTo(instance.activeTagRenderer),
     };

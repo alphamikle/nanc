@@ -8,6 +8,7 @@ export 'src/logic/local_data.dart';
 export 'src/logic/page_data.dart';
 export 'src/logic/template_storage.dart';
 export 'src/rich_renderer.dart';
+export 'src/tag_description.dart';
 export 'src/tag_renderer.dart';
 export 'src/tags_renderer.dart';
 export 'src/types/types.dart';

@@ -24,7 +24,10 @@ class ManualBloc extends EditorBloc {
   }
 
   void selectTag(MenuElement tagElement, TagRenderer tagRenderer) {
-    emit(state.copyWith(activeElement: tagElement));
+    emit(state.copyWith(
+      activeElement: tagElement,
+      activeTagRenderer: tagRenderer,
+    ));
     final String example = tagRenderer.example.replaceAll(_prettyCodeRegExp, '>\n').trim();
     initFromModel(
       ScreenContentModel(

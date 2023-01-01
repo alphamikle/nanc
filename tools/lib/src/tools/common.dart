@@ -7,4 +7,10 @@ int randomIntBetween({
   return Random().nextInt(max - min + 1) + min;
 }
 
-List<String> splitTextByLines(String text) => text.split(RegExp(r'(\r?\n)|(\r?\t)|(\r)'));
+List<String> splitTextByLines(String text) {
+  final List<String> lines = text.split(RegExp(r'(\r?\n)|(\r?\t)|(\r)'));
+  if (lines.last.isEmpty) {
+    lines.removeLast();
+  }
+  return lines;
+}

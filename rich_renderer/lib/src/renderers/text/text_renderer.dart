@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:rich_renderer/src/logic/substitutor.dart';
-import 'package:rich_renderer/src/renderers/component/element_hash_extension.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_list.dart';
 import 'package:rich_renderer/src/renderers/text/text_arguments.dart';
 import 'package:rich_renderer/src/rich_renderer.dart';
 import 'package:rich_renderer/src/tag_renderer.dart';
-import 'package:tools/tools.dart';
+import 'package:rich_renderer/src/tools/text_extractor.dart';
 
 TagRenderer textRenderer() {
   return TagRenderer(
@@ -71,7 +69,6 @@ What here shall miss, our toil shall strive to mend.
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
       final TextArguments arguments = TextArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
-      final List<String> content = [];
       TextStyle? style = extractor.getProperty(textStyle);
 
       style ??= const TextStyle();
@@ -82,9 +79,7 @@ What here shall miss, our toil shall strive to mend.
       if (style.color == null && arguments.color != null) {
         style = style.copyWith(color: arguments.color);
       }
-
-      // ignore: use_build_context_synchronously
-      await _collectContent(context, element, element.contentHash, content);
+      final List<String> content = await extractTextFromChildren(context: context, element: element);
 
       return Text(
         content.join('\n'),
@@ -97,25 +92,4 @@ What here shall miss, our toil shall strive to mend.
       );
     },
   );
-}
-
-Future<void> _collectContent(BuildContext context, md.Node node, String hash, List<String> content) async {
-  if (node is md.Element) {
-    for (final md.Node node in node.children ?? []) {
-      await _collectContent(context, node, hash, content);
-    }
-  } else {
-    final List<String> lines = splitTextByLines(node.textContent);
-    final Substitutor substitutor = Substitutor(context: context);
-    for (final String line in lines) {
-      String newLine = line.trim().replaceAll(r'\', '');
-      final bool haveExpression = substitutor.haveExpression(newLine);
-      if (haveExpression) {
-        newLine = await substitutor.substitute(hash, newLine);
-      }
-      if (newLine.isNotEmpty) {
-        content.add(newLine);
-      }
-    }
-  }
 }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/renderers/center/center_renderer.dart';
 import 'package:rich_renderer/src/renderers/clipr_rect/clipr_rect_renderer.dart';
@@ -18,6 +20,7 @@ import 'package:rich_renderer/src/renderers/placeholder/placeholder_renderer.dar
 import 'package:rich_renderer/src/renderers/positioned/positioned_renderer.dart';
 import 'package:rich_renderer/src/renderers/property/property_renderer.dart';
 import 'package:rich_renderer/src/renderers/row/row_renderer.dart';
+import 'package:rich_renderer/src/renderers/safe_area/safe_area_renderer.dart';
 import 'package:rich_renderer/src/renderers/sized_box/sized_box_renderer.dart';
 import 'package:rich_renderer/src/renderers/stack/stack_renderer.dart';
 import 'package:rich_renderer/src/renderers/template/template_renderer.dart';
@@ -64,6 +67,8 @@ class TagsRenderer {
       componentRenderer,
       materialRenderer,
       sizedBoxRenderer,
+      // codeRenderer,
+      safeAreaRenderer,
     ]);
   }
 
@@ -71,11 +76,24 @@ class TagsRenderer {
 
   Future<List<TagRendererFactory>> _returnRenderers() async {
     await _registerDefaultRenderers();
-    // TODO(alphamikle): Sort renderers alphabetically
-    // final List<TagRenderer> renderers = _renderers.map((TagRendererFactory factory) => factory()).toList();
-    // _renderers.sort((first, second) {
-    //
-    // });
-    return [..._renderers];
+    final List<TagRendererFactory> renderers = [..._renderers];
+    renderers.sort((TagRendererFactory first, TagRendererFactory second) {
+      final FutureOr<TagRenderer> firstFutureOrRenderer = first();
+      final FutureOr<TagRenderer> secondFutureOrRenderer = second();
+      late final String firstName;
+      late final String secondName;
+      if (firstFutureOrRenderer is! Future) {
+        firstName = firstFutureOrRenderer.tag;
+      } else {
+        firstName = '?';
+      }
+      if (secondFutureOrRenderer is! Future) {
+        secondName = secondFutureOrRenderer.tag;
+      } else {
+        secondName = '?';
+      }
+      return firstName.compareTo(secondName);
+    });
+    return [...renderers];
   }
 }

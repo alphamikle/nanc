@@ -11,8 +11,9 @@ class KitIconButton extends StatelessWidget {
     this.onPressed,
     this.color,
     this.iconColor,
-    this.size = 36,
+    this.iconSize = 36,
     this.rounder = 4,
+    this.padding = const EdgeInsets.all(4),
     super.key,
   });
 
@@ -20,12 +21,13 @@ class KitIconButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final Color? color;
   final Color? iconColor;
-  final double size;
+  final double iconSize;
   final double rounder;
+  final EdgeInsets padding;
 
   @override
   Widget build(BuildContext context) {
-    final BorderRadius radius = BorderRadius.all(Radius.circular(max(rounder, size / 2 - rounder)));
+    final BorderRadius radius = BorderRadius.all(Radius.circular(max(rounder, iconSize / 2 - rounder)));
     final Color backgroundColor = (color ?? context.theme.colorScheme.secondaryContainer).translucent;
     final Color iconColor = (this.iconColor ?? context.theme.colorScheme.onPrimaryContainer).withOpacity(1);
 
@@ -36,10 +38,15 @@ class KitIconButton extends StatelessWidget {
             color: backgroundColor,
             borderRadius: radius,
           ),
-          child: Icon(
-            icon,
-            size: size,
-            color: iconColor,
+          child: Padding(
+            padding: padding,
+            child: Center(
+              child: Icon(
+                icon,
+                size: iconSize,
+                color: iconColor,
+              ),
+            ),
           ),
         ),
         Positioned.fill(

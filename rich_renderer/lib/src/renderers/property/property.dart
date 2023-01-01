@@ -1,7 +1,7 @@
 class Property {
   factory Property(String name) => Property._(name, haveChildren: false);
 
-  factory Property.children(String name) => Property._(name, haveChildren: true);
+  factory Property.withChildren(String name) => Property._(name, haveChildren: true);
 
   const Property._(
     this.name, {
