@@ -7,19 +7,11 @@ import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 const String description = '''
-# Center
+# [Center](https://api.flutter.dev/flutter/widgets/Center-class.html)
 
 A widget that centers its child within itself.
 
 This widget will be as big as possible if its dimensions are constrained and [widthFactor](widgets/Align/widthFactor.html) and [heightFactor](widgets/Align/heightFactor.html) are null. If a dimension is unconstrained and the corresponding size factor is null then the widget will match its child's size in that dimension. If a size factor is non-null then the corresponding dimension of this widget will be the product of the child's dimension and the size factor. For example if widthFactor is 2.0 then the width of this widget will always be twice its child's width.
-
-See also:
-
-*   [Align](widgets/Align-class.html), which lets you arbitrarily position a child within itself, rather than just centering it.
-*   [Row](widgets/Row-class.html), a widget that displays its children in a horizontal array.
-*   [Column](widgets/Column-class.html), a widget that displays its children in a vertical array.
-*   [Container](widgets/Container-class.html), a convenience widget that combines common painting, positioning, and sizing widgets.
-*   The [catalog of layout widgets](https://flutter.dev/widgets/layout/).
 ''';
 
 TagRenderer centerRenderer() {

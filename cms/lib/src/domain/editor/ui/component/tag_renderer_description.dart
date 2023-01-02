@@ -19,14 +19,17 @@ class TagRendererDescription extends StatelessWidget {
 
   Widget buildArgument(String tagName, TagArgument argument) {
     final List<String> exampleCode = [
-      '<$tagName ${argument.name}="${argument.values.join(' | ')}">',
+      '<$tagName ${argument.name}="${argument.values.join(' | ')}" ... ',
     ];
     if (withChildren) {
+      exampleCode[0] = '${exampleCode.last}>';
       exampleCode.addAll([
         if (description.properties.isNotEmpty) '  <!-- Properties -->',
         '  <!-- Children / child widgets -->',
         '</$tagName>',
       ]);
+    } else {
+      exampleCode[0] = '${exampleCode.last}/>';
     }
 
     return Padding(
@@ -36,7 +39,7 @@ class TagRendererDescription extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(bottom: Gap.regular),
-            child: MarkdownBody(data: '### ${argument.name}'),
+            child: MarkdownBody(data: '### **${argument.name}**'),
           ),
           HighlightView(
             exampleCode.join('\n'),
@@ -61,7 +64,11 @@ class TagRendererDescription extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.only(top: Gap.large, bottom: Gap.large),
             child: MarkdownBody(
-              data: '## Arguments',
+              data: '''
+## Arguments
+
+**...** means rest of arguments of the widget
+''',
             ),
           ),
         for (final TagArgument argument in description.arguments) buildArgument(tagName, argument),

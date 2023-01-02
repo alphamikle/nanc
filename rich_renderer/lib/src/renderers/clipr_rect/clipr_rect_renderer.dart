@@ -7,37 +7,11 @@ import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 const String description = '''
+# [Clipr Rect](https://api.flutter.dev/flutter/widgets/ClipRRect-class.html)
+
 A widget that clips its child using a rounded rectangle.
 
 By default, [ClipRRect](widgets/ClipRRect-class.html) uses its own bounds as the base rectangle for the clip, but the size and location of the clip can be customized using a custom [clipper](widgets/ClipRRect/clipper.html).
-
-This example shows various [ClipRRect](widgets/ClipRRect-class.html)s applied to containers.
-
-[_link_](# "Copy link to clipboard")
-
-To create a local project with this code sample, run:  
-flutter create --sample=widgets.ClipRRect.1 mysample
-
-Troubleshooting
----------------
-
-### Why doesn't my [ClipRRect](widgets/ClipRRect-class.html) child have rounded corners?
-
-When a [ClipRRect](widgets/ClipRRect-class.html) is bigger than the child it contains, its rounded corners could be drawn in unexpected positions. Make sure that [ClipRRect](widgets/ClipRRect-class.html) and its child have the same bounds (by shrinking the [ClipRRect](widgets/ClipRRect-class.html) with a [FittedBox](widgets/FittedBox-class.html) or by growing the child).
-
-This example shows a [ClipRRect](widgets/ClipRRect-class.html) that adds round corners to an image.
-
-[_link_](# "Copy link to clipboard")
-
-To create a local project with this code sample, run:  
-flutter create --sample=widgets.ClipRRect.2 mysample
-
-See also:
-
-*   [CustomClipper](rendering/CustomClipper-class.html), for information about creating custom clips.
-*   [ClipRect](widgets/ClipRect-class.html), for more efficient clips without rounded corners.
-*   [ClipOval](widgets/ClipOval-class.html), for an elliptical clip.
-*   [ClipPath](widgets/ClipPath-class.html), for an arbitrarily shaped clip.
 ''';
 
 TagRenderer clipRRectRenderer() {

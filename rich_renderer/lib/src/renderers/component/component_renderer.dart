@@ -8,6 +8,14 @@ import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 const String kHashAttribute = r'_$componentDataHash';
 
+const String _description = '''
+# Component
+
+`component` - is the sibling of the `template` widget and they are inextricably linked with each other. `component` can consume any kind of arguments to itself. There only one required argument in the `component` - the `id`, which should be the same as the corresponding linked template. In the future templates (and the components) will be able to pass to themself not only values, but another widgets too.
+
+Also, component gives you a possibility to substitute values from the template. For details see the demo code.
+''';
+
 TagRenderer componentRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_widgets_outline,
@@ -15,8 +23,27 @@ TagRenderer componentRenderer() {
     // TODO(alphamikle): Components should be of both types - single line and multiline tags
     pattern: RegExp(r'<component.*/>'),
     endPattern: null,
+    description: const TagDescription(
+      description: _description,
+      arguments: [
+        TagArgument('id', {'String'}),
+        TagArgument('anyArgument', {'dynamic'}),
+      ],
+      properties: [],
+    ),
     example: '''
-TODO
+<template id="exampleCard">
+  <container width="{{ template.size }}" height="{{ template.size }}" color="{{ template.color }}">
+  </container>
+</template>
+
+<container width="300" height="600" color="#457FDA">
+  <column>
+    <component id="exampleCard" size="100" color="#7BDA45"/>
+    <component id="exampleCard" size="150" color="#DA9745"/>
+    <component id="exampleCard" size="100" color="#7BDA45"/>
+  </column>
+</container>
 ''',
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
       final TemplateStorage templateStorage = TemplateStorage.of(context);
