@@ -8,8 +8,8 @@ part of 'center_arguments.dart';
 
 CenterArguments _$CenterArgumentsFromJson(Map<String, dynamic> json) =>
     CenterArguments(
-      heightFactor: (json['heightFactor'] as num?)?.toDouble(),
-      widthFactor: (json['widthFactor'] as num?)?.toDouble(),
+      heightFactor: stringToDoubleOrNull(json['heightFactor'] as String?),
+      widthFactor: stringToDoubleOrNull(json['widthFactor'] as String?),
     );
 
 Map<String, dynamic> _$CenterArgumentsToJson(CenterArguments instance) =>

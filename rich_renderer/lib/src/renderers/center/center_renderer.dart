@@ -39,9 +39,12 @@ TagRenderer centerRenderer() {
       properties: [],
     ),
     example: '''
-<text size="24">
-  Center
-</text>
+<container width="300" height="300" color="#457FDA">
+  <center widthFactor="1" heightFactor="1">
+    <container width="100" height="100" color="#7BDA45">
+    </container>
+  </center>
+</container>
 ''',
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
       final CenterArguments arguments = CenterArguments.fromJson(element.attributes);
