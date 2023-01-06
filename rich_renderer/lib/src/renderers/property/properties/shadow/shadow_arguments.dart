@@ -46,7 +46,5 @@ class ShadowArguments {
     );
   }
 
-  static List<String> get blueStyleValues => _$BlurStyleEnumMap.values.toList();
-
   Json toJson() => _$ShadowArgumentsToJson(this);
 }

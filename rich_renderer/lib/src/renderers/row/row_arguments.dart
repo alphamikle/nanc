@@ -17,13 +17,6 @@ class RowArguments {
 
   factory RowArguments.fromJson(dynamic json) => _$RowArgumentsFromJson(castToJson(json));
 
-  static List<String> get crossAxisAlignmentValues => _$CrossAxisAlignmentEnumMap.values.toList();
-  static List<String> get mainAxisSizeValues => _$MainAxisSizeEnumMap.values.toList();
-  static List<String> get mainAxisAlignmentValues => _$MainAxisAlignmentEnumMap.values.toList();
-  static List<String> get verticalDirectionValues => _$VerticalDirectionEnumMap.values.toList();
-  static List<String> get textDirectionValues => _$TextDirectionEnumMap.values.toList();
-  static List<String> get textBaselineValues => _$TextBaselineEnumMap.values.toList();
-
   final CrossAxisAlignment? crossAxisAlignment;
   final MainAxisSize? mainAxisSize;
   final MainAxisAlignment? mainAxisAlignment;

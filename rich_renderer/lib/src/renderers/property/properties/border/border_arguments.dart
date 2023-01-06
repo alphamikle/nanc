@@ -14,13 +14,12 @@ class BorderArguments {
 
   factory BorderArguments.fromJson(dynamic json) => _$BorderArgumentsFromJson(castToJson(json));
 
-  static List<String> get strokeAlignValues => _$StrokeAlignEnumMap.values.toList();
-
   @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
   final Color? color;
 
   @JsonKey(fromJson: stringToDoubleOrNull)
   final double? width;
+
   final StrokeAlign? strokeAlign;
 
   BoxBorder toBorder(BuildContext context) {

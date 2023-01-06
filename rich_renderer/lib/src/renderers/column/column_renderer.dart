@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
+import 'package:rich_renderer/src/documentation/arguments/row_column_arguments.dart';
 import 'package:rich_renderer/src/renderers/column/column_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
-import 'package:rich_renderer/src/renderers/row/row_arguments.dart';
 
-const String description = '''
+const String _description = '''
 # [Column](https://api.flutter.dev/flutter/widgets/Column-class.html)
 
 A widget that displays its children in a vertical array.
@@ -27,14 +27,14 @@ TagRenderer columnRenderer() {
     pattern: RegExp(r'<column.*>'),
     endPattern: RegExp('</column>'),
     description: TagDescription(
-      description: description,
+      description: _description,
       arguments: [
-        TagArgument('crossAxisAlignment', RowArguments.crossAxisAlignmentValues.toSet()),
-        TagArgument('mainAxisAlignment', RowArguments.mainAxisAlignmentValues.toSet()),
-        TagArgument('mainAxisSize', RowArguments.mainAxisSizeValues.toSet()),
-        TagArgument('verticalDirection', RowArguments.verticalDirectionValues.toSet()),
-        TagArgument('textDirection', RowArguments.textDirectionValues.toSet()),
-        TagArgument('textBaseline', RowArguments.textBaselineValues.toSet()),
+        crossAxisAlignmentArg(),
+        mainAxisAlignmentArg(),
+        mainAxisSizeArg(),
+        verticalDirectionArg(),
+        textDirectionArg(),
+        textBaselineArg(),
       ],
       properties: [],
     ),

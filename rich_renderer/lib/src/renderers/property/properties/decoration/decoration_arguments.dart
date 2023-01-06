@@ -14,8 +14,6 @@ class DecorationArguments {
 
   factory DecorationArguments.fromJson(dynamic json) => _$DecorationArgumentsFromJson(castToJson(json));
 
-  static List<String> get blendModeValues => _$BlendModeEnumMap.values.toList();
-
   @JsonKey(toJson: colorToJson, fromJson: colorFromJson)
   final Color? color;
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
+import 'package:rich_renderer/src/documentation/arguments/common.dart';
 import 'package:rich_renderer/src/renderers/component/component_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
@@ -23,11 +24,11 @@ TagRenderer componentRenderer() {
     // TODO(alphamikle): Components should be of both types - single line and multiline tags
     pattern: RegExp(r'<component.*/>'),
     endPattern: null,
-    description: const TagDescription(
+    description: TagDescription(
       description: _description,
       arguments: [
-        TagArgument('id', {'String'}),
-        TagArgument('anyArgument', {'dynamic'}),
+        idArg(),
+        anyArg(),
       ],
       properties: [],
     ),
@@ -40,7 +41,7 @@ TagRenderer componentRenderer() {
 <container width="300" height="600" color="#457FDA">
   <column>
     <component id="exampleCard" size="100" color="#7BDA45"/>
-    <component id="exampleCard" size="150" color="#DA9745"/>
+    <component id="exampleCard" size="150" color="#A5DA9745"/>
     <component id="exampleCard" size="100" color="#7BDA45"/>
   </column>
 </container>

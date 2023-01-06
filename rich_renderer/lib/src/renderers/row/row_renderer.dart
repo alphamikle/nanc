@@ -34,10 +34,7 @@ https://api.flutter.dev/flutter/widgets/Row-class.html
 ## Params
 ```
 Possible params:
-<row crossAlignment="${RowArguments.crossAxisAlignmentValues.join(' | ')}">
-<row mainSize="${RowArguments.mainAxisSizeValues.join(' | ')}">
-<row mainAlignment="${RowArguments.mainAxisAlignmentValues.join(' | ')}">
-<row verticalDirection="${RowArguments.verticalDirectionValues.join(' | ')}">
+
 ```
 
 ## Example

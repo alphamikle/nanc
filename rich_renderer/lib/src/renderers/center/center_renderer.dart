@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
+import 'package:rich_renderer/src/documentation/arguments/scalar.dart';
 import 'package:rich_renderer/src/renderers/center/center_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
-const String description = '''
+const String _description = '''
 # [Center](https://api.flutter.dev/flutter/widgets/Center-class.html)
 
 A widget that centers its child within itself.
@@ -20,11 +21,11 @@ TagRenderer centerRenderer() {
     tag: 'center',
     pattern: RegExp(r'<center.*>'),
     endPattern: RegExp('</center>'),
-    description: const TagDescription(
-      description: description,
+    description: TagDescription(
+      description: _description,
       arguments: [
-        TagArgument('heightFactor', {'double', 'null'}),
-        TagArgument('widthFactor', {'double', 'null'}),
+        doubleArg('heightFactor'),
+        doubleArg('widthFactor'),
       ],
       properties: [],
     ),

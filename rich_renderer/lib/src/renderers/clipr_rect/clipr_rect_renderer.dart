@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
+import 'package:rich_renderer/src/documentation/arguments/padding_arguments.dart';
 import 'package:rich_renderer/src/renderers/clipr_rect/clipr_rect_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
-const String description = '''
+const String _description = '''
 # [Clipr Rect](https://api.flutter.dev/flutter/widgets/ClipRRect-class.html)
 
 A widget that clips its child using a rounded rectangle.
@@ -20,15 +21,14 @@ TagRenderer clipRRectRenderer() {
     tag: 'clipRRect',
     pattern: RegExp(r'<clipRRect.*>'),
     endPattern: RegExp('</clipRRect>'),
-    description: const TagDescription(
-      description: description,
+    description: TagDescription(
+      description: _description,
       arguments: [
-        TagArgument('topLeft', {'double', 'null'}),
-        TagArgument('topRight', {'double', 'null'}),
-        TagArgument('bottomRight', {'double', 'null'}),
-        TagArgument('bottomRight', {'double', 'null'}),
-        TagArgument('bottomLeft', {'double', 'null'}),
-        TagArgument('all', {'double', 'null'}),
+        topLeftArg(),
+        topRightArg(),
+        bottomRightArg(),
+        bottomLeftArg(),
+        allArg(),
       ],
       properties: [],
     ),

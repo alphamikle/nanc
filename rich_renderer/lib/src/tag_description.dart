@@ -11,10 +11,11 @@ class TagDescription {
 }
 
 class TagArgument {
-  const TagArgument(this.name, this.values);
+  const TagArgument(this.name, this.values, [this.description = '']);
 
   final String name;
   final Set<String> values;
+  final String description;
 }
 
 class TagProperty {
