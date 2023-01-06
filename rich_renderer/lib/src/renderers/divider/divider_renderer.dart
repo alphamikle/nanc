@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
+import 'package:rich_renderer/rich_renderer.dart';
+import 'package:rich_renderer/src/documentation/arguments/size_arguments.dart';
 import 'package:rich_renderer/src/renderers/divider/divider_arguments.dart';
-import 'package:rich_renderer/src/rich_renderer.dart';
-import 'package:rich_renderer/src/tag_renderer.dart';
 
 TagRenderer dividerRenderer() {
   return TagRenderer(
@@ -11,26 +11,34 @@ TagRenderer dividerRenderer() {
     tag: 'divider',
     pattern: RegExp(r'<divider.*/>'),
     endPattern: null,
+    description: TagDescription(
+      description: '''
+# Divider
+
+Divider is a custom widget designed to add some empty space to your UI.
+
+In general, you can use the Divider to achieve the same behavior as Padding, but without nesting.
+''',
+      arguments: [
+        heightArg(),
+        widthArg(),
+      ],
+      properties: [],
+    ),
     example: '''
-<description>
-Divider
-
-Like a Padding, but not wrap a widget
-
-#### Parameters
-
-<row>
-  <expanded>
-    <container color="41AF96">
+<container width="300" height="600" color="#457FDA">
+  <column>
+    <container width="100" height="100" color="#7BDA45">
     </container>
-  </expanded>
-  <divider width="8"/>
-  <expanded>
-    <container color="41AF96">
+    <divider height="50"/>
+    <padding bottom="50">
+      <container width="100" height="100" color="#DA9745">
+      </container>
+    </padding>
+    <container width="100" height="100" color="#7BDA45">
     </container>
-  </expanded>
-</row>
-</description>
+  </column>
+</container>
 ''',
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
       final DividerArguments arguments = DividerArguments.fromJson(element.attributes);
