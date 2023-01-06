@@ -12,5 +12,6 @@ TagProperty shadowProp(String name) => TagProperty(
         doubleArg('offsetY'),
         blurStyleArg(),
       ],
+      description: 'Can be used multiple times',
       properties: [],
     );
