@@ -26,7 +26,8 @@ DocumentationTypes _$DocumentationTypesFromJson(Map<String, dynamic> json) =>
       ..blurStyle = $enumDecodeNullable(_$BlurStyleEnumMap, json['blurStyle'])
       ..tileMode = $enumDecodeNullable(_$TileModeEnumMap, json['tileMode'])
       ..alignmentEnum =
-          $enumDecodeNullable(_$AlignmentEnumEnumMap, json['alignmentEnum']);
+          $enumDecodeNullable(_$AlignmentEnumEnumMap, json['alignmentEnum'])
+      ..boxFit = $enumDecodeNullable(_$BoxFitEnumMap, json['boxFit']);
 
 Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
     <String, dynamic>{
@@ -44,6 +45,7 @@ Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
       'blurStyle': _$BlurStyleEnumMap[instance.blurStyle],
       'tileMode': _$TileModeEnumMap[instance.tileMode],
       'alignmentEnum': _$AlignmentEnumEnumMap[instance.alignmentEnum],
+      'boxFit': _$BoxFitEnumMap[instance.boxFit],
     };
 
 const _$CrossAxisAlignmentEnumMap = {
@@ -145,4 +147,14 @@ const _$AlignmentEnumEnumMap = {
   AlignmentEnum.bottomLeft: 'bottomLeft',
   AlignmentEnum.bottomCenter: 'bottomCenter',
   AlignmentEnum.bottomRight: 'bottomRight',
+};
+
+const _$BoxFitEnumMap = {
+  BoxFit.fill: 'fill',
+  BoxFit.contain: 'contain',
+  BoxFit.cover: 'cover',
+  BoxFit.fitWidth: 'fitWidth',
+  BoxFit.fitHeight: 'fitHeight',
+  BoxFit.none: 'none',
+  BoxFit.scaleDown: 'scaleDown',
 };

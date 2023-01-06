@@ -17,6 +17,7 @@ class DocumentationTypes {
   static Set<String> get blurStyleValues => _$BlurStyleEnumMap.values.toSet();
   static Set<String> get tileModeValues => _$TileModeEnumMap.values.toSet();
   static Set<String> get alignmentEnumValues => _$AlignmentEnumEnumMap.values.toSet();
+  static Set<String> get boxFitValues => _$BoxFitEnumMap.values.toSet();
 
   CrossAxisAlignment? crossAxisAlignment;
   MainAxisSize? mainAxisSize;
@@ -29,4 +30,5 @@ class DocumentationTypes {
   BlurStyle? blurStyle;
   TileMode? tileMode;
   AlignmentEnum? alignmentEnum;
+  BoxFit? boxFit;
 }
