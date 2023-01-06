@@ -3,3 +3,4 @@ import 'package:rich_renderer/src/tag_description.dart';
 
 TagArgument widthArg([String name = 'width']) => doubleArg(name);
 TagArgument heightArg([String name = 'height']) => doubleArg(name);
+TagArgument flexArg([String name = 'flex']) => intArg(name);

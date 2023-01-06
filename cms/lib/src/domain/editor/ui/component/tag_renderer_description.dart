@@ -154,6 +154,8 @@ class TagRendererDescription extends StatelessWidget {
 
 An argument is a widget parameter or a widget property. The argument value specifies the type of value to accept, or lists the possible values in case only they can be used.
 
+Most of the Arguments are optional and may be omitted, unless otherwise stated.
+
 For example:
 
 ```
@@ -177,6 +179,8 @@ For example:
 ## Properties
 
 A property is a more complex type of argument for widgets (or other properties). If the widget parameter to be configured is not a scalar type or enum, but a class - then it forms a property parameter.
+
+All the Properties are optional and may be omitted.
 
 For example:
 
