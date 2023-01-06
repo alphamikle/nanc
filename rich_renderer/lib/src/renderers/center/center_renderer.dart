@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/scalar.dart';
+import 'package:rich_renderer/src/documentation/arguments/scalar_arguments.dart';
 import 'package:rich_renderer/src/renderers/center/center_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';

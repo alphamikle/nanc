@@ -27,6 +27,8 @@ import 'package:tools/tools.dart';
 
 List<Property> properties() => [
       Property(alignment),
+      Property(begin),
+      Property(end),
       Property(padding),
       Property(minimum),
       Property.withChildren(decoration),
@@ -56,8 +58,8 @@ Future<TagRendererFactory> propertyToRenderer(Property property) async {
     return PropertyTagRenderer(
       icon: IconPack.mdi_code_braces_box,
       tag: 'prop:$name',
-      pattern: RegExp('<prop:$name ?.*${haveChildren ? '' : '/'}>'),
-      endPattern: haveChildren ? RegExp('</prop:$name') : null,
+      pattern: RegExp('<prop:$name( .*)?${haveChildren ? '' : '/'}>'),
+      endPattern: haveChildren ? RegExp('</prop:$name>') : null,
       example: '',
       builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
         final Json arguments = element.attributes;
@@ -65,6 +67,8 @@ Future<TagRendererFactory> propertyToRenderer(Property property) async {
 
         final Map<String, PropertyWidgetFactory> factories = {
           alignment: () => AlignmentPropertyWidget(name: alignment, property: AlignmentArguments.fromJson(arguments).toAlignment()),
+          begin: () => AlignmentPropertyWidget(name: begin, property: AlignmentArguments.fromJson(arguments).toAlignment()),
+          end: () => AlignmentPropertyWidget(name: end, property: AlignmentArguments.fromJson(arguments).toAlignment()),
           padding: () => PaddingPropertyWidget(name: padding, property: PaddingArguments.fromJson(arguments).toPadding()),
           minimum: () => PaddingPropertyWidget(name: minimum, property: PaddingArguments.fromJson(arguments).toPadding()),
           borderRadius: () => BorderRadiusPropertyWidget(name: borderRadius, property: BorderRadiusArguments.fromJson(arguments).toBorderRadius()),

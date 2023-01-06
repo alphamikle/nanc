@@ -15,9 +15,8 @@ Future<GradientPropertyWidget> gradientFactory({
   final GradientArguments arguments = GradientArguments.fromJson(element.attributes);
   final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
 
-  final List<Alignment> directions = extractor.getProperties(alignment);
-  final Alignment begin = directions.isEmpty ? Alignment.centerLeft : directions.first;
-  final Alignment end = directions.length < 2 ? Alignment.centerRight : directions.last;
+  final Alignment beginValue = extractor.getProperty(begin) ?? Alignment.centerLeft;
+  final Alignment endValue = extractor.getProperty(end) ?? Alignment.centerRight;
   final List<Color> colors = extractor.getProperties(color);
   final List<double> stops = extractor.getProperties(stop);
 
@@ -40,8 +39,8 @@ Future<GradientPropertyWidget> gradientFactory({
     tileMode: arguments.tileMode ?? TileMode.clamp,
     colors: colors,
     stops: stops,
-    begin: begin,
-    end: end,
+    begin: beginValue,
+    end: endValue,
   );
 
   return GradientPropertyWidget(name: name, property: gradient);

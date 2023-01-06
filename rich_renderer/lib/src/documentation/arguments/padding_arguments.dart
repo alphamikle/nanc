@@ -1,8 +1,8 @@
-import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/scalar.dart';
+import 'package:rich_renderer/src/documentation/arguments/scalar_arguments.dart';
+import 'package:rich_renderer/src/tag_description.dart';
 
-TagArgument topLeftArg([String name = 'topLeft']) => doubleArg(name);
-TagArgument topRightArg([String name = 'topRight']) => doubleArg(name);
-TagArgument bottomRightArg([String name = 'bottomRight']) => doubleArg(name);
-TagArgument bottomLeftArg([String name = 'bottomLeft']) => doubleArg(name);
-TagArgument allArg([String name = 'all']) => doubleArg(name);
+TagArgument leftArg([String name = 'left']) => doubleArg(name);
+TagArgument topArg([String name = 'top']) => doubleArg(name);
+TagArgument rightArg([String name = 'right']) => doubleArg(name);
+TagArgument bottomArg([String name = 'bottom']) => doubleArg(name);
+TagArgument allPaddingArg([String name = 'all']) => doubleArg(name);

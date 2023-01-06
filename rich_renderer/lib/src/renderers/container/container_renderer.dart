@@ -4,7 +4,9 @@ import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/documentation/arguments/decoration_arguments.dart';
 import 'package:rich_renderer/src/documentation/arguments/size_arguments.dart';
+import 'package:rich_renderer/src/documentation/properties/alignment.dart';
 import 'package:rich_renderer/src/documentation/properties/box_decoration.dart';
+import 'package:rich_renderer/src/documentation/properties/padding.dart';
 import 'package:rich_renderer/src/renderers/container/container_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_list.dart';
@@ -32,7 +34,8 @@ TagRenderer containerRenderer() {
       description: _description,
       properties: [
         boxDecorationProp(),
-        // TODO(alphamikle): Continue another props of the container and before it - create a logic to shot widgets props and arguments description (like in the colorArg)
+        alignmentProp(),
+        paddingProp(),
       ],
       arguments: [
         widthArg(),
@@ -41,7 +44,29 @@ TagRenderer containerRenderer() {
       ],
     ),
     example: '''
-<container width="100" height="50" color="#457FDA">
+<container width="300" height="500" color="#457FDA">
+  <prop:alignment align="center"/>
+  
+  <container width="150" height="150">
+    <prop:padding left="4" top="6" right="8" bottom="10"/>
+    <prop:decoration color="#7BDA45">
+      <prop:borderRadius topLeft="16" bottomRight="16"/>
+      <prop:border color="#000" width="4"/>
+      <prop:shadow color="#CE37CE" blurRadius="8" spreadRadius="12" offsetX="10" offsetY="10"/>
+      <prop:shadow color="#CEA537" blurRadius="12" spreadRadius="8" offsetX="-10" offsetY="-10"/>
+      <prop:gradient>
+        <prop:begin align="centerLeft"/>
+        <prop:end align="centerRight"/>
+        <!-- Color and Stop properties can be as many, as you want -->
+        <prop:color color="#CE3756"/>
+        <prop:color color="#CF7184"/>
+        <prop:stop value="0.25"/>
+        <prop:stop value="0.5"/>
+      </prop:gradient>
+    </prop:decoration>
+    <container color="#A6A114">
+    </container>
+  </container>
 </container>
 ''',
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {

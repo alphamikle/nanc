@@ -23,9 +23,12 @@ class TagProperty {
     required this.name,
     required this.arguments,
     required this.properties,
+    this.description = '',
   });
 
   final String name;
+  final String description;
   final List<TagArgument> arguments;
   final List<TagProperty> properties;
+  bool get withChildren => properties.isNotEmpty;
 }
