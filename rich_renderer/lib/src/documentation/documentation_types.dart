@@ -18,6 +18,7 @@ class DocumentationTypes {
   static Set<String> get tileModeValues => _$TileModeEnumMap.values.toSet();
   static Set<String> get alignmentEnumValues => _$AlignmentEnumEnumMap.values.toSet();
   static Set<String> get boxFitValues => _$BoxFitEnumMap.values.toSet();
+  static Set<String> get materialTypeValues => _$MaterialTypeEnumMap.values.toSet();
 
   CrossAxisAlignment? crossAxisAlignment;
   MainAxisSize? mainAxisSize;
@@ -31,4 +32,5 @@ class DocumentationTypes {
   TileMode? tileMode;
   AlignmentEnum? alignmentEnum;
   BoxFit? boxFit;
+  MaterialType? materialType;
 }
