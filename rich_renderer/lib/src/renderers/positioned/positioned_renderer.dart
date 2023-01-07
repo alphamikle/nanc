@@ -18,7 +18,7 @@ TagRenderer positionedRenderer() {
     endPattern: RegExp('</positioned>'),
     description: TagDescription(
       description: '''
-# [Positioned]()
+# [Positioned](https://api.flutter.dev/flutter/widgets/Positioned-class.html)
 
 A widget that controls where a child of a [Stack](widgets/Stack-class.html) is positioned.
 
