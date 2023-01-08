@@ -73,7 +73,7 @@ Future<List<md.Node>> _prepareTemplateContent(TemplateId templateId, List<md.Nod
 }
 
 Future<md.Node> _prepareTemplateChild(TemplateId templateId, md.Node child) async {
-  await wait();
+  await wait(periodic: true, period: 10);
   if (child is md.Element) {
     final md.Element newElement = md.Element(child.tag, await _prepareTemplateContent(templateId, child.children ?? []));
     for (final MapEntry<String, String> attributeEntry in child.attributes.entries) {

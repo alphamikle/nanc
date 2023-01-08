@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:tools/tools.dart';
 
 typedef Action<T> = FutureOr<T> Function();
 typedef Condition = FutureOr<bool> Function();
@@ -16,7 +17,7 @@ String toSnackCase(String value) {
 
 ValueGetter<Future<T>> delayed<T>(ValueGetter<T> callback) {
   return () async {
-    await Future<void>.delayed(const Duration(milliseconds: 250));
+    await wait(duration: const Duration(milliseconds: 250));
     return callback();
   };
 }
@@ -34,7 +35,7 @@ Future<T?> doSomethingWhen<T>({required Action<T> action, required Condition con
     return action();
   }
   while (conditionResult == false && maxTries > 0) {
-    await Future<void>.delayed(interval);
+    await wait(duration: interval);
     conditionResult = await condition();
     if (conditionResult) {
       return action();

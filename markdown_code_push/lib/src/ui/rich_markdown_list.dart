@@ -24,7 +24,6 @@ class RichMarkdownList extends StatelessWidget {
   String get sanitizedMarkup => sanitizeMarkup(markdownContent);
 
   Future<RichRenderer> get richRenderer async {
-    logg('richRenderer getter touched');
     // TODO(alphamikle): Fill WidgetConfig params for both instances, here and below
     final RichRenderer richRenderer = RichRenderer(widgetConfig: WidgetConfig());
     final List<TagRendererFactory> renderers = await renderer.renderers;

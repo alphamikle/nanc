@@ -28,6 +28,7 @@ class MarkdownGenerator {
   late final WidgetConfig effectiveWidgetConfig = widgetConfig ?? WidgetConfig();
 
   Future<List<Widget>> generate() async {
+    Bench.start('Widgets generation');
     final List<Widget> widgets = [];
     final md.Document document = md.Document(
       extensionSet: md.ExtensionSet.gitHubFlavored,
@@ -43,10 +44,10 @@ class MarkdownGenerator {
     String formattedData = data;
     for (final MarkdownFormatter formatter in formatters) {
       formattedData = formatter(context, formattedData);
-      await wait();
+      await wait(periodic: true, period: 10);
     }
     final List<String> lines = splitTextByLines(formattedData);
-    await wait();
+    await wait(periodic: true, period: 10);
     final List<md.Node> nodes = document.parseLines(lines);
 
     for (final md.Node node in nodes) {
@@ -55,6 +56,7 @@ class MarkdownGenerator {
         widgets.add(nodeWidget);
       }
     }
+    Bench.end('Widgets generation');
     return widgets;
   }
 

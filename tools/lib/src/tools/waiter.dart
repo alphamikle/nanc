@@ -3,8 +3,8 @@ import 'dart:async';
 int counter = 0;
 int maxCounterValue = 250;
 
-FutureOr<void> wait({Duration duration = Duration.zero, int period = 250, bool asyncIterator = false}) {
-  if (asyncIterator) {
+FutureOr<void> wait({Duration duration = const Duration(milliseconds: 4), int period = 250, bool periodic = false}) {
+  if (periodic) {
     if (period > maxCounterValue) {
       maxCounterValue = period;
     }
@@ -13,9 +13,9 @@ FutureOr<void> wait({Duration duration = Duration.zero, int period = 250, bool a
       return Future<void>.delayed(duration);
     }
     _increment();
-  } else {
-    return Future<void>.delayed(duration);
+    return null;
   }
+  return Future<void>.delayed(duration);
 }
 
 void _increment() {

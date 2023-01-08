@@ -7,8 +7,6 @@
 
 'use strict';
 
-console.log('!!! FILE SYSTEM LIBRARY WAS LOADED !!!');
-
 /**
  * @type {FileSystemFileHandle | null}
  */
@@ -38,11 +36,9 @@ async function closeFileSystemHandleJS() {
 function _getFileHandle() {
   // For Chrome 86 and later...
   if ('showOpenFilePicker' in window) {
-    console.log('GET FILE HANDLE: NEW API');
     return window.showOpenFilePicker().then((handles) => handles[0]);
   }
   // For Chrome 85 and earlier...
-  console.log('GET FILE HANDLE: OLD API');
   return window.chooseFileSystemEntries();
 }
 
@@ -52,10 +48,8 @@ function _getFileHandle() {
  */
 async function _readFile(fileSystemHandle) {
   const file = await fileSystemHandle.getFile();
-  console.log('READ FILE');
   if (file.text) {
     const content = await file.text();
-    console.log(`READ FILE CONTENT: ${content}`);
     return content;
   }
   return _readFileLegacy(file);
@@ -66,12 +60,10 @@ async function _readFile(fileSystemHandle) {
  * @return {Promise<string>}
  */
 function _readFileLegacy(file) {
-  console.log('READ FILE LEGACY');
   return new Promise((resolve) => {
     const reader = new FileReader();
     reader.addEventListener('loadend', (e) => {
       const text = e.srcElement.result;
-      console.log(`READ FILE LEGACY CONTENT: ${text}`);
       resolve(text);
     });
     reader.readAsText(file);

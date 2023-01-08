@@ -15,7 +15,8 @@ class Bench {
   static double end(dynamic id) {
     final String benchId = id.toString();
     if (!_starts.containsKey(benchId)) {
-      throw Exception('In Benchmark not placed comparing with id=$benchId');
+      logg('In Benchmark not placed comparing with id=$benchId');
+      return 0;
     }
     final double diff = (DateTime.now().microsecondsSinceEpoch - _starts[benchId]!) / 1000;
     logg('''

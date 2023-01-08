@@ -30,13 +30,13 @@ class Substitutor {
 
   Future<String> substitute(String hash, String value) async {
     final String withLocalData = _replaceWithLocalData(value);
-    await wait();
+    await wait(periodic: true, period: 10);
     final String withTemplateData = _replaceWithTemplateData(hash, withLocalData);
-    await wait();
+    await wait(periodic: true, period: 10);
     final String withPageData = _replaceWithPageData(withTemplateData);
-    await wait();
+    await wait(periodic: true, period: 10);
     final String preparedForClearingData = _prepareForClearing(withPageData);
-    await wait();
+    await wait(periodic: true, period: 10);
     return _clearValue(preparedForClearingData);
   }
 

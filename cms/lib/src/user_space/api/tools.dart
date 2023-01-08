@@ -18,5 +18,5 @@ Future<void> networkDelay() async {
   const int max = 600;
 
   final Duration delay = Duration(milliseconds: Random().nextInt(max - min) + min);
-  await Future<void>.delayed(delay);
+  await wait(duration: delay);
 }

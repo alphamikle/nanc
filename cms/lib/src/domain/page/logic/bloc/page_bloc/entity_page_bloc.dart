@@ -33,7 +33,7 @@ class PageBloc extends BasePageBloc<PageState> {
     this.modelId = modelId;
     this.pageId = pageId;
     emit(state.copyWith.isLoading(true));
-    await Future<void>.delayed(const Duration(milliseconds: 50));
+    await wait(duration: const Duration(milliseconds: 50));
     final Model? model = modelListBloc.findModelById(modelId);
     if (model == null) {
       notFoundModelError(modelId);
@@ -190,7 +190,7 @@ class PageBloc extends BasePageBloc<PageState> {
   }
 
   Future<Json> _loadPageData(String entityId, String pageId) async {
-    await Future<void>.delayed(const Duration(milliseconds: 50));
+    await wait(duration: const Duration(milliseconds: 50));
     final Model? entity = modelListBloc.findModelById(entityId);
     if (entity == null) {
       throw Exception('Error while loading model page data with id "$entityId"');

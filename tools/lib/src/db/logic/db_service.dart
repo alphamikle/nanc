@@ -2,6 +2,7 @@ import 'package:config/config.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:tools/src/db/logic/db_adapter.dart';
 import 'package:tools/src/tools/logg.dart';
+import 'package:tools/tools.dart';
 
 const String _kDynamicBoxId = 'DYNAMIC_BOX';
 
@@ -39,7 +40,7 @@ class DbService {
       _initializationState = _DbServiceInitializationState.initialized;
     } else if (_initializationState == _DbServiceInitializationState.initialization) {
       while (_initializationState == _DbServiceInitializationState.initialization) {
-        await Future<void>.delayed(const Duration(milliseconds: 20));
+        await wait(duration: const Duration(milliseconds: 20));
       }
     }
   }
