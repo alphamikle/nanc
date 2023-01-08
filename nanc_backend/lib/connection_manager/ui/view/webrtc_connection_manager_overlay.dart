@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:icons/icons.dart';
 import 'package:nanc_backend/connection_manager/logic/connection_manager_bloc.dart';
 import 'package:nanc_backend/connection_manager/ui/components/webrtc_connection_manager_modal.dart';
 import 'package:tools/tools.dart';
@@ -80,7 +81,7 @@ class _WebRTCConnectionManagerOverlayState extends State<WebRTCConnectionManager
                       backgroundColor: context.theme.colorScheme.tertiary,
                       onPressed: showConnectionModal,
                       child: Icon(
-                        MdiIcons.qrcodeScan,
+                        IconPack.flu_scan_qr_code_filled,
                         color: context.theme.colorScheme.onTertiary,
                       ),
                     ),

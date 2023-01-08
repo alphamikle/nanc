@@ -127,7 +127,7 @@ class _KitIconInputState extends State<KitIconInput> with KitFocusStreamMixin {
           focusStream: focusStream,
           children: [
             KitInputButton(
-              icon: Boxicons.bx_grid,
+              icon: IconPack.flu_grid_dots_filled,
               onPressed: selectIconFromModal,
               tooltip: 'Open icon grid view',
               first: true,

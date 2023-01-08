@@ -5,6 +5,7 @@ import 'package:fields/src/domain/fields/logic/field/field_description.dart';
 import 'package:fields/src/domain/fields/logic/string_field/string_field.dart';
 import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -35,7 +36,7 @@ class EnumField extends Field {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: MdiIcons.formatListBulletedSquare,
+      icon: IconPack.mdi_format_list_bulleted_square,
       color: Color.fromRGBO(0, 79, 45, 1),
       title: 'Enum field',
       description:

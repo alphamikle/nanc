@@ -3,6 +3,7 @@ import 'package:fields/src/domain/fields/logic/dynamic_field/dynamic_field.dart'
 import 'package:fields/src/domain/fields/logic/field/field_description.dart';
 import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
@@ -32,7 +33,7 @@ class StructureField extends DynamicField {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: MdiIcons.wall,
+      icon: IconPack.mdi_wall,
       color: Color.fromRGBO(39, 150, 110, 1),
       title: 'Structure field',
       description: 'Technical field for CMS purposes',

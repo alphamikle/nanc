@@ -8,6 +8,7 @@ import 'package:fields/src/domain/fields/logic/multi_selector_field/third_table.
 import 'package:fields/src/domain/fields/logic/string_field/string_field.dart';
 import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -56,7 +57,7 @@ class MultiSelectorField extends Field {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: MdiIcons.orderBoolAscendingVariant,
+      icon: IconPack.mdi_order_bool_ascending_variant,
       color: Color.fromRGBO(161, 94, 73, 1),
       title: 'Multi-selector field',
       description: 'A field that allows selecting a set of values from the linked model. Full analog of the SQL-relationships "many-to-one"',

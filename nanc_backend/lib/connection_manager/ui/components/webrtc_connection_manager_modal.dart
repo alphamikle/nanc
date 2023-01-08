@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:icons/icons.dart';
 import 'package:nanc_backend/connection_manager/logic/connection_manager_bloc.dart';
 import 'package:nanc_backend/connection_manager/logic/connection_manager_state.dart';
 import 'package:nanc_backend/connection_manager/logic/model/client.dart';
@@ -216,7 +217,7 @@ class _WebRTCConnectionManagerModalState extends State<WebRTCConnectionManagerMo
                                           Padding(
                                             padding: EdgeInsets.only(right: 16),
                                             child: Icon(
-                                              MdiIcons.qrcodeScan,
+                                              IconPack.flu_scan_qr_code_filled,
                                             ),
                                           ),
                                           Text('Add new client'),

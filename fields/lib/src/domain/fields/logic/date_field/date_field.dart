@@ -3,6 +3,7 @@ import 'package:fields/src/domain/fields/logic/field/field.dart';
 import 'package:fields/src/domain/fields/logic/field/field_description.dart';
 import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
@@ -29,7 +30,7 @@ class DateField extends Field {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: MdiIcons.calendarClock,
+      icon: IconPack.flu_calendar_clock_filled,
       color: Color.fromRGBO(216, 49, 91, 1),
       title: 'Date field',
       description: 'A field for setting the date and time with automatic validation of correct input',

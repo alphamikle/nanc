@@ -11,6 +11,7 @@ import 'package:cms/src/service/routing/route_list.dart';
 import 'package:cms/src/service/tools/model_finder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -99,22 +100,23 @@ class _EntityPageViewState extends State<EntityPageView> {
                     Padding(
                       padding: const EdgeInsets.only(right: kPaddingLarge),
                       child: KitIconButton(
-                        icon: MdiIcons.chevronLeft,
+                        icon: IconPack.flu_chevron_left_filled,
                         onPressed: () => context.vRouter.historyBack(),
                       ),
                     ),
                   const Spacer(),
-                  if (creationMode == false) Padding(
-                    padding: const EdgeInsets.only(right: Gap.large),
-                    child: KitButton(
-                      onPressed: () async => confirmAndDelete(entity),
-                      color: context.theme.colorScheme.error,
-                      child: AnimatedSwitcher(
-                        duration: const Duration(milliseconds: 250),
-                        child: state.isDeleting ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error)) : const Text('Delete'),
+                  if (creationMode == false)
+                    Padding(
+                      padding: const EdgeInsets.only(right: Gap.large),
+                      child: KitButton(
+                        onPressed: () async => confirmAndDelete(entity),
+                        color: context.theme.colorScheme.error,
+                        child: AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 250),
+                          child: state.isDeleting ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error)) : const Text('Delete'),
+                        ),
                       ),
                     ),
-                  ),
                   KitButton(
                     onPressed: state.isChanged ? () async => validateAndSave(entity) : null,
                     child: AnimatedSwitcher(

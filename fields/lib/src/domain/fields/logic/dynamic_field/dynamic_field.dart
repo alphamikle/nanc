@@ -1,6 +1,7 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -35,7 +36,7 @@ class DynamicField extends Field {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: MdiIcons.playlistEdit,
+      icon: IconPack.mdi_playlist_edit,
       color: Color.fromRGBO(247, 203, 21, 1),
       title: 'Dynamic field',
       description: 'A field with the ability to specify any data format of any nesting depth. You can describe any structure with this field',

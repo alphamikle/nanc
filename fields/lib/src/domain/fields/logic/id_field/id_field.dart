@@ -3,6 +3,7 @@ import 'package:fields/fields.dart';
 import 'package:fields/src/domain/fields/logic/field/field_description.dart';
 import 'package:fields/src/domain/fields/logic/field/field_props.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -29,7 +30,7 @@ class IdField extends Field {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: MdiIcons.keyVariant,
+      icon: IconPack.mdi_key_chain,
       color: Color.fromRGBO(216, 124, 172, 1),
       title: 'ID field',
       description: 'A field for selecting a unique identifier. You can use any value you want or quickly generate a UUID with only one click',

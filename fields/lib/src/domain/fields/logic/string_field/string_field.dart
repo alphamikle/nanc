@@ -5,6 +5,7 @@ import 'package:fields/src/domain/fields/logic/field/field_description.dart';
 import 'package:fields/src/domain/fields/logic/field/field_props.dart';
 import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -35,7 +36,7 @@ class StringField extends Field {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: MdiIcons.formTextbox,
+      icon: IconPack.mdi_form_textbox,
       color: Color.fromRGBO(98, 195, 112, 1),
       title: 'String field',
       description: 'A field for entering lines with the ability to specify a fixed height of the field itself or make the height dynamic',

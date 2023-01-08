@@ -15,6 +15,7 @@ import 'package:fields/fields.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -94,7 +95,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                       Padding(
                         padding: const EdgeInsets.only(right: kPaddingLarge),
                         child: KitIconButton(
-                          icon: MdiIcons.chevronLeft,
+                          icon: IconPack.flu_chevron_left_filled,
                           onPressed: () => context.navigator.pop(),
                         ),
                       ),
@@ -124,7 +125,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                                   Padding(
                                     padding: const EdgeInsets.only(left: kPaddingSmall),
                                     child: Icon(
-                                      synced ? FluentIcons.arrow_sync_off_20_filled : MdiIcons.fileSyncOutline,
+                                      synced ? IconPack.flu_arrow_sync_checkmark_filled : IconPack.flu_arrow_sync_circle_filled,
                                       size: 20,
                                     ),
                                   ),
@@ -146,7 +147,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                             Padding(
                               padding: const EdgeInsets.only(left: kPaddingSmall),
                               child: Icon(
-                                isPageJsonAvailable ? MdiIcons.xml : MdiIcons.codeJson,
+                                isPageJsonAvailable ? IconPack.mdi_file_xml_box : IconPack.mdi_code_json,
                                 size: 20,
                               ),
                             ),
@@ -164,7 +165,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                             Padding(
                               padding: EdgeInsets.only(left: kPaddingSmall),
                               child: Icon(
-                                MdiIcons.imageSearchOutline,
+                                IconPack.flu_image_search_filled,
                                 size: 20,
                               ),
                             ),
@@ -188,7 +189,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                               Padding(
                                 padding: EdgeInsets.only(left: kPaddingSmall),
                                 child: Icon(
-                                  Boxicons.bx_help_circle,
+                                  IconPack.flu_chat_help_filled,
                                   size: 20,
                                 ),
                               ),

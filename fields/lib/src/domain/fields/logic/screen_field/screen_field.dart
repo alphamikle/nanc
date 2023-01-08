@@ -6,6 +6,7 @@ import 'package:fields/src/domain/fields/logic/field/field_description.dart';
 import 'package:fields/src/domain/fields/logic/field/field_props.dart';
 import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -36,7 +37,7 @@ class ScreenField extends Field {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: FluentIcons.phone_vertical_scroll_20_regular,
+      icon: IconPack.flu_phone_vertical_scroll_filled,
       color: Color.fromRGBO(147, 225, 216, 1),
       title: 'Screen field',
       description: 'A field for creating the screen interface of your application. Behind this single field is a world of user interfaces!',

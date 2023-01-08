@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/src/components/kit_buttons/kit_input_button.dart';
 import 'package:ui_kit/src/components/kit_inputs/kit_segmented_field/kit_focus_stream_mixin.dart';
@@ -50,7 +51,7 @@ class _KitIdInputState extends State<KitIdInput> with KitFocusStreamMixin {
       focusStream: focusStream,
       children: [
         KitInputButton(
-          icon: MdiIcons.keyChain,
+          icon: IconPack.flu_key_reset_regular,
           onPressed: generateId,
           tooltip: widget.tooltip,
           first: true,

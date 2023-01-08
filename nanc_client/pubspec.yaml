@@ -21,6 +21,8 @@ dependencies:
     path: ../markdown_code_push
   ui_kit:
     path: ../ui_kit
+  icons:
+    path: ../icons
   cupertino_icons: ^1.0.2
   bloc: ^8.1.0
   flutter_bloc: ^8.1.1

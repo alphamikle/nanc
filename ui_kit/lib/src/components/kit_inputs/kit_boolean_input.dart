@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/src/components/kit_ink_well.dart';
 import 'package:ui_kit/src/components/kit_inputs/kit_segmented_field/kit_segmented_field.dart';
@@ -116,11 +117,11 @@ class _BooleanFieldSegment extends StatelessWidget {
                     padding: const EdgeInsets.only(right: Gap.regular),
                     child: isSelected
                         ? Icon(
-                            MdiIcons.checkboxBlankCircle,
+                            IconPack.mdi_checkbox_blank_circle,
                             color: iconColor,
                           )
                         : Icon(
-                            MdiIcons.checkboxBlankCircleOutline,
+                            IconPack.mdi_checkbox_blank_circle_outline,
                             color: iconColor,
                           ),
                   ),

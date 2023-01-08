@@ -4,6 +4,7 @@ import 'package:fields/src/domain/fields/logic/field/field.dart';
 import 'package:fields/src/domain/fields/logic/field/field_description.dart';
 import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -34,7 +35,7 @@ class BoolField extends Field {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: MdiIcons.toggleSwitchOff,
+      icon: IconPack.flu_toggle_left_regular,
       color: Color.fromRGBO(20, 33, 61, 1),
       title: 'Boolean field',
       description: 'A primitive bool type field, with the possibility of setting a default value',

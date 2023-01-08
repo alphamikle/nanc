@@ -7,6 +7,7 @@ import 'package:fields/src/domain/fields/logic/id_field/id_field.dart';
 import 'package:fields/src/domain/fields/logic/string_field/string_field.dart';
 import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -66,7 +67,7 @@ class SelectorField extends Field {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: MdiIcons.orderBoolDescending,
+      icon: IconPack.mdi_order_bool_descending,
       color: Color.fromRGBO(201, 133, 134, 1),
       title: 'Selector field',
       description: 'A field that allows you to select a value from a linked model. It is the analog of the SQL "one-to-many" relation',

@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -119,19 +122,19 @@ class _MoverButtonState extends State<_MoverButton> with SingleTickerProviderSta
 
   IconData generateIcon() {
     return {
-      AxisDirection.left: MdiIcons.chevronLeft,
-      AxisDirection.up: MdiIcons.chevronUp,
-      AxisDirection.right: MdiIcons.chevronRight,
-      AxisDirection.down: MdiIcons.chevronDown,
+      AxisDirection.left: IconPack.flu_chevron_left_filled,
+      AxisDirection.up: IconPack.flu_chevron_up_filled,
+      AxisDirection.right: IconPack.flu_chevron_right_filled,
+      AxisDirection.down: IconPack.flu_chevron_down_filled,
     }[widget.direction]!;
   }
 
   // ignore: avoid_positional_boolean_parameters
   void toggleVisibility(bool isMouseOn) {
     if (isMouseOn) {
-      forward();
+      unawaited(forward());
     } else {
-      animateBack();
+      unawaited(animateBack());
     }
   }
 

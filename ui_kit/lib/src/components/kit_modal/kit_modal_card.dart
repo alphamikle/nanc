@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/src/components/kit_buttons/kit_icon_button.dart';
 import 'package:ui_kit/src/components/kit_tooltip.dart';
@@ -49,7 +50,7 @@ class KitModalCard extends StatelessWidget {
                         child: KitTooltip(
                           text: 'Close',
                           child: KitIconButton(
-                            icon: MdiIcons.close,
+                            icon: IconPack.mdi_window_close,
                             onPressed: onClose,
                           ),
                         ),

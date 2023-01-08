@@ -69,7 +69,7 @@ class _TagsManualViewState extends State<TagsManualView> {
                     Padding(
                       padding: const EdgeInsets.only(right: Gap.large),
                       child: KitIconButton(
-                        icon: MdiIcons.chevronLeft,
+                        icon: IconPack.flu_chevron_left_filled,
                         onPressed: () => context.navigator.pop(),
                       ),
                     ),

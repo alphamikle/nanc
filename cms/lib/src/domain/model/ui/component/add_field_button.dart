@@ -1,6 +1,7 @@
 import 'package:cms/src/domain/model/ui/component/field_card.dart';
 import 'package:cms/src/service/config/config.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -37,7 +38,7 @@ class AddFieldButton extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(50)),
               ),
               child: Icon(
-                MdiIcons.plus,
+                IconPack.flu_add_circle_filled,
                 color: context.theme.colorScheme.tertiary,
               ),
             ),

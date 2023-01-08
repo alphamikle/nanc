@@ -3,6 +3,7 @@ import 'package:fields/src/domain/fields/logic/field/field.dart';
 import 'package:fields/src/domain/fields/logic/field/field_description.dart';
 import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
@@ -29,7 +30,7 @@ class IconField extends Field {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: MdiIcons.brush,
+      icon: IconPack.rmx_paint_brush_fill,
       color: Color.fromRGBO(44, 66, 81, 1),
       title: 'Icon field',
       description: 'A field for selecting an icon from the provided list with the possibility of expanding and easy search in the modal window',

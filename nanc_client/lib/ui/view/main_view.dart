@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:icons/icons.dart';
 import 'package:nanc_client/logic/bloc/page_bloc.dart';
 import 'package:nanc_client/logic/bloc/page_state.dart';
 import 'package:nanc_client/ui/components/connection_modal.dart';
@@ -63,7 +64,7 @@ class _MainViewState extends State<MainView> {
               onPressed: showConnectionManager,
               tooltip: fabText,
               child: Icon(
-                MdiIcons.connection,
+                IconPack.mdi_connection,
                 color: context.theme.colorScheme.onTertiary,
               ),
             ),

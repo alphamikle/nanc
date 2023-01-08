@@ -2,6 +2,7 @@ import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:fields/fields.dart';
 import 'package:fields/src/domain/fields/logic/field/field_description.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
@@ -28,7 +29,7 @@ class NumberField extends Field {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: MdiIcons.numeric,
+      icon: IconPack.mdi_numeric,
       color: Color.fromRGBO(231, 107, 116, 1),
       title: 'Number field',
       description: 'Field for entering numbers',

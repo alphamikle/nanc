@@ -7,6 +7,7 @@ import 'package:fields/src/domain/fields/logic/structure_field/structure_field.d
 import 'package:fields/src/domain/type/field_types.dart';
 import 'package:fields/src/service/tools/json_factories.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -40,7 +41,7 @@ class StructuredField extends DynamicField {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: FluentIcons.code_block_24_regular,
+      icon: IconPack.flu_code_block_regular,
       color: Color.fromRGBO(61, 221, 164, 1),
       title: 'Structured field',
       description: 'A field for storing a list of values with a predefined structure',

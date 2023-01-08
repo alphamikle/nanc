@@ -3,6 +3,7 @@ import 'package:fields/src/domain/fields/logic/field/field.dart';
 import 'package:fields/src/domain/fields/logic/field/field_description.dart';
 import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
@@ -29,7 +30,7 @@ class ColorField extends Field {
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: MdiIcons.palette,
+      icon: IconPack.mdi_palette_advanced,
       color: Color.fromRGBO(242, 100, 25, 1),
       title: 'Color field',
       description: 'Color picker field with an option to use the color picker or set the color from HEX',

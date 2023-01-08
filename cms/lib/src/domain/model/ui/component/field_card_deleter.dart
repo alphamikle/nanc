@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -64,9 +67,9 @@ class _DeleterButtonState extends State<_DeleterButton> with SingleTickerProvide
   // ignore: avoid_positional_boolean_parameters
   void toggleVisibility(bool isMouseOn) {
     if (isMouseOn) {
-      forward();
+      unawaited(forward());
     } else {
-      animateBack(0);
+      unawaited(animateBack());
     }
   }
 
@@ -101,7 +104,7 @@ class _DeleterButtonState extends State<_DeleterButton> with SingleTickerProvide
                   child: Padding(
                     padding: const EdgeInsets.only(left: 3, bottom: 3),
                     child: Icon(
-                      MdiIcons.deleteOutline,
+                      IconPack.mdi_delete_outline,
                       color: context.theme.colorScheme.onError.withOpacity(value),
                     ),
                   ),

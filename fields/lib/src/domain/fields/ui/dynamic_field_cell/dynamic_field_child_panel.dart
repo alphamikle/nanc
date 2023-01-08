@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -39,7 +40,7 @@ class DynamicFieldChildPanel extends StatelessWidget {
                         child: KitTooltip(
                           text: 'Move up',
                           child: _PanelButton(
-                            icon: MdiIcons.chevronUp,
+                            icon: IconPack.mdi_chevron_up,
                             color: colors.primaryContainer,
                             onPressed: onMoveUp!,
                           ),
@@ -54,7 +55,7 @@ class DynamicFieldChildPanel extends StatelessWidget {
                         child: KitTooltip(
                           text: 'Delete',
                           child: _PanelButton(
-                            icon: MdiIcons.deleteOutline,
+                            icon: IconPack.mdi_delete_outline,
                             color: context.kitColors.deleteFieldColor,
                             onPressed: onDelete!,
                           ),
@@ -75,7 +76,7 @@ class DynamicFieldChildPanel extends StatelessWidget {
                         child: KitTooltip(
                           text: 'Move down',
                           child: _PanelButton(
-                            icon: MdiIcons.chevronDown,
+                            icon: IconPack.mdi_chevron_down,
                             color: colors.primaryContainer,
                             onPressed: onMoveDown!,
                           ),
@@ -90,7 +91,7 @@ class DynamicFieldChildPanel extends StatelessWidget {
                         child: KitTooltip(
                           text: 'Edit',
                           child: _PanelButton(
-                            icon: MdiIcons.cogs,
+                            icon: IconPack.mdi_cogs,
                             color: context.kitColors.editFieldColor,
                             onPressed: onEdit!,
                           ),
