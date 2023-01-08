@@ -5,6 +5,7 @@ import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/renderers/property/properties/text_style/text_decoration_enum.dart';
 import 'package:rich_renderer/src/renderers/property/properties/text_style/text_style_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/properties/text_style/text_style_property_widget.dart';
+import 'package:tools/tools.dart';
 
 FontWeight? _mapFontWeight(FontWeightEnum? weight) {
   if (weight == null) {
@@ -50,6 +51,8 @@ TextDecoration? _mapFontDecoration(TextDecorationEnum? decoration) {
   return null;
 }
 
+final _testFont = GoogleFonts.merriweather();
+
 TextStylePropertyWidget textStyleFactory({
   required BuildContext context,
   required String name,
@@ -62,7 +65,7 @@ TextStylePropertyWidget textStyleFactory({
     try {
       effectiveStyle = GoogleFonts.getFont(arguments.font!);
     } catch (error) {
-      // Handle error
+      logg('Error on loading font with name "${arguments.font}": $error');
       effectiveStyle = const TextStyle();
     }
   } else {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:rich_renderer/src/renderers/property/properties/alignment/alignment_arguments.dart';
+import 'package:rich_renderer/src/renderers/property/properties/text_style/text_decoration_enum.dart';
 
 part 'documentation_types.g.dart';
 
@@ -20,6 +21,10 @@ class DocumentationTypes {
   static Set<String> get boxFitValues => _$BoxFitEnumMap.values.toSet();
   static Set<String> get materialTypeValues => _$MaterialTypeEnumMap.values.toSet();
   static Set<String> get stackFitValues => _$StackFitEnumMap.values.toSet();
+  static Set<String> get textAlignValues => _$TextAlignEnumMap.values.toSet();
+  static Set<String> get textOverflowValues => _$TextOverflowEnumMap.values.toSet();
+  static Set<String> get fontWeightEnumValues => _$FontWeightEnumEnumMap.values.toSet();
+  static Set<String> get textDecorationEnumValues => _$TextDecorationEnumEnumMap.values.toSet();
 
   CrossAxisAlignment? crossAxisAlignment;
   MainAxisSize? mainAxisSize;
@@ -35,4 +40,8 @@ class DocumentationTypes {
   BoxFit? boxFit;
   MaterialType? materialType;
   StackFit? stackFit;
+  TextAlign? textAlign;
+  TextOverflow? textOverflow;
+  FontWeightEnum? fontWeightEnum;
+  TextDecorationEnum? textDecorationEnum;
 }

@@ -12,7 +12,7 @@ TextArguments _$TextArgumentsFromJson(Map<String, dynamic> json) =>
       maxLines: intFromJson(json['maxLines'] as String?),
       align: $enumDecodeNullable(_$TextAlignEnumMap, json['align']),
       overflow: $enumDecodeNullable(_$TextOverflowEnumMap, json['overflow']),
-      softWrap: boolFromJson(json['softWrap']),
+      softWrap: boolOrNullFromJson(json['softWrap']),
       size: stringToDoubleOrNull(json['size'] as String?),
       color: colorFromJson(json['color'] as String?),
     );

@@ -33,7 +33,7 @@ class TextArguments {
   @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
   final Color? color;
 
-  @JsonKey(fromJson: boolFromJson)
+  @JsonKey(fromJson: boolOrNullFromJson)
   final bool? softWrap;
 
   Json toJson() => _$TextArgumentsToJson(this);

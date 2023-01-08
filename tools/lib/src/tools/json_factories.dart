@@ -73,3 +73,10 @@ bool boolFromJson(dynamic value) {
   }
   return false;
 }
+
+bool? boolOrNullFromJson(dynamic value) {
+  if (value == null) {
+    return null;
+  }
+  return boolFromJson(value);
+}

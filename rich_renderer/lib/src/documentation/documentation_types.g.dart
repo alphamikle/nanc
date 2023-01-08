@@ -30,7 +30,14 @@ DocumentationTypes _$DocumentationTypesFromJson(Map<String, dynamic> json) =>
       ..boxFit = $enumDecodeNullable(_$BoxFitEnumMap, json['boxFit'])
       ..materialType =
           $enumDecodeNullable(_$MaterialTypeEnumMap, json['materialType'])
-      ..stackFit = $enumDecodeNullable(_$StackFitEnumMap, json['stackFit']);
+      ..stackFit = $enumDecodeNullable(_$StackFitEnumMap, json['stackFit'])
+      ..textAlign = $enumDecodeNullable(_$TextAlignEnumMap, json['textAlign'])
+      ..textOverflow =
+          $enumDecodeNullable(_$TextOverflowEnumMap, json['textOverflow'])
+      ..fontWeightEnum =
+          $enumDecodeNullable(_$FontWeightEnumEnumMap, json['fontWeightEnum'])
+      ..textDecorationEnum = $enumDecodeNullable(
+          _$TextDecorationEnumEnumMap, json['textDecorationEnum']);
 
 Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
     <String, dynamic>{
@@ -51,6 +58,11 @@ Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
       'boxFit': _$BoxFitEnumMap[instance.boxFit],
       'materialType': _$MaterialTypeEnumMap[instance.materialType],
       'stackFit': _$StackFitEnumMap[instance.stackFit],
+      'textAlign': _$TextAlignEnumMap[instance.textAlign],
+      'textOverflow': _$TextOverflowEnumMap[instance.textOverflow],
+      'fontWeightEnum': _$FontWeightEnumEnumMap[instance.fontWeightEnum],
+      'textDecorationEnum':
+          _$TextDecorationEnumEnumMap[instance.textDecorationEnum],
     };
 
 const _$CrossAxisAlignmentEnumMap = {
@@ -176,4 +188,41 @@ const _$StackFitEnumMap = {
   StackFit.loose: 'loose',
   StackFit.expand: 'expand',
   StackFit.passthrough: 'passthrough',
+};
+
+const _$TextAlignEnumMap = {
+  TextAlign.left: 'left',
+  TextAlign.right: 'right',
+  TextAlign.center: 'center',
+  TextAlign.justify: 'justify',
+  TextAlign.start: 'start',
+  TextAlign.end: 'end',
+};
+
+const _$TextOverflowEnumMap = {
+  TextOverflow.clip: 'clip',
+  TextOverflow.fade: 'fade',
+  TextOverflow.ellipsis: 'ellipsis',
+  TextOverflow.visible: 'visible',
+};
+
+const _$FontWeightEnumEnumMap = {
+  FontWeightEnum.w100: 'w100',
+  FontWeightEnum.w200: 'w200',
+  FontWeightEnum.w300: 'w300',
+  FontWeightEnum.w400: 'w400',
+  FontWeightEnum.w500: 'w500',
+  FontWeightEnum.w600: 'w600',
+  FontWeightEnum.w700: 'w700',
+  FontWeightEnum.w800: 'w800',
+  FontWeightEnum.w900: 'w900',
+  FontWeightEnum.normal: 'normal',
+  FontWeightEnum.bold: 'bold',
+};
+
+const _$TextDecorationEnumEnumMap = {
+  TextDecorationEnum.none: 'none',
+  TextDecorationEnum.underline: 'underline',
+  TextDecorationEnum.overline: 'overline',
+  TextDecorationEnum.lineThrough: 'lineThrough',
 };

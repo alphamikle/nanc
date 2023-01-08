@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
+import 'package:rich_renderer/src/documentation/arguments/common.dart';
 import 'package:rich_renderer/src/renderers/template/template_arguments.dart';
 import 'package:tools/tools.dart';
 
@@ -14,8 +15,32 @@ TagRenderer templateRenderer() {
     tag: 'template',
     pattern: RegExp(r'<template.*>'),
     endPattern: RegExp('</template>'),
+    description: TagDescription(
+      description: '''
+# Template
+
+Template is another custom widget, the blood brother of the `component`. Template allows you to describe a complex widget and then easily reuse it in your UI. It can be compared to a custom Flutter widget written by your own hands.
+
+At the moment there is support only for parameters passing, but in the near future it will be possible to transfer other components, getting the most flexibility.
+''',
+      arguments: [
+        idArg(),
+      ],
+      properties: [],
+    ),
     example: '''
-TODO
+<template id="exampleCard">
+  <container width="{{ template.size }}" height="{{ template.size }}" color="{{ template.color }}">
+  </container>
+</template>
+
+<container width="300" height="600" color="#457FDA">
+  <column>
+    <component id="exampleCard" size="100" color="#7BDA45"/>
+    <component id="exampleCard" size="150" color="#A5DA9745"/>
+    <component id="exampleCard" size="100" color="#7BDA45"/>
+  </column>
+</container>
 ''',
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
       final TemplateArguments arguments = TemplateArguments.fromJson(element.attributes);
