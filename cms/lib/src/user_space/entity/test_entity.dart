@@ -15,6 +15,9 @@ final Model testEntity = Model(
       ColorField(id: 'color', name: 'Color field'),
     ],
     [
+      ScreenField(name: 'Screen'),
+    ],
+    [
       StringField(id: 'single_line_string_field', name: 'Single line string field', maxLines: 1),
       NumberField(
         id: 'number_field',

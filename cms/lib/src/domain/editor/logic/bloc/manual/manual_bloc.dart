@@ -39,6 +39,10 @@ class ManualBloc extends EditorBloc {
 
   @override
   void controllerListener() {
-    emit(state.copyWith.markdownContent(controller.text));
+    emit(
+      state.copyWith(
+        markdownContent: controller.text,
+      ),
+    );
   }
 }

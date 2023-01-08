@@ -1,4 +1,5 @@
 flutter build web \
+--dart2js-optimization=O0 \
 --dart-define=SUPA_HOST="$NANC_SUPA_HOST" \
 --dart-define=SUPA_KEY="$NANC_SUPA_KEY" \
 --dart-define="$NANC_SECRET_KEY"="$NANC_SECRET_VALUE"
