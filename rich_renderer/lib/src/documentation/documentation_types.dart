@@ -19,6 +19,7 @@ class DocumentationTypes {
   static Set<String> get alignmentEnumValues => _$AlignmentEnumEnumMap.values.toSet();
   static Set<String> get boxFitValues => _$BoxFitEnumMap.values.toSet();
   static Set<String> get materialTypeValues => _$MaterialTypeEnumMap.values.toSet();
+  static Set<String> get stackFitValues => _$StackFitEnumMap.values.toSet();
 
   CrossAxisAlignment? crossAxisAlignment;
   MainAxisSize? mainAxisSize;
@@ -33,4 +34,5 @@ class DocumentationTypes {
   AlignmentEnum? alignmentEnum;
   BoxFit? boxFit;
   MaterialType? materialType;
+  StackFit? stackFit;
 }

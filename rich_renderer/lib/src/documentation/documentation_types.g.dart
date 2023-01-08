@@ -29,7 +29,8 @@ DocumentationTypes _$DocumentationTypesFromJson(Map<String, dynamic> json) =>
           $enumDecodeNullable(_$AlignmentEnumEnumMap, json['alignmentEnum'])
       ..boxFit = $enumDecodeNullable(_$BoxFitEnumMap, json['boxFit'])
       ..materialType =
-          $enumDecodeNullable(_$MaterialTypeEnumMap, json['materialType']);
+          $enumDecodeNullable(_$MaterialTypeEnumMap, json['materialType'])
+      ..stackFit = $enumDecodeNullable(_$StackFitEnumMap, json['stackFit']);
 
 Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
     <String, dynamic>{
@@ -49,6 +50,7 @@ Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
       'alignmentEnum': _$AlignmentEnumEnumMap[instance.alignmentEnum],
       'boxFit': _$BoxFitEnumMap[instance.boxFit],
       'materialType': _$MaterialTypeEnumMap[instance.materialType],
+      'stackFit': _$StackFitEnumMap[instance.stackFit],
     };
 
 const _$CrossAxisAlignmentEnumMap = {
@@ -168,4 +170,10 @@ const _$MaterialTypeEnumMap = {
   MaterialType.circle: 'circle',
   MaterialType.button: 'button',
   MaterialType.transparency: 'transparency',
+};
+
+const _$StackFitEnumMap = {
+  StackFit.loose: 'loose',
+  StackFit.expand: 'expand',
+  StackFit.passthrough: 'passthrough',
 };
