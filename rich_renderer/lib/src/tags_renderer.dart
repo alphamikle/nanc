@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:rich_renderer/rich_renderer.dart';
+import 'package:rich_renderer/src/renderers/align/align_renderer.dart';
 import 'package:rich_renderer/src/renderers/center/center_renderer.dart';
 import 'package:rich_renderer/src/renderers/clipr_rect/clipr_rect_renderer.dart';
 import 'package:rich_renderer/src/renderers/column/column_renderer.dart';
@@ -10,16 +11,19 @@ import 'package:rich_renderer/src/renderers/data/data_renderer.dart';
 import 'package:rich_renderer/src/renderers/description/description_renderer.dart';
 import 'package:rich_renderer/src/renderers/divider/divider_renderer.dart';
 import 'package:rich_renderer/src/renderers/expanded/expanded_renderer.dart';
+import 'package:rich_renderer/src/renderers/fractional_translation/fractional_translation_renderer.dart';
 import 'package:rich_renderer/src/renderers/icon/icon_renderer.dart';
 import 'package:rich_renderer/src/renderers/image/image_renderer.dart';
 import 'package:rich_renderer/src/renderers/ink_well/ink_well_renderer.dart';
 import 'package:rich_renderer/src/renderers/material/material_renderer.dart';
 import 'package:rich_renderer/src/renderers/padding/padding_renderer.dart';
+import 'package:rich_renderer/src/renderers/physical_model/physical_model_renderer.dart';
 import 'package:rich_renderer/src/renderers/placeholder/placeholder_renderer.dart';
 import 'package:rich_renderer/src/renderers/positioned/positioned_renderer.dart';
 import 'package:rich_renderer/src/renderers/property/property_renderer.dart';
 import 'package:rich_renderer/src/renderers/row/row_renderer.dart';
 import 'package:rich_renderer/src/renderers/safe_area/safe_area_renderer.dart';
+import 'package:rich_renderer/src/renderers/scale/scale_renderer.dart';
 import 'package:rich_renderer/src/renderers/sized_box/sized_box_renderer.dart';
 import 'package:rich_renderer/src/renderers/stack/stack_renderer.dart';
 import 'package:rich_renderer/src/renderers/template/template_renderer.dart';
@@ -68,6 +72,10 @@ class TagsRenderer {
       sizedBoxRenderer,
       // codeRenderer,
       safeAreaRenderer,
+      alignRenderer,
+      fractionalTranslationRenderer,
+      scaleRenderer,
+      physicalModelRenderer,
     ]);
   }
 

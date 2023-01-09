@@ -77,8 +77,19 @@ class EditorBloc extends Cubit<EditorState> {
   void _sendChangedEvent(EditorState state) => eventBus.send(eventId: EditorEvent.changed, request: state);
 
   void _fileContentListener(String? fileContent) {
-    if (fileContent != null) {
-      controller.text = fileContent;
+    final String oldText = controller.text;
+    try {
+      if (fileContent != null && fileContent != controller.text) {
+        controller.text = fileContent;
+      }
+    } catch (error) {
+      // Handle error
+      controller.text = '''
+$fileContent
+<!-- Fix very faint text for TextEditingController -->
+''';
+      controller.text = fileContent!;
+      logg('GOT AN ERROR ON PASTING THE TEXT: $error');
     }
   }
 

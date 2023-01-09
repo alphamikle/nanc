@@ -25,6 +25,8 @@ class DocumentationTypes {
   static Set<String> get textOverflowValues => _$TextOverflowEnumMap.values.toSet();
   static Set<String> get fontWeightEnumValues => _$FontWeightEnumEnumMap.values.toSet();
   static Set<String> get textDecorationEnumValues => _$TextDecorationEnumEnumMap.values.toSet();
+  static Set<String> get clipValues => _$ClipEnumMap.values.toSet();
+  static Set<String> get boxShapeValues => _$BoxShapeEnumMap.values.toSet();
 
   CrossAxisAlignment? crossAxisAlignment;
   MainAxisSize? mainAxisSize;
@@ -44,4 +46,6 @@ class DocumentationTypes {
   TextOverflow? textOverflow;
   FontWeightEnum? fontWeightEnum;
   TextDecorationEnum? textDecorationEnum;
+  Clip? clip;
+  BoxShape? boxShape;
 }

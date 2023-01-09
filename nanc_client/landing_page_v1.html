@@ -1,0 +1,242 @@
+<!-- ? ========================= DATA ========================= -->
+<data id="colors"
+      royalBlue="#5856E9"
+      grey="#6C6C72"
+      white="#FFFFFF"
+      black="#222233"
+/>
+
+<data id="stores"
+      google="https://i.ibb.co/jTgHMnL/google-badge.png"
+      apple="https://i.ibb.co/HxcYZ3b/apple-badge.png"
+/>
+
+<data id="fonts"
+      main="Josefin Sans"
+/>
+
+<!-- ? ========================= TEMPLATES ========================= -->
+<template id="storeButton">
+  <stack>
+    <image ref="{{ template.image }}"/>
+    <positioned all="0">
+      <material type="transparency">
+        <prop:borderRadius all="6"/>
+        <inkWell onPressed="browser: {{ template.link }}">
+          <prop:borderRadius all="6"/>
+        </inkWell>
+      </material>
+    </positioned>
+  </stack>
+</template>
+
+<template id="h1">
+  <text>
+    <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" weight="bold" size="25" height="1.5"/>
+    {{ template.text }}
+  </text>
+</template>
+
+<template id="h2">
+  <text>
+    <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" weight="bold" size="20" height="1.5"/>
+    {{ template.text }}
+  </text>
+</template>
+
+<template id="textH7">
+  <text>
+    <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" size="16" height="1.5"/>
+    {{ template.text }}
+  </text>
+</template>
+
+<template id="bullet">
+  <container>
+    <prop:decoration color="{{ data(colors).white }}">
+      <prop:shadow color="{{ data(colors).grey }}" blurRadius="12" spreadRadius="-10"/>
+      <prop:borderRadius all="10"/>
+    </prop:decoration>
+    <padding all="20">
+      <row crossAxisAlignment="start">
+        <padding top="4">
+          <container width="20" height="20">
+            <prop:decoration color="{{ data(colors).royalBlue }}">
+              <prop:borderRadius all="100"/>
+            </prop:decoration>
+            <center>
+              <icon icon="mdi_check_bold" color="{{ data(colors).white }}" size="12"/>
+            </center>
+          </container>
+        </padding>
+        <divider width="18"/>
+        <expanded>
+          <column crossAxisAlignment="start">
+            <component id="h2" color="{{ data(colors).black }}" text="{{ template.title }}"/>
+            <divider height="4"/>
+            <component id="textH7" color="{{ data(colors).grey }}" text="{{ template.text }}"/>
+          </column>
+        </expanded>
+      </row>
+    </padding>
+  </container>
+</template>
+
+<template id="feature">
+  <column>
+    <padding bottom="32">
+      <center>
+        <icon icon="{{ template.icon }}" size="45" color="{{ data(colors).white }}"/>
+      </center>
+    </padding>
+    <padding bottom="18">
+      <component id="h1" color="{{ data(colors).white }}" text="{{ template.title }}"/>
+    </padding>
+    <padding left="40" right="40">
+      <text align="center">
+        <prop:textStyle color="{{ data(colors).white }}" font="{{ data(fonts).main }}" size="16" height="1.5"/>
+        {{ template.text }}
+      </text>
+    </padding>
+  </column>
+</template>
+
+<!-- ? ========================= UI ========================= -->
+<sizedBox height="1227">
+  <stack fit="expand">
+    <image ref="https://i.ibb.co/bHnwdQc/app-background-1.png" fit="fitHeight"/>
+    <positioned left="16" top="188" right="16">
+      <column>
+        <stack>
+          <positioned left="20" top="0" right="0" bottom="0">
+            <container color="#7472FE">
+              <padding all="10">
+                <container color="{{ data(colors).royalBlue }}">
+                </container>
+              </padding>
+            </container>
+          </positioned>
+          <padding top="20" right="20" bottom="20">
+            <container>
+              <prop:decoration color="{{ data(colors).white }}">
+              </prop:decoration>
+              <prop:padding left="18" top="30" bottom="30" right="18"/>
+              <column crossAxisAlignment="start">
+                <component id="h1" text="A GREAT APP MAKES YOUR LIFE BETTER" color="{{ data(colors).royalBlue }}"/>
+                <divider height="18"/>
+                <component id="textH7" color="{{ data(colors).grey }}" text="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."/>
+                <divider height="30"/>
+                <component id="h2" color="{{ data(colors).black }}" text="DOWNLOAD APP NOW"/>
+                <divider height="18"/>
+                <row>
+                  <expanded>
+                    <component id="storeButton" link="https://google.com" image="{{ data(stores).google }}"/>
+                  </expanded>
+                  <divider width="12"/>
+                  <expanded>
+                    <component id="storeButton" link="https://apple.com" image="{{ data(stores).apple }}"/>
+                  </expanded>
+                </row>
+              </column>
+            </container>
+          </padding>
+        </stack>
+        <padding left="55" right="55" top="40">
+          <image ref="https://i.ibb.co/YRH1DYW/app-screen-1.png"/>
+        </padding>
+      </column>
+    </positioned>
+  </stack>
+</sizedBox>
+
+<padding top="60" bottom="18">
+  <center>
+    <component id="h1" color="{{ data(colors).black }}" text="ABOUT OUR APP"/>
+  </center>
+</padding>
+
+<padding left="38" right="38" bottom="40">
+  <center>
+    <component id="textH7" color="{{ data(colors).grey }}" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+  </center>
+</padding>
+
+<padding left="68" right="68" bottom="40">
+  <stack>
+    <positioned left="0" right="0" bottom="0">
+      <align alignment="bottomCenter">
+        <!-- uiyagsidfguiasjikd -->
+        <fractionalTranslation dx="0" dy="0.35">
+          <scale scaleX="1" scaleY="0.25">
+            <container height="260" width="300" color="{{ data(colors).white }}">
+              <prop:decoration>
+                <prop:borderRadius all="500"/>
+                <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="16"/>
+                <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="-16"/>
+              </prop:decoration>
+            </container>
+          </scale>
+        </fractionalTranslation>
+      </align>
+    </positioned>
+    <padding left="20" bottom="35" right="20">
+      <image ref="https://i.ibb.co/ZxkdMcb/mock-image-2.png"/>
+    </padding>
+  </stack>
+</padding>
+
+<padding left="16" right="16" bottom="20">
+  <component id="bullet"
+             title="Creative design"
+             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  />
+</padding>
+
+<padding left="16" right="16" bottom="20">
+  <component id="bullet"
+             title="Easy to use"
+             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  />
+</padding>
+
+<padding left="16" right="16" bottom="92">
+  <component id="bullet"
+             title="Best user experince"
+             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  />
+</padding>
+
+<container color="{{ data(colors).royalBlue }}">
+  <padding top="60" bottom="18">
+    <center>
+      <component id="h1" text="APP FEATURES" color="{{ data(colors).white }}"/>
+    </center>
+  </padding>
+  <padding left="40" right="40" bottom="32">
+    <center>
+      <component id="textH7" color="{{ data(colors).white }}"
+                 text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+    </center>
+  </padding>
+  <padding bottom="32">
+    <component id="feature"
+               title="FULL FREE CHAT"
+               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+               icon="mdi_message_bulleted"/>
+  </padding>
+  <padding bottom="32">
+    <component id="feature"
+               title="UNLIMITED FEATURES"
+               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+               icon="flu_gift_filled"/>
+  </padding>
+  <padding bottom="60">
+    <component id="feature"
+               title="AWESOME UI DESIGN"
+               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+               icon="flu_design_ideas_filled"/>
+  </padding>
+  <padding left="60" right="60" bottom="120">
+    <image ref="https://i.ibb.co/MV1Cs8N/app-screen-2.png"/>
+  </padding>
+</container>

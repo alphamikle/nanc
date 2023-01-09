@@ -37,7 +37,9 @@ DocumentationTypes _$DocumentationTypesFromJson(Map<String, dynamic> json) =>
       ..fontWeightEnum =
           $enumDecodeNullable(_$FontWeightEnumEnumMap, json['fontWeightEnum'])
       ..textDecorationEnum = $enumDecodeNullable(
-          _$TextDecorationEnumEnumMap, json['textDecorationEnum']);
+          _$TextDecorationEnumEnumMap, json['textDecorationEnum'])
+      ..clip = $enumDecodeNullable(_$ClipEnumMap, json['clip'])
+      ..boxShape = $enumDecodeNullable(_$BoxShapeEnumMap, json['boxShape']);
 
 Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
     <String, dynamic>{
@@ -63,6 +65,8 @@ Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
       'fontWeightEnum': _$FontWeightEnumEnumMap[instance.fontWeightEnum],
       'textDecorationEnum':
           _$TextDecorationEnumEnumMap[instance.textDecorationEnum],
+      'clip': _$ClipEnumMap[instance.clip],
+      'boxShape': _$BoxShapeEnumMap[instance.boxShape],
     };
 
 const _$CrossAxisAlignmentEnumMap = {
@@ -225,4 +229,16 @@ const _$TextDecorationEnumEnumMap = {
   TextDecorationEnum.underline: 'underline',
   TextDecorationEnum.overline: 'overline',
   TextDecorationEnum.lineThrough: 'lineThrough',
+};
+
+const _$ClipEnumMap = {
+  Clip.none: 'none',
+  Clip.hardEdge: 'hardEdge',
+  Clip.antiAlias: 'antiAlias',
+  Clip.antiAliasWithSaveLayer: 'antiAliasWithSaveLayer',
+};
+
+const _$BoxShapeEnumMap = {
+  BoxShape.rectangle: 'rectangle',
+  BoxShape.circle: 'circle',
 };

@@ -1,3 +1,4 @@
+import 'package:rich_renderer/src/documentation/arguments/scalar_arguments.dart';
 import 'package:rich_renderer/src/documentation/documentation_types.dart';
 import 'package:rich_renderer/src/tag_description.dart';
 
@@ -21,3 +22,4 @@ TagArgument strokeAlignArg([String name = 'strokeAlign']) => TagArgument(name, D
 TagArgument blurStyleArg([String name = 'blurStyle']) => TagArgument(name, DocumentationTypes.blurStyleValues);
 TagArgument tileModeArg([String name = 'tileMode']) => TagArgument(name, DocumentationTypes.tileModeValues);
 TagArgument materialTypeArg([String name = 'type']) => TagArgument(name, DocumentationTypes.materialTypeValues);
+TagArgument elevationArg([String name = 'elevation']) => doubleArg(name);

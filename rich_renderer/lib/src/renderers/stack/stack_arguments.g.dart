@@ -16,10 +16,10 @@ StackArguments _$StackArgumentsFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$StackArgumentsToJson(StackArguments instance) =>
     <String, dynamic>{
-      'fit': _$StackFitEnumMap[instance.fit],
       'x': instance.x,
       'y': instance.y,
       'align': _$AlignmentEnumEnumMap[instance.align],
+      'fit': _$StackFitEnumMap[instance.fit],
     };
 
 const _$StackFitEnumMap = {
