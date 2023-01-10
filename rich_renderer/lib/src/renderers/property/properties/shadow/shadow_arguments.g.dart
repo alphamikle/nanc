@@ -13,7 +13,8 @@ ShadowArguments _$ShadowArgumentsFromJson(Map<String, dynamic> json) =>
       spreadRadius: stringToDoubleOrNull(json['spreadRadius'] as String?),
       offsetX: stringToDoubleOrNull(json['offsetX'] as String?),
       offsetY: stringToDoubleOrNull(json['offsetY'] as String?),
-      blurStyle: $enumDecodeNullable(_$BlurStyleEnumMap, json['blurStyle']),
+      blurStyle: $enumDecodeNullable(_$BlurStyleEnumMap, json['blurStyle'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
     );
 
 Map<String, dynamic> _$ShadowArgumentsToJson(ShadowArguments instance) =>

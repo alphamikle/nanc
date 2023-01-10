@@ -78,5 +78,11 @@ bool? boolOrNullFromJson(dynamic value) {
   if (value == null) {
     return null;
   }
+  if (value is String) {
+    final String string = value.trim();
+    if (string == 'null' || string == 'undefined') {
+      return null;
+    }
+  }
   return boolFromJson(value);
 }

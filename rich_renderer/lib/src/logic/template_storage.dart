@@ -5,7 +5,7 @@ typedef TemplateId = String;
 
 const String kTemplateId = 'templateId';
 
-final RegExp _templateRegExp = RegExp(r'template\((?<templateId>\w+)\)\.(?<valueId>\w+)');
+final RegExp _templateRegExp = RegExp(r'template\((?<templateId>[-\w.]+)\)\.(?<valueId>\w+)');
 
 class TemplateStorage extends InheritedWidget {
   TemplateStorage({

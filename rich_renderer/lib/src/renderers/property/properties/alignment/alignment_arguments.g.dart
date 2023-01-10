@@ -10,7 +10,8 @@ AlignmentArguments _$AlignmentArgumentsFromJson(Map<String, dynamic> json) =>
     AlignmentArguments(
       x: stringToDoubleOrNull(json['x'] as String?),
       y: stringToDoubleOrNull(json['y'] as String?),
-      align: $enumDecodeNullable(_$AlignmentEnumEnumMap, json['align']),
+      align: $enumDecodeNullable(_$AlignmentEnumEnumMap, json['align'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
     );
 
 Map<String, dynamic> _$AlignmentArgumentsToJson(AlignmentArguments instance) =>

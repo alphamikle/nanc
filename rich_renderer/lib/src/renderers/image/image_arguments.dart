@@ -27,6 +27,7 @@ class ImageArguments {
   @JsonKey(fromJson: stringToDoubleOrNull)
   final double? height;
 
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final BoxFit? fit;
 
   Json toJson() => _$ImageArgumentsToJson(this);

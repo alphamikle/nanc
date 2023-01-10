@@ -32,6 +32,7 @@ class ShadowArguments {
   @JsonKey(fromJson: stringToDoubleOrNull)
   final double? offsetY;
 
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final BlurStyle? blurStyle;
 
   BoxShadow toBoxShadow(BuildContext context) {

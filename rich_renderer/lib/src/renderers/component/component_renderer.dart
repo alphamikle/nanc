@@ -69,8 +69,10 @@ TagRenderer componentRenderer() {
         arguments: element.attributes,
       );
       // ignore: use_build_context_synchronously
-      final PropertiesExtractor extractor =
-          PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, richComponentContent));
+      final PropertiesExtractor extractor = PropertiesExtractor(
+        context: context,
+        rawChildren: await richRenderer.renderChildren(context, richComponentContent),
+      );
       return compactWidgets(extractor.children);
     },
   );

@@ -8,11 +8,11 @@ import 'package:rich_renderer/src/renderers/column/column_renderer.dart';
 import 'package:rich_renderer/src/renderers/component/component_renderer.dart';
 import 'package:rich_renderer/src/renderers/container/container_renderer.dart';
 import 'package:rich_renderer/src/renderers/data/data_renderer.dart';
-import 'package:rich_renderer/src/renderers/description/description_renderer.dart';
 import 'package:rich_renderer/src/renderers/divider/divider_renderer.dart';
 import 'package:rich_renderer/src/renderers/expanded/expanded_renderer.dart';
 import 'package:rich_renderer/src/renderers/fractional_translation/fractional_translation_renderer.dart';
 import 'package:rich_renderer/src/renderers/icon/icon_renderer.dart';
+import 'package:rich_renderer/src/renderers/if/show_renderer.dart';
 import 'package:rich_renderer/src/renderers/image/image_renderer.dart';
 import 'package:rich_renderer/src/renderers/ink_well/ink_well_renderer.dart';
 import 'package:rich_renderer/src/renderers/material/material_renderer.dart';
@@ -52,7 +52,6 @@ class TagsRenderer {
       rowRenderer,
       placeholderRenderer,
       containerRenderer,
-      descriptionRenderer,
       columnRenderer,
       inkWellRenderer,
       textRenderer,
@@ -76,6 +75,7 @@ class TagsRenderer {
       fractionalTranslationRenderer,
       scaleRenderer,
       physicalModelRenderer,
+      showRenderer,
     ]);
   }
 

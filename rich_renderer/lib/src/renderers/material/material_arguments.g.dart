@@ -8,7 +8,8 @@ part of 'material_arguments.dart';
 
 MaterialArguments _$MaterialArgumentsFromJson(Map<String, dynamic> json) =>
     MaterialArguments(
-      type: $enumDecodeNullable(_$MaterialTypeEnumMap, json['type']),
+      type: $enumDecodeNullable(_$MaterialTypeEnumMap, json['type'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
       color: colorFromJson(json['color'] as String?),
     );
 

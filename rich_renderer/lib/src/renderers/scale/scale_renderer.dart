@@ -30,7 +30,17 @@ Unlike [RotatedBox](widgets/RotatedBox-class.html), which applies a rotation pri
       properties: [],
     ),
     example: '''
-TODO
+<safeArea>
+  <center>
+    <scale scaleY="0.5">
+      <container width="100" height="100" color="#457FDA">
+        <prop:decoration>
+          <prop:borderRadius all="100"/>
+        </prop:decoration>
+      </container>
+    </scale>
+  </center>
+</safeArea>
 ''',
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
       final ScaleArguments arguments = ScaleArguments.fromJson(element.attributes);

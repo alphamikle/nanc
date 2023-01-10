@@ -12,6 +12,7 @@ class GradientArguments {
 
   factory GradientArguments.fromJson(dynamic json) => _$GradientArgumentsFromJson(castToJson(json));
 
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final TileMode? tileMode;
 
   Json toJson() => _$GradientArgumentsToJson(this);

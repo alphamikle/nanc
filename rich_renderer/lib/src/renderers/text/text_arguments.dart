@@ -18,13 +18,16 @@ class TextArguments {
 
   factory TextArguments.fromJson(dynamic json) => _$TextArgumentsFromJson(castToJson(json));
 
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final TextDirection? direction;
 
   @JsonKey(fromJson: intFromJson)
   final int? maxLines;
 
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final TextAlign? align;
 
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final TextOverflow? overflow;
 
   @JsonKey(fromJson: stringToDoubleOrNull)

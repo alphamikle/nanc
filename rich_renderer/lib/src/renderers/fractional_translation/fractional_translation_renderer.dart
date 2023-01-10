@@ -31,8 +31,15 @@ The translation is expressed as a [Offset](dart-ui/Offset-class.html) scaled to 
     ),
     example: '''
 <safeArea>
-  <container>
-  </container>
+  <center>
+    <fractionalTranslation dx="0.25" dy="1">
+      <container width="100" height="100" color="#457FDA">
+        <prop:decoration>
+          <prop:borderRadius all="100"/>
+        </prop:decoration>
+      </container>
+    </fractionalTranslation>
+  </center>
 </safeArea>
 ''',
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {

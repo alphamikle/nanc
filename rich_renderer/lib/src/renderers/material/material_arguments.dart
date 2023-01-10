@@ -13,6 +13,7 @@ class MaterialArguments {
 
   factory MaterialArguments.fromJson(dynamic json) => _$MaterialArgumentsFromJson(castToJson(json));
 
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final MaterialType? type;
 
   @JsonKey(fromJson: colorFromJson, toJson: colorToJson)

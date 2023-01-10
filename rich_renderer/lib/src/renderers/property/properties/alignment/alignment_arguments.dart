@@ -32,6 +32,7 @@ class AlignmentArguments {
   @JsonKey(fromJson: stringToDoubleOrNull)
   final double? y;
 
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final AlignmentEnum? align;
 
   Alignment? toAlignment() {

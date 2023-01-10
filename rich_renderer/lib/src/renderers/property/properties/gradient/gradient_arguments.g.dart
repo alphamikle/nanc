@@ -8,7 +8,8 @@ part of 'gradient_arguments.dart';
 
 GradientArguments _$GradientArgumentsFromJson(Map<String, dynamic> json) =>
     GradientArguments(
-      tileMode: $enumDecodeNullable(_$TileModeEnumMap, json['tileMode']),
+      tileMode: $enumDecodeNullable(_$TileModeEnumMap, json['tileMode'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
     );
 
 Map<String, dynamic> _$GradientArgumentsToJson(GradientArguments instance) =>

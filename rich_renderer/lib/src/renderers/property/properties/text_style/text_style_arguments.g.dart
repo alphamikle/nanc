@@ -12,11 +12,15 @@ TextStyleArguments _$TextStyleArgumentsFromJson(Map<String, dynamic> json) =>
       size: stringToDoubleOrNull(json['size'] as String?),
       height: stringToDoubleOrNull(json['height'] as String?),
       font: json['font'] as String?,
-      weight: $enumDecodeNullable(_$FontWeightEnumEnumMap, json['weight']),
-      decoration:
-          $enumDecodeNullable(_$TextDecorationEnumEnumMap, json['decoration']),
-      overflow: $enumDecodeNullable(_$TextOverflowEnumMap, json['overflow']),
-      baseline: $enumDecodeNullable(_$TextBaselineEnumMap, json['baseline']),
+      weight: $enumDecodeNullable(_$FontWeightEnumEnumMap, json['weight'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
+      decoration: $enumDecodeNullable(
+          _$TextDecorationEnumEnumMap, json['decoration'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
+      overflow: $enumDecodeNullable(_$TextOverflowEnumMap, json['overflow'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
+      baseline: $enumDecodeNullable(_$TextBaselineEnumMap, json['baseline'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
     );
 
 Map<String, dynamic> _$TextStyleArgumentsToJson(TextStyleArguments instance) =>

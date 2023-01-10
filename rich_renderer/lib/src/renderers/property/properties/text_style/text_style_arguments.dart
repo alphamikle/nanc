@@ -30,9 +30,17 @@ class TextStyleArguments {
   final double? height;
 
   final String? font;
+
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final FontWeightEnum? weight;
+
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final TextDecorationEnum? decoration;
+
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final TextOverflow? overflow;
+
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final TextBaseline? baseline;
 
   Json toJson() => _$TextStyleArgumentsToJson(this);

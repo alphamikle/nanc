@@ -4,11 +4,14 @@
       grey="#6C6C72"
       white="#FFFFFF"
       black="#222233"
+      transparent="#00FFFFFF"
 />
 
 <data id="stores"
-      google="https://i.ibb.co/jTgHMnL/google-badge.png"
-      apple="https://i.ibb.co/HxcYZ3b/apple-badge.png"
+      googleBadge="https://i.ibb.co/jTgHMnL/google-badge.png"
+      appleBadge="https://i.ibb.co/HxcYZ3b/apple-badge.png"
+      googleLink="https://google.com"
+      appleLink="https://apple.com"
 />
 
 <data id="fonts"
@@ -16,7 +19,7 @@
 />
 
 <!-- ? ========================= TEMPLATES ========================= -->
-<template id="storeButton">
+<template id="buttons.store">
   <stack>
     <image ref="{{ template.image }}"/>
     <positioned all="0">
@@ -30,22 +33,22 @@
   </stack>
 </template>
 
-<template id="h1">
-  <text>
+<template id="text.h1">
+  <text align="{{ template.align }}">
     <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" weight="bold" size="25" height="1.5"/>
     {{ template.text }}
   </text>
 </template>
 
-<template id="h2">
+<template id="text.h2">
   <text>
     <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" weight="bold" size="20" height="1.5"/>
     {{ template.text }}
   </text>
 </template>
 
-<template id="textH7">
-  <text>
+<template id="text.h7">
+  <text align="{{ template.align }}">
     <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" size="16" height="1.5"/>
     {{ template.text }}
   </text>
@@ -72,9 +75,9 @@
         <divider width="18"/>
         <expanded>
           <column crossAxisAlignment="start">
-            <component id="h2" color="{{ data(colors).black }}" text="{{ template.title }}"/>
+            <component id="text.h2" color="{{ data(colors).black }}" text="{{ template.title }}"/>
             <divider height="4"/>
-            <component id="textH7" color="{{ data(colors).grey }}" text="{{ template.text }}"/>
+            <component id="text.h7" color="{{ data(colors).grey }}" text="{{ template.text }}"/>
           </column>
         </expanded>
       </row>
@@ -90,7 +93,7 @@
       </center>
     </padding>
     <padding bottom="18">
-      <component id="h1" color="{{ data(colors).white }}" text="{{ template.title }}"/>
+      <component id="text.h1" color="{{ data(colors).white }}" text="{{ template.title }}"/>
     </padding>
     <padding left="40" right="40">
       <text align="center">
@@ -99,6 +102,78 @@
       </text>
     </padding>
   </column>
+</template>
+
+<template id="slider.dot">
+  <stack>
+    <sizedBox all="22">
+    </sizedBox>
+
+    <show show="{{ template.active }}">
+      <positioned all="0">
+        <align align="center">
+          <container width="22" height="22" color="{{ data(colors).royalBlue }}">
+            <prop:decoration>
+              <prop:borderRadius all="50"/>
+            </prop:decoration>
+          </container>
+        </align>
+      </positioned>
+    </show>
+
+    <positioned all="0">
+      <align align="center">
+        <container width="20" height="20" color="{{ data(colors).white }}">
+          <prop:decoration>
+            <prop:borderRadius all="50"/>
+          </prop:decoration>
+        </container>
+      </align>
+    </positioned>
+
+    <positioned all="0">
+      <align align="center">
+        <container width="16" height="16" color="{{ data(colors).royalBlue }}">
+          <prop:decoration>
+            <prop:borderRadius all="50"/>
+          </prop:decoration>
+        </container>
+      </align>
+    </positioned>
+  </stack>
+</template>
+
+<template id="metric">
+  <container color="{{ data(colors).royalBlue }}">
+    <prop:decoration>
+      <prop:borderRadius all="8"/>
+    </prop:decoration>
+    <padding all="12">
+      <column crossAxisAlign="center" mainAxisSize="min">
+        <padding bottom="12">
+          <icon icon="{{ template.icon }}" color="{{ data(colors).white }}"/>
+        </padding>
+        <padding bottom="8">
+          <component id="text.h2" text="{{ template.numbers }}" color="{{ data(colors).white }}"/>
+        </padding>
+        <component id="text.h7" text="{{ template.text }}" color="{{ data(colors).white }}"/>
+      </column>
+    </padding>
+  </container>
+</template>
+
+<template id="ellipse">
+  <fractionalTranslation dx="0" dy="0.35">
+    <scale scaleX="1" scaleY="0.25">
+      <container height="260" width="300" color="{{ data(colors).white }}">
+        <prop:decoration>
+          <prop:borderRadius all="500"/>
+          <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="16"/>
+          <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="-16"/>
+        </prop:decoration>
+      </container>
+    </scale>
+  </fractionalTranslation>
 </template>
 
 <!-- ? ========================= UI ========================= -->
@@ -122,19 +197,19 @@
               </prop:decoration>
               <prop:padding left="18" top="30" bottom="30" right="18"/>
               <column crossAxisAlignment="start">
-                <component id="h1" text="A GREAT APP MAKES YOUR LIFE BETTER" color="{{ data(colors).royalBlue }}"/>
+                <component id="text.h1" text="A GREAT APP MAKES YOUR LIFE BETTER" color="{{ data(colors).royalBlue }}"/>
                 <divider height="18"/>
-                <component id="textH7" color="{{ data(colors).grey }}" text="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."/>
+                <component id="text.h7" color="{{ data(colors).grey }}" text="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."/>
                 <divider height="30"/>
-                <component id="h2" color="{{ data(colors).black }}" text="DOWNLOAD APP NOW"/>
+                <component id="text.h2" color="{{ data(colors).black }}" text="DOWNLOAD APP NOW"/>
                 <divider height="18"/>
                 <row>
                   <expanded>
-                    <component id="storeButton" link="https://google.com" image="{{ data(stores).google }}"/>
+                    <component id="buttons.store" link="{{ data(stores).googleLink }}" image="{{ data(stores).googleBadge }}"/>
                   </expanded>
                   <divider width="12"/>
                   <expanded>
-                    <component id="storeButton" link="https://apple.com" image="{{ data(stores).apple }}"/>
+                    <component id="buttons.store" link="{{ data(stores).appleLink }}" image="{{ data(stores).appleBadge }}"/>
                   </expanded>
                 </row>
               </column>
@@ -151,13 +226,13 @@
 
 <padding top="60" bottom="18">
   <center>
-    <component id="h1" color="{{ data(colors).black }}" text="ABOUT OUR APP"/>
+    <component id="text.h1" color="{{ data(colors).black }}" text="ABOUT OUR APP"/>
   </center>
 </padding>
 
 <padding left="38" right="38" bottom="40">
   <center>
-    <component id="textH7" color="{{ data(colors).grey }}" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+    <component id="text.h7" color="{{ data(colors).grey }}" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
   </center>
 </padding>
 
@@ -165,18 +240,7 @@
   <stack>
     <positioned left="0" right="0" bottom="0">
       <align alignment="bottomCenter">
-        <!-- uiyagsidfguiasjikd -->
-        <fractionalTranslation dx="0" dy="0.35">
-          <scale scaleX="1" scaleY="0.25">
-            <container height="260" width="300" color="{{ data(colors).white }}">
-              <prop:decoration>
-                <prop:borderRadius all="500"/>
-                <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="16"/>
-                <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="-16"/>
-              </prop:decoration>
-            </container>
-          </scale>
-        </fractionalTranslation>
+        <component id="ellipse"/>
       </align>
     </positioned>
     <padding left="20" bottom="35" right="20">
@@ -209,14 +273,12 @@
 <container color="{{ data(colors).royalBlue }}">
   <padding top="60" bottom="18">
     <center>
-      <component id="h1" text="APP FEATURES" color="{{ data(colors).white }}"/>
+      <component id="text.h1" text="APP FEATURES" color="{{ data(colors).white }}"/>
     </center>
   </padding>
   <padding left="40" right="40" bottom="32">
-    <center>
-      <component id="textH7" color="{{ data(colors).white }}"
-                 text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
-    </center>
+    <component id="text.h7" color="{{ data(colors).white }}" align="center"
+               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
   </padding>
   <padding bottom="32">
     <component id="feature"
@@ -236,7 +298,111 @@
                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                icon="flu_design_ideas_filled"/>
   </padding>
+
   <padding left="60" right="60" bottom="120">
-    <image ref="https://i.ibb.co/MV1Cs8N/app-screen-2.png"/>
+    <physicalModel elevation="12" shadowColor="#80000000">
+      <prop:borderRadius all="32"/>
+      <image ref="https://i.ibb.co/MV1Cs8N/app-screen-2.png"/>
+    </physicalModel>
   </padding>
 </container>
+
+<padding top="60" bottom="18">
+  <component id="text.h1" color="{{ data(colors).black }}" text="CHECKOUT OUR APP INTERFACE LOOK" align="center"/>
+</padding>
+
+<padding left="40" right="40" bottom="40">
+  <component id="text.h7" color="{{ data(colors).grey }}" align="center"
+             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+</padding>
+
+<padding bottom="40">
+  <image ref="https://i.ibb.co/HdW9jTj/app-screenshots.png"/>
+</padding>
+
+<padding bottom="60">
+  <row mainAxisSize="min" mainAxisAlignment="center">
+    <component id="slider.dot"/>
+    <divider width="16"/>
+
+    <component id="slider.dot"/>
+    <divider width="16"/>
+
+    <component id="slider.dot" active="true"/>
+    <divider width="16"/>
+
+    <component id="slider.dot"/>
+    <divider width="16"/>
+
+    <component id="slider.dot"/>
+  </row>
+</padding>
+
+<padding left="16" right="90" bottom="18">
+  <component id="text.h1" text="DOWNLOAD APP NOW" color="{{ data(colors).black }}"/>
+</padding>
+
+<padding left="16" right="16" bottom="40">
+  <component id="text.h7" color="{{ data(colors).grey }}"
+             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+</padding>
+
+<padding left="16" right="16" bottom="60">
+  <row mainAxisAlignment="spaceBetween">
+    <expanded>
+      <component id="buttons.store" link="{{ data(stores).googleLink }}" image="{{ data(stores).googleBadge }}"/>
+    </expanded>
+    <divider width="25"/>
+    <expanded>
+      <component id="buttons.store" link="{{ data(stores).appleLink }}" image="{{ data(stores).appleBadge }}"/>
+    </expanded>
+  </row>
+</padding>
+
+<padding left="16" right="16">
+  <row mainAxisAlignment="spaceBetween">
+    <expanded>
+      <component id="metric" numbers="59865" text="Download" icon="mdi_download_box"/>
+    </expanded>
+
+    <divider width="16"/>
+
+    <expanded>
+      <component id="metric" numbers="29852" text="Like" icon="flu_thumb_like_filled"/>
+    </expanded>
+
+    <divider width="16"/>
+
+    <expanded>
+      <component id="metric" numbers="1500" text="5 Stars" icon="flu_star_emphasis_filled"/>
+    </expanded>
+  </row>
+</padding>
+
+<padding left="20" top="60" right="20" bottom="60">
+  <stack>
+    <positioned left="0" right="0" bottom="0">
+      <align alignment="bottomCenter">
+        <component id="ellipse"/>
+      </align>
+    </positioned>
+    <padding left="20" bottom="35" right="20">
+      <image ref="https://i.ibb.co/0mdDcKW/app-screenshots-2.png"/>
+    </padding>
+  </stack>
+</padding>
+
+<padding bottom="74">
+  <container color="{{ data(colors).royalBlue }}">
+    <column>
+      <padding top="60" bottom="40">
+        <component id="text.h1" color="{{ data(colors).white }}" align="center"
+                   text="HOW TO USE THE APP PERFECTLY"/>
+      </padding>
+      <padding left="40" right="40" bottom="40">
+        <component id="text.h7" color="{{ data(colors).white }}" align="center"
+                   text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+      </padding>
+    </column>
+  </container>
+</padding>

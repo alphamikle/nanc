@@ -38,14 +38,25 @@ For shapes that cannot be expressed as a rectangle with rounded corners use [Phy
       ],
     ),
     example: '''
-TODO
+<safeArea>
+  <center>
+  <physicalModel elevation="20" shape="circle">
+    <prop:borderRadius all="0"/>
+    <container width="100" height="100" color="#457FDA">
+      <prop:decoration>
+        <prop:borderRadius all="100"/>
+      </prop:decoration>
+    </container>
+  </physicalModel>
+  </center>
+</safeArea>
 ''',
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
       final PhysicalModelArguments arguments = PhysicalModelArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
 
       return PhysicalModel(
-        color: arguments.color ?? Colors.black,
+        color: arguments.color ?? Colors.transparent,
         borderRadius: extractor.getProperty(borderRadius),
         clipBehavior: arguments.clip ?? Clip.none,
         elevation: arguments.elevation ?? 0,

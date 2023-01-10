@@ -8,10 +8,13 @@ part of 'text_arguments.dart';
 
 TextArguments _$TextArgumentsFromJson(Map<String, dynamic> json) =>
     TextArguments(
-      direction: $enumDecodeNullable(_$TextDirectionEnumMap, json['direction']),
+      direction: $enumDecodeNullable(_$TextDirectionEnumMap, json['direction'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
       maxLines: intFromJson(json['maxLines'] as String?),
-      align: $enumDecodeNullable(_$TextAlignEnumMap, json['align']),
-      overflow: $enumDecodeNullable(_$TextOverflowEnumMap, json['overflow']),
+      align: $enumDecodeNullable(_$TextAlignEnumMap, json['align'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
+      overflow: $enumDecodeNullable(_$TextOverflowEnumMap, json['overflow'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
       softWrap: boolOrNullFromJson(json['softWrap']),
       size: stringToDoubleOrNull(json['size'] as String?),
       color: colorFromJson(json['color'] as String?),

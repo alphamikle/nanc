@@ -12,7 +12,8 @@ ImageArguments _$ImageArgumentsFromJson(Map<String, dynamic> json) =>
       color: colorFromJson(json['color'] as String?),
       width: stringToDoubleOrNull(json['width'] as String?),
       height: stringToDoubleOrNull(json['height'] as String?),
-      fit: $enumDecodeNullable(_$BoxFitEnumMap, json['fit']),
+      fit: $enumDecodeNullable(_$BoxFitEnumMap, json['fit'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
     );
 
 Map<String, dynamic> _$ImageArgumentsToJson(ImageArguments instance) =>

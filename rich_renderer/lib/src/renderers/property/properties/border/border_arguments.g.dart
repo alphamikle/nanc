@@ -10,8 +10,9 @@ BorderArguments _$BorderArgumentsFromJson(Map<String, dynamic> json) =>
     BorderArguments(
       color: colorFromJson(json['color'] as String?),
       width: stringToDoubleOrNull(json['width'] as String?),
-      strokeAlign:
-          $enumDecodeNullable(_$StrokeAlignEnumMap, json['strokeAlign']),
+      strokeAlign: $enumDecodeNullable(
+          _$StrokeAlignEnumMap, json['strokeAlign'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
     );
 
 Map<String, dynamic> _$BorderArgumentsToJson(BorderArguments instance) =>

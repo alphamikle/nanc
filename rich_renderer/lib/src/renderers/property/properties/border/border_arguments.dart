@@ -20,6 +20,7 @@ class BorderArguments {
   @JsonKey(fromJson: stringToDoubleOrNull)
   final double? width;
 
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final StrokeAlign? strokeAlign;
 
   BoxBorder toBorder(BuildContext context) {

@@ -16,6 +16,7 @@ class StackArguments extends AlignmentArguments {
 
   factory StackArguments.fromJson(dynamic json) => _$StackArgumentsFromJson(castToJson(json));
 
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final StackFit? fit;
 
   @override

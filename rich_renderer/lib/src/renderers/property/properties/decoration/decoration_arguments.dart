@@ -17,6 +17,7 @@ class DecorationArguments {
   @JsonKey(toJson: colorToJson, fromJson: colorFromJson)
   final Color? color;
 
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final BlendMode? blendMode;
 
   Json toJson() => _$DecorationArgumentsToJson(this);

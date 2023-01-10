@@ -9,17 +9,23 @@ part of 'column_arguments.dart';
 ColumnArguments _$ColumnArgumentsFromJson(Map<String, dynamic> json) =>
     ColumnArguments(
       crossAxisAlignment: $enumDecodeNullable(
-          _$CrossAxisAlignmentEnumMap, json['crossAxisAlignment']),
+          _$CrossAxisAlignmentEnumMap, json['crossAxisAlignment'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
       mainAxisAlignment: $enumDecodeNullable(
-          _$MainAxisAlignmentEnumMap, json['mainAxisAlignment']),
-      mainAxisSize:
-          $enumDecodeNullable(_$MainAxisSizeEnumMap, json['mainAxisSize']),
+          _$MainAxisAlignmentEnumMap, json['mainAxisAlignment'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
+      mainAxisSize: $enumDecodeNullable(
+          _$MainAxisSizeEnumMap, json['mainAxisSize'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
       verticalDirection: $enumDecodeNullable(
-          _$VerticalDirectionEnumMap, json['verticalDirection']),
-      textDirection:
-          $enumDecodeNullable(_$TextDirectionEnumMap, json['textDirection']),
-      textBaseline:
-          $enumDecodeNullable(_$TextBaselineEnumMap, json['textBaseline']),
+          _$VerticalDirectionEnumMap, json['verticalDirection'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
+      textDirection: $enumDecodeNullable(
+          _$TextDirectionEnumMap, json['textDirection'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
+      textBaseline: $enumDecodeNullable(
+          _$TextBaselineEnumMap, json['textBaseline'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
     );
 
 Map<String, dynamic> _$ColumnArgumentsToJson(ColumnArguments instance) =>
