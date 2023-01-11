@@ -31,6 +31,7 @@ dependencies:
   copy_with_extension: ^4.0.3
   vrouter: ^1.2.1
   url_launcher: ^6.1.6
+  device_frame: ^1.1.0
 
 dev_dependencies:
   flutter_test:

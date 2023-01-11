@@ -41,6 +41,7 @@ TagRenderer containerRenderer() {
         widthArg(),
         heightArg(),
         colorArg(),
+        sizeArg(),
       ],
     ),
     example: '''
@@ -75,8 +76,8 @@ TagRenderer containerRenderer() {
       final BoxDecoration? boxDecoration = extractor.getProperty(decoration);
 
       return Container(
-        width: arguments.width,
-        height: arguments.height,
+        width: arguments.size ?? arguments.width,
+        height: arguments.size ?? arguments.height,
         color: boxDecoration != null ? null : arguments.color,
         alignment: extractor.getProperty(alignment),
         padding: extractor.getProperty(padding),

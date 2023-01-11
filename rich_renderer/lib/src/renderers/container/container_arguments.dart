@@ -10,6 +10,7 @@ class ContainerArguments {
   const ContainerArguments({
     required this.width,
     required this.height,
+    required this.size,
     required this.color,
   });
 
@@ -20,6 +21,9 @@ class ContainerArguments {
 
   @JsonKey(fromJson: stringToDoubleOrNull)
   final double? height;
+
+  @JsonKey(fromJson: stringToDoubleOrNull)
+  final double? size;
 
   @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
   final Color? color;

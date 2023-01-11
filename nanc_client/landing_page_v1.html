@@ -1,3 +1,5 @@
+<import src="https://admin.nanc.io/components/buttons/large_button"/>
+
 <!-- ? ========================= DATA ========================= -->
 <data id="colors"
       royalBlue="#5856E9"
@@ -19,6 +21,8 @@
 />
 
 <!-- ? ========================= TEMPLATES ========================= -->
+
+<!--? BUTTONS-->
 <template id="buttons.store">
   <stack>
     <image ref="{{ template.image }}"/>
@@ -33,6 +37,75 @@
   </stack>
 </template>
 
+<template id="buttons.play">
+  <stack>
+    <positioned all="0">
+      <center>
+        <container size="70" color="#9AFFFFFF">
+          <prop:decoration>
+            <prop:borderRadius all="100"/>
+          </prop:decoration>
+        </container>
+      </center>
+    </positioned>
+    <positioned all="0">
+      <center>
+        <container size="60" color="#B4FFFFFF">
+          <prop:decoration>
+            <prop:borderRadius all="100"/>
+          </prop:decoration>
+        </container>
+      </center>
+    </positioned>
+    <positioned all="0">
+      <center>
+        <container size="50" color="#FFFFFF">
+          <prop:decoration>
+            <prop:borderRadius all="100"/>
+          </prop:decoration>
+        </container>
+      </center>
+    </positioned>
+    <positioned all="0">
+      <center>
+        <icon icon="mdi_play_box" color="{{ data(colors).royalBlue }}"/>
+      </center>
+    </positioned>
+    <sizedBox all="70">
+      <material type="transparency">
+        <prop:borderRadius all="100"/>
+        <inkWell onPressed="browser: {{ template.videoLink }}">
+          <prop:borderRadius all="100"/>
+        </inkWell>
+      </material>
+    </sizedBox>
+  </stack>
+</template>
+
+<template id="buttons.icon">
+  <stack>
+    <padding all="8">
+      <icon icon="{{ template.icon }}" size="24" color="{{ data(colors).black }}"/>
+    </padding>
+    <positioned all="0">
+      <material type="transparency">
+        <prop:borderRadius all="8"/>
+        <inkWell onPressed="browser: {{ template.link }}">
+          <prop:borderRadius all="8"/>
+        </inkWell>
+      </material>
+    </positioned>
+  </stack>
+</template>
+
+<!--? TEXTS-->
+<template id="text.h0">
+  <text align="{{ template.align }}">
+    <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" weight="w700" size="31.25" height="1.5"/>
+    {{ template.text }}
+  </text>
+</template>
+
 <template id="text.h1">
   <text align="{{ template.align }}">
     <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" weight="bold" size="25" height="1.5"/>
@@ -42,7 +115,7 @@
 
 <template id="text.h2">
   <text>
-    <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" weight="bold" size="20" height="1.5"/>
+    <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" weight="w600" size="20" height="1.5"/>
     {{ template.text }}
   </text>
 </template>
@@ -54,7 +127,8 @@
   </text>
 </template>
 
-<template id="bullet">
+<!--? CARDS-->
+<template id="cards.bullet">
   <container>
     <prop:decoration color="{{ data(colors).white }}">
       <prop:shadow color="{{ data(colors).grey }}" blurRadius="12" spreadRadius="-10"/>
@@ -85,7 +159,7 @@
   </container>
 </template>
 
-<template id="feature">
+<template id="cards.feature">
   <column>
     <padding bottom="32">
       <center>
@@ -104,6 +178,102 @@
   </column>
 </template>
 
+<template id="cards.metric">
+  <container color="{{ data(colors).royalBlue }}">
+    <prop:decoration>
+      <prop:borderRadius all="8"/>
+    </prop:decoration>
+    <padding all="12">
+      <column crossAxisAlign="center" mainAxisSize="min">
+        <padding bottom="12">
+          <icon icon="{{ template.icon }}" color="{{ data(colors).white }}"/>
+        </padding>
+        <padding bottom="8">
+          <component id="text.h2" text="{{ template.numbers }}" color="{{ data(colors).white }}"/>
+        </padding>
+        <component id="text.h7" text="{{ template.text }}" color="{{ data(colors).white }}"/>
+      </column>
+    </padding>
+  </container>
+</template>
+
+<template id="cards.ellipse">
+  <fractionalTranslation dx="0" dy="0.35">
+    <scale scaleX="1" scaleY="0.25">
+      <container height="260" width="300" color="{{ data(colors).white }}">
+        <prop:decoration>
+          <prop:borderRadius all="500"/>
+          <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="16"/>
+          <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="-16"/>
+        </prop:decoration>
+      </container>
+    </scale>
+  </fractionalTranslation>
+</template>
+
+<template id="cards.dev">
+  <container color="{{ data(colors).white }}">
+    <prop:decoration>
+      <prop:borderRadius all="12"/>
+      <prop:shadow color="{{ data(colors).black }}" blurRadius="12" spreadRadius="-10"/>
+    </prop:decoration>
+    <padding left="20" top="40" right="20" bottom="40">
+      <column mainAxisSize="min">
+        <stack>
+          <container size="220" color="{{ data(colors).royalBlue }}">
+            <prop:decoration>
+              <prop:borderRadius all="200"/>
+            </prop:decoration>
+          </container>
+          <positioned all="0">
+            <center>
+              <container size="214" color="{{ data(colors).white }}">
+                <prop:decoration>
+                  <prop:borderRadius all="200"/>
+                </prop:decoration>
+              </container>
+            </center>
+          </positioned>
+          <positioned all="0">
+            <center>
+              <sizedBox all="200">
+                <clipRRect all="100">
+                  <image ref="{{ template.image }}"/>
+                </clipRRect>
+              </sizedBox>
+            </center>
+          </positioned>
+        </stack>
+        <padding top="66">
+          <component id="text.h0" text="{{ template.name }}" color="{{ data(colors).black }}" align="center"/>
+        </padding>
+        <padding bottom="14">
+          <component id="text.h2" text="{{ template.role }}" color="{{ data(colors).grey }}" align="center"/>
+        </padding>
+        <padding bottom="30">
+          <component id="text.h7" text="{{ template.description }}" color="{{ data(colors).grey }}" align="center"/>
+        </padding>
+        <row mainAxisAlignment="spaceBetween">
+          <component id="buttons.icon" icon="rmx_facebook_fill" link="{{ template.fb }}"/>
+
+          <component id="divider.line"/>
+
+          <component id="buttons.icon" icon="rmx_instagram_fill" link="{{ template.inst }}"/>
+
+          <component id="divider.line"/>
+
+          <component id="buttons.icon" icon="mdi_twitter" link="{{ template.tw }}"/>
+
+          <component id="divider.line"/>
+
+          <component id="buttons.icon" icon="rmx_youtube_fill" link="{{ template.ytb }}"/>
+        </row>
+      </column>
+    </padding>
+  </container>
+</template>
+
+<!--? OTHER-->
 <template id="slider.dot">
   <stack>
     <sizedBox all="22">
@@ -143,37 +313,9 @@
   </stack>
 </template>
 
-<template id="metric">
-  <container color="{{ data(colors).royalBlue }}">
-    <prop:decoration>
-      <prop:borderRadius all="8"/>
-    </prop:decoration>
-    <padding all="12">
-      <column crossAxisAlign="center" mainAxisSize="min">
-        <padding bottom="12">
-          <icon icon="{{ template.icon }}" color="{{ data(colors).white }}"/>
-        </padding>
-        <padding bottom="8">
-          <component id="text.h2" text="{{ template.numbers }}" color="{{ data(colors).white }}"/>
-        </padding>
-        <component id="text.h7" text="{{ template.text }}" color="{{ data(colors).white }}"/>
-      </column>
-    </padding>
+<template id="divider.line">
+  <container width="1" height="23" color="{{ data(colors).grey }}">
   </container>
-</template>
-
-<template id="ellipse">
-  <fractionalTranslation dx="0" dy="0.35">
-    <scale scaleX="1" scaleY="0.25">
-      <container height="260" width="300" color="{{ data(colors).white }}">
-        <prop:decoration>
-          <prop:borderRadius all="500"/>
-          <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="16"/>
-          <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="-16"/>
-        </prop:decoration>
-      </container>
-    </scale>
-  </fractionalTranslation>
 </template>
 
 <!-- ? ========================= UI ========================= -->
@@ -240,7 +382,7 @@
   <stack>
     <positioned left="0" right="0" bottom="0">
       <align alignment="bottomCenter">
-        <component id="ellipse"/>
+        <component id="cards.ellipse"/>
       </align>
     </positioned>
     <padding left="20" bottom="35" right="20">
@@ -250,21 +392,21 @@
 </padding>
 
 <padding left="16" right="16" bottom="20">
-  <component id="bullet"
+  <component id="cards.bullet"
              title="Creative design"
              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   />
 </padding>
 
 <padding left="16" right="16" bottom="20">
-  <component id="bullet"
+  <component id="cards.bullet"
              title="Easy to use"
              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   />
 </padding>
 
 <padding left="16" right="16" bottom="92">
-  <component id="bullet"
+  <component id="cards.bullet"
              title="Best user experince"
              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   />
@@ -281,19 +423,19 @@
                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
   </padding>
   <padding bottom="32">
-    <component id="feature"
+    <component id="cards.feature"
                title="FULL FREE CHAT"
                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                icon="mdi_message_bulleted"/>
   </padding>
   <padding bottom="32">
-    <component id="feature"
+    <component id="cards.feature"
                title="UNLIMITED FEATURES"
                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                icon="flu_gift_filled"/>
   </padding>
   <padding bottom="60">
-    <component id="feature"
+    <component id="cards.feature"
                title="AWESOME UI DESIGN"
                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                icon="flu_design_ideas_filled"/>
@@ -362,19 +504,19 @@
 <padding left="16" right="16">
   <row mainAxisAlignment="spaceBetween">
     <expanded>
-      <component id="metric" numbers="59865" text="Download" icon="mdi_download_box"/>
+      <component id="cards.metric" numbers="59865" text="Download" icon="mdi_download_box"/>
     </expanded>
 
     <divider width="16"/>
 
     <expanded>
-      <component id="metric" numbers="29852" text="Like" icon="flu_thumb_like_filled"/>
+      <component id="cards.metric" numbers="29852" text="Like" icon="flu_thumb_like_filled"/>
     </expanded>
 
     <divider width="16"/>
 
     <expanded>
-      <component id="metric" numbers="1500" text="5 Stars" icon="flu_star_emphasis_filled"/>
+      <component id="cards.metric" numbers="1500" text="5 Stars" icon="flu_star_emphasis_filled"/>
     </expanded>
   </row>
 </padding>
@@ -383,7 +525,7 @@
   <stack>
     <positioned left="0" right="0" bottom="0">
       <align alignment="bottomCenter">
-        <component id="ellipse"/>
+        <component id="cards.ellipse"/>
       </align>
     </positioned>
     <padding left="20" bottom="35" right="20">
@@ -392,17 +534,93 @@
   </stack>
 </padding>
 
-<padding bottom="74">
-  <container color="{{ data(colors).royalBlue }}">
-    <column>
-      <padding top="60" bottom="40">
-        <component id="text.h1" color="{{ data(colors).white }}" align="center"
-                   text="HOW TO USE THE APP PERFECTLY"/>
+<padding bottom="60">
+  <stack>
+    <padding bottom="74">
+      <container color="{{ data(colors).royalBlue }}">
+        <column>
+          <padding top="60" bottom="40">
+            <component id="text.h1" color="{{ data(colors).white }}" align="center"
+                       text="HOW TO USE THE APP PERFECTLY"/>
+          </padding>
+          <padding left="40" right="40" bottom="120">
+            <component id="text.h7" color="{{ data(colors).white }}" align="center"
+                       text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+          </padding>
+        </column>
+      </container>
+    </padding>
+    <positioned left="0" bottom="0" right="0">
+      <padding left="16" right="16">
+        <physicalModel elevation="16">
+          <sizedBox height="150">
+            <clipRRect all="12">
+              <stack fit="expand">
+                <image ref="https://i.ytimg.com/vi/hpgkrUPRBjc/hqdefault.jpg" fit="fitWidth"/>
+                <positioned all="0">
+                  <container color="#665856E9">
+                  </container>
+                </positioned>
+                <positioned all="0">
+                  <center>
+                    <component id="buttons.play" videoLink="https://youtu.be/hpgkrUPRBjc"/>
+                  </center>
+                </positioned>
+              </stack>
+            </clipRRect>
+          </sizedBox>
+        </physicalModel>
       </padding>
-      <padding left="40" right="40" bottom="40">
-        <component id="text.h7" color="{{ data(colors).white }}" align="center"
-                   text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
-      </padding>
-    </column>
-  </container>
+    </positioned>
+  </stack>
+</padding>
+
+<padding bottom="18">
+  <component id="text.h1" text="OUR REACTIVE TEAM" color="{{ data(colors).black }}" align="center"/>
+</padding>
+
+<padding left="40" right="40" bottom="40">
+  <component id="text.h7" color="{{ data(colors).grey }}" align="center"
+             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+</padding>
+
+<padding left="16" right="16" bottom="60">
+  <column mainAxisSize="min">
+    <padding bottom="30">
+      <component id="cards.dev"
+                 role="APP DEVELOPER"
+                 name="CARLA PRESS"
+                 image="https://i.pravatar.cc/200?u=CARLA+PRES"
+                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae."
+                 fb="https://fb.com"
+                 inst="https://instagram.com"
+                 tw="https://tw.com"
+                 ytb="https://youtube.com"
+      />
+    </padding>
+
+    <padding bottom="30">
+      <component id="cards.dev"
+                 role="UI/UX DESIGNER"
+                 name="CRAIG GOUSE"
+                 image="https://i.pravatar.cc/200?u=CRAIG"
+                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae."
+                 fb="https://fb.com"
+                 inst="https://instagram.com"
+                 tw="https://tw.com"
+                 ytb="https://youtube.com"
+      />
+    </padding>
+
+    <component id="cards.dev"
+               role="WEBSITE DEVELOPER"
+               name="JOCELYN SEPTIMUS"
+               image="https://i.pravatar.cc/200?u=JOCELYN+S"
+               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae."
+               fb="https://fb.com"
+               inst="https://instagram.com"
+               tw="https://tw.com"
+               ytb="https://youtube.com"
+    />
+  </column>
 </padding>

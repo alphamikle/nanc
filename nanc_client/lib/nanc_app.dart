@@ -1,4 +1,5 @@
 import 'package:cms/cms.dart';
+import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_client/logic/app_click_delegate.dart';
 import 'package:nanc_client/routing/routes.dart';
@@ -29,6 +30,16 @@ class _NancAppState extends State<NancApp> {
       theme: themeBuilder(context),
       scrollBehavior: AlwaysTouchScrollBehavior(),
       builder: (BuildContext context, Widget child) {
+        final double width = MediaQuery.of(context).size.width;
+        if (width > 500) {
+          return DeviceFrame(
+            device: Devices.ios.iPhone13,
+            screen: ClickDelegate(
+              onPressed: clickHandler(context),
+              child: child,
+            ),
+          );
+        }
         return ClickDelegate(
           onPressed: clickHandler(context),
           child: child,
