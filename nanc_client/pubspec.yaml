@@ -23,6 +23,8 @@ dependencies:
     path: ../ui_kit
   icons:
     path: ../icons
+  additions:
+    path: ../additions
   cupertino_icons: ^1.0.2
   bloc: ^8.1.0
   flutter_bloc: ^8.1.1
@@ -30,7 +32,6 @@ dependencies:
   json_annotation: ^4.7.0
   copy_with_extension: ^4.0.3
   vrouter: ^1.2.1
-  url_launcher: ^6.1.6
   device_frame: ^1.1.0
 
 dev_dependencies:

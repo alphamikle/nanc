@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:additions/additions.dart';
 import 'package:cms/cms.dart';
 import 'package:cms/src/domain/collection/logic/logic/bloc/collection_bloc.dart';
 import 'package:cms/src/domain/collection/logic/logic/provider/page_list_provider.dart';
@@ -13,6 +14,7 @@ import 'package:cms/src/domain/preview/logic/bloc/preview_bloc.dart';
 import 'package:cms/src/domain/tutorial/logic/bloc/tutorial_bloc.dart';
 import 'package:cms/src/service/config/admin_config.dart';
 import 'package:cms/src/service/errors/error_wrapper.dart';
+import 'package:cms/src/service/init/%20data_repository.dart';
 import 'package:cms/src/service/routing/routes_preloading_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
@@ -26,6 +28,7 @@ class Initializer {
     required this.config,
     required this.rootKey,
     required this.errorStreamController,
+    required this.clickHandlers,
     this.patternMap = const {},
   });
 
@@ -39,6 +42,7 @@ class Initializer {
   final StreamController<ErrorWrapper> errorStreamController;
   final List<BlocProvider<dynamic>> blocProviders = [];
   final List<RepositoryProvider<dynamic>> repositoryProviders = [];
+  final List<RichClickHandler> clickHandlers;
 
   Future<bool> init() async {
     /// ? SERVICES
@@ -88,6 +92,10 @@ class Initializer {
     unawaited(modelListProvider.loadDynamicModels(models));
     unawaited(headerBloc.initItems());
 
+    final DataRepository dataRepository = DataRepository(
+      clickHandlers: clickHandlers,
+    );
+
     blocProviders
       ..clear()
       ..addAll([
@@ -115,6 +123,7 @@ class Initializer {
         RepositoryProvider<AdminConfig>.value(value: config),
         RepositoryProvider<RoutesPreloadingService>.value(value: routesPreloadingService),
         RepositoryProvider<DraftService>.value(value: draftService),
+        RepositoryProvider<DataRepository>.value(value: dataRepository),
       ]);
     return true;
   }

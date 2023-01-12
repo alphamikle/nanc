@@ -1,18 +1,15 @@
 import 'dart:async';
 
+import 'package:additions/additions.dart';
 import 'package:animation_debugger/animation_debugger.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:cms/cms.dart';
-import 'package:cms/src/domain/collection/logic/logic/provider/page_list_api.dart';
-import 'package:cms/src/domain/page/logic/provider/entity_page_api.dart';
 import 'package:cms/src/domain/wrapper/admin_wrapper.dart';
 import 'package:cms/src/service/code_style/code_style.dart';
 import 'package:cms/src/service/config/admin_config.dart';
 import 'package:cms/src/service/errors/error_toaster.dart';
 import 'package:cms/src/service/errors/error_wrapper.dart';
 import 'package:cms/src/service/init/initializer.dart';
-import 'package:cms/src/service/routing/routes.dart';
-import 'package:cms/src/service/scroll/always_touch_scroll_behavior.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
@@ -28,6 +25,7 @@ class FlutterAdmin extends StatefulWidget {
     required this.config,
     required this.errorStreamController,
     this.wrapperBuilder,
+    this.clickHandlers = const [],
     super.key,
   });
 
@@ -37,6 +35,7 @@ class FlutterAdmin extends StatefulWidget {
   final AdminConfig config;
   final StreamController<ErrorWrapper> errorStreamController;
   final AdminWrapperBuilder? wrapperBuilder;
+  final List<RichClickHandler> clickHandlers;
 
   @override
   State<FlutterAdmin> createState() => _FlutterAdminState();
@@ -52,6 +51,7 @@ class _FlutterAdminState extends State<FlutterAdmin> {
     rootKey: rootKey,
     patternMap: CodeStyle(rootKey: rootKey).patternMap,
     errorStreamController: widget.errorStreamController,
+    clickHandlers: widget.clickHandlers,
   );
   late final Future<bool> result = initializer.init();
   late final StreamSubscription<ErrorWrapper> errorStreamSubscription;

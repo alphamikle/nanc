@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:additions/additions.dart';
 import 'package:cms/src/domain/collection/logic/logic/provider/page_list_api.dart';
 import 'package:cms/src/domain/flutter_admin.dart';
 import 'package:cms/src/domain/model/logic/entity/model_model.dart';
@@ -56,6 +57,10 @@ Future<void> adminRunner({
           ),
       errorStreamController: errorStreamController,
       wrapperBuilder: wrapperBuilder,
+      clickHandlers: [
+        snackbarDemoHandler,
+        browserLinksEventDemoHandler,
+      ],
     ),
   );
 }

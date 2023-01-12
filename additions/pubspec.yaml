@@ -7,8 +7,11 @@ environment:
   sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
+  rich_renderer:
+    path: ../rich_renderer
   flutter:
     sdk: flutter
+  url_launcher: ^6.1.6
 
 dev_dependencies:
   flutter_test:
