@@ -1,11 +1,11 @@
 {
-    "name": "nanc_client",
-    "short_name": "nanc_client",
+    "name": "Nanc App",
+    "short_name": "Nanc App",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "NANC project demo client",
+    "background_color": "#17CAA6",
+    "theme_color": "#17CAA6",
+    "description": "Nanc - is the CMS of next generation and here you'll see a demo client app for the Nanc",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
