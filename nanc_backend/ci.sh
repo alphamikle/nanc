@@ -1,3 +1,6 @@
+flutter clean
+flutter pub get
+flutter pub run build_runner build --delete-conflicting-outputs
 flutter build web \
 --dart2js-optimization=O4 \
 --dart-define=SUPA_HOST="$NANC_SUPA_HOST" \

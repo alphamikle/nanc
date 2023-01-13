@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer' as dev;
 
+import 'package:flutter/foundation.dart';
 import 'package:tools/src/types/types.dart';
 
 // ignore: camel_case_types
@@ -17,27 +18,41 @@ class logg {
     dynamic string9,
     dynamic string10,
   ]) : _name = 'LOG' {
-    dev.log(
-      <dynamic>[
-        string,
-        string2,
-        string3,
-        string4,
-        string5,
-        string6,
-        string7,
-        string8,
-        string9,
-        string10,
-      ].where((dynamic value) => value != null).map((dynamic value) => value.toString()).join(' '),
-      name: _name,
-    );
+    final String output = <dynamic>[
+      string,
+      string2,
+      string3,
+      string4,
+      string5,
+      string6,
+      string7,
+      string8,
+      string9,
+      string10,
+    ].where((dynamic value) => value != null).map((dynamic value) => value.toString()).join(' ');
+    if (kIsWeb) {
+      // ignore: avoid_print
+      print(output);
+    } else {
+      dev.log(
+        output,
+        name: _name,
+      );
+    }
   }
 
   logg._silent(this._name);
 
   factory logg.raw(String name) {
     return logg._silent(name);
+  }
+
+  factory logg.wrap(Object? valueToPrint, {String? prefix}) {
+    return logg('''
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+${prefix == null ? '' : '$prefix\n'}$valueToPrint
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+''');
   }
 
   void call(
@@ -52,21 +67,27 @@ class logg {
     dynamic string9,
     dynamic string10,
   ]) {
-    dev.log(
-      <dynamic>[
-        string,
-        string2,
-        string3,
-        string4,
-        string5,
-        string6,
-        string7,
-        string8,
-        string9,
-        string10,
-      ].where((dynamic value) => value != null).map((dynamic value) => value.toString()).join(' '),
-      name: _name,
-    );
+    final String output = <dynamic>[
+      string,
+      string2,
+      string3,
+      string4,
+      string5,
+      string6,
+      string7,
+      string8,
+      string9,
+      string10,
+    ].where((dynamic value) => value != null).map((dynamic value) => value.toString()).join(' ');
+    if (kIsWeb) {
+      // ignore: avoid_print
+      print(output);
+    } else {
+      dev.log(
+        output,
+        name: _name,
+      );
+    }
   }
 
   final String _name;

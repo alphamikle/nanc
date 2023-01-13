@@ -18,13 +18,13 @@ dependencies:
   material_design_icons_flutter: ^6.0.7096
   fluentui_system_icons: ^1.1.184
   flutter_boxicons: ^3.0.0
-  super_clipboard: ^0.1.6
   html: ^0.15.1
   archive: ^3.3.4
   ulid: ^2.0.0
   basic_utils: ^5.4.0
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  package_info_plus: ^3.0.2
   encrypt:
     git:
       url: git@github.com:leocavalcante/encrypt.git

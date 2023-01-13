@@ -4,6 +4,7 @@ export 'package:collection/collection.dart';
 export 'package:fluentui_system_icons/fluentui_system_icons.dart';
 export 'package:flutter_boxicons/flutter_boxicons.dart';
 export 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+export 'package:package_info_plus/package_info_plus.dart' show PackageInfo;
 export 'package:ulid/ulid.dart';
 
 export 'src/db/logic/db_adapter.dart';
@@ -29,5 +30,6 @@ export 'src/tools/navigator_extensions.dart';
 export 'src/tools/theme_extensions.dart';
 export 'src/tools/tools.dart';
 export 'src/tools/validators.dart';
+export 'src/tools/version.dart';
 export 'src/tools/waiter.dart';
 export 'src/types/types.dart';
