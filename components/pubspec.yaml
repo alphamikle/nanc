@@ -1,0 +1,32 @@
+name: components
+description: A new Flutter package project.
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=2.18.6 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  rich_renderer:
+    path: ../rich_renderer
+  tools:
+    path: ../tools
+  icons:
+    path: ../icons
+  markdown: ^6.0.0
+  json_annotation: ^4.7.0
+  copy_with_extension: ^4.0.3
+  carousel_slider: ^4.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  json_serializable: ^6.4.1
+  copy_with_extension_gen: ^4.0.3
+  build_runner: ^2.2.1
+
+flutter:

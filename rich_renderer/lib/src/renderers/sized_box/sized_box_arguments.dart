@@ -13,13 +13,13 @@ class SizedBoxArguments {
 
   factory SizedBoxArguments.fromJson(dynamic json) => _$SizedBoxArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? height;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? width;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? all;
 
   Json toJson() => _$SizedBoxArgumentsToJson(this);

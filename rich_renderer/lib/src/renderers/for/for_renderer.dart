@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
+import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/renderers/for/for_arguments.dart';
 import 'package:rich_renderer/src/renderers/for/for_values_parser.dart';
 import 'package:rich_renderer/src/renderers/for/for_widget.dart';
-import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
-import 'package:rich_renderer/src/rich_renderer.dart';
-import 'package:rich_renderer/src/tag_renderer.dart';
 import 'package:tools/tools.dart';
 
 // TODO(alphamikle): Need more time to implement; For now - moved to TODO
@@ -16,6 +14,7 @@ TagRenderer forRenderer() {
     tag: 'for',
     pattern: RegExp(r'<for.*>'),
     endPattern: RegExp('</for>'),
+    description: const TagDescription.empty(),
     example: '''
 TODO
 ''',

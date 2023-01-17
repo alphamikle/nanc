@@ -8,9 +8,9 @@ part of 'container_arguments.dart';
 
 ContainerArguments _$ContainerArgumentsFromJson(Map<String, dynamic> json) =>
     ContainerArguments(
-      width: stringToDoubleOrNull(json['width'] as String?),
-      height: stringToDoubleOrNull(json['height'] as String?),
-      size: stringToDoubleOrNull(json['size'] as String?),
+      width: doubleOrNullFromJson(json['width'] as String?),
+      height: doubleOrNullFromJson(json['height'] as String?),
+      size: doubleOrNullFromJson(json['size'] as String?),
       color: colorFromJson(json['color'] as String?),
     );
 

@@ -9,10 +9,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:markdown_code_push/markdown_code_push.dart';
 import 'package:rich_renderer/rich_renderer.dart';
 
-class PagePreview extends StatelessWidget {
+class PagePreview extends StatefulWidget {
   const PagePreview({
     super.key,
   });
+
+  @override
+  State<PagePreview> createState() => _PagePreviewState();
+}
+
+class _PagePreviewState extends State<PagePreview> {
+  late final TagsRenderer tagsRenderer = _prepareTagsRenderer();
+
+  TagsRenderer _prepareTagsRenderer() {
+    final TagsRenderer tagsRenderer = TagsRenderer();
+    final DataRepository dataRepository = context.read();
+    for (final TagRendererFactory renderer in dataRepository.renderers) {
+      tagsRenderer.registerRenderer(renderer);
+    }
+    return tagsRenderer;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +42,7 @@ class PagePreview extends StatelessWidget {
                 scrollController: context.read<PreviewBloc>().scrollController,
                 markdownContent: previewState.markdownContent,
                 pageData: pageState.data,
-                // TODO(alphamikle): ADD CUSTOM TAGS POSSIBILITY
-                renderer: TagsRenderer(),
+                renderer: tagsRenderer,
               );
             },
           );

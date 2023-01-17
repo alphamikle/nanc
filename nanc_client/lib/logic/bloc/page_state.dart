@@ -46,12 +46,7 @@ class PageState extends Equatable {
         }
       }
     }
-    throw Exception('''
-[DEMO] Not found any screen field at the page
-Please add field with the ScreenField type and the id from the list:
-- ${_uiFields.join('\n- ')}
-'''
-        .trim());
+    return '';
   }
 
   @override

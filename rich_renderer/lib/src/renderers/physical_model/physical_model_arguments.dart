@@ -22,7 +22,7 @@ class PhysicalModelArguments {
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final Clip? clip;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? elevation;
 
   @JsonKey(fromJson: colorFromJson, toJson: colorToJson)

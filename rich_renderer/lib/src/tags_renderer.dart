@@ -36,7 +36,7 @@ class TagsRenderer {
 
   static TagsRenderer? _instance;
 
-  final List<TagRendererFactory> _renderers = [];
+  final Set<TagRendererFactory> _renderers = {};
   bool _defaultRenderersWasRegistered = false;
 
   Future<List<TagRendererFactory>> get renderers => _returnRenderers();
@@ -79,7 +79,12 @@ class TagsRenderer {
     ]);
   }
 
-  void registerRenderer(TagRendererFactory renderer) => _renderers.add(renderer);
+  void registerRenderer(TagRendererFactory renderer) {
+    if (_renderers.contains(renderer)) {
+      return;
+    }
+    _renderers.add(renderer);
+  }
 
   Future<List<TagRendererFactory>> _returnRenderers() async {
     await _registerDefaultRenderers();

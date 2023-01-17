@@ -1,3 +1,4 @@
+import 'package:components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
@@ -23,12 +24,19 @@ class MainView extends StatefulWidget {
 class _MainViewState extends State<MainView> {
   final TextEditingController offerTextController = TextEditingController();
   final TextEditingController answerTextController = TextEditingController();
+  late final TagsRenderer tagsRenderer = _prepareTagsRenderer();
 
   Future<void> showConnectionManager() async {
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => const ConnectionModal(),
     );
+  }
+
+  TagsRenderer _prepareTagsRenderer() {
+    final TagsRenderer tagsRenderer = TagsRenderer();
+    tagsRenderer.registerRenderer(carouselSliderRenderer);
+    return tagsRenderer;
   }
 
   @override
@@ -39,7 +47,7 @@ class _MainViewState extends State<MainView> {
           return ContentPage(
             content: state.screenData,
             pageData: state.pageData,
-            renderer: TagsRenderer(),
+            renderer: tagsRenderer,
           );
         },
       ),

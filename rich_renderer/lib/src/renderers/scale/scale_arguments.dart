@@ -13,13 +13,13 @@ class ScaleArguments {
 
   factory ScaleArguments.fromJson(dynamic json) => _$ScaleArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? all;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? scaleX;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? scaleY;
 
   Json toJson() => _$ScaleArgumentsToJson(this);

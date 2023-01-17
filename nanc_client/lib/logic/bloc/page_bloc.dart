@@ -59,16 +59,9 @@ class PageBloc extends Cubit<PageState> {
     emit(state.copyWith(isLoading: true));
     if (url == '/') {
       emit(state.copyWith(
-        pageData: defaultPageData(),
+        pageData: await defaultPageData(),
       ));
     }
-
-    logg('''
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-PRELOADING PAGE
-url: $url
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-''');
     emit(state.copyWith(isLoading: false));
   }
 

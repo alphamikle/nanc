@@ -9,11 +9,11 @@ part of 'border_radius_arguments.dart';
 BorderRadiusArguments _$BorderRadiusArgumentsFromJson(
         Map<String, dynamic> json) =>
     BorderRadiusArguments(
-      topLeft: stringToDoubleOrNull(json['topLeft'] as String?),
-      topRight: stringToDoubleOrNull(json['topRight'] as String?),
-      bottomRight: stringToDoubleOrNull(json['bottomRight'] as String?),
-      bottomLeft: stringToDoubleOrNull(json['bottomLeft'] as String?),
-      all: stringToDoubleOrNull(json['all'] as String?),
+      topLeft: doubleOrNullFromJson(json['topLeft'] as String?),
+      topRight: doubleOrNullFromJson(json['topRight'] as String?),
+      bottomRight: doubleOrNullFromJson(json['bottomRight'] as String?),
+      bottomLeft: doubleOrNullFromJson(json['bottomLeft'] as String?),
+      all: doubleOrNullFromJson(json['all'] as String?),
     );
 
 Map<String, dynamic> _$BorderRadiusArgumentsToJson(

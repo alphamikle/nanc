@@ -9,10 +9,11 @@ import 'package:nanc_webrtc/nanc_webrtc.dart';
 import 'package:tools/tools.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   final PackageInfo info = await getAppInfo();
   logg.wrap(info.toPrettyString(), prefix: 'APP INFO');
 
-  WidgetsFlutterBinding.ensureInitialized();
   final DbService dbService = createDbService();
   await Supabase.initialize(url: kSupaHost, anonKey: kSupaKey);
   await SupabaseAuth.initialize();

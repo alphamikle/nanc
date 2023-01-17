@@ -12,10 +12,10 @@ class CenterArguments {
 
   factory CenterArguments.fromJson(dynamic json) => _$CenterArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? heightFactor;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? widthFactor;
 
   Json toJson() => _$CenterArgumentsToJson(this);

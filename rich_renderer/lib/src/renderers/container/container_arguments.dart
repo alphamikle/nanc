@@ -16,13 +16,13 @@ class ContainerArguments {
 
   factory ContainerArguments.fromJson(dynamic json) => _$ContainerArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? width;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? height;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? size;
 
   @JsonKey(fromJson: colorFromJson, toJson: colorToJson)

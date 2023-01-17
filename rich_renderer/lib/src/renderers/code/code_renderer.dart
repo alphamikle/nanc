@@ -3,10 +3,8 @@ import 'package:flutter_highlight2/flutter_highlight.dart';
 import 'package:flutter_highlight2/themes/github.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
+import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/renderers/code/code_arguments.dart';
-import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
-import 'package:rich_renderer/src/rich_renderer.dart';
-import 'package:rich_renderer/src/tag_renderer.dart';
 import 'package:rich_renderer/src/tools/text_extractor.dart';
 
 // TODO(alphamikle): This tag wouldn't work until markdown will not be replaced by another parser logic
@@ -16,6 +14,7 @@ TagRenderer codeRenderer() {
     tag: 'code',
     pattern: RegExp(r'<code.*>'),
     endPattern: RegExp('</code>'),
+    description: const TagDescription.empty(),
     example: '''
 <code language="html">
   `<padding>

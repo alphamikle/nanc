@@ -18,6 +18,7 @@ import 'package:cms/src/service/init/%20data_repository.dart';
 import 'package:cms/src/service/routing/routes_preloading_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
+import 'package:rich_renderer/rich_renderer.dart';
 import 'package:tools/tools.dart';
 
 class Initializer {
@@ -29,6 +30,7 @@ class Initializer {
     required this.rootKey,
     required this.errorStreamController,
     required this.clickHandlers,
+    required this.renderers,
     this.patternMap = const {},
   });
 
@@ -43,6 +45,7 @@ class Initializer {
   final List<BlocProvider<dynamic>> blocProviders = [];
   final List<RepositoryProvider<dynamic>> repositoryProviders = [];
   final List<RichClickHandler> clickHandlers;
+  final List<TagRendererFactory> renderers;
 
   Future<bool> init() async {
     /// ? SERVICES
@@ -94,6 +97,7 @@ class Initializer {
 
     final DataRepository dataRepository = DataRepository(
       clickHandlers: clickHandlers,
+      renderers: renderers,
     );
 
     blocProviders

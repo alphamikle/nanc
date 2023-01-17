@@ -16,10 +16,10 @@ class AlignArguments extends AlignmentArguments {
 
   factory AlignArguments.fromJson(dynamic json) => _$AlignArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? heightFactor;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? widthFactor;
 
   @override

@@ -9,10 +9,10 @@ part of 'shadow_arguments.dart';
 ShadowArguments _$ShadowArgumentsFromJson(Map<String, dynamic> json) =>
     ShadowArguments(
       color: colorFromJson(json['color'] as String?),
-      blurRadius: stringToDoubleOrNull(json['blurRadius'] as String?),
-      spreadRadius: stringToDoubleOrNull(json['spreadRadius'] as String?),
-      offsetX: stringToDoubleOrNull(json['offsetX'] as String?),
-      offsetY: stringToDoubleOrNull(json['offsetY'] as String?),
+      blurRadius: doubleOrNullFromJson(json['blurRadius'] as String?),
+      spreadRadius: doubleOrNullFromJson(json['spreadRadius'] as String?),
+      offsetX: doubleOrNullFromJson(json['offsetX'] as String?),
+      offsetY: doubleOrNullFromJson(json['offsetY'] as String?),
       blurStyle: $enumDecodeNullable(_$BlurStyleEnumMap, json['blurStyle'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
     );

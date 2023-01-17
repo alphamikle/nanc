@@ -16,7 +16,7 @@ TextArguments _$TextArgumentsFromJson(Map<String, dynamic> json) =>
       overflow: $enumDecodeNullable(_$TextOverflowEnumMap, json['overflow'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
       softWrap: boolOrNullFromJson(json['softWrap']),
-      size: stringToDoubleOrNull(json['size'] as String?),
+      size: doubleOrNullFromJson(json['size'] as String?),
       color: colorFromJson(json['color'] as String?),
     );
 

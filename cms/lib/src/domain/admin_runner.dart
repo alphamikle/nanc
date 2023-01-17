@@ -12,6 +12,7 @@ import 'package:fields/fields.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
+import 'package:rich_renderer/rich_renderer.dart';
 
 const Set<String> _skippingErrors = {
   'rendering library',
@@ -21,6 +22,8 @@ Future<void> adminRunner({
   required List<Model> models,
   required PageListApi pageListApi,
   required PageApi pageApi,
+  List<TagRendererFactory> renderers = const [],
+  List<RichClickHandler> clickHandlers = const [],
   AdminConfig? config,
   AdminWrapperBuilder? wrapperBuilder,
 }) async {
@@ -57,10 +60,8 @@ Future<void> adminRunner({
           ),
       errorStreamController: errorStreamController,
       wrapperBuilder: wrapperBuilder,
-      clickHandlers: [
-        snackbarDemoHandler,
-        browserLinksEventDemoHandler,
-      ],
+      clickHandlers: clickHandlers,
+      renderers: renderers,
     ),
   );
 }

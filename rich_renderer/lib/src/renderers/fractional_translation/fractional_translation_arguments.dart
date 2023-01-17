@@ -14,10 +14,10 @@ class FractionalTranslationArguments {
 
   factory FractionalTranslationArguments.fromJson(dynamic json) => _$FractionalTranslationArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? dx;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? dy;
 
   Offset? toOffset() {

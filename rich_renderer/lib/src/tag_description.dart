@@ -5,6 +5,8 @@ class TagDescription {
     required this.properties,
   });
 
+  const TagDescription.empty() : description = '', arguments = const [], properties = const [];
+
   final String description;
   final List<TagArgument> arguments;
   final List<TagProperty> properties;

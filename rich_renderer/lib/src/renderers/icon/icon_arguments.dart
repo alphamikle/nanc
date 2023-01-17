@@ -21,7 +21,7 @@ class IconArguments {
   @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
   final Color? color;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? size;
 
   Json toJson() => _$IconArgumentsToJson(this);

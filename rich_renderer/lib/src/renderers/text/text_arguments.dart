@@ -30,7 +30,7 @@ class TextArguments {
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final TextOverflow? overflow;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? size;
 
   @JsonKey(fromJson: colorFromJson, toJson: colorToJson)

@@ -9,7 +9,7 @@ part of 'border_arguments.dart';
 BorderArguments _$BorderArgumentsFromJson(Map<String, dynamic> json) =>
     BorderArguments(
       color: colorFromJson(json['color'] as String?),
-      width: stringToDoubleOrNull(json['width'] as String?),
+      width: doubleOrNullFromJson(json['width'] as String?),
       strokeAlign: $enumDecodeNullable(
           _$StrokeAlignEnumMap, json['strokeAlign'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),

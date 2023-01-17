@@ -8,8 +8,8 @@ part of 'divider_arguments.dart';
 
 DividerArguments _$DividerArgumentsFromJson(Map<String, dynamic> json) =>
     DividerArguments(
-      height: stringToDoubleOrNull(json['height'] as String?),
-      width: stringToDoubleOrNull(json['width'] as String?),
+      height: doubleOrNullFromJson(json['height'] as String?),
+      width: doubleOrNullFromJson(json['width'] as String?),
     );
 
 Map<String, dynamic> _$DividerArgumentsToJson(DividerArguments instance) =>

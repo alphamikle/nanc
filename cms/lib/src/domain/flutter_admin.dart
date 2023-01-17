@@ -13,6 +13,7 @@ import 'package:cms/src/service/init/initializer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
+import 'package:rich_renderer/rich_renderer.dart';
 import 'package:showcaseview/showcaseview.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
@@ -26,6 +27,7 @@ class FlutterAdmin extends StatefulWidget {
     required this.errorStreamController,
     this.wrapperBuilder,
     this.clickHandlers = const [],
+    this.renderers = const [],
     super.key,
   });
 
@@ -36,6 +38,7 @@ class FlutterAdmin extends StatefulWidget {
   final StreamController<ErrorWrapper> errorStreamController;
   final AdminWrapperBuilder? wrapperBuilder;
   final List<RichClickHandler> clickHandlers;
+  final List<TagRendererFactory> renderers;
 
   @override
   State<FlutterAdmin> createState() => _FlutterAdminState();
@@ -52,6 +55,7 @@ class _FlutterAdminState extends State<FlutterAdmin> {
     patternMap: CodeStyle(rootKey: rootKey).patternMap,
     errorStreamController: widget.errorStreamController,
     clickHandlers: widget.clickHandlers,
+    renderers: widget.renderers,
   );
   late final Future<bool> result = initializer.init();
   late final StreamSubscription<ErrorWrapper> errorStreamSubscription;

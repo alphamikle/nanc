@@ -20,16 +20,16 @@ class ShadowArguments {
   @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
   final Color? color;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? blurRadius;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? spreadRadius;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? offsetX;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? offsetY;
 
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)

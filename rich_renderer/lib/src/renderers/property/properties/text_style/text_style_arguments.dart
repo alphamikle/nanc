@@ -23,10 +23,10 @@ class TextStyleArguments {
   @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
   final Color? color;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? size;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? height;
 
   final String? font;

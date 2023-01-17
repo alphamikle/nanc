@@ -10,8 +10,6 @@ import 'package:rich_renderer/src/documentation/properties/text_style_props.dart
 import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_list.dart';
 import 'package:rich_renderer/src/renderers/text/text_arguments.dart';
-import 'package:rich_renderer/src/rich_renderer.dart';
-import 'package:rich_renderer/src/tag_renderer.dart';
 import 'package:rich_renderer/src/tools/text_extractor.dart';
 
 TagRenderer textRenderer() {

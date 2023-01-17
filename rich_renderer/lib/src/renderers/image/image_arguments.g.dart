@@ -10,8 +10,8 @@ ImageArguments _$ImageArgumentsFromJson(Map<String, dynamic> json) =>
     ImageArguments(
       ref: json['ref'] as String?,
       color: colorFromJson(json['color'] as String?),
-      width: stringToDoubleOrNull(json['width'] as String?),
-      height: stringToDoubleOrNull(json['height'] as String?),
+      width: doubleOrNullFromJson(json['width'] as String?),
+      height: doubleOrNullFromJson(json['height'] as String?),
       fit: $enumDecodeNullable(_$BoxFitEnumMap, json['fit'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
     );

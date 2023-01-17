@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:tools/src/tools/color_tools.dart';
 
-double? stringToDoubleOrNull(String? value) => double.tryParse(value ?? '');
+double? doubleOrNullFromJson(String? value) => double.tryParse(value ?? '');
 
 int? intFromJson(String? value) => int.tryParse(value ?? '');
 

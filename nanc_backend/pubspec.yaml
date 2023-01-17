@@ -1,7 +1,7 @@
 name: nanc_backend
 description: NANC project backend demo
 publish_to: 'none'
-version: 1.0.0+2
+version: 1.0.0+5
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
@@ -25,6 +25,10 @@ dependencies:
     path: ../icons
   animation_debugger:
     path: ../../../3_open_source_projects/animation_debugger
+  components:
+    path: ../components
+  additions:
+    path: ../additions
   cupertino_icons: ^1.0.2
   pretty_qr_code: ^2.0.2
   bloc: ^8.1.0
@@ -32,6 +36,8 @@ dependencies:
   equatable: ^2.0.5
   json_annotation: ^4.7.0
   copy_with_extension: ^4.0.3
+  path_provider: ^2.0.11
+  path: ^1.8.2
 
 dev_dependencies:
   flutter_test:

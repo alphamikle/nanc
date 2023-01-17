@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:rich_renderer/src/rich_renderer.dart';
-import 'package:rich_renderer/src/tag_renderer.dart';
+import 'package:rich_renderer/rich_renderer.dart';
 
 TagRenderer unknownRenderer() {
   return TagRenderer(
@@ -10,6 +9,7 @@ TagRenderer unknownRenderer() {
     tag: 'unknown',
     pattern: RegExp(r'.*'),
     endPattern: null,
+    description: const TagDescription.empty(),
     example: '''
 TODO
 ''',

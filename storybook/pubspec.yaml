@@ -1,0 +1,28 @@
+name: storybook
+description: A new Flutter project.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  components:
+    path: ../components
+  ui_kit:
+    path: ../ui_kit
+  widgetbook:
+    git:
+      url: https://github.com/widgetbook/widgetbook.git
+      path: packages/widgetbook
+      ref: e5163b415a1338c2f316330bbc72f711e50716b4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true

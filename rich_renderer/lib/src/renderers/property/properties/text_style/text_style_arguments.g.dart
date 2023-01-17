@@ -9,8 +9,8 @@ part of 'text_style_arguments.dart';
 TextStyleArguments _$TextStyleArgumentsFromJson(Map<String, dynamic> json) =>
     TextStyleArguments(
       color: colorFromJson(json['color'] as String?),
-      size: stringToDoubleOrNull(json['size'] as String?),
-      height: stringToDoubleOrNull(json['height'] as String?),
+      size: doubleOrNullFromJson(json['size'] as String?),
+      height: doubleOrNullFromJson(json['height'] as String?),
       font: json['font'] as String?,
       weight: $enumDecodeNullable(_$FontWeightEnumEnumMap, json['weight'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),

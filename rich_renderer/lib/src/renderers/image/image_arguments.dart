@@ -21,10 +21,10 @@ class ImageArguments {
   @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
   final Color? color;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? width;
 
-  @JsonKey(fromJson: stringToDoubleOrNull)
+  @JsonKey(fromJson: doubleOrNullFromJson)
   final double? height;
 
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
