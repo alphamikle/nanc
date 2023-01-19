@@ -15,11 +15,13 @@ class FieldCardDeleter extends StatelessWidget {
   const FieldCardDeleter({
     required this.child,
     required this.onDelete,
+    required this.onExpand,
     super.key,
   });
 
   final Widget child;
   final VoidCallback? onDelete;
+  final VoidCallback? onExpand;
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +36,31 @@ class FieldCardDeleter extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 1, right: 1),
                 child: KitTooltip(
                   text: 'Delete',
-                  child: _DeleterButton(
+                  child: _CornerButton(
                     onPressed: onDelete!,
+                    color: context.theme.colorScheme.error,
+                    iconColor: context.theme.colorScheme.onError,
+                    alignment: Alignment.topRight,
+                    iconData: IconPack.mdi_delete_outline,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        if (onExpand != null)
+          Positioned.fill(
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 1, right: 1),
+                child: KitTooltip(
+                  text: 'Expand',
+                  child: _CornerButton(
+                    onPressed: onExpand!,
+                    color: Colors.orange,
+                    iconColor: context.theme.colorScheme.onError,
+                    alignment: Alignment.bottomRight,
+                    iconData: IconPack.flu_arrow_expand_filled,
                   ),
                 ),
               ),
@@ -46,18 +71,26 @@ class FieldCardDeleter extends StatelessWidget {
   }
 }
 
-class _DeleterButton extends StatefulWidget {
-  const _DeleterButton({
+class _CornerButton extends StatefulWidget {
+  const _CornerButton({
     required this.onPressed,
-  });
+    required this.color,
+    required this.iconColor,
+    required this.iconData,
+    required this.alignment,
+  }) : assert(alignment == Alignment.topRight || alignment == Alignment.bottomRight);
 
   final VoidCallback onPressed;
+  final Color color;
+  final Color iconColor;
+  final IconData iconData;
+  final Alignment alignment;
 
   @override
-  State<_DeleterButton> createState() => _DeleterButtonState();
+  State<_CornerButton> createState() => _CornerButtonState();
 }
 
-class _DeleterButtonState extends State<_DeleterButton> with SingleTickerProviderStateMixin, AnimatedState {
+class _CornerButtonState extends State<_CornerButton> with SingleTickerProviderStateMixin, AnimatedState {
   @override
   Duration get animationDuration => const Duration(milliseconds: 250);
 
@@ -75,9 +108,14 @@ class _DeleterButtonState extends State<_DeleterButton> with SingleTickerProvide
 
   @override
   Widget build(BuildContext context) {
+    final bool topRightCorner = widget.alignment == Alignment.topRight;
+    final bool bottomRightCorner = widget.alignment == Alignment.bottomRight;
+
     final BorderRadius inkWellRadius = BorderRadius.only(
-      topRight: (context.kitBorders.largeRadius.topRight.x * 0.88).toRadius,
-      bottomLeft: (context.kitBorders.largeRadius.bottomLeft.x + _kRadius).toRadius,
+      topRight: topRightCorner ? (context.kitBorders.largeRadius.topRight.x * 0.88).toRadius : Radius.zero,
+      bottomLeft: topRightCorner ? (context.kitBorders.largeRadius.bottomLeft.x + _kRadius).toRadius : Radius.zero,
+      bottomRight: bottomRightCorner ? (context.kitBorders.largeRadius.topRight.x * 0.88).toRadius : Radius.zero,
+      topLeft: bottomRightCorner ? (context.kitBorders.largeRadius.bottomLeft.x + _kRadius).toRadius : Radius.zero,
     );
 
     return AnimatedBuilder(
@@ -86,8 +124,10 @@ class _DeleterButtonState extends State<_DeleterButton> with SingleTickerProvide
         final double height = _kHeight + (value * _kHeight);
         final double width = _kWidth + (value * _kWidth);
         final BorderRadius effectiveRadius = BorderRadius.only(
-          topRight: (context.kitBorders.largeRadius.topRight.x * 0.88).toRadius,
-          bottomLeft: (context.kitBorders.largeRadius.bottomLeft.x + (value * _kRadius)).toRadius,
+          topRight: inkWellRadius.topRight,
+          bottomLeft: topRightCorner ? (context.kitBorders.largeRadius.bottomLeft.x + (value * _kRadius)).toRadius : Radius.zero,
+          bottomRight: inkWellRadius.bottomRight,
+          topLeft: bottomRightCorner ? (context.kitBorders.largeRadius.bottomLeft.x + (value * _kRadius)).toRadius : Radius.zero,
         );
 
         return GestureDetector(
@@ -97,15 +137,15 @@ class _DeleterButtonState extends State<_DeleterButton> with SingleTickerProvide
                 width: width,
                 height: height,
                 decoration: BoxDecoration(
-                  color: context.theme.colorScheme.error.withOpacity((_maxOpacity - _minOpacity) * value + _minOpacity),
+                  color: widget.color.withOpacity((_maxOpacity - _minOpacity) * value + _minOpacity),
                   borderRadius: effectiveRadius,
                 ),
                 child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 3, bottom: 3),
+                    padding: EdgeInsets.only(left: 3, bottom: topRightCorner ? 3 : 0, top: bottomRightCorner ? 3 : 0),
                     child: Icon(
-                      IconPack.mdi_delete_outline,
-                      color: context.theme.colorScheme.onError.withOpacity(value),
+                      widget.iconData,
+                      color: widget.iconColor.withOpacity(value),
                     ),
                   ),
                 ),

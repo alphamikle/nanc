@@ -75,6 +75,7 @@ class _ModelPageViewState extends State<ModelPageView> {
             padding: const EdgeInsets.only(bottom: kPadding),
             child: FieldCardDeleter(
               onDelete: () async => context.read<ModelPageBloc>().deleteModelField(index, i),
+              onExpand: () => context.read<ModelPageBloc>().expandField(row: index, column: i),
               child: FieldCardMover(
                 onChange: (AxisDirection direction) => context.read<ModelPageBloc>().moveField(row: index, column: i, direction: direction),
                 availableDirections: [

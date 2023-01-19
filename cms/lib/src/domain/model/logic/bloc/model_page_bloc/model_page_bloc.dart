@@ -132,6 +132,22 @@ class ModelPageBloc extends Cubit<ModelPageState> {
     ));
   }
 
+  void expandField({
+    required int row,
+    required int column,
+  }) {
+    final List<List<Field>> fieldsRows = [
+      ...state.editableModel.fields.map((List<Field> fieldRow) => [...fieldRow]).toList()
+    ];
+    final List<Field> newCurrentRow = [fieldsRows[row].removeAt(column)];
+    fieldsRows.insert(row, newCurrentRow);
+    emit(state.copyWith(
+      editableModel: state.editableModel.copyWith(
+        fields: fieldsRows,
+      ),
+    ));
+  }
+
   TextEditingController findTextEditingControllerForField(String fieldName) => state.controllerMap[fieldName]!;
 
   void updateModelProperty(String name, dynamic value) {
