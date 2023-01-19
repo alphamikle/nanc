@@ -121,7 +121,6 @@ class _FlutterAdminState extends State<FlutterAdmin> {
                           ],
                           theme: themeBuilder(context),
                           darkTheme: themeBuilder(context, dark: true),
-                          scrollBehavior: AlwaysTouchScrollBehavior(),
                           themeMode: ThemeMode.light,
                           buildTransition: (Animation<double> animation, Animation<double> animation2, Widget child) => child,
                         );
