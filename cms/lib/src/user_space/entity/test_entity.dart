@@ -39,7 +39,7 @@ final Model testEntity = Model(
         id: 'selector_field',
         name: 'Selector field',
         model: tagEntity,
-        titleField: 'title',
+        titleFields: const ['title'],
         structure: SelectorFieldStructure.id,
         isRequired: true,
       ),

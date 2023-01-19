@@ -9,7 +9,6 @@ import 'package:nanc_backend/api/page_api_implementation.dart';
 import 'package:nanc_backend/api/page_list_api_implementation.dart';
 import 'package:nanc_backend/connection_manager/logic/connection_manager_bloc.dart';
 import 'package:nanc_backend/connection_manager/ui/view/webrtc_connection_manager_overlay.dart';
-import 'package:nanc_backend/models/article.dart';
 import 'package:nanc_backend/models/bullet.dart';
 import 'package:nanc_backend/models/developer.dart';
 import 'package:nanc_backend/models/feature.dart';
@@ -47,7 +46,6 @@ Future<void> main() async {
 
   await adminRunner(
     models: [
-      article,
       bullet,
       developer,
       feature,

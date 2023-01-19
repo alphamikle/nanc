@@ -1,9 +1,9 @@
 import 'dart:async';
 
+import 'package:cms/cms.dart';
 import 'package:fields/src/domain/fields/logic/field/field.dart';
 import 'package:fields/src/domain/fields/logic/multi_selector_field/multi_selector_field.dart';
 import 'package:flutter/material.dart';
-import 'package:cms/cms.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';

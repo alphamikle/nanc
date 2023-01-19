@@ -21,7 +21,7 @@ abstract class _$SelectorFieldCWProxy {
 
   SelectorField structure(SelectorFieldStructure structure);
 
-  SelectorField titleField(String titleField);
+  SelectorField titleFields(List<String> titleFields);
 
   SelectorField type(FieldType type);
 
@@ -43,7 +43,7 @@ abstract class _$SelectorFieldCWProxy {
     bool? showInList,
     int? sort,
     SelectorFieldStructure? structure,
-    String? titleField,
+    List<String>? titleFields,
     FieldType? type,
     String? Function(Object?)? validator,
     double? width,
@@ -79,7 +79,8 @@ class _$SelectorFieldCWProxyImpl implements _$SelectorFieldCWProxy {
       this(structure: structure);
 
   @override
-  SelectorField titleField(String titleField) => this(titleField: titleField);
+  SelectorField titleFields(List<String> titleFields) =>
+      this(titleFields: titleFields);
 
   @override
   SelectorField type(FieldType type) => this(type: type);
@@ -107,7 +108,7 @@ class _$SelectorFieldCWProxyImpl implements _$SelectorFieldCWProxy {
     Object? showInList = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
     Object? structure = const $CopyWithPlaceholder(),
-    Object? titleField = const $CopyWithPlaceholder(),
+    Object? titleFields = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
     Object? width = const $CopyWithPlaceholder(),
@@ -143,11 +144,11 @@ class _$SelectorFieldCWProxyImpl implements _$SelectorFieldCWProxy {
           ? _value.structure
           // ignore: cast_nullable_to_non_nullable
           : structure as SelectorFieldStructure,
-      titleField:
-          titleField == const $CopyWithPlaceholder() || titleField == null
-              ? _value.titleField
+      titleFields:
+          titleFields == const $CopyWithPlaceholder() || titleFields == null
+              ? _value.titleFields
               // ignore: cast_nullable_to_non_nullable
-              : titleField as String,
+              : titleFields as List<String>,
       type: type == const $CopyWithPlaceholder() || type == null
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
@@ -178,7 +179,9 @@ SelectorField _$SelectorFieldFromJson(Map<String, dynamic> json) =>
     SelectorField(
       name: json['name'] as String,
       model: _entityFromJson(json['model']),
-      titleField: json['titleField'] as String,
+      titleFields: (json['titleFields'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
       structure:
           $enumDecode(_$SelectorFieldStructureEnumMap, json['structure']),
       id: json['id'] as String?,
@@ -200,7 +203,7 @@ Map<String, dynamic> _$SelectorFieldToJson(SelectorField instance) =>
       'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
       'model': _entityToJson(instance.model),
-      'titleField': instance.titleField,
+      'titleFields': instance.titleFields,
       'structure': _$SelectorFieldStructureEnumMap[instance.structure]!,
     };
 

@@ -23,7 +23,7 @@ class SelectorFieldCell extends FieldCellWidget<SelectorField> {
 }
 
 class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHelper<SelectorField, SelectorFieldCell> {
-  String get titleField => field.titleField;
+  List<String> get titleFields => field.titleFields;
   Model get model => field.model;
   SelectorFieldStructure get structure => field.structure;
 
@@ -33,20 +33,16 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
 
   Future<List<Json>> finder(String searchQuery) {
     final PageListProviderInterface entityListProvider = context.read();
+    final List<QueryParameterValue> values = searchQuery.split(kDelimiter.replaceAll(' ', '')).map((String it) => QueryStringValue(it.trim())).toList();
 
     return entityListProvider.fetchPageList(
       model: model,
       subset: [
         model.idField.id,
-        titleField,
+        ...titleFields,
       ],
       query: QueryDto(
-        singleValues: [
-          QuerySingleParameter(
-            name: titleField,
-            value: QueryStringValue(searchQuery),
-          ),
-        ],
+        multipleValues: titleFields.map((e) => QueryMultipleParameter(name: e, values: values)).toList(),
       ),
       params: ParamsDto(
         page: 1,
@@ -58,6 +54,8 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
 
   Future<void> updateValue(Json json) async {
     final String pageId = json[field.model.idField.id].toString();
+    final String title = titleFields.map((String it) => json[it].toString()).join(kDelimiter);
+
     if (structure == SelectorFieldStructure.id) {
       pageBloc.updateValue(fieldId, pageId);
     } else if (structure == SelectorFieldStructure.object) {
@@ -67,10 +65,10 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
         setState(() => isLoadingFullPageData = false);
 
         /// ? We need to set text value here again, because of replacing it after update in the state
-        controller.text = json[titleField].toString();
+        controller.text = title;
       }));
     }
-    controller.text = json[titleField].toString();
+    controller.text = title;
   }
 
   Widget itemBuilder(BuildContext context, Json data) {
@@ -84,8 +82,10 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
       }
     }
 
+    final String title = titleFields.map((String it) => data[it].toString()).join(kDelimiter);
+
     return KitListTile(
-      title: data[field.titleField].toString(),
+      title: title,
       isSelected: isSelected,
     );
   }
@@ -105,12 +105,21 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
       final Json data = await context.read<PageProviderInterface>().fetchPageData(
         model: model,
         id: modelId,
-        subset: [modelId, titleField],
+        subset: [
+          modelId,
+          ...titleFields,
+        ],
       );
-      controller.text = data[titleField].toString();
+      final String title = titleFields.map((String it) => data[it].toString()).join(kDelimiter);
+      controller.text = title;
     } else if (structure == SelectorFieldStructure.object) {
       final Json? modelData = pageBloc.valueForKey(fieldId) as Json?;
-      controller.text = modelData?[titleField]?.toString() ?? '';
+      if (modelData == null) {
+        controller.text = '';
+      } else {
+        final String title = titleFields.map((String it) => modelData[it].toString()).join(kDelimiter);
+        controller.text = title;
+      }
     } else {
       throw UnimplementedError('Not found a new structure preloading logic: $structure');
     }

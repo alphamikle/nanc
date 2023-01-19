@@ -18,6 +18,7 @@ part 'multi_selector_field.g.dart';
 enum MultiSelectorFieldStructure {
   arrayOfIds,
   thirdTable,
+  arrayOfObjects,
 }
 
 @CopyWith()

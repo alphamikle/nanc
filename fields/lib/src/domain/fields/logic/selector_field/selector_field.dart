@@ -38,7 +38,7 @@ class SelectorField extends Field {
   SelectorField({
     required super.name,
     required this.model,
-    required this.titleField,
+    required this.titleFields,
     required this.structure,
     String? id,
     super.showInList,
@@ -53,7 +53,7 @@ class SelectorField extends Field {
         id: '',
         name: '',
         model: IdField.empty().toModel(),
-        titleField: '',
+        titleFields: const [],
         structure: SelectorFieldStructure.id,
       );
 
@@ -61,7 +61,7 @@ class SelectorField extends Field {
 
   @JsonKey(fromJson: _entityFromJson, toJson: _entityToJson)
   final Model model;
-  final String titleField;
+  final List<String> titleFields;
   final SelectorFieldStructure structure;
 
   @override
@@ -113,7 +113,7 @@ class SelectorField extends Field {
   List<Object?> get props => [
         ...super.props,
         model,
-        titleField,
+        titleFields,
         structure,
       ];
 

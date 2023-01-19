@@ -36,7 +36,14 @@ final Model billEntity = Model(
       BoolField(id: 'isDeleted', name: 'Is deleted', showInList: false, isRequired: true),
     ],
     [
-      SelectorField(id: 'currencyId', name: 'Currency', model: currencyEntity, titleField: 'title', structure: SelectorFieldStructure.id, showInList: false),
+      SelectorField(
+        id: 'currencyId',
+        name: 'Currency',
+        model: currencyEntity,
+        titleFields: const ['title'],
+        structure: SelectorFieldStructure.id,
+        showInList: false,
+      ),
       StringField(id: 'purseId', name: 'Purse', showInList: false, isRequired: true, maxLines: 1),
       MultiSelectorField(
         id: 'tags',

@@ -227,6 +227,7 @@ Map<String, dynamic> _$MultiSelectorFieldToJson(MultiSelectorField instance) =>
 const _$MultiSelectorFieldStructureEnumMap = {
   MultiSelectorFieldStructure.arrayOfIds: 'arrayOfIds',
   MultiSelectorFieldStructure.thirdTable: 'thirdTable',
+  MultiSelectorFieldStructure.arrayOfObjects: 'arrayOfObjects',
 };
 
 const _$FieldTypeEnumMap = {
