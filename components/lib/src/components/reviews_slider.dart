@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -5,11 +7,15 @@ class ReviewsSlider extends StatefulWidget {
   const ReviewsSlider({
     required this.children,
     required this.height,
+    this.sliderDotGap = 0,
+    this.dotColor = Colors.white,
     super.key,
   });
 
   final List<Widget> children;
   final double height;
+  final double sliderDotGap;
+  final Color dotColor;
 
   @override
   State<ReviewsSlider> createState() => _ReviewsSliderState();
@@ -23,6 +29,10 @@ class _ReviewsSliderState extends State<ReviewsSlider> {
     final Widget child = widget.children[index];
     // final int activeIndex = controller.
     return child;
+  }
+
+  void _goToCard(int index) {
+    unawaited(controller.animateToPage(index, duration: const Duration(milliseconds: 300) * (activeIndex - index).abs()));
   }
 
   List<Widget> _buildDots() {
@@ -41,10 +51,37 @@ class _ReviewsSliderState extends State<ReviewsSlider> {
                   child: Container(
                     height: 16,
                     width: 16,
-                    decoration: const BoxDecoration(
-                      color: Colors.red,
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                    decoration: BoxDecoration(
+                      color: widget.dotColor,
+                      borderRadius: const BorderRadius.all(Radius.circular(30)),
                     ),
+                  ),
+                ),
+              ),
+              Positioned.fill(
+                child: Center(
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 250),
+                    height: 20,
+                    width: 20,
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: const BorderRadius.all(Radius.circular(30)),
+                      border: Border.all(
+                        width: 0.5,
+                        color: isActive ? widget.dotColor : widget.dotColor.withOpacity(0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned.fill(
+                child: Material(
+                  type: MaterialType.transparency,
+                  borderRadius: const BorderRadius.all(Radius.circular(50)),
+                  child: InkWell(
+                    borderRadius: const BorderRadius.all(Radius.circular(50)),
+                    onTap: () => _goToCard(i),
                   ),
                 ),
               ),
@@ -62,16 +99,19 @@ class _ReviewsSliderState extends State<ReviewsSlider> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        CarouselSlider(
-          carouselController: controller,
-          options: CarouselOptions(
-            height: widget.height,
-            enlargeCenterPage: true,
-            enlargeFactor: 0.35,
-            enlargeStrategy: CenterPageEnlargeStrategy.zoom,
-            onPageChanged: (int index, CarouselPageChangedReason reason) => setState(() => activeIndex = index),
+        Padding(
+          padding: EdgeInsets.only(bottom: widget.sliderDotGap),
+          child: CarouselSlider(
+            carouselController: controller,
+            options: CarouselOptions(
+              height: widget.height,
+              enlargeCenterPage: true,
+              enlargeFactor: 0.35,
+              enlargeStrategy: CenterPageEnlargeStrategy.zoom,
+              onPageChanged: (int index, CarouselPageChangedReason reason) => setState(() => activeIndex = index),
+            ),
+            items: List.generate(widget.children.length, (int index) => _itemBuilder(index)),
           ),
-          items: List.generate(widget.children.length, (int index) => _itemBuilder(index)),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

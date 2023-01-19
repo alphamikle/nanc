@@ -21,6 +21,8 @@ A carousel slider widget, support infinite scroll and custom child widget.
 ''',
       arguments: [
         heightArg(),
+        colorArg('dotColor'),
+        doubleArg('sliderDotGap'),
       ],
       properties: [],
     ),
@@ -80,6 +82,8 @@ A carousel slider widget, support infinite scroll and custom child widget.
 
       return ReviewsSlider(
         height: arguments.height ?? 250,
+        dotColor: arguments.dotColor ?? Colors.white,
+        sliderDotGap: arguments.sliderDotGap ?? 0,
         children: children,
       );
     },

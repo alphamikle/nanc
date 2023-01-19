@@ -273,6 +273,39 @@
   </container>
 </template>
 
+<template id="cards.review">
+  <container>
+    <prop:decoration color="#FFFFFF">
+      <prop:borderRadius all="10"/>
+      <prop:shadow color="#80000000" blurRadius="20" spreadRadius="-10"/>
+    </prop:decoration>
+
+    <padding left="16" top="20" right="16" bottom="20">
+      <column mainAxisSize="min">
+        <clipRRect all="50">
+          <sizedBox all="50">
+            <image ref="{{ template.photo }}" fit="cover"/>
+          </sizedBox>
+        </clipRRect>
+        <divider height="12"/>
+        <text>
+          <prop:textStyle font="Josefin Sans" size="25" height="1.5" weight="w600"/>
+          {{ template.name }}
+        </text>
+        <text>
+          <prop:textStyle font="Josefin Sans" size="16" height="1.5" weight="w400"/>
+          {{ template.position }}
+        </text>
+        <divider height="18"/>
+        <text color="#6C6C72" align="center" maxLines="3" overflow="ellipsis">
+          <prop:textStyle font="Josefin Sans" size="16" height="1.5" weight="w400"/>
+          {{ template.review }}
+        </text>
+      </column>
+    </padding>
+  </container>
+</template>
+
 <!--? OTHER-->
 <template id="slider.dot">
   <stack>
@@ -623,4 +656,38 @@
                ytb="https://youtube.com"
     />
   </column>
+</padding>
+
+<padding>
+  <container>
+    <prop:decoration color="{{ data(colors).royalBlue }}">
+    </prop:decoration>
+
+    <column mainAxisSize="min">
+      <padding top="60" bottom="18">
+        <component id="text.h1" text="OUR HAPPY CUSTOMERS" align="center" color="{{ data(colors).white }}"/>
+      </padding>
+
+      <padding left="40" right="40" bottom="32">
+        <component id="text.h7" align="center" color="{{ data(colors).white }}"
+                   text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+      </padding>
+
+      <padding bottom="60">
+        <!-- ? PRESS "HELP" BUTTON ON THE TOP RIGHT CORNER AND FIND "CAROUSEL SLIDER" WIDGET TO READ MANUAL -->
+        <carouselSlider height="260" dotColor="{{ data(colors).white }}" sliderDotGap="20">
+          <component id="cards.review" name="ANN LUBIN 1" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
+                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+          <component id="cards.review" name="ANN LUBIN 2" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
+                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+          <component id="cards.review" name="ANN LUBIN 3" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
+                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+          <component id="cards.review" name="ANN LUBIN 4" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
+                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+          <component id="cards.review" name="ANN LUBIN 5" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
+                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+        </carouselSlider>
+      </padding>
+    </column>
+  </container>
 </padding>
