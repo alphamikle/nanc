@@ -24,21 +24,20 @@ class SelectorFieldCell extends FieldCellWidget<SelectorField> {
 
 class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHelper<SelectorField, SelectorFieldCell> {
   String get titleField => field.titleField;
-
-  Model get entity => field.model;
-
+  Model get model => field.model;
   SelectorFieldStructure get structure => field.structure;
-  late final EventBus eventBus = context.read();
 
+  late final EventBus eventBus = context.read();
   bool isPreloading = false;
+  bool isLoadingFullPageData = false;
 
   Future<List<Json>> finder(String searchQuery) {
     final PageListProviderInterface entityListProvider = context.read();
 
     return entityListProvider.fetchPageList(
-      model: entity,
+      model: model,
       subset: [
-        entity.idField.id,
+        model.idField.id,
         titleField,
       ],
       query: QueryDto(
@@ -52,16 +51,24 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
       params: ParamsDto(
         page: 1,
         limit: 50,
-        sort: Sort(field: entity.idField.id, order: Order.asc),
+        sort: Sort(field: model.idField.id, order: Order.asc),
       ),
     );
   }
 
-  void updateValue(Json json) {
+  Future<void> updateValue(Json json) async {
+    final String pageId = json[field.model.idField.id].toString();
     if (structure == SelectorFieldStructure.id) {
-      pageBloc.updateValue(fieldId, json[field.model.idField.id]);
+      pageBloc.updateValue(fieldId, pageId);
     } else if (structure == SelectorFieldStructure.object) {
-      pageBloc.updateValue(fieldId, json);
+      setState(() => isLoadingFullPageData = true);
+      unawaited(context.read<PageBloc>().loadPageData(model: model, pageId: pageId).then((Json value) {
+        pageBloc.updateValue(fieldId, value);
+        setState(() => isLoadingFullPageData = false);
+
+        /// ? We need to set text value here again, because of replacing it after update in the state
+        controller.text = json[titleField].toString();
+      }));
     }
     controller.text = json[titleField].toString();
   }
@@ -89,21 +96,21 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
     setState(() => isPreloading = true);
     controller.text = kLoadingText;
     if (structure == SelectorFieldStructure.id) {
-      final String? entityId = pageBloc.valueForKey(fieldId) as String?;
-      if (entityId == null) {
+      final String? modelId = pageBloc.valueForKey(fieldId) as String?;
+      if (modelId == null) {
         controller.clear();
         setState(() => isPreloading = false);
         return;
       }
       final Json data = await context.read<PageProviderInterface>().fetchPageData(
-        model: entity,
-        id: entityId,
-        subset: [entityId, titleField],
+        model: model,
+        id: modelId,
+        subset: [modelId, titleField],
       );
       controller.text = data[titleField].toString();
     } else if (structure == SelectorFieldStructure.object) {
-      final Json? entityData = pageBloc.valueForKey(fieldId) as Json?;
-      controller.text = entityData?[titleField]?.toString() ?? '';
+      final Json? modelData = pageBloc.valueForKey(fieldId) as Json?;
+      controller.text = modelData?[titleField]?.toString() ?? '';
     } else {
       throw UnimplementedError('Not found a new structure preloading logic: $structure');
     }
@@ -138,6 +145,7 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
         itemBuilder: itemBuilder,
         isChanged: pageBloc.fieldWasChanged(fieldId),
         isRequired: field.isRequired,
+        suffix: KitCirclePreloader(isLoading: isLoadingFullPageData),
       ),
     );
   }

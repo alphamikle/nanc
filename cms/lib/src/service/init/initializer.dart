@@ -14,7 +14,7 @@ import 'package:cms/src/domain/preview/logic/bloc/preview_bloc.dart';
 import 'package:cms/src/domain/tutorial/logic/bloc/tutorial_bloc.dart';
 import 'package:cms/src/service/config/admin_config.dart';
 import 'package:cms/src/service/errors/error_wrapper.dart';
-import 'package:cms/src/service/init/%20data_repository.dart';
+import 'package:cms/src/service/init/data_repository.dart';
 import 'package:cms/src/service/routing/routes_preloading_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
@@ -75,7 +75,7 @@ class Initializer {
     final TutorialBloc tutorialBloc = TutorialBloc(dbService: dbService, rootKey: rootKey);
 
     final CollectionBloc collectionBloc = CollectionBloc(modelListBloc: modelListProvider, pageListProvider: pageListProvider, eventBus: eventBus);
-    final BasePageBloc<BaseEntityPageState> pageBloc = PageBloc(
+    final PageBloc pageBloc = PageBloc(
       modelListBloc: modelListProvider,
       pageProvider: pageProvider,
       eventBus: eventBus,
@@ -86,7 +86,7 @@ class Initializer {
       headerBloc: headerBloc,
       menuBloc: menuBloc,
       modelPageBloc: modelPageBloc,
-      pageBloc: pageBloc as PageBloc,
+      pageBloc: pageBloc,
       rootKey: rootKey,
     );
 
@@ -109,6 +109,7 @@ class Initializer {
         BlocProvider<ModelListBloc>.value(value: modelListProvider),
         BlocProvider<CollectionBloc>.value(value: collectionBloc),
         BlocProvider<BasePageBloc<BaseEntityPageState>>.value(value: pageBloc),
+        BlocProvider<PageBloc>.value(value: pageBloc),
         BlocProvider<ModelPageBloc>.value(value: modelPageBloc),
         BlocProvider<HeaderBloc>.value(value: headerBloc),
         BlocProvider<TutorialBloc>.value(value: tutorialBloc),

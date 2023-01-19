@@ -42,7 +42,7 @@ class PageBloc extends BasePageBloc<PageState> {
     if (draftResult) {
       return;
     }
-    final Json data = await _loadPageData(modelId, pageId);
+    final Json data = await loadPageData(model: model, pageId: pageId);
     final Json dynamicStructure = await _loadDynamicStructure(model: model, pageId: pageId);
     final TextControllerMap controllerMap = _mapEntityDataToControllerMap(modelId, data);
     data.addAll(dynamicStructure);
@@ -164,9 +164,9 @@ class PageBloc extends BasePageBloc<PageState> {
     emit(state.copyWith.isLoading(false));
   }
 
-  Future<bool> isPageExist(String entityId, String pageId) async {
+  Future<bool> isPageExist(String modelId, String pageId) async {
     try {
-      await _loadPageData(entityId, pageId);
+      await loadPageData(modelId: modelId, pageId: pageId);
       return true;
     } catch (error) {
       return false;
@@ -207,16 +207,21 @@ class PageBloc extends BasePageBloc<PageState> {
     return clearData;
   }
 
-  Future<Json> _loadPageData(String entityId, String pageId) async {
+  Future<Json> loadPageData({
+    required String pageId,
+    Model? model,
+    String? modelId,
+  }) async {
+    assert(model != null || modelId != null);
     await wait(duration: const Duration(milliseconds: 50));
-    final Model? model = modelListBloc.findModelById(entityId);
-    if (model == null) {
-      throw Exception('Error while loading model page data with id "$entityId"');
+    final Model? effectiveModel = model ?? modelListBloc.findModelById(modelId!);
+    if (effectiveModel == null) {
+      throw Exception('Error while loading model page data with id "$modelId"');
     }
     final Json data = await pageProvider.fetchPageData(
-      model: model,
+      model: effectiveModel,
       id: pageId,
-      subset: model.flattenFields.where((Field field) => field.editableField).map((Field field) => field.id).toList(),
+      subset: effectiveModel.flattenFields.where((Field field) => field.editableField).map((Field field) => field.id).toList(),
     );
     return data;
   }

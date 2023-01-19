@@ -9,6 +9,7 @@ export 'src/components/kit_buttons/kit_icon_button.dart';
 export 'src/components/kit_buttons/kit_input_button.dart';
 export 'src/components/kit_buttons/kit_rounded_button.dart';
 export 'src/components/kit_buttons/kit_text_indicated_button.dart';
+export 'src/components/kit_circle_preloader.dart';
 export 'src/components/kit_color_picker/kit_color_picker.dart';
 export 'src/components/kit_color_picker/palette.dart';
 export 'src/components/kit_color_picker/utils.dart';

@@ -1,5 +1,5 @@
 import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/entity_page_bloc.dart';
+import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';

@@ -1,5 +1,5 @@
 import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/entity_page_bloc.dart';
+import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_bloc.dart';
 import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_state.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
@@ -104,4 +104,9 @@ class FieldEditionBloc extends BasePageBloc<PageState> with EntityPageBlocStub i
 
   @override
   Future<void> reset(Model model) async {}
+
+  @override
+  Future<Json> loadPageData({required String pageId, Model? model, String? modelId}) async {
+    throw UnimplementedError();
+  }
 }

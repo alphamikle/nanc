@@ -4,7 +4,7 @@ import 'package:cms/src/domain/model/logic/bloc/model_list_bloc/model_list_bloc.
 import 'package:cms/src/domain/model/ui/component/fields_form.dart';
 import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
 import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/entity_page_bloc.dart';
+import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_bloc.dart';
 import 'package:cms/src/service/config/config.dart';
 import 'package:cms/src/service/routing/params_list.dart';
 import 'package:cms/src/service/routing/route_list.dart';

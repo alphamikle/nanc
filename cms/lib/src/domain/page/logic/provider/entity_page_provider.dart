@@ -1,4 +1,4 @@
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/entity_page_bloc.dart';
+import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_bloc.dart';
 import 'package:cms/src/domain/page/logic/provider/entity_page_api.dart';
 import 'package:cms/src/domain/page/logic/provider/entity_page_provider_interface.dart';
 import 'package:fields/fields.dart';

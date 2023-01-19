@@ -19,7 +19,7 @@ export 'src/domain/model/ui/component/field_editor_modal.dart';
 export 'src/domain/model/ui/component/field_type_selector_modal.dart';
 export 'src/domain/page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
 export 'src/domain/page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
-export 'src/domain/page/logic/bloc/page_bloc/entity_page_bloc.dart';
+export 'src/domain/page/logic/bloc/page_bloc/page_bloc.dart';
 export 'src/domain/page/logic/bloc/page_bloc/page_state.dart';
 export 'src/domain/page/logic/provider/entity_page_api.dart';
 export 'src/domain/page/logic/provider/entity_page_provider_interface.dart';
