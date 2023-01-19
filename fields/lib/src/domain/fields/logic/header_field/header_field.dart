@@ -23,7 +23,7 @@ class HeaderField extends Field {
     this.useAsDivider = false,
     String? id,
     super.type = FieldType.headerField,
-  }) : super(id: id ?? toSnackCase(name), showInList: false);
+  }) : super(id: id ?? toSnackCase(name), showInList: false, editableField: false);
 
   factory HeaderField.empty() => HeaderField(id: '', name: '', content: '');
 

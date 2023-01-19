@@ -19,6 +19,7 @@ abstract class Field extends Equatable {
     this.isRequired = false,
     this.sort = 0,
     this.width,
+    this.editableField = true,
     this.validator,
     this.type = FieldType.field,
   });
@@ -29,6 +30,7 @@ abstract class Field extends Equatable {
   final bool isRequired;
   final int sort;
   final double? width;
+  final bool editableField;
 
   @JsonKey(ignore: true)
   final FormFieldValidator<Object>? validator;
@@ -79,6 +81,7 @@ abstract class Field extends Equatable {
         showInList,
         isRequired,
         width,
+        editableField,
         validator,
         type,
       ];

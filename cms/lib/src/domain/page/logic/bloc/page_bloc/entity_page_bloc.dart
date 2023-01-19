@@ -216,7 +216,7 @@ class PageBloc extends BasePageBloc<PageState> {
     final Json data = await pageProvider.fetchPageData(
       model: model,
       id: pageId,
-      subset: model.flattenFields.map((Field field) => field.id).toList(),
+      subset: model.flattenFields.where((Field field) => field.editableField).map((Field field) => field.id).toList(),
     );
     return data;
   }
