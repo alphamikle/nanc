@@ -23,7 +23,7 @@ abstract class _$MultiSelectorFieldCWProxy {
 
   MultiSelectorField thirdTable(ThirdTable? thirdTable);
 
-  MultiSelectorField titleField(String titleField);
+  MultiSelectorField titleFields(List<String> titleFields);
 
   MultiSelectorField type(FieldType type);
 
@@ -46,7 +46,7 @@ abstract class _$MultiSelectorFieldCWProxy {
     int? sort,
     MultiSelectorFieldStructure? structure,
     ThirdTable? thirdTable,
-    String? titleField,
+    List<String>? titleFields,
     FieldType? type,
     String? Function(Object?)? validator,
     double? width,
@@ -88,8 +88,8 @@ class _$MultiSelectorFieldCWProxyImpl implements _$MultiSelectorFieldCWProxy {
       this(thirdTable: thirdTable);
 
   @override
-  MultiSelectorField titleField(String titleField) =>
-      this(titleField: titleField);
+  MultiSelectorField titleFields(List<String> titleFields) =>
+      this(titleFields: titleFields);
 
   @override
   MultiSelectorField type(FieldType type) => this(type: type);
@@ -118,7 +118,7 @@ class _$MultiSelectorFieldCWProxyImpl implements _$MultiSelectorFieldCWProxy {
     Object? sort = const $CopyWithPlaceholder(),
     Object? structure = const $CopyWithPlaceholder(),
     Object? thirdTable = const $CopyWithPlaceholder(),
-    Object? titleField = const $CopyWithPlaceholder(),
+    Object? titleFields = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
     Object? width = const $CopyWithPlaceholder(),
@@ -158,11 +158,11 @@ class _$MultiSelectorFieldCWProxyImpl implements _$MultiSelectorFieldCWProxy {
           ? _value.thirdTable
           // ignore: cast_nullable_to_non_nullable
           : thirdTable as ThirdTable?,
-      titleField:
-          titleField == const $CopyWithPlaceholder() || titleField == null
-              ? _value.titleField
+      titleFields:
+          titleFields == const $CopyWithPlaceholder() || titleFields == null
+              ? _value.titleFields
               // ignore: cast_nullable_to_non_nullable
-              : titleField as String,
+              : titleFields as List<String>,
       type: type == const $CopyWithPlaceholder() || type == null
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
@@ -194,7 +194,9 @@ MultiSelectorField _$MultiSelectorFieldFromJson(Map<String, dynamic> json) =>
     MultiSelectorField(
       name: json['name'] as String,
       model: Model.fromJson(json['model']),
-      titleField: json['titleField'] as String,
+      titleFields: (json['titleFields'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
       structure:
           $enumDecode(_$MultiSelectorFieldStructureEnumMap, json['structure']),
       id: json['id'] as String?,
@@ -219,7 +221,7 @@ Map<String, dynamic> _$MultiSelectorFieldToJson(MultiSelectorField instance) =>
       'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
       'model': instance.model.toJson(),
-      'titleField': instance.titleField,
+      'titleFields': instance.titleFields,
       'thirdTable': instance.thirdTable?.toJson(),
       'structure': _$MultiSelectorFieldStructureEnumMap[instance.structure]!,
     };

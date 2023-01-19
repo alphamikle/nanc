@@ -1,11 +1,11 @@
 import 'dart:async';
 
+import 'package:cms/cms.dart';
 import 'package:fields/src/domain/fields/logic/multi_selector_field/multi_selector_field.dart';
 import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
 import 'package:fields/src/domain/fields/ui/multi_selector_field_cell/multi_selector_modal.dart';
 import 'package:fields/src/domain/fields/ui/selector_field_cell/selector_field_cell.dart';
 import 'package:flutter/material.dart';
-import 'package:cms/cms.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -19,14 +19,23 @@ class MultiSelectorArrayOfIdsFieldCell extends FieldCellWidget<MultiSelectorFiel
   });
 
   @override
-  State<MultiSelectorArrayOfIdsFieldCell> createState() => _MultiSelectorFieldCellState();
+  State<MultiSelectorArrayOfIdsFieldCell> createState() => _MultiSelectorArrayOfIdsFieldCellState();
 }
 
-class _MultiSelectorFieldCellState extends State<MultiSelectorArrayOfIdsFieldCell> with FieldCellHelper<MultiSelectorField, MultiSelectorArrayOfIdsFieldCell> {
+class _MultiSelectorArrayOfIdsFieldCellState extends State<MultiSelectorArrayOfIdsFieldCell>
+    with FieldCellHelper<MultiSelectorField, MultiSelectorArrayOfIdsFieldCell> {
   final FocusNode focusNode = FocusNode();
 
-  String get titleField => field.titleField;
-  Model get entity => field.model;
+  String get eventBusId => [
+        runtimeType.toString(),
+        model.id,
+        model.idField.id,
+        ...titleFields,
+        structure.name,
+      ].join();
+
+  List<String> get titleFields => field.titleFields;
+  Model get model => field.model;
   MultiSelectorFieldStructure get structure => field.structure;
   late final EventBus eventBus = context.read();
 
@@ -58,26 +67,31 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorArrayOfIdsFieldCel
       controller.text = kLoadingText;
       setState(() => isPreloading = true);
       final List<Json> childrenEntities = await context.read<PageListProviderInterface>().fetchPageList(
-            model: entity,
+            model: model,
             subset: [
-              entity.idField.id,
-              titleField,
+              model.idField.id,
+              ...titleFields,
             ],
             params: ParamsDto(
               page: 1,
               limit: 50,
-              sort: Sort(field: entity.idField.id, order: Order.asc),
+              sort: Sort(field: model.idField.id, order: Order.asc),
             ),
             query: QueryDto(
               multipleValues: [
                 QueryMultipleParameter(
-                  name: entity.idField.id,
+                  name: model.idField.id,
                   values: getSelectedIds().map((String id) => QueryStringValue(id)).toList(),
                 ),
               ],
             ),
           );
-      final String resultTitle = childrenEntities.map((Json row) => row[titleField].toString()).join(kDelimiter);
+      final String resultTitle = childrenEntities.map(
+        (Json row) {
+          final String title = titleFields.map((String it) => row[it].toString()).join(kDelimiter);
+          return titleFields.length > 1 ? '[$title]' : title;
+        },
+      ).join(kDelimiter);
       controller.text = resultTitle;
       if (mounted) {
         setState(() => isPreloading = false);
@@ -91,12 +105,12 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorArrayOfIdsFieldCel
   void initState() {
     super.initState();
     unawaited(preload());
-    eventBus.onEvent(consumer: runtimeType.toString(), eventId: PageEvents.save, handler: saveEventHandler);
+    eventBus.onEvent(consumer: eventBusId, eventId: PageEvents.save, handler: saveEventHandler);
   }
 
   @override
   void dispose() {
-    eventBus.unsubscribeFromEvent(consumer: runtimeType.toString(), eventId: PageEvents.save);
+    eventBus.unsubscribeFromEvent(consumer: eventBusId, eventId: PageEvents.save);
     super.dispose();
   }
 

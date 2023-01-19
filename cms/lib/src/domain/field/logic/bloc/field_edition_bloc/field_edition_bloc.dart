@@ -17,7 +17,7 @@ class FieldEditionBloc extends BasePageBloc<PageState> with EntityPageBlocStub i
     required super.draftService,
   }) : super(state: PageState.empty()) {
     final Json entityFieldsJson = _mapEntityToFieldsJson(entity, field ?? FieldMapper.fieldTypeToField(fieldType));
-    final TextControllerMap controllerMap = _mapEntityDataToControllerMap(entityFieldsJson);
+    final TextControllerMap controllerMap = _mapPageDataToControllerMap(entityFieldsJson);
     entityFieldsJson[fieldNameProperty] = fieldType.name;
     emit(state.copyWith(
       data: entityFieldsJson,
@@ -70,7 +70,7 @@ class FieldEditionBloc extends BasePageBloc<PageState> with EntityPageBlocStub i
   @override
   Future<void> delete(Model model) async => throw UnimplementedError('"delete" method not implemented for the "field_edition_bloc"');
 
-  TextControllerMap _mapEntityDataToControllerMap(Json entityData) {
+  TextControllerMap _mapPageDataToControllerMap(Json entityData) {
     final TextControllerMap controllerMap = {};
     for (final MapEntry<String, dynamic> entry in entityData.entries) {
       final dynamic value = entry.value;

@@ -54,7 +54,7 @@ final Model billEntity = Model(
           parentEntityIdName: parentEntityId,
           childEntityIdName: childEntityId,
         ),
-        titleField: 'title',
+        titleFields: const ['title'],
         structure: MultiSelectorFieldStructure.thirdTable,
       ),
     ],

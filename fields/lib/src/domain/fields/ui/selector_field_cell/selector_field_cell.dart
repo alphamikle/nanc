@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cms/cms.dart';
 import 'package:fields/src/domain/fields/logic/selector_field/selector_field.dart';
 import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
+import 'package:fields/src/service/tools/complex_title_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
@@ -23,6 +24,13 @@ class SelectorFieldCell extends FieldCellWidget<SelectorField> {
 }
 
 class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHelper<SelectorField, SelectorFieldCell> {
+  String get eventBusId => [
+        runtimeType.toString(),
+        model.id,
+        model.idField.id,
+        ...titleFields,
+        structure.name,
+      ].join();
   List<String> get titleFields => field.titleFields;
   Model get model => field.model;
   SelectorFieldStructure get structure => field.structure;
@@ -33,7 +41,7 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
 
   Future<List<Json>> finder(String searchQuery) {
     final PageListProviderInterface entityListProvider = context.read();
-    final List<QueryParameterValue> values = searchQuery.split(kDelimiter.replaceAll(' ', '')).map((String it) => QueryStringValue(it.trim())).toList();
+    final List<QueryParameterValue> values = splitComplexTitle(searchQuery).map((String value) => QueryStringValue(value)).toList();
 
     return entityListProvider.fetchPageList(
       model: model,
@@ -132,12 +140,12 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
   void initState() {
     super.initState();
     unawaited(preload());
-    eventBus.onEvent(consumer: runtimeType.toString(), eventId: PageEvents.save, handler: saveEventHandler);
+    eventBus.onEvent(consumer: eventBusId, eventId: PageEvents.save, handler: saveEventHandler);
   }
 
   @override
   void dispose() {
-    eventBus.unsubscribeFromEvent(consumer: runtimeType.toString(), eventId: PageEvents.save);
+    eventBus.unsubscribeFromEvent(consumer: eventBusId, eventId: PageEvents.save);
     super.dispose();
   }
 

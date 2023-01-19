@@ -44,7 +44,7 @@ class PageBloc extends BasePageBloc<PageState> {
     }
     final Json data = await loadPageData(model: model, pageId: pageId);
     final Json dynamicStructure = await _loadDynamicStructure(model: model, pageId: pageId);
-    final TextControllerMap controllerMap = _mapEntityDataToControllerMap(modelId, data);
+    final TextControllerMap controllerMap = _mapPageDataToControllerMap(modelId, data);
     data.addAll(dynamicStructure);
     emit(state.copyWith(
       data: data,
@@ -80,7 +80,7 @@ class PageBloc extends BasePageBloc<PageState> {
         data: savedData,
         initialData: clone(savedData),
         thirdTableData: {},
-        controllerMap: _mapEntityDataToControllerMap(entity.id, savedData),
+        controllerMap: _remapPageDataToControllerMap(entity.id, savedData),
       ));
       eventBus.send(eventId: PageEvents.save, request: entity);
     } catch (error) {
@@ -155,7 +155,7 @@ class PageBloc extends BasePageBloc<PageState> {
     if (model.isCollection == false) {
       pageData[model.idField.id] = model.id;
     }
-    final TextControllerMap controllerMap = _mapEntityDataToControllerMap(modelId, pageData);
+    final TextControllerMap controllerMap = _mapPageDataToControllerMap(modelId, pageData);
     emit(state.copyWith(
       data: pageData,
       initialData: clone(pageData),
@@ -186,7 +186,7 @@ class PageBloc extends BasePageBloc<PageState> {
   Future<bool> _preloadDraft(String modelId) async {
     if (draftKey != null && await draftService.haveDraft(draftKey!)) {
       final PageState draftState = PageState.fromJson(await draftService.getDraft(draftKey!));
-      final TextControllerMap controllerMap = _mapEntityDataToControllerMap(modelId, draftState.data);
+      final TextControllerMap controllerMap = _mapPageDataToControllerMap(modelId, draftState.data);
       emit(draftState.copyWith(
         isLoading: false,
         controllerMap: controllerMap,
@@ -272,12 +272,29 @@ class PageBloc extends BasePageBloc<PageState> {
     return result;
   }
 
-  TextControllerMap _mapEntityDataToControllerMap(String entityId, Json entityData) {
+  TextControllerMap _mapPageDataToControllerMap(String entityId, Json entityData) {
     final TextControllerMap controllerMap = {};
     for (final MapEntry<String, dynamic> entry in entityData.entries) {
       final dynamic value = entry.value;
       final bool isNull = value == null;
       controllerMap[entry.key] = TextEditingController(text: isNull ? '' : value.toString());
+    }
+    return controllerMap;
+  }
+
+  TextControllerMap _remapPageDataToControllerMap(String entityId, Json entityData) {
+    final TextControllerMap controllerMap = {};
+    for (final MapEntry<String, dynamic> entry in entityData.entries) {
+      final dynamic value = entry.value;
+      final bool isNull = value == null;
+      final String oldValue = controllerFor(entry.key).text.trim();
+      final bool hasOldValue = oldValue.isNotEmpty;
+      controllerMap[entry.key] = TextEditingController(
+          text: hasOldValue
+              ? oldValue
+              : isNull
+                  ? ''
+                  : value.toString());
     }
     return controllerMap;
   }

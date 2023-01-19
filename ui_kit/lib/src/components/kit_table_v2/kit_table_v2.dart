@@ -173,7 +173,8 @@ class KitTableV2 extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         final double totalWidth = constraints.maxWidth;
         final int totalColumns = model.listFields.length;
-        assert(columnSizes == null || columnSizes!.length == totalColumns, 'Length of "columnSizes" should be the same, as length of listFields of model');
+        assert(columnSizes == null || columnSizes!.length == totalColumns,
+            'Length of columnSizes (${columnSizes?.length}) should be the same, as length of listFields ($totalColumns) of model');
         final List<double> resultColumnSizes = _calculateResultColumnSizes(totalWidth, totalColumns);
 
         return CustomScrollView(

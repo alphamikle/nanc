@@ -47,7 +47,7 @@ final Model testEntity = Model(
         id: 'multi_selector_field',
         name: 'Multi selector field',
         model: currencyEntity,
-        titleField: 'title',
+        titleFields: const ['title'],
         structure: MultiSelectorFieldStructure.arrayOfIds,
         isRequired: true,
       ),

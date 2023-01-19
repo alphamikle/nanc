@@ -21,13 +21,21 @@ class MultiSelectorThirdTableFieldCell extends FieldCellWidget<MultiSelectorFiel
   });
 
   @override
-  State<MultiSelectorThirdTableFieldCell> createState() => _MultiSelectorFieldCellState();
+  State<MultiSelectorThirdTableFieldCell> createState() => _MultiSelectorThirdTableFieldCellState();
 }
 
-class _MultiSelectorFieldCellState extends State<MultiSelectorThirdTableFieldCell>
+class _MultiSelectorThirdTableFieldCellState extends State<MultiSelectorThirdTableFieldCell>
     with FieldCellHelper<MultiSelectorField, MultiSelectorThirdTableFieldCell>, AfterRender {
-  String get titleField => field.titleField;
-  Model get entity => field.model;
+  String get eventBusId => [
+        runtimeType.toString(),
+        model.id,
+        model.idField.id,
+        ...titleFields,
+        structure.name,
+      ].join();
+
+  List<String> get titleFields => field.titleFields;
+  Model get model => field.model;
   MultiSelectorFieldStructure get structure => field.structure;
   ThirdTable get thirdTable => field.thirdTable!;
   late final EventBus eventBus = context.read();
@@ -90,7 +98,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorThirdTableFieldCel
 
   Future<void> selectFields() async {
     if (parentEntityId == null) {
-      showMessageNotification('You cannot add "${entity.name}" entities until you\'ve saved current page');
+      showMessageNotification('You cannot add "${model.name}" entities until you\'ve saved current page');
       return;
     }
     final List<String> selectedIds = await getSelectedIds();
@@ -118,15 +126,15 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorThirdTableFieldCel
       controller.text = kLoadingText;
       setState(() => isPreloading = true);
       final List<Json> childrenEntities = await context.read<PageListProviderInterface>().fetchPageList(
-            model: entity,
+            model: model,
             subset: [
-              entity.idField.id,
-              titleField,
+              model.idField.id,
+              ...titleFields,
             ],
             query: QueryDto(
               multipleValues: [
                 QueryMultipleParameter(
-                  name: entity.idField.id,
+                  name: model.idField.id,
                   values: (await getSelectedIds()).map((String id) => QueryStringValue(id)).toList(),
                 ),
               ],
@@ -134,10 +142,15 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorThirdTableFieldCel
             params: ParamsDto(
               page: 1,
               limit: 50,
-              sort: Sort(field: entity.idField.id, order: Order.asc),
+              sort: Sort(field: model.idField.id, order: Order.asc),
             ),
           );
-      final String resultTitle = childrenEntities.map((Json row) => row[titleField].toString()).join(kDelimiter);
+      final String resultTitle = childrenEntities.map(
+        (Json row) {
+          final String title = titleFields.map((String it) => row[it].toString()).join(kDelimiter);
+          return titleFields.length > 1 ? '[$title]' : title;
+        },
+      ).join(kDelimiter);
       controller.text = resultTitle;
       if (mounted) {
         setState(() => isPreloading = false);
@@ -155,12 +168,12 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorThirdTableFieldCel
   @override
   void initState() {
     super.initState();
-    eventBus.onEvent(consumer: runtimeType.toString(), eventId: PageEvents.save, handler: saveEventHandler);
+    eventBus.onEvent(consumer: eventBusId, eventId: PageEvents.save, handler: saveEventHandler);
   }
 
   @override
   void dispose() {
-    eventBus.unsubscribeFromEvent(consumer: runtimeType.toString(), eventId: PageEvents.save);
+    eventBus.unsubscribeFromEvent(consumer: eventBusId, eventId: PageEvents.save);
     super.dispose();
   }
 

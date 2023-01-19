@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cms/cms.dart';
 import 'package:fields/src/domain/fields/logic/field/field.dart';
 import 'package:fields/src/domain/fields/logic/multi_selector_field/multi_selector_field.dart';
+import 'package:fields/src/service/tools/complex_title_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
@@ -35,13 +36,11 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
   Model get shortChildEntity {
     final List<Field> childFields = [];
     final Field? idField = field.model.fieldByCode(field.model.idField.id);
-    final Field? titleField = field.model.fieldByCode(field.titleField);
+    final List<Field> titleFields = field.titleFields.map((String fieldId) => field.model.fieldByCode(fieldId)).whereNotNull().toList();
     if (idField != null) {
       childFields.add(idField);
     }
-    if (titleField != null) {
-      childFields.add(titleField);
-    }
+    childFields.addAll(titleFields);
     return field.model.copyWith(fields: [childFields]);
   }
 
@@ -51,20 +50,16 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
     searchDebounce = Timer(immediately ? Duration.zero : const Duration(milliseconds: 500), () async {
       if (mounted) {
         final PageListProviderInterface provider = context.read<PageListProviderInterface>();
+        final List<QueryParameterValue> values = splitComplexTitle(searchController.text).map((String it) => QueryStringValue(it)).toList();
 
         final List<Json> data = await provider.fetchPageList(
           model: field.model,
           subset: [
             field.model.idField.id,
-            field.titleField,
+            ...field.titleFields,
           ],
           query: QueryDto(
-            singleValues: [
-              QuerySingleParameter(
-                name: field.titleField,
-                value: QueryStringValue(searchController.text.trim()),
-              ),
-            ],
+            multipleValues: field.titleFields.map((String it) => QueryMultipleParameter(name: it, values: values)).toList(),
           ),
           params: ParamsDto(
             page: 1,
@@ -193,10 +188,7 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
                             model: shortChildEntity,
                             dataRows: foundRows,
                             horizontalScrollController: tableScrollController,
-                            columnSizes: const [
-                              420,
-                              null,
-                            ],
+                            columnSizes: shortChildEntity.flattenFields.map((Field field) => field.width).toList(),
                             onRowPressed: (Json rowData) => toggleRow(rowData),
                             rowBuilder: rowBuilder,
                             cellBuilder: cellBuilder,

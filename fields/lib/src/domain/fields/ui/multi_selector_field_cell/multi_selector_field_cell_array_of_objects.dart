@@ -20,15 +20,25 @@ class MultiSelectorArrayOfObjectsFieldCell extends FieldCellWidget<MultiSelector
   });
 
   @override
-  State<MultiSelectorArrayOfObjectsFieldCell> createState() => _MultiSelectorFieldCellState();
+  State<MultiSelectorArrayOfObjectsFieldCell> createState() => _MultiSelectorArrayOfObjectsFieldCellState();
 }
 
-class _MultiSelectorFieldCellState extends State<MultiSelectorArrayOfObjectsFieldCell>
+class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArrayOfObjectsFieldCell>
     with FieldCellHelper<MultiSelectorField, MultiSelectorArrayOfObjectsFieldCell> {
   final FocusNode focusNode = FocusNode();
 
-  String get titleField => field.titleField;
+  String get eventBusId => [
+        runtimeType.toString(),
+        model.id,
+        model.idField.id,
+        ...titleFields,
+        structure.name,
+      ].join();
+
+  List<String> get titleFields => field.titleFields;
+
   Model get model => field.model;
+
   MultiSelectorFieldStructure get structure => field.structure;
   late final EventBus eventBus = context.read();
 
@@ -69,7 +79,12 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorArrayOfObjectsFiel
               ],
             ),
           );
-      final String resultTitle = selectedObjects.map((Json row) => row[titleField].toString()).join(kDelimiter);
+      final String resultTitle = selectedObjects.map(
+        (Json row) {
+          final String title = titleFields.map((String it) => row[it].toString()).join(kDelimiter);
+          return titleFields.length > 1 ? '[$title]' : title;
+        },
+      ).join(kDelimiter);
       controller.text = resultTitle;
       pageBloc.updateValue(fieldId, selectedObjects);
       setState(() => isPreloading = false);
@@ -84,7 +99,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorArrayOfObjectsFiel
             model: model,
             subset: [
               model.idField.id,
-              titleField,
+              ...titleFields,
             ],
             params: ParamsDto(
               page: 1,
@@ -100,7 +115,12 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorArrayOfObjectsFiel
               ],
             ),
           );
-      final String resultTitle = childrenEntities.map((Json row) => row[titleField].toString()).join(kDelimiter);
+      final String resultTitle = childrenEntities.map(
+        (Json row) {
+          final String title = titleFields.map((String it) => row[it].toString()).join(kDelimiter);
+          return titleFields.length > 1 ? '[$title]' : title;
+        },
+      ).join(kDelimiter);
       controller.text = resultTitle;
       if (mounted) {
         setState(() => isPreloading = false);
@@ -114,12 +134,12 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorArrayOfObjectsFiel
   void initState() {
     super.initState();
     unawaited(preload());
-    eventBus.onEvent(consumer: runtimeType.toString(), eventId: PageEvents.save, handler: saveEventHandler);
+    eventBus.onEvent(consumer: eventBusId, eventId: PageEvents.save, handler: saveEventHandler);
   }
 
   @override
   void dispose() {
-    eventBus.unsubscribeFromEvent(consumer: runtimeType.toString(), eventId: PageEvents.save);
+    eventBus.unsubscribeFromEvent(consumer: eventBusId, eventId: PageEvents.save);
     super.dispose();
   }
 

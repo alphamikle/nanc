@@ -27,7 +27,7 @@ class MultiSelectorField extends Field {
   MultiSelectorField({
     required super.name,
     required this.model,
-    required this.titleField,
+    required this.titleFields,
     required this.structure,
     String? id,
     this.thirdTable,
@@ -44,14 +44,14 @@ class MultiSelectorField extends Field {
         id: '',
         name: '',
         model: IdField.empty().toModel(),
-        titleField: '',
+        titleFields: const [],
         structure: MultiSelectorFieldStructure.arrayOfIds,
       );
 
   factory MultiSelectorField.fromJson(dynamic json) => _$MultiSelectorFieldFromJson(castToJson(json));
 
   final Model model;
-  final String titleField;
+  final List<String> titleFields;
   final ThirdTable? thirdTable;
   final MultiSelectorFieldStructure structure;
 
@@ -108,7 +108,7 @@ class MultiSelectorField extends Field {
   List<Object?> get props => [
         ...super.props,
         model,
-        titleField,
+        titleFields,
         structure,
         thirdTable,
       ];

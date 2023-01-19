@@ -96,7 +96,7 @@ final Model landingPage = Model(
       HeaderField(name: 'Bullets Header', content: 'Bullets', contentIcon: 'flu_text_bullet_list_ltr_filled'),
     ],
     [
-      MultiSelectorField(name: 'Bullets', model: bullet, titleField: 'title', structure: MultiSelectorFieldStructure.arrayOfObjects),
+      MultiSelectorField(name: 'Bullets', model: bullet, titleFields: const ['title'], structure: MultiSelectorFieldStructure.arrayOfObjects),
     ],
 
     /// ? FEATURES
@@ -104,7 +104,7 @@ final Model landingPage = Model(
       HeaderField(name: 'Features Header', content: 'Features', contentIcon: 'flu_text_bullet_list_ltr_filled'),
     ],
     [
-      MultiSelectorField(name: 'Features', model: feature, titleField: 'title', structure: MultiSelectorFieldStructure.arrayOfObjects),
+      MultiSelectorField(name: 'Features', model: feature, titleFields: const ['title'], structure: MultiSelectorFieldStructure.arrayOfObjects),
     ],
 
     /// ? DEVELOPERS
@@ -130,7 +130,12 @@ final Model landingPage = Model(
       HeaderField(name: 'Reviews Header', content: 'Reviews', contentIcon: 'flu_checkmark_starburst_filled'),
     ],
     [
-      MultiSelectorField(name: 'Reviews', model: review, titleField: 'customer_name', structure: MultiSelectorFieldStructure.arrayOfObjects),
+      MultiSelectorField(
+        name: 'Reviews',
+        model: review,
+        titleFields: const ['customer_name', 'customer_lastname', 'position'],
+        structure: MultiSelectorFieldStructure.arrayOfObjects,
+      ),
     ],
 
     /// ! DIVIDER
