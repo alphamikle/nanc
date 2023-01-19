@@ -22,7 +22,14 @@ class CollectionView extends StatefulWidget {
 class _CollectionViewState extends State<CollectionView> {
   final ScrollController horizontalScrollController = ScrollController();
 
-  void openRow(Model model, Json rowData) => context.vRouter.to(Routes.pageOfCollectionModel(model.id, rowData[model.idField.id].toString()));
+  void openRow(Model model, Json rowData) => context.vRouter.to(
+        Routes.pageOfCollectionModel(
+          Uri.encodeComponent(model.id),
+          Uri.encodeComponent(
+            rowData[model.idField.id].toString(),
+          ),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {

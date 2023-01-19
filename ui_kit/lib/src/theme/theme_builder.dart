@@ -25,6 +25,7 @@ ThemeData themeBuilder(BuildContext context, {bool dark = false}) {
         successColor: dark ? const Color.fromRGBO(75, 181, 67, 1) : const Color.fromRGBO(75, 181, 67, 1),
         deleteFieldColor: dark ? const Color.fromRGBO(246, 157, 127, 1) : const Color.fromRGBO(246, 157, 127, 1),
         editFieldColor: dark ? const Color.fromRGBO(182, 198, 73, 1) : const Color.fromRGBO(182, 198, 73, 1),
+        warning: const Color.fromRGBO(255, 153, 102, 1),
       ),
       KitBorders(
         smallRadius: BorderRadius.circular(Gap.small),

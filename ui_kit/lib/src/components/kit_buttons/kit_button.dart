@@ -18,27 +18,34 @@ class KitButton extends StatelessWidget {
   final bool isLoading;
 
   bool get withChild => child != null;
+  bool get isEnabled => onPressed != null;
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton(
-      onPressed: onPressed,
-      style: color == null
-          ? null
-          : ButtonStyle(
-              overlayColor: MaterialStatePropertyAll(color!.withOpacity(0.05)),
-              foregroundColor: MaterialStatePropertyAll(color!),
-            ),
-      child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 250),
-        child: isLoading
-            ? const SizedBox(
-                width: 50,
-                child: KitPreloader(),
-              )
-            : withChild
-                ? child!
-                : Text(text!),
+    return AnimatedOpacity(
+      duration: const Duration(milliseconds: 250),
+      opacity: color == null || isEnabled ? 1 : 0.65,
+      child: OutlinedButton(
+        onPressed: onPressed,
+        style: color == null
+            ? null
+            : ButtonStyle(
+                overlayColor: MaterialStatePropertyAll(color!.withOpacity(0.05)),
+                foregroundColor: MaterialStatePropertyAll(color!),
+                side: MaterialStatePropertyAll(BorderSide(color: color!.withOpacity(0.75))),
+                backgroundColor: MaterialStatePropertyAll(color!.withOpacity(0.05)),
+              ),
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 250),
+          child: isLoading
+              ? const SizedBox(
+                  width: 50,
+                  child: KitPreloader(),
+                )
+              : withChild
+                  ? child!
+                  : Text(text!),
+        ),
       ),
     );
   }

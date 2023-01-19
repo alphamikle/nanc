@@ -60,7 +60,7 @@ class ModelProvider {
     modelJson[newModel.idField.id] = modelId;
     final String generatedModelId = generateModelId(oldModel.id);
     final String secretModelId = await encrypt(generatedModelId);
-    final Json result = await pageProvider.saveEditedEntityPage(
+    final Json result = await pageProvider.saveEditedPage(
       entity: modelModel,
       id: secretModelId,
       data: await generateModelJson(

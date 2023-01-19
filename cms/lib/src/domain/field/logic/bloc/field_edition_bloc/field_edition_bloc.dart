@@ -101,4 +101,7 @@ class FieldEditionBloc extends BasePageBloc<PageState> with EntityPageBlocStub i
     }
     return output;
   }
+
+  @override
+  Future<void> reset(Model model) async {}
 }

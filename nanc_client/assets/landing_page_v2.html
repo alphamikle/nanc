@@ -1,0 +1,692 @@
+<!--<import src="https://admin.nanc.io/components/buttons/large_button"/>-->
+
+<!-- ? ========================= DATA ========================= -->
+<data id="colors"
+      royalBlue="#5856E9"
+      grey="#6C6C72"
+      white="#FFFFFF"
+      black="#222233"
+/>
+
+<data id="stores"
+      googleBadge="https://i.ibb.co/jTgHMnL/google-badge.png"
+      appleBadge="https://i.ibb.co/HxcYZ3b/apple-badge.png"
+      googleLink="https://google.com"
+      appleLink="https://apple.com"
+/>
+
+<data id="fonts"
+      main="Josefin Sans"
+/>
+
+<!-- ? ========================= TEMPLATES ========================= -->
+
+<!--? BUTTONS-->
+<template id="buttons.store">
+  <stack>
+    <image ref="{{ template.image }}"/>
+    <positioned all="0">
+      <material type="transparency">
+        <prop:borderRadius all="6"/>
+        <inkWell onPressed="browser: {{ template.link }}">
+          <prop:borderRadius all="6"/>
+        </inkWell>
+      </material>
+    </positioned>
+  </stack>
+</template>
+
+<template id="buttons.play">
+  <stack>
+    <positioned all="0">
+      <center>
+        <container size="70" color="#9AFFFFFF">
+          <prop:decoration>
+            <prop:borderRadius all="100"/>
+          </prop:decoration>
+        </container>
+      </center>
+    </positioned>
+    <positioned all="0">
+      <center>
+        <container size="60" color="#B4FFFFFF">
+          <prop:decoration>
+            <prop:borderRadius all="100"/>
+          </prop:decoration>
+        </container>
+      </center>
+    </positioned>
+    <positioned all="0">
+      <center>
+        <container size="50" color="#FFFFFF">
+          <prop:decoration>
+            <prop:borderRadius all="100"/>
+          </prop:decoration>
+        </container>
+      </center>
+    </positioned>
+    <positioned all="0">
+      <center>
+        <icon icon="mdi_play_box" color="{{ data(colors).royalBlue }}"/>
+      </center>
+    </positioned>
+    <sizedBox all="70">
+      <material type="transparency">
+        <prop:borderRadius all="100"/>
+        <inkWell onPressed="browser: {{ template.videoLink }}">
+          <prop:borderRadius all="100"/>
+        </inkWell>
+      </material>
+    </sizedBox>
+  </stack>
+</template>
+
+<template id="buttons.icon">
+  <stack>
+    <padding all="8">
+      <icon icon="{{ template.icon }}" size="24" color="{{ data(colors).black }}"/>
+    </padding>
+    <positioned all="0">
+      <material type="transparency">
+        <prop:borderRadius all="8"/>
+        <inkWell onPressed="browser: {{ template.link }}">
+          <prop:borderRadius all="8"/>
+        </inkWell>
+      </material>
+    </positioned>
+  </stack>
+</template>
+
+<!--? TEXTS-->
+<template id="text.h0">
+  <text align="{{ template.align }}">
+    <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" weight="w700" size="31.25" height="1.5"/>
+    {{ template.text }}
+  </text>
+</template>
+
+<template id="text.h1">
+  <text align="{{ template.align }}">
+    <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" weight="bold" size="25" height="1.5"/>
+    {{ template.text }}
+  </text>
+</template>
+
+<template id="text.h2">
+  <text>
+    <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" weight="w600" size="20" height="1.5"/>
+    {{ template.text }}
+  </text>
+</template>
+
+<template id="text.h7">
+  <text align="{{ template.align }}">
+    <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" size="16" height="1.5"/>
+    {{ template.text }}
+  </text>
+</template>
+
+<!--? CARDS-->
+<template id="cards.bullet">
+  <container>
+    <prop:decoration color="{{ data(colors).white }}">
+      <prop:shadow color="{{ data(colors).grey }}" blurRadius="12" spreadRadius="-10"/>
+      <prop:borderRadius all="10"/>
+    </prop:decoration>
+    <padding all="20">
+      <row crossAxisAlignment="start">
+        <padding top="4">
+          <container width="20" height="20">
+            <prop:decoration color="{{ data(colors).royalBlue }}">
+              <prop:borderRadius all="100"/>
+            </prop:decoration>
+            <center>
+              <icon icon="mdi_check_bold" color="{{ data(colors).white }}" size="12"/>
+            </center>
+          </container>
+        </padding>
+        <divider width="18"/>
+        <expanded>
+          <column crossAxisAlignment="start">
+            <component id="text.h2" color="{{ data(colors).black }}" text="{{ template.title }}"/>
+            <divider height="4"/>
+            <component id="text.h7" color="{{ data(colors).grey }}" text="{{ template.text }}"/>
+          </column>
+        </expanded>
+      </row>
+    </padding>
+  </container>
+</template>
+
+<template id="cards.feature">
+  <column>
+    <padding bottom="32">
+      <center>
+        <icon icon="{{ template.icon }}" size="45" color="{{ data(colors).white }}"/>
+      </center>
+    </padding>
+    <padding bottom="18">
+      <component id="text.h1" color="{{ data(colors).white }}" text="{{ template.title }}"/>
+    </padding>
+    <padding left="40" right="40">
+      <text align="center">
+        <prop:textStyle color="{{ data(colors).white }}" font="{{ data(fonts).main }}" size="16" height="1.5"/>
+        {{ template.text }}
+      </text>
+    </padding>
+  </column>
+</template>
+
+<template id="cards.metric">
+  <container color="{{ data(colors).royalBlue }}">
+    <prop:decoration>
+      <prop:borderRadius all="8"/>
+    </prop:decoration>
+    <padding all="12">
+      <column crossAxisAlign="center" mainAxisSize="min">
+        <padding bottom="12">
+          <icon icon="{{ template.icon }}" color="{{ data(colors).white }}"/>
+        </padding>
+        <padding bottom="8">
+          <component id="text.h2" text="{{ template.numbers }}" color="{{ data(colors).white }}"/>
+        </padding>
+        <component id="text.h7" text="{{ template.text }}" color="{{ data(colors).white }}"/>
+      </column>
+    </padding>
+  </container>
+</template>
+
+<template id="cards.ellipse">
+  <fractionalTranslation dx="0" dy="0.35">
+    <scale scaleX="1" scaleY="0.25">
+      <container height="260" width="300" color="{{ data(colors).white }}">
+        <prop:decoration>
+          <prop:borderRadius all="500"/>
+          <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="16"/>
+          <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="-16"/>
+        </prop:decoration>
+      </container>
+    </scale>
+  </fractionalTranslation>
+</template>
+
+<template id="cards.dev">
+  <container color="{{ data(colors).white }}">
+    <prop:decoration>
+      <prop:borderRadius all="12"/>
+      <prop:shadow color="{{ data(colors).black }}" blurRadius="12" spreadRadius="-10"/>
+    </prop:decoration>
+    <padding left="20" top="40" right="20" bottom="40">
+      <column mainAxisSize="min">
+        <stack>
+          <container size="220" color="{{ data(colors).royalBlue }}">
+            <prop:decoration>
+              <prop:borderRadius all="200"/>
+            </prop:decoration>
+          </container>
+          <positioned all="0">
+            <center>
+              <container size="214" color="{{ data(colors).white }}">
+                <prop:decoration>
+                  <prop:borderRadius all="200"/>
+                </prop:decoration>
+              </container>
+            </center>
+          </positioned>
+          <positioned all="0">
+            <center>
+              <sizedBox all="200">
+                <clipRRect all="100">
+                  <image ref="{{ template.image }}"/>
+                </clipRRect>
+              </sizedBox>
+            </center>
+          </positioned>
+        </stack>
+        <padding top="66">
+          <component id="text.h0" text="{{ template.name }}" color="{{ data(colors).black }}" align="center"/>
+        </padding>
+        <padding bottom="14">
+          <component id="text.h2" text="{{ template.role }}" color="{{ data(colors).grey }}" align="center"/>
+        </padding>
+        <padding bottom="30">
+          <component id="text.h7" text="{{ template.description }}" color="{{ data(colors).grey }}" align="center"/>
+        </padding>
+        <row mainAxisAlignment="spaceBetween">
+          <component id="buttons.icon" icon="rmx_facebook_fill" link="{{ template.fb }}"/>
+
+          <component id="divider.line"/>
+
+          <component id="buttons.icon" icon="rmx_instagram_fill" link="{{ template.inst }}"/>
+
+          <component id="divider.line"/>
+
+          <component id="buttons.icon" icon="mdi_twitter" link="{{ template.tw }}"/>
+
+          <component id="divider.line"/>
+
+          <component id="buttons.icon" icon="rmx_youtube_fill" link="{{ template.ytb }}"/>
+        </row>
+      </column>
+    </padding>
+  </container>
+</template>
+
+<template id="cards.review">
+  <container>
+    <prop:decoration color="#FFFFFF">
+      <prop:borderRadius all="10"/>
+      <prop:shadow color="#80000000" blurRadius="20" spreadRadius="-10"/>
+    </prop:decoration>
+
+    <padding left="16" top="20" right="16" bottom="20">
+      <column mainAxisSize="min">
+        <clipRRect all="50">
+          <sizedBox all="50">
+            <image ref="{{ template.photo }}" fit="cover"/>
+          </sizedBox>
+        </clipRRect>
+        <divider height="12"/>
+        <text>
+          <prop:textStyle font="Josefin Sans" size="25" height="1.5" weight="w600"/>
+          {{ template.name }}
+        </text>
+        <text>
+          <prop:textStyle font="Josefin Sans" size="16" height="1.5" weight="w400"/>
+          {{ template.position }}
+        </text>
+        <divider height="18"/>
+        <text color="#6C6C72" align="center" maxLines="3" overflow="ellipsis">
+          <prop:textStyle font="Josefin Sans" size="16" height="1.5" weight="w400"/>
+          {{ template.review }}
+        </text>
+      </column>
+    </padding>
+  </container>
+</template>
+
+<!--? OTHER-->
+<template id="slider.dot">
+  <stack>
+    <sizedBox all="22">
+    </sizedBox>
+
+    <show show="{{ template.active }}">
+      <positioned all="0">
+        <align align="center">
+          <container width="22" height="22" color="{{ data(colors).royalBlue }}">
+            <prop:decoration>
+              <prop:borderRadius all="50"/>
+            </prop:decoration>
+          </container>
+        </align>
+      </positioned>
+    </show>
+
+    <positioned all="0">
+      <align align="center">
+        <container width="20" height="20" color="{{ data(colors).white }}">
+          <prop:decoration>
+            <prop:borderRadius all="50"/>
+          </prop:decoration>
+        </container>
+      </align>
+    </positioned>
+
+    <positioned all="0">
+      <align align="center">
+        <container width="16" height="16" color="{{ data(colors).royalBlue }}">
+          <prop:decoration>
+            <prop:borderRadius all="50"/>
+          </prop:decoration>
+        </container>
+      </align>
+    </positioned>
+  </stack>
+</template>
+
+<template id="divider.line">
+  <container width="1" height="23" color="{{ data(colors).grey }}">
+  </container>
+</template>
+
+<!-- ? ========================= UI ========================= -->
+<sizedBox height="1227">
+  <stack fit="expand">
+    <image ref="https://i.ibb.co/bHnwdQc/app-background-1.png" fit="fitHeight"/>
+    <positioned left="16" top="188" right="16">
+      <column>
+        <stack>
+          <positioned left="20" top="0" right="0" bottom="0">
+            <container color="#7472FE">
+              <padding all="10">
+                <container color="{{ data(colors).royalBlue }}">
+                </container>
+              </padding>
+            </container>
+          </positioned>
+          <padding top="20" right="20" bottom="20">
+            <container>
+              <prop:decoration color="{{ data(colors).white }}">
+              </prop:decoration>
+              <prop:padding left="18" top="30" bottom="30" right="18"/>
+              <column crossAxisAlignment="start">
+                <component id="text.h1" text="A GREAT APP MAKES YOUR LIFE BETTER" color="{{ data(colors).royalBlue }}"/>
+                <divider height="18"/>
+                <component id="text.h7" color="{{ data(colors).grey }}" text="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."/>
+                <divider height="30"/>
+                <component id="text.h2" color="{{ data(colors).black }}" text="DOWNLOAD APP NOW"/>
+                <divider height="18"/>
+                <row>
+                  <expanded>
+                    <component id="buttons.store" link="{{ data(stores).googleLink }}" image="{{ data(stores).googleBadge }}"/>
+                  </expanded>
+                  <divider width="12"/>
+                  <expanded>
+                    <component id="buttons.store" link="{{ data(stores).appleLink }}" image="{{ data(stores).appleBadge }}"/>
+                  </expanded>
+                </row>
+              </column>
+            </container>
+          </padding>
+        </stack>
+        <padding left="55" right="55" top="40">
+          <image ref="https://i.ibb.co/YRH1DYW/app-screen-1.png"/>
+        </padding>
+      </column>
+    </positioned>
+  </stack>
+</sizedBox>
+
+<padding top="60" bottom="18">
+  <center>
+    <component id="text.h1" color="{{ data(colors).black }}" text="ABOUT OUR APP"/>
+  </center>
+</padding>
+
+<padding left="38" right="38" bottom="40">
+  <center>
+    <component id="text.h7" color="{{ data(colors).grey }}" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+  </center>
+</padding>
+
+<padding left="68" right="68" bottom="40">
+  <stack>
+    <positioned left="0" right="0" bottom="0">
+      <align alignment="bottomCenter">
+        <component id="cards.ellipse"/>
+      </align>
+    </positioned>
+    <padding left="20" bottom="35" right="20">
+      <image ref="https://i.ibb.co/ZxkdMcb/mock-image-2.png"/>
+    </padding>
+  </stack>
+</padding>
+
+<padding left="16" right="16" bottom="20">
+  <component id="cards.bullet"
+             title="Creative design"
+             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  />
+</padding>
+
+<padding left="16" right="16" bottom="20">
+  <component id="cards.bullet"
+             title="Easy to use"
+             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  />
+</padding>
+
+<padding left="16" right="16" bottom="92">
+  <component id="cards.bullet"
+             title="Best user experince"
+             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  />
+</padding>
+
+<container color="{{ data(colors).royalBlue }}">
+  <padding top="60" bottom="18">
+    <center>
+      <component id="text.h1" text="APP FEATURES" color="{{ data(colors).white }}"/>
+    </center>
+  </padding>
+  <padding left="40" right="40" bottom="32">
+    <component id="text.h7" color="{{ data(colors).white }}" align="center"
+               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+  </padding>
+  <padding bottom="32">
+    <component id="cards.feature"
+               title="FULL FREE CHAT"
+               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+               icon="mdi_message_bulleted"/>
+  </padding>
+  <padding bottom="32">
+    <component id="cards.feature"
+               title="UNLIMITED FEATURES"
+               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+               icon="flu_gift_filled"/>
+  </padding>
+  <padding bottom="60">
+    <component id="cards.feature"
+               title="AWESOME UI DESIGN"
+               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+               icon="flu_design_ideas_filled"/>
+  </padding>
+
+  <padding left="60" right="60" bottom="120">
+    <physicalModel elevation="12" shadowColor="#80000000">
+      <prop:borderRadius all="32"/>
+      <image ref="https://i.ibb.co/MV1Cs8N/app-screen-2.png"/>
+    </physicalModel>
+  </padding>
+</container>
+
+<padding top="60" bottom="18">
+  <component id="text.h1" color="{{ data(colors).black }}" text="CHECKOUT OUR APP INTERFACE LOOK" align="center"/>
+</padding>
+
+<padding left="40" right="40" bottom="40">
+  <component id="text.h7" color="{{ data(colors).grey }}" align="center"
+             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+</padding>
+
+<padding bottom="40">
+  <image ref="https://i.ibb.co/HdW9jTj/app-screenshots.png"/>
+</padding>
+
+<padding bottom="60">
+  <row mainAxisSize="min" mainAxisAlignment="center">
+    <component id="slider.dot"/>
+    <divider width="16"/>
+
+    <component id="slider.dot"/>
+    <divider width="16"/>
+
+    <component id="slider.dot" active="true"/>
+    <divider width="16"/>
+
+    <component id="slider.dot"/>
+    <divider width="16"/>
+
+    <component id="slider.dot"/>
+  </row>
+</padding>
+
+<padding left="16" right="90" bottom="18">
+  <component id="text.h1" text="DOWNLOAD APP NOW" color="{{ data(colors).black }}"/>
+</padding>
+
+<padding left="16" right="16" bottom="40">
+  <component id="text.h7" color="{{ data(colors).grey }}"
+             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+</padding>
+
+<padding left="16" right="16" bottom="60">
+  <row mainAxisAlignment="spaceBetween">
+    <expanded>
+      <component id="buttons.store" link="{{ data(stores).googleLink }}" image="{{ data(stores).googleBadge }}"/>
+    </expanded>
+    <divider width="25"/>
+    <expanded>
+      <component id="buttons.store" link="{{ data(stores).appleLink }}" image="{{ data(stores).appleBadge }}"/>
+    </expanded>
+  </row>
+</padding>
+
+<padding left="16" right="16">
+  <row mainAxisAlignment="spaceBetween">
+    <expanded>
+      <component id="cards.metric" numbers="59865" text="Download" icon="mdi_download_box"/>
+    </expanded>
+
+    <divider width="16"/>
+
+    <expanded>
+      <component id="cards.metric" numbers="29852" text="Like" icon="flu_thumb_like_filled"/>
+    </expanded>
+
+    <divider width="16"/>
+
+    <expanded>
+      <component id="cards.metric" numbers="1500" text="5 Stars" icon="flu_star_emphasis_filled"/>
+    </expanded>
+  </row>
+</padding>
+
+<padding left="20" top="60" right="20" bottom="60">
+  <stack>
+    <positioned left="0" right="0" bottom="0">
+      <align alignment="bottomCenter">
+        <component id="cards.ellipse"/>
+      </align>
+    </positioned>
+    <padding left="20" bottom="35" right="20">
+      <image ref="https://i.ibb.co/0mdDcKW/app-screenshots-2.png"/>
+    </padding>
+  </stack>
+</padding>
+
+<padding bottom="60">
+  <stack>
+    <padding bottom="74">
+      <container color="{{ data(colors).royalBlue }}">
+        <column>
+          <padding top="60" bottom="40">
+            <component id="text.h1" color="{{ data(colors).white }}" align="center"
+                       text="HOW TO USE THE APP PERFECTLY"/>
+          </padding>
+          <padding left="40" right="40" bottom="120">
+            <component id="text.h7" color="{{ data(colors).white }}" align="center"
+                       text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+          </padding>
+        </column>
+      </container>
+    </padding>
+    <positioned left="0" bottom="0" right="0">
+      <padding left="16" right="16">
+        <physicalModel elevation="16">
+          <sizedBox height="150">
+            <clipRRect all="12">
+              <stack fit="expand">
+                <image ref="https://i.ytimg.com/vi/hpgkrUPRBjc/hqdefault.jpg" fit="fitWidth"/>
+                <positioned all="0">
+                  <container color="#665856E9">
+                  </container>
+                </positioned>
+                <positioned all="0">
+                  <center>
+                    <component id="buttons.play" videoLink="https://youtu.be/hpgkrUPRBjc"/>
+                  </center>
+                </positioned>
+              </stack>
+            </clipRRect>
+          </sizedBox>
+        </physicalModel>
+      </padding>
+    </positioned>
+  </stack>
+</padding>
+
+<padding bottom="18">
+  <component id="text.h1" text="OUR REACTIVE TEAM" color="{{ data(colors).black }}" align="center"/>
+</padding>
+
+<padding left="40" right="40" bottom="40">
+  <component id="text.h7" color="{{ data(colors).grey }}" align="center"
+             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+</padding>
+
+<padding left="16" right="16" bottom="60">
+  <column mainAxisSize="min">
+    <padding bottom="30">
+      <component id="cards.dev"
+                 role="APP DEVELOPER"
+                 name="CARLA PRESS"
+                 image="https://i.pravatar.cc/200?u=CARLA+PRES"
+                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae."
+                 fb="https://fb.com"
+                 inst="https://instagram.com"
+                 tw="https://tw.com"
+                 ytb="https://youtube.com"
+      />
+    </padding>
+
+    <padding bottom="30">
+      <component id="cards.dev"
+                 role="UI/UX DESIGNER"
+                 name="CRAIG GOUSE"
+                 image="https://i.pravatar.cc/200?u=CRAIG"
+                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae."
+                 fb="https://fb.com"
+                 inst="https://instagram.com"
+                 tw="https://tw.com"
+                 ytb="https://youtube.com"
+      />
+    </padding>
+
+    <component id="cards.dev"
+               role="WEBSITE DEVELOPER"
+               name="JOCELYN SEPTIMUS"
+               image="https://i.pravatar.cc/200?u=JOCELYN+S"
+               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae."
+               fb="https://fb.com"
+               inst="https://instagram.com"
+               tw="https://tw.com"
+               ytb="https://youtube.com"
+    />
+  </column>
+</padding>
+
+<padding>
+  <container>
+    <prop:decoration color="{{ data(colors).royalBlue }}">
+    </prop:decoration>
+
+    <column mainAxisSize="min">
+      <padding top="60" bottom="18">
+        <component id="text.h1" text="OUR HAPPY CUSTOMERS" align="center" color="{{ data(colors).white }}"/>
+      </padding>
+
+      <padding left="40" right="40" bottom="32">
+        <component id="text.h7" align="center" color="{{ data(colors).white }}"
+                   text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+      </padding>
+
+      <padding bottom="60">
+        <!-- ? PRESS "HELP" BUTTON ON THE TOP RIGHT CORNER AND FIND "CAROUSEL SLIDER" WIDGET TO READ MANUAL -->
+        <carouselSlider height="260" dotColor="{{ data(colors).white }}" sliderDotGap="20">
+          <component id="cards.review" name="ANN LUBIN 1" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
+                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+          <component id="cards.review" name="ANN LUBIN 2" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
+                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+          <component id="cards.review" name="ANN LUBIN 3" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
+                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+          <component id="cards.review" name="ANN LUBIN 4" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
+                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+          <component id="cards.review" name="ANN LUBIN 5" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
+                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+        </carouselSlider>
+      </padding>
+    </column>
+  </container>
+</padding>

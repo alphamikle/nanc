@@ -4,15 +4,15 @@ import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
 abstract class PageProviderInterface {
-  Future<Json> fetchEntityPageData({
-    required Model entity,
+  Future<Json> fetchPageData({
+    required Model model,
     required String id,
     List<String> subset = const [],
   });
 
-  Future<Json> saveEditedEntityPage({required Model entity, required String id, required Json data});
+  Future<Json> saveEditedPage({required Model entity, required String id, required Json data});
 
-  Future<Json> createEntityPage({required Model entity, required Json data});
+  Future<Json> createPage({required Model entity, required Json data});
 
   Future<Json> upsertPage({
     required Model entity,

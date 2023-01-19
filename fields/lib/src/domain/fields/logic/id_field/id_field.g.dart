@@ -151,4 +151,5 @@ const _$FieldTypeEnumMap = {
   FieldType.structureField: 'structureField',
   FieldType.colorField: 'colorField',
   FieldType.screenField: 'screenField',
+  FieldType.headerField: 'headerField',
 };

@@ -95,8 +95,8 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
         setState(() => isPreloading = false);
         return;
       }
-      final Json data = await context.read<PageProviderInterface>().fetchEntityPageData(
-        entity: entity,
+      final Json data = await context.read<PageProviderInterface>().fetchPageData(
+        model: entity,
         id: entityId,
         subset: [entityId, titleField],
       );

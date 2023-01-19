@@ -12,8 +12,8 @@ TextControllerMap _controllerMapFromJson(Json? json) => {};
 
 Json _controllerMapToJson(TextControllerMap controllerMap) => <String, dynamic>{};
 
-typedef EntityId = String;
-typedef ThirdTableData = Map<EntityId, Map<ParentEntityDataId, List<ChildEntityDataId>>>;
+typedef ModelId = String;
+typedef ThirdTableData = Map<ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>>;
 
 @CopyWith()
 @JsonSerializable()
@@ -32,7 +32,7 @@ class PageState extends BaseEntityPageState {
   factory PageState.empty() => PageState(
         data: const <String, dynamic>{},
         initialData: const <String, dynamic>{},
-        thirdTableData: const <EntityId, Map<ParentEntityDataId, List<ChildEntityDataId>>>{},
+        thirdTableData: const <ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>>{},
         isLoading: false,
         isDeleting: false,
         isSaving: false,

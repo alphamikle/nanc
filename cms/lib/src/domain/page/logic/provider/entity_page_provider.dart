@@ -13,20 +13,20 @@ class PageProvider implements PageProviderInterface {
   final PageApi api;
 
   @override
-  Future<Json> fetchEntityPageData({
-    required Model entity,
+  Future<Json> fetchPageData({
+    required Model model,
     required String id,
     List<String> subset = const [],
   }) async {
     /// ? Solo pages should always have the same ID as their Models
-    return api.fetchPageData(entity, entity.isCollection ? id : entity.id, subset);
+    return api.fetchPageData(model, model.isCollection ? id : model.id, subset);
   }
 
   @override
-  Future<Json> saveEditedEntityPage({required Model entity, required String id, required Json data}) => upsertPage(entity: entity, id: id, data: data);
+  Future<Json> saveEditedPage({required Model entity, required String id, required Json data}) => upsertPage(entity: entity, id: id, data: data);
 
   @override
-  Future<Json> createEntityPage({required Model entity, required Json data}) => upsertPage(entity: entity, id: null, data: data);
+  Future<Json> createPage({required Model entity, required Json data}) => upsertPage(entity: entity, id: null, data: data);
 
   @override
   Future<Json> upsertPage({

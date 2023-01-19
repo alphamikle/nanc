@@ -32,7 +32,7 @@ class EntityPageView extends StatefulWidget {
 }
 
 class _EntityPageViewState extends State<EntityPageView> {
-  final GlobalKey<FormState> formKey = GlobalKey();
+  GlobalKey<FormState> formKey = GlobalKey();
   PageBloc get pageBloc {
     final BasePageBloc bloc = context.read();
     if (bloc is PageBloc) {
@@ -71,6 +71,18 @@ class _EntityPageViewState extends State<EntityPageView> {
     if (confirmed) {
       await pageBloc.delete(model);
       context.vRouter.historyBack();
+      formKey.currentState?.reset();
+    }
+  }
+
+  Future<void> confirmAndReset(Model model) async {
+    final bool confirmed = await confirmAction(context: context, title: 'Do you want to reset all not saved changes of this page?');
+    if (confirmed) {
+      final String currentRoute = context.vRouter.url;
+      final InitializedVRouterSailor router = context.vRouter;
+      await pageBloc.reset(model);
+      router.to(currentRoute);
+      formKey = GlobalKey();
     }
   }
 
@@ -117,6 +129,17 @@ class _EntityPageViewState extends State<EntityPageView> {
                         ),
                       ),
                     ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: Gap.large),
+                    child: KitButton(
+                      onPressed: state.isChanged ? () async => confirmAndReset(entity) : null,
+                      color: context.kitColors.warning,
+                      child: AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 250),
+                        child: state.isDeleting ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error)) : const Text('Reset'),
+                      ),
+                    ),
+                  ),
                   KitButton(
                     onPressed: state.isChanged ? () async => validateAndSave(entity) : null,
                     child: AnimatedSwitcher(

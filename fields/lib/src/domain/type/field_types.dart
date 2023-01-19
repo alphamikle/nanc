@@ -15,5 +15,6 @@ enum FieldType {
   structureField,
   colorField,
   screenField,
+  headerField,
   // TODO(alphamikle): Add new field types here
 }
