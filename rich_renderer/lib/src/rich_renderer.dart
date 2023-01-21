@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:markdown_code_push_core/markdown_code_push_core.dart';
 import 'package:rich_renderer/src/logic/substitutor.dart';
+import 'package:rich_renderer/src/renderers/for/for_widget.dart';
 import 'package:rich_renderer/src/tag_renderer.dart';
 import 'package:tools/tools.dart';
 
@@ -39,7 +40,11 @@ class RichRenderer {
         // ignore: use_build_context_synchronously
         final Widget? child = await render(context, newNode);
         if (child != null) {
-          children.add(child);
+          if (child is ForWidget) {
+            children.addAll(child.children);
+          } else {
+            children.add(child);
+          }
         }
       } else {
         final Widget? standardTagWidget = await MarkdownGenerator.renderStandardTag(widgetConfig: widgetConfig, node: node);

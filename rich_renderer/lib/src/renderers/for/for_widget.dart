@@ -10,9 +10,6 @@ class ForWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: children,
-    );
+    return const SizedBox.shrink();
   }
 }

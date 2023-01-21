@@ -4,6 +4,7 @@ import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/renderers/for/for_arguments.dart';
 import 'package:rich_renderer/src/renderers/for/for_values_parser.dart';
+import 'package:rich_renderer/src/renderers/for/for_widget.dart';
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 import 'package:tools/tools.dart';
 
@@ -98,7 +99,7 @@ TagRenderer forRenderer() {
         rawChildren: await richRenderer.renderChildren(context, effectiveChildren),
       );
 
-      return compactWidgets(extractor.children);
+      return ForWidget(children: extractor.children);
     },
   );
 }
