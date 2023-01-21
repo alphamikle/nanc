@@ -4,6 +4,7 @@ export 'src/config/rich_style_config.dart';
 export 'src/config/rich_widget_config.dart';
 export 'src/documentation/documentation.dart';
 export 'src/logic/click_delegate.dart';
+export 'src/logic/for_storage.dart';
 export 'src/logic/image_builder_delegate.dart';
 export 'src/logic/local_data.dart';
 export 'src/logic/page_data.dart';

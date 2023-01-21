@@ -5,6 +5,7 @@ import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/documentation/arguments/common.dart';
 import 'package:rich_renderer/src/renderers/component/component_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
+import 'package:rich_renderer/src/tools/enrich_nodes.dart';
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 const String kHashAttribute = r'_$componentDataHash';
@@ -60,35 +61,19 @@ TagRenderer componentRenderer() {
       if (templateContent.isEmpty) {
         return null;
       }
-      final List<md.Node> richComponentContent = [];
       final String hash = element.attributes.toString();
-      await _enrichContentChildrenWithHash(hash, templateContent, richComponentContent);
+      final List<md.Node>? richComponentContent = await enrichNodesWithAttribute(attributeName: kHashAttribute, attributeValue: hash, nodes: templateContent);
       templateStorage.saveArguments(
         templateId: templateId,
         hash: hash,
         arguments: element.attributes,
       );
-      // ignore: use_build_context_synchronously
       final PropertiesExtractor extractor = PropertiesExtractor(
         context: context,
+        // ignore: use_build_context_synchronously
         rawChildren: await richRenderer.renderChildren(context, richComponentContent),
       );
       return compactWidgets(extractor.children);
     },
   );
-}
-
-Future<void> _enrichContentChildrenWithHash(String hash, List<md.Node> children, List<md.Node> output) async {
-  for (final md.Node child in children) {
-    if (child is md.Element) {
-      final List<md.Node> newChildren = [];
-      await _enrichContentChildrenWithHash(hash, child.children ?? [], newChildren);
-      final md.Element newChild = md.Element(child.tag, newChildren);
-      newChild.attributes.addAll(child.attributes);
-      newChild.attributes[kHashAttribute] = hash;
-      output.add(newChild);
-    } else {
-      output.add(child);
-    }
-  }
 }

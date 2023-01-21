@@ -28,9 +28,6 @@ class _TagsManualViewState extends State<TagsManualView> {
     return BlocBuilder<EditorBloc, EditorState>(
       builder: (BuildContext context, EditorState state) {
         if (state is ManualState) {
-          if (state.activeTagRenderer.description == null) {
-            return const SizedBox.shrink();
-          }
           return Padding(
             padding: const EdgeInsets.only(
               top: Gap.regular,

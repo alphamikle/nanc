@@ -10,6 +10,7 @@ import 'package:rich_renderer/src/renderers/container/container_renderer.dart';
 import 'package:rich_renderer/src/renderers/data/data_renderer.dart';
 import 'package:rich_renderer/src/renderers/divider/divider_renderer.dart';
 import 'package:rich_renderer/src/renderers/expanded/expanded_renderer.dart';
+import 'package:rich_renderer/src/renderers/for/for_renderer.dart';
 import 'package:rich_renderer/src/renderers/fractional_translation/fractional_translation_renderer.dart';
 import 'package:rich_renderer/src/renderers/icon/icon_renderer.dart';
 import 'package:rich_renderer/src/renderers/if/show_renderer.dart';
@@ -64,7 +65,7 @@ class TagsRenderer {
       stackRenderer,
       positionedRenderer,
       dataRenderer,
-      // forRenderer,
+      forRenderer,
       templateRenderer,
       componentRenderer,
       materialRenderer,

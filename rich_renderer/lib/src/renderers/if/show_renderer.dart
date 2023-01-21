@@ -64,7 +64,7 @@ Work logic:
 </safeArea>
 ''',
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
-      final IfArguments arguments = IfArguments.fromJson(element.attributes);
+      final ShowArguments arguments = ShowArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
       if (arguments.show ?? false) {
         return compactWidgets(extractor.children);

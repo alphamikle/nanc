@@ -2,21 +2,21 @@
 
 <!-- ? ========================= DATA ========================= -->
 <data id="colors"
-      royalBlue="#5856E9"
-      grey="#6C6C72"
-      white="#FFFFFF"
-      black="#222233"
+      royalBlue="{{ page.royal_blue_color }}"
+      grey="{{ page.grey_color }}"
+      white="{{ page.white_color }}"
+      black="{{ page.black_color }}"
 />
 
 <data id="stores"
-      googleBadge="https://i.ibb.co/jTgHMnL/google-badge.png"
-      appleBadge="https://i.ibb.co/HxcYZ3b/apple-badge.png"
-      googleLink="https://google.com"
-      appleLink="https://apple.com"
+      googleBadge="{{ page.google_play_badge }}"
+      appleBadge="{{ page.app_store_badge }}"
+      googleLink="{{ page.google_play_link }}"
+      appleLink="{{ page.app_store_link }}"
 />
 
 <data id="fonts"
-      main="Josefin Sans"
+      main="{{ page.font_family }}"
 />
 
 <!-- ? ========================= TEMPLATES ========================= -->
@@ -288,16 +288,16 @@
         </clipRRect>
         <divider height="12"/>
         <text>
-          <prop:textStyle font="Josefin Sans" size="25" height="1.5" weight="w600"/>
+          <prop:textStyle font="{{ data(fonts).main }}" size="25" height="1.5" weight="w600"/>
           {{ template.name }}
         </text>
         <text>
-          <prop:textStyle font="Josefin Sans" size="16" height="1.5" weight="w400"/>
+          <prop:textStyle font="{{ data(fonts).main }}" size="16" height="1.5" weight="w400"/>
           {{ template.position }}
         </text>
         <divider height="18"/>
         <text color="#6C6C72" align="center" maxLines="3" overflow="ellipsis">
-          <prop:textStyle font="Josefin Sans" size="16" height="1.5" weight="w400"/>
+          <prop:textStyle font="{{ data(fonts).main }}" size="16" height="1.5" weight="w400"/>
           {{ template.review }}
         </text>
       </column>
@@ -353,6 +353,8 @@
 <!-- ? ========================= UI ========================= -->
 <sizedBox height="1227">
   <stack fit="expand">
+    <!-- TODO: Загрузить картинку фона в CDN и брать оттуда -->
+    <!-- {{ page.images.0.image.url }} -->
     <image ref="https://i.ibb.co/bHnwdQc/app-background-1.png" fit="fitHeight"/>
     <positioned left="16" top="188" right="16">
       <column>
@@ -371,11 +373,11 @@
               </prop:decoration>
               <prop:padding left="18" top="30" bottom="30" right="18"/>
               <column crossAxisAlignment="start">
-                <component id="text.h1" text="A GREAT APP MAKES YOUR LIFE BETTER" color="{{ data(colors).royalBlue }}"/>
+                <component id="text.h1" text="{{ page.main_header }}" color="{{ data(colors).royalBlue }}"/>
                 <divider height="18"/>
-                <component id="text.h7" color="{{ data(colors).grey }}" text="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."/>
+                <component id="text.h7" color="{{ data(colors).grey }}" text="{{ page.top_block_text }}"/>
                 <divider height="30"/>
-                <component id="text.h2" color="{{ data(colors).black }}" text="DOWNLOAD APP NOW"/>
+                <component id="text.h2" color="{{ data(colors).black }}" text="{{ page.download_apps_header }}"/>
                 <divider height="18"/>
                 <row>
                   <expanded>
@@ -400,13 +402,13 @@
 
 <padding top="60" bottom="18">
   <center>
-    <component id="text.h1" color="{{ data(colors).black }}" text="ABOUT OUR APP"/>
+    <component id="text.h1" color="{{ data(colors).black }}" text="{{ page.about_header }}"/>
   </center>
 </padding>
 
 <padding left="38" right="38" bottom="40">
   <center>
-    <component id="text.h7" color="{{ data(colors).grey }}" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+    <component id="text.h7" color="{{ data(colors).grey }}" text="{{ page.about_text }}"/>
   </center>
 </padding>
 

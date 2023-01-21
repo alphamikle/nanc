@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/common.dart';
 import 'package:rich_renderer/src/renderers/template/template_arguments.dart';
 import 'package:tools/tools.dart';
 

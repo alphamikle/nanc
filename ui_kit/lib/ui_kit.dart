@@ -44,6 +44,7 @@ export 'src/components/kit_modal/kit_base_modal_bottom.dart';
 export 'src/components/kit_modal/kit_modal_card.dart';
 export 'src/components/kit_not_found_text.dart';
 export 'src/components/kit_preloader.dart';
+export 'src/components/kit_screen_preloader.dart';
 export 'src/components/kit_shimmer.dart';
 export 'src/components/kit_shimmer_switcher.dart';
 export 'src/components/kit_table/kit_table.dart';

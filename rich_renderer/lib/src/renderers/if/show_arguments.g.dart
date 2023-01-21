@@ -6,12 +6,13 @@ part of 'show_arguments.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-IfArguments _$IfArgumentsFromJson(Map<String, dynamic> json) => IfArguments(
+ShowArguments _$ShowArgumentsFromJson(Map<String, dynamic> json) =>
+    ShowArguments(
       show: boolOrNullFromJson(json['show']),
       notShow: boolOrNullFromJson(json['notShow']),
     );
 
-Map<String, dynamic> _$IfArgumentsToJson(IfArguments instance) =>
+Map<String, dynamic> _$ShowArgumentsToJson(ShowArguments instance) =>
     <String, dynamic>{
       'show': instance.show,
       'notShow': instance.notShow,

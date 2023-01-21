@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:tools/tools.dart';
 
 class ImageBuilderDelegate extends InheritedWidget {
   const ImageBuilderDelegate({
@@ -14,7 +15,7 @@ class ImageBuilderDelegate extends InheritedWidget {
     final ImageBuilderDelegate? delegate = context.dependOnInheritedWidgetOfExactType<ImageBuilderDelegate>();
     if (delegate == null) {
       if (kDebugMode) {
-        print('ImageBuilderDelegate not found in the widget tree. Image builders will be null');
+        logg('ImageBuilderDelegate not found in the widget tree. Image builders will be null');
       }
       return const ImageBuilderDelegate(
         loadingBuilder: null,

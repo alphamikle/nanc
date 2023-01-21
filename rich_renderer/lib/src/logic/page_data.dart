@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rich_renderer/src/logic/mock_page_data.dart';
+import 'package:rich_renderer/src/tools/chain_extractor.dart';
 
 String _nextValue(int index) {
   return '(\\.(?<value$index>\\w+))?';
@@ -33,7 +35,17 @@ class PageData extends InheritedWidget {
 
   static Iterable<RegExpMatch> getMatches(String value) => _pageDataQueryRegExp.allMatches(value);
 
-  static String? findData({
+  static String? findDataAsString({
+    required BuildContext context,
+    required String? query,
+  }) {
+    if (query == null) {
+      return null;
+    }
+    return PageData.of(context).getValueAsString(query: query);
+  }
+
+  static dynamic findData({
     required BuildContext context,
     required String? query,
   }) {
@@ -43,7 +55,7 @@ class PageData extends InheritedWidget {
     return PageData.of(context).getValue(query: query);
   }
 
-  String? getValue({
+  String? getValueAsString({
     required String? query,
   }) {
     if (query == null) {
@@ -52,33 +64,33 @@ class PageData extends InheritedWidget {
 
     /// ? Remove "page" item at start
     final List<String> queryPieces = query.split('.')..removeAt(0);
-    return _finder(queryPieces);
+    return _valueAsStringFinder(queryPieces);
   }
 
-  String? _finder(List<String> pieces) {
-    dynamic currentValue;
-    for (int i = 0; i < pieces.length; i++) {
-      final String piece = pieces[i];
-      final bool isLast = i == pieces.length - 1;
-      if (i == 0) {
-        currentValue = data[piece];
-      } else if (currentValue is List) {
-        final int? pieceIndex = int.tryParse(piece);
-        if (pieceIndex != null && pieceIndex < currentValue.length) {
-          currentValue = currentValue[pieceIndex];
-        } else {
-          return null;
-        }
-      } else if (currentValue is Map) {
-        currentValue = currentValue[piece];
-      } else if (currentValue == null) {
-        return null;
-      }
-      if (isLast) {
-        return currentValue?.toString();
-      }
+  dynamic getValue({
+    required String? query,
+  }) {
+    if (query == null) {
+      return null;
     }
-    return null;
+
+    /// ? Remove "page" item at start
+    final List<String> queryPieces = query.split('.')..removeAt(0);
+    return _valueFinder(queryPieces);
+  }
+
+  String? _valueAsStringFinder(List<String> pieces) {
+    if (pieces.first == 'mock') {
+      return extractValueAsStringByChain(<String, dynamic>{'mock': mockData}, pieces);
+    }
+    return extractValueAsStringByChain(data, pieces);
+  }
+
+  dynamic _valueFinder(List<String> pieces) {
+    if (pieces.first == 'mock') {
+      return extractValueByChain(<String, dynamic>{'mock': mockData}, pieces);
+    }
+    return extractValueByChain(data, pieces);
   }
 
   @override

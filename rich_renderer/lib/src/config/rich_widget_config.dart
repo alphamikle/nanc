@@ -5,10 +5,6 @@ import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/logic/substitutor.dart';
 import 'package:tools/tools.dart';
 
-const Set<String> _noSubstitutionTags = {
-  'for',
-};
-
 WidgetConfig createRichWidgetConfig({
   required BuildContext context,
   required RichRenderer richRenderer,

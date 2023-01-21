@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/renderers/component/element_hash_extension.dart';
+import 'package:rich_renderer/src/renderers/for/for_renderer.dart';
+import 'package:rich_renderer/src/tools/chain_extractor.dart';
 import 'package:tools/tools.dart';
 
 class Substitutor {
@@ -19,6 +21,7 @@ class Substitutor {
     for (final MapEntry<String, String> attributeEntry in node.attributes.entries) {
       if (substitutor.haveExpression(attributeEntry.value)) {
         attributes[attributeEntry.key] = await substitutor.substitute(node.contentHash, attributeEntry.value);
+        attributes['${attributeEntry.key}_old'] = substitutor._clearValue(substitutor._prepareForClearing(attributeEntry.value));
       }
     }
     final md.Element newNode = md.Element(node.tag, node.children);
@@ -29,32 +32,13 @@ class Substitutor {
   bool haveExpression(String value) => _substitutionRegExp.hasMatch(value);
 
   Future<String> substitute(String hash, String value) async {
+    await wait(periodic: true, period: 20);
     final String withLocalData = _replaceWithLocalData(value);
-    await wait(periodic: true, period: 10);
     final String withTemplateData = _replaceWithTemplateData(hash, withLocalData);
-    await wait(periodic: true, period: 10);
     final String withPageData = _replaceWithPageData(withTemplateData);
-    await wait(periodic: true, period: 10);
-    final String preparedForClearingData = _prepareForClearing(withPageData);
-    await wait(periodic: true, period: 10);
-    return _clearValue(preparedForClearingData);
-  }
-
-  String _prepareForClearing(String value) {
-    return value.replaceAll(RegExp(r'{{ *'), '{{').replaceAll(RegExp(r' *}}'), '}}');
-  }
-
-  String _clearValue(String value) {
-    final Iterable<RegExpMatch> matches = _clearingRegExp.allMatches(value);
-    if (matches.isEmpty) {
-      return value;
-    }
-    String clearValue = value;
-
-    for (final RegExpMatch match in matches) {
-      final String content = match.namedGroup('content')!;
-      clearValue = clearValue.replaceFirst(match.pattern, content);
-    }
+    final String withCycleData = _replaceWithCycleData(withPageData);
+    final String preparedForClearingData = _prepareForClearing(withCycleData);
+    final String clearValue = _clearValue(preparedForClearingData);
     return clearValue;
   }
 
@@ -108,9 +92,10 @@ class Substitutor {
       return value;
     }
     String replacedValue = value;
+    final PageData pageDataProvider = PageData.of(context);
     for (final RegExpMatch match in matches) {
-      final PageData pageDataProvider = PageData.of(context);
-      final String pageData = pageDataProvider.getValue(query: match.group(0)) ?? 'null';
+      final String? query = match.group(0);
+      final String pageData = pageDataProvider.getValueAsString(query: query) ?? 'null';
 
       replacedValue = replacedValue.replaceFirst(
         match.pattern,
@@ -118,5 +103,60 @@ class Substitutor {
       );
     }
     return replacedValue;
+  }
+
+  String _replaceWithCycleData(String value) {
+    final Iterable<RegExpMatch> matches = ForStorage.getMatches(value);
+    if (matches.isEmpty) {
+      return value;
+    }
+    String replacedValue = value;
+    final ForStorage forStorage = ForStorage.of(context);
+    for (final RegExpMatch match in matches) {
+      final String cycleId = match.namedGroup('cycleId')!;
+      final int index = int.parse(match.namedGroup('index')!);
+      final String paramName = match.namedGroup('paramName')!;
+      final String? expression = match.namedGroup('expression');
+      final List<Object?>? values = forStorage.getCycleData(cycleId);
+      final bool isNull = index < 0 || values == null || values.isEmpty || values.length <= index;
+      final bool isIndex = paramName.startsWith(kIndex);
+      final bool isSimpleValue = paramName.startsWith(kValue) && expression == null;
+
+      String cycleData = 'null';
+      if (isNull == false) {
+        if (isIndex) {
+          cycleData = index.toString();
+        } else if (isSimpleValue) {
+          cycleData = values![index].toString();
+        } else {
+          final dynamic value = values![index];
+          cycleData = extractValueByChain(value, expression!.split('.')).toString();
+        }
+      }
+
+      replacedValue = replacedValue.replaceFirst(
+        match.pattern,
+        cycleData,
+      );
+    }
+    return replacedValue;
+  }
+
+  String _prepareForClearing(String value) {
+    return value.replaceAll(RegExp(r'{{ *'), '{{').replaceAll(RegExp(r' *}}'), '}}');
+  }
+
+  String _clearValue(String value) {
+    final Iterable<RegExpMatch> matches = _clearingRegExp.allMatches(value);
+    if (matches.isEmpty) {
+      return value;
+    }
+    String clearValue = value;
+
+    for (final RegExpMatch match in matches) {
+      final String content = match.namedGroup('content')!;
+      clearValue = clearValue.replaceFirst(match.pattern, content);
+    }
+    return clearValue;
   }
 }

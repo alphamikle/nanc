@@ -78,172 +78,175 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: context.theme.colorScheme.surfaceVariant,
-      child: KitColumn(
-        children: [
-          /// ? HEADER
-          BlocBuilder<BasePageBloc, BaseEntityPageState>(
-            builder: (BuildContext context, BaseEntityPageState state) {
-              return ColoredBox(
-                color: context.theme.colorScheme.surfaceVariant,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: kPadding, right: kPadding),
-                  child: KitViewHeader(
-                    children: [
-                      /// ? BACK BUTTON
-                      Padding(
-                        padding: const EdgeInsets.only(right: kPaddingLarge),
-                        child: KitIconButton(
-                          icon: IconPack.flu_chevron_left_filled,
-                          onPressed: () => context.navigator.pop(),
+    return KitScreenPreloader(
+      delayBeforeBuildChild: const Duration(milliseconds: 800),
+      builder: (_) => ColoredBox(
+        color: context.theme.colorScheme.surfaceVariant,
+        child: KitColumn(
+          children: [
+            /// ? HEADER
+            BlocBuilder<BasePageBloc, BaseEntityPageState>(
+              builder: (BuildContext context, BaseEntityPageState state) {
+                return ColoredBox(
+                  color: context.theme.colorScheme.surfaceVariant,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: kPadding, right: kPadding),
+                    child: KitViewHeader(
+                      children: [
+                        /// ? BACK BUTTON
+                        Padding(
+                          padding: const EdgeInsets.only(right: kPaddingLarge),
+                          child: KitIconButton(
+                            icon: IconPack.flu_chevron_left_filled,
+                            onPressed: () => context.navigator.pop(),
+                          ),
                         ),
-                      ),
 
-                      /// ? TITLE
-                      Text(
-                        'Editing $helper',
-                        style: context.theme.textTheme.headline6,
-                      ),
-                      const Spacer(),
-                      if (kDebugMode) KitDivider.horizontal(kPadding),
+                        /// ? TITLE
+                        Text(
+                          'Editing $helper',
+                          style: context.theme.textTheme.headline6,
+                        ),
+                        const Spacer(),
+                        if (kDebugMode) KitDivider.horizontal(kPadding),
 
-                      /// ? SYNC BUTTON
-                      BlocBuilder<EditorBloc, EditorState>(
-                        builder: (BuildContext context, EditorState state) {
-                          final bool synced = state.isSyncedWithFile;
+                        /// ? SYNC BUTTON
+                        BlocBuilder<EditorBloc, EditorState>(
+                          builder: (BuildContext context, EditorState state) {
+                            final bool synced = state.isSyncedWithFile;
 
-                          return KitTooltip(
-                            text: synced ? 'Cancel file sync' : 'Sync editor with filesystem for getting more power',
-                            child: KitButton(
-                              color: synced ? context.theme.colorScheme.error : null,
-                              onPressed: synced ? context.read<EditorBloc>().closeSync : context.read<EditorBloc>().syncWithFile,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(synced ? 'Cancel' : 'Sync'),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: kPaddingSmall),
-                                    child: Icon(
-                                      synced ? IconPack.flu_arrow_sync_checkmark_filled : IconPack.flu_arrow_sync_circle_filled,
-                                      size: 20,
+                            return KitTooltip(
+                              text: synced ? 'Cancel file sync' : 'Sync editor with filesystem for getting more power',
+                              child: KitButton(
+                                color: synced ? context.theme.colorScheme.error : null,
+                                onPressed: synced ? context.read<EditorBloc>().closeSync : context.read<EditorBloc>().syncWithFile,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(synced ? 'Cancel' : 'Sync'),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: kPaddingSmall),
+                                      child: Icon(
+                                        synced ? IconPack.flu_arrow_sync_checkmark_filled : IconPack.flu_arrow_sync_circle_filled,
+                                        size: 20,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                      ),
-                      KitDivider.horizontal(kPadding),
-
-                      /// ? JSON VIEW BUTTON
-                      KitButton(
-                        color: isPageJsonAvailable ? context.theme.colorScheme.error : null,
-                        onPressed: toggleJsonView,
-                        child: Row(
-                          children: [
-                            Text(isPageJsonAvailable ? 'Screen code' : 'Page data'),
-                            Padding(
-                              padding: const EdgeInsets.only(left: kPaddingSmall),
-                              child: Icon(
-                                isPageJsonAvailable ? IconPack.mdi_file_xml_box : IconPack.mdi_code_json,
-                                size: 20,
-                              ),
-                            ),
-                          ],
+                            );
+                          },
                         ),
-                      ),
-                      KitDivider.horizontal(kPadding),
+                        KitDivider.horizontal(kPadding),
 
-                      /// ? ICONS BUTTON
-                      KitButton(
-                        onPressed: () async => selectIcon(context: context, query: '', selectedIcon: null),
-                        child: Row(
-                          children: const [
-                            Text('Icons'),
-                            Padding(
-                              padding: EdgeInsets.only(left: kPaddingSmall),
-                              child: Icon(
-                                IconPack.flu_image_search_filled,
-                                size: 20,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      KitDivider.horizontal(kPadding),
-
-                      /// ? HELP / MANUAL BUTTON
-                      KitContainerTransition(
-                        useRootNavigator: true,
-                        openBuilder: manualBuilder,
-                        closedShape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50))),
-                        closedColor: context.theme.colorScheme.surfaceVariant,
-                        middleColor: context.theme.colorScheme.surfaceVariant,
-                        closedBuilder: (BuildContext context, VoidCallback action) => KitButton(
-                          onPressed: action,
+                        /// ? JSON VIEW BUTTON
+                        KitButton(
+                          color: isPageJsonAvailable ? context.theme.colorScheme.error : null,
+                          onPressed: toggleJsonView,
                           child: Row(
-                            children: const [
-                              Text('Help'),
+                            children: [
+                              Text(isPageJsonAvailable ? 'Screen code' : 'Page data'),
                               Padding(
-                                padding: EdgeInsets.only(left: kPaddingSmall),
+                                padding: const EdgeInsets.only(left: kPaddingSmall),
                                 child: Icon(
-                                  IconPack.flu_chat_help_filled,
+                                  isPageJsonAvailable ? IconPack.mdi_file_xml_box : IconPack.mdi_code_json,
                                   size: 20,
                                 ),
                               ),
                             ],
                           ),
                         ),
+                        KitDivider.horizontal(kPadding),
+
+                        /// ? ICONS BUTTON
+                        KitButton(
+                          onPressed: () async => selectIcon(context: context, query: '', selectedIcon: null),
+                          child: Row(
+                            children: const [
+                              Text('Icons'),
+                              Padding(
+                                padding: EdgeInsets.only(left: kPaddingSmall),
+                                child: Icon(
+                                  IconPack.flu_image_search_filled,
+                                  size: 20,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        KitDivider.horizontal(kPadding),
+
+                        /// ? HELP / MANUAL BUTTON
+                        KitContainerTransition(
+                          useRootNavigator: true,
+                          openBuilder: manualBuilder,
+                          closedShape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50))),
+                          closedColor: context.theme.colorScheme.surfaceVariant,
+                          middleColor: context.theme.colorScheme.surfaceVariant,
+                          closedBuilder: (BuildContext context, VoidCallback action) => KitButton(
+                            onPressed: action,
+                            child: Row(
+                              children: const [
+                                Text('Help'),
+                                Padding(
+                                  padding: EdgeInsets.only(left: kPaddingSmall),
+                                  child: Icon(
+                                    IconPack.flu_chat_help_filled,
+                                    size: 20,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+
+            /// ? BODY
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(left: kPaddingLarge),
+                child: KitViewContainer(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            top: kPadding,
+                            bottom: kPadding,
+                          ),
+                          child: isPageJsonAvailable
+                              ? BlocBuilder<BasePageBloc, BaseEntityPageState>(
+                                  builder: (BuildContext context, BaseEntityPageState state) {
+                                    return PageDataPreview(
+                                      data: state.data,
+                                      field: field,
+                                    );
+                                  },
+                                )
+                              : PageEditor(codeFieldKey: context.read<EditorBloc>().codeFieldKey),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(
+                          left: kPadding,
+                          top: kPadding,
+                          right: kPadding,
+                          bottom: kPadding,
+                        ),
+                        child: PagePreviewWithFrame(),
                       ),
                     ],
                   ),
                 ),
-              );
-            },
-          ),
-
-          /// ? BODY
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: kPaddingLarge),
-              child: KitViewContainer(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                          top: kPadding,
-                          bottom: kPadding,
-                        ),
-                        child: isPageJsonAvailable
-                            ? BlocBuilder<BasePageBloc, BaseEntityPageState>(
-                                builder: (BuildContext context, BaseEntityPageState state) {
-                                  return PageDataPreview(
-                                    data: state.data,
-                                    field: field,
-                                  );
-                                },
-                              )
-                            : PageEditor(codeFieldKey: context.read<EditorBloc>().codeFieldKey),
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(
-                        left: kPadding,
-                        top: kPadding,
-                        right: kPadding,
-                        bottom: kPadding,
-                      ),
-                      child: PagePreviewWithFrame(),
-                    ),
-                  ],
-                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
