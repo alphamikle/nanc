@@ -76,6 +76,7 @@ class PageBloc extends BasePageBloc<PageState> {
         data: state.data,
         creation: false,
       );
+      await _deleteDraft();
       emit(state.copyWith(
         data: savedData,
         initialData: clone(savedData),
@@ -103,6 +104,7 @@ class PageBloc extends BasePageBloc<PageState> {
         data: state.data,
         creation: true,
       );
+      await _deleteDraft();
       emit(state.copyWith(
         data: savedData,
         initialData: clone(savedData),
@@ -120,9 +122,7 @@ class PageBloc extends BasePageBloc<PageState> {
     emit(state.copyWith(isDeleting: true));
     try {
       await pageProvider.deletePage(model: model, pageId: state.data[model.idField.id].toString());
-      if (draftKey != null) {
-        await draftService.deleteDraft(draftKey!);
-      }
+      await _deleteDraft();
       modelId = null;
       pageId = null;
       emit(state.copyWith(isDeleting: false));
@@ -133,9 +133,7 @@ class PageBloc extends BasePageBloc<PageState> {
   }
 
   Future<void> reset(Model model) async {
-    if (draftKey != null) {
-      await draftService.deleteDraft(draftKey!);
-    }
+    await _deleteDraft();
   }
 
   Future<void> prepareForCreation(ModelId modelId) async {
@@ -297,6 +295,12 @@ class PageBloc extends BasePageBloc<PageState> {
                   : value.toString());
     }
     return controllerMap;
+  }
+
+  Future<void> _deleteDraft() async {
+    if (draftKey != null) {
+      await draftService.deleteDraft(draftKey!);
+    }
   }
 }
 

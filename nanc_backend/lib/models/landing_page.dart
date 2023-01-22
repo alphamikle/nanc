@@ -73,8 +73,9 @@ final Model landingPage = Model(
       HeaderField(name: 'Large Text Header', content: 'Text Content', contentIcon: 'flu_slide_text_regular'),
     ],
     [
-      StringField(name: 'Top Block Text', isRequired: true, maxLines: 2),
-      StringField(name: 'About Text', isRequired: true, maxLines: 2),
+      StringField(name: 'Top Block Text', isRequired: true, maxLines: 3),
+      StringField(name: 'About Text', isRequired: true, maxLines: 3),
+      StringField(name: 'Features Text', isRequired: true, maxLines: 3),
     ],
     [
       StringField(name: 'Interface Text', isRequired: true, maxLines: 2),

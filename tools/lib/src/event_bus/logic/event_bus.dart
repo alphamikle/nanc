@@ -84,7 +84,9 @@ class EventBus {
       return;
     }
 
-    for (final MapEntry<Consumer, Function> entry in targetHandlers.entries) {
+    final List<MapEntry<Consumer, Function>> entries = [...targetHandlers.entries];
+
+    for (final MapEntry<Consumer, Function> entry in entries) {
       EventBusResponse<dynamic> response;
       try {
         // ignore: avoid_dynamic_calls

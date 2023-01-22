@@ -6,6 +6,7 @@ import 'package:markdown_code_push_core/src/syntax/task_list_syntax.dart';
 import 'package:tools/tools.dart';
 
 typedef MarkdownFormatter = String Function(BuildContext context, String rawMarkdown);
+typedef WidgetsFilter = void Function(Widget nodeWidget, List<Widget> output);
 
 class MarkdownGenerator {
   MarkdownGenerator({
@@ -16,6 +17,7 @@ class MarkdownGenerator {
     this.blockSyntaxes = const [],
     this.inlineSyntaxes = const [],
     this.formatters = const [],
+    this.widgetsFilter,
   });
 
   final BuildContext context;
@@ -25,7 +27,14 @@ class MarkdownGenerator {
   final List<md.BlockSyntax> blockSyntaxes;
   final List<md.InlineSyntax> inlineSyntaxes;
   final List<MarkdownFormatter> formatters;
+  final WidgetsFilter? widgetsFilter;
   late final WidgetConfig effectiveWidgetConfig = widgetConfig ?? WidgetConfig();
+
+  void _defaultWidgetsFilter(Widget? nodeWidget, List<Widget> output) {
+    if (nodeWidget != null) {
+      output.add(nodeWidget);
+    }
+  }
 
   Future<List<Widget>> generate() async {
     final List<Widget> widgets = [];
@@ -52,7 +61,11 @@ class MarkdownGenerator {
     for (final md.Node node in nodes) {
       final Widget? nodeWidget = await _buildWidget(node);
       if (nodeWidget != null) {
-        widgets.add(nodeWidget);
+        if (widgetsFilter == null) {
+          _defaultWidgetsFilter(nodeWidget, widgets);
+        } else {
+          widgetsFilter!(nodeWidget, widgets);
+        }
       }
     }
     return widgets;

@@ -10,6 +10,8 @@ class ForArguments {
     required this.indexName,
     required this.values,
     required this.oldValues,
+    required this.from,
+    required this.to,
   });
 
   factory ForArguments.fromJson(dynamic json) => _$ForArgumentsFromJson(castToJson(json));
@@ -22,6 +24,12 @@ class ForArguments {
 
   @JsonKey(name: 'in_old')
   final String? oldValues;
+
+  @JsonKey(fromJson: intFromJson)
+  final int? from;
+
+  @JsonKey(fromJson: intFromJson)
+  final int? to;
 
   Json toJson() => _$ForArgumentsToJson(this);
 

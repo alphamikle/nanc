@@ -21,6 +21,7 @@ class ContentPage extends StatelessWidget {
       markdownContent: content,
       pageData: pageData,
       renderer: renderer,
+      widgetsFilter: forWidgetFilter,
     );
   }
 }

@@ -12,6 +12,7 @@ class RichMarkdownList extends StatelessWidget {
     required this.pageData,
     this.preloader,
     this.scrollController,
+    this.widgetsFilter,
     super.key,
   });
 
@@ -20,6 +21,7 @@ class RichMarkdownList extends StatelessWidget {
   final ScrollController? scrollController;
   final Widget? preloader;
   final Map<String, dynamic> pageData;
+  final WidgetsFilter? widgetsFilter;
 
   String get sanitizedMarkup => sanitizeMarkup(markdownContent);
 
@@ -52,6 +54,7 @@ class RichMarkdownList extends StatelessWidget {
         ...richRenderer.builders.values.map(tagRendererToBlockSyntax),
       ],
       formatters: [],
+      widgetsFilter: widgetsFilter,
     );
   }
 

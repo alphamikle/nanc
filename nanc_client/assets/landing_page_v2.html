@@ -21,7 +21,7 @@
 
 <!-- ? ========================= TEMPLATES ========================= -->
 
-<!--? BUTTONS-->
+<!-- ? ========================= Buttons ========================= -->
 <template id="buttons.store">
   <stack>
     <image ref="{{ template.image }}"/>
@@ -97,7 +97,37 @@
   </stack>
 </template>
 
-<!--? TEXTS-->
+<template id="buttons.form">
+  <column>
+    <component id="text.h7" color="#6C6C7282"
+               text="If you are interested in communication with us, please - fill the form below"/>
+    <divider height="12"/>
+    <stack>
+      <container color="{{ data(colors).royalBlue }}">
+        <prop:decoration>
+          <prop:borderRadius all="8"/>
+        </prop:decoration>
+        <padding all="16">
+          <center>
+            <text color="{{ data(colors).white }}" size="18">
+              FILL GOOGLE FORM
+            </text>
+          </center>
+        </padding>
+      </container>
+      <positioned all="0">
+        <material type="transparency">
+          <prop:borderRadius all="8"/>
+          <inkWell onPressed="browser: https://forms.gle/waAR9GVPB4cESTL99">
+            <prop:borderRadius all="8"/>
+          </inkWell>
+        </material>
+      </positioned>
+    </stack>
+  </column>
+</template>
+
+<!-- ? ========================= Texts ========================= -->
 <template id="text.h0">
   <text align="{{ template.align }}">
     <prop:textStyle color="{{ template.color }}" font="{{ data(fonts).main }}" weight="w700" size="31.25" height="1.5"/>
@@ -126,7 +156,7 @@
   </text>
 </template>
 
-<!--? CARDS-->
+<!-- ? ========================= Cards ========================= -->
 <template id="cards.bullet">
   <container>
     <prop:decoration color="{{ data(colors).white }}">
@@ -165,8 +195,8 @@
         <icon icon="{{ template.icon }}" size="45" color="{{ data(colors).white }}"/>
       </center>
     </padding>
-    <padding bottom="18">
-      <component id="text.h1" color="{{ data(colors).white }}" text="{{ template.title }}"/>
+    <padding left="16" right="16" bottom="18">
+      <component id="text.h1" color="{{ data(colors).white }}" text="{{ template.title }}" align="center"/>
     </padding>
     <padding left="40" right="40">
       <text align="center">
@@ -237,7 +267,7 @@
             <center>
               <sizedBox all="200">
                 <clipRRect all="100">
-                  <image ref="{{ template.image }}"/>
+                  <image ref="{{ template.image }}" fit="cover"/>
                 </clipRRect>
               </sizedBox>
             </center>
@@ -305,7 +335,7 @@
   </container>
 </template>
 
-<!--? OTHER-->
+<!-- ? ========================= Other templates ========================= -->
 <template id="slider.dot">
   <stack>
     <sizedBox all="22">
@@ -351,65 +381,65 @@
 </template>
 
 <!-- ? ========================= UI ========================= -->
-<sizedBox height="1227">
-  <stack fit="expand">
-    <!-- TODO: Загрузить картинку фона в CDN и брать оттуда -->
-    <!-- {{ page.images.0.image.url }} -->
-    <image ref="https://i.ibb.co/bHnwdQc/app-background-1.png" fit="fitHeight"/>
-    <positioned left="16" top="188" right="16">
-      <column>
-        <stack>
-          <positioned left="20" top="0" right="0" bottom="0">
-            <container color="#7472FE">
-              <padding all="10">
-                <container color="{{ data(colors).royalBlue }}">
-                </container>
-              </padding>
-            </container>
-          </positioned>
-          <padding top="20" right="20" bottom="20">
-            <container>
-              <prop:decoration color="{{ data(colors).white }}">
-              </prop:decoration>
-              <prop:padding left="18" top="30" bottom="30" right="18"/>
-              <column crossAxisAlignment="start">
-                <component id="text.h1" text="{{ page.main_header }}" color="{{ data(colors).royalBlue }}"/>
-                <divider height="18"/>
-                <component id="text.h7" color="{{ data(colors).grey }}" text="{{ page.top_block_text }}"/>
-                <divider height="30"/>
-                <component id="text.h2" color="{{ data(colors).black }}" text="{{ page.download_apps_header }}"/>
-                <divider height="18"/>
-                <row>
-                  <expanded>
-                    <component id="buttons.store" link="{{ data(stores).googleLink }}" image="{{ data(stores).googleBadge }}"/>
-                  </expanded>
-                  <divider width="12"/>
-                  <expanded>
-                    <component id="buttons.store" link="{{ data(stores).appleLink }}" image="{{ data(stores).appleBadge }}"/>
-                  </expanded>
-                </row>
-              </column>
+
+<!-- ? ========================= Top block ========================= -->
+<container color="{{ data(colors).royalBlue }}">
+  <padding left="16" top="50" right="16" bottom="40">
+    <stack>
+      <positioned left="20" top="0" right="0" bottom="0">
+        <container color="#7472FE">
+          <padding all="10">
+            <container color="{{ data(colors).royalBlue }}">
             </container>
           </padding>
-        </stack>
-        <padding left="55" right="55" top="40">
-          <image ref="https://i.ibb.co/YRH1DYW/app-screen-1.png"/>
-        </padding>
-      </column>
-    </positioned>
-  </stack>
-</sizedBox>
+        </container>
+      </positioned>
+      <padding top="20" right="20" bottom="20">
+        <container>
+          <prop:decoration color="{{ data(colors).white }}">
+          </prop:decoration>
+          <prop:padding left="18" top="30" bottom="30" right="18"/>
+          <column crossAxisAlignment="start">
+            <component id="text.h1" text="{{ page.main_header }}" color="{{ data(colors).royalBlue }}"/>
+            <divider height="18"/>
+            <component id="text.h7" color="{{ data(colors).grey }}" text="{{ page.top_block_text }}"/>
+            <divider height="30"/>
+            <component id="text.h2" color="{{ data(colors).black }}" text="{{ page.download_apps_header }}"/>
+            <divider height="18"/>
+            <row>
+              <expanded>
+                <component id="buttons.store" link="{{ data(stores).googleLink }}" image="{{ data(stores).googleBadge }}"/>
+              </expanded>
+              <divider width="12"/>
+              <expanded>
+                <component id="buttons.store" link="{{ data(stores).appleLink }}" image="{{ data(stores).appleBadge }}"/>
+              </expanded>
+            </row>
+          </column>
+        </container>
+      </padding>
+    </stack>
+  </padding>
+  <padding left="55" right="55" top="40" bottom="60">
+    <image ref="https://i.ibb.co/YRH1DYW/app-screen-1.png"/>
+  </padding>
+</container>
 
+<!-- ? ========================= About Nanc ========================= -->
 <padding top="60" bottom="18">
   <center>
     <component id="text.h1" color="{{ data(colors).black }}" text="{{ page.about_header }}"/>
   </center>
 </padding>
 
-<padding left="38" right="38" bottom="40">
+<padding left="38" right="38" bottom="18">
   <center>
     <component id="text.h7" color="{{ data(colors).grey }}" text="{{ page.about_text }}"/>
   </center>
+</padding>
+
+<padding left="38" right="38" bottom="40">
+  <component id="buttons.form"/>
 </padding>
 
 <padding left="68" right="68" bottom="40">
@@ -425,54 +455,39 @@
   </stack>
 </padding>
 
-<padding left="16" right="16" bottom="20">
-  <component id="cards.bullet"
-             title="Creative design"
-             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  />
-</padding>
+<!-- ? ========================= Bullets ========================= -->
+<for valueName="bullet" in="{{ page.bullets }}">
+  <padding left="16" right="16" bottom="20">
+    <component id="cards.bullet"
+               title="{{ cycle.bullet.title }}"
+               text="{{ cycle.bullet.description }}"
+    />
+  </padding>
+</for>
+<divider height="70"/>
 
-<padding left="16" right="16" bottom="20">
-  <component id="cards.bullet"
-             title="Easy to use"
-             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  />
-</padding>
-
-<padding left="16" right="16" bottom="92">
-  <component id="cards.bullet"
-             title="Best user experince"
-             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  />
-</padding>
-
+<!-- ? ========================= Features ========================= -->
 <container color="{{ data(colors).royalBlue }}">
   <padding top="60" bottom="18">
     <center>
-      <component id="text.h1" text="APP FEATURES" color="{{ data(colors).white }}"/>
+      <component id="text.h1" text="{{ page.features_header }}" color="{{ data(colors).white }}"/>
     </center>
   </padding>
+
   <padding left="40" right="40" bottom="32">
     <component id="text.h7" color="{{ data(colors).white }}" align="center"
-               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+               text="{{ page.features_text }}"/>
   </padding>
-  <padding bottom="32">
-    <component id="cards.feature"
-               title="FULL FREE CHAT"
-               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-               icon="mdi_message_bulleted"/>
-  </padding>
-  <padding bottom="32">
-    <component id="cards.feature"
-               title="UNLIMITED FEATURES"
-               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-               icon="flu_gift_filled"/>
-  </padding>
+
   <padding bottom="60">
-    <component id="cards.feature"
-               title="AWESOME UI DESIGN"
-               text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-               icon="flu_design_ideas_filled"/>
+    <for valueName="feature" in="{{ page.features }}" to="3">
+      <padding bottom="32">
+        <component id="cards.feature"
+                   title="{{ cycle.feature.title }}"
+                   text="{{ cycle.feature.description }}"
+                   icon="{{ cycle.feature.image }}"/>
+      </padding>
+    </for>
   </padding>
 
   <padding left="60" right="60" bottom="120">
@@ -481,15 +496,31 @@
       <image ref="https://i.ibb.co/MV1Cs8N/app-screen-2.png"/>
     </physicalModel>
   </padding>
+
+  <padding bottom="60">
+    <for valueName="feature" in="{{ page.features }}" from="3">
+      <padding bottom="32">
+        <component id="cards.feature"
+                   title="{{ cycle.feature.title }}"
+                   text="{{ cycle.feature.description }}"
+                   icon="{{ cycle.feature.image }}"/>
+      </padding>
+    </for>
+  </padding>
 </container>
 
+<!-- ? ========================= About interface ========================= -->
 <padding top="60" bottom="18">
-  <component id="text.h1" color="{{ data(colors).black }}" text="CHECKOUT OUR APP INTERFACE LOOK" align="center"/>
+  <component id="text.h1" color="{{ data(colors).black }}" text="{{ page.interface_header }}" align="center"/>
+</padding>
+
+<padding left="40" right="40" bottom="18">
+  <component id="text.h7" color="{{ data(colors).grey }}" align="center"
+             text="{{ page.interface_text }}"/>
 </padding>
 
 <padding left="40" right="40" bottom="40">
-  <component id="text.h7" color="{{ data(colors).grey }}" align="center"
-             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+  <component id="buttons.form"/>
 </padding>
 
 <padding bottom="40">
@@ -498,11 +529,10 @@
 
 <padding bottom="60">
   <row mainAxisSize="min" mainAxisAlignment="center">
-    <component id="slider.dot"/>
-    <divider width="16"/>
-
-    <component id="slider.dot"/>
-    <divider width="16"/>
+    <for in="{{ 0...3 }}">
+      <component id="slider.dot"/>
+      <divider width="16"/>
+    </for>
 
     <component id="slider.dot" active="true"/>
     <divider width="16"/>
@@ -514,13 +544,14 @@
   </row>
 </padding>
 
+<!-- ? ========================= Middle downloading block ========================= -->
 <padding left="16" right="90" bottom="18">
-  <component id="text.h1" text="DOWNLOAD APP NOW" color="{{ data(colors).black }}"/>
+  <component id="text.h1" text="{{ page.download_apps_header }}" color="{{ data(colors).black }}"/>
 </padding>
 
 <padding left="16" right="16" bottom="40">
   <component id="text.h7" color="{{ data(colors).grey }}"
-             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+             text="{{ page.middle_download_block_text }}"/>
 </padding>
 
 <padding left="16" right="16" bottom="60">
@@ -568,6 +599,7 @@
   </stack>
 </padding>
 
+<!-- ? ========================= How to use app ========================= -->
 <padding bottom="60">
   <stack>
     <padding bottom="74">
@@ -575,11 +607,11 @@
         <column>
           <padding top="60" bottom="40">
             <component id="text.h1" color="{{ data(colors).white }}" align="center"
-                       text="HOW TO USE THE APP PERFECTLY"/>
+                       text="{{ page.how_to_use_header }}"/>
           </padding>
           <padding left="40" right="40" bottom="120">
             <component id="text.h7" color="{{ data(colors).white }}" align="center"
-                       text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+                       text="{{ page.how_to_use_text }}"/>
           </padding>
         </column>
       </container>
@@ -609,56 +641,40 @@
   </stack>
 </padding>
 
+<!-- ? ========================= About "team" ========================= -->
 <padding bottom="18">
-  <component id="text.h1" text="OUR REACTIVE TEAM" color="{{ data(colors).black }}" align="center"/>
+  <component id="text.h1" text="{{ page.team_header }}" color="{{ data(colors).black }}" align="center"/>
 </padding>
 
 <padding left="40" right="40" bottom="40">
   <component id="text.h7" color="{{ data(colors).grey }}" align="center"
-             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+             text="{{ page.team_text }}"/>
 </padding>
 
-<padding left="16" right="16" bottom="60">
+<padding left="16" right="16" bottom="20">
   <column mainAxisSize="min">
-    <padding bottom="30">
-      <component id="cards.dev"
-                 role="APP DEVELOPER"
-                 name="CARLA PRESS"
-                 image="https://i.pravatar.cc/200?u=CARLA+PRES"
-                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae."
-                 fb="https://fb.com"
-                 inst="https://instagram.com"
-                 tw="https://tw.com"
-                 ytb="https://youtube.com"
-      />
-    </padding>
-
-    <padding bottom="30">
-      <component id="cards.dev"
-                 role="UI/UX DESIGNER"
-                 name="CRAIG GOUSE"
-                 image="https://i.pravatar.cc/200?u=CRAIG"
-                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae."
-                 fb="https://fb.com"
-                 inst="https://instagram.com"
-                 tw="https://tw.com"
-                 ytb="https://youtube.com"
-      />
-    </padding>
-
-    <component id="cards.dev"
-               role="WEBSITE DEVELOPER"
-               name="JOCELYN SEPTIMUS"
-               image="https://i.pravatar.cc/200?u=JOCELYN+S"
-               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae."
-               fb="https://fb.com"
-               inst="https://instagram.com"
-               tw="https://tw.com"
-               ytb="https://youtube.com"
-    />
+    <for valueName="dev" in="{{ page.team_members }}">
+      <padding bottom="30">
+        <component id="cards.dev"
+                   role="{{ cycle.dev.team_member.position }}"
+                   name="{{ cycle.dev.team_member.name }} {{ cycle.dev.team_member.second_name }}"
+                   image="{{ cycle.dev.team_member.image }}"
+                   description="{{ cycle.dev.team_member.description }}"
+                   fb="{{ cycle.dev.team_member.facebook }}"
+                   inst="{{ cycle.dev.team_member.instagram }}"
+                   tw="{{ cycle.dev.team_member.twitter }}"
+                   ytb="{{ cycle.dev.team_member.youtube }}"
+        />
+      </padding>
+    </for>
   </column>
 </padding>
 
+<padding left="16" right="16" bottom="40">
+  <component id="buttons.form"/>
+</padding>
+
+<!-- ? ========================= Customers reviews ========================= -->
 <padding>
   <container>
     <prop:decoration color="{{ data(colors).royalBlue }}">
@@ -666,27 +682,22 @@
 
     <column mainAxisSize="min">
       <padding top="60" bottom="18">
-        <component id="text.h1" text="OUR HAPPY CUSTOMERS" align="center" color="{{ data(colors).white }}"/>
+        <component id="text.h1" text="{{ page.customers_header }}" align="center" color="{{ data(colors).white }}"/>
       </padding>
 
       <padding left="40" right="40" bottom="32">
         <component id="text.h7" align="center" color="{{ data(colors).white }}"
-                   text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae."/>
+                   text="{{ page.customers_text }}"/>
       </padding>
 
       <padding bottom="60">
         <!-- ? PRESS "HELP" BUTTON ON THE TOP RIGHT CORNER AND FIND "CAROUSEL SLIDER" WIDGET TO READ MANUAL -->
         <carouselSlider height="260" dotColor="{{ data(colors).white }}" sliderDotGap="20">
-          <component id="cards.review" name="ANN LUBIN 1" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
-                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
-          <component id="cards.review" name="ANN LUBIN 2" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
-                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
-          <component id="cards.review" name="ANN LUBIN 3" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
-                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
-          <component id="cards.review" name="ANN LUBIN 4" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
-                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
-          <component id="cards.review" name="ANN LUBIN 5" position="CO-FOUNDER" photo="https://i.pravatar.cc/200?u=ANN+LUBIN"
-                     review="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc ante velit vitae. Est tellus vitae, nullam lobortis enim."/>
+          <for valueName="rev" in="{{ page.reviews }}">
+            <component id="cards.review" name="{{ cycle.rev.customer_name }} {{ cycle.rev.customer_lastname }}"
+                       position="{{ cycle.rev.position }}" photo="{{ cycle.rev.customer_image }}"
+                       review="{{ cycle.rev.review }}"/>
+          </for>
         </carouselSlider>
       </padding>
     </column>

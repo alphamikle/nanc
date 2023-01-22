@@ -14,7 +14,6 @@ import 'package:nanc_backend/models/developer.dart';
 import 'package:nanc_backend/models/feature.dart';
 import 'package:nanc_backend/models/image.dart';
 import 'package:nanc_backend/models/landing_page.dart';
-import 'package:nanc_backend/models/page_review_relations.dart';
 import 'package:nanc_backend/models/review.dart';
 import 'package:nanc_backend/user/logic/bloc/user_bloc.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
@@ -51,7 +50,6 @@ Future<void> main() async {
       feature,
       image,
       landingPage,
-      pageReviewRelations,
       review,
     ],
     pageListApi: PageListApiImplementation(

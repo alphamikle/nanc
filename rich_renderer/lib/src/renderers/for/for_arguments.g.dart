@@ -11,6 +11,8 @@ ForArguments _$ForArgumentsFromJson(Map<String, dynamic> json) => ForArguments(
       indexName: json['indexName'] as String?,
       values: json['in'] as String?,
       oldValues: json['in_old'] as String?,
+      from: intFromJson(json['from'] as String?),
+      to: intFromJson(json['to'] as String?),
     );
 
 Map<String, dynamic> _$ForArgumentsToJson(ForArguments instance) =>
@@ -19,4 +21,6 @@ Map<String, dynamic> _$ForArgumentsToJson(ForArguments instance) =>
       'indexName': instance.indexName,
       'in': instance.values,
       'in_old': instance.oldValues,
+      'from': instance.from,
+      'to': instance.to,
     };

@@ -43,6 +43,7 @@ class _PagePreviewState extends State<PagePreview> {
                 markdownContent: previewState.markdownContent,
                 pageData: pageState.data,
                 renderer: tagsRenderer,
+                widgetsFilter: forWidgetFilter,
               );
             },
           );

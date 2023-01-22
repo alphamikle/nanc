@@ -5,7 +5,6 @@ import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/renderers/for/for_arguments.dart';
 import 'package:rich_renderer/src/renderers/for/for_values_parser.dart';
 import 'package:rich_renderer/src/renderers/for/for_widget.dart';
-import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 import 'package:tools/tools.dart';
 
 const String _cycle = 'cycle';
@@ -22,27 +21,110 @@ TagRenderer forRenderer() {
     endPattern: RegExp('</for>'),
     description: TagDescription(
       description: '''
-      
-      ''',
+# For (Cycles)
+
+For - is a special tag / widget, that allows you to have a cycles inside your UI markup. To use these cycles you just need to wrap your widget with `<for>` and set up a variable, which you want iterate through. To do so you have two options:
+
+1. Use a numbered range, for example:
+
+```
+<for in="{{ 0...10 }}">
+  <someWidget indexDependentParam="{{ cycle.index }}" valueDependentParam="{{ cycle.value }}"/>
+</for>
+```
+With this spelling you will display your widget 10 times with the indexes from the 0 till 9 and the values from the 0 till the 9;
+
+If we change numbers to `{{ 10...20 }}` - then the indexes will be the same and values will be from the 10 till the 19.
+
+2. Use an iterable value from the page context:
+
+For example, page context will contain the next data:
+```
+{
+  'user': {
+    'age': 37,
+    'name': 'Thomas',
+    'lastname': 'Anderson',
+    'location': {
+      'city': 'Zion',
+    },
+  },
+  'friends': [
+    'Link',
+    'Morpheus',
+    'Niobe',
+    'Persephone',
+    'The Oracle',
+    'Trinity',
+  ],
+  'enemies': [
+    {
+      'type': 'robot',
+      'name': 'Machines',
+      'age': 600,
+    },
+    {
+      'type': 'agent',
+      'name': 'Agent Smith',
+      'age': 40,
+    },
+    {
+      'type': 'program',
+      'name': 'Merovingian',
+      'age': 51,
+    },
+    {
+      'type': 'program',
+      'name': 'The Twins',
+      'age': 35,
+    },
+  ],
+}
+```
+
+And the following code of the UI will be:
+```
+<for valueName="friend" indexName="friendIndex" in="{{ page.friends }}">
+  <for valueName="enemy" indexName="enemyIndex" in="{{ page.enemies }}">
+    <text>
+      Friend #{{ cycle.friendIndex }}: {{ cycle.friend }}
+      Enemy #{{ cycle.enemyIndex }}: {{ cycle.enemy.name }}
+    </text>
+  </for>
+</for>
+```
+
+You also able to create nested cycles, like in example behind, but if you want to be able to use variables from the parent cycle in the child - you will need to set up a names for the indexes and the values. To know how you can do it, please - see the example code.
+
+The last thing about `<for>` is ability to iterate only the part of the array. You can specify the first index (included) of iteration through `from` argument and the last index through `to` argument which will be not included. By default `from` is equal to `0` and `to` is equal to `array.length`. 
+''',
       arguments: [
         stringArg('valueName'),
         stringArg('indexName'),
         stringArg('in'),
+        intArg('from'),
+        intArg('to'),
       ],
       properties: [],
     ),
     example: '''
 <safeArea>
-  <for in="{{ page.mock.friends }}">
-    <text>
-      Friend #{{ cycle.index }}: {{ cycle.value }}
-    </text>
+  <for in="{{ 10...20 }}">
+    <padding bottom="{{ cycle.value }}">
+      <container color="#EF5757">
+        <padding all="{{ cycle.value }}">
+          <text size="{{ cycle.value }}">
+            <prop:textStyle overflow="ellipsis" color="#FFFFFF"/>
+            - This is the {{ cycle.index }}-th item with the value {{ cycle.value }}
+          </text>
+        </padding>
+      </container>
+    </padding>
   </for>
   <divider height="50"/>
-  <for valueName="number" indexName="i" in="{{ 10...20 }}">
-    <text size="{{ cycle.value }}">
-      <prop:textStyle overflow="ellipsis"/>
-      - This is the {{ cycle.i }}-th item with the value {{ cycle.number }}
+  <for valueName="friendName" in="{{ page.mock.friends }}">
+    <text>
+      Friend #{{ cycle.index }}: {{ cycle.friendName }}
     </text>
   </for>
   <divider height="50"/>
@@ -76,13 +158,29 @@ TagRenderer forRenderer() {
       final ForValuesParser parser = ForValuesParser(context: context, valuesString: values);
       await parser.parseValues();
       final List<Object?> parsedValues = parser.values.toList();
+
+      int fromIndex = arguments.from ?? 0;
+      int toIndex = arguments.to ?? parsedValues.length;
+
+      if (fromIndex < 0) {
+        fromIndex = 0;
+      }
+      if (toIndex > parsedValues.length) {
+        toIndex = parsedValues.length;
+      }
+      if (fromIndex > toIndex) {
+        final int tempFromIndex = fromIndex;
+        fromIndex = toIndex;
+        toIndex = tempFromIndex;
+      }
+
       // ignore: use_build_context_synchronously
       final ForStorage forStorage = ForStorage.of(context);
       forStorage.saveCycleData(cycleId: cycleId, values: parsedValues);
 
       final List<md.Node> effectiveChildren = [];
 
-      for (int i = 0; i < parsedValues.length; i++) {
+      for (int i = fromIndex; i < toIndex; i++) {
         final List<md.Node> preparedChildren = await _prepareCycleContent(
           cycleId: cycleId,
           indexName: indexName,
@@ -98,7 +196,6 @@ TagRenderer forRenderer() {
         // ignore: use_build_context_synchronously
         rawChildren: await richRenderer.renderChildren(context, effectiveChildren),
       );
-
       return ForWidget(children: extractor.children);
     },
   );
