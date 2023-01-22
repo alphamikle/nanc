@@ -1,17 +1,18 @@
-bash build.sh ./cms || echo "cms package does not content codegen"
-bash build.sh ./code_text_field || echo "code_text_field package does not content codegen"
-bash build.sh ./components || echo "components package does not content codegen"
-bash build.sh ./config || echo "config package does not content codegen"
-bash build.sh ./fields || echo "fields package does not content codegen"
-bash build.sh ./file_syncer || echo "file_syncer package does not content codegen"
-bash build.sh ./icons || echo "icons package does not content codegen"
-bash build.sh ./markdown_code_push || echo "markdown_code_push package does not content codegen"
-bash build.sh ./markdown_code_push_core || echo "markdown_code_push_core package does not content codegen"
-bash build.sh ./model || echo "model package does not content codegen"
-bash build.sh ./nanc_backend || echo "nanc_backend package does not content codegen"
-bash build.sh ./nanc_client || echo "nanc_client package does not content codegen"
-bash build.sh ./nanc_webrtc || echo "nanc_webrtc package does not content codegen"
-bash build.sh ./rich_renderer || echo "rich_renderer package does not content codegen"
-bash build.sh ./storybook || echo "storybook package does not content codegen"
-bash build.sh ./tools || echo "tools package does not content codegen"
-bash build.sh ./ui_kit || echo "ui_kit package does not content codegen"
+bash build.sh ./additions
+bash build.sh ./cms
+bash build.sh ./code_text_field
+bash build.sh ./components
+bash build.sh ./config
+bash build.sh ./fields
+bash build.sh ./file_syncer
+bash build.sh ./icons
+bash build.sh ./markdown_code_push
+bash build.sh ./markdown_code_push_core
+bash build.sh ./model
+bash build.sh ./nanc_backend
+bash build.sh ./nanc_client
+bash build.sh ./nanc_webrtc
+bash build.sh ./rich_renderer
+bash build.sh ./storybook
+bash build.sh ./tools
+bash build.sh ./ui_kit
