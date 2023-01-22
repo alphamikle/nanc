@@ -1,1 +1,1 @@
-const String kDelimiter = ' ⚬ ';
+const String kDelimiter = ' * ';

@@ -1,10 +1,11 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_client/logic/bloc/page_state.dart';
-import 'package:nanc_client/logic/default_page/default_page_data.dart';
 import 'package:nanc_client/logic/webrtc_client_service.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
 import 'package:tools/tools.dart';
@@ -55,11 +56,58 @@ class PageBloc extends Cubit<PageState> {
     ));
   }
 
+  Future<Json> preloadDefaultPageData() async {
+    try {
+      final Dio dio = Dio();
+      final Response<String> json = await dio.get<String>('https://raw.githubusercontent.com/alphamikle/client.nanc.io/master/page_data.json');
+      Json? page;
+
+      /// ? We will parse JSON String now
+      if (json.data != null && json.data is String) {
+        final dynamic result = jsonDecode(json.data!);
+        if (result is List && result.isNotEmpty) {
+          page = castToJson(result.first);
+        }
+      }
+      if (page == null) {
+        return <String, dynamic>{
+          'screen': {
+            "content": '''
+<safeArea>
+  <text size="30" align="center">
+    NOT FOUND\nANY CONTENT\n\n😭😭😭
+  </text>
+</safeArea>
+''',
+            'contentType': 'scrollable',
+            'fieldType': "screenContent"
+          },
+        };
+      }
+      return page;
+    } catch (error) {
+      return <String, dynamic>{
+        'screen': {
+          "content": '''
+<safeArea>
+  <text size="30" align="center">
+    WE GETTING AN ERROR ON LOADING CONTENT
+    $error
+  </text>
+</safeArea>
+''',
+          'contentType': 'scrollable',
+          'fieldType': "screenContent"
+        },
+      };
+    }
+  }
+
   Future<void> preload(String url) async {
     emit(state.copyWith(isLoading: true));
     if (url == '/') {
       emit(state.copyWith(
-        pageData: await defaultPageData(),
+        pageData: await preloadDefaultPageData(),
       ));
     }
     emit(state.copyWith(isLoading: false));
@@ -80,15 +128,60 @@ class PageBloc extends Cubit<PageState> {
 
   Future<void> _handleNewPageData({required String modelId, required Json pageData}) async {
     logg('Handle new page data; ModelId: $modelId, PageData: $pageData');
-    final bool needToUpdateView = await confirmAction(
-      context: rootKey.currentContext!,
-      title: 'Reload current view?',
-      subtitle: 'The content was updated on the CMS side. Do you want to see it?',
-      wrapper: (BuildContext context, Widget child) => Padding(
-        padding: const EdgeInsets.only(left: Gap.large, right: Gap.large),
-        child: child,
-      ),
-    );
+    final bool needToUpdateView = state.alwaysUpdate ||
+        await confirmAction(
+          context: rootKey.currentContext!,
+          title: '',
+          subtitle: '',
+          wrapper: (BuildContext context, Widget child) {
+            return Center(
+              child: KitBaseModal(
+                width: 600,
+                header: Padding(
+                  padding: const EdgeInsets.only(bottom: Gap.large),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Reload current view?',
+                        style: context.theme.textTheme.headline6,
+                      ),
+                    ],
+                  ),
+                ),
+                body: const Padding(
+                  padding: EdgeInsets.only(top: Gap.regular, bottom: Gap.regular),
+                  child: Text('The content was updated on the CMS side. Do you want to see it?'),
+                ),
+                bottom: Row(
+                  children: [
+                    KitButton(
+                      text: 'Ok',
+                      color: context.kitColors.successColor,
+                      onPressed: () => context.navigator.pop(true),
+                    ),
+                    KitDivider.horizontal(Gap.large),
+                    KitButton(
+                      text: 'Always',
+                      color: context.kitColors.successColor,
+                      onPressed: () {
+                        context.navigator.pop(true);
+                        emit(state.copyWith(alwaysUpdate: true));
+                      },
+                    ),
+                    KitDivider.horizontal(Gap.large),
+                    KitButton(
+                      text: 'No',
+                      color: context.kitColors.successColor,
+                      onPressed: () => context.navigator.pop(false),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        );
     if (needToUpdateView) {
       emit(state.copyWith(
         pageData: pageData,

@@ -35,8 +35,8 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
 
   Model get shortChildEntity {
     final List<Field> childFields = [];
-    final Field? idField = field.model.fieldByCode(field.model.idField.id);
-    final List<Field> titleFields = field.titleFields.map((String fieldId) => field.model.fieldByCode(fieldId)).whereNotNull().toList();
+    final Field? idField = field.model.fieldById(field.model.idField.id);
+    final List<Field> titleFields = field.titleFields.map((String fieldId) => field.model.fieldById(fieldId)).whereNotNull().toList();
     if (idField != null) {
       childFields.add(idField);
     }

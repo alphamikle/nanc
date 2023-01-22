@@ -203,7 +203,7 @@ MultiSelectorField _$MultiSelectorFieldFromJson(Map<String, dynamic> json) =>
       thirdTable: json['thirdTable'] == null
           ? null
           : ThirdTable.fromJson(json['thirdTable']),
-      showInList: json['showInList'] as bool? ?? true,
+      showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
       width: (json['width'] as num?)?.toDouble(),

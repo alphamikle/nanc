@@ -9,7 +9,11 @@ part of 'date_field.dart';
 abstract class _$DateFieldCWProxy {
   DateField id(String? id);
 
+  DateField isCreatedAtField(bool isCreatedAtField);
+
   DateField isRequired(bool isRequired);
+
+  DateField isUpdatedAtField(bool isUpdatedAtField);
 
   DateField name(String name);
 
@@ -31,7 +35,9 @@ abstract class _$DateFieldCWProxy {
   /// ````
   DateField call({
     String? id,
+    bool? isCreatedAtField,
     bool? isRequired,
+    bool? isUpdatedAtField,
     String? name,
     bool? showInList,
     int? sort,
@@ -51,7 +57,15 @@ class _$DateFieldCWProxyImpl implements _$DateFieldCWProxy {
   DateField id(String? id) => this(id: id);
 
   @override
+  DateField isCreatedAtField(bool isCreatedAtField) =>
+      this(isCreatedAtField: isCreatedAtField);
+
+  @override
   DateField isRequired(bool isRequired) => this(isRequired: isRequired);
+
+  @override
+  DateField isUpdatedAtField(bool isUpdatedAtField) =>
+      this(isUpdatedAtField: isUpdatedAtField);
 
   @override
   DateField name(String name) => this(name: name);
@@ -82,7 +96,9 @@ class _$DateFieldCWProxyImpl implements _$DateFieldCWProxy {
   /// ````
   DateField call({
     Object? id = const $CopyWithPlaceholder(),
+    Object? isCreatedAtField = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
+    Object? isUpdatedAtField = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
     Object? showInList = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
@@ -95,11 +111,21 @@ class _$DateFieldCWProxyImpl implements _$DateFieldCWProxy {
           ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String?,
+      isCreatedAtField: isCreatedAtField == const $CopyWithPlaceholder() ||
+              isCreatedAtField == null
+          ? _value.isCreatedAtField
+          // ignore: cast_nullable_to_non_nullable
+          : isCreatedAtField as bool,
       isRequired:
           isRequired == const $CopyWithPlaceholder() || isRequired == null
               ? _value.isRequired
               // ignore: cast_nullable_to_non_nullable
               : isRequired as bool,
+      isUpdatedAtField: isUpdatedAtField == const $CopyWithPlaceholder() ||
+              isUpdatedAtField == null
+          ? _value.isUpdatedAtField
+          // ignore: cast_nullable_to_non_nullable
+          : isUpdatedAtField as bool,
       name: name == const $CopyWithPlaceholder() || name == null
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
@@ -141,8 +167,10 @@ extension $DateFieldCopyWith on DateField {
 
 DateField _$DateFieldFromJson(Map<String, dynamic> json) => DateField(
       name: json['name'] as String,
+      isCreatedAtField: json['isCreatedAtField'] as bool? ?? false,
+      isUpdatedAtField: json['isUpdatedAtField'] as bool? ?? false,
       id: json['id'] as String?,
-      showInList: json['showInList'] as bool? ?? true,
+      showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
       width: (json['width'] as num?)?.toDouble(),
@@ -158,6 +186,8 @@ Map<String, dynamic> _$DateFieldToJson(DateField instance) => <String, dynamic>{
       'sort': instance.sort,
       'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
+      'isCreatedAtField': instance.isCreatedAtField,
+      'isUpdatedAtField': instance.isUpdatedAtField,
     };
 
 const _$FieldTypeEnumMap = {

@@ -1,4 +1,3 @@
-import 'package:cms/src/user_space/api/tools.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -31,8 +30,7 @@ abstract class MockApi {
         throw Exception('Incorrect type of data: ${response.runtimeType}');
       }
     } else {
-      // TODO(alphamikle): REMOVE IT IN THE PROD
-      data = await getFileContent(entity.id);
+      data = [];
       await saveFullList(entity, data);
     }
     return data;

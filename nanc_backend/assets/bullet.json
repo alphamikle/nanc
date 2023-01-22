@@ -1,0 +1,22 @@
+[
+ {
+  "id": "creators",
+  "title": "CREATED WITH UNDERSTANDING OF NEEDS",
+  "description": "NANC is a product created by developers with extensive experience in creating both applications and content management systems. We felt all the pain that you felt and we want to fix it!"
+ },
+ {
+  "id": "flexibility_and_possibilities",
+  "title": "INCREDIBLE FLEXIBILITY AND POSSIBILITIES",
+  "description": "NANC allows you to express data of any complexity in the form of convenient forms, with which you will manage everything. If your data can be represented in JSON form, it means it can be managed in NANC!"
+ },
+ {
+  "id": "integration",
+  "title": "FASTEST SPEED OF INTEGRATION",
+  "description": "To start using NANC its takes only several hours of work of Frontend or Mobile developer. The very next day you will be able to manage all your data in the most accessible way with NANC"
+ },
+ {
+  "title": "UNREACHABLE TIME TO MARKET",
+  "description": "When you use all the features of NANC, you will leave your competitors far behind! Details will be below 😉",
+  "id": "time_to_market"
+ }
+]

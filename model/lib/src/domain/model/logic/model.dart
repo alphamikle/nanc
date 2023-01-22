@@ -105,10 +105,10 @@ class Model extends Equatable {
   @JsonKey(ignore: true)
   late final List<String> dynamicFields;
 
-  Field? fieldByCode(String code) {
+  Field? fieldById(String fieldId) {
     final List<Field> fields = flattenFields;
     for (final Field field in fields) {
-      if (field.id == code) {
+      if (field.id == fieldId) {
         return field;
       }
     }

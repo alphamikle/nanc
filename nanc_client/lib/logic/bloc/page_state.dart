@@ -21,6 +21,7 @@ class PageState extends Equatable {
     required this.isConnectingToTheBackend,
     required this.isConnectedToTheBackend,
     required this.pageData,
+    required this.alwaysUpdate,
   });
 
   factory PageState.empty() => const PageState(
@@ -28,12 +29,14 @@ class PageState extends Equatable {
         isConnectingToTheBackend: false,
         isConnectedToTheBackend: false,
         pageData: <String, dynamic>{},
+        alwaysUpdate: false,
       );
 
   final bool isLoading;
   final bool isConnectingToTheBackend;
   final bool isConnectedToTheBackend;
   final Json pageData;
+  final bool alwaysUpdate;
 
   String get screenData {
     for (final String uiFieldName in _uiFields) {
@@ -55,5 +58,6 @@ class PageState extends Equatable {
         isConnectingToTheBackend,
         isConnectedToTheBackend,
         pageData,
+        alwaysUpdate,
       ];
 }

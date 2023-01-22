@@ -1,7 +1,7 @@
+import 'package:fields/fields.dart';
 import 'package:fields/src/domain/fields/logic/date_field/date_field.dart';
 import 'package:fields/src/domain/fields/ui/date_field_cell/date_mask.dart';
 import 'package:fields/src/domain/fields/ui/date_field_cell/time_mask.dart';
-import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -17,7 +17,7 @@ class DateFieldCell extends FieldCellWidget<DateField> {
   State<DateFieldCell> createState() => _DateFieldCellState();
 }
 
-class _DateFieldCellState extends State<DateFieldCell> with FieldCellHelper, KitFocusStreamMixin {
+class _DateFieldCellState extends State<DateFieldCell> with FieldCellHelper<DateField, DateFieldCell>, KitFocusStreamMixin<DateFieldCell> {
   final FocusNode dateFocus = FocusNode();
   final FocusNode timeFocus = FocusNode();
 
@@ -39,7 +39,7 @@ class _DateFieldCellState extends State<DateFieldCell> with FieldCellHelper, Kit
     }
   }
 
-  void initControllers() {
+  void setDateAndTime() {
     final RegExpMatch? match = dateTimeRegExp.firstMatch(controller.text);
     final String? date = match?.namedGroup('date');
     final String? time = match?.namedGroup('time');
@@ -47,6 +47,10 @@ class _DateFieldCellState extends State<DateFieldCell> with FieldCellHelper, Kit
       dateController.text = date;
       timeController.text = time;
     }
+  }
+
+  void initControllers() {
+    setDateAndTime();
     dateController.addListener(controllerListener);
     timeController.addListener(controllerListener);
     dateFocus.addListener(focusListener);

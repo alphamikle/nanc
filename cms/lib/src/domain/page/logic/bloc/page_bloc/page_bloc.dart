@@ -56,7 +56,7 @@ class PageBloc extends BasePageBloc<PageState> {
     ));
   }
 
-  Future<void> save(Model entity) async {
+  Future<void> save(Model model) async {
     emit(state.copyWith.isSaving(true));
     try {
       for (final MapEntry<ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>> thirdTableEntry in state.thirdTableData.entries) {
@@ -67,12 +67,12 @@ class PageBloc extends BasePageBloc<PageState> {
         );
       }
       final Json savedData = await pageProvider.saveEditedPage(
-        entity: entity,
-        id: state.data[entity.idField.id].toString(),
-        data: _clearDataFromStructures(state.data),
+        entity: model,
+        id: state.data[model.idField.id].toString(),
+        data: _updateCreatedAtOrUpdatedAtFields(model, _clearDataFromStructures(state.data)),
       );
       await _upsertDynamicFieldStructures(
-        pageId: state.data[entity.idField.id].toString(),
+        pageId: state.data[model.idField.id].toString(),
         data: state.data,
         creation: false,
       );
@@ -81,9 +81,9 @@ class PageBloc extends BasePageBloc<PageState> {
         data: savedData,
         initialData: clone(savedData),
         thirdTableData: {},
-        controllerMap: _remapPageDataToControllerMap(entity.id, savedData),
+        controllerMap: _remapPageDataToControllerMap(model.id, savedData),
       ));
-      eventBus.send(eventId: PageEvents.save, request: entity);
+      eventBus.send(eventId: PageEvents.save, request: model);
     } catch (error) {
       // Handle error
       emit(state.copyWith.isSaving(false));
@@ -97,7 +97,7 @@ class PageBloc extends BasePageBloc<PageState> {
     try {
       final Json savedData = await pageProvider.createPage(
         entity: model,
-        data: _clearDataFromStructures(state.data),
+        data: _updateCreatedAtOrUpdatedAtFields(model, _clearDataFromStructures(state.data)),
       );
       await _upsertDynamicFieldStructures(
         pageId: savedData[model.idField.id].toString(),
@@ -283,16 +283,15 @@ class PageBloc extends BasePageBloc<PageState> {
   TextControllerMap _remapPageDataToControllerMap(String entityId, Json entityData) {
     final TextControllerMap controllerMap = {};
     for (final MapEntry<String, dynamic> entry in entityData.entries) {
-      final dynamic value = entry.value;
-      final bool isNull = value == null;
+      final String value = (entry.value ?? '').toString();
+      final bool hasValue = value.isNotEmpty;
       final String oldValue = controllerFor(entry.key).text.trim();
       final bool hasOldValue = oldValue.isNotEmpty;
+      final bool isDifferentValues = (hasValue || hasOldValue) && value != oldValue;
+
       controllerMap[entry.key] = TextEditingController(
-          text: hasOldValue
-              ? oldValue
-              : isNull
-                  ? ''
-                  : value.toString());
+        text: isDifferentValues ? value : oldValue,
+      );
     }
     return controllerMap;
   }
@@ -301,6 +300,19 @@ class PageBloc extends BasePageBloc<PageState> {
     if (draftKey != null) {
       await draftService.deleteDraft(draftKey!);
     }
+  }
+
+  Json _updateCreatedAtOrUpdatedAtFields(Model model, Json data) {
+    final List<DateField> dateTimeFields = model.flattenFields.whereType<DateField>().toList();
+    if (dateTimeFields.isNotEmpty) {
+      for (final DateField field in dateTimeFields) {
+        final dynamic currentValue = data[field.id];
+        if (field.isCreatedAtField && (currentValue == null || currentValue == '') || field.isUpdatedAtField) {
+          data[field.id] = DateTime.now().toIso8601String();
+        }
+      }
+    }
+    return data;
   }
 }
 

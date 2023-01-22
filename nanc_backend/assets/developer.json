@@ -1,0 +1,38 @@
+[
+ {
+  "id": "0185565d-44b3-583a-dc8c-678293671840",
+  "name": "Robert",
+  "second_name": "Downey",
+  "position": "appDeveloper",
+  "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/im9SAqJPZKEbVZGmjXuLI4O7RvM.jpg",
+  "description": "I am a highly skilled mobile app developer with a passion for creating innovative and engaging apps. I excel at solving complex technical challenges and delivering high-quality apps on time and within budget.",
+  "facebook": "https://facebook.com/nanc",
+  "instagram": "https://instagram.com/nanc",
+  "twitter": "https://twitter.com/nanc",
+  "youtube": "https://youtube.com/nanc"
+ },
+ {
+  "id": "01855666-4734-af1f-3dfa-fba9f10122fd",
+  "name": "Rachel",
+  "second_name": "McAdams",
+  "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8w2QyvUke00l0JcNXEXBoCJDqCg.jpg",
+  "description": "I am a skilled UI/UX designer with a passion for creating intuitive and user-friendly interfaces. I have a strong understanding of user psychology and am able to effectively communicate my designs to team members and stakeholders. I am constantly learning and staying up-to-date with the latest design trends and best practices.",
+  "facebook": "https://facebook.com/nanc",
+  "instagram": "https://instagram.com/nanc",
+  "twitter": "https://twitter.com/nanc",
+  "youtube": null,
+  "position": "designer"
+ },
+ {
+  "id": "01855672-b7d3-eea0-c41f-3398851a8a2a",
+  "name": "Will",
+  "second_name": "Smith",
+  "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rqqhzESgnlxREv7Q8ZtjqBZtSry.jpg",
+  "description": "As a manager, I am responsible for leading and guiding a team towards success. I have excellent communication and leadership skills, and am able to set clear goals and delegate tasks effectively. I am able to analyze data and make informed decisions, and am a strong problem-solver able to adapt to changing circumstances.",
+  "instagram": "https://instagram.com/nanc",
+  "twitter": null,
+  "youtube": "https://youtube.com/nanc",
+  "position": "manager",
+  "facebook": "https://facebook.com/nanc"
+ }
+]

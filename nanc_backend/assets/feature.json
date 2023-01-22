@@ -1,0 +1,38 @@
+[
+ {
+  "id": "access_roles",
+  "title": "FLEXIBLE ACCESS CONFIGURATION",
+  "image": "mdi_key_chain_variant",
+  "description": "You can configure access rules for any entity and any field! You no longer have to worry that your new employee will accidentally delete something or see something that is too early for them to see\n\nIN DEVELOPMENT*"
+ },
+ {
+  "id": "backend_agnostic",
+  "title": "BACKEND-AGNOSTIC",
+  "image": "flu_apps_add_in_regular",
+  "description": "NANC can act as a CMS for any existing backend. You don't have to use an imposed solution to manage your data or rewrite it from scratch"
+ },
+ {
+  "id": "code_push",
+  "title": "FLUTTER CODE PUSH",
+  "image": "flu_cloud_sync_filled",
+  "description": "NANC allows you to update the interface of your application written in Flutter without publishing the application in the stores. For now, it is possible to update the straightforward UI and logic, and we are actively working to make it as quick and easy as possible for you to test any new hypothesis and not wait for Apple or Google to check your app!"
+ },
+ {
+  "id": "free_fow_now",
+  "title": "FREE FOR NOW",
+  "image": "mdi_cash_1_0_0",
+  "description": "If you are a small company and want to try NANC, and even if you are a big one, fill out the form and we will definitely contact you and agree on a win-win cooperation!"
+ },
+ {
+  "id": "no_copy",
+  "title": "INCREASED SAFETY",
+  "image": "rmx_copyright_fill",
+  "description": "You can prohibit copying any (or individual) data in NANC, so that the employee cannot take away important information! (Don't forget to take his cell phone away)\n\nIN DEVELOPMENT*"
+ },
+ {
+  "id": "ui_xml",
+  "title": "SIMPLE AND UNDERSTANDABLE UI SYNTAX",
+  "image": "mdi_code_braces_box",
+  "description": "NANC makes it easy to describe the application interface in Flutter using clear and simple HTML/XML-like syntax. Now to create a new screen in your application, you don't even need to use a programmer!"
+ }
+]

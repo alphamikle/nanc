@@ -7,6 +7,8 @@ part of 'page_state.dart';
 // **************************************************************************
 
 abstract class _$PageStateCWProxy {
+  PageState alwaysUpdate(bool alwaysUpdate);
+
   PageState isConnectedToTheBackend(bool isConnectedToTheBackend);
 
   PageState isConnectingToTheBackend(bool isConnectingToTheBackend);
@@ -22,6 +24,7 @@ abstract class _$PageStateCWProxy {
   /// PageState(...).copyWith(id: 12, name: "My name")
   /// ````
   PageState call({
+    bool? alwaysUpdate,
     bool? isConnectedToTheBackend,
     bool? isConnectingToTheBackend,
     bool? isLoading,
@@ -34,6 +37,9 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
   final PageState _value;
 
   const _$PageStateCWProxyImpl(this._value);
+
+  @override
+  PageState alwaysUpdate(bool alwaysUpdate) => this(alwaysUpdate: alwaysUpdate);
 
   @override
   PageState isConnectedToTheBackend(bool isConnectedToTheBackend) =>
@@ -58,12 +64,18 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
   /// PageState(...).copyWith(id: 12, name: "My name")
   /// ````
   PageState call({
+    Object? alwaysUpdate = const $CopyWithPlaceholder(),
     Object? isConnectedToTheBackend = const $CopyWithPlaceholder(),
     Object? isConnectingToTheBackend = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
     Object? pageData = const $CopyWithPlaceholder(),
   }) {
     return PageState(
+      alwaysUpdate:
+          alwaysUpdate == const $CopyWithPlaceholder() || alwaysUpdate == null
+              ? _value.alwaysUpdate
+              // ignore: cast_nullable_to_non_nullable
+              : alwaysUpdate as bool,
       isConnectedToTheBackend:
           isConnectedToTheBackend == const $CopyWithPlaceholder() ||
                   isConnectedToTheBackend == null
@@ -103,6 +115,7 @@ PageState _$PageStateFromJson(Map<String, dynamic> json) => PageState(
       isConnectingToTheBackend: json['isConnectingToTheBackend'] as bool,
       isConnectedToTheBackend: json['isConnectedToTheBackend'] as bool,
       pageData: json['pageData'] as Map<String, dynamic>,
+      alwaysUpdate: json['alwaysUpdate'] as bool,
     );
 
 Map<String, dynamic> _$PageStateToJson(PageState instance) => <String, dynamic>{
@@ -110,4 +123,5 @@ Map<String, dynamic> _$PageStateToJson(PageState instance) => <String, dynamic>{
       'isConnectingToTheBackend': instance.isConnectingToTheBackend,
       'isConnectedToTheBackend': instance.isConnectedToTheBackend,
       'pageData': instance.pageData,
+      'alwaysUpdate': instance.alwaysUpdate,
     };

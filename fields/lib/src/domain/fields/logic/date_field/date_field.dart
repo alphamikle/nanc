@@ -1,10 +1,12 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:fields/fields.dart';
 import 'package:fields/src/domain/fields/logic/field/field.dart';
 import 'package:fields/src/domain/fields/logic/field/field_description.dart';
 import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
 part 'date_field.g.dart';
@@ -14,6 +16,8 @@ part 'date_field.g.dart';
 class DateField extends Field {
   DateField({
     required super.name,
+    this.isCreatedAtField = false,
+    this.isUpdatedAtField = false,
     String? id,
     super.showInList,
     super.isRequired,
@@ -27,18 +31,45 @@ class DateField extends Field {
 
   factory DateField.fromJson(dynamic json) => _$DateFieldFromJson(castToJson(json));
 
+  final bool isCreatedAtField;
+  final bool isUpdatedAtField;
+
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.flu_calendar_clock_filled,
       color: Color.fromRGBO(216, 49, 91, 1),
-      title: 'Date field',
+      title: 'DateTime field',
       description: 'A field for setting the date and time with automatic validation of correct input',
     );
   }
 
   @override
   Json toJson() => _$DateFieldToJson(this);
+
+  @override
+  Model toModel() {
+    return Model(
+      name: description().title,
+      icon: 'key',
+      fields: [
+        [
+          fieldToModelName,
+          fieldToModelId,
+        ],
+        [
+          fieldToModelSort,
+          fieldToModelWidth,
+        ],
+        [
+          fieldToModelShowInList,
+          fieldToModelIsRequired,
+          BoolField(id: 'isCreatedAtField', name: 'Is createdAt field?'),
+          BoolField(id: 'isUpdatedAtField', name: 'Is updatedAt field?'),
+        ],
+      ],
+    );
+  }
 
   @override
   bool get isEmpty => this == DateField.empty();

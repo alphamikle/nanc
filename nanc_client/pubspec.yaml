@@ -35,6 +35,8 @@ dependencies:
   copy_with_extension: ^4.0.3
   vrouter: ^1.2.1
   device_frame: ^1.1.0
+  mobile_scanner: ^3.0.0-beta.4
+  dio: ^4.0.6
 
 dev_dependencies:
   flutter_test:
@@ -54,13 +56,13 @@ flutter_icons:
   android: "launcher_icon"
   ios: true
   remove_alpha_ios: true
-  image_path: "assets/app_icon.png"
+  image_path: "assets/logo.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
   web:
     generate: true
-    image_path: "assets/app_icon.png"
-    background_color: "#17CAA6"
-    theme_color: "#17CAA6"
+    image_path: "assets/logo.png"
+    background_color: "#5856E9"
+    theme_color: "#5856E9"
   macos:
     generate: true
-    image_path: "assets/app_icon.png"
+    image_path: "assets/logo.png"

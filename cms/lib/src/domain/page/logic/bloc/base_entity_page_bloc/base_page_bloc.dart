@@ -67,17 +67,19 @@ abstract class BasePageBloc<T extends BaseEntityPageState> extends Cubit<T> {
   }
 
   void _updateData(Json data) {
+    Json? jsonState;
     if (state is PageState) {
       final PageState pageState = state as PageState;
       emit(pageState.copyWith(data: data) as T);
-      if (draftKey != null) {
-        unawaited(draftService.saveDraft(key: draftKey!, data: (state as PageState).toJson()));
-      }
+      jsonState = (state as PageState).toJson();
     } else {
       emit(state.copyWith(data: data) as T);
-      if (draftKey != null) {
-        unawaited(draftService.saveDraft(key: draftKey!, data: state.toJson()));
-      }
+      jsonState = state.toJson();
+    }
+    if (draftKey != null && state.isChanged) {
+      unawaited(draftService.saveDraft(key: draftKey!, data: jsonState));
+    } else if (draftKey != null) {
+      unawaited(draftService.deleteDraft(draftKey!));
     }
   }
 }

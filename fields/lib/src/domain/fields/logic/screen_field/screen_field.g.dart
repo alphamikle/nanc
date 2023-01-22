@@ -155,7 +155,7 @@ extension $ScreenFieldCopyWith on ScreenField {
 ScreenField _$ScreenFieldFromJson(Map<String, dynamic> json) => ScreenField(
       name: json['name'] as String,
       id: json['id'] as String?,
-      showInList: json['showInList'] as bool? ?? true,
+      showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
       width: (json['width'] as num?)?.toDouble(),

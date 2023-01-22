@@ -1,7 +1,7 @@
 name: nanc_backend
 description: NANC project backend demo
 publish_to: 'none'
-version: 1.0.0+5
+version: 1.0.0+6
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
@@ -46,6 +46,20 @@ dev_dependencies:
   json_serializable: ^6.4.1
   copy_with_extension_gen: ^4.0.3
   build_runner: ^2.2.1
+  flutter_launcher_icons: ^0.11.0
 
 flutter:
   uses-material-design: true
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/logo.png"
+  macos:
+    generate: true
+    image_path: "assets/logo.png"

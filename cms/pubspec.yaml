@@ -76,6 +76,5 @@ flutter:
 
   assets:
     - assets/
-    - assets/mock_data/
     - assets/animations/
     - assets/fonts/

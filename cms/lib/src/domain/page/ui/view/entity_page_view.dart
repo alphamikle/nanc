@@ -62,6 +62,9 @@ class _EntityPageViewState extends State<EntityPageView> {
         }
       } else {
         await pageBloc.save(entity);
+        if (mounted) {
+          context.vRouter.to(context.vRouter.url, isReplacement: true);
+        }
       }
     }
   }
@@ -81,7 +84,7 @@ class _EntityPageViewState extends State<EntityPageView> {
       final String currentRoute = context.vRouter.url;
       final InitializedVRouterSailor router = context.vRouter;
       await pageBloc.reset(model);
-      router.to(currentRoute);
+      router.to(currentRoute, isReplacement: true);
       formKey = GlobalKey();
     }
   }

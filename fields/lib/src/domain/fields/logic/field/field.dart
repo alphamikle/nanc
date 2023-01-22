@@ -15,14 +15,14 @@ abstract class Field extends Equatable {
   const Field({
     required this.id,
     required this.name,
-    this.showInList = true,
+    bool showInList = false,
     this.isRequired = false,
     this.sort = 0,
     this.width,
     this.editableField = true,
     this.validator,
     this.type = FieldType.field,
-  });
+  }) : showInList = width == null ? showInList : true;
 
   final String id;
   final String name;

@@ -18,7 +18,7 @@ abstract class MockApi {
   Future<List<Json>> fetchFullList(Model entity) async {
     late List<Json> data;
     dynamic response;
-    final String assetFileName = '${entity.name}_${entity.id}.json';
+    final String assetFileName = '${entity.id}.json';
     if (await dbService.has(entity.id)) {
       response = await dbService.get(entity.id);
     } else {
@@ -28,7 +28,15 @@ abstract class MockApi {
           response = jsonDecode(content);
         }
       } catch (error) {
-        logg('Error on parsing asset with data: $error');
+        logg('1. Error on parsing asset with data: $error');
+        try {
+          final String content = await rootBundle.loadString(assetFileName);
+          if (content.isNotEmpty) {
+            response = jsonDecode(content);
+          }
+        } catch (error) {
+          logg('2. Error on parsing asset with data: $error');
+        }
       }
     }
     if (response is List) {
