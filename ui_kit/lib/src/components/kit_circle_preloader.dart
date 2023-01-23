@@ -5,12 +5,14 @@ class KitCirclePreloader extends StatelessWidget {
     this.child,
     this.isLoading = true,
     this.size = 16,
+    this.value,
     super.key,
   });
 
   final double size;
   final bool isLoading;
   final Widget? child;
+  final double? value;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +22,10 @@ class KitCirclePreloader extends StatelessWidget {
           ? SizedBox(
               width: size,
               height: size,
-              child: const Center(
+              child: Center(
                 child: CircularProgressIndicator(
                   strokeWidth: 2.5,
+                  value: value,
                 ),
               ),
             )

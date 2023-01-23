@@ -13,6 +13,8 @@ class RichMarkdownList extends StatelessWidget {
     this.preloader,
     this.scrollController,
     this.widgetsFilter,
+    this.imageLoadingBuilder,
+    this.imageErrorBuilder,
     super.key,
   });
 
@@ -22,6 +24,8 @@ class RichMarkdownList extends StatelessWidget {
   final Widget? preloader;
   final Map<String, dynamic> pageData;
   final WidgetsFilter? widgetsFilter;
+  final ImageLoadingBuilder? imageLoadingBuilder;
+  final ImageErrorWidgetBuilder? imageErrorBuilder;
 
   String get sanitizedMarkup => sanitizeMarkup(markdownContent);
 
@@ -60,71 +64,75 @@ class RichMarkdownList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ForStorage(
-      child: PageData(
-        data: pageData,
-        child: LocalData(
-          // ignore: prefer_const_literals_to_create_immutables
-          data: {},
-          child: Builder(builder: (BuildContext context) {
-            return TemplateStorage(
-              child: Builder(
-                builder: (BuildContext context) {
-                  final Widget preloader = this.preloader ??
-                      const Center(
-                        child: SizedBox(
-                          height: 30,
-                          width: 30,
-                          child: CircularProgressIndicator(),
-                        ),
-                      );
-                  try {
-                    return FutureBuilder<MarkdownGenerator>(
-                      // ignore: discarded_futures
-                      future: createGenerator(context),
-                      builder: (BuildContext context, AsyncSnapshot<MarkdownGenerator> asyncGenerator) {
-                        if (asyncGenerator.hasError) {
-                          return ErrorWidget(asyncGenerator.error!);
-                        }
-                        if (asyncGenerator.hasData == false) {
-                          return preloader;
-                        }
-                        return FutureBuilder<List<Widget>>(
-                          // TODO(alphamikle): Use here a stream with async-generated widgets
-                          // ignore: discarded_futures
-                          future: asyncGenerator.requireData.generate(),
-                          builder: (BuildContext context, AsyncSnapshot<List<Widget>> asyncWidgets) {
-                            if (asyncWidgets.hasError) {
-                              logg(asyncWidgets.error, asyncWidgets.stackTrace);
-                              return ErrorWidget([asyncWidgets.error, asyncWidgets.stackTrace]);
-                            }
-                            if (asyncWidgets.hasData == false) {
-                              return preloader;
-                            }
-                            final List<Widget> widgets = asyncWidgets.data ?? [];
-                            return CustomScrollView(
-                              controller: scrollController,
-                              slivers: [
-                                SliverList(
-                                  delegate: SliverChildBuilderDelegate(
-                                    (BuildContext context, int index) => widgets[index],
-                                    childCount: widgets.length,
-                                  ),
-                                ),
-                              ],
-                            );
-                          },
+    return ImageBuilderDelegate(
+      loadingBuilder: imageLoadingBuilder,
+      errorBuilder: imageErrorBuilder,
+      child: ForStorage(
+        child: PageData(
+          data: pageData,
+          child: LocalData(
+            // ignore: prefer_const_literals_to_create_immutables
+            data: {},
+            child: Builder(builder: (BuildContext context) {
+              return TemplateStorage(
+                child: Builder(
+                  builder: (BuildContext context) {
+                    final Widget preloader = this.preloader ??
+                        const Center(
+                          child: SizedBox(
+                            height: 30,
+                            width: 30,
+                            child: CircularProgressIndicator(),
+                          ),
                         );
-                      },
-                    );
-                  } catch (error) {
-                    logg(error);
-                    return ErrorWidget(error);
-                  }
-                },
-              ),
-            );
-          }),
+                    try {
+                      return FutureBuilder<MarkdownGenerator>(
+                        // ignore: discarded_futures
+                        future: createGenerator(context),
+                        builder: (BuildContext context, AsyncSnapshot<MarkdownGenerator> asyncGenerator) {
+                          if (asyncGenerator.hasError) {
+                            return ErrorWidget(asyncGenerator.error!);
+                          }
+                          if (asyncGenerator.hasData == false) {
+                            return preloader;
+                          }
+                          return FutureBuilder<List<Widget>>(
+                            // TODO(alphamikle): Use here a stream with async-generated widgets
+                            // ignore: discarded_futures
+                            future: asyncGenerator.requireData.generate(),
+                            builder: (BuildContext context, AsyncSnapshot<List<Widget>> asyncWidgets) {
+                              if (asyncWidgets.hasError) {
+                                logg(asyncWidgets.error, asyncWidgets.stackTrace);
+                                return ErrorWidget([asyncWidgets.error, asyncWidgets.stackTrace]);
+                              }
+                              if (asyncWidgets.hasData == false) {
+                                return preloader;
+                              }
+                              final List<Widget> widgets = asyncWidgets.data ?? [];
+                              return CustomScrollView(
+                                controller: scrollController,
+                                slivers: [
+                                  SliverList(
+                                    delegate: SliverChildBuilderDelegate(
+                                      (BuildContext context, int index) => widgets[index],
+                                      childCount: widgets.length,
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
+                      );
+                    } catch (error) {
+                      logg(error);
+                      return ErrorWidget(error);
+                    }
+                  },
+                ),
+              );
+            }),
+          ),
         ),
       ),
     );

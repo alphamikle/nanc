@@ -32,8 +32,10 @@ class _PagePreviewState extends State<PagePreview> {
 
   @override
   Widget build(BuildContext context) {
+    final DataRepository dataRepository = context.read();
+
     return ClickDelegate(
-      onPressed: clickHandler(context: context, handlers: context.read<DataRepository>().clickHandlers),
+      onPressed: clickHandler(context: context, handlers: dataRepository.clickHandlers),
       child: BlocBuilder<BasePageBloc, BaseEntityPageState>(
         builder: (BuildContext context, BaseEntityPageState pageState) {
           return BlocBuilder<PreviewBloc, PreviewState>(
@@ -44,6 +46,8 @@ class _PagePreviewState extends State<PagePreview> {
                 pageData: pageState.data,
                 renderer: tagsRenderer,
                 widgetsFilter: forWidgetFilter,
+                imageLoadingBuilder: dataRepository.imageLoadingBuilder,
+                imageErrorBuilder: dataRepository.imageErrorBuilder,
               );
             },
           );

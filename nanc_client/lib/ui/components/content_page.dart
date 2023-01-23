@@ -1,3 +1,4 @@
+import 'package:additions/additions.dart';
 import 'package:flutter/material.dart';
 import 'package:markdown_code_push/markdown_code_push.dart';
 import 'package:rich_renderer/rich_renderer.dart';
@@ -22,6 +23,8 @@ class ContentPage extends StatelessWidget {
       pageData: pageData,
       renderer: renderer,
       widgetsFilter: forWidgetFilter,
+      imageLoadingBuilder: imageLoadingBuilder,
+      imageErrorBuilder: imageErrorBuilder,
     );
   }
 }

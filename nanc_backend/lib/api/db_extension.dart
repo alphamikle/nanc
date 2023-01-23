@@ -8,7 +8,8 @@ import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart' as pp;
 import 'package:tools/tools.dart';
 
-const bool kOutputFolder = true;
+const bool kStreamDataIntoTheFiles = true;
+const String kStreamingDir = String.fromEnvironment('STREAMING_DIR');
 
 abstract class MockApi {
   @protected
@@ -58,12 +59,13 @@ abstract class MockApi {
       logg('No data or incorrect data type: "${response.runtimeType}" / "$response"');
       return [];
     }
-    if (kOutputFolder && kIsWeb == false && Platform.isMacOS) {
-      final Directory outputDir = await pp.getApplicationDocumentsDirectory();
+    if (kStreamDataIntoTheFiles && kIsWeb == false && Platform.isMacOS) {
+      final Directory outputDir = kStreamingDir.isEmpty ? await pp.getApplicationDocumentsDirectory() : Directory(kStreamingDir);
+      logg('Files stream directory will be: file://${outputDir.path}');
       final String filePath = p.join(outputDir.path, assetFileName);
       final File outputFile = File(filePath);
       await outputFile.writeAsString(prettyJson(data));
-      logg('Output data was written into the "$filePath"');
+      logg('Output data was written into the file://$filePath');
     }
     return data;
   }

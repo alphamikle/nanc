@@ -54,7 +54,7 @@ SPEC CHECKSUMS:
   flutter_webrtc: 4bb537cadddcfb5e5b24c96cbd6ff56f064b8faf
   FlutterMacOS: ae6af50a8ea7d6103d888583d46bd8328a7e9811
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  package_info_plus: 02d7a575e80f194102bef286361c6c326e4c29ce
+  package_info_plus: 6574d2d4ad77ef008a398693c6ad4f2da0867b93
   path_provider_macos: 700c7a8054c06174bd21446c9fd76a166988156d
   sqflite: 5c95035b48b4152774f4c67ed811f217917bdb47
   url_launcher_macos: d420e0f07f83dfc92e9ed513b4dd39ec33192797

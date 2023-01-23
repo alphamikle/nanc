@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:additions/additions.dart';
+import 'package:additions/additions.dart' as ad;
 import 'package:cms/cms.dart';
 import 'package:cms/src/domain/collection/logic/logic/bloc/collection_bloc.dart';
 import 'package:cms/src/domain/collection/logic/logic/provider/page_list_provider.dart';
@@ -16,6 +16,7 @@ import 'package:cms/src/service/config/admin_config.dart';
 import 'package:cms/src/service/errors/error_wrapper.dart';
 import 'package:cms/src/service/init/data_repository.dart';
 import 'package:cms/src/service/routing/routes_preloading_service.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 import 'package:rich_renderer/rich_renderer.dart';
@@ -31,6 +32,8 @@ class Initializer {
     required this.errorStreamController,
     required this.clickHandlers,
     required this.renderers,
+    required this.imageLoadingBuilder,
+    required this.imageErrorBuilder,
     this.patternMap = const {},
   });
 
@@ -44,8 +47,10 @@ class Initializer {
   final StreamController<ErrorWrapper> errorStreamController;
   final List<BlocProvider<dynamic>> blocProviders = [];
   final List<RepositoryProvider<dynamic>> repositoryProviders = [];
-  final List<RichClickHandler> clickHandlers;
+  final List<ad.RichClickHandler> clickHandlers;
   final List<TagRendererFactory> renderers;
+  final ImageLoadingBuilder? imageLoadingBuilder;
+  final ImageErrorWidgetBuilder? imageErrorBuilder;
 
   Future<bool> init() async {
     /// ? SERVICES
@@ -98,6 +103,8 @@ class Initializer {
     final DataRepository dataRepository = DataRepository(
       clickHandlers: clickHandlers,
       renderers: renderers,
+      imageLoadingBuilder: imageLoadingBuilder ?? ad.imageLoadingBuilder,
+      imageErrorBuilder: imageErrorBuilder ?? ad.imageErrorBuilder,
     );
 
     blocProviders

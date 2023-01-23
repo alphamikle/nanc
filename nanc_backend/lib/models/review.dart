@@ -8,15 +8,15 @@ final Model review = Model(
   fields: [
     [
       IdField(),
-      StringField(name: 'Customer Name', maxLines: 1, isRequired: true),
-      StringField(name: 'Customer Lastname', maxLines: 1, isRequired: true),
+      StringField(name: 'Name', id: 'customer_name', maxLines: 1, isRequired: true, width: 200),
+      StringField(name: 'Lastname', id: 'customer_lastname', maxLines: 1, isRequired: true, width: 200),
     ],
     [
-      StringField(name: 'Customer Image', maxLines: 1),
-      StringField(name: 'Position', maxLines: 1, isRequired: true),
+      StringField(name: 'Image', maxLines: 1),
+      StringField(name: 'Position', maxLines: 1, isRequired: true, showInList: true),
     ],
     [
-      StringField(name: 'Review', maxLines: 3, isRequired: true),
+      StringField(name: 'Review', isRequired: true),
     ]
   ],
 );

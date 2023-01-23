@@ -19,7 +19,7 @@ class IdField extends Field {
     String? name,
     super.isRequired = true,
     super.sort,
-    super.width,
+    super.width = 400,
     super.type = FieldType.idField,
   }) : super(name: name ?? 'ID', id: id ?? 'id', showInList: true);
 

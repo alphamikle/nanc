@@ -9,6 +9,10 @@ environment:
 dependencies:
   rich_renderer:
     path: ../rich_renderer
+  icons:
+    path: ../icons
+  ui_kit:
+    path: ../ui_kit
   flutter:
     sdk: flutter
   url_launcher: ^6.1.6

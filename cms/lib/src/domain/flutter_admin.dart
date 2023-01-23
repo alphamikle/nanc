@@ -28,6 +28,8 @@ class FlutterAdmin extends StatefulWidget {
     this.wrapperBuilder,
     this.clickHandlers = const [],
     this.renderers = const [],
+    this.imageLoadingBuilder,
+    this.imageErrorBuilder,
     super.key,
   });
 
@@ -39,6 +41,8 @@ class FlutterAdmin extends StatefulWidget {
   final AdminWrapperBuilder? wrapperBuilder;
   final List<RichClickHandler> clickHandlers;
   final List<TagRendererFactory> renderers;
+  final ImageLoadingBuilder? imageLoadingBuilder;
+  final ImageErrorWidgetBuilder? imageErrorBuilder;
 
   @override
   State<FlutterAdmin> createState() => _FlutterAdminState();
@@ -56,6 +60,8 @@ class _FlutterAdminState extends State<FlutterAdmin> {
     errorStreamController: widget.errorStreamController,
     clickHandlers: widget.clickHandlers,
     renderers: widget.renderers,
+    imageLoadingBuilder: widget.imageLoadingBuilder,
+    imageErrorBuilder: widget.imageErrorBuilder,
   );
   late final Future<bool> result = initializer.init();
   late final StreamSubscription<ErrorWrapper> errorStreamSubscription;

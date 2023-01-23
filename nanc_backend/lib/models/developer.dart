@@ -8,8 +8,8 @@ final Model developer = Model(
   fields: [
     [
       IdField(),
-      StringField(name: 'Name', maxLines: 1, isRequired: true),
-      StringField(name: 'Second Name', maxLines: 1, isRequired: true),
+      StringField(name: 'Name', maxLines: 1, isRequired: true, width: 150),
+      StringField(name: 'Second Name', maxLines: 1, isRequired: true, width: 180),
     ],
     [
       EnumField(
@@ -23,6 +23,7 @@ final Model developer = Model(
           EnumValue(title: 'QA ENGINEER', value: 'qa'),
           EnumValue(title: 'OTHER', value: 'other'),
         ],
+        showInList: true,
       ),
       StringField(name: 'Image', maxLines: 1, isRequired: true),
     ],

@@ -7,14 +7,14 @@ final Model feature = Model(
   icon: IconPackNames.flu_ribbon_star_filled,
   fields: [
     [
-      IdField(),
-      StringField(name: 'Title', maxLines: 1, isRequired: true),
+      IdField(width: 200),
+      StringField(name: 'Title', maxLines: 1, isRequired: true, width: 400),
     ],
     [
       IconField(name: 'Image', isRequired: true),
     ],
     [
-      StringField(name: 'Description', isRequired: true),
+      StringField(name: 'Description', isRequired: true, showInList: true),
     ],
   ],
 );

@@ -226,20 +226,6 @@
   </container>
 </template>
 
-<template id="cards.ellipse">
-  <fractionalTranslation dx="0" dy="0.35">
-    <scale scaleX="1" scaleY="0.25">
-      <container height="260" width="300" color="{{ data(colors).white }}">
-        <prop:decoration>
-          <prop:borderRadius all="500"/>
-          <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="16"/>
-          <prop:shadow color="#805F5F5F" blurRadius="16" spreadRadius="-20" offsetX="-16"/>
-        </prop:decoration>
-      </container>
-    </scale>
-  </fractionalTranslation>
-</template>
-
 <template id="cards.dev">
   <container color="{{ data(colors).white }}">
     <prop:decoration>
@@ -313,7 +299,7 @@
       <column mainAxisSize="min">
         <clipRRect all="50">
           <sizedBox all="50">
-            <image ref="{{ template.photo }}" fit="cover"/>
+            <image ref="{{ template.image }}" fit="cover"/>
           </sizedBox>
         </clipRRect>
         <divider height="12"/>
@@ -326,12 +312,23 @@
           {{ template.position }}
         </text>
         <divider height="18"/>
-        <text color="#6C6C72" align="center" maxLines="3" overflow="ellipsis">
+        <text color="#6C6C72" align="center" maxLines="10" overflow="ellipsis">
           <prop:textStyle font="{{ data(fonts).main }}" size="16" height="1.5" weight="w400"/>
           {{ template.review }}
         </text>
       </column>
     </padding>
+  </container>
+</template>
+
+<template id="cards.image">
+  <container>
+    <prop:decoration>
+      <prop:border color="{{ data(colors).white }}" width="5"/>
+      <prop:borderRadius all="28"/>
+      <prop:shadow color="#FF000000" blurRadius="20" spreadRadius="-10"/>
+    </prop:decoration>
+    <image ref="{{ template.image }}"/>
   </container>
 </template>
 
@@ -421,7 +418,7 @@
     </stack>
   </padding>
   <padding left="55" right="55" top="40" bottom="60">
-    <image ref="https://i.ibb.co/YRH1DYW/app-screen-1.png"/>
+    <component id="cards.image" image="{{ page.images.0.image.url }}"/>
   </padding>
 </container>
 
@@ -443,16 +440,7 @@
 </padding>
 
 <padding left="68" right="68" bottom="40">
-  <stack>
-    <positioned left="0" right="0" bottom="0">
-      <align alignment="bottomCenter">
-        <component id="cards.ellipse"/>
-      </align>
-    </positioned>
-    <padding left="20" bottom="35" right="20">
-      <image ref="https://i.ibb.co/ZxkdMcb/mock-image-2.png"/>
-    </padding>
-  </stack>
+  <component id="cards.image" image="{{ page.images.1.image.url }}"/>
 </padding>
 
 <!-- ? ========================= Bullets ========================= -->
@@ -491,10 +479,7 @@
   </padding>
 
   <padding left="60" right="60" bottom="120">
-    <physicalModel elevation="12" shadowColor="#80000000">
-      <prop:borderRadius all="32"/>
-      <image ref="https://i.ibb.co/MV1Cs8N/app-screen-2.png"/>
-    </physicalModel>
+    <component id="cards.image" image="{{ page.images.2.image.url }}"/>
   </padding>
 
   <padding bottom="60">
@@ -523,25 +508,12 @@
   <component id="buttons.form"/>
 </padding>
 
-<padding bottom="40">
-  <image ref="https://i.ibb.co/HdW9jTj/app-screenshots.png"/>
-</padding>
-
 <padding bottom="60">
-  <row mainAxisSize="min" mainAxisAlignment="center">
-    <for in="{{ 0...3 }}">
-      <component id="slider.dot"/>
-      <divider width="16"/>
+  <carouselSlider dotColor="{{ data(colors).royalBlue }}" sliderDotGap="20" height="700">
+    <for valueName="image" in="{{ page.images }}">
+      <component id="cards.image" image="{{ cycle.image.image.url }}"/>
     </for>
-
-    <component id="slider.dot" active="true"/>
-    <divider width="16"/>
-
-    <component id="slider.dot"/>
-    <divider width="16"/>
-
-    <component id="slider.dot"/>
-  </row>
+  </carouselSlider>
 </padding>
 
 <!-- ? ========================= Middle downloading block ========================= -->
@@ -587,16 +559,7 @@
 </padding>
 
 <padding left="20" top="60" right="20" bottom="60">
-  <stack>
-    <positioned left="0" right="0" bottom="0">
-      <align alignment="bottomCenter">
-        <component id="cards.ellipse"/>
-      </align>
-    </positioned>
-    <padding left="20" bottom="35" right="20">
-      <image ref="https://i.ibb.co/0mdDcKW/app-screenshots-2.png"/>
-    </padding>
-  </stack>
+  <component id="cards.image" image="{{ page.images.4.image.url }}"/>
 </padding>
 
 <!-- ? ========================= How to use app ========================= -->
@@ -692,10 +655,10 @@
 
       <padding bottom="60">
         <!-- ? PRESS "HELP" BUTTON ON THE TOP RIGHT CORNER AND FIND "CAROUSEL SLIDER" WIDGET TO READ MANUAL -->
-        <carouselSlider height="260" dotColor="{{ data(colors).white }}" sliderDotGap="20">
+        <carouselSlider height="500" dotColor="{{ data(colors).white }}" sliderDotGap="20">
           <for valueName="rev" in="{{ page.reviews }}">
             <component id="cards.review" name="{{ cycle.rev.customer_name }} {{ cycle.rev.customer_lastname }}"
-                       position="{{ cycle.rev.position }}" photo="{{ cycle.rev.customer_image }}"
+                       position="{{ cycle.rev.position }}" image="{{ cycle.rev.image }}"
                        review="{{ cycle.rev.review }}"/>
           </for>
         </carouselSlider>
