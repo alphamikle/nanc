@@ -6,6 +6,7 @@ class KitCirclePreloader extends StatelessWidget {
     this.isLoading = true,
     this.size = 16,
     this.value,
+    this.color,
     super.key,
   });
 
@@ -13,6 +14,7 @@ class KitCirclePreloader extends StatelessWidget {
   final bool isLoading;
   final Widget? child;
   final double? value;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class KitCirclePreloader extends StatelessWidget {
                 child: CircularProgressIndicator(
                   strokeWidth: 2.5,
                   value: value,
+                  valueColor: color == null ? null : AlwaysStoppedAnimation<Color>(color!),
                 ),
               ),
             )

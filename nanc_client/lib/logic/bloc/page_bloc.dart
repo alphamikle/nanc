@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:icons/icons.dart';
 import 'package:nanc_client/logic/bloc/page_state.dart';
 import 'package:nanc_client/logic/peer_client_service.dart';
@@ -59,10 +60,10 @@ class PageBloc extends Cubit<PageState> {
   }
 
   Future<Json> preloadDefaultPageData() async {
+    Json? page;
     try {
       final Dio dio = Dio();
       final Response<String> json = await dio.get<String>('https://raw.githubusercontent.com/alphamikle/client.nanc.io/master/page_data.json');
-      Json? page;
 
       /// ? We will parse JSON String now
       if (json.data != null && json.data is String) {
@@ -72,36 +73,20 @@ class PageBloc extends Cubit<PageState> {
         }
       }
       if (page == null) {
-        return <String, dynamic>{
-          'screen': {
-            "content": '''
-<safeArea>
-  <text size="30" align="center">
-    NOT FOUND\nANY CONTENT\n\n😭😭😭
-  </text>
-</safeArea>
-''',
-            'contentType': 'scrollable',
-            'fieldType': "screenContent"
-          },
-        };
+        final String assetPage = await rootBundle.loadString('assets/page_data.json');
+        final dynamic result = jsonDecode(assetPage);
+        if (result is List && result.isNotEmpty) {
+          page = castToJson(result.first);
+        }
       }
-      return page;
+      return page!;
     } catch (error) {
-      return <String, dynamic>{
-        'screen': {
-          "content": '''
-<safeArea>
-  <text size="30" align="center">
-    WE GETTING AN ERROR ON LOADING CONTENT
-    $error
-  </text>
-</safeArea>
-''',
-          'contentType': 'scrollable',
-          'fieldType': "screenContent"
-        },
-      };
+      final String assetPage = await rootBundle.loadString('assets/page_data.json');
+      final dynamic result = jsonDecode(assetPage);
+      if (result is List && result.isNotEmpty) {
+        page = castToJson(result.first);
+      }
+      return page!;
     }
   }
 
@@ -134,97 +119,40 @@ class PageBloc extends Cubit<PageState> {
   }
 
   Future<void> _handleNewPageData({required String modelId, required Json pageData}) async {
-    const bool needToUpdateView = true;
-    // final bool needToUpdateViewOld = state.alwaysUpdate ||
-    //     await confirmAction(
-    //       context: rootKey.currentContext!,
-    //       title: '',
-    //       subtitle: '',
-    //       wrapper: (BuildContext context, Widget child) {
-    //         return Center(
-    //           child: KitBaseModal(
-    //             width: 600,
-    //             header: Padding(
-    //               padding: const EdgeInsets.only(bottom: Gap.large),
-    //               child: Column(
-    //                 mainAxisSize: MainAxisSize.min,
-    //                 crossAxisAlignment: CrossAxisAlignment.start,
-    //                 children: [
-    //                   Text(
-    //                     'Reload current view?',
-    //                     style: context.theme.textTheme.headline6,
-    //                   ),
-    //                 ],
-    //               ),
-    //             ),
-    //             body: const Padding(
-    //               padding: EdgeInsets.only(top: Gap.regular, bottom: Gap.regular),
-    //               child: Text('The content was updated on the CMS side. Do you want to see it?'),
-    //             ),
-    //             bottom: Row(
-    //               children: [
-    //                 KitButton(
-    //                   text: 'Ok',
-    //                   color: context.kitColors.successColor,
-    //                   onPressed: () => context.navigator.pop(true),
-    //                 ),
-    //                 KitDivider.horizontal(Gap.large),
-    //                 KitButton(
-    //                   text: 'Always',
-    //                   color: context.kitColors.successColor,
-    //                   onPressed: () {
-    //                     context.navigator.pop(true);
-    //                     emit(state.copyWith(alwaysUpdate: true));
-    //                   },
-    //                 ),
-    //                 KitDivider.horizontal(Gap.large),
-    //                 KitButton(
-    //                   text: 'No',
-    //                   color: context.kitColors.successColor,
-    //                   onPressed: () => context.navigator.pop(false),
-    //                 ),
-    //               ],
-    //             ),
-    //           ),
-    //         );
-    //       },
-    //     );
-    if (needToUpdateView) {
-      final Color backgroundColor = rootKey.currentContext!.theme.colorScheme.primary;
-      final Color contentColor = rootKey.currentContext!.theme.colorScheme.onPrimary;
+    final Color backgroundColor = rootKey.currentContext!.theme.colorScheme.primary;
+    final Color contentColor = rootKey.currentContext!.theme.colorScheme.onPrimary;
 
-      ScaffoldMessenger.of(rootKey.currentContext!).showSnackBar(
-        SnackBar(
-          duration: const Duration(seconds: 5),
-          elevation: 4,
-          showCloseIcon: true,
-          backgroundColor: backgroundColor,
-          closeIconColor: contentColor,
-          content: Builder(
-            builder: (BuildContext context) {
-              return Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 1, right: Gap.regular),
-                    child: Icon(
-                      IconPack.rmx_refresh_fill,
-                      color: contentColor,
-                      size: 28,
-                    ),
+    ScaffoldMessenger.of(rootKey.currentContext!).showSnackBar(
+      SnackBar(
+        duration: const Duration(seconds: 5),
+        elevation: 4,
+        showCloseIcon: true,
+        backgroundColor: backgroundColor,
+        closeIconColor: contentColor,
+        content: Builder(
+          builder: (BuildContext context) {
+            return Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 1, right: Gap.regular),
+                  child: Icon(
+                    IconPack.rmx_refresh_fill,
+                    color: contentColor,
+                    size: 28,
                   ),
-                  Text(
-                    'Page updated',
-                    style: context.theme.textTheme.titleLarge?.copyWith(color: contentColor),
-                  ),
-                ],
-              );
-            },
-          ),
+                ),
+                Text(
+                  'Page updated',
+                  style: context.theme.textTheme.titleLarge?.copyWith(color: contentColor),
+                ),
+              ],
+            );
+          },
         ),
-      );
-      emit(state.copyWith(
-        pageData: pageData,
-      ));
-    }
+      ),
+    );
+    emit(state.copyWith(
+      pageData: pageData,
+    ));
   }
 }

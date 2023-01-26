@@ -16,7 +16,7 @@
   "google_play_link": "https://play.google.com/store/apps/details?id=com.indieloper.nanc_client",
   "app_store_link": "https://client.nanc.io",
   "main_header": "NANC - IS THE REINVENTION OF CMS",
-  "download_apps_header": "TRY DEMO APP NOW v16",
+  "download_apps_header": "TRY DEMO APP NOW",
   "about_header": "ABOUT NANC",
   "features_header": "NANC FEATURES",
   "interface_header": "ENDLESS UI DESIGN POSSIBILITIES",
@@ -214,6 +214,6 @@
     "review": "Attention tech investors: have you heard of NANC? It's a content management system that is quickly gaining traction in the market and has the potential to be a game-changer for businesses of all sizes.\n\nWhat sets NANC apart is its flexibility and ability to integrate with any backend system. This makes it a versatile solution for managing digital content and allows for seamless integration into existing workflows.\n\nBut NANC's real standout feature is its ability to update Flutter apps without the need for publishing to the app store. This saves time and resources, and has the potential to revolutionize the way businesses make changes to their mobile applications.\n\nIn terms of performance, NANC is reliable and user-friendly, with a wide range of capabilities for handling different content types and formats. It's also secure, which is crucial for protecting sensitive data.\n\nOverall, we believe NANC is a promising technology solution with significant growth potential. If you're looking for a startup to invest in, we highly recommend giving NANC a closer look"
    }
   ],
-  "updated_at": "2023-01-25T23:32:25.711650"
+  "updated_at": "2023-01-26T01:07:19.194607"
  }
 ]

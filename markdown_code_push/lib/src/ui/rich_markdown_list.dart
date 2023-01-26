@@ -42,14 +42,17 @@ class RichMarkdownList extends StatelessWidget {
   Future<MarkdownGenerator> createGenerator(BuildContext context) async {
     final RichRenderer richRenderer = await this.richRenderer;
 
+    // ignore: use_build_context_synchronously
     return MarkdownGenerator(
       context: context,
       data: sanitizedMarkup,
       // TODO(alphamikle): Style usual tags
+      // ignore: use_build_context_synchronously
       widgetConfig: createRichWidgetConfig(
         context: context,
         richRenderer: richRenderer,
       ),
+      // ignore: use_build_context_synchronously
       styleConfig: createRichStyleConfig(
         context: context,
         richRenderer: richRenderer,

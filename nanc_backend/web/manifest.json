@@ -1,11 +1,11 @@
 {
-    "name": "nanc_backend",
-    "short_name": "nanc_backend",
+    "name": "Nanc",
+    "short_name": "Nanc",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "NANC project backend demo",
+    "description": "Nanc, CMS-side demo",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

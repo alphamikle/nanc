@@ -8,6 +8,7 @@ name="nanc_client_installer_v${version}"
 echo "Build $name"
 
 cp "$NANC_DEMO_PAGE_DATA/landing_page.json" ./web/page_data.json
+cp "$NANC_DEMO_PAGE_DATA/landing_page.json" ./assets/page_data.json
 
 flutter clean
 flutter pub get

@@ -1,6 +1,6 @@
 {
-    "name": "Nanc App",
-    "short_name": "Nanc App",
+    "name": "Nanc Client",
+    "short_name": "Nanc Client",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#5856E9",

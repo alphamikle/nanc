@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
-const Duration _kDelay = Duration(milliseconds: 200);
+const Duration _kDelay = Duration(milliseconds: 250);
 
 class KitScreenPreloader extends StatefulWidget {
   const KitScreenPreloader({
     required this.builder,
+    this.loader,
+    this.futureBeforeBuildChild,
     this.delayBeforeBuildChild = _kDelay,
     this.delayAfterBuildChild = _kDelay,
     this.timeForHide = _kDelay,
+    this.onShowChild,
     super.key,
   });
 
   final WidgetBuilder builder;
+  final Widget? loader;
+  final Future<void>? futureBeforeBuildChild;
   final Duration delayBeforeBuildChild;
   final Duration delayAfterBuildChild;
   final Duration timeForHide;
+  final VoidCallback? onShowChild;
 
   @override
   State<KitScreenPreloader> createState() => _KitScreenPreloaderState();
@@ -45,8 +51,14 @@ class _KitScreenPreloaderState extends State<KitScreenPreloader> with AfterRende
   }
 
   Future<void> _startAnimation() async {
-    await Future<void>.delayed(widget.delayBeforeBuildChild, _buildChild);
+    if (widget.futureBeforeBuildChild != null) {
+      await widget.futureBeforeBuildChild;
+      _buildChild();
+    } else {
+      await Future<void>.delayed(widget.delayBeforeBuildChild, _buildChild);
+    }
     await Future<void>.delayed(widget.delayAfterBuildChild, _hidePreloader);
+    widget.onShowChild?.call();
     await Future<void>.delayed(Duration(milliseconds: widget.timeForHide.inMilliseconds + 20), _removePreloader);
   }
 
@@ -67,6 +79,7 @@ class _KitScreenPreloaderState extends State<KitScreenPreloader> with AfterRende
               duration: widget.timeForHide,
               child: ColoredBox(
                 color: context.theme.colorScheme.surface,
+                child: widget.loader,
               ),
             ),
           ),

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +10,7 @@ import 'package:nanc_client/ui/components/connection_modal.dart';
 import 'package:nanc_client/ui/components/content_page.dart';
 import 'package:rich_renderer/rich_renderer.dart';
 import 'package:tools/tools.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 class MainView extends StatefulWidget {
   const MainView({
@@ -25,6 +28,8 @@ class _MainViewState extends State<MainView> {
   final TextEditingController offerTextController = TextEditingController();
   final TextEditingController answerTextController = TextEditingController();
   late final TagsRenderer tagsRenderer = _prepareTagsRenderer();
+  bool isScreenReadyToShow = false;
+  final StreamController<String> preloadingTextStreamController = StreamController.broadcast();
 
   Future<void> showConnectionManager() async {
     await showDialog<void>(
@@ -39,15 +44,66 @@ class _MainViewState extends State<MainView> {
     return tagsRenderer;
   }
 
+  Future<void> _startLoadingAnimation() async {
+    final List<String> content = [
+      'Loading   ',
+      'Loading.  ',
+      'Loading.. ',
+      'Loading...',
+      'Loading ..',
+      'Loading  .',
+    ];
+    for (int i = 0; i < 250; i++) {
+      preloadingTextStreamController.add(content[i % content.length]);
+      await wait(duration: const Duration(milliseconds: 120));
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_startLoadingAnimation());
+  }
+
+  @override
+  void dispose() {
+    unawaited(preloadingTextStreamController.close());
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocBuilder<PageBloc, PageState>(
         builder: (BuildContext context, PageState state) {
-          return ContentPage(
-            content: state.screenData,
-            pageData: state.pageData,
-            renderer: tagsRenderer,
+          final Widget preloader = Center(
+            child: StreamBuilder<String>(
+              stream: preloadingTextStreamController.stream,
+              builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+                return Container(
+                  color: Colors.red.withOpacity(0),
+                  width: 110,
+                  child: Text(
+                    snapshot.data ?? '',
+                    style: context.theme.textTheme.titleLarge,
+                  ),
+                );
+              },
+            ),
+          );
+
+          return KitScreenPreloader(
+            delayBeforeBuildChild: const Duration(milliseconds: 50),
+            delayAfterBuildChild: const Duration(milliseconds: 1600),
+            timeForHide: const Duration(milliseconds: 400),
+            onShowChild: () => setState(() => isScreenReadyToShow = true),
+            loader: preloader,
+            builder: (_) => ContentPage(
+              content: state.screenData,
+              pageData: state.pageData,
+              renderer: tagsRenderer,
+              preloader: preloader,
+            ),
           );
         },
       ),
@@ -55,7 +111,7 @@ class _MainViewState extends State<MainView> {
         builder: (BuildContext context, PageState state) {
           String fabText = 'Connect to NANC';
           Color fabColor = context.theme.colorScheme.tertiary;
-          if (state.isConnectingToTheBackend) {
+          if (state.isConnectingToTheBackend || state.isLoading) {
             fabText = 'Connecting...';
             fabColor = context.theme.colorScheme.outline;
           }
@@ -64,16 +120,24 @@ class _MainViewState extends State<MainView> {
             fabColor = context.theme.colorScheme.error;
           }
 
-          return AnimatedSwitcher(
+          return AnimatedOpacity(
             duration: const Duration(milliseconds: 250),
-            child: FloatingActionButton(
-              key: ValueKey(fabText),
-              backgroundColor: fabColor,
-              onPressed: showConnectionManager,
-              tooltip: fabText,
-              child: Icon(
-                IconPack.mdi_connection,
-                color: context.theme.colorScheme.onTertiary,
+            opacity: isScreenReadyToShow ? 1 : 0,
+            child: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 250),
+              child: FloatingActionButton(
+                key: ValueKey(fabText),
+                backgroundColor: fabColor,
+                onPressed: state.isLoading ? null : showConnectionManager,
+                tooltip: fabText,
+                child: state.isLoading
+                    ? KitCirclePreloader(
+                        color: context.theme.colorScheme.onPrimary,
+                      )
+                    : Icon(
+                        IconPack.mdi_connection,
+                        color: context.theme.colorScheme.onTertiary,
+                      ),
               ),
             ),
           );
