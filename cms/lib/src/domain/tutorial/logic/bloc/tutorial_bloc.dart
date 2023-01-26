@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:cms/src/domain/general/logic/bloc/header/header_bloc.dart';
 import 'package:cms/src/domain/tutorial/logic/bloc/tutorial_state.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:showcaseview/showcaseview.dart';
 import 'package:tools/tools.dart';
 
 class TutorialBloc extends Cubit<TutorialState> {
@@ -28,19 +27,9 @@ class TutorialBloc extends Cubit<TutorialState> {
   final DbService dbService;
   final RootKey rootKey;
 
-  ShowCaseWidgetState get showCaseState => ShowCaseWidget.of(rootKey.currentContext!);
-
   GlobalKey? keyForHeaderMenuItem(String title) {
     return _headerMenuKeys[title];
   }
 
-  void start() {
-    showCaseState.startShowCase([
-      _collectionMenuItemKey,
-      _soloMenuItemKey,
-      _editorMenuItemKey,
-      _rolesMenuItemKey,
-      _settingsMenuItemKey,
-    ]);
-  }
+  void start() {}
 }

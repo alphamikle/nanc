@@ -1,7 +1,7 @@
 name: nanc_client
 description: NANC project demo client
 publish_to: 'none'
-version: 1.0.0+14
+version: 1.0.0+15
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
@@ -38,6 +38,12 @@ dependencies:
   mobile_scanner: ^3.0.0-beta.4
   dio: ^4.0.6
 
+dependency_overrides:
+  mobile_scanner:
+    git:
+      url: https://github.com/juliansteenbakker/mobile_scanner
+      ref: bug/fix-macos
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -57,8 +63,10 @@ flutter_icons:
   android: "launcher_icon"
   ios: true
   remove_alpha_ios: true
-  image_path: "assets/logo.png"
-  min_sdk_android: 21 # android min sdk min:16, default 21
+  image_path: "assets/logo_v3.png"
+  adaptive_icon_background: "#3A2623"
+  adaptive_icon_foreground: "assets/logo_v3.png"
+  min_sdk_android: 21
   web:
     generate: true
     image_path: "assets/logo.png"
@@ -66,4 +74,4 @@ flutter_icons:
     theme_color: "#5856E9"
   macos:
     generate: true
-    image_path: "assets/logo.png"
+    image_path: "assets/logo_v3.png"

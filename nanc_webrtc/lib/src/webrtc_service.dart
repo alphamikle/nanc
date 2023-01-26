@@ -1,9 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
-import 'package:nanc_webrtc/src/constants/webrtc_constants.dart';
 import 'package:nanc_webrtc/src/sea_table/dto/client_dto.dart';
 import 'package:nanc_webrtc/src/sea_table/dto/host_dto.dart';
 import 'package:tools/tools.dart';
@@ -65,6 +64,10 @@ class WebRTCService {
     final String communicationId = _createCommunicationId(messageType: messageType, messageId: effectiveMessageId);
     _eventsCompleters[communicationId] = responseCompleter;
     log('SENT MESSAGE ($communicationId)');
+    if (kIsWeb) {
+      final status = _dataChannel?.state;
+      logg(1);
+    }
     await _dataChannel?.send(
       RTCDataChannelMessage(
         jsonEncode(
@@ -171,9 +174,9 @@ class WebRTCService {
   Future<void> dispose() async {
     log('DISPOSE');
     if (_isClient) {
-      await _sendDisposalMessageToBackend();
+      unawaited(_sendDisposalMessageToBackend());
     } else {
-      await _sendDisposalMessageToClient();
+      unawaited(_sendDisposalMessageToClient());
     }
     if (_isClient && _client != null) {
       await cloudDb.deleteClient(_client!.id);
@@ -401,8 +404,15 @@ class WebRTCService {
 
   Future<void> _onConnectionState(RTCPeerConnectionState connectionState) async {
     log('ON CONNECTION STATE [$_isBackend]: "${connectionState.name}"');
-    if (connectionState == RTCPeerConnectionState.RTCPeerConnectionStateClosed) {
-      await _softDispose();
+    if (connectionState == RTCPeerConnectionState.RTCPeerConnectionStateClosed ||
+        connectionState == RTCPeerConnectionState.RTCPeerConnectionStateDisconnected ||
+        connectionState == RTCPeerConnectionState.RTCPeerConnectionStateFailed) {
+      if (_isClient) {
+        await dispose();
+      }
+      if (_isBackend) {
+        await _softDispose();
+      }
       onDispose(id);
     }
   }

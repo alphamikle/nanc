@@ -8,7 +8,7 @@ import Foundation
 import app_links
 import flutter_webrtc
 import package_info_plus
-import path_provider_macos
+import path_provider_foundation
 import sqflite
 import url_launcher_macos
 

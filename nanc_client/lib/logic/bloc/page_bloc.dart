@@ -6,7 +6,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_client/logic/bloc/page_state.dart';
-import 'package:nanc_client/logic/webrtc_client_service.dart';
+import 'package:nanc_client/logic/peer_client_service.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -15,11 +15,11 @@ final log = logg('PAGE BLOC');
 
 class PageBloc extends Cubit<PageState> {
   PageBloc({
-    required this.clientService,
+    required this.peerClientService,
     required this.rootKey,
   }) : super(PageState.empty());
 
-  final WebRTCClientService clientService;
+  final PeerClientService peerClientService;
   final TextEditingController roomIdController = TextEditingController();
   final RootKey rootKey;
 
@@ -27,10 +27,9 @@ class PageBloc extends Cubit<PageState> {
 
   Future<void> connectToBackend() async {
     emit(state.copyWith(isConnectingToTheBackend: true));
-    final String roomId = await decrypt(roomIdController.text);
-    await clientService.connectToBackend(roomId);
-    clientService.connectionService.registerMessageHandler(messageType: kUpdatePage, handler: _pagesUpdatesHandler);
-    _usedConnectionIds.add(roomId);
+    final String backendPeerId = await decrypt(roomIdController.text);
+    await peerClientService.connectToBackend(backendPeerId: backendPeerId, messageHandler: _backendMessageHandler, onClose: _onClose);
+    _usedConnectionIds.add(backendPeerId);
     emit(state.copyWith(
       isConnectingToTheBackend: false,
       isConnectedToTheBackend: true,
@@ -47,8 +46,10 @@ class PageBloc extends Cubit<PageState> {
   }
 
   Future<void> disconnect() async {
-    clientService.connectionService.removeMessageHandler(kUpdatePage);
-    await clientService.disconnect();
+    await peerClientService.disconnect();
+  }
+
+  void _onClose() {
     emit(state.copyWith(
       isConnectedToTheBackend: false,
       isConnectingToTheBackend: false,
@@ -113,21 +114,25 @@ class PageBloc extends Cubit<PageState> {
     emit(state.copyWith(isLoading: false));
   }
 
-  Future<Message?> _pagesUpdatesHandler(Message message) async {
-    logg('Client got a new message from the host: $message');
-    if (message.payload is Json) {
-      final Json payload = message.payload as Json;
-      final String? modelId = payload[kModelId] as String?;
-      final Json? pageData = payload[kPageData] as Json?;
-      if (modelId != null && pageData != null) {
-        unawaited(_handleNewPageData(modelId: modelId, pageData: pageData));
-      }
+  Future<void> _backendMessageHandler(dynamic serializedMessage) async {
+    try {
+      final dynamic json = jsonDecode(serializedMessage.toString());
+      await _pagesUpdatesHandler(castToJson(json['value']));
+    } catch (error, stack) {
+      // Handle error
+      logg('Error on message from the backend\n$error\n$stack');
     }
-    return null;
+  }
+
+  Future<void> _pagesUpdatesHandler(Json payload) async {
+    final String? modelId = payload[kModelId] as String?;
+    final Json? pageData = payload[kPageData] as Json?;
+    if (modelId != null && pageData != null) {
+      unawaited(_handleNewPageData(modelId: modelId, pageData: pageData));
+    }
   }
 
   Future<void> _handleNewPageData({required String modelId, required Json pageData}) async {
-    logg('Handle new page data; ModelId: $modelId, PageData: $pageData');
     final bool needToUpdateView = state.alwaysUpdate ||
         await confirmAction(
           context: rootKey.currentContext!,

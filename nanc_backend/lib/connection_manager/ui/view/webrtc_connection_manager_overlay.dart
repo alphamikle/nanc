@@ -30,22 +30,7 @@ class _WebRTCConnectionManagerOverlayState extends State<WebRTCConnectionManager
   Future<void> showConnectionModal() async {
     setState(() => isModalVisible = true);
     final ConnectionManagerBloc connectionManagerBloc = context.read();
-    // final UserBloc userBloc = context.read();
-    // bool? authStatus;
-    // if (userBloc.state.isAuthorized == false) {
-    //   authStatus = await showDialog<bool>(
-    //     context: rootNavigatorContext,
-    //     builder: (BuildContext context) => BlocProvider.value(
-    //       value: userBloc,
-    //       child: const UserAuthModal(),
-    //     ),
-    //   );
-    // } else {
-    //   authStatus = true;
-    // }
-    //
-    // if (authStatus ?? false || true) {
-    // }
+
     await showDialog<void>(
       barrierDismissible: false,
       context: rootNavigatorContext,
@@ -81,8 +66,9 @@ class _WebRTCConnectionManagerOverlayState extends State<WebRTCConnectionManager
                       backgroundColor: context.theme.colorScheme.tertiary,
                       onPressed: showConnectionModal,
                       child: Icon(
-                        IconPack.flu_scan_qr_code_filled,
+                        IconPack.mdi_qrcode_scan,
                         color: context.theme.colorScheme.onTertiary,
+                        size: 28,
                       ),
                     ),
                   ),

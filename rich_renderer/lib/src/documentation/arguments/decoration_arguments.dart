@@ -18,7 +18,7 @@ Color value should be a hex representation of the color in the next possible for
     );
 
 TagArgument blendModeArg(String name) => TagArgument(name, DocumentationTypes.blendModeValues);
-TagArgument strokeAlignArg([String name = 'strokeAlign']) => TagArgument(name, DocumentationTypes.strokeAlignValues);
+// TagArgument strokeAlignArg([String name = 'strokeAlign']) => TagArgument(name, DocumentationTypes.strokeAlignValues);
 TagArgument blurStyleArg([String name = 'blurStyle']) => TagArgument(name, DocumentationTypes.blurStyleValues);
 TagArgument tileModeArg([String name = 'tileMode']) => TagArgument(name, DocumentationTypes.tileModeValues);
 TagArgument materialTypeArg([String name = 'type']) => TagArgument(name, DocumentationTypes.materialTypeValues);

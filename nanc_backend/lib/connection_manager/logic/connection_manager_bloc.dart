@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:model/model.dart';
@@ -9,19 +10,13 @@ import 'package:tools/tools.dart';
 
 class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
   ConnectionManagerBloc({
-    required this.webRTCServiceFactory,
-    required this.webRTCServiceDisposeStream,
-  }) : super(ConnectionManagerState.empty()) {
-    _initDisposeHandler();
-  }
+    required this.peerServiceFactory,
+  }) : super(ConnectionManagerState.empty());
 
-  final WebRTCServiceFactory webRTCServiceFactory;
-  final Stream<String> webRTCServiceDisposeStream;
+  final PeerServiceFactory peerServiceFactory;
 
-  final Map<String, WebRTCService> _services = {};
-  Timer? _awaitingTimer;
-  WebRTCService? _service;
-  StreamSubscription<String>? _disposeStreamSubscription;
+  final Map<String, PeerService> _services = {};
+  PeerService? _service;
 
   Future<void> createConnection() async {
     if (state.isNotEmptyId) {
@@ -29,51 +24,72 @@ class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
       return;
     }
     emit(state.copyWith(isLoading: true));
-    _service = webRTCServiceFactory.create();
-    await _service!.init();
-    final String roomId = await _service!.createOffer();
+    _service = peerServiceFactory.createPeerService(messageHandler: _clientMessageHandler, onClose: () => _onClose('TODO'));
+    final String myPeerId = await _service!.peerId;
+    final String encryptedPeerId = await encrypt(myPeerId);
     emit(state.copyWith(
-      freshRoomId: roomId,
+      freshRoomId: encryptedPeerId,
       isLoading: false,
     ));
-    unawaited(_awaitConnectedClient());
+    unawaited(_awaitConnectedClient(myPeerId));
+  }
+
+  void _clientMessageHandler(dynamic serializedMessage) {
+    logg('Got a message from the client "$serializedMessage"');
+  }
+
+  Future<void> _onClose(String backendPeerId) async {
+    logg('Closing connection "$backendPeerId"');
+    await _disposeHandler(backendPeerId);
   }
 
   Future<void> sendPageDataToTheClients({required Model model, required Json page}) async {
-    for (final WebRTCService service in _services.values) {
-      await service.sendMessage(
-        messageType: kUpdatePage,
-        oneWay: true,
-        value: {
-          kModelId: model.id,
-          kPageData: page,
-        },
-      );
+    final Map<String, dynamic> message = <String, dynamic>{
+      'messageType': kUpdatePage,
+      'oneWay': true,
+      'value': {
+        kModelId: model.id,
+        kPageData: page,
+      },
+    };
+    final String serializedMessage = jsonEncode(message);
+
+    for (final PeerService service in _services.values) {
+      await service.sendMessage(serializedMessage);
     }
   }
 
-  Future<void> _awaitConnectedClient() async {
-    await _service!.haveConnectedClient();
-    _awaitingTimer?.cancel();
-    _awaitingTimer = null;
-    await _service!.addCandidates(state.freshRoomId);
-    final List<Client> oldClients = List.of(state.clients);
-    oldClients.add(
-      Client(
-        roomId: state.freshRoomId,
-        status: ClientStatus.connected,
-        serviceId: _service!.id,
-      ),
-    );
-    emit(state.copyWith(
-      freshRoomId: '',
-      clients: oldClients,
-    ));
-    _services[_service!.id] = _service!;
-    _service = null;
+  Future<void> _awaitConnectedClient(String backendPeerId) async {
+    final Completer<void> connectionCompleter = Completer();
+    final StreamSubscription<ConnectionStatus> subscription = _service!.statusStream.listen((ConnectionStatus status) {
+      logg('GOT "$status" STATUS ON THE BACKEND SIDE');
+      if (status == ConnectionStatus.closed) {
+        //
+      } else if (status == ConnectionStatus.connection) {
+        //
+      } else if (status == ConnectionStatus.connected) {
+        connectionCompleter.complete();
+        final List<Client> oldClients = List.of(state.clients);
+        oldClients.add(
+          Client(
+            roomId: state.freshRoomId,
+            status: ClientStatus.connected,
+            serviceId: backendPeerId,
+          ),
+        );
+        emit(state.copyWith(
+          freshRoomId: '',
+          clients: oldClients,
+        ));
+        _services[backendPeerId] = _service!;
+        _service = null;
+      }
+    });
+    logg.wrap('CLIENT CONNECTING');
+    await connectionCompleter.future;
+    logg.wrap('CLIENT CONNECTED');
+    await subscription.cancel();
   }
-
-  void _initDisposeHandler() => _disposeStreamSubscription = webRTCServiceDisposeStream.listen(_disposeHandler);
 
   Future<void> _disposeHandler(String serviceId) async {
     _services.remove(serviceId);

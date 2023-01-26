@@ -21,8 +21,6 @@ DocumentationTypes _$DocumentationTypesFromJson(Map<String, dynamic> json) =>
       ..textBaseline =
           $enumDecodeNullable(_$TextBaselineEnumMap, json['textBaseline'])
       ..blendMode = $enumDecodeNullable(_$BlendModeEnumMap, json['blendMode'])
-      ..strokeAlign =
-          $enumDecodeNullable(_$StrokeAlignEnumMap, json['strokeAlign'])
       ..blurStyle = $enumDecodeNullable(_$BlurStyleEnumMap, json['blurStyle'])
       ..tileMode = $enumDecodeNullable(_$TileModeEnumMap, json['tileMode'])
       ..alignmentEnum =
@@ -53,7 +51,6 @@ Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
       'textDirection': _$TextDirectionEnumMap[instance.textDirection],
       'textBaseline': _$TextBaselineEnumMap[instance.textBaseline],
       'blendMode': _$BlendModeEnumMap[instance.blendMode],
-      'strokeAlign': _$StrokeAlignEnumMap[instance.strokeAlign],
       'blurStyle': _$BlurStyleEnumMap[instance.blurStyle],
       'tileMode': _$TileModeEnumMap[instance.tileMode],
       'alignmentEnum': _$AlignmentEnumEnumMap[instance.alignmentEnum],
@@ -136,12 +133,6 @@ const _$BlendModeEnumMap = {
   BlendMode.saturation: 'saturation',
   BlendMode.color: 'color',
   BlendMode.luminosity: 'luminosity',
-};
-
-const _$StrokeAlignEnumMap = {
-  StrokeAlign.inside: 'inside',
-  StrokeAlign.center: 'center',
-  StrokeAlign.outside: 'outside',
 };
 
 const _$BlurStyleEnumMap = {

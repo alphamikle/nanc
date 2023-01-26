@@ -9,7 +9,7 @@ class BorderArguments {
   const BorderArguments({
     required this.color,
     required this.width,
-    required this.strokeAlign,
+    // required this.strokeAlign,
   });
 
   factory BorderArguments.fromJson(dynamic json) => _$BorderArgumentsFromJson(castToJson(json));
@@ -20,15 +20,16 @@ class BorderArguments {
   @JsonKey(fromJson: doubleOrNullFromJson)
   final double? width;
 
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
-  final StrokeAlign? strokeAlign;
+  // TODO(alphamikle): Replace with new property
+  // @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  // final StrokeAlign? strokeAlign;
 
   BoxBorder toBorder(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
     return Border.all(
       color: color ?? theme.colorScheme.outline,
-      strokeAlign: strokeAlign ?? StrokeAlign.inside,
+      // strokeAlign: strokeAlign ?? StrokeAlign.inside,
       width: width ?? 1,
     );
   }

@@ -53,7 +53,6 @@ dependencies:
   mask_text_input_formatter: ^2.4.0
   animations: ^2.0.7
   rive: ^0.9.1
-  showcaseview: ^2.0.0+1
   lottie: ^2.0.0
   flutter_markdown: ^0.6.13
 

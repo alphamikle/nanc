@@ -146,5 +146,11 @@ final Model landingPage = Model(
         structure: MultiSelectorFieldStructure.arrayOfObjects,
       ),
     ],
+    [
+      HeaderField(name: 'Divider', content: '', useAsDivider: true),
+    ],
+    [
+      DateField(name: 'Updated At', isUpdatedAtField: true),
+    ],
   ],
 );

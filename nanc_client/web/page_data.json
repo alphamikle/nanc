@@ -11,8 +11,8 @@
   "white_color": "#FFFFFFFF",
   "black_color": "#FF222233",
   "font_family": "Josefin Sans",
-  "google_play_badge": "https://nanc.b-cdn.net/other/google-badge.png",
-  "app_store_badge": "https://nanc.b-cdn.net/other/apple-badge.png",
+  "google_play_badge": "https://corsproxy.io/?https://nanc.b-cdn.net/google-badge.png",
+  "app_store_badge": "https://corsproxy.io/?https://nanc.b-cdn.net/apple-badge.png",
   "google_play_link": "https://play.google.com/store/apps/details?id=com.indieloper.nanc_client",
   "app_store_link": "https://client.nanc.io",
   "main_header": "NANC - IS THE REINVENTION OF CMS",
@@ -36,35 +36,35 @@
     "image": {
      "id": "01855651-c8d5-f3f5-a9a2-834b4e2a4806",
      "title": "Screen 1",
-     "url": "https://nanc.b-cdn.net/screens/screen_1.png"
+     "url": "https://corsproxy.io/?https://nanc.b-cdn.net/screen_1.png"
     }
    },
    {
     "image": {
      "id": "01855652-5ce2-7636-7b69-82fc3f264c03",
      "title": "Screen 3",
-     "url": "https://nanc.b-cdn.net/screens/screen_3.png"
+     "url": "https://corsproxy.io/?https://nanc.b-cdn.net/screen_3.png"
     }
    },
    {
     "image": {
      "id": "0185db12-fd7d-fa3a-0ba5-9c6be9ead473",
      "title": "Screen 5",
-     "url": "https://nanc.b-cdn.net/screens/screen_5.png"
+     "url": "https://corsproxy.io/?https://nanc.b-cdn.net/screen_5.png"
     }
    },
    {
     "image": {
      "id": "0185db13-74bb-4a37-59c0-ce2fae81ae5d",
      "title": "Screen 7",
-     "url": "https://nanc.b-cdn.net/screens/screen_7.png"
+     "url": "https://corsproxy.io/?https://nanc.b-cdn.net/screen_7.png"
     }
    },
    {
     "image": {
      "id": "0185db13-a0d1-d6a4-0ff0-1e1a27590fd2",
      "title": "Screen 8",
-     "url": "https://nanc.b-cdn.net/screens/screen_8.png"
+     "url": "https://corsproxy.io/?https://nanc.b-cdn.net/screen_8.png"
     }
    }
   ],
@@ -135,7 +135,7 @@
      "name": "Rachel",
      "second_name": "McAdams",
      "position": "designer",
-     "image": "https://nanc.b-cdn.net/avatars/mcadams_op.jpg",
+     "image": "https://corsproxy.io/?https://nanc.b-cdn.net/mcadams_op.jpg",
      "description": "I am a skilled UI/UX designer with a passion for creating intuitive and user-friendly interfaces. I have a strong understanding of user psychology and am able to effectively communicate my designs to team members and stakeholders. I am constantly learning and staying up-to-date with the latest design trends and best practices.",
      "facebook": "https://facebook.com/nanc",
      "instagram": "https://instagram.com/nanc",
@@ -149,7 +149,7 @@
      "name": "Will",
      "second_name": "Smith",
      "position": "manager",
-     "image": "https://nanc.b-cdn.net/avatars/smith_op.jpg",
+     "image": "https://corsproxy.io/?https://nanc.b-cdn.net/smith_op.jpg",
      "description": "As a manager, I am responsible for leading and guiding a team towards success. I have excellent communication and leadership skills, and am able to set clear goals and delegate tasks effectively. I am able to analyze data and make informed decisions, and am a strong problem-solver able to adapt to changing circumstances.",
      "facebook": "https://facebook.com/nanc",
      "instagram": "https://instagram.com/nanc",
@@ -163,7 +163,7 @@
      "name": "Robert",
      "second_name": "Downey",
      "position": "appDeveloper",
-     "image": "https://nanc.b-cdn.net/avatars/downey_op.jpg",
+     "image": "https://corsproxy.io/?https://nanc.b-cdn.net/downey_op.jpg",
      "description": "I am a highly skilled mobile app developer with a passion for creating innovative and engaging apps. I excel at solving complex technical challenges and delivering high-quality apps on time and within budget.",
      "facebook": "https://facebook.com/nanc",
      "instagram": "https://instagram.com/nanc",
@@ -177,7 +177,7 @@
     "id": "01855678-c859-1c9c-7739-4525a5030fbe",
     "customer_name": "Bill",
     "customer_lastname": "Ackman",
-    "image": "https://nanc.b-cdn.net/avatars/ackman_op.jpg",
+    "image": "https://corsproxy.io/?https://nanc.b-cdn.net/ackman_op.jpg",
     "position": "Compensation Analyst",
     "review": "I have been using NANC CMS for the past year and I must say, it is hands-down the best CMS I have ever used. The interface is user-friendly and intuitive, making it easy for me to manage my website's content without any prior technical knowledge. The feature set is extensive, offering everything I need to create a professional and dynamic website. The customer support team is also top-notch, always available to answer my questions and provide assistance when needed. Overall, I highly recommend NANC CMS to anyone looking for a powerful and reliable content management system."
    },
@@ -185,7 +185,7 @@
     "id": "01855685-4b54-138b-b864-146712e6d2f9",
     "customer_name": "Catherine",
     "customer_lastname": "Wood",
-    "image": "https://nanc.b-cdn.net/avatars/wood_op.jpg",
+    "image": "https://corsproxy.io/?https://nanc.b-cdn.net/wood_op.jpg",
     "position": "Financial Analyst",
     "review": "Hey, have you heard of NANC? It's this amazing CMS that I've been using and it's been a game-changer for my business. We've seen 200% growth every year since we started using it. I highly recommend checking it out if you're in the market for a new CMS."
    },
@@ -193,7 +193,7 @@
     "id": "01855689-71b6-f475-c8f6-43dee7358bb8",
     "customer_name": "Peter",
     "customer_lastname": "Lynch",
-    "image": "https://nanc.b-cdn.net/avatars/lynch_op.jpg",
+    "image": "https://corsproxy.io/?https://nanc.b-cdn.net/lynch_op.jpg",
     "position": "Marketing Manager",
     "review": "I wanted to share a content management system that has completely transformed my business. It's called NANC, and it's seriously impressive. One of the things that sets NANC apart is its flexibility. It can integrate with just any backend system, which has been super convenient for us. And get this – it also has a feature that lets you update Flutter apps without publishing to the app store. That's not something you see every day! But it's not just about the bells and whistles – NANC is also really user-friendly and can handle a wide range of content types and formats. And of course, it's reliable and secure, which is a must for any business. I've been blown away by NANC and think it's a game-changer for anyone looking for a robust and flexible CMS. Give it a try – you won't be disappointed."
    },
@@ -201,15 +201,15 @@
     "id": "0185568c-4659-06a2-63e4-43ee579b4103",
     "customer_name": "Sam",
     "customer_lastname": "Bankman-Fried",
-    "image": "https://nanc.b-cdn.net/avatars/bankman_op.jpg",
+    "image": "https://corsproxy.io/?https://nanc.b-cdn.net/bankman_op.jpg",
     "position": "Pranker",
-    "review": "Content Management Systems: A Case Study of NANC\n\nContent management systems (CMSs) are an integral part of many modern businesses, providing a platform for creating and publishing digital content. In this case study, we will examine the effectiveness of NANC, a CMS that has significantly impacted the growth and efficiency of our organization.\n\nNANC stands out among other CMSs due to its flexibility and ability to integrate with various backend systems. This has allowed us to seamlessly incorporate NANC into our existing workflow and make updates to our content without the need for additional resources.\n\nIn addition, NANC offers a unique feature that allows for the update of Flutter apps without the need for publishing to the app store. This has greatly reduced the time and effort required to make changes to our mobile applications, leading to increased productivity and customer satisfaction.\n\nOverall, NANC has proven to be a reliable and user-friendly CMS that has significantly contributed to the growth of our business. We highly recommend NANC to other organizations seeking a flexible and efficient platform for managing digital content."
+    "review": "Content Management Systems: A Case Study of NANC. Content management systems (CMSs) are an integral part of many modern businesses, providing a platform for creating and publishing digital content. In this case study, we will examine the effectiveness of NANC, a CMS that has significantly impacted the growth and efficiency of our organization.\nNANC stands out among other CMSs due to its flexibility and ability to integrate with various backend systems. This has allowed us to seamlessly incorporate NANC into our existing workflow and make updates to our content without the need for additional resources.\nIn addition, NANC offers a unique feature that allows for the update of Flutter apps without the need for publishing to the app store. This has greatly reduced the time and effort required to make changes to our mobile applications, leading to increased productivity and customer satisfaction.\nOverall, NANC has proven to be a reliable and user-friendly CMS that has significantly contributed to the growth of our business. We highly recommend NANC to other organizations seeking a flexible and efficient platform for managing digital content."
    },
    {
     "id": "0185568f-24bc-605c-8a38-f28a845c023a",
     "customer_name": "Warren",
     "customer_lastname": "Buffett",
-    "image": "https://nanc.b-cdn.net/avatars/buffett_op.jpg",
+    "image": "https://corsproxy.io/?https://nanc.b-cdn.net/buffett_op.jpg",
     "position": "Investor",
     "review": "Attention tech investors: have you heard of NANC? It's a content management system that is quickly gaining traction in the market and has the potential to be a game-changer for businesses of all sizes.\n\nWhat sets NANC apart is its flexibility and ability to integrate with any backend system. This makes it a versatile solution for managing digital content and allows for seamless integration into existing workflows.\n\nBut NANC's real standout feature is its ability to update Flutter apps without the need for publishing to the app store. This saves time and resources, and has the potential to revolutionize the way businesses make changes to their mobile applications.\n\nIn terms of performance, NANC is reliable and user-friendly, with a wide range of capabilities for handling different content types and formats. It's also secure, which is crucial for protecting sensitive data.\n\nOverall, we believe NANC is a promising technology solution with significant growth potential. If you're looking for a startup to invest in, we highly recommend giving NANC a closer look"
    }

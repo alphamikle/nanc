@@ -14,7 +14,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:showcaseview/showcaseview.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
 
@@ -111,27 +110,20 @@ class _FlutterAdminState extends State<FlutterAdmin> {
               providers: initializer.blocProviders,
               child: Builder(
                 builder: (BuildContext context) {
-                  return ShowCaseWidget(
-                    blurValue: 4,
-                    builder: Builder(
-                      builder: (BuildContext context) {
-                        return VRouter(
-                          debugShowCheckedModeBanner: false,
-                          navigatorKey: rootKey,
-                          routes: buildRoutes(context),
-                          onPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
-                          onSystemPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
-                          builder: AnimationDebugger.builderWrapper(adminBuilder),
-                          navigatorObservers: [
-                            BotToastNavigatorObserver(),
-                          ],
-                          theme: themeBuilder(context),
-                          darkTheme: themeBuilder(context, dark: true),
-                          themeMode: ThemeMode.light,
-                          buildTransition: (Animation<double> animation, Animation<double> animation2, Widget child) => child,
-                        );
-                      },
-                    ),
+                  return VRouter(
+                    debugShowCheckedModeBanner: false,
+                    navigatorKey: rootKey,
+                    routes: buildRoutes(context),
+                    onPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
+                    onSystemPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
+                    builder: AnimationDebugger.builderWrapper(adminBuilder),
+                    navigatorObservers: [
+                      BotToastNavigatorObserver(),
+                    ],
+                    theme: themeBuilder(context),
+                    darkTheme: themeBuilder(context, dark: true),
+                    themeMode: ThemeMode.light,
+                    buildTransition: (Animation<double> animation, Animation<double> animation2, Widget child) => child,
                   );
                 },
               ),

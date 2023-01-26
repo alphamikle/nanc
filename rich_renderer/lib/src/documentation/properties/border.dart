@@ -6,7 +6,7 @@ TagProperty borderProp([String name = 'border']) => TagProperty(
       name: name,
       arguments: [
         colorArg(),
-        strokeAlignArg(),
+        // strokeAlignArg(),
         widthArg(),
       ],
       properties: [],

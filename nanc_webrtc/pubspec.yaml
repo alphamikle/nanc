@@ -12,12 +12,17 @@ dependencies:
     sdk: flutter
   tools:
     path: ../tools
-  flutter_webrtc: ^0.9.14
+#  flutter_webrtc: ^0.9.19
   dio: ^4.0.6
   json_annotation: ^4.7.0
   retrofit: ^3.3.1
   copy_with_extension: ^4.0.4
   supabase_flutter: ^1.2.2
+  peerdart: ^0.5.0
+
+#dependency_overrides:
+#  flutter_webrtc:
+#    git: https://github.com/flutter-webrtc/flutter-webrtc.git
 
 dev_dependencies:
   flutter_test:

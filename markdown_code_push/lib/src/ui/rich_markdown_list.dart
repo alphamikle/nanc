@@ -109,6 +109,7 @@ class RichMarkdownList extends StatelessWidget {
                                 return preloader;
                               }
                               final List<Widget> widgets = asyncWidgets.data ?? [];
+                              // TODO(alphamikle): Подумать над тем, как можно оптимизировать моменты с отображением сливеров и не сливеров одновременно
                               return CustomScrollView(
                                 controller: scrollController,
                                 slivers: [

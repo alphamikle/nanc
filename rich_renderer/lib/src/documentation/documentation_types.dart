@@ -14,7 +14,7 @@ class DocumentationTypes {
   static Set<String> get textDirectionValues => _$VerticalDirectionEnumMap.values.toSet();
   static Set<String> get textBaselineValues => _$TextBaselineEnumMap.values.toSet();
   static Set<String> get blendModeValues => _$BlendModeEnumMap.values.toSet();
-  static Set<String> get strokeAlignValues => _$StrokeAlignEnumMap.values.toSet();
+  // static Set<String> get strokeAlignValues => _$StrokeAlignEnumMap.values.toSet();
   static Set<String> get blurStyleValues => _$BlurStyleEnumMap.values.toSet();
   static Set<String> get tileModeValues => _$TileModeEnumMap.values.toSet();
   static Set<String> get alignmentEnumValues => _$AlignmentEnumEnumMap.values.toSet();
@@ -35,7 +35,7 @@ class DocumentationTypes {
   TextDirection? textDirection;
   TextBaseline? textBaseline;
   BlendMode? blendMode;
-  StrokeAlign? strokeAlign;
+  // StrokeAlign? strokeAlign;
   BlurStyle? blurStyle;
   TileMode? tileMode;
   AlignmentEnum? alignmentEnum;

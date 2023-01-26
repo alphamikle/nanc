@@ -56,7 +56,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   app_links: 4481ed4d71f384b0c3ae5016f4633aa73d32ff67
-  flutter_webrtc: 374ed7e14e2c3d271db2ab5dab4f949828705cf0
+  flutter_webrtc: 4bb537cadddcfb5e5b24c96cbd6ff56f064b8faf
   FlutterMacOS: ae6af50a8ea7d6103d888583d46bd8328a7e9811
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   mobile_scanner: 9c643c89604da4c76917f7bd37266fcdd48bda75

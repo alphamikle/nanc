@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:config/config.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:tools/src/db/logic/db_adapter.dart';
 import 'package:tools/src/tools/logg.dart';
 import 'package:tools/tools.dart';
@@ -33,8 +31,6 @@ class DbService {
     if (_initializationState == _DbServiceInitializationState.initialized) {
       return;
     }
-
-    unawaited(getApplicationDocumentsDirectory().then((Directory appDir) => logg('Application documents directory: file://${appDir.path}')));
 
     if (_initializationState == _DbServiceInitializationState.notInitialized) {
       _initializationState = _DbServiceInitializationState.initialization;

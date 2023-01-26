@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:showcaseview/showcaseview.dart';
 
 class TutorialTarget extends StatelessWidget {
   const TutorialTarget({
@@ -25,22 +24,6 @@ class TutorialTarget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isTextTutorial) {
-      return Showcase(
-        key: showcaseKey,
-        description: text!,
-        targetBorderRadius: borderRadius,
-        child: child,
-      );
-    }
-
-    return Showcase.withWidget(
-      key: showcaseKey,
-      container: widget,
-      height: height,
-      width: width,
-      targetBorderRadius: borderRadius,
-      child: child,
-    );
+    return child;
   }
 }

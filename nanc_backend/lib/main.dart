@@ -15,7 +15,6 @@ import 'package:nanc_backend/models/feature.dart';
 import 'package:nanc_backend/models/image.dart';
 import 'package:nanc_backend/models/landing_page.dart';
 import 'package:nanc_backend/models/review.dart';
-import 'package:nanc_backend/user/logic/bloc/user_bloc.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
 import 'package:tools/tools.dart';
 
@@ -26,22 +25,9 @@ Future<void> main() async {
   logg.wrap(info.toPrettyString(), prefix: 'APP INFO');
 
   final DbService dbService = createDbService();
-  await Supabase.initialize(url: kSupaHost, anonKey: kSupaKey);
-  await SupabaseAuth.initialize();
-  final CloudDb cloudDb = createCloudDb(dbService);
-  // ignore: close_sinks
-  final StreamController<String> webRTCServiceDisposeStreamController = StreamController.broadcast();
-
-  void onDispose(String serviceId) {
-    webRTCServiceDisposeStreamController.add(serviceId);
-  }
-
-  final WebRTCServiceFactory webRTCServiceFactory = WebRTCServiceFactory(dbProvider: cloudDb, onDispose: onDispose);
   final ConnectionManagerBloc connectionManagerBloc = ConnectionManagerBloc(
-    webRTCServiceFactory: webRTCServiceFactory,
-    webRTCServiceDisposeStream: webRTCServiceDisposeStreamController.stream,
+    peerServiceFactory: PeerServiceFactory(),
   );
-  final UserBloc userBloc = UserBloc(cloudDb: cloudDb);
 
   await adminRunner(
     models: [
@@ -70,21 +56,14 @@ Future<void> main() async {
       return MultiBlocProvider(
         providers: [
           BlocProvider<ConnectionManagerBloc>.value(value: connectionManagerBloc),
-          BlocProvider<UserBloc>.value(value: userBloc),
         ],
-        child: MultiRepositoryProvider(
-          providers: [
-            RepositoryProvider<WebRTCServiceFactory>.value(value: webRTCServiceFactory),
-            RepositoryProvider<CloudDb>.value(value: cloudDb),
-          ],
-          child: Builder(
-            builder: (BuildContext context) {
-              return WebRTCConnectionManagerOverlay(
-                rootNavigatorKey: navigatorKey,
-                child: adminPanel,
-              );
-            },
-          ),
+        child: Builder(
+          builder: (BuildContext context) {
+            return WebRTCConnectionManagerOverlay(
+              rootNavigatorKey: navigatorKey,
+              child: adminPanel,
+            );
+          },
         ),
       );
     },

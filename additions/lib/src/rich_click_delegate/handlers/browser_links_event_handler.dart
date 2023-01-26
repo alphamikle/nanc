@@ -8,6 +8,9 @@ final RichClickHandler browserLinksEventDemoHandler = RichClickHandler(
   test: (BuildContext context, String event) => _browserRegExp.hasMatch(event),
   handler: (BuildContext context, String event) {
     final String content = _browserRegExp.firstMatch(event)!.namedGroup('content')!;
-    launchUrlString(content);
+    launchUrlString(
+      content,
+      mode: LaunchMode.externalApplication,
+    );
   },
 );
