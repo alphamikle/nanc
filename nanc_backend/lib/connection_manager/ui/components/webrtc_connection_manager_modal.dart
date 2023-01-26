@@ -217,7 +217,8 @@ class _WebRTCConnectionManagerModalState extends State<WebRTCConnectionManagerMo
                                           Padding(
                                             padding: EdgeInsets.only(right: 16),
                                             child: Icon(
-                                              IconPack.flu_scan_qr_code_filled,
+                                              IconPack.mdi_qrcode,
+                                              size: 24,
                                             ),
                                           ),
                                           Text('Add new client'),

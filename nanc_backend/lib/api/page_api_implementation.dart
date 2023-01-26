@@ -6,13 +6,16 @@ import 'package:model/model.dart';
 import 'package:nanc_backend/api/db_extension.dart';
 import 'package:nanc_backend/api/tools.dart';
 import 'package:nanc_backend/connection_manager/logic/connection_manager_bloc.dart';
+import 'package:nanc_backend/models/landing_page.dart';
 import 'package:tools/tools.dart';
 
 class PageApiImplementation extends MockApi implements PageApi {
   PageApiImplementation({
     required this.dbService,
     required this.connectionManagerBloc,
-  });
+  }) {
+    connectionManagerBloc.setOnConnectedCallback(_onConnectedToClient);
+  }
 
   @override
   final DbService dbService;
@@ -110,5 +113,11 @@ class PageApiImplementation extends MockApi implements PageApi {
       await wait();
     }
     return clearData;
+  }
+
+  Future<void> _onConnectedToClient() async {
+    final Json landingPageData = await fetchPageData(landingPage, landingPage.id, landingPage.flattenFields.ids);
+    await wait(duration: const Duration(seconds: 2));
+    await connectionManagerBloc.sendPageDataToTheClients(model: landingPage, page: landingPageData);
   }
 }

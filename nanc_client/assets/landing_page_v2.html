@@ -6,6 +6,7 @@
       grey="{{ page.grey_color }}"
       white="{{ page.white_color }}"
       black="{{ page.black_color }}"
+      transparentGrey="#6C6C7282"
 />
 
 <data id="stores"
@@ -97,34 +98,63 @@
   </stack>
 </template>
 
+<template id="buttons.justButton">
+  <stack>
+    <container color="{{ template.color }}">
+      <prop:decoration>
+        <prop:borderRadius all="8"/>
+      </prop:decoration>
+      <padding all="16">
+        <center>
+          <text color="{{ template.textColor }}" size="18">
+            {{ template.text }}
+          </text>
+        </center>
+      </padding>
+    </container>
+    <positioned all="0">
+      <material type="transparency">
+        <prop:borderRadius all="8"/>
+        <inkWell onPressed="{{ template.onPressed }}">
+          <prop:borderRadius all="8"/>
+        </inkWell>
+      </material>
+    </positioned>
+  </stack>
+</template>
+
 <template id="buttons.form">
   <column>
-    <component id="text.h7" color="#6C6C7282"
+    <component id="text.h7" color="{{ data(colors).transparentGrey }}"
                text="If you are interested in communication with us, please - fill the form below"/>
     <divider height="12"/>
-    <stack>
-      <container color="{{ data(colors).royalBlue }}">
-        <prop:decoration>
-          <prop:borderRadius all="8"/>
-        </prop:decoration>
-        <padding all="16">
-          <center>
-            <text color="{{ data(colors).white }}" size="18">
-              FILL GOOGLE FORM
-            </text>
-          </center>
-        </padding>
-      </container>
-      <positioned all="0">
-        <material type="transparency">
-          <prop:borderRadius all="8"/>
-          <inkWell onPressed="browser: https://forms.gle/waAR9GVPB4cESTL99">
-            <prop:borderRadius all="8"/>
-          </inkWell>
-        </material>
-      </positioned>
-    </stack>
+    <component id="buttons.justButton" color="{{ data(colors).royalBlue }}"
+               textColor="{{ data(colors).white }}" text="FILL GOOGLE FORM"
+               onPressed="browser: https://forms.gle/waAR9GVPB4cESTL99"/>
   </column>
+</template>
+
+<template id="buttons.squareIcon">
+  <stack>
+    <container color="{{ template.color }}">
+      <prop:decoration>
+        <prop:borderRadius all="8"/>
+      </prop:decoration>
+      <padding all="16">
+        <center>
+          <icon icon="{{ template.icon }}" color="{{ template.iconColor }}" size="26"/>
+        </center>
+      </padding>
+    </container>
+    <positioned all="0">
+      <material type="transparency">
+        <prop:borderRadius all="8"/>
+        <inkWell onPressed="{{ template.onPressed }}">
+          <prop:borderRadius all="8"/>
+        </inkWell>
+      </material>
+    </positioned>
+  </stack>
 </template>
 
 <!-- ? ========================= Texts ========================= -->
@@ -402,7 +432,7 @@
             <component id="text.h7" color="{{ data(colors).grey }}" text="{{ page.top_block_text }}"/>
             <divider height="30"/>
             <component id="text.h2" color="{{ data(colors).black }}" text="{{ page.download_apps_header }}"/>
-            <divider height="18"/>
+            <divider height="12"/>
             <row>
               <expanded>
                 <component id="buttons.store" link="{{ data(stores).googleLink }}" image="{{ data(stores).googleBadge }}"/>
@@ -411,6 +441,17 @@
               <expanded>
                 <component id="buttons.store" link="{{ data(stores).appleLink }}" image="{{ data(stores).appleBadge }}"/>
               </expanded>
+            </row>
+            <padding top="40" bottom="18" color="">
+              <component id="text.h2" color="{{ data(colors).black }}" text="AND PLAY WITH CMS"/>
+              <component id="text.h7" color="{{ data(colors).transparentGrey }}" text="available only for desktops now"/>
+            </padding>
+            <row>
+              <expanded>
+                <component id="buttons.justButton" color="#FFF76707" textColor="#FFFFFF" text="Let's play" onPressed="browser: https://admin.nanc.io"/>
+              </expanded>
+              <divider width="8"/>
+              <component id="buttons.squareIcon" color="#FFF76707" iconColor="#FFFFFF" icon="flu_share_android_filled" onPressed="share: https://admin.nanc.io"/>
             </row>
           </column>
         </container>
@@ -664,11 +705,9 @@
         </carouselSlider>
       </padding>
 
-      <padding>
-        <text align="center" size="10">
-          version: {{ page.updated_at }}
-        </text>
-      </padding>
+      <text align="center" size="10" color="{{ data(colors).white }}">
+        version: {{ page.updated_at }}
+      </text>
     </column>
   </container>
 </padding>

@@ -8,8 +8,15 @@ Widget imageLoadingBuilder(
   ImageChunkEvent? loadingProgress,
 ) {
   if (loadingProgress != null && loadingProgress.expectedTotalBytes != null) {
-    return KitCirclePreloader(
-      value: loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!,
+    return const DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(100)),
+        color: Colors.white,
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(32),
+        child: KitCirclePreloader(),
+      ),
     );
   }
   return child;

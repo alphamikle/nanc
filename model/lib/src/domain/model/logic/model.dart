@@ -151,3 +151,9 @@ class Model extends Equatable {
         codeFirstEntity,
       ];
 }
+
+extension FieldsIds on List<Field> {
+  List<String> get ids {
+    return map((Field field) => field.id).toList();
+  }
+}

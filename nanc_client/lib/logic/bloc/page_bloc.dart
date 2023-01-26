@@ -3,8 +3,8 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:nanc_client/logic/bloc/page_state.dart';
 import 'package:nanc_client/logic/peer_client_service.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
@@ -47,6 +47,7 @@ class PageBloc extends Cubit<PageState> {
 
   Future<void> disconnect() async {
     await peerClientService.disconnect();
+    _onClose();
   }
 
   void _onClose() {
@@ -133,61 +134,94 @@ class PageBloc extends Cubit<PageState> {
   }
 
   Future<void> _handleNewPageData({required String modelId, required Json pageData}) async {
-    final bool needToUpdateView = state.alwaysUpdate ||
-        await confirmAction(
-          context: rootKey.currentContext!,
-          title: '',
-          subtitle: '',
-          wrapper: (BuildContext context, Widget child) {
-            return Center(
-              child: KitBaseModal(
-                width: 600,
-                header: Padding(
-                  padding: const EdgeInsets.only(bottom: Gap.large),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Reload current view?',
-                        style: context.theme.textTheme.headline6,
-                      ),
-                    ],
-                  ),
-                ),
-                body: const Padding(
-                  padding: EdgeInsets.only(top: Gap.regular, bottom: Gap.regular),
-                  child: Text('The content was updated on the CMS side. Do you want to see it?'),
-                ),
-                bottom: Row(
-                  children: [
-                    KitButton(
-                      text: 'Ok',
-                      color: context.kitColors.successColor,
-                      onPressed: () => context.navigator.pop(true),
-                    ),
-                    KitDivider.horizontal(Gap.large),
-                    KitButton(
-                      text: 'Always',
-                      color: context.kitColors.successColor,
-                      onPressed: () {
-                        context.navigator.pop(true);
-                        emit(state.copyWith(alwaysUpdate: true));
-                      },
-                    ),
-                    KitDivider.horizontal(Gap.large),
-                    KitButton(
-                      text: 'No',
-                      color: context.kitColors.successColor,
-                      onPressed: () => context.navigator.pop(false),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
-        );
+    const bool needToUpdateView = true;
+    // final bool needToUpdateViewOld = state.alwaysUpdate ||
+    //     await confirmAction(
+    //       context: rootKey.currentContext!,
+    //       title: '',
+    //       subtitle: '',
+    //       wrapper: (BuildContext context, Widget child) {
+    //         return Center(
+    //           child: KitBaseModal(
+    //             width: 600,
+    //             header: Padding(
+    //               padding: const EdgeInsets.only(bottom: Gap.large),
+    //               child: Column(
+    //                 mainAxisSize: MainAxisSize.min,
+    //                 crossAxisAlignment: CrossAxisAlignment.start,
+    //                 children: [
+    //                   Text(
+    //                     'Reload current view?',
+    //                     style: context.theme.textTheme.headline6,
+    //                   ),
+    //                 ],
+    //               ),
+    //             ),
+    //             body: const Padding(
+    //               padding: EdgeInsets.only(top: Gap.regular, bottom: Gap.regular),
+    //               child: Text('The content was updated on the CMS side. Do you want to see it?'),
+    //             ),
+    //             bottom: Row(
+    //               children: [
+    //                 KitButton(
+    //                   text: 'Ok',
+    //                   color: context.kitColors.successColor,
+    //                   onPressed: () => context.navigator.pop(true),
+    //                 ),
+    //                 KitDivider.horizontal(Gap.large),
+    //                 KitButton(
+    //                   text: 'Always',
+    //                   color: context.kitColors.successColor,
+    //                   onPressed: () {
+    //                     context.navigator.pop(true);
+    //                     emit(state.copyWith(alwaysUpdate: true));
+    //                   },
+    //                 ),
+    //                 KitDivider.horizontal(Gap.large),
+    //                 KitButton(
+    //                   text: 'No',
+    //                   color: context.kitColors.successColor,
+    //                   onPressed: () => context.navigator.pop(false),
+    //                 ),
+    //               ],
+    //             ),
+    //           ),
+    //         );
+    //       },
+    //     );
     if (needToUpdateView) {
+      final Color backgroundColor = rootKey.currentContext!.theme.colorScheme.primary;
+      final Color contentColor = rootKey.currentContext!.theme.colorScheme.onPrimary;
+
+      ScaffoldMessenger.of(rootKey.currentContext!).showSnackBar(
+        SnackBar(
+          duration: const Duration(seconds: 5),
+          elevation: 4,
+          showCloseIcon: true,
+          backgroundColor: backgroundColor,
+          closeIconColor: contentColor,
+          content: Builder(
+            builder: (BuildContext context) {
+              return Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 1, right: Gap.regular),
+                    child: Icon(
+                      IconPack.rmx_refresh_fill,
+                      color: contentColor,
+                      size: 28,
+                    ),
+                  ),
+                  Text(
+                    'Page updated',
+                    style: context.theme.textTheme.titleLarge?.copyWith(color: contentColor),
+                  ),
+                ],
+              );
+            },
+          ),
+        ),
+      );
       emit(state.copyWith(
         pageData: pageData,
       ));

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:nanc_backend/connection_manager/logic/connection_manager_state.dart';
 import 'package:nanc_backend/connection_manager/logic/model/client.dart';
@@ -16,6 +17,7 @@ class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
   final PeerServiceFactory peerServiceFactory;
 
   final Map<String, PeerService> _services = {};
+  final Map<String, StreamSubscription<ConnectionStatus>> _subscriptions = {};
   PeerService? _service;
 
   Future<void> createConnection() async {
@@ -61,10 +63,10 @@ class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
 
   Future<void> _awaitConnectedClient(String backendPeerId) async {
     final Completer<void> connectionCompleter = Completer();
-    final StreamSubscription<ConnectionStatus> subscription = _service!.statusStream.listen((ConnectionStatus status) {
-      logg('GOT "$status" STATUS ON THE BACKEND SIDE');
+    _subscriptions[backendPeerId] = _service!.statusStream.listen((ConnectionStatus status) {
       if (status == ConnectionStatus.closed) {
-        //
+        _subscriptions[backendPeerId]?.cancel();
+        _onClose(backendPeerId);
       } else if (status == ConnectionStatus.connection) {
         //
       } else if (status == ConnectionStatus.connected) {
@@ -81,14 +83,14 @@ class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
           freshRoomId: '',
           clients: oldClients,
         ));
+        if (_onConnected != null) {
+          _onConnected!();
+        }
         _services[backendPeerId] = _service!;
         _service = null;
       }
     });
-    logg.wrap('CLIENT CONNECTING');
     await connectionCompleter.future;
-    logg.wrap('CLIENT CONNECTED');
-    await subscription.cancel();
   }
 
   Future<void> _disposeHandler(String serviceId) async {
@@ -110,4 +112,8 @@ class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
       clients: onlineClients,
     ));
   }
+
+  VoidCallback? _onConnected;
+
+  void setOnConnectedCallback(VoidCallback onConnected) => _onConnected = onConnected;
 }

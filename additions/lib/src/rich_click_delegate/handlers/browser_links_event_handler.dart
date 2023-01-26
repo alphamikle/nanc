@@ -6,9 +6,13 @@ final RegExp _browserRegExp = RegExp(r'^browser: ?(?<content>.*)$');
 
 final RichClickHandler browserLinksEventDemoHandler = RichClickHandler(
   test: (BuildContext context, String event) => _browserRegExp.hasMatch(event),
-  handler: (BuildContext context, String event) {
+  handler: (BuildContext context, String event) async {
     final String content = _browserRegExp.firstMatch(event)!.namedGroup('content')!;
-    launchUrlString(
+    final bool isRealLink = content.startsWith('http');
+    if (isRealLink == false) {
+      throw Exception('"$content" is incorrect link!');
+    }
+    await launchUrlString(
       content,
       mode: LaunchMode.externalApplication,
     );

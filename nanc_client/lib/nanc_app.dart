@@ -35,6 +35,7 @@ class _NancAppState extends State<NancApp> {
           browserLinksEventDemoHandler,
           snackbarDemoHandler,
           deeplinkEventDemoHandler,
+          shareDemoHandler,
         ]);
 
         if (width > 500) {

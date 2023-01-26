@@ -2,15 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/decoration_arguments.dart';
-import 'package:rich_renderer/src/documentation/arguments/scalar_arguments.dart';
-import 'package:rich_renderer/src/documentation/properties/border_radius.dart';
 import 'package:rich_renderer/src/logic/actions_handler.dart';
 import 'package:rich_renderer/src/renderers/ink_well/ink_well_arguments.dart';
-import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_list.dart';
-import 'package:rich_renderer/src/rich_renderer.dart';
-import 'package:rich_renderer/src/tag_renderer.dart';
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 TagRenderer inkWellRenderer() {
@@ -52,6 +46,8 @@ The [InkWell](material/InkWell-class.html) widget must have a [Material](materia
 > * snackbar: <event> - shows the text specified in <event> with the widget `SnackBar`.
 > * browser: <event> - allows you to open an external link through the built-in browser / WebView
 > * deeplink: <event> - allows to open an internal link of the application, for example - to go to another screen
+> *(fow now, demo application doesn't support any different routes or deep-links)*
+> * share: <content> - allows to share something, which is places instead of `<content`
 >
 > In a real, production-ready application, you are not limited to implementing event handlers and can do whatever you want.
 > 

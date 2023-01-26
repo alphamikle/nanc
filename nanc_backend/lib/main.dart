@@ -51,6 +51,7 @@ Future<void> main() async {
     clickHandlers: [
       snackbarDemoHandler,
       browserLinksEventDemoHandler,
+      shareDemoHandler,
     ],
     wrapperBuilder: (BuildContext context, GlobalKey<NavigatorState> navigatorKey, Widget adminPanel) {
       return MultiBlocProvider(
