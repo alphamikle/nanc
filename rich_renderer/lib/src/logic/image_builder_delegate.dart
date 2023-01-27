@@ -7,6 +7,7 @@ class ImageBuilderDelegate extends InheritedWidget {
     required super.child,
     required this.loadingBuilder,
     required this.errorBuilder,
+    required this.frameBuilder,
     super.key,
   });
 
@@ -20,6 +21,7 @@ class ImageBuilderDelegate extends InheritedWidget {
       return const ImageBuilderDelegate(
         loadingBuilder: null,
         errorBuilder: null,
+        frameBuilder: null,
         child: SizedBox(),
       );
     }
@@ -28,6 +30,7 @@ class ImageBuilderDelegate extends InheritedWidget {
 
   final ImageLoadingBuilder? loadingBuilder;
   final ImageErrorWidgetBuilder? errorBuilder;
+  final ImageFrameBuilder? frameBuilder;
 
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => false;

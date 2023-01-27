@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:rich_renderer/src/renderers/fade_in/curve_enum.dart';
 import 'package:rich_renderer/src/renderers/property/properties/alignment/alignment_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/properties/text_style/text_decoration_enum.dart';
 
@@ -27,6 +28,7 @@ class DocumentationTypes {
   static Set<String> get textDecorationEnumValues => _$TextDecorationEnumEnumMap.values.toSet();
   static Set<String> get clipValues => _$ClipEnumMap.values.toSet();
   static Set<String> get boxShapeValues => _$BoxShapeEnumMap.values.toSet();
+  static Set<String> get curveEnumValues => _$CurveEnumEnumMap.values.toSet();
 
   CrossAxisAlignment? crossAxisAlignment;
   MainAxisSize? mainAxisSize;
@@ -48,4 +50,5 @@ class DocumentationTypes {
   TextDecorationEnum? textDecorationEnum;
   Clip? clip;
   BoxShape? boxShape;
+  CurveEnum? curveEnum;
 }

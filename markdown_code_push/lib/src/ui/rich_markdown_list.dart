@@ -15,6 +15,7 @@ class RichMarkdownList extends StatelessWidget {
     this.widgetsFilter,
     this.imageLoadingBuilder,
     this.imageErrorBuilder,
+    this.imageFrameBuilder,
     super.key,
   });
 
@@ -26,6 +27,7 @@ class RichMarkdownList extends StatelessWidget {
   final WidgetsFilter? widgetsFilter;
   final ImageLoadingBuilder? imageLoadingBuilder;
   final ImageErrorWidgetBuilder? imageErrorBuilder;
+  final ImageFrameBuilder? imageFrameBuilder;
 
   String get sanitizedMarkup => sanitizeMarkup(markdownContent);
 
@@ -70,6 +72,7 @@ class RichMarkdownList extends StatelessWidget {
     return ImageBuilderDelegate(
       loadingBuilder: imageLoadingBuilder,
       errorBuilder: imageErrorBuilder,
+      frameBuilder: imageFrameBuilder,
       child: ForStorage(
         child: PageData(
           data: pageData,

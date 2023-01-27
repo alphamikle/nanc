@@ -6,6 +6,7 @@ export 'package:flutter_boxicons/flutter_boxicons.dart';
 export 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 export 'package:package_info_plus/package_info_plus.dart' show PackageInfo;
 export 'package:ulid/ulid.dart';
+export 'package:url_launcher/url_launcher.dart';
 
 export 'src/db/logic/db_adapter.dart';
 export 'src/db/logic/db_service.dart';

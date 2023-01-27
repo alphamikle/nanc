@@ -51,8 +51,6 @@ TextDecoration? _mapFontDecoration(TextDecorationEnum? decoration) {
   return null;
 }
 
-final _testFont = GoogleFonts.merriweather();
-
 TextStylePropertyWidget textStyleFactory({
   required BuildContext context,
   required String name,

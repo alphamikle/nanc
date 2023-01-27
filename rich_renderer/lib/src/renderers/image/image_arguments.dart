@@ -12,6 +12,8 @@ class ImageArguments {
     required this.width,
     required this.height,
     required this.fit,
+    required this.blurHash,
+    this.useCache = true,
   });
 
   factory ImageArguments.fromJson(dynamic json) => _$ImageArgumentsFromJson(castToJson(json));
@@ -29,6 +31,11 @@ class ImageArguments {
 
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final BoxFit? fit;
+
+  final String? blurHash;
+
+  @JsonKey(fromJson: boolFromJson)
+  final bool useCache;
 
   Json toJson() => _$ImageArgumentsToJson(this);
 }

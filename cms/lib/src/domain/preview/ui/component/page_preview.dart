@@ -48,6 +48,7 @@ class _PagePreviewState extends State<PagePreview> {
                 widgetsFilter: forWidgetFilter,
                 imageLoadingBuilder: dataRepository.imageLoadingBuilder,
                 imageErrorBuilder: dataRepository.imageErrorBuilder,
+                imageFrameBuilder: dataRepository.imageFrameBuilder,
               );
             },
           );

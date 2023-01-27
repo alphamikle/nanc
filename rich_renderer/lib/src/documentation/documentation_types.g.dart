@@ -37,7 +37,8 @@ DocumentationTypes _$DocumentationTypesFromJson(Map<String, dynamic> json) =>
       ..textDecorationEnum = $enumDecodeNullable(
           _$TextDecorationEnumEnumMap, json['textDecorationEnum'])
       ..clip = $enumDecodeNullable(_$ClipEnumMap, json['clip'])
-      ..boxShape = $enumDecodeNullable(_$BoxShapeEnumMap, json['boxShape']);
+      ..boxShape = $enumDecodeNullable(_$BoxShapeEnumMap, json['boxShape'])
+      ..curveEnum = $enumDecodeNullable(_$CurveEnumEnumMap, json['curveEnum']);
 
 Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
     <String, dynamic>{
@@ -64,6 +65,7 @@ Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
           _$TextDecorationEnumEnumMap[instance.textDecorationEnum],
       'clip': _$ClipEnumMap[instance.clip],
       'boxShape': _$BoxShapeEnumMap[instance.boxShape],
+      'curveEnum': _$CurveEnumEnumMap[instance.curveEnum],
     };
 
 const _$CrossAxisAlignmentEnumMap = {
@@ -232,4 +234,49 @@ const _$ClipEnumMap = {
 const _$BoxShapeEnumMap = {
   BoxShape.rectangle: 'rectangle',
   BoxShape.circle: 'circle',
+};
+
+const _$CurveEnumEnumMap = {
+  CurveEnum.linear: 'linear',
+  CurveEnum.decelerate: 'decelerate',
+  CurveEnum.fastLinearToSlowEaseIn: 'fastLinearToSlowEaseIn',
+  CurveEnum.ease: 'ease',
+  CurveEnum.easeIn: 'easeIn',
+  CurveEnum.easeInToLinear: 'easeInToLinear',
+  CurveEnum.easeInSine: 'easeInSine',
+  CurveEnum.easeInQuad: 'easeInQuad',
+  CurveEnum.easeInCubic: 'easeInCubic',
+  CurveEnum.easeInQuart: 'easeInQuart',
+  CurveEnum.easeInQuint: 'easeInQuint',
+  CurveEnum.easeInExpo: 'easeInExpo',
+  CurveEnum.easeInCirc: 'easeInCirc',
+  CurveEnum.easeInBack: 'easeInBack',
+  CurveEnum.easeOut: 'easeOut',
+  CurveEnum.linearToEaseOut: 'linearToEaseOut',
+  CurveEnum.easeOutSine: 'easeOutSine',
+  CurveEnum.easeOutQuad: 'easeOutQuad',
+  CurveEnum.easeOutCubic: 'easeOutCubic',
+  CurveEnum.easeOutQuart: 'easeOutQuart',
+  CurveEnum.easeOutQuint: 'easeOutQuint',
+  CurveEnum.easeOutExpo: 'easeOutExpo',
+  CurveEnum.easeOutCirc: 'easeOutCirc',
+  CurveEnum.easeOutBack: 'easeOutBack',
+  CurveEnum.easeInOut: 'easeInOut',
+  CurveEnum.easeInOutSine: 'easeInOutSine',
+  CurveEnum.easeInOutQuad: 'easeInOutQuad',
+  CurveEnum.easeInOutCubic: 'easeInOutCubic',
+  CurveEnum.easeInOutCubicEmphasized: 'easeInOutCubicEmphasized',
+  CurveEnum.easeInOutQuart: 'easeInOutQuart',
+  CurveEnum.easeInOutQuint: 'easeInOutQuint',
+  CurveEnum.easeInOutExpo: 'easeInOutExpo',
+  CurveEnum.easeInOutCirc: 'easeInOutCirc',
+  CurveEnum.easeInOutBack: 'easeInOutBack',
+  CurveEnum.fastOutSlowIn: 'fastOutSlowIn',
+  CurveEnum.slowMiddle: 'slowMiddle',
+  CurveEnum.bounceIn: 'bounceIn',
+  CurveEnum.bounceOut: 'bounceOut',
+  CurveEnum.bounceInOut: 'bounceInOut',
+  CurveEnum.elasticIn: 'elasticIn',
+  CurveEnum.elasticOut: 'elasticOut',
+  CurveEnum.elasticInOut: 'elasticInOut',
 };

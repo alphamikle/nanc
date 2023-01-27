@@ -8,7 +8,7 @@ class SizedBoxArguments {
   const SizedBoxArguments({
     required this.height,
     required this.width,
-    required this.all,
+    required this.size,
   });
 
   factory SizedBoxArguments.fromJson(dynamic json) => _$SizedBoxArgumentsFromJson(castToJson(json));
@@ -20,7 +20,7 @@ class SizedBoxArguments {
   final double? width;
 
   @JsonKey(fromJson: doubleOrNullFromJson)
-  final double? all;
+  final double? size;
 
   Json toJson() => _$SizedBoxArgumentsToJson(this);
 }

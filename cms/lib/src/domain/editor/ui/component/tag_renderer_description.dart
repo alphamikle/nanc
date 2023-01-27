@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/github.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:rich_renderer/rich_renderer.dart';
+import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class TagRendererDescription extends StatelessWidget {
@@ -16,6 +19,13 @@ class TagRendererDescription extends StatelessWidget {
   final String tagName;
   final bool withChildren;
   final TagDescription description;
+
+  void _handleLinkTap(String text, String? href, String title) {
+    logg('Handle link tap: text: $text, href: $href, title: $title');
+    if (href != null) {
+      unawaited(launchUrl(Uri.parse(href), mode: LaunchMode.externalApplication));
+    }
+  }
 
   List<String> buildArgumentCode(String tagName, TagArgument argument) {
     final List<String> exampleCode = [
@@ -46,6 +56,7 @@ class TagRendererDescription extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: Gap.regular),
             child: MarkdownBody(
               data: '### **${argument.name}**',
+              onTapLink: _handleLinkTap,
             ),
           ),
           if (argument.description.isNotEmpty)
@@ -53,6 +64,7 @@ class TagRendererDescription extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: Gap.regular),
               child: MarkdownBody(
                 data: argument.description,
+                onTapLink: _handleLinkTap,
               ),
             ),
           HighlightView(
@@ -60,6 +72,7 @@ class TagRendererDescription extends StatelessWidget {
             language: 'html',
             theme: githubTheme,
             textStyle: const TextStyle(fontSize: 16),
+            padding: const EdgeInsets.all(12),
           ),
         ],
       ),
@@ -109,6 +122,7 @@ class TagRendererDescription extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: Gap.regular),
               child: MarkdownBody(
                 data: '### ${parentPropertyName.isEmpty ? '' : '**$parentPropertyName** - '}**${property.name}**',
+                onTapLink: _handleLinkTap,
               ),
             ),
             if (property.description.isNotEmpty)
@@ -116,6 +130,7 @@ class TagRendererDescription extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: Gap.regular),
                 child: MarkdownBody(
                   data: property.description,
+                  onTapLink: _handleLinkTap,
                 ),
               ),
             HighlightView(
@@ -123,6 +138,7 @@ class TagRendererDescription extends StatelessWidget {
               language: 'html',
               theme: githubTheme,
               textStyle: const TextStyle(fontSize: 16),
+              padding: const EdgeInsets.all(12),
             ),
           ],
         ),
@@ -142,6 +158,7 @@ class TagRendererDescription extends StatelessWidget {
         /// ? DESCRIPTION
         MarkdownBody(
           data: description.description,
+          onTapLink: _handleLinkTap,
         ),
 
         /// ? ARGUMENTS

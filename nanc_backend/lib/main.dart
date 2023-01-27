@@ -53,6 +53,7 @@ Future<void> main() async {
       browserLinksEventDemoHandler,
       shareDemoHandler,
     ],
+    imageFrameBuilder: imageFrameBuilder,
     wrapperBuilder: (BuildContext context, GlobalKey<NavigatorState> navigatorKey, Widget adminPanel) {
       return MultiBlocProvider(
         providers: [

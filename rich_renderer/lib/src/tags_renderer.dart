@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/renderers/align/align_renderer.dart';
+import 'package:rich_renderer/src/renderers/aspect_ratio/aspect_ratio_renderer.dart';
 import 'package:rich_renderer/src/renderers/center/center_renderer.dart';
 import 'package:rich_renderer/src/renderers/clipr_rect/clipr_rect_renderer.dart';
 import 'package:rich_renderer/src/renderers/column/column_renderer.dart';
@@ -10,6 +11,7 @@ import 'package:rich_renderer/src/renderers/container/container_renderer.dart';
 import 'package:rich_renderer/src/renderers/data/data_renderer.dart';
 import 'package:rich_renderer/src/renderers/divider/divider_renderer.dart';
 import 'package:rich_renderer/src/renderers/expanded/expanded_renderer.dart';
+import 'package:rich_renderer/src/renderers/fade_in/fade_in_renderer.dart';
 import 'package:rich_renderer/src/renderers/for/for_renderer.dart';
 import 'package:rich_renderer/src/renderers/fractional_translation/fractional_translation_renderer.dart';
 import 'package:rich_renderer/src/renderers/icon/icon_renderer.dart';
@@ -29,6 +31,7 @@ import 'package:rich_renderer/src/renderers/sized_box/sized_box_renderer.dart';
 import 'package:rich_renderer/src/renderers/stack/stack_renderer.dart';
 import 'package:rich_renderer/src/renderers/template/template_renderer.dart';
 import 'package:rich_renderer/src/renderers/text/text_renderer.dart';
+import 'package:rich_renderer/src/renderers/tooltip/tooltip_renderer.dart';
 
 class TagsRenderer {
   factory TagsRenderer() => _instance ??= TagsRenderer._();
@@ -77,6 +80,9 @@ class TagsRenderer {
       scaleRenderer,
       physicalModelRenderer,
       showRenderer,
+      fadeInRenderer,
+      tooltipRenderer,
+      aspectRatioRenderer,
     ]);
   }
 

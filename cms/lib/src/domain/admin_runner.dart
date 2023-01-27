@@ -26,6 +26,9 @@ Future<void> adminRunner({
   List<RichClickHandler> clickHandlers = const [],
   AdminConfig? config,
   AdminWrapperBuilder? wrapperBuilder,
+  ImageFrameBuilder? imageFrameBuilder,
+  ImageErrorWidgetBuilder? imageErrorBuilder,
+  ImageLoadingBuilder? imageLoadingBuilder,
 }) async {
   /// ? This stream closes in the [FlutterAdmin] widget
   /// ignore:close_sinks
@@ -62,6 +65,9 @@ Future<void> adminRunner({
       wrapperBuilder: wrapperBuilder,
       clickHandlers: clickHandlers,
       renderers: renderers,
+      imageFrameBuilder: imageFrameBuilder,
+      imageLoadingBuilder: imageLoadingBuilder,
+      imageErrorBuilder: imageErrorBuilder,
     ),
   );
 }

@@ -27,6 +27,7 @@ class ContentPage extends StatelessWidget {
       widgetsFilter: forWidgetFilter,
       imageLoadingBuilder: imageLoadingBuilder,
       imageErrorBuilder: imageErrorBuilder,
+      imageFrameBuilder: imageFrameBuilder,
       preloader: preloader,
     );
   }

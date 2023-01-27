@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:rich_renderer/src/logic/image_builder_delegate.dart';
 
 class SmartImage extends StatelessWidget {
@@ -8,6 +10,8 @@ class SmartImage extends StatelessWidget {
     this.width,
     this.height,
     this.fit,
+    this.blurHash,
+    this.useCache = true,
     super.key,
   });
 
@@ -16,14 +20,88 @@ class SmartImage extends StatelessWidget {
   final double? width;
   final double? height;
   final BoxFit? fit;
+  final String? blurHash;
+  final bool useCache;
 
   bool get isNetwork => ref.startsWith('http') || ref.contains('://');
+
+  bool get withBlurHash {
+    final bool isExplicit = blurHash != null && blurHash != '' && blurHash != 'null';
+    if (isExplicit) {
+      return true;
+    }
+    final Uri uri = Uri.parse(ref);
+    // if (uri)
+    return false;
+  }
+
+  Widget blurHashLoadingBuilder(BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 250),
+      child: loadingProgress == null
+          ? child
+          : BlurHash(
+              hash: blurHash!,
+              imageFit: fit ?? BoxFit.fill,
+            ),
+    );
+  }
+
+  Widget cachedImageBuilder(BuildContext context, ImageProvider imageProvider) {
+    final ImageBuilderDelegate builderDelegate = ImageBuilderDelegate.of(context);
+    final Widget image = Image(
+      image: imageProvider,
+      fit: fit,
+      width: width,
+      color: color,
+      height: height,
+      frameBuilder: builderDelegate.frameBuilder,
+      errorBuilder: builderDelegate.errorBuilder,
+    );
+
+    if (withBlurHash) {
+      return blurHashLoadingBuilder(context, image, null);
+    }
+    return image;
+  }
+
+  Widget cachedErrorBuilder(BuildContext context, String url, dynamic error) {
+    final ImageBuilderDelegate builderDelegate = ImageBuilderDelegate.of(context);
+
+    if (builderDelegate.errorBuilder != null) {
+      return builderDelegate.errorBuilder!(context, error == null ? Exception(url) : error as Object, null);
+    }
+    return const SizedBox.shrink();
+  }
 
   @override
   Widget build(BuildContext context) {
     final ImageBuilderDelegate builderDelegate = ImageBuilderDelegate.of(context);
 
+    if (withBlurHash) {
+      return BlurHash(
+        hash: blurHash!,
+        imageFit: fit ?? BoxFit.fill,
+      );
+    }
+
     if (isNetwork) {
+      if (useCache) {
+        return CachedNetworkImage(
+          imageUrl: ref,
+          color: color,
+          width: width,
+          height: height,
+          fit: fit,
+          errorWidget: cachedErrorBuilder,
+          imageBuilder: cachedImageBuilder,
+          memCacheHeight: height?.toInt(),
+          memCacheWidth: width?.toInt(),
+          fadeInDuration: Duration.zero,
+          fadeOutDuration: Duration.zero,
+          placeholderFadeInDuration: Duration.zero,
+        );
+      }
       return Image.network(
         ref,
         color: color,
@@ -32,8 +110,9 @@ class SmartImage extends StatelessWidget {
         fit: fit,
         cacheHeight: height?.toInt(),
         cacheWidth: width?.toInt(),
-        loadingBuilder: builderDelegate.loadingBuilder,
+        loadingBuilder: withBlurHash ? blurHashLoadingBuilder : builderDelegate.loadingBuilder,
         errorBuilder: builderDelegate.errorBuilder,
+        frameBuilder: builderDelegate.frameBuilder,
       );
     }
 
@@ -46,6 +125,7 @@ class SmartImage extends StatelessWidget {
       cacheHeight: height?.toInt(),
       cacheWidth: width?.toInt(),
       errorBuilder: builderDelegate.errorBuilder,
+      frameBuilder: builderDelegate.frameBuilder,
     );
   }
 }

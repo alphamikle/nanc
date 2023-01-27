@@ -10,12 +10,12 @@ SizedBoxArguments _$SizedBoxArgumentsFromJson(Map<String, dynamic> json) =>
     SizedBoxArguments(
       height: doubleOrNullFromJson(json['height'] as String?),
       width: doubleOrNullFromJson(json['width'] as String?),
-      all: doubleOrNullFromJson(json['all'] as String?),
+      size: doubleOrNullFromJson(json['size'] as String?),
     );
 
 Map<String, dynamic> _$SizedBoxArgumentsToJson(SizedBoxArguments instance) =>
     <String, dynamic>{
       'height': instance.height,
       'width': instance.width,
-      'all': instance.all,
+      'size': instance.size,
     };

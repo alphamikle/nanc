@@ -14,6 +14,9 @@ ImageArguments _$ImageArgumentsFromJson(Map<String, dynamic> json) =>
       height: doubleOrNullFromJson(json['height'] as String?),
       fit: $enumDecodeNullable(_$BoxFitEnumMap, json['fit'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
+      blurHash: json['blurHash'] as String?,
+      useCache:
+          json['useCache'] == null ? true : boolFromJson(json['useCache']),
     );
 
 Map<String, dynamic> _$ImageArgumentsToJson(ImageArguments instance) =>
@@ -23,6 +26,8 @@ Map<String, dynamic> _$ImageArgumentsToJson(ImageArguments instance) =>
       'width': instance.width,
       'height': instance.height,
       'fit': _$BoxFitEnumMap[instance.fit],
+      'blurHash': instance.blurHash,
+      'useCache': instance.useCache,
     };
 
 const _$BoxFitEnumMap = {

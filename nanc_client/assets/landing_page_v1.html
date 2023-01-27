@@ -71,7 +71,7 @@
         <icon icon="mdi_play_box" color="{{ data(colors).royalBlue }}"/>
       </center>
     </positioned>
-    <sizedBox all="70">
+    <sizedBox size="70">
       <material type="transparency">
         <prop:borderRadius all="100"/>
         <inkWell onPressed="browser: {{ template.videoLink }}">
@@ -236,7 +236,7 @@
           </positioned>
           <positioned all="0">
             <center>
-              <sizedBox all="200">
+              <sizedBox size="200">
                 <clipRRect all="100">
                   <image ref="{{ template.image }}"/>
                 </clipRRect>
@@ -283,7 +283,7 @@
     <padding left="16" top="20" right="16" bottom="20">
       <column mainAxisSize="min">
         <clipRRect all="50">
-          <sizedBox all="50">
+          <sizedBox size="50">
             <image ref="{{ template.photo }}" fit="cover"/>
           </sizedBox>
         </clipRRect>
@@ -309,7 +309,7 @@
 <!--? OTHER-->
 <template id="slider.dot">
   <stack>
-    <sizedBox all="22">
+    <sizedBox size="22">
     </sizedBox>
 
     <show show="{{ template.active }}">

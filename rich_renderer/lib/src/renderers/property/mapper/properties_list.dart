@@ -5,10 +5,12 @@ const String alignment = 'alignment';
 /// ? Start end the end of the gradient prop
 const String begin = 'begin';
 const String end = 'end';
-const String padding = 'padding';
 
 /// ? The same, as padding, but for [SafeArea.minimum]
 const String minimum = 'minimum';
+const String padding = 'padding';
+const String margin = 'margin';
+
 const String decoration = 'decoration';
 const String borderRadius = 'borderRadius';
 const String border = 'border';

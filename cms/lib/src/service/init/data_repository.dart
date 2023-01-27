@@ -8,10 +8,12 @@ class DataRepository {
     required this.renderers,
     required this.imageLoadingBuilder,
     required this.imageErrorBuilder,
+    required this.imageFrameBuilder,
   });
 
   final List<RichClickHandler> clickHandlers;
   final List<TagRendererFactory> renderers;
-  final ImageLoadingBuilder imageLoadingBuilder;
-  final ImageErrorWidgetBuilder imageErrorBuilder;
+  final ImageLoadingBuilder? imageLoadingBuilder;
+  final ImageErrorWidgetBuilder? imageErrorBuilder;
+  final ImageFrameBuilder? imageFrameBuilder;
 }

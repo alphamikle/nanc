@@ -34,6 +34,7 @@ class Initializer {
     required this.renderers,
     required this.imageLoadingBuilder,
     required this.imageErrorBuilder,
+    required this.imageFrameBuilder,
     this.patternMap = const {},
   });
 
@@ -51,6 +52,7 @@ class Initializer {
   final List<TagRendererFactory> renderers;
   final ImageLoadingBuilder? imageLoadingBuilder;
   final ImageErrorWidgetBuilder? imageErrorBuilder;
+  final ImageFrameBuilder? imageFrameBuilder;
 
   Future<bool> init() async {
     /// ? SERVICES
@@ -103,8 +105,9 @@ class Initializer {
     final DataRepository dataRepository = DataRepository(
       clickHandlers: clickHandlers,
       renderers: renderers,
-      imageLoadingBuilder: imageLoadingBuilder ?? ad.imageLoadingBuilder,
-      imageErrorBuilder: imageErrorBuilder ?? ad.imageErrorBuilder,
+      imageLoadingBuilder: imageLoadingBuilder,
+      imageErrorBuilder: imageErrorBuilder,
+      imageFrameBuilder: imageFrameBuilder,
     );
 
     blocProviders

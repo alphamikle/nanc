@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/decoration_arguments.dart';
-import 'package:rich_renderer/src/documentation/arguments/position_arguments.dart';
-import 'package:rich_renderer/src/documentation/arguments/scalar_arguments.dart';
-import 'package:rich_renderer/src/documentation/arguments/size_arguments.dart';
 import 'package:rich_renderer/src/renderers/image/image_arguments.dart';
 import 'package:rich_renderer/src/renderers/image/smart_image.dart';
 
@@ -26,13 +22,36 @@ The following image formats are supported: JPEG, PNG, GIF, Animated GIF, WebP, A
 To automatically perform pixel-density-aware asset resolution, specify the image using an [AssetImage](painting/AssetImage-class.html) and make sure that a [MaterialApp](material/MaterialApp-class.html), [WidgetsApp](widgets/WidgetsApp-class.html), or [MediaQuery](widgets/MediaQuery-class.html) widget exists above the [Image](widgets/Image-class.html) widget in the widget tree.
 
 The image is painted using [paintImage](painting/paintImage.html), which describes the meanings of the various fields on this class in more detail.
+
+Also, if you passed a some image url and don't see the image in the Nanc, potentially you have a problem with CORS and to find a solution, please, go here: https://docs.flutter.dev/development/platform-integration/web/web-images
 ''',
       arguments: [
         stringArg('ref'),
+        stringArg('blurHash', '''
+> ### Blur hash
+> 
+> Blur hash is a technology, which allows you to create a very lightweight preview of your image and use it as a pre-loader for the image during the loading time.
+> 
+> You can pass that hash as a separated argument into the tag, with name `blurHash`, or use query parameter `bh` for the image url within the `ref` argument.
+> 
+> For example:
+> ```
+> <image blurHash="LEHV6nWB2yk8pyo0adR*.7kCMdnj" ref="here_is_your_image_url"/>
+> ```
+> 
+> or
+> ```
+> <image ref="https://cdn.com/some_image_url.jpg?bh=LEHV6nWB2yk8pyo0adR%2A.7kCMdnj"/>
+> ```
+> In the second example blur hash is url-encoded (to understand, what is url-encoding, you can move here: https://www.urlencoder.org)
+> 
+> For addition info about blur hash, go here: https://blurha.sh/ or here: https://pub.dev/packages/flutter_blurhash
+'''),
         heightArg(),
         widthArg(),
         boxFitArg(),
         colorArg(),
+        boolArg('useCache'),
       ],
       properties: [],
     ),
@@ -40,17 +59,17 @@ The image is painted using [paintImage](painting/paintImage.html), which describ
 <safeArea>
   <column crossAxisAlignment="stretch">
     <container height="250" color="#457FDA">
-      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg" fit="fill"/>
+      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg" useCache="false" fit="fill"/>
     </container>
     <divider height="50"/>
     
     <container height="250" color="#457FDA">
-      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg" fit="contain"/>
+      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg" blurHash="L3G[TBtA00-h00VF-?58*0?b+uE2" fit="contain"/>
     </container>
     <divider height="50"/>
     
     <container height="250" color="#457FDA">
-      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg" fit="cover"/>
+      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg?bh=L3G%5BTBtA00-h00VF-%3F58%2A0%3Fb%2BuE2" fit="cover"/>
     </container>
     <divider height="50"/>
     
@@ -88,12 +107,19 @@ The image is painted using [paintImage](painting/paintImage.html), which describ
         return const SizedBox.shrink();
       }
 
+      final Uri uri = Uri.parse(arguments.ref!);
+      final String? blurHash = arguments.blurHash ?? uri.queryParameters['bh'];
+
+      print(1);
+
       return SmartImage(
         ref: arguments.ref!,
         fit: arguments.fit,
         height: arguments.height,
         width: arguments.width,
         color: arguments.color,
+        blurHash: blurHash,
+        useCache: arguments.useCache,
       );
     },
   );

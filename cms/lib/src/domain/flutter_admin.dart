@@ -29,6 +29,7 @@ class FlutterAdmin extends StatefulWidget {
     this.renderers = const [],
     this.imageLoadingBuilder,
     this.imageErrorBuilder,
+    this.imageFrameBuilder,
     super.key,
   });
 
@@ -42,6 +43,7 @@ class FlutterAdmin extends StatefulWidget {
   final List<TagRendererFactory> renderers;
   final ImageLoadingBuilder? imageLoadingBuilder;
   final ImageErrorWidgetBuilder? imageErrorBuilder;
+  final ImageFrameBuilder? imageFrameBuilder;
 
   @override
   State<FlutterAdmin> createState() => _FlutterAdminState();
@@ -61,6 +63,7 @@ class _FlutterAdminState extends State<FlutterAdmin> {
     renderers: widget.renderers,
     imageLoadingBuilder: widget.imageLoadingBuilder,
     imageErrorBuilder: widget.imageErrorBuilder,
+    imageFrameBuilder: widget.imageFrameBuilder,
   );
   late final Future<bool> result = initializer.init();
   late final StreamSubscription<ErrorWrapper> errorStreamSubscription;

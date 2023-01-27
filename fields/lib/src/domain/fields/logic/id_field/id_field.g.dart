@@ -120,7 +120,7 @@ IdField _$IdFieldFromJson(Map<String, dynamic> json) => IdField(
       name: json['name'] as String?,
       isRequired: json['isRequired'] as bool? ?? true,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble(),
+      width: (json['width'] as num?)?.toDouble() ?? 400,
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.idField,
     );

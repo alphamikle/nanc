@@ -26,6 +26,7 @@ dependencies:
   hive_flutter: ^1.1.0
   package_info_plus: ^3.0.2
   path_provider: ^2.0.11
+  url_launcher: ^6.1.6
   encrypt:
     git:
       url: git@github.com:leocavalcante/encrypt.git

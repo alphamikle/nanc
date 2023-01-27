@@ -24,17 +24,19 @@
 
 <!-- ? ========================= Buttons ========================= -->
 <template id="buttons.store">
-  <stack>
-    <image ref="{{ template.image }}"/>
-    <positioned all="0">
-      <material type="transparency">
-        <prop:borderRadius all="6"/>
-        <inkWell onPressed="browser: {{ template.link }}">
+  <aspectRatio ratio="3.3571">
+    <stack>
+      <image ref="{{ template.image }}"/>
+      <positioned all="0">
+        <material type="transparency">
           <prop:borderRadius all="6"/>
-        </inkWell>
-      </material>
-    </positioned>
-  </stack>
+          <inkWell onPressed="browser: {{ template.link }}">
+            <prop:borderRadius all="6"/>
+          </inkWell>
+        </material>
+      </positioned>
+    </stack>
+  </aspectRatio>
 </template>
 
 <template id="buttons.play">
@@ -71,7 +73,7 @@
         <icon icon="mdi_play_box" color="{{ data(colors).royalBlue }}"/>
       </center>
     </positioned>
-    <sizedBox all="70">
+    <sizedBox size="70">
       <material type="transparency">
         <prop:borderRadius all="100"/>
         <inkWell onPressed="browser: {{ template.videoLink }}">
@@ -155,6 +157,20 @@
       </material>
     </positioned>
   </stack>
+</template>
+
+<template id="buttons.cms">
+  <row>
+    <expanded>
+      <fadeIn>
+        <component id="buttons.justButton" color="#FFF76707" textColor="#FFFFFF" text="Let's play" onPressed="browser: https://admin.nanc.io"/>
+      </fadeIn>
+    </expanded>
+    <divider width="8"/>
+    <fadeIn>
+      <component id="buttons.squareIcon" color="#FFF76707" iconColor="#FFFFFF" icon="flu_share_android_filled" onPressed="share: https://admin.nanc.io"/>
+    </fadeIn>
+  </row>
 </template>
 
 <!-- ? ========================= Texts ========================= -->
@@ -281,7 +297,7 @@
           </positioned>
           <positioned all="0">
             <center>
-              <sizedBox all="200">
+              <sizedBox size="200">
                 <clipRRect all="100">
                   <image ref="{{ template.image }}" fit="cover"/>
                 </clipRRect>
@@ -328,7 +344,7 @@
     <padding left="16" top="20" right="16" bottom="20">
       <column mainAxisSize="min">
         <clipRRect all="50">
-          <sizedBox all="50">
+          <sizedBox size="50">
             <image ref="{{ template.image }}" fit="cover"/>
           </sizedBox>
         </clipRRect>
@@ -352,20 +368,21 @@
 </template>
 
 <template id="cards.image">
-  <container>
-    <prop:decoration>
-      <prop:border color="{{ data(colors).white }}" width="5"/>
-      <prop:borderRadius all="28"/>
-      <prop:shadow color="#FF000000" blurRadius="20" spreadRadius="-10"/>
-    </prop:decoration>
-    <image ref="{{ template.image }}"/>
-  </container>
+  <aspectRatio ratio="0.4618">
+    <container>
+      <prop:decoration>
+        <prop:borderRadius all="28"/>
+        <prop:shadow color="#A6000000" blurRadius="12" spreadRadius="-1"/>
+      </prop:decoration>
+      <image ref="{{ template.image }}"/>
+    </container>
+  </aspectRatio>
 </template>
 
 <!-- ? ========================= Other templates ========================= -->
 <template id="slider.dot">
   <stack>
-    <sizedBox all="22">
+    <sizedBox size="22">
     </sizedBox>
 
     <show show="{{ template.active }}">
@@ -446,13 +463,7 @@
               <component id="text.h2" color="{{ data(colors).black }}" text="AND PLAY WITH CMS"/>
               <component id="text.h7" color="{{ data(colors).transparentGrey }}" text="available only for desktops now"/>
             </padding>
-            <row>
-              <expanded>
-                <component id="buttons.justButton" color="#FFF76707" textColor="#FFFFFF" text="Let's play" onPressed="browser: https://admin.nanc.io"/>
-              </expanded>
-              <divider width="8"/>
-              <component id="buttons.squareIcon" color="#FFF76707" iconColor="#FFFFFF" icon="flu_share_android_filled" onPressed="share: https://admin.nanc.io"/>
-            </row>
+            <component id="buttons.cms"/>
           </column>
         </container>
       </padding>
@@ -606,7 +617,7 @@
 <!-- ? ========================= How to use app ========================= -->
 <padding bottom="60">
   <stack>
-    <padding bottom="74">
+    <padding bottom="100">
       <container color="{{ data(colors).royalBlue }}">
         <column>
           <padding top="60" bottom="40">
@@ -620,27 +631,25 @@
         </column>
       </container>
     </padding>
-    <positioned left="0" bottom="0" right="0">
-      <padding left="16" right="16">
-        <physicalModel elevation="16">
-          <sizedBox height="150">
-            <clipRRect all="12">
-              <stack fit="expand">
-                <image ref="https://i.ytimg.com/vi/hpgkrUPRBjc/hqdefault.jpg" fit="fitWidth"/>
-                <positioned all="0">
-                  <container color="#665856E9">
-                  </container>
-                </positioned>
-                <positioned all="0">
-                  <center>
-                    <component id="buttons.play" videoLink="https://youtu.be/hpgkrUPRBjc"/>
-                  </center>
-                </positioned>
-              </stack>
-            </clipRRect>
-          </sizedBox>
+    <positioned left="16" bottom="0" right="16">
+      <aspectRatio  ratio="1.7777">
+        <physicalModel elevation="8">
+          <clipRRect all="12">
+            <stack fit="expand">
+              <image ref="https://i.ytimg.com/vi/hpgkrUPRBjc/hqdefault.jpg" fit="fitWidth"/>
+              <positioned all="0">
+                <container color="#665856E9">
+                </container>
+              </positioned>
+              <positioned all="0">
+                <center>
+                  <component id="buttons.play" videoLink="https://youtu.be/hpgkrUPRBjc"/>
+                </center>
+              </positioned>
+            </stack>
+          </clipRRect>
         </physicalModel>
-      </padding>
+      </aspectRatio>
     </positioned>
   </stack>
 </padding>

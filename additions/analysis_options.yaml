@@ -5,9 +5,6 @@ include: package:flutter_lints/flutter.yaml
 # https://dart-lang.github.io/linter/lints/index.html
 
 analyzer:
-  strong-mode:
-    implicit-dynamic: false
-    implicit-casts: false
   errors:
     todo: warning
     missing_return: error
