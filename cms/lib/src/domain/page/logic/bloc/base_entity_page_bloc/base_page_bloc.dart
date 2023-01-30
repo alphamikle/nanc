@@ -57,7 +57,18 @@ abstract class BasePageBloc<T extends BaseEntityPageState> extends Cubit<T> {
 
   TextEditingController controllerFor(String fieldCode) {
     if (!state.controllerMap.containsKey(fieldCode)) {
-      state.controllerMap[fieldCode] = TextEditingController();
+      if (state is PageState) {
+        final PageState pageState = state as PageState;
+        emit(pageState.copyWith(controllerMap: {
+          ...pageState.controllerMap,
+          fieldCode: TextEditingController(),
+        }) as T);
+      } else {
+        emit(state.copyWith(controllerMap: {
+          ...state.controllerMap,
+          fieldCode: TextEditingController(),
+        }) as T);
+      }
     }
     return state.controllerMap[fieldCode]!;
   }

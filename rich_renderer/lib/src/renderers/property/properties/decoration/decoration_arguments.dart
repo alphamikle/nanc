@@ -14,7 +14,7 @@ class DecorationArguments {
 
   factory DecorationArguments.fromJson(dynamic json) => _$DecorationArgumentsFromJson(castToJson(json));
 
-  @JsonKey(toJson: colorToJson, fromJson: colorFromJson)
+  @JsonKey(toJson: colorToJson, fromJson: nullableColorFromJson)
   final Color? color;
 
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)

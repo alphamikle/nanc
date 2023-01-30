@@ -18,7 +18,7 @@ class TooltipArguments {
 
   factory TooltipArguments.fromJson(dynamic json) => _$TooltipArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? height;
 
   final TextAlign? align;
@@ -28,13 +28,13 @@ class TooltipArguments {
   @JsonKey(fromJson: boolFromJson)
   final bool below;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? offset;
 
-  @JsonKey(fromJson: intFromJson)
+  @JsonKey(fromJson: nullableIntFromJson)
   final int? showDuration;
 
-  @JsonKey(fromJson: intFromJson)
+  @JsonKey(fromJson: nullableIntFromJson)
   final int? waitDuration;
 
   Json toJson() => _$TooltipArgumentsToJson(this);

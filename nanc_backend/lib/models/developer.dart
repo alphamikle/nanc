@@ -1,6 +1,7 @@
 import 'package:fields/fields.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
+import 'package:nanc_backend/models/position.dart';
 
 final Model developer = Model(
   name: 'Developer',
@@ -12,18 +13,12 @@ final Model developer = Model(
       StringField(name: 'Second Name', maxLines: 1, isRequired: true, width: 180),
     ],
     [
-      EnumField(
+      SelectorField(
         name: 'Position',
-        values: const [
-          EnumValue(title: 'APP DEVELOPER', value: 'appDeveloper'),
-          EnumValue(title: 'UI/UX DESIGNER', value: 'designer'),
-          EnumValue(title: 'WEB DEVELOPER', value: 'webDeveloper'),
-          EnumValue(title: 'MANAGER', value: 'manager'),
-          EnumValue(title: 'OWNER', value: 'owner'),
-          EnumValue(title: 'QA ENGINEER', value: 'qa'),
-          EnumValue(title: 'OTHER', value: 'other'),
-        ],
-        showInList: true,
+        id: 'position_new',
+        model: position,
+        titleFields: const ['position'],
+        structure: SelectorFieldStructure.object,
       ),
       StringField(name: 'Image', maxLines: 1, isRequired: true),
     ],

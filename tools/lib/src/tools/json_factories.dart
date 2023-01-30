@@ -3,14 +3,14 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:tools/src/tools/color_tools.dart';
 
-double? doubleOrNullFromJson(String? value) => double.tryParse(value ?? '');
+double? nullableDoubleFromJson(String? value) => double.tryParse(value ?? '');
 
-int? intFromJson(String? value) => int.tryParse(value ?? '');
+int? nullableIntFromJson(String? value) => int.tryParse(value ?? '');
 
 // ignore: prefer_void_to_null
 Null toNullJson(dynamic value) => null;
 
-Color? colorFromJson(String? color) {
+Color? nullableColorFromJson(String? color) {
   if (color == null) {
     return null;
   }
@@ -44,7 +44,7 @@ String? colorToJson(Color? color) {
   return color == null ? null : colorToHex(color);
 }
 
-String? validatorFromJson(dynamic code) {
+String? nullableValidatorFromJson(dynamic code) {
   return '';
 }
 
@@ -53,33 +53,34 @@ String? validatorToJson(dynamic value) {
 }
 
 bool boolFromJson(dynamic value) {
-  final Set<dynamic> plausibleValues = <dynamic>{
-    '1',
-    'true',
-    1,
-    true,
-    't',
-    'ok',
-    'yes',
-    'y',
-    '+',
+  const Set<dynamic> falsyValues = <dynamic>{
+    '',
+    0,
+    '0',
+    'false',
+    'null',
+    'undefined',
+    'no',
+    '-',
+    false,
+    null,
   };
   dynamic formattedValue = value;
   if (formattedValue is String) {
-    formattedValue = formattedValue.toLowerCase().trim();
+    formattedValue = formattedValue.trim().toLowerCase();
   }
-  if (plausibleValues.contains(formattedValue)) {
-    return true;
+  if (falsyValues.contains(formattedValue)) {
+    return false;
   }
-  return false;
+  return true;
 }
 
-bool? boolOrNullFromJson(dynamic value) {
+bool? nullableBoolFromJson(dynamic value) {
   if (value == null) {
     return null;
   }
   if (value is String) {
-    final String string = value.trim();
+    final String string = value.trim().toLowerCase();
     if (string == 'null' || string == 'undefined') {
       return null;
     }

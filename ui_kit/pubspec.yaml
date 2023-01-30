@@ -21,10 +21,10 @@ dependencies:
     path: ../cms
   icons:
     path: ../icons
-  flutter_typeahead:
-    git:
-      url: git@github.com:Bavest/flutter_typeahead.git
-      ref: ffe2ee391888fa4b0a51bd2027e91e21ec85ec6d
+  flutter_typeahead: ^4.1.1
+#  flutter_typeahead:
+#    path: ../flutter_typeahead
+  dropdown_search: ^5.0.5
   animations: ^2.0.7
   mask_text_input_formatter: ^2.4.0
   vrouter: ^1.2.1

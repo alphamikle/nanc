@@ -16,19 +16,19 @@ class BorderRadiusArguments {
 
   factory BorderRadiusArguments.fromJson(dynamic json) => _$BorderRadiusArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? topLeft;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? topRight;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? bottomRight;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? bottomLeft;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? all;
 
   BorderRadius toBorderRadius() {

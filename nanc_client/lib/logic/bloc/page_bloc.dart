@@ -126,9 +126,9 @@ class PageBloc extends Cubit<PageState> {
       SnackBar(
         duration: const Duration(seconds: 5),
         elevation: 4,
-        showCloseIcon: true,
+        // showCloseIcon: true,
         backgroundColor: backgroundColor,
-        closeIconColor: contentColor,
+        // closeIconColor: contentColor,
         content: Builder(
           builder: (BuildContext context) {
             return Row(

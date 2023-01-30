@@ -16,19 +16,19 @@ class PaddingArguments {
 
   factory PaddingArguments.fromJson(dynamic json) => _$PaddingArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? left;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? top;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? right;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? bottom;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? all;
 
   EdgeInsets toPadding() => EdgeInsets.fromLTRB(all ?? left ?? 0, all ?? top ?? 0, all ?? right ?? 0, all ?? bottom ?? 0);

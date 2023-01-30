@@ -141,7 +141,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
 
                         /// ? JSON VIEW BUTTON
                         KitButton(
-                          color: isPageJsonAvailable ? context.theme.colorScheme.error : null,
+                          color: isPageJsonAvailable ? context.theme.colorScheme.tertiary : null,
                           onPressed: toggleJsonView,
                           child: Row(
                             children: [

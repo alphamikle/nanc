@@ -81,12 +81,13 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
 
   Widget itemBuilder(BuildContext context, Json data) {
     bool isSelected = false;
+    final dynamic dataId = data[field.model.idField.id];
     final dynamic value = pageBloc.valueForKey(fieldId);
     if (value != null) {
       if (structure == SelectorFieldStructure.id) {
-        isSelected = value == data[field.model.idField.id];
+        isSelected = value == dataId;
       } else if (structure == SelectorFieldStructure.object) {
-        isSelected = isTheSame(data, castToJson(value));
+        isSelected = value[field.model.idField.id] == dataId;
       }
     }
 

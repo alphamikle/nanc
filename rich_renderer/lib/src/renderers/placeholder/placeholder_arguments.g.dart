@@ -9,10 +9,10 @@ part of 'placeholder_arguments.dart';
 PlaceholderArguments _$PlaceholderArgumentsFromJson(
         Map<String, dynamic> json) =>
     PlaceholderArguments(
-      color: colorFromJson(json['color'] as String?),
-      height: doubleOrNullFromJson(json['height'] as String?),
-      width: doubleOrNullFromJson(json['width'] as String?),
-      strokeWidth: doubleOrNullFromJson(json['strokeWidth'] as String?),
+      color: nullableColorFromJson(json['color'] as String?),
+      height: nullableDoubleFromJson(json['height'] as String?),
+      width: nullableDoubleFromJson(json['width'] as String?),
+      strokeWidth: nullableDoubleFromJson(json['strokeWidth'] as String?),
       text: json['text'] as String?,
     );
 

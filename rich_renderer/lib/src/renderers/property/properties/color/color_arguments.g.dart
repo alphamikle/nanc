@@ -8,7 +8,7 @@ part of 'color_arguments.dart';
 
 ColorArguments _$ColorArgumentsFromJson(Map<String, dynamic> json) =>
     ColorArguments(
-      color: colorFromJson(json['color'] as String?),
+      color: nullableColorFromJson(json['color'] as String?),
     );
 
 Map<String, dynamic> _$ColorArgumentsToJson(ColorArguments instance) =>

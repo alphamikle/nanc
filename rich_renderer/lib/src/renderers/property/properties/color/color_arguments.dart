@@ -12,7 +12,7 @@ class ColorArguments {
 
   factory ColorArguments.fromJson(dynamic json) => _$ColorArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
+  @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
   final Color? color;
 
   Json toJson() => _$ColorArgumentsToJson(this);

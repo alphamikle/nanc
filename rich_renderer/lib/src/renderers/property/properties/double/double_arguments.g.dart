@@ -8,7 +8,7 @@ part of 'double_arguments.dart';
 
 DoubleArguments _$DoubleArgumentsFromJson(Map<String, dynamic> json) =>
     DoubleArguments(
-      value: doubleOrNullFromJson(json['value'] as String?),
+      value: nullableDoubleFromJson(json['value'] as String?),
     );
 
 Map<String, dynamic> _$DoubleArgumentsToJson(DoubleArguments instance) =>

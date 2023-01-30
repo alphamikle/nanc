@@ -171,7 +171,7 @@ DynamicField _$DynamicFieldFromJson(Map<String, dynamic> json) => DynamicField(
       sort: json['sort'] as int? ?? 0,
       width: (json['width'] as num?)?.toDouble(),
       contentIcon: json['contentIcon'] as String?,
-      contentColor: colorFromJson(json['contentColor'] as String?),
+      contentColor: nullableColorFromJson(json['contentColor'] as String?),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.dynamicField,
     );

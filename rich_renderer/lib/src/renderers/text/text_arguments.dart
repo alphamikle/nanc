@@ -21,7 +21,7 @@ class TextArguments {
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final TextDirection? direction;
 
-  @JsonKey(fromJson: intFromJson)
+  @JsonKey(fromJson: nullableIntFromJson)
   final int? maxLines;
 
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
@@ -30,13 +30,13 @@ class TextArguments {
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final TextOverflow? overflow;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? size;
 
-  @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
+  @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
   final Color? color;
 
-  @JsonKey(fromJson: boolOrNullFromJson)
+  @JsonKey(fromJson: nullableBoolFromJson)
   final bool? softWrap;
 
   Json toJson() => _$TextArgumentsToJson(this);

@@ -11,7 +11,7 @@ class ExpandedArguments {
 
   factory ExpandedArguments.fromJson(dynamic json) => _$ExpandedArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: intFromJson)
+  @JsonKey(fromJson: nullableIntFromJson)
   final int? flex;
 
   Json toJson() => _$ExpandedArgumentsToJson(this);

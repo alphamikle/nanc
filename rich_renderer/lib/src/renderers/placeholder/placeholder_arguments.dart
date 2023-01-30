@@ -17,16 +17,16 @@ class PlaceholderArguments {
 
   factory PlaceholderArguments.fromJson(dynamic json) => _$PlaceholderArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
+  @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
   final Color? color;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? height;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? width;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? strokeWidth;
 
   final String? text;

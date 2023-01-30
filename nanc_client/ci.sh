@@ -23,19 +23,19 @@ flutter build web \
 --dart-define="$NANC_SECRET_KEY"="$NANC_SECRET_VALUE" \
 --no-tree-shake-icons
 
-#flutter build apk \
-#--no-pub \
-#--target-platform="android-arm64" \
-#--dart-define=SUPA_HOST="$NANC_SUPA_HOST" \
-#--dart-define=SUPA_KEY="$NANC_SUPA_KEY" \
-#--dart-define="$NANC_SECRET_KEY"="$NANC_SECRET_VALUE" \
-#
-#flutter build appbundle \
-#--no-pub \
-#--target-platform="android-arm64" \
-#--dart-define=SUPA_HOST="$NANC_SUPA_HOST" \
-#--dart-define=SUPA_KEY="$NANC_SUPA_KEY" \
-#--dart-define="$NANC_SECRET_KEY"="$NANC_SECRET_VALUE" \
+flutter build apk \
+--no-pub \
+--target-platform="android-arm64" \
+--dart-define=SUPA_HOST="$NANC_SUPA_HOST" \
+--dart-define=SUPA_KEY="$NANC_SUPA_KEY" \
+--dart-define="$NANC_SECRET_KEY"="$NANC_SECRET_VALUE" \
+
+flutter build appbundle \
+--no-pub \
+--target-platform="android-arm64" \
+--dart-define=SUPA_HOST="$NANC_SUPA_HOST" \
+--dart-define=SUPA_KEY="$NANC_SUPA_KEY" \
+--dart-define="$NANC_SECRET_KEY"="$NANC_SECRET_VALUE" \
 
 # ? Copy Android build
 mv ./build/app/outputs/flutter-apk/app-release.apk "$APPS_BUILDS_DIR/$name.apk"

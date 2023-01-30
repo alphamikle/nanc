@@ -8,13 +8,13 @@ part of 'positioned_arguments.dart';
 
 PositionedArguments _$PositionedArgumentsFromJson(Map<String, dynamic> json) =>
     PositionedArguments(
-      width: doubleOrNullFromJson(json['width'] as String?),
-      height: doubleOrNullFromJson(json['height'] as String?),
-      left: doubleOrNullFromJson(json['left'] as String?),
-      top: doubleOrNullFromJson(json['top'] as String?),
-      right: doubleOrNullFromJson(json['right'] as String?),
-      bottom: doubleOrNullFromJson(json['bottom'] as String?),
-      all: doubleOrNullFromJson(json['all'] as String?),
+      width: nullableDoubleFromJson(json['width'] as String?),
+      height: nullableDoubleFromJson(json['height'] as String?),
+      left: nullableDoubleFromJson(json['left'] as String?),
+      top: nullableDoubleFromJson(json['top'] as String?),
+      right: nullableDoubleFromJson(json['right'] as String?),
+      bottom: nullableDoubleFromJson(json['bottom'] as String?),
+      all: nullableDoubleFromJson(json['all'] as String?),
     );
 
 Map<String, dynamic> _$PositionedArgumentsToJson(

@@ -8,13 +8,17 @@ part 'fade_in_arguments.g.dart';
 class FadeInArguments {
   const FadeInArguments({
     required this.duration,
+    required this.delay,
     required this.curve,
   });
 
   factory FadeInArguments.fromJson(dynamic json) => _$FadeInArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: intFromJson)
+  @JsonKey(fromJson: nullableIntFromJson)
   final int? duration;
+
+  @JsonKey(fromJson: nullableIntFromJson)
+  final int? delay;
 
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final CurveEnum? curve;

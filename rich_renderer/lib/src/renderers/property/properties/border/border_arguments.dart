@@ -14,10 +14,10 @@ class BorderArguments {
 
   factory BorderArguments.fromJson(dynamic json) => _$BorderArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
+  @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
   final Color? color;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? width;
 
   // TODO(alphamikle): Replace with new property

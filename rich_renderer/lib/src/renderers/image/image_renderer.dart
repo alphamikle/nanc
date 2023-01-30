@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_blurhash/src/blurhash.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/renderers/image/image_arguments.dart';
 import 'package:rich_renderer/src/renderers/image/smart_image.dart';
+import 'package:tools/tools.dart';
 
 TagRenderer imageRenderer() {
   return TagRenderer(
@@ -102,18 +104,41 @@ Also, if you passed a some image url and don't see the image in the Nanc, potent
 ''',
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
       final ImageArguments arguments = ImageArguments.fromJson(element.attributes);
+      final RegExp blurHashRegExp = RegExp(r'[?|&]?bh=(?<hash>[^&]+)');
 
       if (arguments.ref == null || arguments.ref!.isEmpty) {
         return const SizedBox.shrink();
       }
 
       final Uri uri = Uri.parse(arguments.ref!);
-      final String? blurHash = arguments.blurHash ?? uri.queryParameters['bh'];
+      bool isUrlEncoded = false;
+      String? blurHash = arguments.blurHash;
+      if (blurHash == null) {
+        isUrlEncoded = true;
+        blurHash = uri.queryParameters['bh'];
+      }
+      if (blurHash == null) {
+        final RegExpMatch? match = blurHashRegExp.firstMatch(arguments.ref!);
+        if (match != null) {
+          blurHash = match.namedGroup('hash');
+        }
+      }
+      if (isUrlEncoded && blurHash != null) {
+        blurHash = Uri.decodeComponent(blurHash);
+      }
 
-      print(1);
+      if (blurHash != null && blurHash != '' && blurHash != 'null') {
+        final bool isCorrectHash = validateBlurhash(blurHash);
+        if (isCorrectHash == false) {
+          blurHash = null;
+          logg('Blur hash is incorrect');
+        }
+      }
+
+      final String imageUrl = arguments.ref!.replaceFirst(blurHashRegExp, '');
 
       return SmartImage(
-        ref: arguments.ref!,
+        ref: imageUrl,
         fit: arguments.fit,
         height: arguments.height,
         width: arguments.width,

@@ -4,6 +4,10 @@
   "name": "Robert",
   "second_name": "Downey",
   "position": "appDeveloper",
+  "position_new": {
+   "id": "0185f962-a936-b273-0ccb-089ae41ddf8d",
+   "position": "App Developer"
+  },
   "image": "https://corsproxy.io/?https://nanc.b-cdn.net/downey_op.jpg?bh=LCDSE-%3FH0001%3FGofE1Rj00IV~V%3FH",
   "description": "I am a highly skilled mobile app developer with a passion for creating innovative and engaging apps. I excel at solving complex technical challenges and delivering high-quality apps on time and within budget.",
   "facebook": "https://facebook.com",
@@ -16,6 +20,10 @@
   "name": "Rachel",
   "second_name": "McAdams",
   "position": "designer",
+  "position_new": {
+   "id": "0185f962-faaa-7f7b-f242-4f5f9c663849",
+   "position": "UI/UX Designer"
+  },
   "image": "https://corsproxy.io/?https://nanc.b-cdn.net/mcadams_op.jpg?bh=LEM%3FYn00qFwJpIWX_3oIcZxZt8X7",
   "description": "I am a skilled UI/UX designer with a passion for creating intuitive and user-friendly interfaces. I have a strong understanding of user psychology and am able to effectively communicate my designs to team members and stakeholders. I am constantly learning and staying up-to-date with the latest design trends and best practices.",
   "facebook": "https://facebook.com",
@@ -28,6 +36,10 @@
   "name": "Will",
   "second_name": "Smith",
   "position": "manager",
+  "position_new": {
+   "id": "0185f963-883c-b0c4-03c6-cdec57865bcf",
+   "position": "Manager"
+  },
   "image": "https://corsproxy.io/?https://nanc.b-cdn.net/smith_op.jpg?bh=LbI5A4%3FH.TIo_3t7-%3BWB9ZRjV%40oe",
   "description": "As a manager, I am responsible for leading and guiding a team towards success. I have excellent communication and leadership skills, and am able to set clear goals and delegate tasks effectively. I am able to analyze data and make informed decisions, and am a strong problem-solver able to adapt to changing circumstances.",
   "facebook": "https://facebook.com",

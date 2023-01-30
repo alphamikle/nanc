@@ -11,7 +11,7 @@ class AspectRatioArguments {
 
   factory AspectRatioArguments.fromJson(dynamic json) => _$AspectRatioArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? ratio;
 
   Json toJson() => _$AspectRatioArgumentsToJson(this);

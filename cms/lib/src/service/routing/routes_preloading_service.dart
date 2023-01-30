@@ -48,7 +48,8 @@ class RoutesPreloadingService {
   Future<void> resolveSoloPageState(VRedirector vRedirector) async {
     final String entityId = vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? '';
     _selectSideMenuElement(vRedirector);
-    if (await pageBloc.isPageExist(entityId, entityId)) {
+    final bool isPageExist = await pageBloc.isPageExist(entityId, entityId);
+    if (isPageExist) {
       vRedirector.to(Routes.pageOfSoloModel(entityId), isReplacement: true);
     } else {
       vRedirector.to(Routes.createPageOfSoloModel(entityId), isReplacement: true);

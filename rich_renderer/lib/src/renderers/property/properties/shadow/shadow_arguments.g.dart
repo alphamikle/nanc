@@ -8,11 +8,11 @@ part of 'shadow_arguments.dart';
 
 ShadowArguments _$ShadowArgumentsFromJson(Map<String, dynamic> json) =>
     ShadowArguments(
-      color: colorFromJson(json['color'] as String?),
-      blurRadius: doubleOrNullFromJson(json['blurRadius'] as String?),
-      spreadRadius: doubleOrNullFromJson(json['spreadRadius'] as String?),
-      offsetX: doubleOrNullFromJson(json['offsetX'] as String?),
-      offsetY: doubleOrNullFromJson(json['offsetY'] as String?),
+      color: nullableColorFromJson(json['color'] as String?),
+      blurRadius: nullableDoubleFromJson(json['blurRadius'] as String?),
+      spreadRadius: nullableDoubleFromJson(json['spreadRadius'] as String?),
+      offsetX: nullableDoubleFromJson(json['offsetX'] as String?),
+      offsetY: nullableDoubleFromJson(json['offsetY'] as String?),
       blurStyle: $enumDecodeNullable(_$BlurStyleEnumMap, json['blurStyle'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
     );

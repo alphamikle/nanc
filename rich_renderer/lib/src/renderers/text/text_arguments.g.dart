@@ -10,14 +10,14 @@ TextArguments _$TextArgumentsFromJson(Map<String, dynamic> json) =>
     TextArguments(
       direction: $enumDecodeNullable(_$TextDirectionEnumMap, json['direction'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
-      maxLines: intFromJson(json['maxLines'] as String?),
+      maxLines: nullableIntFromJson(json['maxLines'] as String?),
       align: $enumDecodeNullable(_$TextAlignEnumMap, json['align'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
       overflow: $enumDecodeNullable(_$TextOverflowEnumMap, json['overflow'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
-      softWrap: boolOrNullFromJson(json['softWrap']),
-      size: doubleOrNullFromJson(json['size'] as String?),
-      color: colorFromJson(json['color'] as String?),
+      softWrap: nullableBoolFromJson(json['softWrap']),
+      size: nullableDoubleFromJson(json['size'] as String?),
+      color: nullableColorFromJson(json['color'] as String?),
     );
 
 Map<String, dynamic> _$TextArgumentsToJson(TextArguments instance) =>

@@ -10,8 +10,8 @@ StackArguments _$StackArgumentsFromJson(Map<String, dynamic> json) =>
     StackArguments(
       fit: $enumDecodeNullable(_$StackFitEnumMap, json['fit'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
-      x: doubleOrNullFromJson(json['x'] as String?),
-      y: doubleOrNullFromJson(json['y'] as String?),
+      x: nullableDoubleFromJson(json['x'] as String?),
+      y: nullableDoubleFromJson(json['y'] as String?),
       align: $enumDecodeNullable(_$AlignmentEnumEnumMap, json['align'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
     );

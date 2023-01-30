@@ -14,13 +14,13 @@ class ReviewsSliderArguments {
 
   factory ReviewsSliderArguments.fromJson(dynamic json) => _$ReviewsSliderArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? height;
 
-  @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
+  @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
   final Color? dotColor;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? sliderDotGap;
 
   Json toJson() => _$ReviewsSliderArgumentsToJson(this);

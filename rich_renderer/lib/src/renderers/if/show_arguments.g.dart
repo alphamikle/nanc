@@ -8,8 +8,8 @@ part of 'show_arguments.dart';
 
 ShowArguments _$ShowArgumentsFromJson(Map<String, dynamic> json) =>
     ShowArguments(
-      show: boolOrNullFromJson(json['show']),
-      notShow: boolOrNullFromJson(json['notShow']),
+      show: nullableBoolFromJson(json['show']),
+      notShow: nullableBoolFromJson(json['notShow']),
     );
 
 Map<String, dynamic> _$ShowArgumentsToJson(ShowArguments instance) =>

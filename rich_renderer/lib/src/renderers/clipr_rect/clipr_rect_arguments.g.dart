@@ -8,11 +8,11 @@ part of 'clipr_rect_arguments.dart';
 
 ClipRRectArguments _$ClipRRectArgumentsFromJson(Map<String, dynamic> json) =>
     ClipRRectArguments(
-      topLeft: doubleOrNullFromJson(json['topLeft'] as String?),
-      topRight: doubleOrNullFromJson(json['topRight'] as String?),
-      bottomRight: doubleOrNullFromJson(json['bottomRight'] as String?),
-      bottomLeft: doubleOrNullFromJson(json['bottomLeft'] as String?),
-      all: doubleOrNullFromJson(json['all'] as String?),
+      topLeft: nullableDoubleFromJson(json['topLeft'] as String?),
+      topRight: nullableDoubleFromJson(json['topRight'] as String?),
+      bottomRight: nullableDoubleFromJson(json['bottomRight'] as String?),
+      bottomLeft: nullableDoubleFromJson(json['bottomLeft'] as String?),
+      all: nullableDoubleFromJson(json['all'] as String?),
     );
 
 Map<String, dynamic> _$ClipRRectArgumentsToJson(ClipRRectArguments instance) =>

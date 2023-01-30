@@ -63,6 +63,8 @@ class _MultiSelectorArrayOfIdsFieldCellState extends State<MultiSelectorArrayOfI
   }
 
   Future<void> preload() async {
+    // TODO(alphamikle): Temporary fix of the problem with changing state during a build process
+    await wait(duration: const Duration(milliseconds: 50));
     if (mounted) {
       controller.text = kLoadingText;
       setState(() => isPreloading = true);

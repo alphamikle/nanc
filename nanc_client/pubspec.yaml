@@ -1,7 +1,7 @@
 name: nanc_client
 description: NANC project demo client
 publish_to: 'none'
-version: 1.0.0+18
+version: 1.0.0+21
 
 environment:
   sdk: '>=2.18.2 <3.0.0'

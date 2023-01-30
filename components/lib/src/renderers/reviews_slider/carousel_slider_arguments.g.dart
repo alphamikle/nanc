@@ -9,9 +9,9 @@ part of 'carousel_slider_arguments.dart';
 ReviewsSliderArguments _$ReviewsSliderArgumentsFromJson(
         Map<String, dynamic> json) =>
     ReviewsSliderArguments(
-      height: doubleOrNullFromJson(json['height'] as String?),
-      dotColor: colorFromJson(json['dotColor'] as String?),
-      sliderDotGap: doubleOrNullFromJson(json['sliderDotGap'] as String?),
+      height: nullableDoubleFromJson(json['height'] as String?),
+      dotColor: nullableColorFromJson(json['dotColor'] as String?),
+      sliderDotGap: nullableDoubleFromJson(json['sliderDotGap'] as String?),
     );
 
 Map<String, dynamic> _$ReviewsSliderArgumentsToJson(

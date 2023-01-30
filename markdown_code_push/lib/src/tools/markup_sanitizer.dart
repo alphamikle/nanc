@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 final RegExp _commentsRegExp = RegExp(r'(<!--.*-->)|(<!--.*)');
 final RegExp _emptyLinesAfterTagOpener = RegExp(r'(?<open><\w+)(?<blank>[ \n\r\s]+)');
 final RegExp _emptyLinesBetweenArguments = RegExp(r'(?<argument>\w+=")(?<value>[^"]+")(?<blank>[ \n\r\s]+)');
@@ -10,10 +8,8 @@ String sanitizeMarkup(String rawMarkup) {
   final String clearFromCommentsString = _clearComments(rawMarkup);
   final String clearFromAttributesNewLinesString = _clearTagFromNewLines(clearFromCommentsString);
   String cleanedAfterWebFixesString = clearFromAttributesNewLinesString;
-  if (kIsWeb) {
-    cleanedAfterWebFixesString = cleanedAfterWebFixesString.replaceAll(_invisibleDotsRegExp, ' ');
-    cleanedAfterWebFixesString = cleanedAfterWebFixesString.replaceAll(_backslashRegExp, '"');
-  }
+  cleanedAfterWebFixesString = cleanedAfterWebFixesString.replaceAll(_invisibleDotsRegExp, ' ');
+  cleanedAfterWebFixesString = cleanedAfterWebFixesString.replaceAll(_backslashRegExp, '"');
   return cleanedAfterWebFixesString;
 }
 

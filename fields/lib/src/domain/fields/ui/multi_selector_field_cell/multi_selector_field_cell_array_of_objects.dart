@@ -1,11 +1,7 @@
 import 'dart:async';
 
 import 'package:cms/cms.dart';
-import 'package:fields/src/domain/fields/logic/field/field.dart';
-import 'package:fields/src/domain/fields/logic/multi_selector_field/multi_selector_field.dart';
-import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
-import 'package:fields/src/domain/fields/ui/multi_selector_field_cell/multi_selector_modal.dart';
-import 'package:fields/src/domain/fields/ui/selector_field_cell/selector_field_cell.dart';
+import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
@@ -87,7 +83,11 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
       ).join(kDelimiter);
       controller.text = resultTitle;
       pageBloc.updateValue(fieldId, selectedObjects);
-      setState(() => isPreloading = false);
+      unawaited(wait(duration: const Duration(milliseconds: 300)).toFuture().then((_) {
+        if (mounted) {
+          setState(() => isPreloading = false);
+        }
+      }));
     }
   }
 

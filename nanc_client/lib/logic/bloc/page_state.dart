@@ -11,6 +11,7 @@ const List<String> _uiFields = [
   'page',
   'interface',
   'markup',
+  'view',
 ];
 
 @CopyWith()

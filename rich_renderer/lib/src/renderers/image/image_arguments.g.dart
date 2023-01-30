@@ -9,9 +9,9 @@ part of 'image_arguments.dart';
 ImageArguments _$ImageArgumentsFromJson(Map<String, dynamic> json) =>
     ImageArguments(
       ref: json['ref'] as String?,
-      color: colorFromJson(json['color'] as String?),
-      width: doubleOrNullFromJson(json['width'] as String?),
-      height: doubleOrNullFromJson(json['height'] as String?),
+      color: nullableColorFromJson(json['color'] as String?),
+      width: nullableDoubleFromJson(json['width'] as String?),
+      height: nullableDoubleFromJson(json['height'] as String?),
       fit: $enumDecodeNullable(_$BoxFitEnumMap, json['fit'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
       blurHash: json['blurHash'] as String?,

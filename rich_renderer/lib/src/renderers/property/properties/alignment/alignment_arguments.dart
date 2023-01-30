@@ -26,10 +26,10 @@ class AlignmentArguments {
 
   factory AlignmentArguments.fromJson(dynamic json) => _$AlignmentArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? x;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? y;
 
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)

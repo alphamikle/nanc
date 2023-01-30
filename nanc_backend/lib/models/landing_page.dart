@@ -127,7 +127,7 @@ final Model landingPage = Model(
           SelectorField(
             name: 'Team Member',
             model: developer,
-            titleFields: const ['name', 'second_name', 'position'],
+            titleFields: const ['name', 'second_name'],
             structure: SelectorFieldStructure.object,
           ),
         ],
@@ -142,7 +142,7 @@ final Model landingPage = Model(
       MultiSelectorField(
         name: 'Reviews',
         model: review,
-        titleFields: const ['customer_name', 'customer_lastname', 'position'],
+        titleFields: const ['customer_name', 'customer_lastname'],
         structure: MultiSelectorFieldStructure.arrayOfObjects,
       ),
     ],

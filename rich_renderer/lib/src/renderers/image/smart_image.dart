@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:rich_renderer/src/logic/image_builder_delegate.dart';
+import 'package:tools/tools.dart';
 
 class SmartImage extends StatelessWidget {
   const SmartImage({
@@ -25,17 +26,15 @@ class SmartImage extends StatelessWidget {
 
   bool get isNetwork => ref.startsWith('http') || ref.contains('://');
 
-  bool get withBlurHash {
-    final bool isExplicit = blurHash != null && blurHash != '' && blurHash != 'null';
-    if (isExplicit) {
-      return true;
-    }
-    final Uri uri = Uri.parse(ref);
-    // if (uri)
-    return false;
-  }
+  bool get withBlurHash => blurHash != null && blurHash != '' && blurHash != 'null';
 
   Widget blurHashLoadingBuilder(BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+    if (loadingProgress != null) {
+      logg('Loading progress of "$ref" is ${loadingProgress.cumulativeBytesLoaded / loadingProgress.cumulativeBytesLoaded}');
+    } else {
+      logg('Loading progress is null');
+    }
+
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 250),
       child: loadingProgress == null
@@ -60,7 +59,11 @@ class SmartImage extends StatelessWidget {
     );
 
     if (withBlurHash) {
-      return blurHashLoadingBuilder(context, image, null);
+      return blurHashLoadingBuilder(
+        context,
+        image,
+        null,
+      );
     }
     return image;
   }
@@ -77,13 +80,6 @@ class SmartImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ImageBuilderDelegate builderDelegate = ImageBuilderDelegate.of(context);
-
-    if (withBlurHash) {
-      return BlurHash(
-        hash: blurHash!,
-        imageFit: fit ?? BoxFit.fill,
-      );
-    }
 
     if (isNetwork) {
       if (useCache) {

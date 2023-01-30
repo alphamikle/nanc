@@ -75,18 +75,23 @@ Also, you are available to change Curve type of animation. More info about curve
 ''',
       arguments: [
         durationArg(),
+        durationArg('delay'),
         curveArg(),
       ],
       properties: [],
     ),
     example: '''
 <safeArea>
-  <center>
+  <column>
     <fadeIn duration="1000" curve="bounceOut">
       <container size="200" color="#07B982">
       </container>
     </fadeIn>
-  </center>
+    <fadeIn duration="1000" delay="300" curve="easeIn">
+      <container size="200" color="#FF10A0CF">
+      </container>
+    </fadeIn>
+  </column>
 </safeArea>
 ''',
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
@@ -95,6 +100,7 @@ Also, you are available to change Curve type of animation. More info about curve
 
       return FadeIn(
         duration: arguments.duration == null ? const Duration(milliseconds: 250) : Duration(milliseconds: arguments.duration!),
+        delay: arguments.delay == null ? Duration.zero : Duration(milliseconds: arguments.delay!),
         curve: _mapCurveEnumToCurve(arguments.curve),
         child: compactWidgets(extractor.children),
       );

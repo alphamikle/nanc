@@ -1,8 +1,5 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:fields/fields.dart';
-import 'package:fields/src/domain/fields/logic/field/field.dart';
-import 'package:fields/src/domain/fields/logic/field/field_description.dart';
-import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -33,10 +30,10 @@ class HeaderField extends Field {
 
   final String? contentIcon;
 
-  @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
+  @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
   final Color? contentColor;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? contentFontSize;
 
   final bool useAsDivider;

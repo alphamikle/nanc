@@ -16,16 +16,16 @@ class PhysicalModelArguments {
 
   factory PhysicalModelArguments.fromJson(dynamic json) => _$PhysicalModelArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
+  @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
   final Color? color;
 
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final Clip? clip;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? elevation;
 
-  @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
+  @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
   final Color? shadowColor;
 
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)

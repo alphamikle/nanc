@@ -8,7 +8,7 @@ part of 'decoration_arguments.dart';
 
 DecorationArguments _$DecorationArgumentsFromJson(Map<String, dynamic> json) =>
     DecorationArguments(
-      color: colorFromJson(json['color'] as String?),
+      color: nullableColorFromJson(json['color'] as String?),
       blendMode: $enumDecodeNullable(_$BlendModeEnumMap, json['blendMode'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
     );

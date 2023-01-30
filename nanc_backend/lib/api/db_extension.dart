@@ -52,7 +52,7 @@ abstract class MockApi {
           throw Exception('Incorrect type of row: ${row.runtimeType}');
         }
         tempData.add(result);
-        await wait();
+        await wait(periodic: true);
       }
       data = tempData;
     } else {

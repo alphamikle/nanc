@@ -70,21 +70,31 @@ class _EntityPageViewState extends State<EntityPageView> {
   }
 
   Future<void> confirmAndDelete(Model model) async {
+    final InitializedVRouterSailor vRouter = context.vRouter;
+    final String? modelId = vRouter.pathParameters[Params.modelId.name];
     final bool confirmed = await confirmAction(context: context, title: 'Do you really want to delete this page?');
     if (confirmed) {
       await pageBloc.delete(model);
-      context.vRouter.historyBack();
+      if (model.isCollection) {
+        vRouter.historyBack();
+      } else {
+        if (modelId != null) {
+          vRouter.to(Routes.soloModelGateway(modelId), isReplacement: true);
+        } else {
+          vRouter.to(Routes.solo(), isReplacement: true);
+        }
+      }
       formKey.currentState?.reset();
     }
   }
 
   Future<void> confirmAndReset(Model model) async {
+    final InitializedVRouterSailor vRouter = context.vRouter;
     final bool confirmed = await confirmAction(context: context, title: 'Do you want to reset all not saved changes of this page?');
     if (confirmed) {
-      final String currentRoute = context.vRouter.url;
-      final InitializedVRouterSailor router = context.vRouter;
+      final String currentRoute = vRouter.url;
       await pageBloc.reset(model);
-      router.to(currentRoute, isReplacement: true);
+      vRouter.to(currentRoute, isReplacement: true);
       formKey = GlobalKey();
     }
   }

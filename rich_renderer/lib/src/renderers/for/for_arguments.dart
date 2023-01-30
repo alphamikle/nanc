@@ -25,10 +25,10 @@ class ForArguments {
   @JsonKey(name: 'in_old')
   final String? oldValues;
 
-  @JsonKey(fromJson: intFromJson)
+  @JsonKey(fromJson: nullableIntFromJson)
   final int? from;
 
-  @JsonKey(fromJson: intFromJson)
+  @JsonKey(fromJson: nullableIntFromJson)
   final int? to;
 
   Json toJson() => _$ForArgumentsToJson(this);

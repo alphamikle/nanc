@@ -8,11 +8,11 @@ part of 'padding_arguments.dart';
 
 PaddingArguments _$PaddingArgumentsFromJson(Map<String, dynamic> json) =>
     PaddingArguments(
-      left: doubleOrNullFromJson(json['left'] as String?),
-      top: doubleOrNullFromJson(json['top'] as String?),
-      right: doubleOrNullFromJson(json['right'] as String?),
-      bottom: doubleOrNullFromJson(json['bottom'] as String?),
-      all: doubleOrNullFromJson(json['all'] as String?),
+      left: nullableDoubleFromJson(json['left'] as String?),
+      top: nullableDoubleFromJson(json['top'] as String?),
+      right: nullableDoubleFromJson(json['right'] as String?),
+      bottom: nullableDoubleFromJson(json['bottom'] as String?),
+      all: nullableDoubleFromJson(json['all'] as String?),
     );
 
 Map<String, dynamic> _$PaddingArgumentsToJson(PaddingArguments instance) =>

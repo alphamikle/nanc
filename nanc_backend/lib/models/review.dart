@@ -1,6 +1,7 @@
 import 'package:fields/fields.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
+import 'package:nanc_backend/models/position.dart';
 
 final Model review = Model(
   name: 'Review',
@@ -13,7 +14,13 @@ final Model review = Model(
     ],
     [
       StringField(name: 'Image', maxLines: 1),
-      StringField(name: 'Position', maxLines: 1, isRequired: true, showInList: true),
+      SelectorField(
+        name: 'Position',
+        id: 'position_new',
+        model: position,
+        titleFields: const ['position'],
+        structure: SelectorFieldStructure.object,
+      ),
     ],
     [
       StringField(name: 'Review', isRequired: true),

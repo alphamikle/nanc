@@ -11,7 +11,7 @@ class DoubleArguments {
 
   factory DoubleArguments.fromJson(dynamic json) => _$DoubleArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? value;
 
   Json toJson() => _$DoubleArgumentsToJson(this);

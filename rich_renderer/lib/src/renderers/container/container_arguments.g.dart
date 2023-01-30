@@ -8,10 +8,10 @@ part of 'container_arguments.dart';
 
 ContainerArguments _$ContainerArgumentsFromJson(Map<String, dynamic> json) =>
     ContainerArguments(
-      width: doubleOrNullFromJson(json['width'] as String?),
-      height: doubleOrNullFromJson(json['height'] as String?),
-      size: doubleOrNullFromJson(json['size'] as String?),
-      color: colorFromJson(json['color'] as String?),
+      width: nullableDoubleFromJson(json['width'] as String?),
+      height: nullableDoubleFromJson(json['height'] as String?),
+      size: nullableDoubleFromJson(json['size'] as String?),
+      color: nullableColorFromJson(json['color'] as String?),
     );
 
 Map<String, dynamic> _$ContainerArgumentsToJson(ContainerArguments instance) =>

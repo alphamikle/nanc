@@ -10,7 +10,7 @@ MaterialArguments _$MaterialArgumentsFromJson(Map<String, dynamic> json) =>
     MaterialArguments(
       type: $enumDecodeNullable(_$MaterialTypeEnumMap, json['type'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
-      color: colorFromJson(json['color'] as String?),
+      color: nullableColorFromJson(json['color'] as String?),
     );
 
 Map<String, dynamic> _$MaterialArgumentsToJson(MaterialArguments instance) =>

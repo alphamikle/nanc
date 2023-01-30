@@ -9,11 +9,11 @@ part of 'ink_well_arguments.dart';
 InkWellArguments _$InkWellArgumentsFromJson(Map<String, dynamic> json) =>
     InkWellArguments(
       onPressed: json['onPressed'] as String?,
-      focusColor: colorFromJson(json['focusColor'] as String?),
-      overlayColor: colorFromJson(json['overlayColor'] as String?),
-      highlightColor: colorFromJson(json['highlightColor'] as String?),
-      splashColor: colorFromJson(json['splashColor'] as String?),
-      hoverColor: colorFromJson(json['hoverColor'] as String?),
+      focusColor: nullableColorFromJson(json['focusColor'] as String?),
+      overlayColor: nullableColorFromJson(json['overlayColor'] as String?),
+      highlightColor: nullableColorFromJson(json['highlightColor'] as String?),
+      splashColor: nullableColorFromJson(json['splashColor'] as String?),
+      hoverColor: nullableColorFromJson(json['hoverColor'] as String?),
     );
 
 Map<String, dynamic> _$InkWellArgumentsToJson(InkWellArguments instance) =>

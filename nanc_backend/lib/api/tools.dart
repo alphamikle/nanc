@@ -1,11 +1,17 @@
+import 'dart:async';
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:tools/tools.dart';
 
-Future<void> networkDelay() async {
-  const int min = 200;
-  const int max = 400;
+FutureOr<void> networkDelay() {
+  if (kIsWeb) {
+    return null;
+  }
+
+  const int min = 50;
+  const int max = 100;
 
   final Duration delay = Duration(milliseconds: Random().nextInt(max - min) + min);
-  await wait(duration: delay);
+  return wait(duration: delay);
 }

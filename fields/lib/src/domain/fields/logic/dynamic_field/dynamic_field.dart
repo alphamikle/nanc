@@ -30,7 +30,7 @@ class DynamicField extends Field {
 
   final String? contentIcon;
 
-  @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
+  @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
   final Color? contentColor;
 
   @override

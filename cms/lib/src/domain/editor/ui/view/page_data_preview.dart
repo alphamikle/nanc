@@ -21,10 +21,13 @@ class PageDataPreview extends StatefulWidget {
 }
 
 class _PageDataPreviewState extends State<PageDataPreview> {
+  final RegExp badCharactersRegExp = RegExp(r'''[^\-\\=%~*\[\]\w\s}{":/,?.'$!#)(]''', caseSensitive: false, multiLine: true, unicode: true);
+
   String get code {
     final Json effectiveData = <String, dynamic>{...widget.data};
     effectiveData.remove(widget.field.id);
-    return prettyJson(effectiveData, indent: '  ');
+    final String code = prettyJson(effectiveData, indent: '  ');
+    return code.replaceAll(badCharactersRegExp, '');
   }
 
   late final String effectiveCode = code;

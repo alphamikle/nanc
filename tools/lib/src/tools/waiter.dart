@@ -18,6 +18,16 @@ FutureOr<void> wait({Duration duration = const Duration(milliseconds: 4), int pe
   return Future<void>.delayed(duration);
 }
 
+extension CastFutureOr<T> on FutureOr<T> {
+  Future<T> toFuture() {
+    return this as Future<T>;
+  }
+
+  T toValue() {
+    return this as T;
+  }
+}
+
 void _increment() {
   counter++;
   if (counter >= maxCounterValue) {

@@ -168,24 +168,3 @@ class _ConnectionModalState extends State<ConnectionModal> {
     );
   }
 }
-
-/*
-
-                Expanded(
-                  child: TextField(
-                    controller: offerTextController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      filled: true,
-                      hintText: 'Paste connection info here',
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 4),
-                  child: IconButton(
-                    onPressed: () async => rtcClientService.connectToBackend(offerTextController.text),
-                    icon: const Icon(MdiIcons.connection),
-                  ),
-                ),
- */

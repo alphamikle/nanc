@@ -144,9 +144,10 @@ extension $HeaderFieldCopyWith on HeaderField {
 HeaderField _$HeaderFieldFromJson(Map<String, dynamic> json) => HeaderField(
       name: json['name'] as String,
       content: json['content'] as String,
-      contentColor: colorFromJson(json['contentColor'] as String?),
+      contentColor: nullableColorFromJson(json['contentColor'] as String?),
       contentIcon: json['contentIcon'] as String?,
-      contentFontSize: doubleOrNullFromJson(json['contentFontSize'] as String?),
+      contentFontSize:
+          nullableDoubleFromJson(json['contentFontSize'] as String?),
       useAsDivider: json['useAsDivider'] as bool? ?? false,
       id: json['id'] as String?,
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??

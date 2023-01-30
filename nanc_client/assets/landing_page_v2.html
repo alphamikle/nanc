@@ -162,12 +162,12 @@
 <template id="buttons.cms">
   <row>
     <expanded>
-      <fadeIn>
+      <fadeIn duration="300">
         <component id="buttons.justButton" color="#FFF76707" textColor="#FFFFFF" text="Let's play" onPressed="browser: https://admin.nanc.io"/>
       </fadeIn>
     </expanded>
     <divider width="8"/>
-    <fadeIn>
+    <fadeIn delay="100" duration="300">
       <component id="buttons.squareIcon" color="#FFF76707" iconColor="#FFFFFF" icon="flu_share_android_filled" onPressed="share: https://admin.nanc.io"/>
     </fadeIn>
   </row>
@@ -314,20 +314,22 @@
         <padding bottom="30">
           <component id="text.h7" text="{{ template.description }}" color="{{ data(colors).grey }}" align="center"/>
         </padding>
-        <row mainAxisAlignment="spaceBetween">
-          <component id="buttons.icon" icon="rmx_facebook_fill" link="{{ template.fb }}"/>
+        <row mainAxisAlignment="spaceEvenly">
+          <show show="{{ template.fb }}">
+            <component id="buttons.icon" icon="rmx_facebook_fill" link="{{ template.fb }}"/>
+          </show>
 
-          <component id="divider.line"/>
+          <show show="{{ template.inst }}">
+            <component id="buttons.icon" icon="rmx_instagram_fill" link="{{ template.inst }}"/>
+          </show>
 
-          <component id="buttons.icon" icon="rmx_instagram_fill" link="{{ template.inst }}"/>
+          <show show="{{ template.tw }}">
+            <component id="buttons.icon" icon="mdi_twitter" link="{{ template.tw }}"/>
+          </show>
 
-          <component id="divider.line"/>
-
-          <component id="buttons.icon" icon="mdi_twitter" link="{{ template.tw }}"/>
-
-          <component id="divider.line"/>
-
-          <component id="buttons.icon" icon="rmx_youtube_fill" link="{{ template.ytb }}"/>
+          <show show="{{ template.ytb }}">
+            <component id="buttons.icon" icon="rmx_youtube_fill" link="{{ template.ytb }}"/>
+          </show>
         </row>
       </column>
     </padding>
@@ -358,10 +360,12 @@
           {{ template.position }}
         </text>
         <divider height="18"/>
-        <text color="#6C6C72" align="center" maxLines="10" overflow="ellipsis">
-          <prop:textStyle font="{{ data(fonts).main }}" size="16" height="1.5" weight="w400"/>
-          {{ template.review }}
-        </text>
+        <tooltip text="{{ template.review }}">
+          <text color="#6C6C72" align="center" maxLines="10" overflow="ellipsis">
+            <prop:textStyle font="{{ data(fonts).main }}" size="16" height="1.5" weight="w400"/>
+            {{ template.review }}
+          </text>
+        </tooltip>
       </column>
     </padding>
   </container>
@@ -374,7 +378,10 @@
         <prop:borderRadius all="28"/>
         <prop:shadow color="#A6000000" blurRadius="12" spreadRadius="-1"/>
       </prop:decoration>
-      <image ref="{{ template.image }}"/>
+
+      <clipRRect all="30">
+        <image ref="{{ template.image }}"/>
+      </clipRRect>
     </container>
   </aspectRatio>
 </template>
@@ -469,9 +476,11 @@
       </padding>
     </stack>
   </padding>
-  <padding left="55" right="55" top="40" bottom="60">
-    <component id="cards.image" image="{{ page.images.0.image.url }}"/>
-  </padding>
+  <fadeIn>
+    <padding left="55" right="55" top="40" bottom="60">
+      <component id="cards.image" image="{{ page.images.0.image.url }}"/>
+    </padding>
+  </fadeIn>
 </container>
 
 <!-- ? ========================= About Nanc ========================= -->
@@ -578,7 +587,7 @@
              text="{{ page.middle_download_block_text }}"/>
 </padding>
 
-<padding left="16" right="16" bottom="60">
+<padding left="16" right="16" bottom="20">
   <row mainAxisAlignment="spaceBetween">
     <expanded>
       <component id="buttons.store" link="{{ data(stores).googleLink }}" image="{{ data(stores).googleBadge }}"/>
@@ -588,6 +597,10 @@
       <component id="buttons.store" link="{{ data(stores).appleLink }}" image="{{ data(stores).appleBadge }}"/>
     </expanded>
   </row>
+</padding>
+
+<padding left="16" right="16" bottom="60">
+  <component id="buttons.cms"/>
 </padding>
 
 <padding left="16" right="16">
@@ -636,7 +649,7 @@
         <physicalModel elevation="8">
           <clipRRect all="12">
             <stack fit="expand">
-              <image ref="https://i.ytimg.com/vi/hpgkrUPRBjc/hqdefault.jpg" fit="fitWidth"/>
+              <image ref="https://corsproxy.io?https://i.ytimg.com/vi/hpgkrUPRBjc/hqdefault.jpg" fit="fitWidth"/>
               <positioned all="0">
                 <container color="#665856E9">
                 </container>
@@ -669,7 +682,7 @@
     <for valueName="dev" in="{{ page.team_members }}">
       <padding bottom="30">
         <component id="cards.dev"
-                   role="{{ cycle.dev.team_member.position }}"
+                   role="{{ cycle.dev.team_member.position_new.position }}"
                    name="{{ cycle.dev.team_member.name }} {{ cycle.dev.team_member.second_name }}"
                    image="{{ cycle.dev.team_member.image }}"
                    description="{{ cycle.dev.team_member.description }}"
@@ -708,7 +721,7 @@
         <carouselSlider height="500" dotColor="{{ data(colors).white }}" sliderDotGap="20">
           <for valueName="rev" in="{{ page.reviews }}">
             <component id="cards.review" name="{{ cycle.rev.customer_name }} {{ cycle.rev.customer_lastname }}"
-                       position="{{ cycle.rev.position }}" image="{{ cycle.rev.image }}"
+                       position="{{ cycle.rev.position_new.position }}" image="{{ cycle.rev.image }}"
                        review="{{ cycle.rev.review }}"/>
           </for>
         </carouselSlider>

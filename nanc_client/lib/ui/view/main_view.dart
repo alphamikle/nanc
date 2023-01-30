@@ -92,6 +92,8 @@ class _MainViewState extends State<MainView> {
             ),
           );
 
+          final String screenData = state.screenData;
+
           return KitScreenPreloader(
             delayBeforeBuildChild: const Duration(milliseconds: 50),
             delayAfterBuildChild: const Duration(milliseconds: 1600),
@@ -99,7 +101,7 @@ class _MainViewState extends State<MainView> {
             onShowChild: () => setState(() => isScreenReadyToShow = true),
             loader: preloader,
             builder: (_) => ContentPage(
-              content: state.screenData,
+              content: screenData,
               pageData: state.pageData,
               renderer: tagsRenderer,
               preloader: preloader,

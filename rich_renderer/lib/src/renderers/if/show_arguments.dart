@@ -12,10 +12,10 @@ class ShowArguments {
 
   factory ShowArguments.fromJson(dynamic json) => _$ShowArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: boolOrNullFromJson)
+  @JsonKey(fromJson: nullableBoolFromJson)
   final bool? show;
 
-  @JsonKey(fromJson: boolOrNullFromJson)
+  @JsonKey(fromJson: nullableBoolFromJson)
   final bool? notShow;
 
   Json toJson() => _$ShowArgumentsToJson(this);

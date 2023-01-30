@@ -12,10 +12,10 @@ class DividerArguments {
 
   factory DividerArguments.fromJson(dynamic json) => _$DividerArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? height;
 
-  @JsonKey(fromJson: doubleOrNullFromJson)
+  @JsonKey(fromJson: nullableDoubleFromJson)
   final double? width;
 
   Json toJson() => _$DividerArgumentsToJson(this);

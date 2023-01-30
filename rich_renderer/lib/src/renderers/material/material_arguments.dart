@@ -16,7 +16,7 @@ class MaterialArguments {
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final MaterialType? type;
 
-  @JsonKey(fromJson: colorFromJson, toJson: colorToJson)
+  @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
   final Color? color;
 
   Json toJson() => _$MaterialArgumentsToJson(this);
