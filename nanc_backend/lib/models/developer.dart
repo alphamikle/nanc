@@ -19,6 +19,7 @@ final Model developer = Model(
         model: position,
         titleFields: const ['position'],
         structure: SelectorFieldStructure.object,
+        isRequired: true,
       ),
       StringField(name: 'Image', maxLines: 1, isRequired: true),
     ],

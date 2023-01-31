@@ -1,0 +1,26 @@
+name: analytics
+description: A new Flutter package project.
+version: 1.0.0
+homepage: nope
+publish_to: none
+
+environment:
+  sdk: '>=2.18.6 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  config:
+    path: ../config
+  tools:
+    path: ../tools
+  amplitude_flutter: ^3.13.0
+  vrouter: ^1.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:

@@ -1,3 +1,4 @@
+import 'package:analytics/analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
@@ -46,8 +47,10 @@ class _ConnectionModalState extends State<ConnectionModal> {
 
   Future<void> connectToBackend() async {
     if (formKey.currentState!.validate()) {
+      Analytics.sendEvent('CONNECTION_TO_BACKEND_STARTED');
       final PageBloc pageBloc = context.read();
       await pageBloc.connectToBackend();
+      Analytics.sendEvent('CONNECTION_TO_BACKEND_COMPLETED');
     }
   }
 

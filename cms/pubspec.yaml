@@ -35,6 +35,8 @@ dependencies:
     path: ../icons
   additions:
     path: ../additions
+  analytics:
+    path: ../analytics
   cupertino_icons: ^1.0.2
   device_frame: ^1.1.0
   markdown: ^6.0.1

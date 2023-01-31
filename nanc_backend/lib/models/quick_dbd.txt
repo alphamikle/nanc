@@ -1,0 +1,85 @@
+Bullet
+-
+id string pk
+title string
+description string
+
+# Invisible adder for Json<T>
+# "⁣"
+
+Developer
+-
+id uuid pk
+name string
+second_name string
+position Json<⁣Position> fk -< p.id
+image string
+description string
+facebook string null
+instagram string null
+twitter string null
+youtube string null
+
+Feature
+-
+id uuid pk
+title string
+image string
+description string
+
+Image
+-
+id uuid pk
+title string
+url string
+
+Position as p
+-
+id uuid pk
+position string unique
+
+Review
+-
+id uuid pk
+customer_name string
+customer_lastname string
+image string null
+position Json<⁣Position> fk -< p.id
+review string
+
+"Landing page"
+-
+id string pk
+screen_header string null
+screen string null
+royal_blue_color string
+grey_color string
+white_color string
+black_color string
+font_family string
+google_play_badge string
+app_store_badge string
+google_play_link string
+app_store_link string
+images Json<⁣List<⁣Image>> fk >- Image.id
+bullets Json<⁣List<⁣Bullet>> fk >- Bullet.id
+features Json<⁣List<⁣Feature>> fk >- Feature.id
+team_members Json<⁣List<⁣Developer>> fk >- Developer.id
+reviews Json<⁣List<⁣Review>> fk >- Review.id
+main_header string
+download_apps_header string
+about_header string
+features_header string
+interface_header string
+how_to_use_header string
+team_header string
+customers_header string
+top_block_text string
+about_text string
+features_text string
+interface_text string
+middle_download_block_text string
+how_to_use_text string
+team_text string
+customers_text string
+updated_at timestamp null

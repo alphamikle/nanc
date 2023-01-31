@@ -1,4 +1,5 @@
 import 'package:additions/additions.dart';
+import 'package:analytics/analytics.dart';
 import 'package:cms/cms.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
@@ -22,11 +23,17 @@ class NancApp extends StatefulWidget {
 
 class _NancAppState extends State<NancApp> {
   @override
+  void initState() {
+    super.initState();
+    Analytics.sendEvent('START_APP');
+  }
+
+  @override
   Widget build(BuildContext context) {
     return VRouter(
       navigatorKey: widget.rootKey,
       routes: generateRoutes(context),
-      title: 'NANC Client App',
+      title: 'Nanc Client',
       theme: themeBuilder(context),
       scrollBehavior: AlwaysTouchScrollBehavior(),
       builder: (BuildContext context, Widget child) {

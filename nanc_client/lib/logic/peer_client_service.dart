@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:analytics/analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
 
@@ -30,5 +31,6 @@ class PeerClientService {
   Future<void> disconnect() async {
     await _peerService?.dispose();
     _peerService = null;
+    Analytics.sendEvent('CONNECTION_WITH_BACKEND_DISCONNECTED');
   }
 }

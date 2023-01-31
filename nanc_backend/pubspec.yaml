@@ -1,7 +1,7 @@
 name: nanc_backend
 description: NANC project backend demo
 publish_to: 'none'
-version: 1.0.0+16
+version: 1.0.0+17
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
@@ -29,6 +29,8 @@ dependencies:
     path: ../components
   additions:
     path: ../additions
+  analytics:
+    path: ../analytics
   cupertino_icons: ^1.0.2
   pretty_qr_code: ^2.0.2
   bloc: ^8.1.0

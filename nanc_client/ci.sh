@@ -7,8 +7,9 @@ name="nanc_client_installer_v${version}"
 
 echo "Build $name"
 
-cp "$NANC_DEMO_PAGE_DATA/landing_page.json" ./web/page_data.json
-cp "$NANC_DEMO_PAGE_DATA/landing_page.json" ./assets/page_data.json
+cp "$NANC_DEMO_PAGE_DATA/landing_page.json" ./web/page_data.json || exit
+cp "$NANC_DEMO_PAGE_DATA/landing_page.json" ./assets/page_data.json || exit
+cp ../cms/web/amplitude.js ./web/amplitude.js || exit
 
 flutter clean
 flutter pub get
@@ -18,24 +19,22 @@ flutter build web \
 --no-pub \
 --web-renderer canvaskit \
 --dart2js-optimization=O1 \
---dart-define=SUPA_HOST="$NANC_SUPA_HOST" \
---dart-define=SUPA_KEY="$NANC_SUPA_KEY" \
 --dart-define="$NANC_SECRET_KEY"="$NANC_SECRET_VALUE" \
---no-tree-shake-icons
+--dart-define=ANALYTICS_KEY="$NANC_ANALYTICS_KEY" \
+--dart-define=ANALYTICS_PROJECT=client_web \
+--no-tree-shake-icons \
 
 flutter build apk \
 --no-pub \
 --target-platform="android-arm64" \
---dart-define=SUPA_HOST="$NANC_SUPA_HOST" \
---dart-define=SUPA_KEY="$NANC_SUPA_KEY" \
 --dart-define="$NANC_SECRET_KEY"="$NANC_SECRET_VALUE" \
 
 flutter build appbundle \
 --no-pub \
 --target-platform="android-arm64" \
---dart-define=SUPA_HOST="$NANC_SUPA_HOST" \
---dart-define=SUPA_KEY="$NANC_SUPA_KEY" \
 --dart-define="$NANC_SECRET_KEY"="$NANC_SECRET_VALUE" \
+--dart-define=ANALYTICS_KEY="$NANC_ANALYTICS_KEY" \
+--dart-define=ANALYTICS_PROJECT=client_android \
 
 # ? Copy Android build
 mv ./build/app/outputs/flutter-apk/app-release.apk "$APPS_BUILDS_DIR/$name.apk"

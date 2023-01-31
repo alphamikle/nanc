@@ -1,3 +1,4 @@
+import 'package:analytics/analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
@@ -28,6 +29,7 @@ class _WebRTCConnectionManagerOverlayState extends State<WebRTCConnectionManager
   BuildContext get rootNavigatorContext => widget.rootNavigatorKey.currentContext!;
 
   Future<void> showConnectionModal() async {
+    Analytics.sendEvent('CMS_OPENED_CONNECTION_MANAGER');
     setState(() => isModalVisible = true);
     final ConnectionManagerBloc connectionManagerBloc = context.read();
 

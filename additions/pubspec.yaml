@@ -15,6 +15,8 @@ dependencies:
     path: ../ui_kit
   flutter:
     sdk: flutter
+  analytics:
+    path: ../analytics
   url_launcher: ^6.1.6
   share_plus: ^6.3.0
 

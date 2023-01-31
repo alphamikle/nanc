@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:analytics/analytics.dart';
 import 'package:components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,6 +33,7 @@ class _MainViewState extends State<MainView> {
   final StreamController<String> preloadingTextStreamController = StreamController.broadcast();
 
   Future<void> showConnectionManager() async {
+    Analytics.sendEvent('CLIENT_OPENED_CONNECTION_MANAGER');
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => const ConnectionModal(),

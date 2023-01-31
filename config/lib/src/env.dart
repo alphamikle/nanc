@@ -10,6 +10,8 @@ abstract class Env {
   static const bool isProduction = bool.fromEnvironment('IS_PRODUCTION') || kReleaseMode;
   static const bool clearDb = bool.fromEnvironment('CLEAR_DB');
   static const String theAught = String.fromEnvironment('TWZ8Z55DNJUMFLZWB8C3');
+  static const String analyticsKey = String.fromEnvironment('ANALYTICS_KEY');
+  static const String analyticsProject = String.fromEnvironment('ANALYTICS_PROJECT');
   static final Uint8List theSomething = Uint8List.fromList(
     const [
       35,

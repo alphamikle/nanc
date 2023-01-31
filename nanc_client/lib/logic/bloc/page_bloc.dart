@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:analytics/analytics.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -121,6 +122,8 @@ class PageBloc extends Cubit<PageState> {
   Future<void> _handleNewPageData({required String modelId, required Json pageData}) async {
     final Color backgroundColor = rootKey.currentContext!.theme.colorScheme.primary;
     final Color contentColor = rootKey.currentContext!.theme.colorScheme.onPrimary;
+
+    Analytics.sendEvent('CLIENT_RECEIVED_NEW_PAGE_DATA');
 
     ScaffoldMessenger.of(rootKey.currentContext!).showSnackBar(
       SnackBar(

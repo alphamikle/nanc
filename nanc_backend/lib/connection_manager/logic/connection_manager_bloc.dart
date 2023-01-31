@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:analytics/analytics.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
@@ -25,6 +26,7 @@ class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
       // Show message about already loading connection
       return;
     }
+    Analytics.sendEvent('CONNECTION_CREATION_STARTED');
     emit(state.copyWith(isLoading: true));
     _service = peerServiceFactory.createPeerService(messageHandler: _clientMessageHandler, onClose: () => _onClose('TODO'));
     final String myPeerId = await _service!.peerId;
@@ -46,6 +48,10 @@ class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
   }
 
   Future<void> sendPageDataToTheClients({required Model model, required Json page}) async {
+    Analytics.sendEvent('BACKEND_SENT_NEW_PAGE_DATA', data: <String, dynamic>{
+      'model_id': model.id,
+      'model_name': model.name,
+    });
     final Map<String, dynamic> message = <String, dynamic>{
       'messageType': kUpdatePage,
       'oneWay': true,
@@ -91,6 +97,7 @@ class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
       }
     });
     await connectionCompleter.future;
+    Analytics.sendEvent('CONNECTION_CREATION_COMPLETED');
   }
 
   Future<void> _disposeHandler(String serviceId) async {
@@ -111,6 +118,7 @@ class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
     emit(state.copyWith(
       clients: onlineClients,
     ));
+    Analytics.sendEvent('CONNECTION_WITH_CLIENT_DISCONNECTED');
   }
 
   VoidCallback? _onConnected;

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:analytics/analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc_client/logic/bloc/page_bloc.dart';
@@ -17,17 +18,23 @@ List<VRouteElement> generateRoutes(BuildContext context) {
 
   return [
     VGuard(
-      beforeEnter: initPage(pageBloc),
-      beforeUpdate: initPage(pageBloc),
+      beforeEnter: analyticsObserver('BEFORE_ENTER'),
+      beforeUpdate: analyticsObserver('BEFORE_UPDATE'),
       stackedRoutes: [
-        VWidget.builder(
-          path: '/',
-          builder: (BuildContext context, VRouterData data) {
-            return BlocProvider.value(
-              value: pageBloc,
-              child: const MainView(isRoot: true),
-            );
-          },
+        VGuard(
+          beforeEnter: initPage(pageBloc),
+          beforeUpdate: initPage(pageBloc),
+          stackedRoutes: [
+            VWidget.builder(
+              path: '/',
+              builder: (BuildContext context, VRouterData data) {
+                return BlocProvider.value(
+                  value: pageBloc,
+                  child: const MainView(isRoot: true),
+                );
+              },
+            ),
+          ],
         ),
       ],
     ),

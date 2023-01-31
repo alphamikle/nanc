@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:additions/additions.dart';
+import 'package:analytics/analytics.dart';
 import 'package:animation_debugger/animation_debugger.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:cms/cms.dart';
@@ -90,6 +91,7 @@ class _FlutterAdminState extends State<FlutterAdmin> {
   void initState() {
     super.initState();
     errorStreamSubscription = widget.errorStreamController.stream.listen(showError);
+    Analytics.sendEvent('START_APP');
   }
 
   @override
