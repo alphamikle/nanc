@@ -1,9 +1,7 @@
 import 'package:cms/src/domain/model/logic/bloc/model_page_bloc/model_page_bloc.dart';
 import 'package:cms/src/domain/model/logic/bloc/model_page_bloc/model_page_state.dart';
 import 'package:cms/src/domain/model/ui/component/add_field_button.dart';
-import 'package:cms/src/domain/model/ui/component/field_card.dart';
-import 'package:cms/src/domain/model/ui/component/field_card_deleter.dart';
-import 'package:cms/src/domain/model/ui/component/field_card_mover.dart';
+import 'package:cms/src/domain/model/ui/component/field_card_functional_wrapper.dart';
 import 'package:cms/src/domain/model/ui/component/field_creation_modal.dart';
 import 'package:cms/src/domain/model/ui/component/field_editor_modal.dart';
 import 'package:cms/src/domain/model/ui/component/field_type_selector_modal.dart';
@@ -57,6 +55,7 @@ class _ModelPageViewState extends State<ModelPageView> {
   }
 
   Widget buildFieldsRow(BuildContext context, int index) {
+    const double customSize = 56;
     final List<List<Field>> allFields = context.read<ModelPageBloc>().state.editableModel.fields;
     final List<Field> rowFields = allFields[index];
     final List<Widget> fieldCards = [];
@@ -67,43 +66,40 @@ class _ModelPageViewState extends State<ModelPageView> {
       final Field field = rowFields[i];
 
       if (i == 0) {
-        fieldCards.add(KitDivider.horizontal(kPadding));
+        fieldCards.add(KitDivider.horizontal(Gap.regular));
       }
       fieldCards.add(
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.only(bottom: kPadding),
-            child: FieldCardDeleter(
+            padding: const EdgeInsets.only(bottom: Gap.regular),
+            child: FieldCardFunctionalWrapper(
+              onPressed: () async => editField(context: context, model: field.toModel(), field: field, row: index, column: i),
+              availableDirections: [
+                if (i > 0) AxisDirection.left,
+                if (index > 0) AxisDirection.up,
+                if (isLast == false) AxisDirection.right,
+                if (isLastRow == false || rowFields.length > 1) AxisDirection.down,
+              ],
+              creationMode: widget.creationMode,
+              field: field,
+              onChange: (AxisDirection direction) => context.read<ModelPageBloc>().moveField(row: index, column: i, direction: direction),
               onDelete: () async => context.read<ModelPageBloc>().deleteModelField(index, i),
               onExpand: () => context.read<ModelPageBloc>().expandField(row: index, column: i),
-              child: FieldCardMover(
-                onChange: (AxisDirection direction) => context.read<ModelPageBloc>().moveField(row: index, column: i, direction: direction),
-                availableDirections: [
-                  if (i > 0) AxisDirection.left,
-                  if (index > 0) AxisDirection.up,
-                  if (isLast == false) AxisDirection.right,
-                  if (isLastRow == false || rowFields.length > 1) AxisDirection.down,
-                ],
-                child: FieldCard(
-                  field: field,
-                  creationMode: widget.creationMode,
-                  onPressed: () async => editField(context: context, model: field.toModel(), field: field, row: index, column: i),
-                  editorMode: true,
-                ),
-              ),
+              customSize: customSize,
             ),
           ),
         ),
       );
-      fieldCards.add(KitDivider.horizontal(kPadding));
+      fieldCards.add(KitDivider.horizontal(Gap.regular));
       if (isLast) {
         fieldCards.add(
           Padding(
-            padding: const EdgeInsets.only(bottom: kPadding),
+            padding: const EdgeInsets.only(bottom: Gap.regular),
             child: KitTooltip(
               text: 'Add field to the current row',
               child: AddFieldButton(
                 onPressed: () async => addField(context, index),
+                customHeight: customSize,
               ),
             ),
           ),
@@ -124,9 +120,9 @@ class _ModelPageViewState extends State<ModelPageView> {
         children: [
           fieldsRow,
           Padding(
-            padding: const EdgeInsets.only(left: kPadding, bottom: kPadding),
+            padding: const EdgeInsets.only(left: Gap.regular, bottom: Gap.regular),
             child: SizedBox(
-              height: 60,
+              height: AddFieldButton.size,
               child: KitTooltip(
                 text: 'Add field to the new row',
                 child: AddFieldButton(
@@ -264,8 +260,8 @@ class _ModelPageViewState extends State<ModelPageView> {
                       ),
                       SliverPadding(
                         padding: const EdgeInsets.only(
-                          top: kPaddingLarge,
-                          right: kPadding,
+                          top: Gap.large,
+                          right: Gap.regular,
                         ),
                         sliver: SliverList(
                           delegate: SliverChildBuilderDelegate(

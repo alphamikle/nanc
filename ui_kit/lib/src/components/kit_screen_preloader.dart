@@ -24,10 +24,10 @@ class KitScreenPreloader extends StatefulWidget {
   final VoidCallback? onShowChild;
 
   @override
-  State<KitScreenPreloader> createState() => _KitScreenPreloaderState();
+  KitScreenPreloaderState createState() => KitScreenPreloaderState();
 }
 
-class _KitScreenPreloaderState extends State<KitScreenPreloader> with AfterRender {
+class KitScreenPreloaderState extends State<KitScreenPreloader> with AfterRender {
   bool _isPreloaderVisible = true;
   bool _isPreloaderExist = true;
   bool _canCreateChild = false;
@@ -48,6 +48,14 @@ class _KitScreenPreloaderState extends State<KitScreenPreloader> with AfterRende
     setState(() {
       _isPreloaderExist = false;
     });
+  }
+
+  Future<void> disablePreloadedScreen() async {
+    setState(() => _isPreloaderExist = true);
+    await Future<void>.delayed(const Duration(milliseconds: 10));
+    setState(() => _isPreloaderVisible = true);
+    await Future<void>.delayed(const Duration(milliseconds: 250));
+    setState(() => _canCreateChild = false);
   }
 
   Future<void> _startAnimation() async {

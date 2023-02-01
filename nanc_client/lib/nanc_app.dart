@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:additions/additions.dart';
 import 'package:analytics/analytics.dart';
 import 'package:cms/cms.dart';
 import 'package:device_frame/device_frame.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_client/routing/routes.dart';
 import 'package:rich_renderer/rich_renderer.dart' as rr;
@@ -25,7 +28,17 @@ class _NancAppState extends State<NancApp> {
   @override
   void initState() {
     super.initState();
-    Analytics.sendEvent('START_APP');
+    Analytics.sendEvent(
+      'START_APP',
+      data: <String, String>{
+        'kind': 'client',
+        'platform': kIsWeb
+            ? 'web'
+            : Platform.isAndroid
+                ? 'android'
+                : 'ios',
+      },
+    );
   }
 
   @override

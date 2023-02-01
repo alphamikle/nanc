@@ -91,7 +91,13 @@ class _FlutterAdminState extends State<FlutterAdmin> {
   void initState() {
     super.initState();
     errorStreamSubscription = widget.errorStreamController.stream.listen(showError);
-    Analytics.sendEvent('START_APP');
+    Analytics.sendEvent(
+      'START_APP',
+      data: <String, String>{
+        'kind': 'cms',
+        'platform': 'web',
+      },
+    );
   }
 
   @override

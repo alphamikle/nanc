@@ -7,7 +7,6 @@ import 'package:cms/src/service/code_style/rich_markdown.dart';
 import 'package:code_text_field/code_text_field.dart';
 import 'package:fields/fields.dart';
 import 'package:file_syncer/file_syncer.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
@@ -65,6 +64,8 @@ class EditorBloc extends Cubit<EditorState> {
     ));
   }
 
+  void clearEditor() => controller.text = '';
+
   @protected
   void controllerListener() {
     emit(
@@ -77,7 +78,6 @@ class EditorBloc extends Cubit<EditorState> {
   void _sendChangedEvent(EditorState state) => eventBus.send(eventId: EditorEvent.changed, request: state);
 
   void _fileContentListener(String? fileContent) {
-    final String oldText = controller.text;
     try {
       if (fileContent != null && fileContent != controller.text) {
         controller.text = fileContent;

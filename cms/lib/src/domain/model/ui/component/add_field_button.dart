@@ -8,9 +8,13 @@ import 'package:ui_kit/ui_kit.dart';
 class AddFieldButton extends StatelessWidget {
   const AddFieldButton({
     required this.onPressed,
+    this.customHeight,
     super.key,
   });
 
+  static const double size = 40;
+
+  final double? customHeight;
   final VoidCallback onPressed;
 
   @override
@@ -18,8 +22,8 @@ class AddFieldButton extends StatelessWidget {
     const BorderRadius radius = BorderRadius.all(Radius.circular(kPadding));
 
     return Container(
-      width: 60,
-      height: FieldCard.height,
+      width: size,
+      height: customHeight ?? FieldCard.height,
       decoration: BoxDecoration(
         color: context.theme.colorScheme.tertiaryContainer,
         borderRadius: radius,
@@ -31,11 +35,11 @@ class AddFieldButton extends StatelessWidget {
         children: [
           Center(
             child: Container(
-              width: 40,
-              height: 40,
+              width: size - 5,
+              height: size - 5,
               decoration: BoxDecoration(
                 color: context.theme.colorScheme.tertiary.withOpacity(0.125),
-                borderRadius: const BorderRadius.all(Radius.circular(50)),
+                borderRadius: const BorderRadius.all(Radius.circular(size)),
               ),
               child: Icon(
                 IconPack.flu_add_circle_filled,

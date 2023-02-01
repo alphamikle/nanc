@@ -10,6 +10,7 @@ class FieldCard extends StatelessWidget {
     required this.creationMode,
     required this.onPressed,
     this.editorMode = false,
+    this.customHeight,
     super.key,
   });
 
@@ -17,78 +18,80 @@ class FieldCard extends StatelessWidget {
   final bool creationMode;
   final VoidCallback onPressed;
   final bool editorMode;
+  final double? customHeight;
 
-  static const double height = 120;
+  static const double height = 100;
 
   @override
   Widget build(BuildContext context) {
     const BorderRadius radius = BorderRadius.all(Radius.circular(kPadding));
+    final TextStyle? titleStyle = context.theme.textTheme.titleMedium;
+    final TextStyle? subtitleStyle = context.theme.textTheme.titleSmall;
 
-    return KitTooltip(
-      disabled: editorMode == false,
-      text: field.description(context).description,
-      child: Container(
-        height: height,
-        decoration: BoxDecoration(
-          color: field.description(context).color.filling,
-          borderRadius: radius,
-          border: Border.all(
-            color: field.description(context).color.border,
+    return Container(
+      height: customHeight ?? height,
+      decoration: BoxDecoration(
+        color: field.description(context).color.filling,
+        borderRadius: radius,
+        border: Border.all(
+          color: field.description(context).color.border,
+        ),
+      ),
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              left: Gap.small,
+              top: Gap.small,
+              right: Gap.small,
+              bottom: Gap.small,
+            ),
+            child: Center(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: Gap.regular),
+                    child: KitIconContainer(
+                      icon: field.description(context).icon,
+                      color: field.description(context).color,
+                      iconSize: customHeight == null ? 30 : customHeight! * 0.5,
+                    ),
+                  ),
+                  Expanded(
+                    child: KitColumn(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          editorMode ? field.name : field.description(context).title,
+                          style: titleStyle?.copyWith(color: titleStyle.color?.withOpacity(0.8)),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          editorMode ? field.id : field.description(context).description,
+                          style: subtitleStyle?.copyWith(color: subtitleStyle.color?.withOpacity(0.5)),
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
-        ),
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(kPadding),
-              child: Center(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: kPadding),
-                      child: KitIconContainer(
-                        icon: field.description(context).icon,
-                        color: field.description(context).color,
-                      ),
-                    ),
-                    Expanded(
-                      child: KitColumn(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            editorMode ? field.name : field.description(context).title,
-                            style: context.theme.textTheme.headline4,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Opacity(
-                            opacity: 0.25,
-                            child: Text(
-                              editorMode ? field.id : field.description(context).description,
-                              style: context.theme.textTheme.bodyLarge,
-                              maxLines: 2,
-                              overflow: TextOverflow.fade,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+          Positioned.fill(
+            child: Material(
+              type: MaterialType.transparency,
+              child: InkWell(
+                borderRadius: radius,
+                onTap: onPressed,
+                child: const ColoredBox(color: Colors.transparent),
               ),
             ),
-            Positioned.fill(
-              child: Material(
-                type: MaterialType.transparency,
-                child: InkWell(
-                  borderRadius: radius,
-                  onTap: onPressed,
-                  child: const ColoredBox(color: Colors.transparent),
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

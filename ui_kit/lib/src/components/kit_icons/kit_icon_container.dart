@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/constants/gap.dart';
 import 'package:ui_kit/src/theme/kit_borders.dart';
 import 'package:ui_kit/src/theme/kit_colors.dart';
 
@@ -8,33 +7,34 @@ class KitIconContainer extends StatelessWidget {
   const KitIconContainer({
     required this.icon,
     required this.color,
+    this.iconSize = 30,
     super.key,
   });
 
   final IconData icon;
   final Color? color;
+  final double iconSize;
 
   @override
   Widget build(BuildContext context) {
     final Color color = this.color ?? context.theme.colorScheme.tertiary;
 
-    return Container(
-      width: 80,
-      decoration: BoxDecoration(
-        color: color.filling,
-        borderRadius: context.kitBorders.largeRadius,
-        border: Border.all(
-          color: color.border,
-          width: 2,
+    return AspectRatio(
+      aspectRatio: 0.85,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: color.shadow,
+          borderRadius: context.kitBorders.middleRadius,
+          border: Border.all(
+            color: color.border,
+            width: 0.5,
+          ),
         ),
-      ),
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(Gap.large),
+        child: Center(
           child: Icon(
             icon,
             color: color.withOpacity(1),
-            size: 30,
+            size: iconSize,
           ),
         ),
       ),

@@ -35,6 +35,8 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
   final EventBus localEventBus = EventBus();
   late final ManualBloc manualBloc = ManualBloc(eventBus: localEventBus, patternMap: context.read<EditorBloc>().patternMap);
   late final PreviewBloc previewBloc = PreviewBloc(eventBus: localEventBus);
+  final GlobalKey<KitScreenPreloaderState> preloaderKey = GlobalKey();
+  late final EditorBloc editorBloc = context.read();
   bool isPageJsonAvailable = false;
 
   void toggleJsonView() => setState(() => isPageJsonAvailable = !isPageJsonAvailable);
@@ -60,7 +62,6 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
   }
 
   Future<void> preload() async {
-    final EditorBloc editorBloc = context.read();
     subscription = editorBloc.stream.listen(onScreenContentChange);
   }
 
@@ -79,7 +80,8 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
   @override
   Widget build(BuildContext context) {
     return KitScreenPreloader(
-      delayBeforeBuildChild: const Duration(milliseconds: 800),
+      key: preloaderKey,
+      delayBeforeBuildChild: const Duration(milliseconds: 510),
       builder: (_) => ColoredBox(
         color: context.theme.colorScheme.surfaceVariant,
         child: KitColumn(
@@ -98,7 +100,11 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                           padding: const EdgeInsets.only(right: kPaddingLarge),
                           child: KitIconButton(
                             icon: IconPack.flu_chevron_left_filled,
-                            onPressed: () => context.navigator.pop(),
+                            onPressed: () async {
+                              final NavigatorState navigator = context.navigator;
+                              await preloaderKey.currentState?.disablePreloadedScreen();
+                              navigator.pop();
+                            },
                           ),
                         ),
 

@@ -14,9 +14,15 @@ class PagePreviewWithFrame extends StatelessWidget {
       behavior: AlwaysTouchScrollBehavior(),
       child: DeviceFrame(
         device: Devices.ios.iPhone13,
-        screen: const Scaffold(
-          backgroundColor: Colors.white,
-          body: PagePreview(),
+        screen: Overlay(
+          initialEntries: [
+            OverlayEntry(
+              builder: (BuildContext context) => const Scaffold(
+                backgroundColor: Colors.white,
+                body: PagePreview(),
+              ),
+            ),
+          ],
         ),
       ),
     );

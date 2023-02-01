@@ -42,8 +42,8 @@ List<VRouteElement> buildRoutes(BuildContext context) {
 
             /// ? /collection
             VGuard(
-              beforeEnter: preloadingService.preloadCollections,
-              beforeUpdate: preloadingService.preloadCollections,
+              beforeEnter: preloadingService.selectMenuItems,
+              beforeUpdate: preloadingService.selectMenuItems,
               stackedRoutes: [
                 VWidget(
                   path: Routes.collection(),
@@ -54,8 +54,8 @@ List<VRouteElement> buildRoutes(BuildContext context) {
 
             /// ? /solo
             VGuard(
-              beforeEnter: preloadingService.preloadCollections,
-              beforeUpdate: preloadingService.preloadCollections,
+              beforeEnter: preloadingService.selectMenuItems,
+              beforeUpdate: preloadingService.selectMenuItems,
               stackedRoutes: [
                 VWidget(
                   path: Routes.solo(),
@@ -126,7 +126,7 @@ List<VRouteElement> buildRoutes(BuildContext context) {
 
             /// ? /editor
             VGuard(
-              beforeEnter: preloadingService.preloadAllModels,
+              beforeEnter: preloadingService.selectMenuItems,
               stackedRoutes: [
                 VWidget(
                   path: Routes.editor(),
@@ -173,8 +173,8 @@ List<VRouteElement> buildRoutes(BuildContext context) {
 
             /// ? /roles
             VGuard(
-              beforeEnter: preloadingService.preloadAllModels,
-              beforeUpdate: preloadingService.preloadAllModels,
+              beforeEnter: preloadingService.selectMenuItems,
+              beforeUpdate: preloadingService.selectMenuItems,
               stackedRoutes: [
                 VWidget(
                   path: Routes.roles(),
@@ -185,8 +185,8 @@ List<VRouteElement> buildRoutes(BuildContext context) {
 
             /// ? /settings
             VGuard(
-              beforeEnter: preloadingService.preloadAllModels,
-              beforeUpdate: preloadingService.preloadAllModels,
+              beforeEnter: preloadingService.selectMenuItems,
+              beforeUpdate: preloadingService.selectMenuItems,
               stackedRoutes: [
                 VWidget(
                   path: Routes.settings(),

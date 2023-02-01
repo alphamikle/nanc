@@ -9,6 +9,9 @@ import 'package:nanc_backend/models/review.dart';
 
 final Model landingPage = Model(
   name: 'Landing page',
+
+  /// ? id in format [toSnakeCase(name)] will be set automatically, if omitted
+  // id: 'landing_page',
   isCollection: false,
   icon: IconPackNames.flu_document_page_break_regular,
   fields: [

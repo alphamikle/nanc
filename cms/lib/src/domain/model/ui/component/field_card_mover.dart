@@ -12,6 +12,8 @@ const double _kRadius = 40;
 const double _minOpacity = 0.25;
 const double _maxOpacity = 1;
 
+const bool _kIsTooltipsDisabled = true;
+
 class FieldCardMover extends StatelessWidget {
   const FieldCardMover({
     required this.child,
@@ -34,6 +36,7 @@ class FieldCardMover extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: KitTooltip(
+                disabled: _kIsTooltipsDisabled,
                 text: 'Shift on the left',
                 child: _MoverButton(
                   direction: AxisDirection.left,
@@ -47,6 +50,7 @@ class FieldCardMover extends StatelessWidget {
             child: Align(
               alignment: Alignment.topCenter,
               child: KitTooltip(
+                disabled: _kIsTooltipsDisabled,
                 text: 'Slide it up',
                 child: _MoverButton(
                   direction: AxisDirection.up,
@@ -60,6 +64,7 @@ class FieldCardMover extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerRight,
               child: KitTooltip(
+                disabled: _kIsTooltipsDisabled,
                 text: 'Shift on the right',
                 child: _MoverButton(
                   direction: AxisDirection.right,
@@ -73,6 +78,7 @@ class FieldCardMover extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: KitTooltip(
+                disabled: _kIsTooltipsDisabled,
                 text: 'Slide it down',
                 child: _MoverButton(
                   direction: AxisDirection.down,

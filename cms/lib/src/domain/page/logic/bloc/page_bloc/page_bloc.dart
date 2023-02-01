@@ -139,7 +139,7 @@ class PageBloc extends BasePageBloc<PageState> {
   Future<void> prepareForCreation(ModelId modelId) async {
     this.modelId = modelId;
     pageId = null;
-    emit(state.copyWith.isLoading(true));
+    emit(state.copyWith(isLoading: true));
     emit(PageState.empty());
     final Model? model = modelListBloc.findModelById(modelId);
     if (model == null) {
@@ -154,12 +154,12 @@ class PageBloc extends BasePageBloc<PageState> {
       pageData[model.idField.id] = model.id;
     }
     final TextControllerMap controllerMap = _mapPageDataToControllerMap(modelId, pageData);
-    emit(state.copyWith(
+    emit(PageState.optional(
       data: pageData,
       initialData: clone(pageData),
       controllerMap: controllerMap,
+      isLoading: false,
     ));
-    emit(state.copyWith.isLoading(false));
   }
 
   Future<bool> isPageExist(String modelId, String pageId) async {

@@ -1,3 +1,4 @@
+import 'package:cms/cms.dart';
 import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
 import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
@@ -28,6 +29,28 @@ class PageState extends BaseEntityPageState {
     required this.thirdTable,
     required this.thirdTableData,
   });
+
+  factory PageState.optional({
+    Json? data,
+    Json? initialData,
+    bool? isLoading,
+    bool? isDeleting,
+    bool? isSaving,
+    TextControllerMap? controllerMap,
+    ThirdTable? thirdTable,
+    ThirdTableData? thirdTableData,
+  }) {
+    return PageState(
+      data: data ?? <String, dynamic>{},
+      initialData: initialData ?? <String, dynamic>{},
+      isLoading: isLoading ?? false,
+      isDeleting: isDeleting ?? false,
+      isSaving: isSaving ?? false,
+      controllerMap: controllerMap ?? {},
+      thirdTable: thirdTable ?? ThirdTable.empty(),
+      thirdTableData: <ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>>{},
+    );
+  }
 
   factory PageState.empty() => PageState(
         data: const <String, dynamic>{},

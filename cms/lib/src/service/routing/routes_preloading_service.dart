@@ -32,7 +32,7 @@ class RoutesPreloadingService {
 
   bool get isAttached => rootKey.currentContext != null;
 
-  Future<void> preloadCollections(VRedirector vRedirector) async => _selectHeaderMenuElement(vRedirector);
+  Future<void> selectMenuItems(VRedirector vRedirector) async => _selectHeaderMenuElement(vRedirector);
 
   Future<void> preloadCollectionDataList(VRedirector vRedirector) async {
     _selectSideMenuElement(vRedirector);
@@ -57,21 +57,19 @@ class RoutesPreloadingService {
   }
 
   Future<void> preloadSoloPage(VRedirector vRedirector) async {
-    final String entityId = vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? '';
-    unawaited(pageBloc.loadPage(entityId, entityId));
+    final String modelId = vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? '';
+    unawaited(pageBloc.loadPage(modelId, modelId));
   }
 
   Future<void> prepareSoloPageForCreation(VRedirector vRedirector) async {
-    final String entityId = vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? '';
-    unawaited(pageBloc.prepareForCreation(entityId));
+    final String modelId = vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? '';
+    unawaited(pageBloc.prepareForCreation(modelId));
   }
 
   Future<void> prepareCollectionPageForCreation(VRedirector vRedirector) async {
-    final String entityId = vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? '';
-    unawaited(pageBloc.prepareForCreation(entityId));
+    final String modelId = vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? '';
+    unawaited(pageBloc.prepareForCreation(modelId));
   }
-
-  Future<void> preloadAllModels(VRedirector vRedirector) async => _selectHeaderMenuElement(vRedirector);
 
   Future<void> preloadModel(VRedirector vRedirector) async {
     _selectHeaderMenuElement(vRedirector);

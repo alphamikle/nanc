@@ -11,6 +11,8 @@ const double _kRadius = 20;
 const double _minOpacity = 0.15;
 const double _maxOpacity = 1;
 
+const bool _kIsTooltipsDisabled = true;
+
 class FieldCardDeleter extends StatelessWidget {
   const FieldCardDeleter({
     required this.child,
@@ -35,6 +37,7 @@ class FieldCardDeleter extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 1, right: 1),
                 child: KitTooltip(
+                  disabled: _kIsTooltipsDisabled,
                   text: 'Delete',
                   child: _CornerButton(
                     onPressed: onDelete!,
@@ -54,6 +57,7 @@ class FieldCardDeleter extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 1, right: 1),
                 child: KitTooltip(
+                  disabled: _kIsTooltipsDisabled,
                   text: 'Expand',
                   child: _CornerButton(
                     onPressed: onExpand!,

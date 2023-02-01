@@ -12,6 +12,7 @@ class KitContainerTransition<T> extends StatelessWidget {
     this.transitionType = ContainerTransitionType.fadeThrough,
     this.closedColor,
     this.middleColor,
+    this.transitionDuration = const Duration(milliseconds: 750),
     super.key,
   });
 
@@ -20,6 +21,7 @@ class KitContainerTransition<T> extends StatelessWidget {
   final bool useRootNavigator;
   final ShapeBorder closedShape;
   final ContainerTransitionType transitionType;
+  final Duration transitionDuration;
 
   final Color? closedColor;
   final Color? middleColor;
@@ -34,7 +36,7 @@ class KitContainerTransition<T> extends StatelessWidget {
       middleColor: middleColor ?? context.theme.colorScheme.background,
       closedColor: closedColor ?? context.theme.colorScheme.background,
       transitionType: transitionType,
-      transitionDuration: const Duration(milliseconds: 750),
+      transitionDuration: transitionDuration,
       useRootNavigator: useRootNavigator,
       closedShape: closedShape,
     );
