@@ -31,7 +31,7 @@ class ColorField extends Field {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.mdi_palette_advanced,
-      color: Color.fromRGBO(242, 100, 25, 1),
+      color: Color.fromRGBO(38, 70, 83, 1),
       title: 'Color field',
       description: 'Color picker field with an option to use the color picker or set the color from HEX',
     );

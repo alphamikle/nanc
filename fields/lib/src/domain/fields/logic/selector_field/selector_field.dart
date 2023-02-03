@@ -72,7 +72,7 @@ class SelectorField extends Field {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.mdi_order_bool_descending,
-      color: Color.fromRGBO(201, 133, 134, 1),
+      color: Color.fromRGBO(255, 42, 13, 1),
       title: 'Selector field',
       description: 'A field that allows you to select a value from a linked model. It is the analog of the SQL "one-to-many" relation',
     );

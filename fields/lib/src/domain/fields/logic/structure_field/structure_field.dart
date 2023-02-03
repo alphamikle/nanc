@@ -34,7 +34,7 @@ class StructureField extends DynamicField {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.mdi_wall,
-      color: Color.fromRGBO(39, 150, 110, 1),
+      color: Color.fromRGBO(0, 0, 0, 1),
       title: 'Structure field',
       description: 'Technical field for CMS purposes',
     );

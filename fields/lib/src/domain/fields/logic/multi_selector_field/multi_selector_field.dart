@@ -63,7 +63,7 @@ class MultiSelectorField extends Field {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.mdi_order_bool_ascending_variant,
-      color: Color.fromRGBO(161, 94, 73, 1),
+      color: Color.fromRGBO(9, 96, 19, 1),
       title: 'Multi-selector field',
       description: 'A field that allows selecting a set of values from the linked model. Full analog of the SQL-relationships "many-to-one"',
     );

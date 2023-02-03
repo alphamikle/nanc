@@ -37,7 +37,7 @@ class StringField extends Field {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.mdi_form_textbox,
-      color: Color.fromRGBO(98, 195, 112, 1),
+      color: Color.fromRGBO(149, 112, 77, 1),
       title: 'String field',
       description: 'A field for entering lines with the ability to specify a fixed height of the field itself or make the height dynamic',
     );

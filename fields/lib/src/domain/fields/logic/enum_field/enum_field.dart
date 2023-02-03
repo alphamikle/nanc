@@ -37,7 +37,7 @@ class EnumField extends Field {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.mdi_format_list_bulleted_square,
-      color: Color.fromRGBO(0, 79, 45, 1),
+      color: Color.fromRGBO(231, 112, 82, 1),
       title: 'Enum field',
       description:
           'A field for selecting one option from several values. It is assumed that these values will not be too many. If you feel that this field is getting uncomfortable, take a look at Selector Field',

@@ -31,7 +31,7 @@ class IdField extends Field {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.mdi_key_chain,
-      color: Color.fromRGBO(216, 124, 172, 1),
+      color: Color.fromRGBO(59, 165, 69, 1),
       title: 'ID field',
       description: 'A field for selecting a unique identifier. You can use any value you want or quickly generate a UUID with only one click',
     );

@@ -42,7 +42,7 @@ class StructuredField extends DynamicField {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.flu_code_block_regular,
-      color: Color.fromRGBO(61, 221, 164, 1),
+      color: Color.fromRGBO(31, 60, 166, 1),
       title: 'Structured field',
       description: 'A field for storing a list of values with a predefined structure',
     );

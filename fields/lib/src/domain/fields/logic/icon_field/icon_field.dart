@@ -31,7 +31,7 @@ class IconField extends Field {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.rmx_paint_brush_fill,
-      color: Color.fromRGBO(44, 66, 81, 1),
+      color: Color.fromRGBO(254, 29, 102, 1),
       title: 'Icon field',
       description: 'A field for selecting an icon from the provided list with the possibility of expanding and easy search in the modal window',
     );

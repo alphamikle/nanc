@@ -36,7 +36,7 @@ class BoolField extends Field {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.flu_toggle_left_regular,
-      color: Color.fromRGBO(20, 33, 61, 1),
+      color: Color.fromRGBO(64, 132, 243, 1),
       title: 'Boolean field',
       description: 'A primitive bool type field, with the possibility of setting a default value',
     );

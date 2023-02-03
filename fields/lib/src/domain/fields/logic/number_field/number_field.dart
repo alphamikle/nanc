@@ -30,7 +30,7 @@ class NumberField extends Field {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.mdi_numeric,
-      color: Color.fromRGBO(231, 107, 116, 1),
+      color: Color.fromRGBO(133, 153, 71, 1),
       title: 'Number field',
       description: 'Field for entering numbers',
     );

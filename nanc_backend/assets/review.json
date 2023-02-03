@@ -4,12 +4,11 @@
   "customer_name": "Bill",
   "customer_lastname": "Ackman",
   "image": "https://corsproxy.io/?https://nanc.b-cdn.net/ackman_op.jpg?bh=L7CryR~B00019Exa%3FbIp1PE2%5Dh%5Ej",
-  "position": "Compensation Analyst",
   "position_new": {
    "id": "0185f961-956c-a797-6860-f48cbe75cbf9",
    "position": "Compensation Analyst"
   },
-  "review": "I have been using NANC CMS for the past year and I must say, it is hands-down the best CMS I have ever used. The interface is user-friendly and intuitive, making it easy for me to manage my website's content without any prior technical knowledge. The feature set is extensive, offering everything I need to create a professional and dynamic website. The customer support team is also top-notch, always available to answer my questions and provide assistance when needed. Overall, I highly recommend NANC CMS to anyone looking for a powerful and reliable content management system."
+  "review": "Nanc CMS is the best I've ever used. User-friendly interface, extensive features, great customer support - it's got it all. Highly recommend for a powerful and reliable CMS solution."
  },
  {
   "id": "01855685-4b54-138b-b864-146712e6d2f9",
@@ -28,35 +27,32 @@
   "customer_name": "Peter",
   "customer_lastname": "Lynch",
   "image": "https://corsproxy.io/?https://nanc.b-cdn.net/lynch_op.jpg",
-  "position": "Marketing Manager",
   "position_new": {
    "id": "0185f961-63df-5782-1ac0-25dc71ec9fce",
    "position": "Marketing Manager"
   },
-  "review": "I wanted to share a content management system that has completely transformed my business. It's called NANC, and it's seriously impressive. One of the things that sets NANC apart is its flexibility. It can integrate with just any backend system, which has been super convenient for us. And get this – it also has a feature that lets you update Flutter apps without publishing to the app store. That's not something you see every day! But it's not just about the bells and whistles – NANC is also really user-friendly and can handle a wide range of content types and formats. And of course, it's reliable and secure, which is a must for any business. I've been blown away by NANC and think it's a game-changer for anyone looking for a robust and flexible CMS. Give it a try – you won't be disappointed."
+  "review": "Why did the CMS cross the road? To get to the other side of digital content management!\nLet me introduce you to Nanc, the CMS that changed my biz. It's got everything you need - flexible, integrates with any backend, updates Flutter apps without the app store, user-friendly, handles all content types, reliable, and secure. In short, Nanc is a game-changer. Try it, you won't regret it!"
  },
  {
   "id": "0185568c-4659-06a2-63e4-43ee579b4103",
   "customer_name": "Sam",
   "customer_lastname": "Bankman-Fried",
   "image": "https://corsproxy.io/?https://nanc.b-cdn.net/bankman_op.jpg?bh=LFG%2A%3D%5DM%7B~p-%3A%5EhIpW%3Bs%3A4%3AWBVsRj",
-  "position": "Pranker",
   "position_new": {
    "id": "0185f960-7077-617f-cac2-ddac7e6e99b8",
    "position": "Pranker"
   },
-  "review": "Content Management Systems: A Case Study of NANC. Content management systems (CMSs) are an integral part of many modern businesses, providing a platform for creating and publishing digital content. In this case study, we will examine the effectiveness of NANC, a CMS that has significantly impacted the growth and efficiency of our organization.\nNANC stands out among other CMSs due to its flexibility and ability to integrate with various backend systems. This has allowed us to seamlessly incorporate NANC into our existing workflow and make updates to our content without the need for additional resources.\nIn addition, NANC offers a unique feature that allows for the update of Flutter apps without the need for publishing to the app store. This has greatly reduced the time and effort required to make changes to our mobile applications, leading to increased productivity and customer satisfaction.\nOverall, NANC has proven to be a reliable and user-friendly CMS that has significantly contributed to the growth of our business. We highly recommend NANC to other organizations seeking a flexible and efficient platform for managing digital content."
+  "review": "Nanc CMS has greatly impacted the growth and efficiency of our organization due to its flexibility, ability to integrate with various backend systems, and unique feature for updating Flutter apps without publishing to app stores. This has led to increased productivity and customer satisfaction. We highly recommend Nanc as a reliable and user-friendly platform for managing digital content."
  },
  {
   "id": "0185568f-24bc-605c-8a38-f28a845c023a",
   "customer_name": "Warren",
   "customer_lastname": "Buffett",
   "image": "https://corsproxy.io/?https://nanc.b-cdn.net/buffett_op.jpg",
-  "position": "Investor",
   "position_new": {
    "id": "0185f961-b6ee-3406-ac7a-c058d3e7a47e",
    "position": "Investor"
   },
-  "review": "Attention tech investors: have you heard of NANC? It's a content management system that is quickly gaining traction in the market and has the potential to be a game-changer for businesses of all sizes.\n\nWhat sets NANC apart is its flexibility and ability to integrate with any backend system. This makes it a versatile solution for managing digital content and allows for seamless integration into existing workflows.\n\nBut NANC's real standout feature is its ability to update Flutter apps without the need for publishing to the app store. This saves time and resources, and has the potential to revolutionize the way businesses make changes to their mobile applications.\n\nIn terms of performance, NANC is reliable and user-friendly, with a wide range of capabilities for handling different content types and formats. It's also secure, which is crucial for protecting sensitive data.\n\nOverall, we believe NANC is a promising technology solution with significant growth potential. If you're looking for a startup to invest in, we highly recommend giving NANC a closer look"
+  "review": "Tech investors: Nanc is a content management system gaining popularity and has potential to change the game for businesses. Nanc stands out with its flexibility, integration with any backend system, ability to update Flutter apps without publishing to app stores, reliability, user-friendliness, and security. We highly recommend considering Nanc as a promising tech startup to invest in."
  }
 ]

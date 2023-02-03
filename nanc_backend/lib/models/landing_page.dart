@@ -1,4 +1,5 @@
 import 'package:fields/fields.dart';
+import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 import 'package:nanc_backend/models/bullet.dart';
@@ -35,6 +36,8 @@ final Model landingPage = Model(
       ColorField(name: 'Royal Blue Color', isRequired: true),
       ColorField(name: 'Grey Color', isRequired: true),
       ColorField(name: 'White Color', isRequired: true),
+    ],
+    [
       ColorField(name: 'Black Color', isRequired: true),
       StringField(name: 'Font Family', isRequired: true, maxLines: 1),
     ],
@@ -76,18 +79,20 @@ final Model landingPage = Model(
       HeaderField(name: 'Large Text Header', content: 'Text Content', contentIcon: 'flu_slide_text_regular'),
     ],
     [
-      StringField(name: 'Top Block Text', isRequired: true, maxLines: 3),
-      StringField(name: 'About Text', isRequired: true, maxLines: 3),
-      StringField(name: 'Features Text', isRequired: true, maxLines: 3),
+      StringField(name: 'Top Block Text', isRequired: true, maxLines: 4),
+      StringField(name: 'About Text', isRequired: true, maxLines: 4),
     ],
     [
-      StringField(name: 'Interface Text', isRequired: true, maxLines: 2),
-      StringField(name: 'Middle Download Block Text', isRequired: true, maxLines: 2),
+      StringField(name: 'Features Text', isRequired: true, maxLines: 4),
+      StringField(name: 'Interface Text', isRequired: true, maxLines: 4),
     ],
     [
-      StringField(name: 'How To Use Text', isRequired: true, maxLines: 3),
-      StringField(name: 'Team Text', isRequired: true, maxLines: 3),
-      StringField(name: 'Customers Text', isRequired: true, maxLines: 3),
+      StringField(name: 'Middle Download Block Text', isRequired: true, maxLines: 4),
+      StringField(name: 'How To Use Text', isRequired: true, maxLines: 4),
+    ],
+    [
+      StringField(name: 'Team Text', isRequired: true, maxLines: 4),
+      StringField(name: 'Customers Text', isRequired: true, maxLines: 4),
     ],
 
     /// ? IMAGES
@@ -177,7 +182,7 @@ final Model landingPage = Model(
       ),
     ],
     [
-      HeaderField(name: 'Divider', content: '', useAsDivider: true),
+      HeaderField(name: 'Divider', content: '', useAsDivider: true, contentColor: const Color.fromRGBO(0, 0, 0, 0.497)),
     ],
     [
       DateField(name: 'Updated At', isUpdatedAtField: true),

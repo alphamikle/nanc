@@ -101,6 +101,8 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
       }
       if (titleChips.isNotEmpty) {
         controller.text = 'Not empty';
+      } else {
+        controller.text = '';
       }
       pageBloc.updateValue(fieldId, selectedObjects);
       unawaited(wait(duration: const Duration(milliseconds: 300)).toFuture().then((_) {
@@ -143,6 +145,8 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
       }
       if (titleChips.isNotEmpty) {
         controller.text = 'Not empty';
+      } else {
+        controller.text = '';
       }
       if (mounted) {
         setState(() => isPreloading = false);

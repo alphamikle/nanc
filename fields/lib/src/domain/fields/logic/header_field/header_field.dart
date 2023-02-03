@@ -42,7 +42,7 @@ class HeaderField extends Field {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.mdi_format_header_pound,
-      color: Color.fromRGBO(22, 0, 30, 1),
+      color: Color.fromRGBO(123, 9, 5, 1),
       title: 'Fields header',
       description: 'Not a real field, but a header for the convenient work with model',
     );

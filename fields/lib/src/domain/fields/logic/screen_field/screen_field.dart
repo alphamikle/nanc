@@ -38,7 +38,7 @@ class ScreenField extends Field {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.flu_phone_vertical_scroll_filled,
-      color: Color.fromRGBO(147, 225, 216, 1),
+      color: Color.fromRGBO(90, 49, 0, 1),
       title: 'Screen field',
       description: 'A field for creating the screen interface of your application. Behind this single field is a world of user interfaces!',
     );

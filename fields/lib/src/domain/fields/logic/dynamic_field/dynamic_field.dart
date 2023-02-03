@@ -37,7 +37,7 @@ class DynamicField extends Field {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.mdi_playlist_edit,
-      color: Color.fromRGBO(247, 203, 21, 1),
+      color: Color.fromRGBO(245, 163, 98, 1),
       title: 'Dynamic field',
       description: 'A field with the ability to specify any data format of any nesting depth. You can describe any structure with this field',
     );

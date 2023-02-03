@@ -35,7 +35,7 @@ class DateField extends Field {
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
       icon: IconPack.flu_calendar_clock_filled,
-      color: Color.fromRGBO(216, 49, 91, 1),
+      color: Color.fromRGBO(40, 158, 144, 1),
       title: 'DateTime field',
       description: 'A field for setting the date and time with automatic validation of correct input',
     );
