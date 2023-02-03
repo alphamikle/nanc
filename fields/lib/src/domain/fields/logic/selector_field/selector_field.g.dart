@@ -21,7 +21,7 @@ abstract class _$SelectorFieldCWProxy {
 
   SelectorField structure(SelectorFieldStructure structure);
 
-  SelectorField titleFields(List<String> titleFields);
+  SelectorField titleFields(List<TitleField> titleFields);
 
   SelectorField type(FieldType type);
 
@@ -43,7 +43,7 @@ abstract class _$SelectorFieldCWProxy {
     bool? showInList,
     int? sort,
     SelectorFieldStructure? structure,
-    List<String>? titleFields,
+    List<TitleField>? titleFields,
     FieldType? type,
     String? Function(Object?)? validator,
     double? width,
@@ -79,7 +79,7 @@ class _$SelectorFieldCWProxyImpl implements _$SelectorFieldCWProxy {
       this(structure: structure);
 
   @override
-  SelectorField titleFields(List<String> titleFields) =>
+  SelectorField titleFields(List<TitleField> titleFields) =>
       this(titleFields: titleFields);
 
   @override
@@ -148,7 +148,7 @@ class _$SelectorFieldCWProxyImpl implements _$SelectorFieldCWProxy {
           titleFields == const $CopyWithPlaceholder() || titleFields == null
               ? _value.titleFields
               // ignore: cast_nullable_to_non_nullable
-              : titleFields as List<String>,
+              : titleFields as List<TitleField>,
       type: type == const $CopyWithPlaceholder() || type == null
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
@@ -179,9 +179,7 @@ SelectorField _$SelectorFieldFromJson(Map<String, dynamic> json) =>
     SelectorField(
       name: json['name'] as String,
       model: _entityFromJson(json['model']),
-      titleFields: (json['titleFields'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+      titleFields: titleFieldsFromJson(json['titleFields']),
       structure:
           $enumDecode(_$SelectorFieldStructureEnumMap, json['structure']),
       id: json['id'] as String?,
@@ -203,7 +201,7 @@ Map<String, dynamic> _$SelectorFieldToJson(SelectorField instance) =>
       'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
       'model': _entityToJson(instance.model),
-      'titleFields': instance.titleFields,
+      'titleFields': titleFieldsToJson(instance.titleFields),
       'structure': _$SelectorFieldStructureEnumMap[instance.structure]!,
     };
 

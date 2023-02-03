@@ -20,6 +20,7 @@ export 'src/domain/fields/logic/number_field/number_field.dart';
 export 'src/domain/fields/logic/screen_field/screen_content_model.dart';
 export 'src/domain/fields/logic/screen_field/screen_field.dart';
 export 'src/domain/fields/logic/selector_field/selector_field.dart';
+export 'src/domain/fields/logic/selector_field/title_fields.dart';
 export 'src/domain/fields/logic/string_field/string_field.dart';
 export 'src/domain/fields/logic/structure_field/structure_field.dart';
 export 'src/domain/fields/logic/structured_field/structured_field.dart';

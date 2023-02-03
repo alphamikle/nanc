@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cms/cms.dart';
+import 'package:fields/fields.dart';
 import 'package:fields/src/domain/fields/logic/field/field.dart';
 import 'package:fields/src/domain/fields/logic/multi_selector_field/multi_selector_field.dart';
 import 'package:fields/src/service/tools/complex_title_tools.dart';
@@ -36,7 +37,7 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
   Model get shortChildEntity {
     final List<Field> childFields = [];
     final Field? idField = field.model.fieldById(field.model.idField.id);
-    final List<Field> titleFields = field.titleFields.map((String fieldId) => field.model.fieldById(fieldId)).whereNotNull().toList();
+    final List<Field> titleFields = field.titleFields.toFieldsIds().map((String fieldId) => field.model.fieldById(fieldId)).whereNotNull().toList();
     if (idField != null) {
       childFields.add(idField);
     }
@@ -56,10 +57,10 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
           model: field.model,
           subset: [
             field.model.idField.id,
-            ...field.titleFields,
+            ...field.titleFields.toFieldsIds(),
           ],
           query: QueryDto(
-            multipleValues: field.titleFields.map((String it) => QueryMultipleParameter(name: it, values: values)).toList(),
+            multipleValues: field.titleFields.toFieldsIds().map((String it) => QueryMultipleParameter(name: it, values: values)).toList(),
           ),
           params: ParamsDto(
             page: 1,

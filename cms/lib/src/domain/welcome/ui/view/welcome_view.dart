@@ -1,12 +1,9 @@
-import 'package:cms/src/domain/tutorial/logic/bloc/tutorial_bloc.dart';
 import 'package:cms/src/service/animations/growing_tree.dart';
 import 'package:cms/src/service/scenario/episode.dart';
 import 'package:cms/src/service/scenario/scenario.dart';
 import 'package:cms/src/service/scenario/scenario_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({
@@ -61,25 +58,8 @@ class WelcomeView extends StatelessWidget {
         const Episode(text: 'With NANC you can bring a new life to your old application'),
         const Episode(text: 'or not :('),
         const Episode(text: 'Just a joke :) Of course you can!'),
-        const Episode(text: 'Well, this is a demo CMS-side of the NANC, which will help you to meet with itself'),
+        const Episode(text: 'Well, this is a demo Nanc-CMS application, which will help you to meet with itself'),
         const Episode(text: 'If so, this is just a technical preview demo.\nAnd this text is sure to be more motivational by the time it is released 😉'),
-        const Episode(text: 'To start intro - press the button'),
-        Episode(
-          builder: (BuildContext context) {
-            return Padding(
-              padding: const EdgeInsets.only(top: 24, bottom: 24),
-              child: Row(
-                children: [
-                  KitBigButton(
-                    text: 'Start',
-                    onPressed: () => context.read<TutorialBloc>().start(),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
-        const Episode(text: 'Or you can wait until the tree will growth'),
       ],
     );
   }

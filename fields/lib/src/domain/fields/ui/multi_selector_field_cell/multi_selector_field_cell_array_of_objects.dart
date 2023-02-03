@@ -27,11 +27,11 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
         runtimeType.toString(),
         model.id,
         model.idField.id,
-        ...titleFields,
+        ...titleFields.toFieldsIds(),
         structure.name,
       ].join();
 
-  List<String> get titleFields => field.titleFields;
+  List<TitleField> get titleFields => field.titleFields;
 
   Model get model => field.model;
 
@@ -75,12 +75,7 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
               ],
             ),
           );
-      final String resultTitle = selectedObjects.map(
-        (Json row) {
-          final String title = titleFields.map((String it) => row[it].toString()).join(kDelimiter);
-          return titleFields.length > 1 ? '[$title]' : title;
-        },
-      ).join(kDelimiter);
+      final String resultTitle = selectedObjects.map((Json row) => titleFields.toTitleSegments(row).join()).join(' | ');
       controller.text = resultTitle;
       pageBloc.updateValue(fieldId, selectedObjects);
       unawaited(wait(duration: const Duration(milliseconds: 300)).toFuture().then((_) {
@@ -99,7 +94,7 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
             model: model,
             subset: [
               model.idField.id,
-              ...titleFields,
+              ...titleFields.toFieldsIds(),
             ],
             params: ParamsDto(
               page: 1,
@@ -115,12 +110,7 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
               ],
             ),
           );
-      final String resultTitle = childrenEntities.map(
-        (Json row) {
-          final String title = titleFields.map((String it) => row[it].toString()).join(kDelimiter);
-          return titleFields.length > 1 ? '[$title]' : title;
-        },
-      ).join(kDelimiter);
+      final String resultTitle = childrenEntities.map((Json row) => titleFields.toTitleSegments(row).join()).join(' | ');
       controller.text = resultTitle;
       if (mounted) {
         setState(() => isPreloading = false);

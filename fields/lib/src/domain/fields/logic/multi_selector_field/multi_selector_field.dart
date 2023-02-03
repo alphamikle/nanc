@@ -5,6 +5,7 @@ import 'package:fields/src/domain/fields/logic/field/field_description.dart';
 import 'package:fields/src/domain/fields/logic/field/field_props.dart';
 import 'package:fields/src/domain/fields/logic/id_field/id_field.dart';
 import 'package:fields/src/domain/fields/logic/multi_selector_field/third_table.dart';
+import 'package:fields/src/domain/fields/logic/selector_field/title_fields.dart';
 import 'package:fields/src/domain/fields/logic/string_field/string_field.dart';
 import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,10 @@ class MultiSelectorField extends Field {
   factory MultiSelectorField.fromJson(dynamic json) => _$MultiSelectorFieldFromJson(castToJson(json));
 
   final Model model;
-  final List<String> titleFields;
+
+  @JsonKey(fromJson: titleFieldsFromJson, toJson: titleFieldsToJson)
+  final List<TitleField> titleFields;
+
   final ThirdTable? thirdTable;
   final MultiSelectorFieldStructure structure;
 

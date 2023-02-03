@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cms/cms.dart';
+import 'package:fields/fields.dart';
 import 'package:fields/src/domain/fields/logic/multi_selector_field/multi_selector_field.dart';
 import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
 import 'package:fields/src/domain/fields/ui/multi_selector_field_cell/multi_selector_modal.dart';
@@ -30,11 +31,11 @@ class _MultiSelectorArrayOfIdsFieldCellState extends State<MultiSelectorArrayOfI
         runtimeType.toString(),
         model.id,
         model.idField.id,
-        ...titleFields,
+        ...titleFields.toFieldsIds(),
         structure.name,
       ].join();
 
-  List<String> get titleFields => field.titleFields;
+  List<TitleField> get titleFields => field.titleFields;
   Model get model => field.model;
   MultiSelectorFieldStructure get structure => field.structure;
   late final EventBus eventBus = context.read();
@@ -72,7 +73,7 @@ class _MultiSelectorArrayOfIdsFieldCellState extends State<MultiSelectorArrayOfI
             model: model,
             subset: [
               model.idField.id,
-              ...titleFields,
+              ...titleFields.toFieldsIds(),
             ],
             params: ParamsDto(
               page: 1,
@@ -88,12 +89,7 @@ class _MultiSelectorArrayOfIdsFieldCellState extends State<MultiSelectorArrayOfI
               ],
             ),
           );
-      final String resultTitle = childrenEntities.map(
-        (Json row) {
-          final String title = titleFields.map((String it) => row[it].toString()).join(kDelimiter);
-          return titleFields.length > 1 ? '[$title]' : title;
-        },
-      ).join(kDelimiter);
+      final String resultTitle = childrenEntities.map((Json row) => titleFields.toTitleSegments(row).join()).join(' | ');
       controller.text = resultTitle;
       if (mounted) {
         setState(() => isPreloading = false);

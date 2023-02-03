@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cms/cms.dart';
 import 'package:fields/src/domain/fields/logic/multi_selector_field/multi_selector_field.dart';
 import 'package:fields/src/domain/fields/logic/multi_selector_field/third_table.dart';
+import 'package:fields/src/domain/fields/logic/selector_field/title_fields.dart';
 import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
 import 'package:fields/src/domain/fields/ui/multi_selector_field_cell/multi_selector_modal.dart';
 import 'package:fields/src/domain/fields/ui/selector_field_cell/selector_field_cell.dart';
@@ -30,11 +31,11 @@ class _MultiSelectorThirdTableFieldCellState extends State<MultiSelectorThirdTab
         runtimeType.toString(),
         model.id,
         model.idField.id,
-        ...titleFields,
+        ...titleFields.toFieldsIds(),
         structure.name,
       ].join();
 
-  List<String> get titleFields => field.titleFields;
+  List<TitleField> get titleFields => field.titleFields;
   Model get model => field.model;
   MultiSelectorFieldStructure get structure => field.structure;
   ThirdTable get thirdTable => field.thirdTable!;
@@ -129,7 +130,7 @@ class _MultiSelectorThirdTableFieldCellState extends State<MultiSelectorThirdTab
             model: model,
             subset: [
               model.idField.id,
-              ...titleFields,
+              ...titleFields.toFieldsIds(),
             ],
             query: QueryDto(
               multipleValues: [
@@ -145,12 +146,7 @@ class _MultiSelectorThirdTableFieldCellState extends State<MultiSelectorThirdTab
               sort: Sort(field: model.idField.id, order: Order.asc),
             ),
           );
-      final String resultTitle = childrenEntities.map(
-        (Json row) {
-          final String title = titleFields.map((String it) => row[it].toString()).join(kDelimiter);
-          return titleFields.length > 1 ? '[$title]' : title;
-        },
-      ).join(kDelimiter);
+      final String resultTitle = childrenEntities.map((Json row) => titleFields.toTitleSegments(row).join()).join(' | ');
       controller.text = resultTitle;
       if (mounted) {
         setState(() => isPreloading = false);

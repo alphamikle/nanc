@@ -98,7 +98,14 @@ final Model landingPage = Model(
       StructuredField(
         name: 'Images',
         structure: [
-          SelectorField(name: 'Image', model: image, titleFields: const ['title'], structure: SelectorFieldStructure.object),
+          SelectorField(
+            name: 'Image',
+            model: image,
+            titleFields: const [
+              ExternalField('title'),
+            ],
+            structure: SelectorFieldStructure.object,
+          ),
         ],
       ),
     ],
@@ -108,7 +115,14 @@ final Model landingPage = Model(
       HeaderField(name: 'Bullets Header', content: 'Bullets', contentIcon: 'flu_text_bullet_list_ltr_filled'),
     ],
     [
-      MultiSelectorField(name: 'Bullets', model: bullet, titleFields: const ['title'], structure: MultiSelectorFieldStructure.arrayOfObjects),
+      MultiSelectorField(
+        name: 'Bullets',
+        model: bullet,
+        titleFields: const [
+          ExternalField('title'),
+        ],
+        structure: MultiSelectorFieldStructure.arrayOfObjects,
+      ),
     ],
 
     /// ? FEATURES
@@ -116,7 +130,14 @@ final Model landingPage = Model(
       HeaderField(name: 'Features Header', content: 'Features', contentIcon: 'flu_text_bullet_list_ltr_filled'),
     ],
     [
-      MultiSelectorField(name: 'Features', model: feature, titleFields: const ['title'], structure: MultiSelectorFieldStructure.arrayOfObjects),
+      MultiSelectorField(
+        name: 'Features',
+        model: feature,
+        titleFields: const [
+          ExternalField('title'),
+        ],
+        structure: MultiSelectorFieldStructure.arrayOfObjects,
+      ),
     ],
 
     /// ? DEVELOPERS
@@ -130,7 +151,10 @@ final Model landingPage = Model(
           SelectorField(
             name: 'Team Member',
             model: developer,
-            titleFields: const ['name', 'second_name'],
+            titleFields: const [
+              ExternalField('name'),
+              ExternalField('second_name'),
+            ],
             structure: SelectorFieldStructure.object,
           ),
         ],
@@ -145,7 +169,10 @@ final Model landingPage = Model(
       MultiSelectorField(
         name: 'Reviews',
         model: review,
-        titleFields: const ['customer_name', 'customer_lastname'],
+        titleFields: const [
+          ExternalField('customer_name'),
+          ExternalField('customer_lastname'),
+        ],
         structure: MultiSelectorFieldStructure.arrayOfObjects,
       ),
     ],

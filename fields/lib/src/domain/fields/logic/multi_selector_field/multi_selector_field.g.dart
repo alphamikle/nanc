@@ -23,7 +23,7 @@ abstract class _$MultiSelectorFieldCWProxy {
 
   MultiSelectorField thirdTable(ThirdTable? thirdTable);
 
-  MultiSelectorField titleFields(List<String> titleFields);
+  MultiSelectorField titleFields(List<TitleField> titleFields);
 
   MultiSelectorField type(FieldType type);
 
@@ -46,7 +46,7 @@ abstract class _$MultiSelectorFieldCWProxy {
     int? sort,
     MultiSelectorFieldStructure? structure,
     ThirdTable? thirdTable,
-    List<String>? titleFields,
+    List<TitleField>? titleFields,
     FieldType? type,
     String? Function(Object?)? validator,
     double? width,
@@ -88,7 +88,7 @@ class _$MultiSelectorFieldCWProxyImpl implements _$MultiSelectorFieldCWProxy {
       this(thirdTable: thirdTable);
 
   @override
-  MultiSelectorField titleFields(List<String> titleFields) =>
+  MultiSelectorField titleFields(List<TitleField> titleFields) =>
       this(titleFields: titleFields);
 
   @override
@@ -162,7 +162,7 @@ class _$MultiSelectorFieldCWProxyImpl implements _$MultiSelectorFieldCWProxy {
           titleFields == const $CopyWithPlaceholder() || titleFields == null
               ? _value.titleFields
               // ignore: cast_nullable_to_non_nullable
-              : titleFields as List<String>,
+              : titleFields as List<TitleField>,
       type: type == const $CopyWithPlaceholder() || type == null
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
@@ -194,9 +194,7 @@ MultiSelectorField _$MultiSelectorFieldFromJson(Map<String, dynamic> json) =>
     MultiSelectorField(
       name: json['name'] as String,
       model: Model.fromJson(json['model']),
-      titleFields: (json['titleFields'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+      titleFields: titleFieldsFromJson(json['titleFields']),
       structure:
           $enumDecode(_$MultiSelectorFieldStructureEnumMap, json['structure']),
       id: json['id'] as String?,
@@ -221,7 +219,7 @@ Map<String, dynamic> _$MultiSelectorFieldToJson(MultiSelectorField instance) =>
       'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
       'model': instance.model.toJson(),
-      'titleFields': instance.titleFields,
+      'titleFields': titleFieldsToJson(instance.titleFields),
       'thirdTable': instance.thirdTable?.toJson(),
       'structure': _$MultiSelectorFieldStructureEnumMap[instance.structure]!,
     };

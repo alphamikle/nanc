@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cms/cms.dart';
 import 'package:fields/src/domain/fields/logic/selector_field/selector_field.dart';
+import 'package:fields/src/domain/fields/logic/selector_field/title_fields.dart';
 import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
 import 'package:fields/src/service/tools/complex_title_tools.dart';
 import 'package:flutter/material.dart';
@@ -28,10 +29,11 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
         runtimeType.toString(),
         model.id,
         model.idField.id,
-        ...titleFields,
+        ...titleFields.toFieldsIds(),
         structure.name,
       ].join();
-  List<String> get titleFields => field.titleFields;
+
+  List<TitleField> get titleFields => field.titleFields;
   Model get model => field.model;
   SelectorFieldStructure get structure => field.structure;
 
@@ -47,10 +49,10 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
       model: model,
       subset: [
         model.idField.id,
-        ...titleFields,
+        ...titleFields.toFieldsIds(),
       ],
       query: QueryDto(
-        multipleValues: titleFields.map((e) => QueryMultipleParameter(name: e, values: values)).toList(),
+        multipleValues: titleFields.toFieldsIds().map((String it) => QueryMultipleParameter(name: it, values: values)).toList(),
       ),
       params: ParamsDto(
         page: 1,
@@ -62,7 +64,8 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
 
   Future<void> updateValue(Json json) async {
     final String pageId = json[field.model.idField.id].toString();
-    final String title = titleFields.map((String it) => json[it].toString()).join(kDelimiter);
+    final List<String> titleSegments = titleFields.toTitleSegments(json);
+    final String title = titleSegments.join();
 
     if (structure == SelectorFieldStructure.id) {
       pageBloc.updateValue(fieldId, pageId);
@@ -91,7 +94,7 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
       }
     }
 
-    final String title = titleFields.map((String it) => data[it].toString()).join(kDelimiter);
+    final String title = titleFields.toTitleSegments(data).join();
 
     return KitListTile(
       title: title,
@@ -116,17 +119,17 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
         id: modelId,
         subset: [
           modelId,
-          ...titleFields,
+          ...titleFields.toFieldsIds(),
         ],
       );
-      final String title = titleFields.map((String it) => data[it].toString()).join(kDelimiter);
+      final String title = titleFields.toTitleSegments(data).join();
       controller.text = title;
     } else if (structure == SelectorFieldStructure.object) {
-      final Json? modelData = pageBloc.valueForKey(fieldId) as Json?;
+      final DJson? modelData = pageBloc.valueForKey(fieldId) as DJson?;
       if (modelData == null) {
         controller.text = '';
       } else {
-        final String title = titleFields.map((String it) => modelData[it].toString()).join(kDelimiter);
+        final String title = titleFields.toTitleSegments(modelData).join();
         controller.text = title;
       }
     } else {

@@ -17,7 +17,9 @@ final Model developer = Model(
         name: 'Position',
         id: 'position_new',
         model: position,
-        titleFields: const ['position'],
+        titleFields: const [
+          ExternalField('position'),
+        ],
         structure: SelectorFieldStructure.object,
         isRequired: true,
       ),
