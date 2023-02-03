@@ -21,7 +21,7 @@ dependencies:
     path: ../cms
   icons:
     path: ../icons
-  flutter_typeahead: ^4.1.1
+  flutter_typeahead: ^4.3.3
 #  flutter_typeahead:
 #    path: ../flutter_typeahead
   dropdown_search: ^5.0.5
@@ -30,7 +30,7 @@ dependencies:
   vrouter: ^1.2.1
   flex_color_scheme: ^6.0.1
   shimmer: ^2.0.0
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.3
 
 dev_dependencies:
   flutter_test:

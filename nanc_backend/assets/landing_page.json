@@ -55,16 +55,16 @@
    },
    {
     "image": {
-     "id": "0185db13-a0d1-d6a4-0ff0-1e1a27590fd2",
-     "title": "Screen 8",
-     "url": "https://corsproxy.io/?https://nanc.b-cdn.net/screen_8.png?bh=L4NdOGDi_MIS00ITERZ%7D00ENjdRP"
+     "id": "0185db13-74bb-4a37-59c0-ce2fae81ae5d",
+     "title": "Screen 7",
+     "url": "https://corsproxy.io/?https://nanc.b-cdn.net/screen_7.png?bh=L97eVPe.R5kC%5DhWB%25MbH%2A0fkxtbI"
     }
    },
    {
     "image": {
-     "id": "0185db13-74bb-4a37-59c0-ce2fae81ae5d",
-     "title": "Screen 7",
-     "url": "https://corsproxy.io/?https://nanc.b-cdn.net/screen_7.png?bh=L97eVPe.R5kC%5DhWB%25MbH%2A0fkxtbI"
+     "id": "0185db13-a0d1-d6a4-0ff0-1e1a27590fd2",
+     "title": "Screen 8",
+     "url": "https://corsproxy.io/?https://nanc.b-cdn.net/screen_8.png?bh=L4NdOGDi_MIS00ITERZ%7D00ENjdRP"
     }
    }
   ],
@@ -238,6 +238,6 @@
     "review": "Tech investors: Nanc is a content management system gaining popularity and has potential to change the game for businesses. Nanc stands out with its flexibility, integration with any backend system, ability to update Flutter apps without publishing to app stores, reliability, user-friendliness, and security. We highly recommend considering Nanc as a promising tech startup to invest in."
    }
   ],
-  "updated_at": "2023-02-03T17:32:54.533441"
+  "updated_at": "2023-02-03T17:46:57.175029"
  }
 ]

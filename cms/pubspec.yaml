@@ -48,7 +48,7 @@ dependencies:
   copy_with_extension: ^4.0.3
   bot_toast: ^4.0.3
   ulid: ^2.0.0
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.3
   flutter_highlight: ^0.7.0
   highlight: ^0.7.0
   collection: ^1.16.0
