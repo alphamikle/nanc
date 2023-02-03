@@ -43,7 +43,11 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
 
   Future<List<Json>> finder(String searchQuery) {
     final PageListProviderInterface entityListProvider = context.read();
-    final List<QueryParameterValue> values = splitComplexTitle(searchQuery).map((String value) => QueryStringValue(value)).toList();
+    final List<QueryParameterValue> values = splitComplexTitle(query: searchQuery, titleFields: titleFields)
+        .map(
+          (String value) => QueryStringValue(value),
+        )
+        .toList();
 
     return entityListProvider.fetchPageList(
       model: model,

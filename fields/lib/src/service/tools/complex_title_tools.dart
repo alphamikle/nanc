@@ -1,3 +1,16 @@
-import 'package:ui_kit/ui_kit.dart';
+import 'package:fields/src/domain/fields/logic/selector_field/title_fields.dart';
 
-List<String> splitComplexTitle(String title) => title.split(kDelimiter.replaceAll(' ', '')).map((String it) => it.trim()).toList();
+final RegExp possibleDelimiters = RegExp(r'[- .,_|]');
+
+List<String> splitComplexTitle({required String query, required List<TitleField> titleFields}) {
+  if (titleFields.length == 1) {
+    return [query.trim()];
+  }
+  String preparedQuery = query;
+  for (final TitleField titleField in titleFields) {
+    if (titleField.isValid && (titleField is FieldsDecorator || titleField is FieldsDivider)) {
+      preparedQuery = preparedQuery.replaceAll(titleField.strictValue, ' ');
+    }
+  }
+  return preparedQuery.split(' ');
+}

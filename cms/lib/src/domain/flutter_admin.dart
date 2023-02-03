@@ -15,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 import 'package:rich_renderer/rich_renderer.dart';
+import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
 
@@ -78,6 +79,22 @@ class _FlutterAdminState extends State<FlutterAdmin> {
   }
 
   Widget adminBuilder(BuildContext context, Widget child) {
+    final double width = context.query.size.width;
+    const double minWidth = 1024;
+
+    if (width < minWidth) {
+      return Material(
+        color: context.theme.colorScheme.surface,
+        child: Center(
+          child: Text(
+            'The screen width is too small - ${width.toInt()}px\nNanc supporting only ${minWidth.toInt()}px+ width for now',
+            textAlign: TextAlign.center,
+            style: context.theme.textTheme.headlineMedium,
+          ),
+        ),
+      );
+    }
+
     final TransitionBuilder toastBuilder = BotToastInit();
     final Widget toastContainer = toastBuilder(context, child);
     if (widget.wrapperBuilder == null) {

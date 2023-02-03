@@ -20,9 +20,7 @@ class MultiSelectorArrayOfObjectsFieldCell extends FieldCellWidget<MultiSelector
 }
 
 class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArrayOfObjectsFieldCell>
-    with FieldCellHelper<MultiSelectorField, MultiSelectorArrayOfObjectsFieldCell> {
-  final FocusNode focusNode = FocusNode();
-
+    with FieldCellHelper<MultiSelectorField, MultiSelectorArrayOfObjectsFieldCell>, KitFocusStreamMixin<MultiSelectorArrayOfObjectsFieldCell> {
   String get eventBusId => [
         runtimeType.toString(),
         model.id,
@@ -33,9 +31,30 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
 
   List<TitleField> get titleFields => field.titleFields;
 
+  final List<Widget> titleChips = [];
+
+  Widget titleToChip(String title) {
+    return Chip(
+      label: Text(title),
+      visualDensity: VisualDensity.comfortable,
+      backgroundColor: context.theme.colorScheme.primaryContainer.withOpacity(0.5),
+      labelStyle: context.theme.textTheme.titleSmall,
+    );
+  }
+
+  Widget titleChipBuilder(BuildContext context, int index) {
+    final bool isFirst = index == 0;
+    final Widget chip = titleChips[index];
+    return Padding(
+      padding: EdgeInsets.only(left: isFirst ? Gap.regular : 0, right: Gap.regular),
+      child: chip,
+    );
+  }
+
   Model get model => field.model;
 
   MultiSelectorFieldStructure get structure => field.structure;
+
   late final EventBus eventBus = context.read();
 
   bool isPreloading = false;
@@ -75,8 +94,14 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
               ],
             ),
           );
-      final String resultTitle = selectedObjects.map((Json row) => titleFields.toTitleSegments(row).join()).join(' | ');
-      controller.text = resultTitle;
+      titleChips.clear();
+      for (final Json child in selectedObjects) {
+        final String rowTitle = titleFields.toTitleSegments(child).join();
+        titleChips.add(titleToChip(rowTitle));
+      }
+      if (titleChips.isNotEmpty) {
+        controller.text = 'Not empty';
+      }
       pageBloc.updateValue(fieldId, selectedObjects);
       unawaited(wait(duration: const Duration(milliseconds: 300)).toFuture().then((_) {
         if (mounted) {
@@ -110,8 +135,15 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
               ],
             ),
           );
-      final String resultTitle = childrenEntities.map((Json row) => titleFields.toTitleSegments(row).join()).join(' | ');
-      controller.text = resultTitle;
+
+      titleChips.clear();
+      for (final Json child in childrenEntities) {
+        final String rowTitle = titleFields.toTitleSegments(child).join();
+        titleChips.add(titleToChip(rowTitle));
+      }
+      if (titleChips.isNotEmpty) {
+        controller.text = 'Not empty';
+      }
       if (mounted) {
         setState(() => isPreloading = false);
       }
@@ -135,19 +167,43 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
 
   @override
   Widget build(BuildContext context) {
+    final String? placeholder = isPreloading
+        ? kLoadingText
+        : titleChips.isEmpty
+            ? 'Tap to choose...'
+            : null;
+
     return KitShimmerSwitcher(
       showShimmer: isPreloading,
       child: KitButtonFieldWrapper(
         onPressed: selectFields,
-        child: KitTextField(
-          controller: controller,
+        child: KitSegmentedField(
+          validator: groupOfValidators([
+            if (field.isRequired) isRequiredValidator,
+          ]),
+          focusStream: focusStream,
           helper: helper,
-          placeholder: 'Tap to choose...',
-          readOnly: true,
-          maxLines: 1,
-          isChanged: pageBloc.fieldWasChanged(fieldId),
-          focusNode: focusNode,
-          isRequired: field.isRequired,
+          controller: controller,
+          children: [
+            Stack(
+              children: [
+                KitTextField(
+                  placeholder: placeholder,
+                  controller: TextEditingController(),
+                  decoration: context.kitDecorations.noneDecoration(context).copyWith(hintText: placeholder),
+                ),
+                AnimatedOpacity(
+                  duration: const Duration(milliseconds: 250),
+                  opacity: titleChips.isEmpty ? 0 : 1,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: titleChips.length,
+                    itemBuilder: titleChipBuilder,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

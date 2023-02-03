@@ -2,8 +2,6 @@ import 'dart:async';
 
 import 'package:cms/cms.dart';
 import 'package:fields/fields.dart';
-import 'package:fields/src/domain/fields/logic/field/field.dart';
-import 'package:fields/src/domain/fields/logic/multi_selector_field/multi_selector_field.dart';
 import 'package:fields/src/service/tools/complex_title_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -51,7 +49,8 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
     searchDebounce = Timer(immediately ? Duration.zero : const Duration(milliseconds: 500), () async {
       if (mounted) {
         final PageListProviderInterface provider = context.read<PageListProviderInterface>();
-        final List<QueryParameterValue> values = splitComplexTitle(searchController.text).map((String it) => QueryStringValue(it)).toList();
+        final List<QueryParameterValue> values =
+            splitComplexTitle(query: searchController.text, titleFields: field.titleFields).map((String it) => QueryStringValue(it)).toList();
 
         final List<Json> data = await provider.fetchPageList(
           model: field.model,

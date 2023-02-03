@@ -60,7 +60,6 @@ export 'src/components/not_found/kit_is_empty_page.dart';
 export 'src/components/not_found/kit_not_found_entity_by_id.dart';
 export 'src/components/not_found/kit_not_found_entity_id.dart';
 export 'src/constants/gap.dart';
-export 'src/constants/text.dart';
 export 'src/theme/kit_borders.dart';
 export 'src/theme/kit_colors.dart';
 export 'src/theme/kit_input_decorations.dart';
