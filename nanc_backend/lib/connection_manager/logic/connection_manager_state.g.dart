@@ -7,11 +7,11 @@ part of 'connection_manager_state.dart';
 // **************************************************************************
 
 abstract class _$ConnectionManagerStateCWProxy {
-  ConnectionManagerState clients(List<Client> clients);
+  ConnectionManagerState isLoading(bool isLoading);
 
   ConnectionManagerState freshRoomId(String freshRoomId);
 
-  ConnectionManagerState isLoading(bool isLoading);
+  ConnectionManagerState clients(List<Client> clients);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ConnectionManagerState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -20,30 +20,30 @@ abstract class _$ConnectionManagerStateCWProxy {
   /// ConnectionManagerState(...).copyWith(id: 12, name: "My name")
   /// ````
   ConnectionManagerState call({
-    List<Client>? clients,
-    String? freshRoomId,
     bool? isLoading,
+    String? freshRoomId,
+    List<Client>? clients,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfConnectionManagerState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfConnectionManagerState.copyWith.fieldName(...)`
 class _$ConnectionManagerStateCWProxyImpl
     implements _$ConnectionManagerStateCWProxy {
-  final ConnectionManagerState _value;
-
   const _$ConnectionManagerStateCWProxyImpl(this._value);
 
+  final ConnectionManagerState _value;
+
   @override
-  ConnectionManagerState clients(List<Client> clients) =>
-      this(clients: clients);
+  ConnectionManagerState isLoading(bool isLoading) =>
+      this(isLoading: isLoading);
 
   @override
   ConnectionManagerState freshRoomId(String freshRoomId) =>
       this(freshRoomId: freshRoomId);
 
   @override
-  ConnectionManagerState isLoading(bool isLoading) =>
-      this(isLoading: isLoading);
+  ConnectionManagerState clients(List<Client> clients) =>
+      this(clients: clients);
 
   @override
 
@@ -54,24 +54,27 @@ class _$ConnectionManagerStateCWProxyImpl
   /// ConnectionManagerState(...).copyWith(id: 12, name: "My name")
   /// ````
   ConnectionManagerState call({
-    Object? clients = const $CopyWithPlaceholder(),
-    Object? freshRoomId = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
+    Object? freshRoomId = const $CopyWithPlaceholder(),
+    Object? clients = const $CopyWithPlaceholder(),
   }) {
     return ConnectionManagerState(
-      clients: clients == const $CopyWithPlaceholder() || clients == null
-          ? _value.clients
-          // ignore: cast_nullable_to_non_nullable
-          : clients as List<Client>,
-      freshRoomId:
-          freshRoomId == const $CopyWithPlaceholder() || freshRoomId == null
-              ? _value.freshRoomId
-              // ignore: cast_nullable_to_non_nullable
-              : freshRoomId as String,
       isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
-          ? _value.isLoading
+          // ignore: unnecessary_non_null_assertion
+          ? _value.isLoading!
           // ignore: cast_nullable_to_non_nullable
           : isLoading as bool,
+      freshRoomId:
+          freshRoomId == const $CopyWithPlaceholder() || freshRoomId == null
+              // ignore: unnecessary_non_null_assertion
+              ? _value.freshRoomId!
+              // ignore: cast_nullable_to_non_nullable
+              : freshRoomId as String,
+      clients: clients == const $CopyWithPlaceholder() || clients == null
+          // ignore: unnecessary_non_null_assertion
+          ? _value.clients!
+          // ignore: cast_nullable_to_non_nullable
+          : clients as List<Client>,
     );
   }
 }

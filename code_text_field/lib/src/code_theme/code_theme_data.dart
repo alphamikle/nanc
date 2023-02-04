@@ -2,11 +2,11 @@ import 'package:flutter/widgets.dart';
 
 @immutable
 class CodeThemeData {
-  final Map<String, TextStyle> styles;
 
   const CodeThemeData({
     required this.styles,
   });
+  final Map<String, TextStyle> styles;
 
   @override
   int get hashCode => styles.hashCode;

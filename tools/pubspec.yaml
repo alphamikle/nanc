@@ -5,36 +5,36 @@ homepage: -_-
 publish_to: none
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
-  flutter: ">=1.17.0"
+  sdk: '>=3.0.0-201.0.dev <4.0.0'
+  flutter: '>=3.8.0-4.0.pre.9'
 
 dependencies:
   flutter:
     sdk: flutter
   config:
     path: ../config
-  markdown: ^6.0.0
-  collection: ^1.16.0
+  markdown: ^6.0.1
+  collection: ^1.17.1
   material_design_icons_flutter: ^6.0.7096
-  fluentui_system_icons: ^1.1.184
+  fluentui_system_icons: ^1.1.190
   flutter_boxicons: ^3.0.0
   html: ^0.15.1
-  archive: ^3.3.4
+  archive: ^3.3.6
   ulid: ^2.0.0
-  basic_utils: ^5.4.0
+  basic_utils: ^5.4.2
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   package_info_plus: ^3.0.2
-  path_provider: ^2.0.11
-  url_launcher: ^6.1.6
-  encrypt:
-    git:
-      url: git@github.com:leocavalcante/encrypt.git
-      ref: 235ca6fa9f10c981bb20340362d97b89893087de # The commit with the [collection] package, compatible with the CMS
+  path_provider: ^2.0.12
+  url_launcher: ^6.1.8
+  encrypt: ^5.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  
+  flutter_lints: ^2.0.1
+  lint:
+    path: ../lint
 
 flutter:

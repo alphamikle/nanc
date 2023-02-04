@@ -37,7 +37,7 @@ class _TagsManualViewState extends State<TagsManualView> {
             child: TagRendererDescription(
               tagName: state.activeTagRenderer.tag,
               withChildren: state.activeTagRenderer.isMultiline,
-              description: state.activeTagRenderer.description!,
+              description: state.activeTagRenderer.description,
             ),
           );
         }

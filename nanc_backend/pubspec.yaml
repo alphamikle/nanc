@@ -1,10 +1,11 @@
 name: nanc_backend
 description: NANC project backend demo
 publish_to: 'none'
-version: 1.0.0+22
+version: 1.0.0+23
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
+  sdk: '>=3.0.0-201.0.dev <4.0.0'
+  flutter: '>=3.8.0-4.0.pre.9'
 
 dependencies:
   flutter:
@@ -31,23 +32,26 @@ dependencies:
     path: ../additions
   analytics:
     path: ../analytics
-  cupertino_icons: ^1.0.2
-  pretty_qr_code: ^2.0.2
+  cupertino_icons: ^1.0.5
+  pretty_qr_code: ^2.0.3
   bloc: ^8.1.0
   flutter_bloc: ^8.1.1
   equatable: ^2.0.5
-  json_annotation: ^4.7.0
-  copy_with_extension: ^4.0.3
-  path_provider: ^2.0.11
-  path: ^1.8.2
+  json_annotation: ^4.8.0
+  copy_with_extension: ^5.0.0
+  path_provider: ^2.0.12
+  path: ^1.8.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  json_serializable: ^6.4.1
-  copy_with_extension_gen: ^4.0.3
-  build_runner: ^2.2.1
+  
+  flutter_lints: ^2.0.1
+  lint:
+    path: ../lint
+  json_serializable: ^6.6.1
+  copy_with_extension_gen: ^5.0.0
+  build_runner: ^2.3.3
   flutter_launcher_icons: ^0.11.0
 
 flutter:

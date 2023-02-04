@@ -4,7 +4,8 @@ version: 0.1.0
 publish_to: none
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: '>=3.0.0-201.0.dev <4.0.0'
+  flutter: '>=3.8.0-4.0.pre.9'
 
 dependencies:
   rich_renderer:
@@ -17,10 +18,12 @@ dependencies:
     sdk: flutter
   analytics:
     path: ../analytics
-  url_launcher: ^6.1.6
+  url_launcher: ^6.1.8
   share_plus: ^6.3.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
+  lint:
+    path: ../lint

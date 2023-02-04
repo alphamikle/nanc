@@ -4,33 +4,28 @@ version: 0.0.1
 publish_to: 'none'
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
-  flutter: ">=1.17.0"
+  sdk: '>=3.0.0-201.0.dev <4.0.0'
+  flutter: '>=3.8.0-4.0.pre.9'
 
 dependencies:
   flutter:
     sdk: flutter
   tools:
     path: ../tools
-#  flutter_webrtc: ^0.9.19
   dio: ^4.0.6
-  json_annotation: ^4.7.0
-  retrofit: ^3.3.1
-  copy_with_extension: ^4.0.4
-  supabase_flutter: ^1.2.2
+  json_annotation: ^4.8.0
+  copy_with_extension: ^5.0.0
   peerdart: ^0.5.0
-
-#dependency_overrides:
-#  flutter_webrtc:
-#    git: https://github.com/flutter-webrtc/flutter-webrtc.git
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  json_serializable: ^6.5.4
-  build_runner: ^2.3.2
-  retrofit_generator: ^4.2.0
-  copy_with_extension_gen: ^4.0.4
+  
+  flutter_lints: ^2.0.1
+  lint:
+    path: ../lint
+  json_serializable: ^6.6.1
+  build_runner: ^2.3.3
+  copy_with_extension_gen: ^5.0.0
 
 flutter:

@@ -1,26 +1,26 @@
 name: markdown_code_push_core
 description: This package add you ability to easily create any md-tags and convert them into the widgets
-version: 0.0.1
+version: 1.0.0
 verified publisher:
   - alphamikle@gmail.com
 homepage: TODO
 publish_to: none
 
 environment:
-  sdk: '>=2.18.0 <3.0.0'
-  flutter: ">=3.0.0"
+  sdk: '>=3.0.0-201.0.dev <4.0.0'
+  flutter: '>=3.8.0-4.0.pre.9'
 
 dependencies:
   flutter:
     sdk: flutter
   tools:
     path: ../tools
-  markdown: ^6.0.0
+  markdown: ^6.0.1
   highlight: ^0.7.0
   flutter_highlight: ^0.7.0
-  flutter_markdown: ^0.6.12
-  html: ^0.15.0
-  collection: ^1.16.0
+  flutter_markdown: ^0.6.13+1
+  html: ^0.15.1
+  collection: ^1.17.1
   
 dev_dependencies:
   flutter_test:

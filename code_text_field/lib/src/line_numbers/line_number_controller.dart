@@ -1,11 +1,11 @@
 import 'package:flutter/widgets.dart';
 
 class LineNumberController extends TextEditingController {
-  final TextSpan Function(int, TextStyle?)? lineNumberBuilder;
 
   LineNumberController(
     this.lineNumberBuilder,
   );
+  final TextSpan Function(int, TextStyle?)? lineNumberBuilder;
 
   @override
   TextSpan buildTextSpan({

@@ -1,21 +1,43 @@
 import 'dart:math';
 
+import 'package:code_text_field/src/code_field/editor_params.dart';
+import 'package:code_text_field/src/code_modifiers/close_block_code_modifier.dart';
+import 'package:code_text_field/src/code_modifiers/code_modifier.dart';
+import 'package:code_text_field/src/code_modifiers/indent_code_modifier.dart';
+import 'package:code_text_field/src/code_modifiers/tab_code_modifier.dart';
+import 'package:code_text_field/src/code_theme/code_theme.dart';
+import 'package:code_text_field/src/code_theme/code_theme_data.dart';
 import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:highlight/highlight_core.dart';
 
-import '../code_modifiers/close_block_code_modifier.dart';
-import '../code_modifiers/code_modifier.dart';
-import '../code_modifiers/indent_code_modifier.dart';
-import '../code_modifiers/tab_code_modifier.dart';
-import '../code_theme/code_theme.dart';
-import '../code_theme/code_theme_data.dart';
-import 'editor_params.dart';
-
 const _middleDot = '·';
 
 class CodeController extends TextEditingController {
+
+  CodeController({
+    super.text,
+    Mode? language,
+    @Deprecated('Use CodeTheme widget to provide theme to CodeField.') Map<String, TextStyle>? theme,
+    this.patternMap,
+    this.stringMap,
+    this.params = const EditorParams(),
+    this.modifiers = const [
+      IntendModifier(),
+      CloseBlockModifier(),
+      TabModifier(),
+    ],
+    this.webSpaceFix = true,
+    this.onChange,
+  })  : _theme = theme {
+    this.language = language;
+
+    // Create modifier map
+    for (final el in modifiers) {
+      modifierMap[el.char] = el;
+    }
+  }
   Mode? _language;
 
   /// A highlight language to parse the text with
@@ -81,30 +103,6 @@ class CodeController extends TextEditingController {
   final styleList = <TextStyle>[];
   final modifierMap = <String, CodeModifier>{};
   RegExp? styleRegExp;
-
-  CodeController({
-    String? text,
-    Mode? language,
-    @Deprecated('Use CodeTheme widget to provide theme to CodeField.') Map<String, TextStyle>? theme,
-    this.patternMap,
-    this.stringMap,
-    this.params = const EditorParams(),
-    this.modifiers = const [
-      IntendModifier(),
-      CloseBlockModifier(),
-      TabModifier(),
-    ],
-    this.webSpaceFix = true,
-    this.onChange,
-  })  : _theme = theme,
-        super(text: text) {
-    this.language = language;
-
-    // Create modifier map
-    for (final el in modifiers) {
-      modifierMap[el.char] = el;
-    }
-  }
 
   /// Sets a specific cursor position in the text
   void setCursor(int offset) {

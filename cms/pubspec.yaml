@@ -4,7 +4,8 @@ publish_to: none
 version: 0.0.1
 
 environment:
-  sdk: '>=2.18.0 <3.0.0'
+  sdk: '>=3.0.0-201.0.dev <4.0.0'
+  flutter: '>=3.8.0-4.0.pre.9'
 
 dependencies:
   flutter:
@@ -37,36 +38,37 @@ dependencies:
     path: ../additions
   analytics:
     path: ../analytics
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
   device_frame: ^1.1.0
   markdown: ^6.0.1
   vrouter: ^1.2.1
   bloc: ^8.1.0
   flutter_bloc: ^8.1.1
   equatable: ^2.0.5
-  json_annotation: ^4.7.0
-  copy_with_extension: ^4.0.3
+  json_annotation: ^4.8.0
+  copy_with_extension: ^5.0.0
   bot_toast: ^4.0.3
   ulid: ^2.0.0
   google_fonts: ^4.0.3
   flutter_highlight: ^0.7.0
   highlight: ^0.7.0
-  collection: ^1.16.0
+  collection: ^1.17.1
   mask_text_input_formatter: ^2.4.0
   animations: ^2.0.7
-  rive: ^0.9.1
-  lottie: ^2.0.0
-  flutter_markdown: ^0.6.13
+  rive: ^0.10.1
+  lottie: ^2.2.0
+  flutter_markdown: ^0.6.13+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  json_serializable: ^6.4.1
-  copy_with_extension_gen: ^4.0.3
-  build_runner: ^2.2.1
-  yalo: ^3.0.0
-  path: ^1.8.2
+  flutter_lints: ^2.0.1
+  lint:
+    path: ../lint
+  json_serializable: ^6.6.1
+  copy_with_extension_gen: ^5.0.0
+  build_runner: ^2.3.3
+  path: ^1.8.3
   flutter_launcher_icons: ^0.11.0
 
 flutter:

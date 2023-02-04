@@ -1,13 +1,11 @@
+import 'package:code_text_field/src/code_theme/code_theme_data.dart';
 import 'package:flutter/widgets.dart';
-
-import 'code_theme_data.dart';
 
 class CodeTheme extends InheritedWidget {
   const CodeTheme({
     required this.data,
-    Key? key,
-    required Widget child,
-  }) : super(key: key, child: child);
+    required super.child, super.key,
+  });
 
   final CodeThemeData? data;
 

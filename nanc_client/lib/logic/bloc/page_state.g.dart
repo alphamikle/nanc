@@ -7,15 +7,15 @@ part of 'page_state.dart';
 // **************************************************************************
 
 abstract class _$PageStateCWProxy {
-  PageState alwaysUpdate(bool alwaysUpdate);
-
-  PageState isConnectedToTheBackend(bool isConnectedToTheBackend);
+  PageState isLoading(bool isLoading);
 
   PageState isConnectingToTheBackend(bool isConnectingToTheBackend);
 
-  PageState isLoading(bool isLoading);
+  PageState isConnectedToTheBackend(bool isConnectedToTheBackend);
 
   PageState pageData(Map<String, dynamic> pageData);
+
+  PageState alwaysUpdate(bool alwaysUpdate);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `PageState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -24,36 +24,36 @@ abstract class _$PageStateCWProxy {
   /// PageState(...).copyWith(id: 12, name: "My name")
   /// ````
   PageState call({
-    bool? alwaysUpdate,
-    bool? isConnectedToTheBackend,
-    bool? isConnectingToTheBackend,
     bool? isLoading,
+    bool? isConnectingToTheBackend,
+    bool? isConnectedToTheBackend,
     Map<String, dynamic>? pageData,
+    bool? alwaysUpdate,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfPageState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfPageState.copyWith.fieldName(...)`
 class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
-  final PageState _value;
-
   const _$PageStateCWProxyImpl(this._value);
 
-  @override
-  PageState alwaysUpdate(bool alwaysUpdate) => this(alwaysUpdate: alwaysUpdate);
+  final PageState _value;
 
   @override
-  PageState isConnectedToTheBackend(bool isConnectedToTheBackend) =>
-      this(isConnectedToTheBackend: isConnectedToTheBackend);
+  PageState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
   PageState isConnectingToTheBackend(bool isConnectingToTheBackend) =>
       this(isConnectingToTheBackend: isConnectingToTheBackend);
 
   @override
-  PageState isLoading(bool isLoading) => this(isLoading: isLoading);
+  PageState isConnectedToTheBackend(bool isConnectedToTheBackend) =>
+      this(isConnectedToTheBackend: isConnectedToTheBackend);
 
   @override
   PageState pageData(Map<String, dynamic> pageData) => this(pageData: pageData);
+
+  @override
+  PageState alwaysUpdate(bool alwaysUpdate) => this(alwaysUpdate: alwaysUpdate);
 
   @override
 
@@ -64,38 +64,43 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
   /// PageState(...).copyWith(id: 12, name: "My name")
   /// ````
   PageState call({
-    Object? alwaysUpdate = const $CopyWithPlaceholder(),
-    Object? isConnectedToTheBackend = const $CopyWithPlaceholder(),
-    Object? isConnectingToTheBackend = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
+    Object? isConnectingToTheBackend = const $CopyWithPlaceholder(),
+    Object? isConnectedToTheBackend = const $CopyWithPlaceholder(),
     Object? pageData = const $CopyWithPlaceholder(),
+    Object? alwaysUpdate = const $CopyWithPlaceholder(),
   }) {
     return PageState(
-      alwaysUpdate:
-          alwaysUpdate == const $CopyWithPlaceholder() || alwaysUpdate == null
-              ? _value.alwaysUpdate
-              // ignore: cast_nullable_to_non_nullable
-              : alwaysUpdate as bool,
-      isConnectedToTheBackend:
-          isConnectedToTheBackend == const $CopyWithPlaceholder() ||
-                  isConnectedToTheBackend == null
-              ? _value.isConnectedToTheBackend
-              // ignore: cast_nullable_to_non_nullable
-              : isConnectedToTheBackend as bool,
+      isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
+          // ignore: unnecessary_non_null_assertion
+          ? _value.isLoading!
+          // ignore: cast_nullable_to_non_nullable
+          : isLoading as bool,
       isConnectingToTheBackend:
           isConnectingToTheBackend == const $CopyWithPlaceholder() ||
                   isConnectingToTheBackend == null
-              ? _value.isConnectingToTheBackend
+              // ignore: unnecessary_non_null_assertion
+              ? _value.isConnectingToTheBackend!
               // ignore: cast_nullable_to_non_nullable
               : isConnectingToTheBackend as bool,
-      isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
-          ? _value.isLoading
-          // ignore: cast_nullable_to_non_nullable
-          : isLoading as bool,
+      isConnectedToTheBackend:
+          isConnectedToTheBackend == const $CopyWithPlaceholder() ||
+                  isConnectedToTheBackend == null
+              // ignore: unnecessary_non_null_assertion
+              ? _value.isConnectedToTheBackend!
+              // ignore: cast_nullable_to_non_nullable
+              : isConnectedToTheBackend as bool,
       pageData: pageData == const $CopyWithPlaceholder() || pageData == null
-          ? _value.pageData
+          // ignore: unnecessary_non_null_assertion
+          ? _value.pageData!
           // ignore: cast_nullable_to_non_nullable
           : pageData as Map<String, dynamic>,
+      alwaysUpdate:
+          alwaysUpdate == const $CopyWithPlaceholder() || alwaysUpdate == null
+              // ignore: unnecessary_non_null_assertion
+              ? _value.alwaysUpdate!
+              // ignore: cast_nullable_to_non_nullable
+              : alwaysUpdate as bool,
     );
   }
 }

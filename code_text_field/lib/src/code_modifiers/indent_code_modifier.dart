@@ -1,16 +1,15 @@
 import 'dart:math';
 
+import 'package:code_text_field/src/code_field/editor_params.dart';
+import 'package:code_text_field/src/code_modifiers/code_modifier.dart';
 import 'package:flutter/widgets.dart';
 
-import '../code_field/editor_params.dart';
-import 'code_modifier.dart';
-
 class IntendModifier extends CodeModifier {
-  final bool handleBrackets;
 
   const IntendModifier({
     this.handleBrackets = true,
   }) : super('\n');
+  final bool handleBrackets;
 
   @override
   TextEditingValue? updateString(

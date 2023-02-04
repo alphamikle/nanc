@@ -9,9 +9,9 @@ part of 'client.dart';
 abstract class _$ClientCWProxy {
   Client roomId(String roomId);
 
-  Client serviceId(String serviceId);
-
   Client status(ClientStatus status);
+
+  Client serviceId(String serviceId);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Client(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -21,25 +21,25 @@ abstract class _$ClientCWProxy {
   /// ````
   Client call({
     String? roomId,
-    String? serviceId,
     ClientStatus? status,
+    String? serviceId,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfClient.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfClient.copyWith.fieldName(...)`
 class _$ClientCWProxyImpl implements _$ClientCWProxy {
-  final Client _value;
-
   const _$ClientCWProxyImpl(this._value);
+
+  final Client _value;
 
   @override
   Client roomId(String roomId) => this(roomId: roomId);
 
   @override
-  Client serviceId(String serviceId) => this(serviceId: serviceId);
+  Client status(ClientStatus status) => this(status: status);
 
   @override
-  Client status(ClientStatus status) => this(status: status);
+  Client serviceId(String serviceId) => this(serviceId: serviceId);
 
   @override
 
@@ -51,22 +51,25 @@ class _$ClientCWProxyImpl implements _$ClientCWProxy {
   /// ````
   Client call({
     Object? roomId = const $CopyWithPlaceholder(),
-    Object? serviceId = const $CopyWithPlaceholder(),
     Object? status = const $CopyWithPlaceholder(),
+    Object? serviceId = const $CopyWithPlaceholder(),
   }) {
     return Client(
       roomId: roomId == const $CopyWithPlaceholder() || roomId == null
-          ? _value.roomId
+          // ignore: unnecessary_non_null_assertion
+          ? _value.roomId!
           // ignore: cast_nullable_to_non_nullable
           : roomId as String,
-      serviceId: serviceId == const $CopyWithPlaceholder() || serviceId == null
-          ? _value.serviceId
-          // ignore: cast_nullable_to_non_nullable
-          : serviceId as String,
       status: status == const $CopyWithPlaceholder() || status == null
-          ? _value.status
+          // ignore: unnecessary_non_null_assertion
+          ? _value.status!
           // ignore: cast_nullable_to_non_nullable
           : status as ClientStatus,
+      serviceId: serviceId == const $CopyWithPlaceholder() || serviceId == null
+          // ignore: unnecessary_non_null_assertion
+          ? _value.serviceId!
+          // ignore: cast_nullable_to_non_nullable
+          : serviceId as String,
     );
   }
 }

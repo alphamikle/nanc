@@ -1,10 +1,11 @@
 name: nanc_client
 description: NANC project demo client
 publish_to: 'none'
-version: 1.0.0+27
+version: 1.0.0+28
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
+  sdk: '>=3.0.0-201.0.dev <4.0.0'
+  flutter: '>=3.8.0-4.0.pre.9'
 
 dependencies:
   flutter:
@@ -29,15 +30,15 @@ dependencies:
     path: ../components
   analytics:
     path: ../analytics
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
   bloc: ^8.1.0
   flutter_bloc: ^8.1.1
   equatable: ^2.0.5
-  json_annotation: ^4.7.0
-  copy_with_extension: ^4.0.3
+  json_annotation: ^4.8.0
+  copy_with_extension: ^5.0.0
   vrouter: ^1.2.1
   device_frame: ^1.1.0
-  mobile_scanner: ^3.0.0-beta.4
+  mobile_scanner: ^2.1.0
   dio: ^4.0.6
 
 dependency_overrides:
@@ -49,10 +50,13 @@ dependency_overrides:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  json_serializable: ^6.4.1
-  copy_with_extension_gen: ^4.0.3
-  build_runner: ^2.2.1
+  
+  flutter_lints: ^2.0.1
+  lint:
+    path: ../lint
+  json_serializable: ^6.6.1
+  copy_with_extension_gen: ^5.0.0
+  build_runner: ^2.3.3
   flutter_launcher_icons: ^0.11.0
 
 flutter:

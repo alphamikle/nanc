@@ -1,13 +1,13 @@
 name: flutter_admin_monorepo
 description: This package add you ability to easily create any md-tags and convert them into the widgets
-version: 0.0.1
+version: 1.0.0
 verified publisher:
   - alphamikle@gmail.com
-homepage: TODO
+homepage: client.nanc.io
 
 environment:
-  sdk: '>=2.18.0 <3.0.0'
-  flutter: ">=3.0.0"
+  sdk: '>=3.0.0-201.0.dev <4.0.0'
+  flutter: '>=3.8.0-4.0.pre.9'
 
 dependencies:
   flutter:
@@ -16,8 +16,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  args: ^2.3.1
-  path: ^1.8.2
-  flutter_lints: ^2.0.0
+  args: ^2.3.2
+  path: ^1.8.3
+  flutter_lints: ^2.0.1
+  lint:
+    path: ./lint
 
 flutter:

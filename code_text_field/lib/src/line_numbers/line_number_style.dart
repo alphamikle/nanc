@@ -1,6 +1,14 @@
 import 'package:flutter/widgets.dart';
 
 class LineNumberStyle {
+
+  const LineNumberStyle({
+    this.width = 42.0,
+    this.textAlign = TextAlign.right,
+    this.margin = 10.0,
+    this.textStyle,
+    this.background,
+  });
   /// Width of the line number column
   final double width;
 
@@ -15,12 +23,4 @@ class LineNumberStyle {
 
   /// Central horizontal margin between the numbers and the code
   final double margin;
-
-  const LineNumberStyle({
-    this.width = 42.0,
-    this.textAlign = TextAlign.right,
-    this.margin = 10.0,
-    this.textStyle,
-    this.background,
-  });
 }
