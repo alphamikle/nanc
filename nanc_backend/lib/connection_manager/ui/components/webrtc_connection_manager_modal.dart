@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:cms/cms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
@@ -35,9 +36,19 @@ class _WebRTCConnectionManagerModalState extends State<WebRTCConnectionManagerMo
 
   ConnectionManagerBloc get connectionManagerBloc => context.read();
 
+  void notifyAboutConnectedClient() {
+    if (mounted) {
+      showMessageNotification('''
+Client successfully connected!
+Now, you can move to the Solo → Landing Page → Screen
+And play with the client app UI
+''');
+    }
+  }
+
   Future<void> preload() async {
     if (connectionManagerBloc.state.isEmptyId && connectionManagerBloc.state.hasAnyClient == false) {
-      await connectionManagerBloc.createConnection();
+      await connectionManagerBloc.createConnection(onClientConnected: notifyAboutConnectedClient);
     }
     if (connectionManagerBloc.state.hasAnyClient) {
       await openMenu();
@@ -183,7 +194,14 @@ class _WebRTCConnectionManagerModalState extends State<WebRTCConnectionManagerMo
                                       Padding(
                                         padding: const EdgeInsets.only(bottom: 32),
                                         child: KitInkWell(
-                                          onPressed: state.isEmptyId ? null : () async => copyTextToClipboard(state.freshRoomId),
+                                          onPressed: state.isEmptyId
+                                              ? null
+                                              : () async {
+                                                  await copyTextToClipboard(state.freshRoomId);
+                                                  if (mounted) {
+                                                    showMessageNotification('Connection data successfully copied');
+                                                  }
+                                                },
                                           child: AnimatedSwitcher(
                                             duration: const Duration(milliseconds: 250),
                                             child: PrettyQr(
@@ -210,10 +228,14 @@ class _WebRTCConnectionManagerModalState extends State<WebRTCConnectionManagerMo
                                   child: IgnorePointer(
                                     ignoring: state.isNotEmptyId,
                                     child: KitBigButton(
-                                      onPressed: state.isNotEmptyId ? null : () async => connectionManagerBloc.createConnection(),
-                                      child: Row(
+                                      onPressed: state.isNotEmptyId
+                                          ? null
+                                          : () async => connectionManagerBloc.createConnection(
+                                                onClientConnected: notifyAboutConnectedClient,
+                                              ),
+                                      child: const Row(
                                         mainAxisSize: MainAxisSize.min,
-                                        children: const [
+                                        children: [
                                           Padding(
                                             padding: EdgeInsets.only(right: 16),
                                             child: Icon(

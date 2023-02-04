@@ -39,6 +39,8 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
       visualDensity: VisualDensity.comfortable,
       backgroundColor: context.theme.colorScheme.primaryContainer.withOpacity(0.5),
       labelStyle: context.theme.textTheme.titleSmall,
+      side: BorderSide(color: context.theme.colorScheme.primary.withOpacity(0.5), width: 0.25),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4))),
     );
   }
 

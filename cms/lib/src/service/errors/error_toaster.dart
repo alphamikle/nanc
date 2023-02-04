@@ -1,4 +1,3 @@
-import 'package:cms/src/service/config/config.dart';
 import 'package:cms/src/service/errors/error_wrapper.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
@@ -51,11 +50,11 @@ class ErrorToaster extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(bottom: kPadding),
+          padding: const EdgeInsets.only(bottom: Gap.regular),
           child: closeButton,
         ),
         text,
-        KitDivider.vertical(kPaddingLarge),
+        KitDivider.vertical(Gap.large),
         Text(
           errorWrapper.stackTrace.toString(),
           style: style,
@@ -76,8 +75,8 @@ class ErrorToaster extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: context.theme.colorScheme.errorContainer,
-          borderRadius: const BorderRadius.all(Radius.circular(Gap.regular)),
-          border: Border.all(color: context.theme.colorScheme.onErrorContainer),
+          borderRadius: const BorderRadius.all(Radius.circular(Gap.small)),
+          border: Border.all(color: context.theme.colorScheme.onErrorContainer.withOpacity(0.5)),
         ),
         child: Padding(
           padding: const EdgeInsets.all(Gap.large),

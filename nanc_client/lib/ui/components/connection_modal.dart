@@ -51,6 +51,9 @@ class _ConnectionModalState extends State<ConnectionModal> {
       final PageBloc pageBloc = context.read();
       await pageBloc.connectToBackend();
       Analytics.sendEvent('CONNECTION_TO_BACKEND_COMPLETED');
+      if (mounted) {
+        context.navigator.pop();
+      }
     }
   }
 

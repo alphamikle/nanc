@@ -20,12 +20,14 @@ class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
   final Map<String, PeerService> _services = {};
   final Map<String, StreamSubscription<ConnectionStatus>> _subscriptions = {};
   PeerService? _service;
+  VoidCallback? _onClientConnected;
 
-  Future<void> createConnection() async {
+  Future<void> createConnection({VoidCallback? onClientConnected}) async {
     if (state.isNotEmptyId) {
       // Show message about already loading connection
       return;
     }
+    _onClientConnected = onClientConnected;
     Analytics.sendEvent('CONNECTION_CREATION_STARTED');
     emit(state.copyWith(isLoading: true));
     _service = peerServiceFactory.createPeerService(messageHandler: _clientMessageHandler, onClose: () => _onClose('TODO'));
@@ -98,6 +100,7 @@ class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
     });
     await connectionCompleter.future;
     Analytics.sendEvent('CONNECTION_CREATION_COMPLETED');
+    _onClientConnected?.call();
   }
 
   Future<void> _disposeHandler(String serviceId) async {

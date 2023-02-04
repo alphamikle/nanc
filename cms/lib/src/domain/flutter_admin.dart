@@ -73,7 +73,7 @@ class _FlutterAdminState extends State<FlutterAdmin> {
   void showError(ErrorWrapper errorWrapper) {
     BotToast.showCustomNotification(
       toastBuilder: (VoidCallback onClose) => ErrorToaster(errorWrapper: errorWrapper, onClose: onClose),
-      duration: const Duration(minutes: 1),
+      duration: const Duration(seconds: 30),
       dismissDirections: [],
     );
   }

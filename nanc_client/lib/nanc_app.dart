@@ -44,6 +44,7 @@ class _NancAppState extends State<NancApp> {
   @override
   Widget build(BuildContext context) {
     return VRouter(
+      debugShowCheckedModeBanner: false,
       navigatorKey: widget.rootKey,
       routes: generateRoutes(context),
       title: 'Nanc Client',

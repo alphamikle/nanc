@@ -6,27 +6,20 @@ import 'package:ui_kit/ui_kit.dart';
 
 void showMessageNotification(String message) {
   BotToast.showCustomNotification(
-    duration: const Duration(seconds: 10),
+    duration: const Duration(seconds: 5),
     dismissDirections: [],
     toastBuilder: (VoidCallback onCancel) {
       return Padding(
-        padding: const EdgeInsets.only(top: kPaddingLarge),
+        padding: const EdgeInsets.only(top: Gap.large),
         child: Builder(
           builder: (BuildContext context) {
             return DecoratedBox(
               decoration: BoxDecoration(
                 color: context.theme.colorScheme.secondaryContainer,
                 border: Border.all(
-                  color: context.theme.colorScheme.onPrimaryContainer,
+                  color: context.theme.colorScheme.primary.withOpacity(0.5),
                 ),
-                borderRadius: const BorderRadius.all(Radius.circular(kPadding)),
-                boxShadow: [
-                  BoxShadow(
-                    color: context.theme.colorScheme.primary.shadow,
-                    spreadRadius: 10,
-                    blurRadius: 10,
-                  ),
-                ],
+                borderRadius: const BorderRadius.all(Radius.circular(Gap.small)),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(kPaddingLarge),
@@ -34,9 +27,9 @@ void showMessageNotification(String message) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(message),
+                    Text(message.trim()),
                     Padding(
-                      padding: const EdgeInsets.only(top: kPadding),
+                      padding: const EdgeInsets.only(top: Gap.regular),
                       child: KitButton(
                         text: 'Close',
                         onPressed: onCancel,
