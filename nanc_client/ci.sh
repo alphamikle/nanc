@@ -23,11 +23,15 @@ flutter build web \
 --dart-define=ANALYTICS_KEY="$NANC_ANALYTICS_KEY" \
 --dart-define=ANALYTICS_PROJECT=client_web \
 --no-tree-shake-icons \
+--bundle-sksl-path flutter_01.sksl.json \
 
+# ? Need to precompile shaders before each build!
+# ? https://docs.flutter.dev/perf/shader
 flutter build apk \
 --no-pub \
 --target-platform="android-arm64" \
 --dart-define="$NANC_SECRET_KEY"="$NANC_SECRET_VALUE" \
+--bundle-sksl-path flutter_01.sksl.json \
 
 flutter build appbundle \
 --no-pub \
@@ -35,6 +39,7 @@ flutter build appbundle \
 --dart-define="$NANC_SECRET_KEY"="$NANC_SECRET_VALUE" \
 --dart-define=ANALYTICS_KEY="$NANC_ANALYTICS_KEY" \
 --dart-define=ANALYTICS_PROJECT=client_android \
+--bundle-sksl-path flutter_01.sksl.json \
 
 # ? Copy Android build
 mv ./build/app/outputs/flutter-apk/app-release.apk "$APPS_BUILDS_DIR/$name.apk"

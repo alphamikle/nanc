@@ -202,7 +202,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: contentColor == null ? theme.inputDecorationTheme.fillColor : contentColor.filling,
+        color: contentColor == null ? theme.inputDecorationTheme.fillColor : contentColor.o075,
         borderRadius: context.kitBorders.inputRadius,
         border: Border.all(
           color: borderColor,

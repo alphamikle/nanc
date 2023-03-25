@@ -9,15 +9,15 @@ part of 'id_field.dart';
 abstract class _$IdFieldCWProxy {
   IdField id(String? id);
 
-  IdField isRequired(bool isRequired);
-
   IdField name(String? name);
+
+  IdField isRequired(bool isRequired);
 
   IdField sort(int sort);
 
-  IdField type(FieldType type);
-
   IdField width(double? width);
+
+  IdField type(FieldType type);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `IdField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -27,37 +27,37 @@ abstract class _$IdFieldCWProxy {
   /// ````
   IdField call({
     String? id,
-    bool? isRequired,
     String? name,
+    bool? isRequired,
     int? sort,
-    FieldType? type,
     double? width,
+    FieldType? type,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfIdField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfIdField.copyWith.fieldName(...)`
 class _$IdFieldCWProxyImpl implements _$IdFieldCWProxy {
-  final IdField _value;
-
   const _$IdFieldCWProxyImpl(this._value);
+
+  final IdField _value;
 
   @override
   IdField id(String? id) => this(id: id);
 
   @override
-  IdField isRequired(bool isRequired) => this(isRequired: isRequired);
+  IdField name(String? name) => this(name: name);
 
   @override
-  IdField name(String? name) => this(name: name);
+  IdField isRequired(bool isRequired) => this(isRequired: isRequired);
 
   @override
   IdField sort(int sort) => this(sort: sort);
 
   @override
-  IdField type(FieldType type) => this(type: type);
+  IdField width(double? width) => this(width: width);
 
   @override
-  IdField width(double? width) => this(width: width);
+  IdField type(FieldType type) => this(type: type);
 
   @override
 
@@ -69,38 +69,38 @@ class _$IdFieldCWProxyImpl implements _$IdFieldCWProxy {
   /// ````
   IdField call({
     Object? id = const $CopyWithPlaceholder(),
-    Object? isRequired = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
+    Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? type = const $CopyWithPlaceholder(),
     Object? width = const $CopyWithPlaceholder(),
+    Object? type = const $CopyWithPlaceholder(),
   }) {
     return IdField(
       id: id == const $CopyWithPlaceholder()
           ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String?,
+      name: name == const $CopyWithPlaceholder()
+          ? _value.name
+          // ignore: cast_nullable_to_non_nullable
+          : name as String?,
       isRequired:
           isRequired == const $CopyWithPlaceholder() || isRequired == null
               ? _value.isRequired
               // ignore: cast_nullable_to_non_nullable
               : isRequired as bool,
-      name: name == const $CopyWithPlaceholder()
-          ? _value.name
-          // ignore: cast_nullable_to_non_nullable
-          : name as String?,
       sort: sort == const $CopyWithPlaceholder() || sort == null
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      type: type == const $CopyWithPlaceholder() || type == null
-          ? _value.type
-          // ignore: cast_nullable_to_non_nullable
-          : type as FieldType,
       width: width == const $CopyWithPlaceholder()
           ? _value.width
           // ignore: cast_nullable_to_non_nullable
           : width as double?,
+      type: type == const $CopyWithPlaceholder() || type == null
+          ? _value.type
+          // ignore: cast_nullable_to_non_nullable
+          : type as FieldType,
     );
   }
 }
@@ -152,4 +152,6 @@ const _$FieldTypeEnumMap = {
   FieldType.colorField: 'colorField',
   FieldType.screenField: 'screenField',
   FieldType.headerField: 'headerField',
+  FieldType.groupField: 'groupField',
+  FieldType.fontField: 'fontField',
 };

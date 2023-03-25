@@ -27,6 +27,7 @@ export 'src/components/kit_inputs/kit_color_input/hex_text_mask.dart';
 export 'src/components/kit_inputs/kit_color_input/kit_color_input.dart';
 export 'src/components/kit_inputs/kit_empty_input.dart';
 export 'src/components/kit_inputs/kit_enum_field.dart';
+export 'src/components/kit_inputs/kit_font_input.dart';
 export 'src/components/kit_inputs/kit_icon_input.dart';
 export 'src/components/kit_inputs/kit_id_input.dart';
 export 'src/components/kit_inputs/kit_number_field.dart';

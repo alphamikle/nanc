@@ -1,7 +1,7 @@
 name: nanc_backend
 description: NANC project backend demo
 publish_to: 'none'
-version: 1.0.0+23
+version: 1.0.0+24
 
 environment:
   sdk: '>=3.0.0-201.0.dev <4.0.0'
@@ -32,6 +32,8 @@ dependencies:
     path: ../additions
   analytics:
     path: ../analytics
+  fonts:
+    path: ../fonts
   cupertino_icons: ^1.0.5
   pretty_qr_code: ^2.0.3
   bloc: ^8.1.0
@@ -45,7 +47,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  
   flutter_lints: ^2.0.1
   lint:
     path: ../lint
@@ -58,6 +59,19 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/fonts/
+  fonts:
+    - family: Blazeface
+      fonts:
+        - asset: assets/fonts/blazeface.ttf
+    - family: Helvetica
+      fonts:
+        - asset: assets/fonts/helvetica.ttf
+          weight: 400
+        - asset: assets/fonts/helvetica_light.ttf
+          weight: 300
+        - asset: assets/fonts/helvetica_bold.ttf
+          weight: 500
 
 # flutter pub run flutter_launcher_icons
 flutter_icons:

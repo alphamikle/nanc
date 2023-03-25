@@ -7,11 +7,11 @@ part of 'menu_element.dart';
 // **************************************************************************
 
 abstract class _$MenuElementCWProxy {
-  MenuElement aliases(List<String> aliases);
-
   MenuElement title(String title);
 
   MenuElement url(String url);
+
+  MenuElement aliases(List<String> aliases);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `MenuElement(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -20,20 +20,17 @@ abstract class _$MenuElementCWProxy {
   /// MenuElement(...).copyWith(id: 12, name: "My name")
   /// ````
   MenuElement call({
-    List<String>? aliases,
     String? title,
     String? url,
+    List<String>? aliases,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfMenuElement.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfMenuElement.copyWith.fieldName(...)`
 class _$MenuElementCWProxyImpl implements _$MenuElementCWProxy {
-  final MenuElement _value;
-
   const _$MenuElementCWProxyImpl(this._value);
 
-  @override
-  MenuElement aliases(List<String> aliases) => this(aliases: aliases);
+  final MenuElement _value;
 
   @override
   MenuElement title(String title) => this(title: title);
@@ -42,6 +39,9 @@ class _$MenuElementCWProxyImpl implements _$MenuElementCWProxy {
   MenuElement url(String url) => this(url: url);
 
   @override
+  MenuElement aliases(List<String> aliases) => this(aliases: aliases);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `MenuElement(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -50,15 +50,11 @@ class _$MenuElementCWProxyImpl implements _$MenuElementCWProxy {
   /// MenuElement(...).copyWith(id: 12, name: "My name")
   /// ````
   MenuElement call({
-    Object? aliases = const $CopyWithPlaceholder(),
     Object? title = const $CopyWithPlaceholder(),
     Object? url = const $CopyWithPlaceholder(),
+    Object? aliases = const $CopyWithPlaceholder(),
   }) {
     return MenuElement(
-      aliases: aliases == const $CopyWithPlaceholder() || aliases == null
-          ? _value.aliases
-          // ignore: cast_nullable_to_non_nullable
-          : aliases as List<String>,
       title: title == const $CopyWithPlaceholder() || title == null
           ? _value.title
           // ignore: cast_nullable_to_non_nullable
@@ -67,6 +63,10 @@ class _$MenuElementCWProxyImpl implements _$MenuElementCWProxy {
           ? _value.url
           // ignore: cast_nullable_to_non_nullable
           : url as String,
+      aliases: aliases == const $CopyWithPlaceholder() || aliases == null
+          ? _value.aliases
+          // ignore: cast_nullable_to_non_nullable
+          : aliases as List<String>,
     );
   }
 }

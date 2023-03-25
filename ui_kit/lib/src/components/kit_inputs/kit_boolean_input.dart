@@ -96,11 +96,11 @@ class _BooleanFieldSegment extends StatelessWidget {
 
     return Theme(
       data: context.theme.copyWith(
-        splashColor: iconColor.splash,
+        splashColor: iconColor.o25,
       ),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: isSelected ? iconColor.shadow : null,
+          color: isSelected ? iconColor.o15 : null,
           borderRadius: defaultRadius,
         ),
         child: KitInkWell(

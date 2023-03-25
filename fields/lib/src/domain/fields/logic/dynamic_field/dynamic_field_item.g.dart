@@ -7,13 +7,13 @@ part of 'dynamic_field_item.dart';
 // **************************************************************************
 
 abstract class _$DynamicFieldItemCWProxy {
-  DynamicFieldItem children(List<DynamicFieldItem> children);
-
   DynamicFieldItem controller(TextEditingController controller);
+
+  DynamicFieldItem value(Object? value);
 
   DynamicFieldItem field(Field field);
 
-  DynamicFieldItem value(Object? value);
+  DynamicFieldItem children(List<DynamicFieldItem> children);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `DynamicFieldItem(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -22,32 +22,32 @@ abstract class _$DynamicFieldItemCWProxy {
   /// DynamicFieldItem(...).copyWith(id: 12, name: "My name")
   /// ````
   DynamicFieldItem call({
-    List<DynamicFieldItem>? children,
     TextEditingController? controller,
-    Field? field,
     Object? value,
+    Field? field,
+    List<DynamicFieldItem>? children,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfDynamicFieldItem.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfDynamicFieldItem.copyWith.fieldName(...)`
 class _$DynamicFieldItemCWProxyImpl implements _$DynamicFieldItemCWProxy {
-  final DynamicFieldItem _value;
-
   const _$DynamicFieldItemCWProxyImpl(this._value);
 
-  @override
-  DynamicFieldItem children(List<DynamicFieldItem> children) =>
-      this(children: children);
+  final DynamicFieldItem _value;
 
   @override
   DynamicFieldItem controller(TextEditingController controller) =>
       this(controller: controller);
 
   @override
+  DynamicFieldItem value(Object? value) => this(value: value);
+
+  @override
   DynamicFieldItem field(Field field) => this(field: field);
 
   @override
-  DynamicFieldItem value(Object? value) => this(value: value);
+  DynamicFieldItem children(List<DynamicFieldItem> children) =>
+      this(children: children);
 
   @override
 
@@ -58,29 +58,29 @@ class _$DynamicFieldItemCWProxyImpl implements _$DynamicFieldItemCWProxy {
   /// DynamicFieldItem(...).copyWith(id: 12, name: "My name")
   /// ````
   DynamicFieldItem call({
-    Object? children = const $CopyWithPlaceholder(),
     Object? controller = const $CopyWithPlaceholder(),
-    Object? field = const $CopyWithPlaceholder(),
     Object? value = const $CopyWithPlaceholder(),
+    Object? field = const $CopyWithPlaceholder(),
+    Object? children = const $CopyWithPlaceholder(),
   }) {
     return DynamicFieldItem(
-      children: children == const $CopyWithPlaceholder() || children == null
-          ? _value.children
-          // ignore: cast_nullable_to_non_nullable
-          : children as List<DynamicFieldItem>,
       controller:
           controller == const $CopyWithPlaceholder() || controller == null
               ? _value.controller
               // ignore: cast_nullable_to_non_nullable
               : controller as TextEditingController,
-      field: field == const $CopyWithPlaceholder() || field == null
-          ? _value.field
-          // ignore: cast_nullable_to_non_nullable
-          : field as Field,
       value: value == const $CopyWithPlaceholder()
           ? _value.value
           // ignore: cast_nullable_to_non_nullable
           : value as Object?,
+      field: field == const $CopyWithPlaceholder() || field == null
+          ? _value.field
+          // ignore: cast_nullable_to_non_nullable
+          : field as Field,
+      children: children == const $CopyWithPlaceholder() || children == null
+          ? _value.children
+          // ignore: cast_nullable_to_non_nullable
+          : children as List<DynamicFieldItem>,
     );
   }
 }

@@ -7,23 +7,23 @@ part of 'enum_field.dart';
 // **************************************************************************
 
 abstract class _$EnumFieldCWProxy {
-  EnumField id(String? id);
-
-  EnumField isRequired(bool isRequired);
-
   EnumField name(String name);
-
-  EnumField showInList(bool showInList);
-
-  EnumField sort(int sort);
-
-  EnumField type(FieldType type);
-
-  EnumField validator(String? Function(Object?)? validator);
 
   EnumField values(List<EnumValue> values);
 
+  EnumField id(String? id);
+
+  EnumField showInList(bool showInList);
+
+  EnumField isRequired(bool isRequired);
+
+  EnumField sort(int sort);
+
   EnumField width(double? width);
+
+  EnumField validator(String? Function(Object?)? validator);
+
+  EnumField type(FieldType type);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `EnumField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -32,51 +32,51 @@ abstract class _$EnumFieldCWProxy {
   /// EnumField(...).copyWith(id: 12, name: "My name")
   /// ````
   EnumField call({
-    String? id,
-    bool? isRequired,
     String? name,
-    bool? showInList,
-    int? sort,
-    FieldType? type,
-    String? Function(Object?)? validator,
     List<EnumValue>? values,
+    String? id,
+    bool? showInList,
+    bool? isRequired,
+    int? sort,
     double? width,
+    String? Function(Object?)? validator,
+    FieldType? type,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfEnumField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfEnumField.copyWith.fieldName(...)`
 class _$EnumFieldCWProxyImpl implements _$EnumFieldCWProxy {
-  final EnumField _value;
-
   const _$EnumFieldCWProxyImpl(this._value);
 
-  @override
-  EnumField id(String? id) => this(id: id);
-
-  @override
-  EnumField isRequired(bool isRequired) => this(isRequired: isRequired);
+  final EnumField _value;
 
   @override
   EnumField name(String name) => this(name: name);
 
   @override
+  EnumField values(List<EnumValue> values) => this(values: values);
+
+  @override
+  EnumField id(String? id) => this(id: id);
+
+  @override
   EnumField showInList(bool showInList) => this(showInList: showInList);
+
+  @override
+  EnumField isRequired(bool isRequired) => this(isRequired: isRequired);
 
   @override
   EnumField sort(int sort) => this(sort: sort);
 
   @override
-  EnumField type(FieldType type) => this(type: type);
+  EnumField width(double? width) => this(width: width);
 
   @override
   EnumField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
   @override
-  EnumField values(List<EnumValue> values) => this(values: values);
-
-  @override
-  EnumField width(double? width) => this(width: width);
+  EnumField type(FieldType type) => this(type: type);
 
   @override
 
@@ -87,55 +87,55 @@ class _$EnumFieldCWProxyImpl implements _$EnumFieldCWProxy {
   /// EnumField(...).copyWith(id: 12, name: "My name")
   /// ````
   EnumField call({
-    Object? id = const $CopyWithPlaceholder(),
-    Object? isRequired = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
-    Object? showInList = const $CopyWithPlaceholder(),
-    Object? sort = const $CopyWithPlaceholder(),
-    Object? type = const $CopyWithPlaceholder(),
-    Object? validator = const $CopyWithPlaceholder(),
     Object? values = const $CopyWithPlaceholder(),
+    Object? id = const $CopyWithPlaceholder(),
+    Object? showInList = const $CopyWithPlaceholder(),
+    Object? isRequired = const $CopyWithPlaceholder(),
+    Object? sort = const $CopyWithPlaceholder(),
     Object? width = const $CopyWithPlaceholder(),
+    Object? validator = const $CopyWithPlaceholder(),
+    Object? type = const $CopyWithPlaceholder(),
   }) {
     return EnumField(
-      id: id == const $CopyWithPlaceholder()
-          ? _value.id
-          // ignore: cast_nullable_to_non_nullable
-          : id as String?,
-      isRequired:
-          isRequired == const $CopyWithPlaceholder() || isRequired == null
-              ? _value.isRequired
-              // ignore: cast_nullable_to_non_nullable
-              : isRequired as bool,
       name: name == const $CopyWithPlaceholder() || name == null
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
           : name as String,
+      values: values == const $CopyWithPlaceholder() || values == null
+          ? _value.values
+          // ignore: cast_nullable_to_non_nullable
+          : values as List<EnumValue>,
+      id: id == const $CopyWithPlaceholder()
+          ? _value.id
+          // ignore: cast_nullable_to_non_nullable
+          : id as String?,
       showInList:
           showInList == const $CopyWithPlaceholder() || showInList == null
               ? _value.showInList
               // ignore: cast_nullable_to_non_nullable
               : showInList as bool,
+      isRequired:
+          isRequired == const $CopyWithPlaceholder() || isRequired == null
+              ? _value.isRequired
+              // ignore: cast_nullable_to_non_nullable
+              : isRequired as bool,
       sort: sort == const $CopyWithPlaceholder() || sort == null
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      type: type == const $CopyWithPlaceholder() || type == null
-          ? _value.type
-          // ignore: cast_nullable_to_non_nullable
-          : type as FieldType,
-      validator: validator == const $CopyWithPlaceholder()
-          ? _value.validator
-          // ignore: cast_nullable_to_non_nullable
-          : validator as String? Function(Object?)?,
-      values: values == const $CopyWithPlaceholder() || values == null
-          ? _value.values
-          // ignore: cast_nullable_to_non_nullable
-          : values as List<EnumValue>,
       width: width == const $CopyWithPlaceholder()
           ? _value.width
           // ignore: cast_nullable_to_non_nullable
           : width as double?,
+      validator: validator == const $CopyWithPlaceholder()
+          ? _value.validator
+          // ignore: cast_nullable_to_non_nullable
+          : validator as String? Function(Object?)?,
+      type: type == const $CopyWithPlaceholder() || type == null
+          ? _value.type
+          // ignore: cast_nullable_to_non_nullable
+          : type as FieldType,
     );
   }
 }
@@ -193,4 +193,6 @@ const _$FieldTypeEnumMap = {
   FieldType.colorField: 'colorField',
   FieldType.screenField: 'screenField',
   FieldType.headerField: 'headerField',
+  FieldType.groupField: 'groupField',
+  FieldType.fontField: 'fontField',
 };

@@ -27,7 +27,7 @@ class KitEmptyInput extends StatelessWidget {
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: color == null ? theme.inputDecorationTheme.fillColor : color!.filling,
+        color: color == null ? theme.inputDecorationTheme.fillColor : color!.o075,
         borderRadius: context.kitBorders.inputRadius,
         border: Border.all(
           color: borderColor,

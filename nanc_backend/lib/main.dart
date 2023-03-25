@@ -5,6 +5,7 @@ import 'package:cms/cms.dart';
 import 'package:components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fonts/fonts.dart';
 import 'package:nanc_backend/api/page_api_implementation.dart';
 import 'package:nanc_backend/api/page_list_api_implementation.dart';
 import 'package:nanc_backend/connection_manager/logic/connection_manager_bloc.dart';
@@ -16,6 +17,7 @@ import 'package:nanc_backend/models/image.dart';
 import 'package:nanc_backend/models/landing_page.dart';
 import 'package:nanc_backend/models/position.dart';
 import 'package:nanc_backend/models/review.dart';
+import 'package:nanc_backend/models/the_new_main_page.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
 import 'package:tools/tools.dart';
 
@@ -39,6 +41,7 @@ Future<void> main() async {
       landingPage,
       review,
       position,
+      theNewMainPage,
     ],
     pageListApi: PageListApiImplementation(
       dbService: dbService,
@@ -71,5 +74,9 @@ Future<void> main() async {
         ),
       );
     },
+    customFonts: [
+      const CustomFont(font: 'Blazeface'),
+      const CustomFont(font: 'Helvetica'),
+    ],
   );
 }

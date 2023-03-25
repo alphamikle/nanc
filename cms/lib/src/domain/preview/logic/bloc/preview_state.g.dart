@@ -25,9 +25,9 @@ abstract class _$PreviewStateCWProxy {
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfPreviewState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfPreviewState.copyWith.fieldName(...)`
 class _$PreviewStateCWProxyImpl implements _$PreviewStateCWProxy {
-  final PreviewState _value;
-
   const _$PreviewStateCWProxyImpl(this._value);
+
+  final PreviewState _value;
 
   @override
   PreviewState isLoading(bool isLoading) => this(isLoading: isLoading);

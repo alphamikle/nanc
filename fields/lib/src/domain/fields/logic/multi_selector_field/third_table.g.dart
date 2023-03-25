@@ -7,11 +7,11 @@ part of 'third_table.dart';
 // **************************************************************************
 
 abstract class _$ThirdTableCWProxy {
-  ThirdTable childEntityIdName(String childEntityIdName);
+  ThirdTable relationsEntity(Model relationsEntity);
 
   ThirdTable parentEntityIdName(String parentEntityIdName);
 
-  ThirdTable relationsEntity(Model relationsEntity);
+  ThirdTable childEntityIdName(String childEntityIdName);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ThirdTable(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -20,31 +20,31 @@ abstract class _$ThirdTableCWProxy {
   /// ThirdTable(...).copyWith(id: 12, name: "My name")
   /// ````
   ThirdTable call({
-    String? childEntityIdName,
-    String? parentEntityIdName,
     Model? relationsEntity,
+    String? parentEntityIdName,
+    String? childEntityIdName,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfThirdTable.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfThirdTable.copyWith.fieldName(...)`
 class _$ThirdTableCWProxyImpl implements _$ThirdTableCWProxy {
-  final ThirdTable _value;
-
   const _$ThirdTableCWProxyImpl(this._value);
 
-  @override
-  ThirdTable childEntityIdName(String childEntityIdName) =>
-      this(childEntityIdName: childEntityIdName);
-
-  @override
-  ThirdTable parentEntityIdName(String parentEntityIdName) =>
-      this(parentEntityIdName: parentEntityIdName);
+  final ThirdTable _value;
 
   @override
   ThirdTable relationsEntity(Model relationsEntity) =>
       this(relationsEntity: relationsEntity);
 
   @override
+  ThirdTable parentEntityIdName(String parentEntityIdName) =>
+      this(parentEntityIdName: parentEntityIdName);
+
+  @override
+  ThirdTable childEntityIdName(String childEntityIdName) =>
+      this(childEntityIdName: childEntityIdName);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ThirdTable(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -53,26 +53,26 @@ class _$ThirdTableCWProxyImpl implements _$ThirdTableCWProxy {
   /// ThirdTable(...).copyWith(id: 12, name: "My name")
   /// ````
   ThirdTable call({
-    Object? childEntityIdName = const $CopyWithPlaceholder(),
-    Object? parentEntityIdName = const $CopyWithPlaceholder(),
     Object? relationsEntity = const $CopyWithPlaceholder(),
+    Object? parentEntityIdName = const $CopyWithPlaceholder(),
+    Object? childEntityIdName = const $CopyWithPlaceholder(),
   }) {
     return ThirdTable(
-      childEntityIdName: childEntityIdName == const $CopyWithPlaceholder() ||
-              childEntityIdName == null
-          ? _value.childEntityIdName
-          // ignore: cast_nullable_to_non_nullable
-          : childEntityIdName as String,
-      parentEntityIdName: parentEntityIdName == const $CopyWithPlaceholder() ||
-              parentEntityIdName == null
-          ? _value.parentEntityIdName
-          // ignore: cast_nullable_to_non_nullable
-          : parentEntityIdName as String,
       relationsEntity: relationsEntity == const $CopyWithPlaceholder() ||
               relationsEntity == null
           ? _value.relationsEntity
           // ignore: cast_nullable_to_non_nullable
           : relationsEntity as Model,
+      parentEntityIdName: parentEntityIdName == const $CopyWithPlaceholder() ||
+              parentEntityIdName == null
+          ? _value.parentEntityIdName
+          // ignore: cast_nullable_to_non_nullable
+          : parentEntityIdName as String,
+      childEntityIdName: childEntityIdName == const $CopyWithPlaceholder() ||
+              childEntityIdName == null
+          ? _value.childEntityIdName
+          // ignore: cast_nullable_to_non_nullable
+          : childEntityIdName as String,
     );
   }
 }

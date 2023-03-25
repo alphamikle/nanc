@@ -7,23 +7,23 @@ part of 'bool_field.dart';
 // **************************************************************************
 
 abstract class _$BoolFieldCWProxy {
-  BoolField defaultValue(bool defaultValue);
+  BoolField name(String name);
 
   BoolField id(String? id);
 
-  BoolField isRequired(bool isRequired);
+  BoolField defaultValue(bool defaultValue);
 
-  BoolField name(String name);
+  BoolField isRequired(bool isRequired);
 
   BoolField showInList(bool showInList);
 
   BoolField sort(int sort);
 
-  BoolField type(FieldType type);
+  BoolField width(double? width);
 
   BoolField validator(String? Function(Object?)? validator);
 
-  BoolField width(double? width);
+  BoolField type(FieldType type);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `BoolField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -32,35 +32,35 @@ abstract class _$BoolFieldCWProxy {
   /// BoolField(...).copyWith(id: 12, name: "My name")
   /// ````
   BoolField call({
-    bool? defaultValue,
-    String? id,
-    bool? isRequired,
     String? name,
+    String? id,
+    bool? defaultValue,
+    bool? isRequired,
     bool? showInList,
     int? sort,
-    FieldType? type,
-    String? Function(Object?)? validator,
     double? width,
+    String? Function(Object?)? validator,
+    FieldType? type,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfBoolField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfBoolField.copyWith.fieldName(...)`
 class _$BoolFieldCWProxyImpl implements _$BoolFieldCWProxy {
-  final BoolField _value;
-
   const _$BoolFieldCWProxyImpl(this._value);
 
+  final BoolField _value;
+
   @override
-  BoolField defaultValue(bool defaultValue) => this(defaultValue: defaultValue);
+  BoolField name(String name) => this(name: name);
 
   @override
   BoolField id(String? id) => this(id: id);
 
   @override
-  BoolField isRequired(bool isRequired) => this(isRequired: isRequired);
+  BoolField defaultValue(bool defaultValue) => this(defaultValue: defaultValue);
 
   @override
-  BoolField name(String name) => this(name: name);
+  BoolField isRequired(bool isRequired) => this(isRequired: isRequired);
 
   @override
   BoolField showInList(bool showInList) => this(showInList: showInList);
@@ -69,14 +69,14 @@ class _$BoolFieldCWProxyImpl implements _$BoolFieldCWProxy {
   BoolField sort(int sort) => this(sort: sort);
 
   @override
-  BoolField type(FieldType type) => this(type: type);
+  BoolField width(double? width) => this(width: width);
 
   @override
   BoolField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
   @override
-  BoolField width(double? width) => this(width: width);
+  BoolField type(FieldType type) => this(type: type);
 
   @override
 
@@ -87,35 +87,35 @@ class _$BoolFieldCWProxyImpl implements _$BoolFieldCWProxy {
   /// BoolField(...).copyWith(id: 12, name: "My name")
   /// ````
   BoolField call({
-    Object? defaultValue = const $CopyWithPlaceholder(),
-    Object? id = const $CopyWithPlaceholder(),
-    Object? isRequired = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
+    Object? id = const $CopyWithPlaceholder(),
+    Object? defaultValue = const $CopyWithPlaceholder(),
+    Object? isRequired = const $CopyWithPlaceholder(),
     Object? showInList = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? type = const $CopyWithPlaceholder(),
-    Object? validator = const $CopyWithPlaceholder(),
     Object? width = const $CopyWithPlaceholder(),
+    Object? validator = const $CopyWithPlaceholder(),
+    Object? type = const $CopyWithPlaceholder(),
   }) {
     return BoolField(
+      name: name == const $CopyWithPlaceholder() || name == null
+          ? _value.name
+          // ignore: cast_nullable_to_non_nullable
+          : name as String,
+      id: id == const $CopyWithPlaceholder()
+          ? _value.id
+          // ignore: cast_nullable_to_non_nullable
+          : id as String?,
       defaultValue:
           defaultValue == const $CopyWithPlaceholder() || defaultValue == null
               ? _value.defaultValue
               // ignore: cast_nullable_to_non_nullable
               : defaultValue as bool,
-      id: id == const $CopyWithPlaceholder()
-          ? _value.id
-          // ignore: cast_nullable_to_non_nullable
-          : id as String?,
       isRequired:
           isRequired == const $CopyWithPlaceholder() || isRequired == null
               ? _value.isRequired
               // ignore: cast_nullable_to_non_nullable
               : isRequired as bool,
-      name: name == const $CopyWithPlaceholder() || name == null
-          ? _value.name
-          // ignore: cast_nullable_to_non_nullable
-          : name as String,
       showInList:
           showInList == const $CopyWithPlaceholder() || showInList == null
               ? _value.showInList
@@ -125,18 +125,18 @@ class _$BoolFieldCWProxyImpl implements _$BoolFieldCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      type: type == const $CopyWithPlaceholder() || type == null
-          ? _value.type
-          // ignore: cast_nullable_to_non_nullable
-          : type as FieldType,
-      validator: validator == const $CopyWithPlaceholder()
-          ? _value.validator
-          // ignore: cast_nullable_to_non_nullable
-          : validator as String? Function(Object?)?,
       width: width == const $CopyWithPlaceholder()
           ? _value.width
           // ignore: cast_nullable_to_non_nullable
           : width as double?,
+      validator: validator == const $CopyWithPlaceholder()
+          ? _value.validator
+          // ignore: cast_nullable_to_non_nullable
+          : validator as String? Function(Object?)?,
+      type: type == const $CopyWithPlaceholder() || type == null
+          ? _value.type
+          // ignore: cast_nullable_to_non_nullable
+          : type as FieldType,
     );
   }
 }
@@ -192,4 +192,6 @@ const _$FieldTypeEnumMap = {
   FieldType.colorField: 'colorField',
   FieldType.screenField: 'screenField',
   FieldType.headerField: 'headerField',
+  FieldType.groupField: 'groupField',
+  FieldType.fontField: 'fontField',
 };

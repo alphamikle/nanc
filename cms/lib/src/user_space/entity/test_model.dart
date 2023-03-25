@@ -78,6 +78,9 @@ final Model testModel = Model(
         id: 'dynamic_field',
         name: 'List field (SingleLineString)',
       ),
+    ],
+    [
+      FontField(name: 'Font Field'),
     ]
   ],
 );

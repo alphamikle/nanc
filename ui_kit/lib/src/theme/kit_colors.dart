@@ -24,27 +24,27 @@ class KitColors extends ThemeExtension<KitColors> {
 
 extension KitColorsTransparencies on Color {
   /// Equals to [Color.withOpacity] with (0.075)
-  Color get filling {
+  Color get o075 {
     return withOpacity(0.075);
   }
 
   /// Equals to [Color.withOpacity] with (0.15)
-  Color get shadow {
+  Color get o15 {
     return withOpacity(0.15);
   }
 
   /// Equals to [Color.withOpacity] with (0.25)
-  Color get splash {
+  Color get o25 {
     return withOpacity(0.25);
   }
 
   /// Equals to [Color.withOpacity] with (0.35)
-  Color get border {
+  Color get o35 {
     return withOpacity(0.35);
   }
 
   /// Equals to [Color.withOpacity] with (0.5)
-  Color get translucent {
+  Color get o5 {
     return withOpacity(0.5);
   }
 }

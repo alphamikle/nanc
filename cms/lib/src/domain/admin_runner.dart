@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:additions/additions.dart';
+import 'package:cms/src/domain/app.dart';
 import 'package:cms/src/domain/collection/logic/logic/provider/page_list_api.dart';
-import 'package:cms/src/domain/flutter_admin.dart';
 import 'package:cms/src/domain/model/logic/entity/model_model.dart';
 import 'package:cms/src/domain/page/logic/provider/entity_page_api.dart';
 import 'package:cms/src/domain/wrapper/admin_wrapper.dart';
@@ -11,6 +11,7 @@ import 'package:cms/src/service/errors/error_wrapper.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:fonts/fonts.dart';
 import 'package:model/model.dart';
 import 'package:rich_renderer/rich_renderer.dart';
 
@@ -29,6 +30,7 @@ Future<void> adminRunner({
   ImageFrameBuilder? imageFrameBuilder,
   ImageErrorWidgetBuilder? imageErrorBuilder,
   ImageLoadingBuilder? imageLoadingBuilder,
+  List<CustomFont> customFonts = const [],
 }) async {
   /// ? This stream closes in the [FlutterAdmin] widget
   /// ignore:close_sinks
@@ -48,7 +50,7 @@ Future<void> adminRunner({
   };
 
   runApp(
-    FlutterAdmin(
+    App(
       models: [
         ...models,
         modelModel,
@@ -68,6 +70,7 @@ Future<void> adminRunner({
       imageFrameBuilder: imageFrameBuilder,
       imageLoadingBuilder: imageLoadingBuilder,
       imageErrorBuilder: imageErrorBuilder,
+      customFonts: customFonts,
     ),
   );
 }

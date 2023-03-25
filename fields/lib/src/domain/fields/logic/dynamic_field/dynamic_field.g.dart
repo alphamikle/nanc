@@ -7,25 +7,25 @@ part of 'dynamic_field.dart';
 // **************************************************************************
 
 abstract class _$DynamicFieldCWProxy {
-  DynamicField contentColor(Color? contentColor);
-
-  DynamicField contentIcon(String? contentIcon);
+  DynamicField name(String name);
 
   DynamicField id(String? id);
 
-  DynamicField isRequired(bool isRequired);
-
-  DynamicField name(String name);
-
   DynamicField showInList(bool showInList);
+
+  DynamicField isRequired(bool isRequired);
 
   DynamicField sort(int sort);
 
-  DynamicField type(FieldType type);
+  DynamicField width(double? width);
 
   DynamicField validator(String? Function(Object?)? validator);
 
-  DynamicField width(double? width);
+  DynamicField contentIcon(String? contentIcon);
+
+  DynamicField contentColor(Color? contentColor);
+
+  DynamicField type(FieldType type);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `DynamicField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -34,57 +34,57 @@ abstract class _$DynamicFieldCWProxy {
   /// DynamicField(...).copyWith(id: 12, name: "My name")
   /// ````
   DynamicField call({
-    Color? contentColor,
-    String? contentIcon,
-    String? id,
-    bool? isRequired,
     String? name,
+    String? id,
     bool? showInList,
+    bool? isRequired,
     int? sort,
-    FieldType? type,
-    String? Function(Object?)? validator,
     double? width,
+    String? Function(Object?)? validator,
+    String? contentIcon,
+    Color? contentColor,
+    FieldType? type,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfDynamicField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfDynamicField.copyWith.fieldName(...)`
 class _$DynamicFieldCWProxyImpl implements _$DynamicFieldCWProxy {
-  final DynamicField _value;
-
   const _$DynamicFieldCWProxyImpl(this._value);
 
-  @override
-  DynamicField contentColor(Color? contentColor) =>
-      this(contentColor: contentColor);
-
-  @override
-  DynamicField contentIcon(String? contentIcon) =>
-      this(contentIcon: contentIcon);
-
-  @override
-  DynamicField id(String? id) => this(id: id);
-
-  @override
-  DynamicField isRequired(bool isRequired) => this(isRequired: isRequired);
+  final DynamicField _value;
 
   @override
   DynamicField name(String name) => this(name: name);
 
   @override
+  DynamicField id(String? id) => this(id: id);
+
+  @override
   DynamicField showInList(bool showInList) => this(showInList: showInList);
+
+  @override
+  DynamicField isRequired(bool isRequired) => this(isRequired: isRequired);
 
   @override
   DynamicField sort(int sort) => this(sort: sort);
 
   @override
-  DynamicField type(FieldType type) => this(type: type);
+  DynamicField width(double? width) => this(width: width);
 
   @override
   DynamicField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
   @override
-  DynamicField width(double? width) => this(width: width);
+  DynamicField contentIcon(String? contentIcon) =>
+      this(contentIcon: contentIcon);
+
+  @override
+  DynamicField contentColor(Color? contentColor) =>
+      this(contentColor: contentColor);
+
+  @override
+  DynamicField type(FieldType type) => this(type: type);
 
   @override
 
@@ -95,60 +95,60 @@ class _$DynamicFieldCWProxyImpl implements _$DynamicFieldCWProxy {
   /// DynamicField(...).copyWith(id: 12, name: "My name")
   /// ````
   DynamicField call({
-    Object? contentColor = const $CopyWithPlaceholder(),
-    Object? contentIcon = const $CopyWithPlaceholder(),
-    Object? id = const $CopyWithPlaceholder(),
-    Object? isRequired = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
+    Object? id = const $CopyWithPlaceholder(),
     Object? showInList = const $CopyWithPlaceholder(),
+    Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? type = const $CopyWithPlaceholder(),
-    Object? validator = const $CopyWithPlaceholder(),
     Object? width = const $CopyWithPlaceholder(),
+    Object? validator = const $CopyWithPlaceholder(),
+    Object? contentIcon = const $CopyWithPlaceholder(),
+    Object? contentColor = const $CopyWithPlaceholder(),
+    Object? type = const $CopyWithPlaceholder(),
   }) {
     return DynamicField(
-      contentColor: contentColor == const $CopyWithPlaceholder()
-          ? _value.contentColor
-          // ignore: cast_nullable_to_non_nullable
-          : contentColor as Color?,
-      contentIcon: contentIcon == const $CopyWithPlaceholder()
-          ? _value.contentIcon
-          // ignore: cast_nullable_to_non_nullable
-          : contentIcon as String?,
-      id: id == const $CopyWithPlaceholder()
-          ? _value.id
-          // ignore: cast_nullable_to_non_nullable
-          : id as String?,
-      isRequired:
-          isRequired == const $CopyWithPlaceholder() || isRequired == null
-              ? _value.isRequired
-              // ignore: cast_nullable_to_non_nullable
-              : isRequired as bool,
       name: name == const $CopyWithPlaceholder() || name == null
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
           : name as String,
+      id: id == const $CopyWithPlaceholder()
+          ? _value.id
+          // ignore: cast_nullable_to_non_nullable
+          : id as String?,
       showInList:
           showInList == const $CopyWithPlaceholder() || showInList == null
               ? _value.showInList
               // ignore: cast_nullable_to_non_nullable
               : showInList as bool,
+      isRequired:
+          isRequired == const $CopyWithPlaceholder() || isRequired == null
+              ? _value.isRequired
+              // ignore: cast_nullable_to_non_nullable
+              : isRequired as bool,
       sort: sort == const $CopyWithPlaceholder() || sort == null
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      type: type == const $CopyWithPlaceholder() || type == null
-          ? _value.type
-          // ignore: cast_nullable_to_non_nullable
-          : type as FieldType,
-      validator: validator == const $CopyWithPlaceholder()
-          ? _value.validator
-          // ignore: cast_nullable_to_non_nullable
-          : validator as String? Function(Object?)?,
       width: width == const $CopyWithPlaceholder()
           ? _value.width
           // ignore: cast_nullable_to_non_nullable
           : width as double?,
+      validator: validator == const $CopyWithPlaceholder()
+          ? _value.validator
+          // ignore: cast_nullable_to_non_nullable
+          : validator as String? Function(Object?)?,
+      contentIcon: contentIcon == const $CopyWithPlaceholder()
+          ? _value.contentIcon
+          // ignore: cast_nullable_to_non_nullable
+          : contentIcon as String?,
+      contentColor: contentColor == const $CopyWithPlaceholder()
+          ? _value.contentColor
+          // ignore: cast_nullable_to_non_nullable
+          : contentColor as Color?,
+      type: type == const $CopyWithPlaceholder() || type == null
+          ? _value.type
+          // ignore: cast_nullable_to_non_nullable
+          : type as FieldType,
     );
   }
 }
@@ -207,4 +207,6 @@ const _$FieldTypeEnumMap = {
   FieldType.colorField: 'colorField',
   FieldType.screenField: 'screenField',
   FieldType.headerField: 'headerField',
+  FieldType.groupField: 'groupField',
+  FieldType.fontField: 'fontField',
 };

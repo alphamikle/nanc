@@ -7,15 +7,15 @@ part of 'manual_state.dart';
 // **************************************************************************
 
 abstract class _$ManualStateCWProxy {
+  ManualState isLoading(bool isLoading);
+
+  ManualState markdownContent(String markdownContent);
+
   ManualState activeElement(MenuElement activeElement);
 
   ManualState activeTagRenderer(TagRenderer activeTagRenderer);
 
-  ManualState isLoading(bool isLoading);
-
   ManualState isSyncedWithFile(bool isSyncedWithFile);
-
-  ManualState markdownContent(String markdownContent);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ManualState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -24,19 +24,26 @@ abstract class _$ManualStateCWProxy {
   /// ManualState(...).copyWith(id: 12, name: "My name")
   /// ````
   ManualState call({
+    bool? isLoading,
+    String? markdownContent,
     MenuElement? activeElement,
     TagRenderer? activeTagRenderer,
-    bool? isLoading,
     bool? isSyncedWithFile,
-    String? markdownContent,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfManualState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfManualState.copyWith.fieldName(...)`
 class _$ManualStateCWProxyImpl implements _$ManualStateCWProxy {
+  const _$ManualStateCWProxyImpl(this._value);
+
   final ManualState _value;
 
-  const _$ManualStateCWProxyImpl(this._value);
+  @override
+  ManualState isLoading(bool isLoading) => this(isLoading: isLoading);
+
+  @override
+  ManualState markdownContent(String markdownContent) =>
+      this(markdownContent: markdownContent);
 
   @override
   ManualState activeElement(MenuElement activeElement) =>
@@ -47,15 +54,8 @@ class _$ManualStateCWProxyImpl implements _$ManualStateCWProxy {
       this(activeTagRenderer: activeTagRenderer);
 
   @override
-  ManualState isLoading(bool isLoading) => this(isLoading: isLoading);
-
-  @override
   ManualState isSyncedWithFile(bool isSyncedWithFile) =>
       this(isSyncedWithFile: isSyncedWithFile);
-
-  @override
-  ManualState markdownContent(String markdownContent) =>
-      this(markdownContent: markdownContent);
 
   @override
 
@@ -66,13 +66,22 @@ class _$ManualStateCWProxyImpl implements _$ManualStateCWProxy {
   /// ManualState(...).copyWith(id: 12, name: "My name")
   /// ````
   ManualState call({
+    Object? isLoading = const $CopyWithPlaceholder(),
+    Object? markdownContent = const $CopyWithPlaceholder(),
     Object? activeElement = const $CopyWithPlaceholder(),
     Object? activeTagRenderer = const $CopyWithPlaceholder(),
-    Object? isLoading = const $CopyWithPlaceholder(),
     Object? isSyncedWithFile = const $CopyWithPlaceholder(),
-    Object? markdownContent = const $CopyWithPlaceholder(),
   }) {
     return ManualState(
+      isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
+          ? _value.isLoading
+          // ignore: cast_nullable_to_non_nullable
+          : isLoading as bool,
+      markdownContent: markdownContent == const $CopyWithPlaceholder() ||
+              markdownContent == null
+          ? _value.markdownContent
+          // ignore: cast_nullable_to_non_nullable
+          : markdownContent as String,
       activeElement:
           activeElement == const $CopyWithPlaceholder() || activeElement == null
               ? _value.activeElement
@@ -83,20 +92,11 @@ class _$ManualStateCWProxyImpl implements _$ManualStateCWProxy {
           ? _value.activeTagRenderer
           // ignore: cast_nullable_to_non_nullable
           : activeTagRenderer as TagRenderer,
-      isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
-          ? _value.isLoading
-          // ignore: cast_nullable_to_non_nullable
-          : isLoading as bool,
       isSyncedWithFile: isSyncedWithFile == const $CopyWithPlaceholder() ||
               isSyncedWithFile == null
           ? _value.isSyncedWithFile
           // ignore: cast_nullable_to_non_nullable
           : isSyncedWithFile as bool,
-      markdownContent: markdownContent == const $CopyWithPlaceholder() ||
-              markdownContent == null
-          ? _value.markdownContent
-          // ignore: cast_nullable_to_non_nullable
-          : markdownContent as String,
     );
   }
 }

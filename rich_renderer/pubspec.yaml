@@ -17,10 +17,11 @@ dependencies:
     path: ../tools
   icons:
     path: ../icons
+  fonts:
+    path: ../fonts
   markdown: ^6.0.1
   json_annotation: ^4.8.0
   copy_with_extension: ^5.0.0
-  google_fonts: ^4.0.3
   cached_network_image: ^3.2.3
   flutter_highlight2: ^0.8.3
   flutter_blurhash: ^0.7.0

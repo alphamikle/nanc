@@ -5,7 +5,7 @@ import 'package:cms/src/domain/model/logic/bloc/model_list_bloc/model_list_bloc.
 import 'package:cms/src/service/config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:fonts/fonts.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';

@@ -68,7 +68,7 @@ class _KitIconInputState extends State<KitIconInput> with KitFocusStreamMixin {
     return Icon(
       enumValue.typedValue(),
       size: withOpacity ? 30 : null,
-      color: withOpacity ? context.theme.iconTheme.color?.border : null,
+      color: withOpacity ? context.theme.iconTheme.color?.o35 : null,
     );
   }
 

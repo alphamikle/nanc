@@ -5,7 +5,11 @@ import 'package:flutter/cupertino.dart';
 class FieldController {
   factory FieldController() {
     final TextEditingController controller = TextEditingController();
+
+    /// ? This sinks already closed at the [FieldController.dispose] method
+    // ignore: close_sinks
     final StreamController<String> errorController = StreamController.broadcast();
+    // ignore: close_sinks
     final StreamController<bool> completenessController = StreamController.broadcast();
 
     return FieldController._(controller, errorController, completenessController);

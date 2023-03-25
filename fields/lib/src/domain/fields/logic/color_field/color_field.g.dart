@@ -7,21 +7,21 @@ part of 'color_field.dart';
 // **************************************************************************
 
 abstract class _$ColorFieldCWProxy {
-  ColorField id(String? id);
-
-  ColorField isRequired(bool isRequired);
-
   ColorField name(String name);
+
+  ColorField id(String? id);
 
   ColorField showInList(bool showInList);
 
+  ColorField isRequired(bool isRequired);
+
   ColorField sort(int sort);
 
-  ColorField type(FieldType type);
+  ColorField width(double? width);
 
   ColorField validator(String? Function(Object?)? validator);
 
-  ColorField width(double? width);
+  ColorField type(FieldType type);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ColorField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -30,47 +30,47 @@ abstract class _$ColorFieldCWProxy {
   /// ColorField(...).copyWith(id: 12, name: "My name")
   /// ````
   ColorField call({
-    String? id,
-    bool? isRequired,
     String? name,
+    String? id,
     bool? showInList,
+    bool? isRequired,
     int? sort,
-    FieldType? type,
-    String? Function(Object?)? validator,
     double? width,
+    String? Function(Object?)? validator,
+    FieldType? type,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfColorField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfColorField.copyWith.fieldName(...)`
 class _$ColorFieldCWProxyImpl implements _$ColorFieldCWProxy {
-  final ColorField _value;
-
   const _$ColorFieldCWProxyImpl(this._value);
 
-  @override
-  ColorField id(String? id) => this(id: id);
-
-  @override
-  ColorField isRequired(bool isRequired) => this(isRequired: isRequired);
+  final ColorField _value;
 
   @override
   ColorField name(String name) => this(name: name);
 
   @override
+  ColorField id(String? id) => this(id: id);
+
+  @override
   ColorField showInList(bool showInList) => this(showInList: showInList);
+
+  @override
+  ColorField isRequired(bool isRequired) => this(isRequired: isRequired);
 
   @override
   ColorField sort(int sort) => this(sort: sort);
 
   @override
-  ColorField type(FieldType type) => this(type: type);
+  ColorField width(double? width) => this(width: width);
 
   @override
   ColorField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
   @override
-  ColorField width(double? width) => this(width: width);
+  ColorField type(FieldType type) => this(type: type);
 
   @override
 
@@ -81,50 +81,50 @@ class _$ColorFieldCWProxyImpl implements _$ColorFieldCWProxy {
   /// ColorField(...).copyWith(id: 12, name: "My name")
   /// ````
   ColorField call({
-    Object? id = const $CopyWithPlaceholder(),
-    Object? isRequired = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
+    Object? id = const $CopyWithPlaceholder(),
     Object? showInList = const $CopyWithPlaceholder(),
+    Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? type = const $CopyWithPlaceholder(),
-    Object? validator = const $CopyWithPlaceholder(),
     Object? width = const $CopyWithPlaceholder(),
+    Object? validator = const $CopyWithPlaceholder(),
+    Object? type = const $CopyWithPlaceholder(),
   }) {
     return ColorField(
-      id: id == const $CopyWithPlaceholder()
-          ? _value.id
-          // ignore: cast_nullable_to_non_nullable
-          : id as String?,
-      isRequired:
-          isRequired == const $CopyWithPlaceholder() || isRequired == null
-              ? _value.isRequired
-              // ignore: cast_nullable_to_non_nullable
-              : isRequired as bool,
       name: name == const $CopyWithPlaceholder() || name == null
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
           : name as String,
+      id: id == const $CopyWithPlaceholder()
+          ? _value.id
+          // ignore: cast_nullable_to_non_nullable
+          : id as String?,
       showInList:
           showInList == const $CopyWithPlaceholder() || showInList == null
               ? _value.showInList
               // ignore: cast_nullable_to_non_nullable
               : showInList as bool,
+      isRequired:
+          isRequired == const $CopyWithPlaceholder() || isRequired == null
+              ? _value.isRequired
+              // ignore: cast_nullable_to_non_nullable
+              : isRequired as bool,
       sort: sort == const $CopyWithPlaceholder() || sort == null
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      type: type == const $CopyWithPlaceholder() || type == null
-          ? _value.type
-          // ignore: cast_nullable_to_non_nullable
-          : type as FieldType,
-      validator: validator == const $CopyWithPlaceholder()
-          ? _value.validator
-          // ignore: cast_nullable_to_non_nullable
-          : validator as String? Function(Object?)?,
       width: width == const $CopyWithPlaceholder()
           ? _value.width
           // ignore: cast_nullable_to_non_nullable
           : width as double?,
+      validator: validator == const $CopyWithPlaceholder()
+          ? _value.validator
+          // ignore: cast_nullable_to_non_nullable
+          : validator as String? Function(Object?)?,
+      type: type == const $CopyWithPlaceholder() || type == null
+          ? _value.type
+          // ignore: cast_nullable_to_non_nullable
+          : type as FieldType,
     );
   }
 }
@@ -179,4 +179,6 @@ const _$FieldTypeEnumMap = {
   FieldType.colorField: 'colorField',
   FieldType.screenField: 'screenField',
   FieldType.headerField: 'headerField',
+  FieldType.groupField: 'groupField',
+  FieldType.fontField: 'fontField',
 };

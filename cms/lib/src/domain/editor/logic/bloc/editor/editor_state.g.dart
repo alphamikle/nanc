@@ -9,9 +9,9 @@ part of 'editor_state.dart';
 abstract class _$EditorStateCWProxy {
   EditorState isLoading(bool isLoading);
 
-  EditorState isSyncedWithFile(bool isSyncedWithFile);
-
   EditorState markdownContent(String markdownContent);
+
+  EditorState isSyncedWithFile(bool isSyncedWithFile);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `EditorState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -21,27 +21,27 @@ abstract class _$EditorStateCWProxy {
   /// ````
   EditorState call({
     bool? isLoading,
-    bool? isSyncedWithFile,
     String? markdownContent,
+    bool? isSyncedWithFile,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfEditorState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfEditorState.copyWith.fieldName(...)`
 class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
-  final EditorState _value;
-
   const _$EditorStateCWProxyImpl(this._value);
+
+  final EditorState _value;
 
   @override
   EditorState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
-  EditorState isSyncedWithFile(bool isSyncedWithFile) =>
-      this(isSyncedWithFile: isSyncedWithFile);
-
-  @override
   EditorState markdownContent(String markdownContent) =>
       this(markdownContent: markdownContent);
+
+  @override
+  EditorState isSyncedWithFile(bool isSyncedWithFile) =>
+      this(isSyncedWithFile: isSyncedWithFile);
 
   @override
 
@@ -53,24 +53,24 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
   /// ````
   EditorState call({
     Object? isLoading = const $CopyWithPlaceholder(),
-    Object? isSyncedWithFile = const $CopyWithPlaceholder(),
     Object? markdownContent = const $CopyWithPlaceholder(),
+    Object? isSyncedWithFile = const $CopyWithPlaceholder(),
   }) {
     return EditorState(
       isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
           ? _value.isLoading
           // ignore: cast_nullable_to_non_nullable
           : isLoading as bool,
-      isSyncedWithFile: isSyncedWithFile == const $CopyWithPlaceholder() ||
-              isSyncedWithFile == null
-          ? _value.isSyncedWithFile
-          // ignore: cast_nullable_to_non_nullable
-          : isSyncedWithFile as bool,
       markdownContent: markdownContent == const $CopyWithPlaceholder() ||
               markdownContent == null
           ? _value.markdownContent
           // ignore: cast_nullable_to_non_nullable
           : markdownContent as String,
+      isSyncedWithFile: isSyncedWithFile == const $CopyWithPlaceholder() ||
+              isSyncedWithFile == null
+          ? _value.isSyncedWithFile
+          // ignore: cast_nullable_to_non_nullable
+          : isSyncedWithFile as bool,
     );
   }
 }

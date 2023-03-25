@@ -25,9 +25,9 @@ abstract class _$EnumValueCWProxy {
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfEnumValue.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfEnumValue.copyWith.fieldName(...)`
 class _$EnumValueCWProxyImpl implements _$EnumValueCWProxy {
-  final EnumValue _value;
-
   const _$EnumValueCWProxyImpl(this._value);
+
+  final EnumValue _value;
 
   @override
   EnumValue title(String title) => this(title: title);

@@ -13,14 +13,15 @@ import 'package:cms/src/service/errors/error_wrapper.dart';
 import 'package:cms/src/service/init/initializer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fonts/fonts.dart';
 import 'package:model/model.dart';
 import 'package:rich_renderer/rich_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
 
-class FlutterAdmin extends StatefulWidget {
-  const FlutterAdmin({
+class App extends StatefulWidget {
+  const App({
     required this.models,
     required this.pageListApi,
     required this.pageApi,
@@ -32,6 +33,7 @@ class FlutterAdmin extends StatefulWidget {
     this.imageLoadingBuilder,
     this.imageErrorBuilder,
     this.imageFrameBuilder,
+    this.customFonts = const [],
     super.key,
   });
 
@@ -46,12 +48,13 @@ class FlutterAdmin extends StatefulWidget {
   final ImageLoadingBuilder? imageLoadingBuilder;
   final ImageErrorWidgetBuilder? imageErrorBuilder;
   final ImageFrameBuilder? imageFrameBuilder;
+  final List<CustomFont> customFonts;
 
   @override
-  State<FlutterAdmin> createState() => _FlutterAdminState();
+  State<App> createState() => _AppState();
 }
 
-class _FlutterAdminState extends State<FlutterAdmin> {
+class _AppState extends State<App> {
   final GlobalKey<NavigatorState> rootKey = GlobalKey();
   late final Initializer initializer = Initializer(
     models: widget.models,
@@ -66,6 +69,7 @@ class _FlutterAdminState extends State<FlutterAdmin> {
     imageLoadingBuilder: widget.imageLoadingBuilder,
     imageErrorBuilder: widget.imageErrorBuilder,
     imageFrameBuilder: widget.imageFrameBuilder,
+    customFonts: widget.customFonts,
   );
   late final Future<bool> result = initializer.init();
   late final StreamSubscription<ErrorWrapper> errorStreamSubscription;

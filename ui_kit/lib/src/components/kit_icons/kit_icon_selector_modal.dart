@@ -101,7 +101,7 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
                 Positioned.fill(
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: context.theme.colorScheme.primaryContainer.translucent,
+                      color: context.theme.colorScheme.primaryContainer.o5,
                       borderRadius: context.kitBorders.smallRadius,
                     ),
                   ),

@@ -28,9 +28,9 @@ abstract class _$ScreenContentModelCWProxy {
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfScreenContentModel.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfScreenContentModel.copyWith.fieldName(...)`
 class _$ScreenContentModelCWProxyImpl implements _$ScreenContentModelCWProxy {
-  final ScreenContentModel _value;
-
   const _$ScreenContentModelCWProxyImpl(this._value);
+
+  final ScreenContentModel _value;
 
   @override
   ScreenContentModel content(String content) => this(content: content);

@@ -7,14 +7,14 @@ part of 'model_page_state.dart';
 // **************************************************************************
 
 abstract class _$ModelPageStateCWProxy {
+  ModelPageState editableModel(Model editableModel);
+
+  ModelPageState initialModel(Model initialModel);
+
   ModelPageState controllerMap(
       Map<String, TextEditingController> controllerMap);
 
-  ModelPageState editableModel(Model editableModel);
-
   ModelPageState idWasChanged(bool idWasChanged);
-
-  ModelPageState initialModel(Model initialModel);
 
   ModelPageState isSaving(bool isSaving);
 
@@ -25,19 +25,27 @@ abstract class _$ModelPageStateCWProxy {
   /// ModelPageState(...).copyWith(id: 12, name: "My name")
   /// ````
   ModelPageState call({
-    Map<String, TextEditingController>? controllerMap,
     Model? editableModel,
-    bool? idWasChanged,
     Model? initialModel,
+    Map<String, TextEditingController>? controllerMap,
+    bool? idWasChanged,
     bool? isSaving,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfModelPageState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfModelPageState.copyWith.fieldName(...)`
 class _$ModelPageStateCWProxyImpl implements _$ModelPageStateCWProxy {
+  const _$ModelPageStateCWProxyImpl(this._value);
+
   final ModelPageState _value;
 
-  const _$ModelPageStateCWProxyImpl(this._value);
+  @override
+  ModelPageState editableModel(Model editableModel) =>
+      this(editableModel: editableModel);
+
+  @override
+  ModelPageState initialModel(Model initialModel) =>
+      this(initialModel: initialModel);
 
   @override
   ModelPageState controllerMap(
@@ -45,16 +53,8 @@ class _$ModelPageStateCWProxyImpl implements _$ModelPageStateCWProxy {
       this(controllerMap: controllerMap);
 
   @override
-  ModelPageState editableModel(Model editableModel) =>
-      this(editableModel: editableModel);
-
-  @override
   ModelPageState idWasChanged(bool idWasChanged) =>
       this(idWasChanged: idWasChanged);
-
-  @override
-  ModelPageState initialModel(Model initialModel) =>
-      this(initialModel: initialModel);
 
   @override
   ModelPageState isSaving(bool isSaving) => this(isSaving: isSaving);
@@ -68,33 +68,33 @@ class _$ModelPageStateCWProxyImpl implements _$ModelPageStateCWProxy {
   /// ModelPageState(...).copyWith(id: 12, name: "My name")
   /// ````
   ModelPageState call({
-    Object? controllerMap = const $CopyWithPlaceholder(),
     Object? editableModel = const $CopyWithPlaceholder(),
-    Object? idWasChanged = const $CopyWithPlaceholder(),
     Object? initialModel = const $CopyWithPlaceholder(),
+    Object? controllerMap = const $CopyWithPlaceholder(),
+    Object? idWasChanged = const $CopyWithPlaceholder(),
     Object? isSaving = const $CopyWithPlaceholder(),
   }) {
     return ModelPageState(
-      controllerMap:
-          controllerMap == const $CopyWithPlaceholder() || controllerMap == null
-              ? _value.controllerMap
-              // ignore: cast_nullable_to_non_nullable
-              : controllerMap as Map<String, TextEditingController>,
       editableModel:
           editableModel == const $CopyWithPlaceholder() || editableModel == null
               ? _value.editableModel
               // ignore: cast_nullable_to_non_nullable
               : editableModel as Model,
-      idWasChanged:
-          idWasChanged == const $CopyWithPlaceholder() || idWasChanged == null
-              ? _value.idWasChanged
-              // ignore: cast_nullable_to_non_nullable
-              : idWasChanged as bool,
       initialModel:
           initialModel == const $CopyWithPlaceholder() || initialModel == null
               ? _value.initialModel
               // ignore: cast_nullable_to_non_nullable
               : initialModel as Model,
+      controllerMap:
+          controllerMap == const $CopyWithPlaceholder() || controllerMap == null
+              ? _value.controllerMap
+              // ignore: cast_nullable_to_non_nullable
+              : controllerMap as Map<String, TextEditingController>,
+      idWasChanged:
+          idWasChanged == const $CopyWithPlaceholder() || idWasChanged == null
+              ? _value.idWasChanged
+              // ignore: cast_nullable_to_non_nullable
+              : idWasChanged as bool,
       isSaving: isSaving == const $CopyWithPlaceholder() || isSaving == null
           ? _value.isSaving
           // ignore: cast_nullable_to_non_nullable

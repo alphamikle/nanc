@@ -9,11 +9,11 @@ part of 'menu_state.dart';
 abstract class _$MenuStateCWProxy {
   MenuState activeElement(MenuElement activeElement);
 
-  MenuState activeHeaderSegment(String activeHeaderSegment);
-
   MenuState elements(List<MenuElement> elements);
 
   MenuState isLoading(bool isLoading);
+
+  MenuState activeHeaderSegment(String activeHeaderSegment);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `MenuState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -23,31 +23,31 @@ abstract class _$MenuStateCWProxy {
   /// ````
   MenuState call({
     MenuElement? activeElement,
-    String? activeHeaderSegment,
     List<MenuElement>? elements,
     bool? isLoading,
+    String? activeHeaderSegment,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfMenuState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfMenuState.copyWith.fieldName(...)`
 class _$MenuStateCWProxyImpl implements _$MenuStateCWProxy {
-  final MenuState _value;
-
   const _$MenuStateCWProxyImpl(this._value);
+
+  final MenuState _value;
 
   @override
   MenuState activeElement(MenuElement activeElement) =>
       this(activeElement: activeElement);
 
   @override
-  MenuState activeHeaderSegment(String activeHeaderSegment) =>
-      this(activeHeaderSegment: activeHeaderSegment);
-
-  @override
   MenuState elements(List<MenuElement> elements) => this(elements: elements);
 
   @override
   MenuState isLoading(bool isLoading) => this(isLoading: isLoading);
+
+  @override
+  MenuState activeHeaderSegment(String activeHeaderSegment) =>
+      this(activeHeaderSegment: activeHeaderSegment);
 
   @override
 
@@ -59,9 +59,9 @@ class _$MenuStateCWProxyImpl implements _$MenuStateCWProxy {
   /// ````
   MenuState call({
     Object? activeElement = const $CopyWithPlaceholder(),
-    Object? activeHeaderSegment = const $CopyWithPlaceholder(),
     Object? elements = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
+    Object? activeHeaderSegment = const $CopyWithPlaceholder(),
   }) {
     return MenuState(
       activeElement:
@@ -69,12 +69,6 @@ class _$MenuStateCWProxyImpl implements _$MenuStateCWProxy {
               ? _value.activeElement
               // ignore: cast_nullable_to_non_nullable
               : activeElement as MenuElement,
-      activeHeaderSegment:
-          activeHeaderSegment == const $CopyWithPlaceholder() ||
-                  activeHeaderSegment == null
-              ? _value.activeHeaderSegment
-              // ignore: cast_nullable_to_non_nullable
-              : activeHeaderSegment as String,
       elements: elements == const $CopyWithPlaceholder() || elements == null
           ? _value.elements
           // ignore: cast_nullable_to_non_nullable
@@ -83,6 +77,12 @@ class _$MenuStateCWProxyImpl implements _$MenuStateCWProxy {
           ? _value.isLoading
           // ignore: cast_nullable_to_non_nullable
           : isLoading as bool,
+      activeHeaderSegment:
+          activeHeaderSegment == const $CopyWithPlaceholder() ||
+                  activeHeaderSegment == null
+              ? _value.activeHeaderSegment
+              // ignore: cast_nullable_to_non_nullable
+              : activeHeaderSegment as String,
     );
   }
 }

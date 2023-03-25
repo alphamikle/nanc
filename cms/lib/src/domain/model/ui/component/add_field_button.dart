@@ -28,7 +28,7 @@ class AddFieldButton extends StatelessWidget {
         color: context.theme.colorScheme.tertiaryContainer,
         borderRadius: radius,
         border: Border.all(
-          color: context.theme.colorScheme.tertiary.border,
+          color: context.theme.colorScheme.tertiary.o35,
         ),
       ),
       child: Stack(

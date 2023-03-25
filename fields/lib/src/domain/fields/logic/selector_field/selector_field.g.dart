@@ -7,27 +7,27 @@ part of 'selector_field.dart';
 // **************************************************************************
 
 abstract class _$SelectorFieldCWProxy {
-  SelectorField id(String? id);
-
-  SelectorField isRequired(bool isRequired);
+  SelectorField name(String name);
 
   SelectorField model(Model model);
 
-  SelectorField name(String name);
-
-  SelectorField showInList(bool showInList);
-
-  SelectorField sort(int sort);
+  SelectorField titleFields(List<TitleField> titleFields);
 
   SelectorField structure(SelectorFieldStructure structure);
 
-  SelectorField titleFields(List<TitleField> titleFields);
+  SelectorField id(String? id);
 
-  SelectorField type(FieldType type);
+  SelectorField showInList(bool showInList);
+
+  SelectorField isRequired(bool isRequired);
+
+  SelectorField sort(int sort);
+
+  SelectorField width(double? width);
 
   SelectorField validator(String? Function(Object?)? validator);
 
-  SelectorField width(double? width);
+  SelectorField type(FieldType type);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `SelectorField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -36,61 +36,61 @@ abstract class _$SelectorFieldCWProxy {
   /// SelectorField(...).copyWith(id: 12, name: "My name")
   /// ````
   SelectorField call({
-    String? id,
-    bool? isRequired,
-    Model? model,
     String? name,
-    bool? showInList,
-    int? sort,
-    SelectorFieldStructure? structure,
+    Model? model,
     List<TitleField>? titleFields,
-    FieldType? type,
-    String? Function(Object?)? validator,
+    SelectorFieldStructure? structure,
+    String? id,
+    bool? showInList,
+    bool? isRequired,
+    int? sort,
     double? width,
+    String? Function(Object?)? validator,
+    FieldType? type,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfSelectorField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfSelectorField.copyWith.fieldName(...)`
 class _$SelectorFieldCWProxyImpl implements _$SelectorFieldCWProxy {
-  final SelectorField _value;
-
   const _$SelectorFieldCWProxyImpl(this._value);
 
-  @override
-  SelectorField id(String? id) => this(id: id);
-
-  @override
-  SelectorField isRequired(bool isRequired) => this(isRequired: isRequired);
-
-  @override
-  SelectorField model(Model model) => this(model: model);
+  final SelectorField _value;
 
   @override
   SelectorField name(String name) => this(name: name);
 
   @override
-  SelectorField showInList(bool showInList) => this(showInList: showInList);
-
-  @override
-  SelectorField sort(int sort) => this(sort: sort);
-
-  @override
-  SelectorField structure(SelectorFieldStructure structure) =>
-      this(structure: structure);
+  SelectorField model(Model model) => this(model: model);
 
   @override
   SelectorField titleFields(List<TitleField> titleFields) =>
       this(titleFields: titleFields);
 
   @override
-  SelectorField type(FieldType type) => this(type: type);
+  SelectorField structure(SelectorFieldStructure structure) =>
+      this(structure: structure);
+
+  @override
+  SelectorField id(String? id) => this(id: id);
+
+  @override
+  SelectorField showInList(bool showInList) => this(showInList: showInList);
+
+  @override
+  SelectorField isRequired(bool isRequired) => this(isRequired: isRequired);
+
+  @override
+  SelectorField sort(int sort) => this(sort: sort);
+
+  @override
+  SelectorField width(double? width) => this(width: width);
 
   @override
   SelectorField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
   @override
-  SelectorField width(double? width) => this(width: width);
+  SelectorField type(FieldType type) => this(type: type);
 
   @override
 
@@ -101,66 +101,66 @@ class _$SelectorFieldCWProxyImpl implements _$SelectorFieldCWProxy {
   /// SelectorField(...).copyWith(id: 12, name: "My name")
   /// ````
   SelectorField call({
-    Object? id = const $CopyWithPlaceholder(),
-    Object? isRequired = const $CopyWithPlaceholder(),
-    Object? model = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
-    Object? showInList = const $CopyWithPlaceholder(),
-    Object? sort = const $CopyWithPlaceholder(),
-    Object? structure = const $CopyWithPlaceholder(),
+    Object? model = const $CopyWithPlaceholder(),
     Object? titleFields = const $CopyWithPlaceholder(),
-    Object? type = const $CopyWithPlaceholder(),
-    Object? validator = const $CopyWithPlaceholder(),
+    Object? structure = const $CopyWithPlaceholder(),
+    Object? id = const $CopyWithPlaceholder(),
+    Object? showInList = const $CopyWithPlaceholder(),
+    Object? isRequired = const $CopyWithPlaceholder(),
+    Object? sort = const $CopyWithPlaceholder(),
     Object? width = const $CopyWithPlaceholder(),
+    Object? validator = const $CopyWithPlaceholder(),
+    Object? type = const $CopyWithPlaceholder(),
   }) {
     return SelectorField(
-      id: id == const $CopyWithPlaceholder()
-          ? _value.id
-          // ignore: cast_nullable_to_non_nullable
-          : id as String?,
-      isRequired:
-          isRequired == const $CopyWithPlaceholder() || isRequired == null
-              ? _value.isRequired
-              // ignore: cast_nullable_to_non_nullable
-              : isRequired as bool,
-      model: model == const $CopyWithPlaceholder() || model == null
-          ? _value.model
-          // ignore: cast_nullable_to_non_nullable
-          : model as Model,
       name: name == const $CopyWithPlaceholder() || name == null
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
           : name as String,
-      showInList:
-          showInList == const $CopyWithPlaceholder() || showInList == null
-              ? _value.showInList
-              // ignore: cast_nullable_to_non_nullable
-              : showInList as bool,
-      sort: sort == const $CopyWithPlaceholder() || sort == null
-          ? _value.sort
+      model: model == const $CopyWithPlaceholder() || model == null
+          ? _value.model
           // ignore: cast_nullable_to_non_nullable
-          : sort as int,
-      structure: structure == const $CopyWithPlaceholder() || structure == null
-          ? _value.structure
-          // ignore: cast_nullable_to_non_nullable
-          : structure as SelectorFieldStructure,
+          : model as Model,
       titleFields:
           titleFields == const $CopyWithPlaceholder() || titleFields == null
               ? _value.titleFields
               // ignore: cast_nullable_to_non_nullable
               : titleFields as List<TitleField>,
-      type: type == const $CopyWithPlaceholder() || type == null
-          ? _value.type
+      structure: structure == const $CopyWithPlaceholder() || structure == null
+          ? _value.structure
           // ignore: cast_nullable_to_non_nullable
-          : type as FieldType,
-      validator: validator == const $CopyWithPlaceholder()
-          ? _value.validator
+          : structure as SelectorFieldStructure,
+      id: id == const $CopyWithPlaceholder()
+          ? _value.id
           // ignore: cast_nullable_to_non_nullable
-          : validator as String? Function(Object?)?,
+          : id as String?,
+      showInList:
+          showInList == const $CopyWithPlaceholder() || showInList == null
+              ? _value.showInList
+              // ignore: cast_nullable_to_non_nullable
+              : showInList as bool,
+      isRequired:
+          isRequired == const $CopyWithPlaceholder() || isRequired == null
+              ? _value.isRequired
+              // ignore: cast_nullable_to_non_nullable
+              : isRequired as bool,
+      sort: sort == const $CopyWithPlaceholder() || sort == null
+          ? _value.sort
+          // ignore: cast_nullable_to_non_nullable
+          : sort as int,
       width: width == const $CopyWithPlaceholder()
           ? _value.width
           // ignore: cast_nullable_to_non_nullable
           : width as double?,
+      validator: validator == const $CopyWithPlaceholder()
+          ? _value.validator
+          // ignore: cast_nullable_to_non_nullable
+          : validator as String? Function(Object?)?,
+      type: type == const $CopyWithPlaceholder() || type == null
+          ? _value.type
+          // ignore: cast_nullable_to_non_nullable
+          : type as FieldType,
     );
   }
 }
@@ -228,4 +228,6 @@ const _$FieldTypeEnumMap = {
   FieldType.colorField: 'colorField',
   FieldType.screenField: 'screenField',
   FieldType.headerField: 'headerField',
+  FieldType.groupField: 'groupField',
+  FieldType.fontField: 'fontField',
 };

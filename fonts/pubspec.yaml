@@ -1,0 +1,25 @@
+name: fonts
+description: Fonts package for Nanc
+version: 1.0.0
+homepage: nope
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0-201.0.dev <4.0.0'
+  flutter: '>=3.8.0-4.0.pre.9'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  tools:
+    path: ../tools
+  google_fonts: ^4.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+  lint:
+    path: ../lint
+
+flutter:

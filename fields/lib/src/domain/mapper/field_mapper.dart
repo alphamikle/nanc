@@ -1,40 +1,6 @@
-import 'package:fields/src/domain/fields/logic/bool_field/bool_field.dart';
-import 'package:fields/src/domain/fields/logic/color_field/color_field.dart';
-import 'package:fields/src/domain/fields/logic/date_field/date_field.dart';
-import 'package:fields/src/domain/fields/logic/dynamic_field/dynamic_field.dart';
-import 'package:fields/src/domain/fields/logic/dynamic_field/dynamic_field_item.dart';
-import 'package:fields/src/domain/fields/logic/enum_field/enum_field.dart';
-import 'package:fields/src/domain/fields/logic/enum_field/enum_value.dart';
-import 'package:fields/src/domain/fields/logic/field/field.dart';
-import 'package:fields/src/domain/fields/logic/field/field_props.dart';
-import 'package:fields/src/domain/fields/logic/header_field/header_field.dart';
-import 'package:fields/src/domain/fields/logic/icon_field/icon_field.dart';
-import 'package:fields/src/domain/fields/logic/id_field/id_field.dart';
-import 'package:fields/src/domain/fields/logic/multi_selector_field/multi_selector_field.dart';
-import 'package:fields/src/domain/fields/logic/multi_selector_field/third_table.dart';
-import 'package:fields/src/domain/fields/logic/number_field/number_field.dart';
-import 'package:fields/src/domain/fields/logic/screen_field/screen_field.dart';
-import 'package:fields/src/domain/fields/logic/selector_field/selector_field.dart';
-import 'package:fields/src/domain/fields/logic/string_field/string_field.dart';
-import 'package:fields/src/domain/fields/logic/structure_field/structure_field.dart';
-import 'package:fields/src/domain/fields/logic/structured_field/structured_field.dart';
-import 'package:fields/src/domain/fields/ui/bool_field_cell/bool_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/color_field_cell/color_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/date_field_cell/date_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/dynamic_field_cell/dynamic_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/enum_field_cell/enum_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/header_field/header_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/icon_field_cell/icon_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/id_field_cell/id_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/multi_selector_field_cell/multi_selector_orchestrator.dart';
-import 'package:fields/src/domain/fields/ui/multiline_string_field_cell/multiline_string_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/number_field_cell/number_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/screen_field_cell/screen_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/selector_field_cell/selector_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/structure_field_cell/structure_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/structured_field_cell/structured_field_cell.dart';
-import 'package:fields/src/domain/fields/ui/structured_field_cell/structured_field_item.dart';
-import 'package:fields/src/domain/type/field_types.dart';
+import 'package:fields/fields.dart';
+import 'package:fields/src/domain/fields/logic/font_field/font_field.dart';
+import 'package:fields/src/domain/fields/ui/font_field_cell/font_field_cell.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -50,9 +16,11 @@ abstract class FieldMapper {
     } else if (type == FieldType.dateField) {
       return (field as DateField).copyWith() as T;
     } else if (type == FieldType.enumField) {
-      return (field as EnumField).copyWith(
-        values: field.values.map((EnumValue value) => value.copyWith()).toList(),
-      ) as T;
+      return (field as EnumField).copyWith(values: field.values.map((EnumValue value) => value.copyWith()).toList()) as T;
+    } else if (type == FieldType.fontField) {
+      return (field as FontField).copyWith() as T;
+    } else if (type == FieldType.groupField) {
+      return (field as GroupField).copyWith(fields: field.fields.map(deepClone).toList()) as T;
     } else if (type == FieldType.headerField) {
       return (field as HeaderField).copyWith() as T;
     } else if (type == FieldType.iconField) {
@@ -111,6 +79,10 @@ abstract class FieldMapper {
       return DateFieldCell(field: field, creationMode: creationMode);
     } else if (field is EnumField) {
       return EnumFieldCell(field: field, creationMode: creationMode);
+    } else if (field is FontField) {
+      return FontFieldCell(field: field, creationMode: creationMode);
+    } else if (field is GroupField) {
+      return GroupFieldCell(field: field, creationMode: creationMode);
     } else if (field is HeaderField) {
       return HeaderFieldCell(field: field);
     } else if (field is IconField) {
@@ -118,7 +90,7 @@ abstract class FieldMapper {
     } else if (field is IdField) {
       return IdFieldCell(field: field, creationMode: creationMode);
     } else if (field is StringField) {
-      return MultilineStringFieldCell(field: field, creationMode: creationMode);
+      return StringFieldCell(field: field, creationMode: creationMode);
     } else if (field is MultiSelectorField) {
       return multiSelectorOrchestrator(field: field, creationMode: creationMode);
     } else if (field is NumberField) {
@@ -148,13 +120,7 @@ abstract class FieldMapper {
     // TODO(alphamikle): [FIELDS] Add new fields here
     final String warning = '$field mapper is not implemented!';
     logg(warning, '\n', StackTrace.current.toString());
-    return Container(
-      height: 56,
-      color: Colors.red,
-      child: Center(
-        child: Text(warning),
-      ),
-    );
+    return ErrorFieldCell(warning: warning);
   }
 
   static Json fieldToJson(Field field) {
@@ -167,6 +133,10 @@ abstract class FieldMapper {
     } else if (field is DateField) {
       return field.toJson();
     } else if (field is EnumField) {
+      return field.toJson();
+    } else if (field is FontField) {
+      return field.toJson();
+    } else if (field is GroupField) {
       return field.toJson();
     } else if (field is HeaderField) {
       return field.toJson();
@@ -208,6 +178,10 @@ abstract class FieldMapper {
       return DateField.fromJson(json) as T;
     } else if (type == FieldType.enumField.name) {
       return EnumField.fromJson(json) as T;
+    } else if (type == FieldType.fontField.name) {
+      return FontField.fromJson(json) as T;
+    } else if (type == FieldType.groupField.name) {
+      return GroupField.fromJson(json) as T;
     } else if (type == FieldType.headerField.name) {
       return HeaderField.fromJson(json) as T;
     } else if (type == FieldType.iconField.name) {
@@ -244,6 +218,10 @@ abstract class FieldMapper {
       return DateField.empty().toModel();
     } else if (fieldType == FieldType.enumField) {
       return EnumField.empty().toModel();
+    } else if (fieldType == FieldType.fontField) {
+      return FontField.empty().toModel();
+    } else if (fieldType == FieldType.groupField) {
+      return GroupField.empty().toModel();
     } else if (fieldType == FieldType.headerField) {
       return HeaderField.empty().toModel();
     } else if (fieldType == FieldType.iconField) {
@@ -280,6 +258,10 @@ abstract class FieldMapper {
       return DateField.empty() as T;
     } else if (fieldType == FieldType.enumField) {
       return EnumField.empty() as T;
+    } else if (fieldType == FieldType.fontField) {
+      return FontField.empty() as T;
+    } else if (fieldType == FieldType.groupField) {
+      return GroupField.empty() as T;
     } else if (fieldType == FieldType.headerField) {
       return HeaderField.empty() as T;
     } else if (fieldType == FieldType.iconField) {
@@ -319,6 +301,8 @@ abstract class FieldMapper {
       IconField.empty(),
       SelectorField.empty(),
       EnumField.empty(),
+      FontField.empty(),
+      // GroupField.empty(),
       MultiSelectorField.empty(),
       DynamicField.empty(),
 

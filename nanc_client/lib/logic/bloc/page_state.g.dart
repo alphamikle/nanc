@@ -72,33 +72,28 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
   }) {
     return PageState(
       isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.isLoading!
+          ? _value.isLoading
           // ignore: cast_nullable_to_non_nullable
           : isLoading as bool,
       isConnectingToTheBackend:
           isConnectingToTheBackend == const $CopyWithPlaceholder() ||
                   isConnectingToTheBackend == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.isConnectingToTheBackend!
+              ? _value.isConnectingToTheBackend
               // ignore: cast_nullable_to_non_nullable
               : isConnectingToTheBackend as bool,
       isConnectedToTheBackend:
           isConnectedToTheBackend == const $CopyWithPlaceholder() ||
                   isConnectedToTheBackend == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.isConnectedToTheBackend!
+              ? _value.isConnectedToTheBackend
               // ignore: cast_nullable_to_non_nullable
               : isConnectedToTheBackend as bool,
       pageData: pageData == const $CopyWithPlaceholder() || pageData == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.pageData!
+          ? _value.pageData
           // ignore: cast_nullable_to_non_nullable
           : pageData as Map<String, dynamic>,
       alwaysUpdate:
           alwaysUpdate == const $CopyWithPlaceholder() || alwaysUpdate == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.alwaysUpdate!
+              ? _value.alwaysUpdate
               // ignore: cast_nullable_to_non_nullable
               : alwaysUpdate as bool,
     );

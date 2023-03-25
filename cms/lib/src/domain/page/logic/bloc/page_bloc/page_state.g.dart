@@ -7,17 +7,17 @@ part of 'page_state.dart';
 // **************************************************************************
 
 abstract class _$PageStateCWProxy {
-  PageState controllerMap(Map<String, TextEditingController> controllerMap);
-
   PageState data(Map<String, dynamic> data);
 
   PageState initialData(Map<String, dynamic> initialData);
 
-  PageState isDeleting(bool isDeleting);
-
   PageState isLoading(bool isLoading);
 
+  PageState isDeleting(bool isDeleting);
+
   PageState isSaving(bool isSaving);
+
+  PageState controllerMap(Map<String, TextEditingController> controllerMap);
 
   PageState thirdTable(ThirdTable thirdTable);
 
@@ -31,12 +31,12 @@ abstract class _$PageStateCWProxy {
   /// PageState(...).copyWith(id: 12, name: "My name")
   /// ````
   PageState call({
-    Map<String, TextEditingController>? controllerMap,
     Map<String, dynamic>? data,
     Map<String, dynamic>? initialData,
-    bool? isDeleting,
     bool? isLoading,
+    bool? isDeleting,
     bool? isSaving,
+    Map<String, TextEditingController>? controllerMap,
     ThirdTable? thirdTable,
     Map<String, Map<String, List<String>>>? thirdTableData,
   });
@@ -44,13 +44,9 @@ abstract class _$PageStateCWProxy {
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfPageState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfPageState.copyWith.fieldName(...)`
 class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
-  final PageState _value;
-
   const _$PageStateCWProxyImpl(this._value);
 
-  @override
-  PageState controllerMap(Map<String, TextEditingController> controllerMap) =>
-      this(controllerMap: controllerMap);
+  final PageState _value;
 
   @override
   PageState data(Map<String, dynamic> data) => this(data: data);
@@ -60,13 +56,17 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
       this(initialData: initialData);
 
   @override
-  PageState isDeleting(bool isDeleting) => this(isDeleting: isDeleting);
-
-  @override
   PageState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
+  PageState isDeleting(bool isDeleting) => this(isDeleting: isDeleting);
+
+  @override
   PageState isSaving(bool isSaving) => this(isSaving: isSaving);
+
+  @override
+  PageState controllerMap(Map<String, TextEditingController> controllerMap) =>
+      this(controllerMap: controllerMap);
 
   @override
   PageState thirdTable(ThirdTable thirdTable) => this(thirdTable: thirdTable);
@@ -85,21 +85,16 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
   /// PageState(...).copyWith(id: 12, name: "My name")
   /// ````
   PageState call({
-    Object? controllerMap = const $CopyWithPlaceholder(),
     Object? data = const $CopyWithPlaceholder(),
     Object? initialData = const $CopyWithPlaceholder(),
-    Object? isDeleting = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
+    Object? isDeleting = const $CopyWithPlaceholder(),
     Object? isSaving = const $CopyWithPlaceholder(),
+    Object? controllerMap = const $CopyWithPlaceholder(),
     Object? thirdTable = const $CopyWithPlaceholder(),
     Object? thirdTableData = const $CopyWithPlaceholder(),
   }) {
     return PageState(
-      controllerMap:
-          controllerMap == const $CopyWithPlaceholder() || controllerMap == null
-              ? _value.controllerMap
-              // ignore: cast_nullable_to_non_nullable
-              : controllerMap as Map<String, TextEditingController>,
       data: data == const $CopyWithPlaceholder() || data == null
           ? _value.data
           // ignore: cast_nullable_to_non_nullable
@@ -109,19 +104,24 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
               ? _value.initialData
               // ignore: cast_nullable_to_non_nullable
               : initialData as Map<String, dynamic>,
+      isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
+          ? _value.isLoading
+          // ignore: cast_nullable_to_non_nullable
+          : isLoading as bool,
       isDeleting:
           isDeleting == const $CopyWithPlaceholder() || isDeleting == null
               ? _value.isDeleting
               // ignore: cast_nullable_to_non_nullable
               : isDeleting as bool,
-      isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
-          ? _value.isLoading
-          // ignore: cast_nullable_to_non_nullable
-          : isLoading as bool,
       isSaving: isSaving == const $CopyWithPlaceholder() || isSaving == null
           ? _value.isSaving
           // ignore: cast_nullable_to_non_nullable
           : isSaving as bool,
+      controllerMap:
+          controllerMap == const $CopyWithPlaceholder() || controllerMap == null
+              ? _value.controllerMap
+              // ignore: cast_nullable_to_non_nullable
+              : controllerMap as Map<String, TextEditingController>,
       thirdTable:
           thirdTable == const $CopyWithPlaceholder() || thirdTable == null
               ? _value.thirdTable

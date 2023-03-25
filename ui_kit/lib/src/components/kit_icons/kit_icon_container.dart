@@ -23,10 +23,10 @@ class KitIconContainer extends StatelessWidget {
       aspectRatio: 0.85,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: color.shadow,
+          color: color.o15,
           borderRadius: context.kitBorders.middleRadius,
           border: Border.all(
-            color: color.border,
+            color: color.o35,
             width: 0.5,
           ),
         ),

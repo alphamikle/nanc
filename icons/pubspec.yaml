@@ -2,6 +2,7 @@ name: icons
 description: The icon pack for the NANC CMS
 version: 1.0.0
 homepage: none
+publish_to: none
 
 environment:
   sdk: '>=3.0.0-201.0.dev <4.0.0'
@@ -10,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  tools:
+    path: ../tools
   material_design_icons_flutter: ^6.0.7096
   fluentui_system_icons: ^1.1.190
   remixicon: ^1.0.0

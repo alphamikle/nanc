@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 class KitInputDecorations extends ThemeExtension<KitInputDecorations> {
   static KitInputDecorations of(BuildContext context) => Theme.of(context).extension()!;
 
-  InputDecoration noneDecoration(BuildContext context) {
-    return const InputDecoration(
+  InputDecoration noneDecoration(BuildContext context, {String? hint}) {
+    return InputDecoration(
       border: InputBorder.none,
       enabledBorder: InputBorder.none,
       focusedBorder: InputBorder.none,
+      hintText: hint,
     );
   }
 

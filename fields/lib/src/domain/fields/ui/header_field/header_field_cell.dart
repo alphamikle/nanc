@@ -1,4 +1,4 @@
-import 'package:fields/src/domain/fields/logic/header_field/header_field.dart';
+import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';

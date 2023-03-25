@@ -7,13 +7,13 @@ part of 'collection_state.dart';
 // **************************************************************************
 
 abstract class _$CollectionStateCWProxy {
-  CollectionState currentPage(int currentPage);
-
   CollectionState dataRows(List<Map<String, dynamic>> dataRows);
 
-  CollectionState isLoading(bool isLoading);
+  CollectionState currentPage(int currentPage);
 
   CollectionState totalPages(int totalPages);
+
+  CollectionState isLoading(bool isLoading);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `CollectionState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -22,32 +22,32 @@ abstract class _$CollectionStateCWProxy {
   /// CollectionState(...).copyWith(id: 12, name: "My name")
   /// ````
   CollectionState call({
-    int? currentPage,
     List<Map<String, dynamic>>? dataRows,
-    bool? isLoading,
+    int? currentPage,
     int? totalPages,
+    bool? isLoading,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfCollectionState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfCollectionState.copyWith.fieldName(...)`
 class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
-  final CollectionState _value;
-
   const _$CollectionStateCWProxyImpl(this._value);
 
-  @override
-  CollectionState currentPage(int currentPage) =>
-      this(currentPage: currentPage);
+  final CollectionState _value;
 
   @override
   CollectionState dataRows(List<Map<String, dynamic>> dataRows) =>
       this(dataRows: dataRows);
 
   @override
-  CollectionState isLoading(bool isLoading) => this(isLoading: isLoading);
+  CollectionState currentPage(int currentPage) =>
+      this(currentPage: currentPage);
 
   @override
   CollectionState totalPages(int totalPages) => this(totalPages: totalPages);
+
+  @override
+  CollectionState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
 
@@ -58,30 +58,30 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
   /// CollectionState(...).copyWith(id: 12, name: "My name")
   /// ````
   CollectionState call({
-    Object? currentPage = const $CopyWithPlaceholder(),
     Object? dataRows = const $CopyWithPlaceholder(),
-    Object? isLoading = const $CopyWithPlaceholder(),
+    Object? currentPage = const $CopyWithPlaceholder(),
     Object? totalPages = const $CopyWithPlaceholder(),
+    Object? isLoading = const $CopyWithPlaceholder(),
   }) {
     return CollectionState(
+      dataRows: dataRows == const $CopyWithPlaceholder() || dataRows == null
+          ? _value.dataRows
+          // ignore: cast_nullable_to_non_nullable
+          : dataRows as List<Map<String, dynamic>>,
       currentPage:
           currentPage == const $CopyWithPlaceholder() || currentPage == null
               ? _value.currentPage
               // ignore: cast_nullable_to_non_nullable
               : currentPage as int,
-      dataRows: dataRows == const $CopyWithPlaceholder() || dataRows == null
-          ? _value.dataRows
-          // ignore: cast_nullable_to_non_nullable
-          : dataRows as List<Map<String, dynamic>>,
-      isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
-          ? _value.isLoading
-          // ignore: cast_nullable_to_non_nullable
-          : isLoading as bool,
       totalPages:
           totalPages == const $CopyWithPlaceholder() || totalPages == null
               ? _value.totalPages
               // ignore: cast_nullable_to_non_nullable
               : totalPages as int,
+      isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
+          ? _value.isLoading
+          // ignore: cast_nullable_to_non_nullable
+          : isLoading as bool,
     );
   }
 }

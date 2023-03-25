@@ -18,6 +18,7 @@ import 'package:cms/src/service/init/data_repository.dart';
 import 'package:cms/src/service/routing/routes_preloading_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fonts/fonts.dart';
 import 'package:model/model.dart';
 import 'package:rich_renderer/rich_renderer.dart';
 import 'package:tools/tools.dart';
@@ -35,6 +36,7 @@ class Initializer {
     required this.imageLoadingBuilder,
     required this.imageErrorBuilder,
     required this.imageFrameBuilder,
+    required this.customFonts,
     this.patternMap = const {},
   });
 
@@ -53,8 +55,12 @@ class Initializer {
   final ImageLoadingBuilder? imageLoadingBuilder;
   final ImageErrorWidgetBuilder? imageErrorBuilder;
   final ImageFrameBuilder? imageFrameBuilder;
+  final List<CustomFont> customFonts;
 
   Future<bool> init() async {
+    /// ? FONTS
+    customFonts.forEach(registerCustomFont);
+
     /// ? SERVICES
     final EventBus eventBus = EventBus();
     final DbService dbService = DbService();

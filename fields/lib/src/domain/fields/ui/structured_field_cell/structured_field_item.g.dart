@@ -22,9 +22,9 @@ abstract class _$StructuredFieldItemCWProxy {
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfStructuredFieldItem.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfStructuredFieldItem.copyWith.fieldName(...)`
 class _$StructuredFieldItemCWProxyImpl implements _$StructuredFieldItemCWProxy {
-  final StructuredFieldItem _value;
-
   const _$StructuredFieldItemCWProxyImpl(this._value);
+
+  final StructuredFieldItem _value;
 
   @override
   StructuredFieldItem items(List<DynamicFieldItem> items) => this(items: items);

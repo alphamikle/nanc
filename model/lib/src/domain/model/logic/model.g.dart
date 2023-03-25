@@ -7,21 +7,21 @@ part of 'model.dart';
 // **************************************************************************
 
 abstract class _$ModelCWProxy {
-  Model codeFirstEntity(bool codeFirstEntity);
-
-  Model fields(List<List<Field>> fields);
+  Model name(String name);
 
   Model icon(String icon);
 
-  Model id(String? id);
+  Model fields(List<List<Field>> fields);
 
   Model isCollection(bool isCollection);
 
-  Model name(String name);
+  Model sort(int sort);
 
   Model showInMenu(bool showInMenu);
 
-  Model sort(int sort);
+  Model id(String? id);
+
+  Model codeFirstEntity(bool codeFirstEntity);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Model(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -30,49 +30,49 @@ abstract class _$ModelCWProxy {
   /// Model(...).copyWith(id: 12, name: "My name")
   /// ````
   Model call({
-    bool? codeFirstEntity,
-    List<List<Field>>? fields,
-    String? icon,
-    String? id,
-    bool? isCollection,
     String? name,
-    bool? showInMenu,
+    String? icon,
+    List<List<Field>>? fields,
+    bool? isCollection,
     int? sort,
+    bool? showInMenu,
+    String? id,
+    bool? codeFirstEntity,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfModel.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfModel.copyWith.fieldName(...)`
 class _$ModelCWProxyImpl implements _$ModelCWProxy {
+  const _$ModelCWProxyImpl(this._value);
+
   final Model _value;
 
-  const _$ModelCWProxyImpl(this._value);
+  @override
+  Model name(String name) => this(name: name);
+
+  @override
+  Model icon(String icon) => this(icon: icon);
+
+  @override
+  Model fields(List<List<Field>> fields) => this(fields: fields);
+
+  @override
+  Model isCollection(bool isCollection) => this(isCollection: isCollection);
+
+  @override
+  Model sort(int sort) => this(sort: sort);
+
+  @override
+  Model showInMenu(bool showInMenu) => this(showInMenu: showInMenu);
+
+  @override
+  Model id(String? id) => this(id: id);
 
   @override
   Model codeFirstEntity(bool codeFirstEntity) =>
       this(codeFirstEntity: codeFirstEntity);
 
   @override
-  Model fields(List<List<Field>> fields) => this(fields: fields);
-
-  @override
-  Model icon(String icon) => this(icon: icon);
-
-  @override
-  Model id(String? id) => this(id: id);
-
-  @override
-  Model isCollection(bool isCollection) => this(isCollection: isCollection);
-
-  @override
-  Model name(String name) => this(name: name);
-
-  @override
-  Model showInMenu(bool showInMenu) => this(showInMenu: showInMenu);
-
-  @override
-  Model sort(int sort) => this(sort: sort);
-
-  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Model(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -81,51 +81,51 @@ class _$ModelCWProxyImpl implements _$ModelCWProxy {
   /// Model(...).copyWith(id: 12, name: "My name")
   /// ````
   Model call({
-    Object? codeFirstEntity = const $CopyWithPlaceholder(),
-    Object? fields = const $CopyWithPlaceholder(),
-    Object? icon = const $CopyWithPlaceholder(),
-    Object? id = const $CopyWithPlaceholder(),
-    Object? isCollection = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
-    Object? showInMenu = const $CopyWithPlaceholder(),
+    Object? icon = const $CopyWithPlaceholder(),
+    Object? fields = const $CopyWithPlaceholder(),
+    Object? isCollection = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
+    Object? showInMenu = const $CopyWithPlaceholder(),
+    Object? id = const $CopyWithPlaceholder(),
+    Object? codeFirstEntity = const $CopyWithPlaceholder(),
   }) {
     return Model(
-      codeFirstEntity: codeFirstEntity == const $CopyWithPlaceholder() ||
-              codeFirstEntity == null
-          ? _value.codeFirstEntity
+      name: name == const $CopyWithPlaceholder() || name == null
+          ? _value.name
           // ignore: cast_nullable_to_non_nullable
-          : codeFirstEntity as bool,
-      fields: fields == const $CopyWithPlaceholder() || fields == null
-          ? _value.fields
-          // ignore: cast_nullable_to_non_nullable
-          : fields as List<List<Field>>,
+          : name as String,
       icon: icon == const $CopyWithPlaceholder() || icon == null
           ? _value.icon
           // ignore: cast_nullable_to_non_nullable
           : icon as String,
-      id: id == const $CopyWithPlaceholder()
-          ? _value.id
+      fields: fields == const $CopyWithPlaceholder() || fields == null
+          ? _value.fields
           // ignore: cast_nullable_to_non_nullable
-          : id as String?,
+          : fields as List<List<Field>>,
       isCollection:
           isCollection == const $CopyWithPlaceholder() || isCollection == null
               ? _value.isCollection
               // ignore: cast_nullable_to_non_nullable
               : isCollection as bool,
-      name: name == const $CopyWithPlaceholder() || name == null
-          ? _value.name
+      sort: sort == const $CopyWithPlaceholder() || sort == null
+          ? _value.sort
           // ignore: cast_nullable_to_non_nullable
-          : name as String,
+          : sort as int,
       showInMenu:
           showInMenu == const $CopyWithPlaceholder() || showInMenu == null
               ? _value.showInMenu
               // ignore: cast_nullable_to_non_nullable
               : showInMenu as bool,
-      sort: sort == const $CopyWithPlaceholder() || sort == null
-          ? _value.sort
+      id: id == const $CopyWithPlaceholder()
+          ? _value.id
           // ignore: cast_nullable_to_non_nullable
-          : sort as int,
+          : id as String?,
+      codeFirstEntity: codeFirstEntity == const $CopyWithPlaceholder() ||
+              codeFirstEntity == null
+          ? _value.codeFirstEntity
+          // ignore: cast_nullable_to_non_nullable
+          : codeFirstEntity as bool,
     );
   }
 }

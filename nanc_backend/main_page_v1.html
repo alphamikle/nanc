@@ -1,0 +1,95 @@
+<data id="colors"
+      primaryDark="#FF0E310F"
+      secondaryLight="#FFF8E223"
+      background="#FFEDF2ED"
+      cardBackground="#FFFFFFFF"
+/>
+
+<data id="fonts"
+      h1="Blazeface"
+      h6="Helvetica"
+/>
+
+<data id="gap"
+      h="20"
+      vSmall="8"
+      vBig="24"
+/>
+
+<template id="h1">
+  <text color="{{ data(colors).primaryDark }}">
+    <prop:textStyle font="{{ data(fonts).h1 }}" size="41" weight="bold"/>
+    {{ template.text }}
+  </text>
+</template>
+
+<template id="h6">
+  <text>
+    <prop:textStyle font="{{ data(fonts).h6 }}" size="16" height="1.25" weight="w400"/>
+    {{ template.text }}
+  </text>
+</template>
+
+<template id="view_header">
+  <container>
+    <prop:decoration color="{{ data(colors).background }}">
+    </prop:decoration>
+
+    <safeArea>
+      <padding left="{{ data(gap).h }}" right="{{ data(gap).h }}" bottom="{{ data(gap).vSmall }}">
+        <component id="h1" text="{{ page.view_title }} {{ page.username }}"/>
+      </padding>
+      <padding left="{{ data(gap).h }}" right="{{ data(gap).h }}">
+        <component id="h6" text="{{ page.view_subtitle }}"/>
+      </padding>
+    </safeArea>
+    <stack>
+      <positioned all="0">
+        <container color="{{ data(colors).background }}">
+        </container>
+      </positioned>
+      <container height="22" width="1000">
+        <prop:decoration color="{{ data(colors).cardBackground }}">
+          <prop:borderRadius topLeft="20" topRight="20"/>
+        </prop:decoration>
+      </container>
+    </stack>
+  </container>
+</template>
+
+<template id="actionButton">
+  <container height="52" width="1000">
+    <prop:decoration color="{{ data(colors).secondaryLight }}">
+      <prop:borderRadius all="8"/>
+    </prop:decoration>
+    <padding left="16" top="14" right="16" bottom="14">
+      <row>
+        <padding right="12">
+          <icon icon="flu_emoji_smile_slight_regular" color="{{ data(colors).primaryDark }}"/>
+        </padding>
+        <expanded>
+          <text>
+            Tell us your goals
+          </text>
+        </expanded>
+        <icon icon="flu_chevron_right_filled" color="{{ data(colors).primaryDark }}"/>
+      </row>
+    </padding>
+  </container>
+</template>
+
+<!--? HEADER-->
+<component id="view_header"/>
+
+<!--? SUB-HEADER-->
+<padding left="{{ data(gap).h }}" right="{{ data(gap).h }}" bottom="{{ data(gap).vSmall }}">
+  <component id="h1" text="Get started"/>
+</padding>
+<padding left="{{ data(gap).h }}" right="{{ data(gap).h }}" bottom="{{ data(gap).vBig }}">
+  <component id="h6" text="Take the first steps towards improving your wellness."/>
+</padding>
+
+<!--? ACTION BUTTONS-->
+<padding left="{{ data(gap).h }}" right="{{ data(gap).h }}" bottom="{{ data(gap).vBig }}">
+  <component id="actionButton"/>
+</padding>

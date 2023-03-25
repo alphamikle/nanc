@@ -5,6 +5,7 @@ bash build.sh ./components
 bash build.sh ./config
 bash build.sh ./fields
 bash build.sh ./file_syncer
+bash build.sh ./fonts
 bash build.sh ./icons
 bash build.sh ./markdown_code_push
 bash build.sh ./markdown_code_push_core

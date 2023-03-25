@@ -31,10 +31,10 @@ class FieldCard extends StatelessWidget {
     return Container(
       height: customHeight ?? height,
       decoration: BoxDecoration(
-        color: field.description(context).color.filling,
+        color: field.description(context).color.o075,
         borderRadius: radius,
         border: Border.all(
-          color: field.description(context).color.border,
+          color: field.description(context).color.o35,
         ),
       ),
       child: Stack(

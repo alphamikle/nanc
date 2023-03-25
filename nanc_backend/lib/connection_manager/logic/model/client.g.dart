@@ -56,18 +56,15 @@ class _$ClientCWProxyImpl implements _$ClientCWProxy {
   }) {
     return Client(
       roomId: roomId == const $CopyWithPlaceholder() || roomId == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.roomId!
+          ? _value.roomId
           // ignore: cast_nullable_to_non_nullable
           : roomId as String,
       status: status == const $CopyWithPlaceholder() || status == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.status!
+          ? _value.status
           // ignore: cast_nullable_to_non_nullable
           : status as ClientStatus,
       serviceId: serviceId == const $CopyWithPlaceholder() || serviceId == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.serviceId!
+          ? _value.serviceId
           // ignore: cast_nullable_to_non_nullable
           : serviceId as String,
     );

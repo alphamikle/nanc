@@ -60,19 +60,16 @@ class _$ConnectionManagerStateCWProxyImpl
   }) {
     return ConnectionManagerState(
       isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.isLoading!
+          ? _value.isLoading
           // ignore: cast_nullable_to_non_nullable
           : isLoading as bool,
       freshRoomId:
           freshRoomId == const $CopyWithPlaceholder() || freshRoomId == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.freshRoomId!
+              ? _value.freshRoomId
               // ignore: cast_nullable_to_non_nullable
               : freshRoomId as String,
       clients: clients == const $CopyWithPlaceholder() || clients == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.clients!
+          ? _value.clients
           // ignore: cast_nullable_to_non_nullable
           : clients as List<Client>,
     );

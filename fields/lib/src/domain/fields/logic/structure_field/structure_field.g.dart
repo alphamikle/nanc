@@ -7,25 +7,25 @@ part of 'structure_field.dart';
 // **************************************************************************
 
 abstract class _$StructureFieldCWProxy {
-  StructureField contentColor(Color? contentColor);
-
-  StructureField contentIcon(String? contentIcon);
+  StructureField name(String name);
 
   StructureField id(String? id);
 
-  StructureField isRequired(bool isRequired);
-
-  StructureField name(String name);
-
   StructureField showInList(bool showInList);
+
+  StructureField isRequired(bool isRequired);
 
   StructureField sort(int sort);
 
-  StructureField type(FieldType type);
+  StructureField width(double? width);
 
   StructureField validator(String? Function(Object?)? validator);
 
-  StructureField width(double? width);
+  StructureField contentIcon(String? contentIcon);
+
+  StructureField contentColor(Color? contentColor);
+
+  StructureField type(FieldType type);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `StructureField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -34,57 +34,57 @@ abstract class _$StructureFieldCWProxy {
   /// StructureField(...).copyWith(id: 12, name: "My name")
   /// ````
   StructureField call({
-    Color? contentColor,
-    String? contentIcon,
-    String? id,
-    bool? isRequired,
     String? name,
+    String? id,
     bool? showInList,
+    bool? isRequired,
     int? sort,
-    FieldType? type,
-    String? Function(Object?)? validator,
     double? width,
+    String? Function(Object?)? validator,
+    String? contentIcon,
+    Color? contentColor,
+    FieldType? type,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfStructureField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfStructureField.copyWith.fieldName(...)`
 class _$StructureFieldCWProxyImpl implements _$StructureFieldCWProxy {
-  final StructureField _value;
-
   const _$StructureFieldCWProxyImpl(this._value);
 
-  @override
-  StructureField contentColor(Color? contentColor) =>
-      this(contentColor: contentColor);
-
-  @override
-  StructureField contentIcon(String? contentIcon) =>
-      this(contentIcon: contentIcon);
-
-  @override
-  StructureField id(String? id) => this(id: id);
-
-  @override
-  StructureField isRequired(bool isRequired) => this(isRequired: isRequired);
+  final StructureField _value;
 
   @override
   StructureField name(String name) => this(name: name);
 
   @override
+  StructureField id(String? id) => this(id: id);
+
+  @override
   StructureField showInList(bool showInList) => this(showInList: showInList);
+
+  @override
+  StructureField isRequired(bool isRequired) => this(isRequired: isRequired);
 
   @override
   StructureField sort(int sort) => this(sort: sort);
 
   @override
-  StructureField type(FieldType type) => this(type: type);
+  StructureField width(double? width) => this(width: width);
 
   @override
   StructureField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
   @override
-  StructureField width(double? width) => this(width: width);
+  StructureField contentIcon(String? contentIcon) =>
+      this(contentIcon: contentIcon);
+
+  @override
+  StructureField contentColor(Color? contentColor) =>
+      this(contentColor: contentColor);
+
+  @override
+  StructureField type(FieldType type) => this(type: type);
 
   @override
 
@@ -95,60 +95,60 @@ class _$StructureFieldCWProxyImpl implements _$StructureFieldCWProxy {
   /// StructureField(...).copyWith(id: 12, name: "My name")
   /// ````
   StructureField call({
-    Object? contentColor = const $CopyWithPlaceholder(),
-    Object? contentIcon = const $CopyWithPlaceholder(),
-    Object? id = const $CopyWithPlaceholder(),
-    Object? isRequired = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
+    Object? id = const $CopyWithPlaceholder(),
     Object? showInList = const $CopyWithPlaceholder(),
+    Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? type = const $CopyWithPlaceholder(),
-    Object? validator = const $CopyWithPlaceholder(),
     Object? width = const $CopyWithPlaceholder(),
+    Object? validator = const $CopyWithPlaceholder(),
+    Object? contentIcon = const $CopyWithPlaceholder(),
+    Object? contentColor = const $CopyWithPlaceholder(),
+    Object? type = const $CopyWithPlaceholder(),
   }) {
     return StructureField(
-      contentColor: contentColor == const $CopyWithPlaceholder()
-          ? _value.contentColor
-          // ignore: cast_nullable_to_non_nullable
-          : contentColor as Color?,
-      contentIcon: contentIcon == const $CopyWithPlaceholder()
-          ? _value.contentIcon
-          // ignore: cast_nullable_to_non_nullable
-          : contentIcon as String?,
-      id: id == const $CopyWithPlaceholder()
-          ? _value.id
-          // ignore: cast_nullable_to_non_nullable
-          : id as String?,
-      isRequired:
-          isRequired == const $CopyWithPlaceholder() || isRequired == null
-              ? _value.isRequired
-              // ignore: cast_nullable_to_non_nullable
-              : isRequired as bool,
       name: name == const $CopyWithPlaceholder() || name == null
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
           : name as String,
+      id: id == const $CopyWithPlaceholder()
+          ? _value.id
+          // ignore: cast_nullable_to_non_nullable
+          : id as String?,
       showInList:
           showInList == const $CopyWithPlaceholder() || showInList == null
               ? _value.showInList
               // ignore: cast_nullable_to_non_nullable
               : showInList as bool,
+      isRequired:
+          isRequired == const $CopyWithPlaceholder() || isRequired == null
+              ? _value.isRequired
+              // ignore: cast_nullable_to_non_nullable
+              : isRequired as bool,
       sort: sort == const $CopyWithPlaceholder() || sort == null
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      type: type == const $CopyWithPlaceholder() || type == null
-          ? _value.type
-          // ignore: cast_nullable_to_non_nullable
-          : type as FieldType,
-      validator: validator == const $CopyWithPlaceholder()
-          ? _value.validator
-          // ignore: cast_nullable_to_non_nullable
-          : validator as String? Function(Object?)?,
       width: width == const $CopyWithPlaceholder()
           ? _value.width
           // ignore: cast_nullable_to_non_nullable
           : width as double?,
+      validator: validator == const $CopyWithPlaceholder()
+          ? _value.validator
+          // ignore: cast_nullable_to_non_nullable
+          : validator as String? Function(Object?)?,
+      contentIcon: contentIcon == const $CopyWithPlaceholder()
+          ? _value.contentIcon
+          // ignore: cast_nullable_to_non_nullable
+          : contentIcon as String?,
+      contentColor: contentColor == const $CopyWithPlaceholder()
+          ? _value.contentColor
+          // ignore: cast_nullable_to_non_nullable
+          : contentColor as Color?,
+      type: type == const $CopyWithPlaceholder() || type == null
+          ? _value.type
+          // ignore: cast_nullable_to_non_nullable
+          : type as FieldType,
     );
   }
 }
@@ -208,4 +208,6 @@ const _$FieldTypeEnumMap = {
   FieldType.colorField: 'colorField',
   FieldType.screenField: 'screenField',
   FieldType.headerField: 'headerField',
+  FieldType.groupField: 'groupField',
+  FieldType.fontField: 'fontField',
 };

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:fonts/fonts.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/renderers/property/properties/text_style/text_decoration_enum.dart';
@@ -61,7 +61,17 @@ TextStylePropertyWidget textStyleFactory({
   late TextStyle effectiveStyle;
   if (arguments.font != null && arguments.font!.trim().isNotEmpty) {
     try {
-      effectiveStyle = GoogleFonts.getFont(arguments.font!);
+      if (isCustomFontExist(arguments.font!)) {
+        logg('>>> CUSTOM FONT FOUND: ${arguments.font!}');
+        final CustomFont customFont = getCustomFont(arguments.font!);
+        effectiveStyle = TextStyle(fontFamily: customFont.font, package: customFont.package);
+      } else if (isGoogleFontExist(arguments.font!)) {
+        logg('>>> GOOGLE FONT FOUND: ${arguments.font!}');
+        effectiveStyle = GoogleFonts.getFont(arguments.font!);
+      } else {
+        logg('>>> CUSTOM FONT NOT FOUND: ${arguments.font!}');
+        effectiveStyle = const TextStyle();
+      }
     } catch (error) {
       logg('Error on loading font with name "${arguments.font}": $error');
       effectiveStyle = const TextStyle();

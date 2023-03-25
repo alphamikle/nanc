@@ -69,7 +69,7 @@ class KitTextField extends StatelessWidget {
   }) {
     const OutlineInputBorder border = OutlineInputBorder();
 
-    return InputDecoration(
+    final InputDecoration effectiveDecoration = InputDecoration(
       hintText: placeholder,
       labelText: label,
       border: border,
@@ -94,6 +94,7 @@ class KitTextField extends StatelessWidget {
       helperText: helper,
       filled: true,
     );
+    return effectiveDecoration;
   }
 
   @override

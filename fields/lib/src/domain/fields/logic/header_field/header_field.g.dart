@@ -7,21 +7,21 @@ part of 'header_field.dart';
 // **************************************************************************
 
 abstract class _$HeaderFieldCWProxy {
-  HeaderField content(String content);
+  HeaderField name(String name);
+
+  HeaderField content(String? content);
 
   HeaderField contentColor(Color? contentColor);
 
+  HeaderField contentIcon(String? contentIcon);
+
   HeaderField contentFontSize(double? contentFontSize);
 
-  HeaderField contentIcon(String? contentIcon);
+  HeaderField useAsDivider(bool useAsDivider);
 
   HeaderField id(String? id);
 
-  HeaderField name(String name);
-
   HeaderField type(FieldType type);
-
-  HeaderField useAsDivider(bool useAsDivider);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `HeaderField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -30,50 +30,50 @@ abstract class _$HeaderFieldCWProxy {
   /// HeaderField(...).copyWith(id: 12, name: "My name")
   /// ````
   HeaderField call({
+    String? name,
     String? content,
     Color? contentColor,
-    double? contentFontSize,
     String? contentIcon,
-    String? id,
-    String? name,
-    FieldType? type,
+    double? contentFontSize,
     bool? useAsDivider,
+    String? id,
+    FieldType? type,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfHeaderField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfHeaderField.copyWith.fieldName(...)`
 class _$HeaderFieldCWProxyImpl implements _$HeaderFieldCWProxy {
-  final HeaderField _value;
-
   const _$HeaderFieldCWProxyImpl(this._value);
 
+  final HeaderField _value;
+
   @override
-  HeaderField content(String content) => this(content: content);
+  HeaderField name(String name) => this(name: name);
+
+  @override
+  HeaderField content(String? content) => this(content: content);
 
   @override
   HeaderField contentColor(Color? contentColor) =>
       this(contentColor: contentColor);
 
   @override
+  HeaderField contentIcon(String? contentIcon) =>
+      this(contentIcon: contentIcon);
+
+  @override
   HeaderField contentFontSize(double? contentFontSize) =>
       this(contentFontSize: contentFontSize);
 
   @override
-  HeaderField contentIcon(String? contentIcon) =>
-      this(contentIcon: contentIcon);
+  HeaderField useAsDivider(bool useAsDivider) =>
+      this(useAsDivider: useAsDivider);
 
   @override
   HeaderField id(String? id) => this(id: id);
 
   @override
-  HeaderField name(String name) => this(name: name);
-
-  @override
   HeaderField type(FieldType type) => this(type: type);
-
-  @override
-  HeaderField useAsDivider(bool useAsDivider) =>
-      this(useAsDivider: useAsDivider);
 
   @override
 
@@ -84,49 +84,49 @@ class _$HeaderFieldCWProxyImpl implements _$HeaderFieldCWProxy {
   /// HeaderField(...).copyWith(id: 12, name: "My name")
   /// ````
   HeaderField call({
+    Object? name = const $CopyWithPlaceholder(),
     Object? content = const $CopyWithPlaceholder(),
     Object? contentColor = const $CopyWithPlaceholder(),
-    Object? contentFontSize = const $CopyWithPlaceholder(),
     Object? contentIcon = const $CopyWithPlaceholder(),
-    Object? id = const $CopyWithPlaceholder(),
-    Object? name = const $CopyWithPlaceholder(),
-    Object? type = const $CopyWithPlaceholder(),
+    Object? contentFontSize = const $CopyWithPlaceholder(),
     Object? useAsDivider = const $CopyWithPlaceholder(),
+    Object? id = const $CopyWithPlaceholder(),
+    Object? type = const $CopyWithPlaceholder(),
   }) {
     return HeaderField(
-      content: content == const $CopyWithPlaceholder() || content == null
-          ? _value.content
-          // ignore: cast_nullable_to_non_nullable
-          : content as String,
-      contentColor: contentColor == const $CopyWithPlaceholder()
-          ? _value.contentColor
-          // ignore: cast_nullable_to_non_nullable
-          : contentColor as Color?,
-      contentFontSize: contentFontSize == const $CopyWithPlaceholder()
-          ? _value.contentFontSize
-          // ignore: cast_nullable_to_non_nullable
-          : contentFontSize as double?,
-      contentIcon: contentIcon == const $CopyWithPlaceholder()
-          ? _value.contentIcon
-          // ignore: cast_nullable_to_non_nullable
-          : contentIcon as String?,
-      id: id == const $CopyWithPlaceholder()
-          ? _value.id
-          // ignore: cast_nullable_to_non_nullable
-          : id as String?,
       name: name == const $CopyWithPlaceholder() || name == null
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
           : name as String,
-      type: type == const $CopyWithPlaceholder() || type == null
-          ? _value.type
+      content: content == const $CopyWithPlaceholder()
+          ? _value.content
           // ignore: cast_nullable_to_non_nullable
-          : type as FieldType,
+          : content as String?,
+      contentColor: contentColor == const $CopyWithPlaceholder()
+          ? _value.contentColor
+          // ignore: cast_nullable_to_non_nullable
+          : contentColor as Color?,
+      contentIcon: contentIcon == const $CopyWithPlaceholder()
+          ? _value.contentIcon
+          // ignore: cast_nullable_to_non_nullable
+          : contentIcon as String?,
+      contentFontSize: contentFontSize == const $CopyWithPlaceholder()
+          ? _value.contentFontSize
+          // ignore: cast_nullable_to_non_nullable
+          : contentFontSize as double?,
       useAsDivider:
           useAsDivider == const $CopyWithPlaceholder() || useAsDivider == null
               ? _value.useAsDivider
               // ignore: cast_nullable_to_non_nullable
               : useAsDivider as bool,
+      id: id == const $CopyWithPlaceholder()
+          ? _value.id
+          // ignore: cast_nullable_to_non_nullable
+          : id as String?,
+      type: type == const $CopyWithPlaceholder() || type == null
+          ? _value.type
+          // ignore: cast_nullable_to_non_nullable
+          : type as FieldType,
     );
   }
 }
@@ -143,7 +143,7 @@ extension $HeaderFieldCopyWith on HeaderField {
 
 HeaderField _$HeaderFieldFromJson(Map<String, dynamic> json) => HeaderField(
       name: json['name'] as String,
-      content: json['content'] as String,
+      content: json['content'] as String?,
       contentColor: nullableColorFromJson(json['contentColor'] as String?),
       contentIcon: json['contentIcon'] as String?,
       contentFontSize:
@@ -184,4 +184,6 @@ const _$FieldTypeEnumMap = {
   FieldType.colorField: 'colorField',
   FieldType.screenField: 'screenField',
   FieldType.headerField: 'headerField',
+  FieldType.groupField: 'groupField',
+  FieldType.fontField: 'fontField',
 };

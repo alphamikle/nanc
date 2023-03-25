@@ -7,18 +7,18 @@ part of 'base_page_state.dart';
 // **************************************************************************
 
 abstract class _$BaseEntityPageStateCWProxy {
-  BaseEntityPageState controllerMap(
-      Map<String, TextEditingController> controllerMap);
-
   BaseEntityPageState data(Map<String, dynamic> data);
 
   BaseEntityPageState initialData(Map<String, dynamic> initialData);
 
-  BaseEntityPageState isDeleting(bool isDeleting);
-
   BaseEntityPageState isLoading(bool isLoading);
 
+  BaseEntityPageState isDeleting(bool isDeleting);
+
   BaseEntityPageState isSaving(bool isSaving);
+
+  BaseEntityPageState controllerMap(
+      Map<String, TextEditingController> controllerMap);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `BaseEntityPageState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -27,25 +27,20 @@ abstract class _$BaseEntityPageStateCWProxy {
   /// BaseEntityPageState(...).copyWith(id: 12, name: "My name")
   /// ````
   BaseEntityPageState call({
-    Map<String, TextEditingController>? controllerMap,
     Map<String, dynamic>? data,
     Map<String, dynamic>? initialData,
-    bool? isDeleting,
     bool? isLoading,
+    bool? isDeleting,
     bool? isSaving,
+    Map<String, TextEditingController>? controllerMap,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfBaseEntityPageState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfBaseEntityPageState.copyWith.fieldName(...)`
 class _$BaseEntityPageStateCWProxyImpl implements _$BaseEntityPageStateCWProxy {
-  final BaseEntityPageState _value;
-
   const _$BaseEntityPageStateCWProxyImpl(this._value);
 
-  @override
-  BaseEntityPageState controllerMap(
-          Map<String, TextEditingController> controllerMap) =>
-      this(controllerMap: controllerMap);
+  final BaseEntityPageState _value;
 
   @override
   BaseEntityPageState data(Map<String, dynamic> data) => this(data: data);
@@ -55,14 +50,19 @@ class _$BaseEntityPageStateCWProxyImpl implements _$BaseEntityPageStateCWProxy {
       this(initialData: initialData);
 
   @override
+  BaseEntityPageState isLoading(bool isLoading) => this(isLoading: isLoading);
+
+  @override
   BaseEntityPageState isDeleting(bool isDeleting) =>
       this(isDeleting: isDeleting);
 
   @override
-  BaseEntityPageState isLoading(bool isLoading) => this(isLoading: isLoading);
+  BaseEntityPageState isSaving(bool isSaving) => this(isSaving: isSaving);
 
   @override
-  BaseEntityPageState isSaving(bool isSaving) => this(isSaving: isSaving);
+  BaseEntityPageState controllerMap(
+          Map<String, TextEditingController> controllerMap) =>
+      this(controllerMap: controllerMap);
 
   @override
 
@@ -73,19 +73,14 @@ class _$BaseEntityPageStateCWProxyImpl implements _$BaseEntityPageStateCWProxy {
   /// BaseEntityPageState(...).copyWith(id: 12, name: "My name")
   /// ````
   BaseEntityPageState call({
-    Object? controllerMap = const $CopyWithPlaceholder(),
     Object? data = const $CopyWithPlaceholder(),
     Object? initialData = const $CopyWithPlaceholder(),
-    Object? isDeleting = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
+    Object? isDeleting = const $CopyWithPlaceholder(),
     Object? isSaving = const $CopyWithPlaceholder(),
+    Object? controllerMap = const $CopyWithPlaceholder(),
   }) {
     return BaseEntityPageState(
-      controllerMap:
-          controllerMap == const $CopyWithPlaceholder() || controllerMap == null
-              ? _value.controllerMap
-              // ignore: cast_nullable_to_non_nullable
-              : controllerMap as Map<String, TextEditingController>,
       data: data == const $CopyWithPlaceholder() || data == null
           ? _value.data
           // ignore: cast_nullable_to_non_nullable
@@ -95,19 +90,24 @@ class _$BaseEntityPageStateCWProxyImpl implements _$BaseEntityPageStateCWProxy {
               ? _value.initialData
               // ignore: cast_nullable_to_non_nullable
               : initialData as Map<String, dynamic>,
+      isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
+          ? _value.isLoading
+          // ignore: cast_nullable_to_non_nullable
+          : isLoading as bool,
       isDeleting:
           isDeleting == const $CopyWithPlaceholder() || isDeleting == null
               ? _value.isDeleting
               // ignore: cast_nullable_to_non_nullable
               : isDeleting as bool,
-      isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
-          ? _value.isLoading
-          // ignore: cast_nullable_to_non_nullable
-          : isLoading as bool,
       isSaving: isSaving == const $CopyWithPlaceholder() || isSaving == null
           ? _value.isSaving
           // ignore: cast_nullable_to_non_nullable
           : isSaving as bool,
+      controllerMap:
+          controllerMap == const $CopyWithPlaceholder() || controllerMap == null
+              ? _value.controllerMap
+              // ignore: cast_nullable_to_non_nullable
+              : controllerMap as Map<String, TextEditingController>,
     );
   }
 }

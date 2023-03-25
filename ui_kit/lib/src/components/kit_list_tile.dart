@@ -19,7 +19,7 @@ class KitListTile extends StatelessWidget {
     return ListTile(
       minVerticalPadding: 0,
       selected: isSelected,
-      selectedTileColor: context.theme.colorScheme.tertiary.filling,
+      selectedTileColor: context.theme.colorScheme.tertiary.o075,
       title: child ?? Text(title!),
     );
   }

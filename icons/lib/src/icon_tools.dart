@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:icons/src/icon_pack.dart';
+import 'package:tools/tools.dart';
 
 IconData getIconByName(String iconName) => iconPackMap[iconName]!;
 
@@ -19,18 +20,13 @@ Future<List<IconData>> findIconsByQuery(String? iconName) async {
   if (iconName == null) {
     return [];
   }
-  int delayCounter = 0;
   final List<IconData> icons = [];
   final RegExp iconNameRegExp = RegExp(iconName);
   for (final MapEntry<String, IconData> entry in iconPackMap.entries) {
     if (iconNameRegExp.hasMatch(entry.key)) {
       icons.add(entry.value);
     }
-    delayCounter++;
-    if (delayCounter >= 50) {
-      delayCounter = 0;
-      await Future<void>.delayed(Duration.zero);
-    }
+    await wait(duration: Duration.zero, periodic: true);
   }
   return icons;
 }

@@ -13,14 +13,15 @@ part 'header_field.g.dart';
 class HeaderField extends Field {
   HeaderField({
     required super.name,
-    required this.content,
+    String? content,
     this.contentColor,
     this.contentIcon,
     this.contentFontSize,
     this.useAsDivider = false,
     String? id,
     super.type = FieldType.headerField,
-  }) : super(id: id ?? toSnackCase(name), showInList: false, editableField: false);
+  })  : content = content ?? name,
+        super(id: id ?? '${toSnackCase(name)}_header', showInList: false, editableField: false);
 
   factory HeaderField.empty() => HeaderField(id: '', name: '', content: '');
 

@@ -7,15 +7,15 @@ part of 'message.dart';
 // **************************************************************************
 
 abstract class _$MessageCWProxy {
-  Message isError(bool isError);
-
-  Message isResponse(bool isResponse);
+  Message messageType(String messageType);
 
   Message messageId(String messageId);
 
-  Message messageType(String messageType);
-
   Message payload(Object? payload);
+
+  Message isError(bool isError);
+
+  Message isResponse(bool isResponse);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Message(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -24,19 +24,28 @@ abstract class _$MessageCWProxy {
   /// Message(...).copyWith(id: 12, name: "My name")
   /// ````
   Message call({
+    String? messageType,
+    String? messageId,
+    Object? payload,
     bool? isError,
     bool? isResponse,
-    String? messageId,
-    String? messageType,
-    Object? payload,
   });
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfMessage.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfMessage.copyWith.fieldName(...)`
 class _$MessageCWProxyImpl implements _$MessageCWProxy {
+  const _$MessageCWProxyImpl(this._value);
+
   final Message _value;
 
-  const _$MessageCWProxyImpl(this._value);
+  @override
+  Message messageType(String messageType) => this(messageType: messageType);
+
+  @override
+  Message messageId(String messageId) => this(messageId: messageId);
+
+  @override
+  Message payload(Object? payload) => this(payload: payload);
 
   @override
   Message isError(bool isError) => this(isError: isError);
@@ -45,15 +54,6 @@ class _$MessageCWProxyImpl implements _$MessageCWProxy {
   Message isResponse(bool isResponse) => this(isResponse: isResponse);
 
   @override
-  Message messageId(String messageId) => this(messageId: messageId);
-
-  @override
-  Message messageType(String messageType) => this(messageType: messageType);
-
-  @override
-  Message payload(Object? payload) => this(payload: payload);
-
-  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Message(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -62,13 +62,26 @@ class _$MessageCWProxyImpl implements _$MessageCWProxy {
   /// Message(...).copyWith(id: 12, name: "My name")
   /// ````
   Message call({
+    Object? messageType = const $CopyWithPlaceholder(),
+    Object? messageId = const $CopyWithPlaceholder(),
+    Object? payload = const $CopyWithPlaceholder(),
     Object? isError = const $CopyWithPlaceholder(),
     Object? isResponse = const $CopyWithPlaceholder(),
-    Object? messageId = const $CopyWithPlaceholder(),
-    Object? messageType = const $CopyWithPlaceholder(),
-    Object? payload = const $CopyWithPlaceholder(),
   }) {
     return Message(
+      messageType:
+          messageType == const $CopyWithPlaceholder() || messageType == null
+              ? _value.messageType
+              // ignore: cast_nullable_to_non_nullable
+              : messageType as String,
+      messageId: messageId == const $CopyWithPlaceholder() || messageId == null
+          ? _value.messageId
+          // ignore: cast_nullable_to_non_nullable
+          : messageId as String,
+      payload: payload == const $CopyWithPlaceholder()
+          ? _value.payload
+          // ignore: cast_nullable_to_non_nullable
+          : payload as Object?,
       isError: isError == const $CopyWithPlaceholder() || isError == null
           ? _value.isError
           // ignore: cast_nullable_to_non_nullable
@@ -78,19 +91,6 @@ class _$MessageCWProxyImpl implements _$MessageCWProxy {
               ? _value.isResponse
               // ignore: cast_nullable_to_non_nullable
               : isResponse as bool,
-      messageId: messageId == const $CopyWithPlaceholder() || messageId == null
-          ? _value.messageId
-          // ignore: cast_nullable_to_non_nullable
-          : messageId as String,
-      messageType:
-          messageType == const $CopyWithPlaceholder() || messageType == null
-              ? _value.messageType
-              // ignore: cast_nullable_to_non_nullable
-              : messageType as String,
-      payload: payload == const $CopyWithPlaceholder()
-          ? _value.payload
-          // ignore: cast_nullable_to_non_nullable
-          : payload as Object?,
     );
   }
 }
