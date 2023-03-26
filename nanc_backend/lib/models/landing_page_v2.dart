@@ -2,7 +2,7 @@ import 'package:fields/fields.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 
-final Model theNewMainPage = Model(
+final Model landingPageV2 = Model(
   name: 'Main Page',
   icon: 'flu_home_filled',
   id: 'ivie_main_page_v1',
