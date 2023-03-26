@@ -6,6 +6,7 @@ final Model theNewMainPage = Model(
   name: 'Main Page',
   icon: 'flu_home_filled',
   id: 'ivie_main_page_v1',
+  showInMenu: false,
   isCollection: false,
   fields: [
     [
