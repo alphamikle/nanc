@@ -77,6 +77,7 @@ Future<void> main() async {
     customFonts: [
       const CustomFont(font: 'Blazeface'),
       const CustomFont(font: 'Helvetica'),
+      const CustomFont(font: 'Helvetica Neue'),
     ],
   );
 }

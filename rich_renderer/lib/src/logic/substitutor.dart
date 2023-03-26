@@ -13,7 +13,7 @@ class Substitutor {
 
   final BuildContext context;
   final RegExp _substitutionRegExp = RegExp(r'{{.*}}');
-  final RegExp _clearingRegExp = RegExp(r'(?<start>{{)(?<content>[^}}]+)(?<end>}})');
+  final RegExp _clearingRegExp = RegExp(r'(?<start>{{)(?<content>[^}]+)(?<end>}})');
 
   static Future<md.Element> enrichElement({required BuildContext context, required md.Element node}) async {
     final Substitutor substitutor = Substitutor(context: context);

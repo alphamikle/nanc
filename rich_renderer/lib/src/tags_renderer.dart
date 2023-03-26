@@ -18,6 +18,7 @@ import 'package:rich_renderer/src/renderers/icon/icon_renderer.dart';
 import 'package:rich_renderer/src/renderers/if/show_renderer.dart';
 import 'package:rich_renderer/src/renderers/image/image_renderer.dart';
 import 'package:rich_renderer/src/renderers/ink_well/ink_well_renderer.dart';
+import 'package:rich_renderer/src/renderers/list_view/list_view_renderer.dart';
 import 'package:rich_renderer/src/renderers/material/material_renderer.dart';
 import 'package:rich_renderer/src/renderers/padding/padding_renderer.dart';
 import 'package:rich_renderer/src/renderers/physical_model/physical_model_renderer.dart';
@@ -31,6 +32,7 @@ import 'package:rich_renderer/src/renderers/sized_box/sized_box_renderer.dart';
 import 'package:rich_renderer/src/renderers/stack/stack_renderer.dart';
 import 'package:rich_renderer/src/renderers/template/template_renderer.dart';
 import 'package:rich_renderer/src/renderers/text/text_renderer.dart';
+import 'package:rich_renderer/src/renderers/text_button/text_button_renderer.dart';
 import 'package:rich_renderer/src/renderers/tooltip/tooltip_renderer.dart';
 
 class TagsRenderer {
@@ -83,6 +85,8 @@ class TagsRenderer {
       fadeInRenderer,
       tooltipRenderer,
       aspectRatioRenderer,
+      textButtonRenderer,
+      listViewRenderer,
     ]);
   }
 

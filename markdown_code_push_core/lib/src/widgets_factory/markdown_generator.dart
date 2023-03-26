@@ -54,6 +54,7 @@ class MarkdownGenerator {
       formattedData = formatter(context, formattedData);
       await wait(periodic: true, period: 10);
     }
+    // TODO(alphamikle): Parse liquid files format
     final List<String> lines = splitTextByLines(formattedData);
     await wait(periodic: true, period: 10);
     final List<md.Node> nodes = document.parseLines(lines);

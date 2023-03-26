@@ -9,7 +9,6 @@ import 'package:fields/src/domain/fields/ui/dynamic_field_cell/child_indicator.d
 import 'package:fields/src/domain/fields/ui/dynamic_field_cell/dynamic_field_child.dart';
 import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
 import 'package:fields/src/domain/type/field_types.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
@@ -268,7 +267,7 @@ class _DynamicFieldCellState extends State<DynamicFieldCell> with FieldCellHelpe
                         padding: EdgeInsets.only(right: Gap.small),
                         child: Text('Edit'),
                       ),
-                      CupertinoSwitch(
+                      Switch(
                         onChanged: (_) => toggleEditMode(),
                         value: isEditMode,
                       ),

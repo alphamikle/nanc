@@ -3,7 +3,6 @@ import 'package:markdown/markdown.dart' as md;
 import 'package:markdown_code_push_core/markdown_code_push_core.dart';
 import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/logic/substitutor.dart';
-import 'package:rich_renderer/src/tag_renderer.dart';
 import 'package:tools/tools.dart';
 
 class RichRenderer {
@@ -16,9 +15,7 @@ class RichRenderer {
   Map<Tag, TagRenderer> get builders => _builders;
   final Map<Tag, TagRenderer> _builders = {};
 
-  void registerRenderer(TagRenderer renderer) {
-    _builders[renderer.tag] = renderer;
-  }
+  void registerRenderer(TagRenderer renderer) => _builders[renderer.tag] = renderer;
 
   Future<Widget?> render(BuildContext context, md.Element element) async {
     try {

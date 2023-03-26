@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:rich_renderer/src/renderers/fade_in/curve_enum.dart';
+import 'package:rich_renderer/src/renderers/list_view/list_view_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/properties/alignment/alignment_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/properties/text_style/text_decoration_enum.dart';
 
@@ -15,7 +16,6 @@ class DocumentationTypes {
   static Set<String> get textDirectionValues => _$VerticalDirectionEnumMap.values.toSet();
   static Set<String> get textBaselineValues => _$TextBaselineEnumMap.values.toSet();
   static Set<String> get blendModeValues => _$BlendModeEnumMap.values.toSet();
-  // static Set<String> get strokeAlignValues => _$StrokeAlignEnumMap.values.toSet();
   static Set<String> get blurStyleValues => _$BlurStyleEnumMap.values.toSet();
   static Set<String> get tileModeValues => _$TileModeEnumMap.values.toSet();
   static Set<String> get alignmentEnumValues => _$AlignmentEnumEnumMap.values.toSet();
@@ -29,6 +29,8 @@ class DocumentationTypes {
   static Set<String> get clipValues => _$ClipEnumMap.values.toSet();
   static Set<String> get boxShapeValues => _$BoxShapeEnumMap.values.toSet();
   static Set<String> get curveEnumValues => _$CurveEnumEnumMap.values.toSet();
+  static Set<String> get scrollPhysicsEnumValues => _$ScrollPhysicsEnumEnumMap.values.toSet();
+  static Set<String> get axisValues => _$AxisEnumMap.values.toSet();
 
   CrossAxisAlignment? crossAxisAlignment;
   MainAxisSize? mainAxisSize;
@@ -37,7 +39,6 @@ class DocumentationTypes {
   TextDirection? textDirection;
   TextBaseline? textBaseline;
   BlendMode? blendMode;
-  // StrokeAlign? strokeAlign;
   BlurStyle? blurStyle;
   TileMode? tileMode;
   AlignmentEnum? alignmentEnum;
@@ -51,4 +52,6 @@ class DocumentationTypes {
   Clip? clip;
   BoxShape? boxShape;
   CurveEnum? curveEnum;
+  ScrollPhysicsEnum? scrollPhysicsEnum;
+  Axis? axis;
 }

@@ -10,7 +10,9 @@ function printStage() {
 printStage "CLEANING"
 flutter clean || exit
 
-rm ./pubspec.lock
+rm ./pubspec.lock || echo "No pubspec.lock found"
+rm -rf ./macos/Pods || echo "No Pods dir found"
+rm ./macos/Podfile.lock || echo "No Podfile.lock found"
 
 printStage "PUB GET"
 flutter pub get || exit

@@ -38,7 +38,10 @@ DocumentationTypes _$DocumentationTypesFromJson(Map<String, dynamic> json) =>
           _$TextDecorationEnumEnumMap, json['textDecorationEnum'])
       ..clip = $enumDecodeNullable(_$ClipEnumMap, json['clip'])
       ..boxShape = $enumDecodeNullable(_$BoxShapeEnumMap, json['boxShape'])
-      ..curveEnum = $enumDecodeNullable(_$CurveEnumEnumMap, json['curveEnum']);
+      ..curveEnum = $enumDecodeNullable(_$CurveEnumEnumMap, json['curveEnum'])
+      ..scrollPhysicsEnum = $enumDecodeNullable(
+          _$ScrollPhysicsEnumEnumMap, json['scrollPhysicsEnum'])
+      ..axis = $enumDecodeNullable(_$AxisEnumMap, json['axis']);
 
 Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
     <String, dynamic>{
@@ -66,6 +69,9 @@ Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
       'clip': _$ClipEnumMap[instance.clip],
       'boxShape': _$BoxShapeEnumMap[instance.boxShape],
       'curveEnum': _$CurveEnumEnumMap[instance.curveEnum],
+      'scrollPhysicsEnum':
+          _$ScrollPhysicsEnumEnumMap[instance.scrollPhysicsEnum],
+      'axis': _$AxisEnumMap[instance.axis],
     };
 
 const _$CrossAxisAlignmentEnumMap = {
@@ -279,4 +285,19 @@ const _$CurveEnumEnumMap = {
   CurveEnum.elasticIn: 'elasticIn',
   CurveEnum.elasticOut: 'elasticOut',
   CurveEnum.elasticInOut: 'elasticInOut',
+};
+
+const _$ScrollPhysicsEnumEnumMap = {
+  ScrollPhysicsEnum.always: 'always',
+  ScrollPhysicsEnum.bouncing: 'bouncing',
+  ScrollPhysicsEnum.clamping: 'clamping',
+  ScrollPhysicsEnum.fixedExtent: 'fixedExtent',
+  ScrollPhysicsEnum.never: 'never',
+  ScrollPhysicsEnum.page: 'page',
+  ScrollPhysicsEnum.range: 'range',
+};
+
+const _$AxisEnumMap = {
+  Axis.horizontal: 'horizontal',
+  Axis.vertical: 'vertical',
 };

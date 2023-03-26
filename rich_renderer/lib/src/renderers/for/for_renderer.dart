@@ -191,6 +191,7 @@ The last thing about `<for>` is ability to iterate only the part of the array. Y
         effectiveChildren.addAll(preparedChildren);
       }
 
+      // ignore: use_build_context_synchronously
       final PropertiesExtractor extractor = PropertiesExtractor(
         context: context,
         // ignore: use_build_context_synchronously

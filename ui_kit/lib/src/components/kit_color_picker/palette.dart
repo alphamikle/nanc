@@ -118,25 +118,31 @@ class TrackPainter extends CustomPainter {
 
     switch (trackType) {
       case TrackType.hue:
-        final List<Color> colors = [
-          const HSVColor.fromAHSV(1.0, 0.0, 1.0, 1.0).toColor(),
-          const HSVColor.fromAHSV(1.0, 60.0, 1.0, 1.0).toColor(),
-          const HSVColor.fromAHSV(1.0, 120.0, 1.0, 1.0).toColor(),
-          const HSVColor.fromAHSV(1.0, 180.0, 1.0, 1.0).toColor(),
-          const HSVColor.fromAHSV(1.0, 240.0, 1.0, 1.0).toColor(),
-          const HSVColor.fromAHSV(1.0, 300.0, 1.0, 1.0).toColor(),
-          const HSVColor.fromAHSV(1.0, 360.0, 1.0, 1.0).toColor(),
-        ];
-        Gradient gradient = LinearGradient(colors: colors);
-        canvas.drawRect(rect, Paint()..shader = gradient.createShader(rect));
+        canvas.drawRect(
+            rect,
+            Paint()
+              ..shader = LinearGradient(
+                colors: [
+                  const HSVColor.fromAHSV(1.0, 0.0, 1.0, 1.0).toColor(),
+                  const HSVColor.fromAHSV(1.0, 60.0, 1.0, 1.0).toColor(),
+                  const HSVColor.fromAHSV(1.0, 120.0, 1.0, 1.0).toColor(),
+                  const HSVColor.fromAHSV(1.0, 180.0, 1.0, 1.0).toColor(),
+                  const HSVColor.fromAHSV(1.0, 240.0, 1.0, 1.0).toColor(),
+                  const HSVColor.fromAHSV(1.0, 300.0, 1.0, 1.0).toColor(),
+                  const HSVColor.fromAHSV(1.0, 360.0, 1.0, 1.0).toColor(),
+                ],
+              ).createShader(rect));
         break;
       case TrackType.alpha:
-        final List<Color> colors = [
-          hsvColor.toColor().withOpacity(0.0),
-          hsvColor.toColor().withOpacity(1.0),
-        ];
-        Gradient gradient = LinearGradient(colors: colors);
-        canvas.drawRect(rect, Paint()..shader = gradient.createShader(rect));
+        canvas.drawRect(
+            rect,
+            Paint()
+              ..shader = LinearGradient(
+                colors: [
+                  hsvColor.toColor().withOpacity(0.0),
+                  hsvColor.toColor().withOpacity(1.0),
+                ],
+              ).createShader(rect));
         break;
     }
   }

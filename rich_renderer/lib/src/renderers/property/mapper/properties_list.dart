@@ -19,3 +19,4 @@ const String gradient = 'gradient';
 const String color = 'color';
 const String stop = 'stop';
 const String textStyle = 'textStyle';
+const String buttonStyle = 'buttonStyle';

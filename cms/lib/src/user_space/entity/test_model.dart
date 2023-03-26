@@ -81,6 +81,6 @@ final Model testModel = Model(
     ],
     [
       FontField(name: 'Font Field'),
-    ]
+    ],
   ],
 );

@@ -8,6 +8,9 @@ String? extractValueAsStringByChain(dynamic object, List<String> keyChain) {
 
 dynamic extractValueByChain(dynamic object, List<String> keyChain) {
   dynamic currentValue = object;
+  if (keyChain.isNotEmpty && keyChain.first == 'products') {
+    print(1);
+  }
   for (int i = 0; i < keyChain.length; i++) {
     final String piece = keyChain[i];
     final int? pieceIndex = int.tryParse(piece);

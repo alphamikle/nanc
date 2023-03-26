@@ -62,14 +62,11 @@ TextStylePropertyWidget textStyleFactory({
   if (arguments.font != null && arguments.font!.trim().isNotEmpty) {
     try {
       if (isCustomFontExist(arguments.font!)) {
-        logg('>>> CUSTOM FONT FOUND: ${arguments.font!}');
         final CustomFont customFont = getCustomFont(arguments.font!);
         effectiveStyle = TextStyle(fontFamily: customFont.font, package: customFont.package);
       } else if (isGoogleFontExist(arguments.font!)) {
-        logg('>>> GOOGLE FONT FOUND: ${arguments.font!}');
         effectiveStyle = GoogleFonts.getFont(arguments.font!);
       } else {
-        logg('>>> CUSTOM FONT NOT FOUND: ${arguments.font!}');
         effectiveStyle = const TextStyle();
       }
     } catch (error) {

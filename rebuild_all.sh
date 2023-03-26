@@ -1,19 +1,19 @@
-bash build.sh ./additions
-bash build.sh ./cms
-bash build.sh ./code_text_field
-bash build.sh ./components
-bash build.sh ./config
-bash build.sh ./fields
-bash build.sh ./file_syncer
-bash build.sh ./fonts
-bash build.sh ./icons
-bash build.sh ./markdown_code_push
-bash build.sh ./markdown_code_push_core
-bash build.sh ./model
-bash build.sh ./nanc_backend
-bash build.sh ./nanc_client
-bash build.sh ./nanc_webrtc
-bash build.sh ./rich_renderer
-bash build.sh ./storybook
-bash build.sh ./tools
-bash build.sh ./ui_kit
+bash build.sh ./additions || exit
+bash build.sh ./cms || exit
+bash build.sh ./code_text_field || exit
+bash build.sh ./components || exit
+bash build.sh ./config || exit
+bash build.sh ./fields || exit
+bash build.sh ./file_syncer || exit
+bash build.sh ./fonts || exit
+bash build.sh ./icons || exit
+bash build.sh ./markdown_code_push || exit
+bash build.sh ./markdown_code_push_core || exit
+bash build.sh ./model || exit
+bash build.sh ./nanc_backend || exit
+bash build.sh ./nanc_client || exit
+bash build.sh ./nanc_webrtc || exit
+bash build.sh ./rich_renderer || exit
+bash build.sh ./storybook || exit
+bash build.sh ./tools || exit
+bash build.sh ./ui_kit || exit

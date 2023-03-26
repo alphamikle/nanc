@@ -3,6 +3,7 @@ import 'package:rich_renderer/rich_renderer.dart';
 
 final RegExp _rangeValuesRegExp = RegExp(r'(?<from>\d+)\.\.\.(?<to>\d+)');
 final RegExp _valuesRegExp = RegExp(r'page.(?<expression>[-\w.]+)');
+final RegExp _embedCycleRegExp = RegExp(r'cycle\(.*\)\(\d+\)\(value:::(?<valueName>.+)\)(?<expression>[-\w.]+)');
 
 class ForValuesParser {
   ForValuesParser({
@@ -41,6 +42,15 @@ class ForValuesParser {
       if (values is Iterable) {
         _values = List.from(values);
       }
+      return;
+    }
+    final RegExpMatch? embedCycleMatch = _embedCycleRegExp.firstMatch(valuesString);
+    if (embedCycleMatch != null) {
+      final dynamic values = ForStorage.findEmbedData(context, valuesString);
+      if (values is Iterable) {
+        _values = List.from(values);
+      }
+      return;
     }
     // TODO(alphamikle): Implement search of complex values in the global storage or values resolver
   }

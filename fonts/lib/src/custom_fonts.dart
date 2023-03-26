@@ -1,19 +1,25 @@
 import 'package:fonts/src/custom_font.dart';
 
-final Map<String, CustomFont> _customFonts = {};
+final Map<String, CustomFont> _fonts = {};
 
-void registerCustomFont(CustomFont font) => _customFonts[font.font] = font;
+List<String> get customFonts {
+  final List<String> customFonts = _fonts.keys.toList();
+  customFonts.sort((String first, String second) => first.compareTo(second));
+  return customFonts;
+}
+
+void registerCustomFont(CustomFont font) => _fonts[font.font] = font;
 
 bool isCustomFontExist(String? font) {
   if (font == null) {
     return false;
   }
-  return _customFonts.keys.contains(font);
+  return _fonts.keys.contains(font);
 }
 
 CustomFont getCustomFont(String font) {
-  assert(_customFonts[font] != null);
-  return _customFonts[font]!;
+  assert(_fonts[font] != null);
+  return _fonts[font]!;
 }
 
 List<CustomFont> findCustomFontsByQuery(String? query) {
@@ -22,7 +28,7 @@ List<CustomFont> findCustomFontsByQuery(String? query) {
   }
   final RegExp regExp = RegExp(query);
   final List<CustomFont> fonts = [];
-  for (final MapEntry<String, CustomFont> entry in _customFonts.entries) {
+  for (final MapEntry<String, CustomFont> entry in _fonts.entries) {
     if (regExp.hasMatch(entry.key)) {
       fonts.add(entry.value);
     }

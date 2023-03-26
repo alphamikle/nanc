@@ -1,4 +1,5 @@
 import 'package:fields/fields.dart';
+import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 
 final Model theNewMainPage = Model(
@@ -17,6 +18,41 @@ final Model theNewMainPage = Model(
     ],
     [
       ScreenField(name: 'Main Page UI'),
+    ],
+
+    /// ? Fonts
+    [
+      HeaderField(name: 'Fonts', contentIcon: IconPackNames.mdi_format_font),
+    ],
+    [
+      FontField(name: 'H1 Font'),
+      FontField(name: 'H3 Font'),
+      FontField(name: 'Body Font'),
+    ],
+    [
+      FontField(name: 'Sub1 Font'),
+      FontField(name: 'Sub3 Font'),
+      FontField(name: 'Primary Button Font'),
+    ],
+
+    /// ? Colors
+    [
+      HeaderField(name: 'Colors', contentIcon: IconPackNames.mdi_palette_swatch_variant),
+    ],
+    [
+      ColorField(name: 'Primary Dark Color'),
+      ColorField(name: 'Primary Light Color'),
+      ColorField(name: 'Secondary Light Color'),
+    ],
+    [
+      ColorField(name: 'Background Color'),
+      ColorField(name: 'Surface Color'),
+      ColorField(name: 'On Surface Color'),
+    ],
+    [
+      ColorField(name: 'Shadow Color'),
+      ColorField(name: 'Surface Color'),
+      ColorField(name: 'Card Background Color'),
     ],
 
     /// ? View Header
@@ -48,7 +84,6 @@ final Model theNewMainPage = Model(
         structure: [
           StringField(name: 'Title'),
           IconField(name: 'Prefix Icon'),
-          IconField(name: 'Suffix Icon'),
           StringField(name: 'Deeplink'),
         ],
       ),

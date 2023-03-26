@@ -3,6 +3,12 @@ import 'package:tools/tools.dart';
 
 final Set<String> _fonts = GoogleFonts.asMap().keys.toSet();
 
+List<String> get googleFonts {
+  final List<String> googleFonts = _fonts.toList();
+  // TODO(alphamikle): Check Sort
+  return googleFonts;
+}
+
 bool isGoogleFontExist(String? font) {
   if (font == null) {
     return false;

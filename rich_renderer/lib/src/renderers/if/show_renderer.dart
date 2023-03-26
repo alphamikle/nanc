@@ -66,6 +66,9 @@ Work logic:
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
       final ShowArguments arguments = ShowArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      if (element.attributes['id'] == 'test') {
+        print(1);
+      }
       if (arguments.show ?? false) {
         return compactWidgets(extractor.children);
       }

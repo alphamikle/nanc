@@ -4,8 +4,8 @@ publish_to: 'none'
 version: 1.0.0+24
 
 environment:
-  sdk: '>=3.0.0-201.0.dev <4.0.0'
-  flutter: '>=3.8.0-4.0.pre.9'
+  sdk: '>=2.19.5 <4.0.0'
+  flutter: '>=3.7.8'
 
 dependencies:
   flutter:
@@ -42,7 +42,7 @@ dependencies:
   json_annotation: ^4.8.0
   copy_with_extension: ^5.0.0
   path_provider: ^2.0.12
-  path: ^1.8.3
+  path: ^1.8.2
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +72,12 @@ flutter:
           weight: 300
         - asset: assets/fonts/helvetica_bold.ttf
           weight: 500
+    - family: Helvetica Neue
+      fonts:
+        - asset: assets/fonts/helvetica_neue_wide.ttf
+          weight: 400
+        - asset: assets/fonts/helvetica_neue_light.ttf
+          weight: 300
 
 # flutter pub run flutter_launcher_icons
 flutter_icons:

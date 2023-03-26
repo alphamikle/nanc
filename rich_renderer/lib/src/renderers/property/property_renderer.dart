@@ -9,6 +9,7 @@ import 'package:rich_renderer/src/renderers/property/properties/border/border_ar
 import 'package:rich_renderer/src/renderers/property/properties/border/border_property_widget.dart';
 import 'package:rich_renderer/src/renderers/property/properties/border_radius/border_radius_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/properties/border_radius/border_radius_property_widget.dart';
+import 'package:rich_renderer/src/renderers/property/properties/button_style/button_style_factory.dart';
 import 'package:rich_renderer/src/renderers/property/properties/color/color_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/properties/color/color_property_widget.dart';
 import 'package:rich_renderer/src/renderers/property/properties/decoration/decoration_factory.dart';
@@ -40,6 +41,7 @@ List<Property> properties() => [
       Property(stop),
       Property.withChildren(gradient),
       Property(textStyle),
+      Property(buttonStyle),
       // TODO(alphamikle): Add new properties here
     ];
 
@@ -64,7 +66,7 @@ Future<TagRendererFactory> propertyToRenderer(Property property) async {
       example: '',
       builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
         final Json arguments = element.attributes;
-        final ThemeData theme = Theme.of(context);
+        final ThemeData theme = context.theme;
 
         final Map<String, PropertyWidgetFactory> factories = {
           alignment: () => AlignmentPropertyWidget(name: alignment, property: AlignmentArguments.fromJson(arguments).toAlignment()),
@@ -81,6 +83,7 @@ Future<TagRendererFactory> propertyToRenderer(Property property) async {
           gradient: () => gradientFactory(context: context, name: gradient, element: element, richRenderer: richRenderer),
           decoration: () => decorationFactory(context: context, name: decoration, element: element, richRenderer: richRenderer),
           textStyle: () => textStyleFactory(context: context, name: textStyle, element: element, richRenderer: richRenderer),
+          buttonStyle: () => buttonStyleFactory(context: context, name: buttonStyle, element: element, richRenderer: richRenderer),
           // TODO(alphamikle): Add new properties here
         };
 
