@@ -10,6 +10,7 @@ import 'package:nanc_backend/api/page_api_implementation.dart';
 import 'package:nanc_backend/api/page_list_api_implementation.dart';
 import 'package:nanc_backend/connection_manager/logic/connection_manager_bloc.dart';
 import 'package:nanc_backend/connection_manager/ui/view/webrtc_connection_manager_overlay.dart';
+import 'package:nanc_backend/models/another_example.dart';
 import 'package:nanc_backend/models/bullet.dart';
 import 'package:nanc_backend/models/developer.dart';
 import 'package:nanc_backend/models/feature.dart';
@@ -17,7 +18,6 @@ import 'package:nanc_backend/models/image.dart';
 import 'package:nanc_backend/models/landing_page.dart';
 import 'package:nanc_backend/models/position.dart';
 import 'package:nanc_backend/models/review.dart';
-import 'package:nanc_backend/models/the_new_main_page.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
 import 'package:tools/tools.dart';
 
