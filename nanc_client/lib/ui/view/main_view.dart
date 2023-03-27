@@ -76,6 +76,7 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: BlocBuilder<PageBloc, PageState>(
         builder: (BuildContext context, PageState state) {
           final Widget preloader = Center(

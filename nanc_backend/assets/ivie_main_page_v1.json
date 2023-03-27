@@ -1,0 +1,103 @@
+[
+ {
+  "id": "ivie_main_page_v1",
+  "main_page_ui": {
+   "content": "<data id=\"gap\"\n      x1=\"4\"\n      x2=\"8\"\n      x3=\"16\"\n      x4=\"20\"\n      x5=\"24\"\n      x6=\"30\"\n/>\n\n<!--! ================================================== TEMPLATES-->\n<template id=\"text.h1\">\n  <text color=\"{{ page.primary_dark_color }}\">\n    <prop:textStyle font=\"{{ page.h1_font }}\" size=\"41\" weight=\"bold\"/>\n    {{ template.text }}\n  </text>\n</template>\n\n<template id=\"text.h3\">\n  <text color=\"{{ page.primary_dark_color }}\">\n    <prop:textStyle font=\"{{ page.h3_font }}\" size=\"29\" weight=\"bold\" color=\"{{ template.color }}\"/>\n    {{ template.text }}\n  </text>\n</template>\n\n<template id=\"text.sub1\">\n  <text>\n    <prop:textStyle font=\"{{ page.sub1_font }}\" size=\"20\" weight=\"w700\" color=\"{{ template.color }}\"/>\n    {{ template.text }}\n  </text>\n</template>\n\n<template id=\"text.sub3\">\n  <text>\n    <prop:textStyle font=\"{{ page.sub3_font }}\" size=\"16\" weight=\"w500\" color=\"{{ template.color }}\"/>\n    {{ template.text }}\n  </text>\n</template>\n\n<template id=\"text.body\">\n  <text>\n    <prop:textStyle font=\"{{ page.body_font }}\" size=\"16\" weight=\"w400\" color=\"{{ template.color }}\"/>\n    {{ template.text }}\n  </text>\n</template>\n\n<template id=\"button.primary\">\n  <stack>\n    <container>\n      <prop:decoration color=\"{{ page.primary_light_color }}\">\n        <prop:borderRadius all=\"8\"/>\n      </prop:decoration>\n      <padding left=\"16\" top=\"12\" right=\"12\" bottom=\"12\">\n        <row>\n          <show show=\"{{ template.icon }}\">\n            <padding right=\"12\">\n              <icon icon=\"{{ template.icon }}\" color=\"{{ page.primary_dark_color }}\"/>\n            </padding>\n          </show>\n          <expanded>\n            <text align=\"{{ template.titleAlign }}\">\n              <prop:textStyle font=\"{{ page.primary_button_font }}\" size=\"18\" color=\"{{ page.primary_dark_color }}\"/>\n              {{ template.title }}\n            </text>\n          </expanded>\n          <show show=\"{{ template.hasSuffix }}\">\n            <icon icon=\"flu_chevron_right_filled\" color=\"{{ page.primary_dark_color }}\"/>\n          </show>\n        </row>\n      </padding>\n    </container>\n    <positioned all=\"0\">\n      <material type=\"transparency\">\n        <prop:borderRadius all=\"8\"/>\n        <inkWell onPressed=\"deeplink: {{ template.deeplink }}\">\n          <prop:borderRadius all=\"8\"/>\n        </inkWell>\n      </material>\n    </positioned>\n  </stack>\n</template>\n\n<template id=\"card.result.indicator\">\n  <container>\n    <prop:decoration color=\"{{ template.backgroundColor }}\">\n      <prop:borderRadius all=\"4\"/>\n    </prop:decoration>\n    <padding all=\"{{ data(gap).x2 }}\">\n      <row>\n        <container size=\"16\">\n          <prop:decoration color=\"{{ template.dotColor }}\">\n            <prop:borderRadius all=\"16\"/>\n          </prop:decoration>\n        </container>\n        <sizedBox width=\"{{ data(gap).x1 }}\">\n        </sizedBox>\n        <text>\n          <prop:textStyle color=\"{{ page.primary_dark_color }}\" font=\"{{ page.primary_button_font }}\" weight=\"bold\"/>\n          {{ template.text }}\n        </text>\n      </row>\n    </padding>\n  </container>\n</template>\n\n<template id=\"card.result\">\n  <container>\n    <prop:decoration color=\"{{ page.surface_color }}\">\n      <prop:borderRadius all=\"8\"/>\n      <prop:shadow color=\"#25000000\" offsetY=\"2\" spreadRadius=\"-2\" blurRadius=\"8\"/>\n    </prop:decoration>\n    <padding left=\"{{ data(gap).x4 }}\" top=\"{{ data(gap).x5 }}\" right=\"{{ data(gap).x4 }}\" bottom=\"{{ data(gap).x5 }}\">\n      <column crossAxisAlignment=\"start\">\n        <component id=\"text.sub1\" text=\"{{ template.name }}\"/>\n        <sizedBox height=\"{{ data(gap).x1 }}\">\n        </sizedBox>\n        <component id=\"text.body\" text=\"{{ template.date }}\"/>\n        <sizedBox height=\"{{ data(gap).x1 }}\">\n        </sizedBox>\n        <component id=\"text.body\" text=\"{{ template.subtitle }}\"/>\n        <sizedBox height=\"{{ data(gap).x3 }}\">\n        </sizedBox>\n        <show show=\"{{ template.inRange }}\">\n          <padding bottom=\"{{ data(gap).x3 }}\">\n            <row>\n              <component id=\"card.result.indicator\" text=\"In range\" backgroundColor=\"#FFE2EBCC\" dotColor=\"#FF09875D\"/>\n              <sizedBox width=\"{{ data(gap).x2 }}\">\n              </sizedBox>\n              <component id=\"text.body\" text=\"{{ template.inRange }}\"/>\n            </row>\n          </padding>\n        </show>\n        <show show=\"{{ template.outOfRange }}\">\n          <padding bottom=\"{{ data(gap).x3 }}\">\n            <row>\n              <component id=\"card.result.indicator\" text=\"Out of range\" backgroundColor=\"#FFFFE2A9\"\n                         dotColor=\"#FF965310\"/>\n              <sizedBox width=\"{{ data(gap).x2 }}\">\n              </sizedBox>\n              <component id=\"text.body\" text=\"{{ template.outOfRange }}\"/>\n            </row>\n          </padding>\n        </show>\n        <show show=\"{{ template.uninterpreted }}\">\n          <padding bottom=\"{{ data(gap).x3 }}\">\n            <row>\n              <component id=\"card.result.indicator\" text=\"Uninterpreted\" backgroundColor=\"#FFE2E0E0\"\n                         dotColor=\"#FF979797\"/>\n              <sizedBox width=\"{{ data(gap).x2 }}\">\n              </sizedBox>\n              <component id=\"text.body\" text=\"{{ template.uninterpreted }}\"/>\n            </row>\n          </padding>\n        </show>\n        <sizedBox height=\"{{ data(gap).x2 }}\">\n        </sizedBox>\n        <component id=\"button.primary\" title=\"View more\" titleAlign=\"center\" deeplink=\"/results\"/>\n      </column>\n    </padding>\n  </container>\n</template>\n\n<template id=\"card.product\">\n  <aspectRatio ratio=\"0.7\">\n    <padding bottom=\"{{ data(gap).x2 }}\">\n      <stack>\n        <container>\n          <prop:decoration color=\"{{ page.card_background_color }}\">\n            <prop:borderRadius all=\"24\"/>\n            <prop:shadow color=\"{{ page.shadow_color }}\" offsetY=\"4\" blurRadius=\"4\" spreadRadius=\"-2\"/>\n          </prop:decoration>\n          <column crossAxisAlignment=\"stretch\">\n            <expanded>\n              <padding top=\"{{ data(gap).x3 }}\" bottom=\"{{ data(gap).x3 }}\">\n                <center>\n                  <stack>\n                    <positioned all=\"0\">\n                      <container>\n                        <prop:decoration>\n                          <prop:shadow color=\"{{ page.shadow_color }}\" offsetY=\"3\" offsetX=\"6\" blurRadius=\"0\"\n                                       spreadRadius=\"-10\"/>\n                        </prop:decoration>\n                      </container>\n                    </positioned>\n                    <image ref=\"{{ template.image }}\"/>\n                  </stack>\n                </center>\n              </padding>\n            </expanded>\n            <container color=\"{{ page.secondary_light_color }}\">\n              <prop:decoration>\n                <prop:borderRadius bottomLeft=\"24\" bottomRight=\"24\"/>\n              </prop:decoration>\n              <padding top=\"{{ data(gap).x2 }}\" bottom=\"{{ data(gap).x2 }}\">\n                <column>\n                  <component id=\"text.sub3\" text=\"{{ template.title }}\"/>\n                  <component id=\"text.body\" text=\"{{ template.price }}\"/>\n                </column>\n              </padding>\n            </container>\n          </column>\n        </container>\n        <positioned all=\"0\">\n          <material type=\"transparency\">\n            <prop:borderRadius all=\"24\"/>\n            <inkWell onPressed=\"deeplink: {{ template.deeplink }}\">\n              <prop:borderRadius all=\"24\"/>\n            </inkWell>\n          </material>\n        </positioned>\n      </stack>\n    </padding>\n  </aspectRatio>\n</template>\n\n<!--! ================================================== CONTENT-->\n<!--? HEADER-->\n<container>\n  <prop:decoration color=\"{{ page.background_color }}\">\n  </prop:decoration>\n\n  <safeArea>\n    <padding left=\"{{ data(gap).x4 }}\" right=\"{{ data(gap).x4 }}\" bottom=\"{{ data(gap).x2 }}\">\n      <component id=\"text.h1\" text=\"{{ page.view_title }} {{ page.username }}\"/>\n    </padding>\n    <padding left=\"{{ data(gap).x4 }}\" right=\"{{ data(gap).x4 }}\">\n      <component id=\"text.body\" text=\"{{ page.view_subtitle }}\"/>\n    </padding>\n  </safeArea>\n  <stack>\n    <positioned all=\"0\">\n      <container color=\"{{ page.background_color }}\">\n      </container>\n    </positioned>\n    <container height=\"22\" width=\"1000\">\n      <prop:decoration color=\"{{ page.surface_color }}\">\n        <prop:borderRadius topLeft=\"20\" topRight=\"20\"/>\n      </prop:decoration>\n    </container>\n  </stack>\n</container>\n\n<!--? SUB-HEADER-->\n<padding left=\"{{ data(gap).x4 }}\" right=\"{{ data(gap).x4 }}\" bottom=\"{{ data(gap).x5 }}\">\n  <column crossAxisAlignment=\"start\">\n    <component id=\"text.h3\" text=\"{{ page.secondary_title }}\" color=\"{{ page.on_surface_color }}\"/>\n    <sizedBox height=\"{{ data(gap).x2 }}\">\n    </sizedBox>\n    <component id=\"text.body\" text=\"{{ page.secondary_subtitle }}\"/>\n  </column>\n</padding>\n\n<!--? ACTION BUTTONS-->\n<for valueName=\"button\" in=\"{{ page.action_buttons }}\">\n  <padding left=\"{{ data(gap).x4 }}\" right=\"{{ data(gap).x4 }}\" bottom=\"{{ data(gap).x4 }}\">\n    <component id=\"button.primary\"\n               title=\"{{ cycle.button.title }}\"\n               icon=\"{{ cycle.button.prefix_icon }}\"\n               deeplink=\"{{ cycle.button.deeplink }}\"\n               hasSuffix=\"true\"\n    />\n  </padding>\n</for>\n\n<!--? RESULTS-->\n<show show=\"{{ page.results_details.0 }}\">\n  <padding bottom=\"{{ data(gap).x6 }}\">\n    <container color=\"{{ page.background_color }}\">\n      <padding all=\"{{ data(gap).x4 }}\">\n        <column>\n          <row>\n            <expanded>\n              <component id=\"text.h3\" text=\"{{ page.results_header_title }}\" color=\"{{ page.on_surface_color }}\"/>\n            </expanded>\n            <textButton text=\"View all >\" onPressed=\"/tests\">\n              <prop:buttonStyle foregroundColor=\"{{ page.primary_dark_color }}\"/>\n            </textButton>\n          </row>\n          <sizedBox height=\"{{ data(gap).x5 }}\">\n          </sizedBox>\n          <component id=\"card.result\"\n                     name=\"{{ page.results_details.0.title }}\"\n                     date=\"{{ page.results_details.0.date }}\"\n                     subtitle=\"{{ page.results_details.0.subtitle }} {{ page.results_details.0.doctor }}\"\n                     inRange=\"{{ page.results_details.0.in_range }} {{ page.results_details.0.biomarkers_suffix }}\"\n                     outOfRange=\"{{ page.results_details.0.out_of_range }} {{ page.results_details.0.biomarkers_suffix }}\"\n                     uninterpreted=\"{{ page.results_details.0.uninterpreted }} {{ page.results_details.0.biomarkers_suffix }}\"\n          />\n        </column>\n      </padding>\n    </container>\n  </padding>\n</show>\n\n<!--? PRODUCTS HEADER-->\n<padding left=\"{{ data(gap).x4 }}\" right=\"{{ data(gap).x4 }}\" bottom=\"{{ data(gap).x3 }}\">\n  <column crossAxisAlignment=\"start\">\n    <component id=\"text.h3\" text=\"{{ page.tests_title }}\" color=\"{{ page.on_surface_color }}\"/>\n    <sizedBox height=\"{{ data(gap).x2 }}\">\n    </sizedBox>\n    <component id=\"text.body\" text=\"{{ page.tests_subtitle }}\" color=\"{{ page.on_surface_color }}\"/>\n  </column>\n</padding>\n\n<!--? PRODUCTS-->\n<for valueName=\"group\" in=\"{{ page.tests_groups }}\">\n  <column crossAxisAlignment=\"start\">\n    <padding left=\"{{ data(gap).x4 }}\" right=\"{{ data(gap).x4 }}\" bottom=\"{{ data(gap).x4 }}\">\n      <component id=\"text.sub1\" text=\"{{ cycle.group.title }}\" color=\"{{ page.primary_dark_color }}\"/>\n    </padding>\n    <sizedBox height=\"280\">\n      <listView axis=\"horizontal\">\n        <for valueName=\"product\" indexName=\"productIndex\" in=\"{{ cycle.group.products }}\">\n          <show show=\"{{ cycle.productIndex }}\">\n            <padding right=\"{{ data(gap).x3 }}\">\n              <component id=\"card.product\"\n                         title=\"{{ cycle.product.title }}\"\n                         image=\"{{ cycle.product.image_path }}\"\n                         price=\"{{ cycle.product.price }}\"\n                         deeplink=\"{{ cycle.product.deeplink }}\"/>\n            </padding>\n          </show>\n          <show notShow=\"{{ cycle.productIndex }}\">\n            <padding left=\"{{ data(gap).x3 }}\" right=\"{{ data(gap).x3 }}\">\n              <component id=\"card.product\"\n                         title=\"{{ cycle.product.title }}\"\n                         image=\"{{ cycle.product.image_path }}\"\n                         price=\"{{ cycle.product.price }}\"\n                         deeplink=\"{{ cycle.product.deeplink }}\"/>\n            </padding>\n          </show>\n        </for>\n      </listView>\n    </sizedBox>\n    <sizedBox height=\"{{ data(gap).x5 }}\">\n    </sizedBox>\n\n    <padding left=\"{{ data(gap).x4 }}\" right=\"{{ data(gap).x4 }}\">\n      <component id=\"button.primary\"\n                 title=\"{{ cycle.group.button_title }}\"\n                 deeplink=\"{{ cycle.group.button_deeplink }}\"\n                 titleAlign=\"center\"/>\n    </padding>\n  </column>\n</for>\n\n<sizedBox height=\"{{ data(gap).x6 }}\">\n</sizedBox>",
+   "contentType": "scrollable",
+   "fieldType": "screenContent"
+  },
+  "h1_font": "Blazeface",
+  "h3_font": "Blazeface",
+  "body_font": "Helvetica",
+  "sub1_font": "Helvetica",
+  "sub3_font": "Helvetica",
+  "primary_button_font": "Helvetica",
+  "primary_dark_color": "#FF0E310F",
+  "primary_light_color": "#FFF8E223",
+  "secondary_light_color": "#FFE3BE1F",
+  "background_color": "#FFEDF2ED",
+  "surface_color": "#FFFFFFFF",
+  "on_surface_color": "#FF333333",
+  "shadow_color": "#4D323232",
+  "card_background_color": "#FFF5F5F5",
+  "view_title": "Hi, ",
+  "username": "Mark",
+  "view_subtitle": "Welcome to Ivie Wellness",
+  "secondary_title": "Get started",
+  "secondary_subtitle": "Take the first steps towards improving your wellness.",
+  "action_buttons": [
+   {
+    "title": "Tell us your goals",
+    "prefix_icon": "flu_emoji_smile_slight_regular",
+    "deeplink": "/goals"
+   },
+   {
+    "title": "Register a test",
+    "prefix_icon": "mdi_square_edit_outline",
+    "deeplink": "/tests"
+   },
+   {
+    "title": "Speak to an expert ",
+    "prefix_icon": "mdi_calendar_blank_outline",
+    "deeplink": "/speak_to_expert"
+   }
+  ],
+  "results_header_title": "Your results",
+  "results_header_button_title": "View all",
+  "results_header_button_deeplink": "/results",
+  "results_details": [
+   {
+    "title": "General health",
+    "date": "14th June 2022",
+    "subtitle": "Reviewed by",
+    "doctor": "Dr. J. Smith",
+    "in_range": 11,
+    "out_of_range": 0,
+    "uninterpreted": 0,
+    "biomarkers_suffix": "biomarkers"
+   }
+  ],
+  "tests_title": "Find a test",
+  "tests_subtitle": "Discover all our at-home blood tests and order online for delivery straight to your door.",
+  "tests_groups": [
+   {
+    "title": "General health",
+    "button_title": "Buy tests",
+    "button_deeplink": "https://buy.com",
+    "products": [
+     {
+      "title": "General health",
+      "image_path": "https://nanc.b-cdn.net/product_image.png",
+      "price": "£79.99",
+      "deeplink": "https://product.com"
+     },
+     {
+      "title": "Iron",
+      "image_path": "https://nanc.b-cdn.net/product_image.png",
+      "price": "£59.99",
+      "deeplink": "https://product.com"
+     }
+    ]
+   },
+   {
+    "title": "Hormones",
+    "button_title": "Buy tests",
+    "button_deeplink": "https://buy.com",
+    "products": [
+     {
+      "title": "Thyroid",
+      "image_path": "https://nanc.b-cdn.net/product_image.png",
+      "price": "£39.99",
+      "deeplink": "https://product.com"
+     },
+     {
+      "title": "Testosterone",
+      "image_path": "https://nanc.b-cdn.net/product_image.png",
+      "price": "£39.99",
+      "deeplink": "https://product.com"
+     }
+    ]
+   }
+  ]
+ }
+]

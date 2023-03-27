@@ -23,7 +23,6 @@ flutter build web \
 --dart-define=ANALYTICS_KEY="$NANC_ANALYTICS_KEY" \
 --dart-define=ANALYTICS_PROJECT=client_web \
 --no-tree-shake-icons \
---bundle-sksl-path flutter_01.sksl.json \
 
 # ? Need to precompile shaders before each build!
 # ? https://docs.flutter.dev/perf/shader

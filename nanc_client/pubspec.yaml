@@ -1,7 +1,7 @@
 name: nanc_client
 description: NANC project demo client
 publish_to: 'none'
-version: 1.0.0+31
+version: 1.0.0+33
 
 environment:
   sdk: '>=2.19.5 <4.0.0'
@@ -31,6 +31,8 @@ dependencies:
   analytics:
     path: ../analytics
   cupertino_icons: ^1.0.5
+  fonts:
+    path: ../fonts
   bloc: ^8.1.1
   flutter_bloc: ^8.1.2
   equatable: ^2.0.5
@@ -63,6 +65,25 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/fonts/
+  fonts:
+    - family: Blazeface
+      fonts:
+        - asset: assets/fonts/blazeface.ttf
+    - family: Helvetica
+      fonts:
+        - asset: assets/fonts/helvetica.ttf
+          weight: 400
+        - asset: assets/fonts/helvetica_light.ttf
+          weight: 300
+        - asset: assets/fonts/helvetica_bold.ttf
+          weight: 500
+    - family: Helvetica Neue
+      fonts:
+        - asset: assets/fonts/helvetica_neue_wide.ttf
+          weight: 400
+        - asset: assets/fonts/helvetica_neue_light.ttf
+          weight: 300
 
 # flutter pub run flutter_launcher_icons
 flutter_icons:
