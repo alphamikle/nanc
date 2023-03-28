@@ -7,6 +7,8 @@ bash build.sh ./fields || exit
 bash build.sh ./file_syncer || exit
 bash build.sh ./fonts || exit
 bash build.sh ./icons || exit
+bash build.sh ./liquid || exit
+bash build.sh ./liquid_parser || exit
 bash build.sh ./markdown_code_push || exit
 bash build.sh ./markdown_code_push_core || exit
 bash build.sh ./model || exit
