@@ -8,7 +8,7 @@ import 'package:tools/tools.dart';
 typedef MarkdownFormatter = String Function(BuildContext context, String rawMarkdown);
 typedef WidgetsFilter = void Function(Widget nodeWidget, List<Widget> output);
 
-class MarkdownGenerator {
+class MarkdownGenerator implements MarkdownGeneratorV2 {
   MarkdownGenerator({
     required this.context,
     required this.data,

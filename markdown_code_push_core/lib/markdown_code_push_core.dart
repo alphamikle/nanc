@@ -4,3 +4,4 @@ export 'src/config/style_config.dart';
 export 'src/config/widget_config.dart';
 export 'src/tags/markdown_tags.dart';
 export 'src/widgets_factory/markdown_generator.dart';
+export 'src/widgets_factory/markdown_generator_v2.dart' show MarkdownGeneratorV2;
