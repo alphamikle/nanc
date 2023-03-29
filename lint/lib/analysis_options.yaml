@@ -5,17 +5,17 @@ include: package:flutter_lints/flutter.yaml
 # https://dart-lang.github.io/linter/lints/index.html
 
 analyzer:
-  enable-experiment:
-    - value-class
-    - extension-types
-    - const-functions
-    - macros
-    - inference-update-2
-    - records
-    - patterns
-    - inline-class
-    - sealed-class
-    - class-modifiers
+#  enable-experiment:
+#    - value-class
+#    - extension-types
+#    - const-functions
+#    - macros
+#    - inference-update-2
+#    - records
+#    - patterns
+#    - inline-class
+#    - sealed-class
+#    - class-modifiers
   errors:
     todo: warning
     missing_return: error

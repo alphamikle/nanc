@@ -1,74 +1,56 @@
 import 'package:flutter/material.dart';
-import 'package:markdown_code_push/src/mapper/tag_mapper.dart';
-import 'package:markdown_code_push/src/tools/markup_sanitizer.dart';
-import 'package:markdown_code_push_core/markdown_code_push_core.dart';
-import 'package:rich_renderer/rich_renderer.dart';
+import 'package:renderer/src/domain/logic/template_logic/for_storage.dart';
+import 'package:renderer/src/domain/logic/template_logic/image_builder_delegate.dart';
+import 'package:renderer/src/domain/logic/template_logic/local_data.dart';
+import 'package:renderer/src/domain/logic/template_logic/page_data.dart';
+import 'package:renderer/src/domain/logic/template_logic/template_storage.dart';
+import 'package:renderer/src/domain/logic/widgets_xml_generator/widgets_xml_generator.dart';
 import 'package:tools/tools.dart';
 
-class RichMarkdownList extends StatelessWidget {
-  const RichMarkdownList({
-    required this.markdownContent,
-    required this.renderer,
-    required this.pageData,
+typedef DataContext = Map<String, dynamic>;
+
+class XmlWidgetsList extends StatelessWidget {
+  factory XmlWidgetsList({
+    required String xmlContent,
+    required DataContext dataContext,
+    WidgetsXmlGenerator? generator,
+    Widget? preloader,
+    ScrollController? scrollController,
+    final ImageLoadingBuilder? imageLoadingBuilder,
+    final ImageErrorWidgetBuilder? imageErrorBuilder,
+    final ImageFrameBuilder? imageFrameBuilder,
+    Key? key,
+  }) {
+    return XmlWidgetsList._(
+      dataContext: dataContext,
+      generator: generator ?? defaultWidgetsXmlGeneratorFactory(xmlContent),
+      preloader: preloader,
+      scrollController: scrollController,
+      imageLoadingBuilder: imageLoadingBuilder,
+      imageErrorBuilder: imageErrorBuilder,
+      imageFrameBuilder: imageFrameBuilder,
+      key: key,
+    );
+  }
+
+  const XmlWidgetsList._({
+    required this.dataContext,
+    required this.generator,
     this.preloader,
     this.scrollController,
-    this.widgetsFilter,
     this.imageLoadingBuilder,
     this.imageErrorBuilder,
     this.imageFrameBuilder,
     super.key,
   });
 
-  final String markdownContent;
-  final TagsRenderer renderer;
+  final WidgetsXmlGenerator generator;
   final ScrollController? scrollController;
   final Widget? preloader;
-  final Map<String, dynamic> pageData;
-  final WidgetsFilter? widgetsFilter;
+  final DataContext dataContext;
   final ImageLoadingBuilder? imageLoadingBuilder;
   final ImageErrorWidgetBuilder? imageErrorBuilder;
   final ImageFrameBuilder? imageFrameBuilder;
-
-  String get sanitizedMarkup => sanitizeMarkup(markdownContent);
-
-  Future<RichRenderer> get richRenderer async {
-    // TODO(alphamikle): Fill WidgetConfig params for both instances, here and below
-    final RichRenderer richRenderer = RichRenderer(widgetConfig: WidgetConfig());
-    final List<TagRendererFactory> renderers = await renderer.renderers;
-    for (final TagRendererFactory factory in renderers) {
-      richRenderer.registerRenderer(await factory());
-    }
-    return richRenderer;
-  }
-
-  Future<XmlGenerator> createGenerator(BuildContext context) async {
-    final RichRenderer richRenderer = await this.richRenderer;
-
-    // ignore: use_build_context_synchronously
-    return XmlGenerator(
-      widgetsBuilder: TagsBuilder(
-        builders:
-      ),
-      context: context,
-      data: sanitizedMarkup,
-      // TODO(alphamikle): Style usual tags
-      // ignore: use_build_context_synchronously
-      widgetConfig: createRichWidgetConfig(
-        context: context,
-        richRenderer: richRenderer,
-      ),
-      // ignore: use_build_context_synchronously
-      styleConfig: createRichStyleConfig(
-        context: context,
-        richRenderer: richRenderer,
-      ),
-      blockSyntaxes: [
-        ...richRenderer.builders.values.map(tagRendererToBlockSyntax),
-      ],
-      formatters: [],
-      widgetsFilter: widgetsFilter,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +60,7 @@ class RichMarkdownList extends StatelessWidget {
       frameBuilder: imageFrameBuilder,
       child: ForStorage(
         child: PageData(
-          data: pageData,
+          data: dataContext,
           child: LocalData(
             // ignore: prefer_const_literals_to_create_immutables
             data: {},

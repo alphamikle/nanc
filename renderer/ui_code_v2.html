@@ -1,0 +1,34 @@
+<padding bottom="{{ data(gap).x6 }}">
+  <container color="{{ page.background_color }}">
+    <padding all="{{ data(gap).x4 }}">
+      <column>
+        <row>
+          <expanded>
+            <component id="text.h3" text="{{ page.results_header_title }}"
+                       color="{{ page.on_surface_color }}"/>
+          </expanded>
+          <textButton onPressed="/TODO">
+            <prop:buttonStyle foregroundColor="{{ page.primary_dark_color }}"/>
+            <row>
+              <padding bottom="1">
+                <text>
+                  View all
+                </text>
+              </padding>
+              <icon icon="mdi_chevron_right"/>
+            </row>
+          </textButton>
+        </row>
+        <divider height="{{ data(gap).x5 }}"/>
+        <component id="card.result"
+                   name="{{ page.result_details.0.title }}"
+                   date="{{ page.result_details.0.date }}"
+                   subtitle="{{ page.result_details.0.subtitle }}"
+                   inRange="{{ page.result_details.0.in_range }} {{ page.result_details.0.biomarker_suffix }}"
+                   outOfRange="{{ page.result_details.0.out_of_range }} {{ page.result_details.0.biomarker_suffix }}"
+                   uninterpreted="{{ page.result_details.0.uninterpreted }} {{ page.result_details.0.biomarker_suffix }}"
+        />
+      </column>
+    </padding>
+  </container>
+</padding>
