@@ -29,8 +29,6 @@ class RichMarkdownList extends StatelessWidget {
   final ImageErrorWidgetBuilder? imageErrorBuilder;
   final ImageFrameBuilder? imageFrameBuilder;
 
-  String get sanitizedMarkup => sanitizeMarkup(markdownContent);
-
   Future<RichRenderer> get richRenderer async {
     // TODO(alphamikle): Fill WidgetConfig params for both instances, here and below
     final RichRenderer richRenderer = RichRenderer(widgetConfig: WidgetConfig());
@@ -41,28 +39,42 @@ class RichMarkdownList extends StatelessWidget {
     return richRenderer;
   }
 
-  Future<MarkdownGenerator> createGenerator(BuildContext context) async {
+  Future<MarkdownGeneratorV2> createGenerator(BuildContext context) async {
     final RichRenderer richRenderer = await this.richRenderer;
+    final bool useOld = false;
+
+    if (useOld) {
+      return MarkdownGeneratorV2.old(
+        context: context,
+        data: sanitizeMarkup(markdownContent),
+        // TODO(alphamikle): Style usual tags
+        // ignore: use_build_context_synchronously
+        widgetConfig: createRichWidgetConfig(
+          context: context,
+          richRenderer: richRenderer,
+        ),
+        // ignore: use_build_context_synchronously
+        styleConfig: createRichStyleConfig(
+          context: context,
+          richRenderer: richRenderer,
+        ),
+        blockSyntaxes: [
+          ...richRenderer.builders.values.map(tagRendererToBlockSyntax),
+        ],
+        widgetsFilter: widgetsFilter,
+      );
+    }
 
     // ignore: use_build_context_synchronously
-    return MarkdownGenerator(
+    return MarkdownGeneratorV2(
       context: context,
-      data: sanitizedMarkup,
+      data: markdownContent,
       // TODO(alphamikle): Style usual tags
       // ignore: use_build_context_synchronously
       widgetConfig: createRichWidgetConfig(
         context: context,
         richRenderer: richRenderer,
       ),
-      // ignore: use_build_context_synchronously
-      styleConfig: createRichStyleConfig(
-        context: context,
-        richRenderer: richRenderer,
-      ),
-      blockSyntaxes: [
-        ...richRenderer.builders.values.map(tagRendererToBlockSyntax),
-      ],
-      formatters: [],
       widgetsFilter: widgetsFilter,
     );
   }
@@ -92,10 +104,10 @@ class RichMarkdownList extends StatelessWidget {
                           ),
                         );
                     try {
-                      return FutureBuilder<MarkdownGenerator>(
+                      return FutureBuilder<MarkdownGeneratorV2>(
                         // ignore: discarded_futures
                         future: createGenerator(context),
-                        builder: (BuildContext context, AsyncSnapshot<MarkdownGenerator> asyncGenerator) {
+                        builder: (BuildContext context, AsyncSnapshot<MarkdownGeneratorV2> asyncGenerator) {
                           if (asyncGenerator.hasError) {
                             return ErrorWidget(asyncGenerator.error!);
                           }

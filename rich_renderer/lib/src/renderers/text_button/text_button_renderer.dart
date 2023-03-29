@@ -13,7 +13,7 @@ TagRenderer textButtonRenderer() {
   return TagRenderer(
     icon: IconPack.flu_text_case_lowercase_filled,
     // TODO(alphamikle): Here is a some problem with that tag. Maybe it is forbidden???
-    tag: r'$textButton',
+    tag: r'textButton',
     pattern: RegExp(r'<textButton.*>'),
     endPattern: RegExp('</textButton>'),
     description: TagDescription(

@@ -32,6 +32,9 @@ class RichRenderer {
     }
     final List<Widget> children = [];
     for (final md.Node node in nodes) {
+      if (node is md.UnparsedContent) {
+        continue;
+      }
       if (node is md.Element && isRendererRegistered(node.tag)) {
         final md.Element newNode = await Substitutor.enrichElement(context: context, node: node);
         // ignore: use_build_context_synchronously
@@ -40,7 +43,7 @@ class RichRenderer {
           forWidgetFilter(child, children);
         }
       } else {
-        final Widget? standardTagWidget = await MarkdownGenerator.renderStandardTag(widgetConfig: widgetConfig, node: node);
+        final Widget? standardTagWidget = await MarkdownGeneratorV2.renderStandardTag(widgetConfig: widgetConfig, node: node);
         children.add(
           standardTagWidget ??
               ColoredBox(
