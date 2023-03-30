@@ -40,7 +40,7 @@ class _PagePreviewState extends State<PagePreview> {
         builder: (BuildContext context, BaseEntityPageState pageState) {
           return BlocBuilder<PreviewBloc, PreviewState>(
             builder: (BuildContext context, PreviewState previewState) {
-              return RichMarkdownList(
+              return XmlWidgetsSliverList(
                 scrollController: context.read<PreviewBloc>().scrollController,
                 markdownContent: previewState.markdownContent,
                 pageData: pageState.data,

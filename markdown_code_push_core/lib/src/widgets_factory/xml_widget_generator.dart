@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:markdown_code_push_core/markdown_code_push_core.dart';
 import 'package:markdown_code_push_core/src/widgets_factory/xml_node_extensions.dart';
 import 'package:markdown_code_push_core/src/xml_parser/xml_parser_expo.dart';
+import 'package:rich_renderer/rich_renderer.dart';
 import 'package:xml/xml.dart';
 
 typedef MarkdownFormatter = String Function(BuildContext context, String rawMarkdown);
@@ -12,15 +12,14 @@ class XmlWidgetGenerator {
   XmlWidgetGenerator({
     required this.context,
     required this.data,
-    this.widgetConfig,
+    required this.richRenderer,
     this.widgetsFilter,
   });
 
   final BuildContext context;
   final String data;
-  final WidgetConfig? widgetConfig;
+  final RichRenderer richRenderer;
   final WidgetsFilter? widgetsFilter;
-  late final WidgetConfig effectiveWidgetConfig = widgetConfig ?? WidgetConfig();
 
   void _defaultWidgetsFilter(Widget? nodeWidget, List<Widget> output) {
     if (nodeWidget != null) {
@@ -53,8 +52,8 @@ class XmlWidgetGenerator {
       return null;
     }
     final String tag = (node as md.Element).tag;
-    if (effectiveWidgetConfig.builderForTag(tag) != null) {
-      return effectiveWidgetConfig.builderForTag(tag)!(node);
+    if (richRenderer.isRendererRegistered(tag)) {
+      return richRenderer.render(context, node);
     }
     return null;
   }

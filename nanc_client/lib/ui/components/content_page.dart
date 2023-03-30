@@ -20,7 +20,7 @@ class ContentPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichMarkdownList(
+    return XmlWidgetsSliverList(
       markdownContent: content,
       pageData: pageData,
       renderer: renderer,

@@ -1,7 +1,5 @@
 library rich_renderer;
 
-export 'src/config/rich_style_config.dart';
-export 'src/config/rich_widget_config.dart';
 export 'src/documentation/documentation.dart';
 export 'src/logic/click_delegate.dart';
 export 'src/logic/for_storage.dart';

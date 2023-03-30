@@ -4,8 +4,8 @@ import 'package:rich_renderer/rich_renderer.dart';
 
 typedef WidgetsFilter = void Function(Widget widget, List<Widget> output);
 
-class RichMarkdownList extends StatelessWidget {
-  const RichMarkdownList({
+class XmlWidgetsSliverList extends StatelessWidget {
+  const XmlWidgetsSliverList({
     required this.markdownContent,
     required this.renderer,
     required this.pageData,
@@ -28,23 +28,17 @@ class RichMarkdownList extends StatelessWidget {
   final ImageErrorWidgetBuilder? imageErrorBuilder;
   final ImageFrameBuilder? imageFrameBuilder;
 
-  RichRenderer get richRenderer {
-    final RichRenderer richRenderer = RichRenderer(widgetConfig: WidgetConfig());
-    final List<TagRendererFactory> renderers = renderer.renderers;
-    for (final TagRendererFactory factory in renderers) {
-      richRenderer.registerRenderer(factory());
-    }
-    return richRenderer;
-  }
+  RichRenderer get richRenderer => RichRenderer(
+        renderers: renderer.renderers.map(
+          (TagRendererFactory it) => it(),
+        ),
+      );
 
   XmlWidgetGenerator createGenerator(BuildContext context) {
     return XmlWidgetGenerator(
       context: context,
       data: markdownContent,
-      widgetConfig: createRichWidgetConfig(
-        context: context,
-        richRenderer: richRenderer,
-      ),
+      richRenderer: richRenderer,
       widgetsFilter: widgetsFilter,
     );
   }
@@ -61,26 +55,28 @@ class RichMarkdownList extends StatelessWidget {
           child: LocalData(
             // ignore: prefer_const_literals_to_create_immutables
             data: {},
-            child: Builder(builder: (BuildContext context) {
-              return TemplateStorage(
-                child: Builder(
-                  builder: (BuildContext context) {
-                    final List<Widget> widgets = createGenerator(context).generate();
-                    return CustomScrollView(
-                      controller: scrollController,
-                      slivers: [
-                        SliverList(
-                          delegate: SliverChildBuilderDelegate(
-                            (BuildContext context, int index) => widgets[index],
-                            childCount: widgets.length,
+            child: Builder(
+              builder: (BuildContext context) {
+                return TemplateStorage(
+                  child: Builder(
+                    builder: (BuildContext context) {
+                      final List<Widget> widgets = createGenerator(context).generate();
+                      return CustomScrollView(
+                        controller: scrollController,
+                        slivers: [
+                          SliverList(
+                            delegate: SliverChildBuilderDelegate(
+                              (BuildContext context, int index) => widgets[index],
+                              childCount: widgets.length,
+                            ),
                           ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              );
-            }),
+                        ],
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
           ),
         ),
       ),
