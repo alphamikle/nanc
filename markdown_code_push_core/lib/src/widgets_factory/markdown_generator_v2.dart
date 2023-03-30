@@ -16,26 +16,6 @@ class MarkdownGeneratorV2 {
     this.widgetsFilter,
   });
 
-  factory MarkdownGeneratorV2.old({
-    required BuildContext context,
-    required String data,
-    WidgetConfig? widgetConfig,
-    WidgetsFilter? widgetsFilter,
-    StyleConfig? styleConfig,
-    List<md.BlockSyntax>? blockSyntaxes,
-  }) {
-    return MarkdownGenerator(
-      context: context,
-      data: data,
-      widgetConfig: widgetConfig,
-      widgetsFilter: widgetsFilter,
-      styleConfig: styleConfig,
-      blockSyntaxes: blockSyntaxes ?? [],
-      formatters: [],
-      inlineSyntaxes: [],
-    );
-  }
-
   final BuildContext context;
   final String data;
   final WidgetConfig? widgetConfig;

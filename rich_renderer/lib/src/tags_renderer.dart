@@ -45,15 +45,15 @@ class TagsRenderer {
   final Set<TagRendererFactory> _renderers = {};
   bool _defaultRenderersWasRegistered = false;
 
-  Future<List<TagRendererFactory>> get renderers => _returnRenderers();
+  List<TagRendererFactory> get renderers => _returnRenderers();
 
-  Future<void> _registerDefaultRenderers() async {
+  void _registerDefaultRenderers() {
     if (_defaultRenderersWasRegistered) {
       return;
     }
     _defaultRenderersWasRegistered = true;
     _renderers.addAll([
-      ...(await propertiesRenderers()),
+      ...propertiesRenderers(),
       paddingRenderer,
       rowRenderer,
       placeholderRenderer,
@@ -97,8 +97,8 @@ class TagsRenderer {
     _renderers.add(renderer);
   }
 
-  Future<List<TagRendererFactory>> _returnRenderers() async {
-    await _registerDefaultRenderers();
+  List<TagRendererFactory> _returnRenderers() {
+    _registerDefaultRenderers();
     final List<TagRendererFactory> renderers = [..._renderers];
     renderers.sort((TagRendererFactory first, TagRendererFactory second) {
       final FutureOr<TagRenderer> firstFutureOrRenderer = first();

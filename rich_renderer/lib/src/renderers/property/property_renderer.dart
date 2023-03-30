@@ -45,15 +45,15 @@ List<Property> properties() => [
       // TODO(alphamikle): Add new properties here
     ];
 
-Future<List<TagRendererFactory>> propertiesRenderers() async {
+List<TagRendererFactory> propertiesRenderers() {
   final List<TagRendererFactory> factories = [];
   for (final Property property in properties()) {
-    factories.add(await propertyToRenderer(property));
+    factories.add(propertyToRenderer(property));
   }
   return factories;
 }
 
-Future<TagRendererFactory> propertyToRenderer(Property property) async {
+TagRendererFactory propertyToRenderer(Property property) {
   final String name = property.name;
   final bool haveChildren = property.haveChildren;
 
