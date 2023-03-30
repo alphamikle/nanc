@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as m;
 
-import '../config/style_config.dart';
+import 'package:markdown_code_push_core/src/config/style_config.dart';
 
 ///Tag: other --- this is for you to custom widget
 InlineSpan getOtherWidgetSpan(m.Element node) => WidgetSpan(child: OtherWidget(node: node));
 
 ///the custom widget
 class OtherWidget extends StatelessWidget {
-  final m.Element node;
 
   const OtherWidget({
-    Key? key,
+    super.key,
     required this.node,
-  }) : super(key: key);
+  });
+  final m.Element node;
 
   @override
   Widget build(BuildContext context) {

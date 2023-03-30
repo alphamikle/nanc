@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as m;
 
-import '../config/style_config.dart';
+import 'package:markdown_code_push_core/src/config/style_config.dart';
 
 ///Tag: input
 InlineSpan getInputSpan(m.Element node) {
@@ -14,26 +14,26 @@ InlineSpan getInputSpan(m.Element node) {
   );
 }
 
-typedef Widget CheckBoxBuilder(bool checked, Map<String, String> attributes);
+typedef CheckBoxBuilder = Widget Function(bool checked, Map<String, String> attributes);
 
 ///config class for [MCheckBox]
 class CheckBoxConfig {
-  final Color? color;
-  final double? size;
 
   CheckBoxConfig({this.color, this.size});
+  final Color? color;
+  final double? size;
 }
 
 ///the check box widget
 class MCheckBox extends StatefulWidget {
-  final CheckBoxConfig? config;
-  final Map<String, String> attributes;
 
   const MCheckBox({
-    Key? key,
+    super.key,
     this.config,
     required this.attributes,
-  }) : super(key: key);
+  });
+  final CheckBoxConfig? config;
+  final Map<String, String> attributes;
 
   @override
   _MCheckBoxState createState() => _MCheckBoxState();

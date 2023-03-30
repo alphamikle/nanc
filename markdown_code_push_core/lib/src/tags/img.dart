@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as m;
 
-import '../config/style_config.dart';
+import 'package:markdown_code_push_core/src/config/style_config.dart';
 
 ///Tag: img
 InlineSpan getImageSpan(m.Element node) {
@@ -13,14 +13,14 @@ InlineSpan getImageSpan(m.Element node) {
 
 ///the image widget
 class ImageTagWidget extends StatelessWidget {
-  final Map<String, String> attributes;
-  final String? url;
 
   const ImageTagWidget({
-    Key? key,
+    super.key,
     required this.attributes,
     this.url,
-  }) : super(key: key);
+  });
+  final Map<String, String> attributes;
+  final String? url;
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +42,10 @@ class ImageTagWidget extends StatelessWidget {
 
 ///config class for [ImageTagWidget]
 class ImgConfig {
-  final ImgWrapper? imgWrapper;
 
   ImgConfig({this.imgWrapper});
+  final ImgWrapper? imgWrapper;
 }
 
-typedef Widget ImgBuilder(String url, Map<String, String> attributes);
-typedef Widget ImgWrapper(Widget img);
+typedef ImgBuilder = Widget Function(String url, Map<String, String> attributes);
+typedef ImgWrapper = Widget Function(Widget img);

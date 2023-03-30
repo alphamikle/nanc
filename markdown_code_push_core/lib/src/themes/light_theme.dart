@@ -11,7 +11,7 @@ final Map<String, Object> lightThemeMap = {
   'TableBorderColor': const Color(0xffD7DBDF),
   'DividerColor': const Color(0xffE5E6EB),
   'BlockColor': const Color(0xffD7DBDF),
-  'PreBackground': Color(0xffF3F6F9),
+  'PreBackground': const Color(0xffF3F6F9),
   'TitleColor': const Color(0xff000000),
   'UlDotColor': const Color(0xff000000),
   'HightLightCodeTheme': arduinoLightTheme,
@@ -19,6 +19,6 @@ final Map<String, Object> lightThemeMap = {
 
 Paint _getCodeBgPaint() {
   return Paint()
-    ..color = Color(0xffdcdcdc)
+    ..color = const Color(0xffdcdcdc)
     ..style = PaintingStyle.fill;
 }

@@ -18,8 +18,8 @@ dependencies:
     path: ../cms
   rich_renderer:
     path: ../rich_renderer
-  markdown_code_push:
-    path: ../markdown_code_push
+  nanc_renderer:
+    path: ../nanc_renderer
   ui_kit:
     path: ../ui_kit
   icons:

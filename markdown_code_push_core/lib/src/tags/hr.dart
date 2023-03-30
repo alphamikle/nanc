@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as m;
 
-import '../config/style_config.dart';
+import 'package:markdown_code_push_core/src/config/style_config.dart';
 
 ///Tag: hr
 ///the hr widget
 class HrWidget extends StatelessWidget {
-  final m.Element node;
 
   const HrWidget({
-    Key? key,
+    super.key,
     required this.node,
-  }) : super(key: key);
+  });
+  final m.Element node;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +26,8 @@ class HrWidget extends StatelessWidget {
 
 ///config class for [HrWidget]
 class HrConfig {
-  final double? height;
-  final Color? color;
 
   HrConfig({this.height, this.color});
+  final double? height;
+  final Color? color;
 }

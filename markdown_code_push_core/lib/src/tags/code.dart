@@ -14,7 +14,7 @@ TextSpan _getCodeTextSpan(m.Element node) {
 }
 
 class CodeConfig {
-  final TextStyle? codeStyle;
 
   CodeConfig({this.codeStyle});
+  final TextStyle? codeStyle;
 }

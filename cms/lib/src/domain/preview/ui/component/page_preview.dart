@@ -6,7 +6,7 @@ import 'package:cms/src/domain/preview/logic/bloc/preview_state.dart';
 import 'package:cms/src/service/init/data_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:markdown_code_push/markdown_code_push.dart';
+import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:rich_renderer/rich_renderer.dart';
 
 class PagePreview extends StatefulWidget {

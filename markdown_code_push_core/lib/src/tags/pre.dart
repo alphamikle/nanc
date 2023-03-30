@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:highlight/highlight.dart' as hi;
 import 'package:markdown/markdown.dart' as m;
 
-import '../config/style_config.dart';
+import 'package:markdown_code_push_core/src/config/style_config.dart';
 
 ///Tag: pre
 ///the pre widget
 class PreWidget extends StatelessWidget {
-  final m.Node node;
 
   const PreWidget({
-    Key? key,
+    super.key,
     required this.node,
-  }) : super(key: key);
+  });
+  final m.Node node;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class PreWidget extends StatelessWidget {
       decoration: preConfig?.decoration ??
           BoxDecoration(
             color: defaultPreBackground,
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(10),
             ),
           ),
@@ -36,7 +36,7 @@ class PreWidget extends StatelessWidget {
           language: preConfig?.language ?? 'dart',
           autoDetectionLanguage: preConfig?.autoDetectionLanguage ?? false,
           theme: preConfig?.theme ?? defaultHighLightCodeTheme,
-          textStyle: preConfig?.textStyle ?? TextStyle(fontSize: 14),
+          textStyle: preConfig?.textStyle ?? const TextStyle(fontSize: 14),
           tabSize: preConfig?.tabSize ?? 8,
         ),
       )),
@@ -48,6 +48,20 @@ class PreWidget extends StatelessWidget {
 
 ///config class for [PreWidget]
 class PreConfig {
+
+  PreConfig({
+    this.padding,
+    this.decoration,
+    this.margin,
+    this.textStyle,
+    this.textAlign,
+    this.textDirection,
+    this.theme,
+    this.language,
+    this.tabSize,
+    this.preWrapper,
+    this.autoDetectionLanguage,
+  });
   final EdgeInsetsGeometry? padding;
   final Decoration? decoration;
   final EdgeInsetsGeometry? margin;
@@ -66,23 +80,9 @@ class PreConfig {
   ///see https://github.com/git-touch/highlight/blob/251505aae568e95ad941e023c110495fa5ad0a16/highlight/lib/src/highlight.dart#L247
   final bool? autoDetectionLanguage;
   final int? tabSize;
-
-  PreConfig({
-    this.padding,
-    this.decoration,
-    this.margin,
-    this.textStyle,
-    this.textAlign,
-    this.textDirection,
-    this.theme,
-    this.language,
-    this.tabSize,
-    this.preWrapper,
-    this.autoDetectionLanguage,
-  });
 }
 
-typedef Widget PreWrapper(Widget preWidget, String text);
+typedef PreWrapper = Widget Function(Widget preWidget, String text);
 
 List<InlineSpan> highLightSpans(
   String input, {
@@ -109,16 +109,16 @@ List<TextSpan> _convert(List<hi.Node> nodes, Map<String, TextStyle> theme) {
       stack.add(currentSpans);
       currentSpans = tmp;
 
-      node.children!.forEach((n) {
+      for (final n in node.children!) {
         _traverse(n);
         if (n == node.children!.last) {
           currentSpans = stack.isEmpty ? spans : stack.removeLast();
         }
-      });
+      }
     }
   }
 
-  for (var node in nodes) {
+  for (final node in nodes) {
     _traverse(node);
   }
   return spans;

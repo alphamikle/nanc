@@ -21,23 +21,23 @@ class BaseTagsMapper {
   Widget? getTitleWidget(md.Node node, String tag) => TitleWidget(node: node as md.Element, tag: tag);
 
   ///p
-  Future<Widget> getPWidget(md.Element node) async => await widgetConfig?.p?.call(node) ?? PWidget(children: node.children, parentNode: node);
+  Future<Widget> getPWidget(md.Element node) async => widgetConfig?.p?.call(node) ?? PWidget(children: node.children, parentNode: node);
 
   ///pre
-  Future<Widget> getPreWidget(md.Node node) async => await widgetConfig?.pre?.call(node as md.Element) ?? PreWidget(node: node);
+  Future<Widget> getPreWidget(md.Node node) async => widgetConfig?.pre?.call(node as md.Element) ?? PreWidget(node: node);
 
   ///ul
-  Future<Widget> getUlWidget(md.Element node, int deep) async => await widgetConfig?.ul?.call(node) ?? ULWidget(rootNode: node, deep: deep);
+  Future<Widget> getUlWidget(md.Element node, int deep) async => widgetConfig?.ul?.call(node) ?? ULWidget(rootNode: node, deep: deep);
 
   ///ol
-  Future<Widget> getOlWidget(md.Element node, int deep) async => await widgetConfig?.ol?.call(node) ?? OLWidget(rootNode: node, deep: deep);
+  Future<Widget> getOlWidget(md.Element node, int deep) async => widgetConfig?.ol?.call(node) ?? OLWidget(rootNode: node, deep: deep);
 
   ///blockquote
-  Future<Widget> getBlockQuote(md.Element node) async => await widgetConfig?.block?.call(node) ?? BlockQuoteWidget(node: node);
+  Future<Widget> getBlockQuote(md.Element node) async => widgetConfig?.block?.call(node) ?? BlockQuoteWidget(node: node);
 
   ///hr
-  Future<Widget> getHrWidget(md.Element node) async => await widgetConfig?.hr?.call(node) ?? HrWidget(node: node);
+  Future<Widget> getHrWidget(md.Element node) async => widgetConfig?.hr?.call(node) ?? HrWidget(node: node);
 
   ///table
-  Future<Widget> getTableWidget(md.Element node) async => await widgetConfig?.table?.call(node) ?? TableWidget(node: node);
+  Future<Widget> getTableWidget(md.Element node) async => widgetConfig?.table?.call(node) ?? TableWidget(node: node);
 }

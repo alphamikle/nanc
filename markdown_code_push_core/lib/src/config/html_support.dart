@@ -22,13 +22,13 @@ void htmlToMarkdown(h.Node? node, int deep, List<m.Node> mNodes) {
       mNodes.add(customElement);
     }
     if (node.nodes.isEmpty) return;
-    node.nodes.forEach((n) {
+    for (final n in node.nodes) {
       htmlToMarkdown(n, deep + 1, mNodes);
-    });
+    }
   }
 }
 
-final RegExp htmlRep = RegExp(r'<[^>]*>', multiLine: true, caseSensitive: true);
+final RegExp htmlRep = RegExp(r'<[^>]*>', multiLine: true);
 
 ///return [true] if need parse [m.Node] to [h.Node]
 bool needParseHtml(m.Node parentNode) => (parentNode is m.Element && parentNode.tag != code);
@@ -39,8 +39,8 @@ List<m.Node> parseHtml(m.Node node) {
   if (!text.contains(htmlRep)) return [];
   final h.DocumentFragment document = parseFragment(text);
   final List<m.Node> nodes = [];
-  document.nodes.forEach((h.Node element) {
+  for (final element in document.nodes) {
     htmlToMarkdown(element, 0, nodes);
-  });
+  }
   return nodes;
 }

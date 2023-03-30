@@ -1,6 +1,6 @@
 import 'package:additions/additions.dart';
 import 'package:flutter/material.dart';
-import 'package:markdown_code_push/markdown_code_push.dart';
+import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:rich_renderer/rich_renderer.dart';
 import 'package:tools/tools.dart';
 

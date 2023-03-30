@@ -25,12 +25,12 @@ extension XmlNodeConverter on XmlNode {
       }
       return md.Text(self.text);
     }
-    return md.UnparsedContent(this.text);
+    return md.UnparsedContent(text);
   }
 }
 
 extension XmlNodesConverter on Iterable<XmlNode> {
   List<md.Node> toMarkdownNodes() {
-    return this.map((e) => e.toMarkdownNode()).where((md.Node node) => node is! md.UnparsedContent).toList();
+    return map((e) => e.toMarkdownNode()).where((md.Node node) => node is! md.UnparsedContent).toList();
   }
 }

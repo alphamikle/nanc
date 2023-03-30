@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as m;
+import 'package:markdown_code_push_core/src/config/style_config.dart';
 import 'package:markdown_code_push_core/src/tags/common.dart';
-
-import '../config/style_config.dart';
 
 ///Tag:  p
 ///the paragraph widget
 class PWidget extends StatelessWidget {
-  final List<m.Node>? children;
-  final m.Node parentNode;
-  final TextStyle? textStyle;
-  final TextConfig? textConfig;
-  final WrapCrossAlignment crossAxisAlignment;
 
   const PWidget({
-    Key? key,
+    super.key,
     this.children,
     required this.parentNode,
     this.textStyle,
     this.textConfig,
     this.crossAxisAlignment = WrapCrossAlignment.center,
-  }) : super(key: key);
+  });
+  final List<m.Node>? children;
+  final m.Node parentNode;
+  final TextStyle? textStyle;
+  final TextConfig? textConfig;
+  final WrapCrossAlignment crossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +38,6 @@ class PWidget extends StatelessWidget {
 
 ///config class for [PWidget]
 class PConfig {
-  final TextStyle? textStyle;
-  final TextStyle? linkStyle;
-  final TextStyle? delStyle;
-  final TextStyle? emStyle;
-  final TextStyle? strongStyle;
-  final TextConfig? textConfig;
-  final OnLinkTap? onLinkTap;
-  final Custom? custom;
 
   PConfig({
     this.textStyle,
@@ -58,16 +49,24 @@ class PConfig {
     this.onLinkTap,
     this.custom,
   });
+  final TextStyle? textStyle;
+  final TextStyle? linkStyle;
+  final TextStyle? delStyle;
+  final TextStyle? emStyle;
+  final TextStyle? strongStyle;
+  final TextConfig? textConfig;
+  final OnLinkTap? onLinkTap;
+  final Custom? custom;
 }
 
 ///config class for [TextStyle]
 class TextConfig {
-  final TextAlign? textAlign;
-  final TextDirection? textDirection;
 
   TextConfig({this.textAlign, this.textDirection});
+  final TextAlign? textAlign;
+  final TextDirection? textDirection;
 }
 
-typedef void OnLinkTap(String? url);
-typedef Widget LinkGesture(Widget linkWidget, String? url);
-typedef Widget Custom(m.Element element);
+typedef OnLinkTap = void Function(String? url);
+typedef LinkGesture = Widget Function(Widget linkWidget, String? url);
+typedef Custom = Widget Function(m.Element element);

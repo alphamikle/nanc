@@ -6,12 +6,12 @@ import 'package:markdown_code_push_core/src/tags/p.dart';
 ///Tag: blockquote
 ///the blockQuote widget
 class BlockQuoteWidget extends StatelessWidget {
-  final m.Element node;
 
   const BlockQuoteWidget({
-    Key? key,
+    super.key,
     required this.node,
-  }) : super(key: key);
+  });
+  final m.Element node;
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +36,6 @@ class BlockQuoteWidget extends StatelessWidget {
 
 ///config class for [BlockQuoteWidget]
 class BlockQuoteConfig {
-  final TextStyle? blockStyle;
-  final TextConfig? textConfig;
-  final Color? blockColor;
-  final Color? backgroundColor;
-  final double? blockWidth;
-  final double? leftSpace;
 
   BlockQuoteConfig({
     this.blockStyle,
@@ -51,4 +45,10 @@ class BlockQuoteConfig {
     this.blockWidth,
     this.leftSpace,
   });
+  final TextStyle? blockStyle;
+  final TextConfig? textConfig;
+  final Color? blockColor;
+  final Color? backgroundColor;
+  final double? blockWidth;
+  final double? leftSpace;
 }

@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as m;
+import 'package:markdown_code_push_core/src/config/html_support.dart';
+import 'package:markdown_code_push_core/src/config/style_config.dart';
 import 'package:markdown_code_push_core/src/tags/a.dart';
 import 'package:markdown_code_push_core/src/tags/code.dart';
 import 'package:markdown_code_push_core/src/tags/img.dart';
 import 'package:markdown_code_push_core/src/tags/input.dart';
+import 'package:markdown_code_push_core/src/tags/markdown_tags.dart';
 import 'package:markdown_code_push_core/src/tags/other.dart';
-
-import '../config/html_support.dart';
-import '../config/style_config.dart';
-import 'markdown_tags.dart';
 
 ///get textSpan by nodes
 InlineSpan getBlockSpan(List<m.Node>? nodes, m.Node parentNode, TextStyle? parentStyle) {
-  if (nodes == null || nodes.isEmpty) return TextSpan();
+  if (nodes == null || nodes.isEmpty) return const TextSpan();
   return TextSpan(
     children: List.generate(
       nodes.length,
       (index) {
         bool shouldParseHtml = needParseHtml(parentNode);
         final node = nodes[index];
-        if (node is m.Text)
+        if (node is m.Text) {
           return buildTextSpan(node, parentStyle, shouldParseHtml);
-        else if (node is m.Element) {
+        } else if (node is m.Element) {
           if (node.tag == code) return getCodeSpan(node);
           if (node.tag == img) return getImageSpan(node);
           if (node.tag == a) return getLinkSpan(node);
@@ -29,7 +28,7 @@ InlineSpan getBlockSpan(List<m.Node>? nodes, m.Node parentNode, TextStyle? paren
           if (node.tag == other) return getOtherWidgetSpan(node);
           return getBlockSpan(node.children, node, parentStyle!.merge(getTextStyle(node.tag)));
         }
-        return TextSpan();
+        return const TextSpan();
       },
     ),
   );
@@ -59,7 +58,7 @@ List<InlineSpan> buildSpans(m.Element? parentNode, TextStyle? parentStyle) {
       return getBlockSpan(node.children, node, parentStyle);
     } else {
       print('node: $node can\'t be parse');
-      return TextSpan();
+      return const TextSpan();
     }
   });
 }

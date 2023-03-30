@@ -7,12 +7,12 @@ bash build.sh ./fields || exit
 bash build.sh ./file_syncer || exit
 bash build.sh ./fonts || exit
 bash build.sh ./icons || exit
-bash build.sh ./markdown_code_push || exit
 bash build.sh ./markdown_code_push_core || exit
 bash build.sh ./model || exit
 bash build.sh ./nanc_backend || exit
 bash build.sh ./nanc_client || exit
 bash build.sh ./nanc_webrtc || exit
+bash build.sh ./nanc_renderer || exit
 bash build.sh ./rich_renderer || exit
 bash build.sh ./storybook || exit
 bash build.sh ./tools || exit

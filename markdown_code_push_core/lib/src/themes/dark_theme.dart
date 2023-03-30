@@ -18,6 +18,6 @@ final Map<String, Object> darkThemeMap = {
 
 Paint _getCodePaint() {
   return Paint()
-    ..color = Color(0xff9c9c9c)
+    ..color = const Color(0xff9c9c9c)
     ..style = PaintingStyle.fill;
 }

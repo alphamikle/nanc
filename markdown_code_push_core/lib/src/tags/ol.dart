@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as m;
+import 'package:markdown_code_push_core/src/config/style_config.dart';
+import 'package:markdown_code_push_core/src/tags/markdown_tags.dart';
 import 'package:markdown_code_push_core/src/tags/p.dart';
 import 'package:markdown_code_push_core/src/tags/ul.dart';
 
-import '../config/style_config.dart';
-import 'markdown_tags.dart';
-
 ///the orderly list widget
 class OLWidget extends StatelessWidget {
-  final m.Element rootNode;
-  final int deep;
 
   const OLWidget({
-    Key? key,
+    super.key,
     required this.rootNode,
     required this.deep,
-  }) : super(key: key);
+  });
+  final m.Element rootNode;
+  final int deep;
 
   @override
   Widget build(BuildContext context) {
@@ -39,31 +38,31 @@ class OLWidget extends StatelessWidget {
 
 ///the orderly or unOrderly list inside [ULWidget]
 class _LiWidget extends StatelessWidget {
-  final m.Element rootNode;
-  final int deep;
-  final int index;
 
   const _LiWidget({
-    Key? key,
     required this.rootNode,
     required this.deep,
     required this.index,
-  }) : super(key: key);
+  });
+  final m.Element rootNode;
+  final int deep;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     final children = rootNode.children ?? [];
     final List<m.Node> otherTagNodes = [];
     List<Widget> listChildren = [];
-    for (var node in children) {
+    for (final node in children) {
       if (node is m.Element && node.tag == ol) {
         final child = OLWidget(rootNode: node, deep: deep + 1);
         listChildren.add(child);
       } else if (node is m.Element && node.tag == ul) {
         final child = ULWidget(rootNode: node, deep: deep + 1);
         listChildren.add(child);
-      } else
+      } else {
         otherTagNodes.add(node);
+      }
     }
     final config = StyleConfig().olConfig;
     final olChild = Container(
@@ -73,7 +72,6 @@ class _LiWidget extends StatelessWidget {
       ),
       child: Row(
         textDirection: config?.textConfig?.textDirection,
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: config?.crossAxisAlignment ?? CrossAxisAlignment.start,
         children: <Widget>[
           _OlDot(deep: deep, index: index),
@@ -91,7 +89,6 @@ class _LiWidget extends StatelessWidget {
     );
     listChildren.insert(0, config?.olWrapper?.call(olChild) ?? olChild);
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: listChildren,
     );
@@ -100,14 +97,13 @@ class _LiWidget extends StatelessWidget {
 
 ///the index widget of orderly list
 class _OlDot extends StatelessWidget {
-  final int deep;
-  final int index;
 
   const _OlDot({
-    Key? key,
     required this.deep,
     required this.index,
-  }) : super(key: key);
+  });
+  final int deep;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +112,7 @@ class _OlDot extends StatelessWidget {
 
     return configWidget ??
         Container(
-          margin: EdgeInsets.only(left: 5, right: 5),
+          margin: const EdgeInsets.only(left: 5, right: 5),
           child: config?.textConfig?.textDirection == TextDirection.rtl ? Text('.${index + 1}') : Text('${index + 1}.'),
         );
   }
@@ -124,6 +120,8 @@ class _OlDot extends StatelessWidget {
 
 ///Config class for orderly list
 class OlConfig {
+
+  OlConfig({this.textStyle, this.textConfig, this.olWrapper, this.indexWidget, this.leftSpacing, this.selectable, this.crossAxisAlignment});
   final TextStyle? textStyle;
   final TextConfig? textConfig;
   final IndexWidget? indexWidget;
@@ -131,9 +129,7 @@ class OlConfig {
   final double? leftSpacing;
   final bool? selectable;
   final CrossAxisAlignment? crossAxisAlignment;
-
-  OlConfig({this.textStyle, this.textConfig, this.olWrapper, this.indexWidget, this.leftSpacing, this.selectable, this.crossAxisAlignment});
 }
 
-typedef Widget IndexWidget(int deep, int index);
-typedef Widget OlWrapper(Widget child);
+typedef IndexWidget = Widget Function(int deep, int index);
+typedef OlWrapper = Widget Function(Widget child);
