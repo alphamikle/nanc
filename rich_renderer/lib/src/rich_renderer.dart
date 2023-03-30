@@ -42,18 +42,6 @@ class RichRenderer {
         if (child != null) {
           forWidgetFilter(child, children);
         }
-      } else {
-        final Widget? standardTagWidget = await MarkdownGeneratorV2.renderStandardTag(widgetConfig: widgetConfig, node: node);
-        children.add(
-          standardTagWidget ??
-              ColoredBox(
-                color: Colors.red.withOpacity(0.5),
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Text('Not supported node: ${node.textContent}'),
-                ),
-              ),
-        );
       }
     }
     return children;

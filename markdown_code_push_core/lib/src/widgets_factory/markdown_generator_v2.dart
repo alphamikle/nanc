@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:markdown_code_push_core/markdown_code_push_core.dart';
-import 'package:markdown_code_push_core/src/mapper/base_tags_mapper.dart';
 import 'package:markdown_code_push_core/src/widgets_factory/xml_node_extensions.dart';
 import 'package:markdown_code_push_core/src/xml_parser/xml_parser_expo.dart';
 import 'package:xml/xml.dart';
@@ -70,59 +69,12 @@ class MarkdownGeneratorV2 {
   }
 
   Future<Widget?> _buildWidget(md.Node node) async {
-    if (node is md.Text) {
-      return BaseTagsMapper(widgetConfig: effectiveWidgetConfig).getPWidget(md.Element(p, [node]));
-    }
-    if (node is md.UnparsedContent) {
+    if (node is md.Text || node is md.UnparsedContent) {
       return null;
     }
     final String tag = (node as md.Element).tag;
-    Widget? result = await renderStandardTag(widgetConfig: effectiveWidgetConfig, node: node);
-    if (result == null) {
-      if (effectiveWidgetConfig.builderForTag(tag) != null) {
-        result = await effectiveWidgetConfig.builderForTag(tag)!(node);
-      }
-    }
-    return result;
-  }
-
-  static Future<Widget?> renderStandardTag({
-    required WidgetConfig widgetConfig,
-    required md.Node node,
-  }) async {
-    final BaseTagsMapper helper = BaseTagsMapper(widgetConfig: widgetConfig);
-
-    if (node is md.Text) {
-      return helper.getPWidget(md.Element(p, [node]));
-    }
-
-    final String tag = (node as md.Element).tag;
-    if (tag == h1) {
-      return helper.getTitleWidget(node, h1);
-    } else if (tag == h2) {
-      return helper.getTitleWidget(node, h2);
-    } else if (tag == h3) {
-      return helper.getTitleWidget(node, h3);
-    } else if (tag == h4) {
-      return helper.getTitleWidget(node, h4);
-    } else if (tag == h5) {
-      return helper.getTitleWidget(node, h5);
-    } else if (tag == h6) {
-      return helper.getTitleWidget(node, h6);
-    } else if (tag == p) {
-      return helper.getPWidget(node);
-    } else if (tag == pre) {
-      return helper.getPreWidget(node);
-    } else if (tag == ul) {
-      return helper.getUlWidget(node, 0);
-    } else if (tag == ol) {
-      return helper.getOlWidget(node, 0);
-    } else if (tag == hr) {
-      return helper.getHrWidget(node);
-    } else if (tag == table) {
-      return helper.getTableWidget(node);
-    } else if (tag == blockquote) {
-      return helper.getBlockQuote(node);
+    if (effectiveWidgetConfig.builderForTag(tag) != null) {
+      return effectiveWidgetConfig.builderForTag(tag)!(node);
     }
     return null;
   }

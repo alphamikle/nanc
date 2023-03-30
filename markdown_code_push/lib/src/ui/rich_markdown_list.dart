@@ -69,7 +69,6 @@ class RichMarkdownList extends StatelessWidget {
     return MarkdownGeneratorV2(
       context: context,
       data: markdownContent,
-      // TODO(alphamikle): Style usual tags
       // ignore: use_build_context_synchronously
       widgetConfig: createRichWidgetConfig(
         context: context,
