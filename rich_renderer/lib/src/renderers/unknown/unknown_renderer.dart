@@ -13,7 +13,7 @@ TagRenderer unknownRenderer() {
     example: '''
 TODO
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       return const SizedBox(
         height: 50,
         child: Text(

@@ -17,7 +17,7 @@ class RichRenderer {
 
   void registerRenderer(TagRenderer renderer) => _builders[renderer.tag] = renderer;
 
-  Future<Widget?> render(BuildContext context, md.Element element) async {
+  Widget? render(BuildContext context, md.Element element) {
     try {
       return _builders[element.tag]!.builder(context, element, this);
     } catch (error, stackTrace) {
@@ -26,7 +26,7 @@ class RichRenderer {
     }
   }
 
-  Future<List<Widget>> renderChildren(BuildContext context, List<md.Node>? nodes) async {
+  List<Widget> renderChildren(BuildContext context, List<md.Node>? nodes) {
     if (nodes == null) {
       return [];
     }
@@ -36,9 +36,9 @@ class RichRenderer {
         continue;
       }
       if (node is md.Element && isRendererRegistered(node.tag)) {
-        final md.Element newNode = await Substitutor.enrichElement(context: context, node: node);
+        final md.Element newNode = Substitutor.enrichElement(context: context, node: node);
         // ignore: use_build_context_synchronously
-        final Widget? child = await render(context, newNode);
+        final Widget? child = render(context, newNode);
         if (child != null) {
           forWidgetFilter(child, children);
         }

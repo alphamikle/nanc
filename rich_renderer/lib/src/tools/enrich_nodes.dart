@@ -1,10 +1,10 @@
 import 'package:markdown/markdown.dart' as md;
 
-Future<List<md.Node>?> enrichNodesWithAttribute({
+List<md.Node>? enrichNodesWithAttribute({
   required String attributeName,
   required String attributeValue,
   required List<md.Node>? nodes,
-}) async {
+}) {
   if (nodes == null) {
     return null;
   }
@@ -13,7 +13,7 @@ Future<List<md.Node>?> enrichNodesWithAttribute({
     if (node is md.Element) {
       final List<md.Node>? newChildren = node.children == null
           ? null
-          : await enrichNodesWithAttribute(
+          : enrichNodesWithAttribute(
               attributeName: attributeName,
               attributeValue: attributeValue,
               nodes: node.children!,

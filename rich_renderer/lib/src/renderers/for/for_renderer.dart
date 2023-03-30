@@ -139,7 +139,7 @@ The last thing about `<for>` is ability to iterate only the part of the array. Y
   </for>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final String cycleId = generateEventHash();
       final ForArguments arguments = ForArguments.fromJson(element.attributes);
       final String valueName = arguments.valueName ?? kValue;
@@ -156,7 +156,7 @@ The last thing about `<for>` is ability to iterate only the part of the array. Y
         values = oldValues;
       }
       final ForValuesParser parser = ForValuesParser(context: context, valuesString: values);
-      await parser.parseValues();
+      parser.parseValues();
       final List<Object?> parsedValues = parser.values.toList();
 
       int fromIndex = arguments.from ?? 0;
@@ -181,7 +181,7 @@ The last thing about `<for>` is ability to iterate only the part of the array. Y
       final List<md.Node> effectiveChildren = [];
 
       for (int i = fromIndex; i < toIndex; i++) {
-        final List<md.Node> preparedChildren = await _prepareCycleContent(
+        final List<md.Node> preparedChildren = _prepareCycleContent(
           cycleId: cycleId,
           indexName: indexName,
           valueName: valueName,
@@ -191,28 +191,26 @@ The last thing about `<for>` is ability to iterate only the part of the array. Y
         effectiveChildren.addAll(preparedChildren);
       }
 
-      // ignore: use_build_context_synchronously
       final PropertiesExtractor extractor = PropertiesExtractor(
         context: context,
-        // ignore: use_build_context_synchronously
-        rawChildren: await richRenderer.renderChildren(context, effectiveChildren),
+        rawChildren: richRenderer.renderChildren(context, effectiveChildren),
       );
       return ForWidget(children: extractor.children);
     },
   );
 }
 
-Future<List<md.Node>> _prepareCycleContent({
+List<md.Node> _prepareCycleContent({
   required CycleId cycleId,
   required String indexName,
   required String valueName,
   required int index,
   required List<md.Node> children,
-}) async {
+}) {
   final List<md.Node> preparedChildren = [];
   for (final md.Node node in children) {
     preparedChildren.add(
-      await _prepareCycleChild(
+      _prepareCycleChild(
         cycleId: cycleId,
         indexName: indexName,
         valueName: valueName,
@@ -224,18 +222,17 @@ Future<List<md.Node>> _prepareCycleContent({
   return preparedChildren;
 }
 
-Future<md.Node> _prepareCycleChild({
+md.Node _prepareCycleChild({
   required CycleId cycleId,
   required String indexName,
   required String valueName,
   required int index,
   required md.Node child,
-}) async {
-  await wait(periodic: true, period: 50);
+}) {
   if (child is md.Element) {
     final md.Element newElement = md.Element(
       child.tag,
-      await _prepareCycleContent(
+      _prepareCycleContent(
         cycleId: cycleId,
         indexName: indexName,
         valueName: valueName,

@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/size_arguments.dart';
 import 'package:rich_renderer/src/renderers/expanded/expanded_arguments.dart';
-import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
-import 'package:rich_renderer/src/rich_renderer.dart';
-import 'package:rich_renderer/src/tag_renderer.dart';
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 TagRenderer expandedRenderer() {
@@ -44,9 +40,9 @@ An [Expanded](widgets/Expanded-class.html) widget must be a descendant of a [Row
   </row>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final ExpandedArguments arguments = ExpandedArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return Expanded(
         flex: arguments.flex ?? 1,

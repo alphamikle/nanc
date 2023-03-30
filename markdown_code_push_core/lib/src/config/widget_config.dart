@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
 
@@ -28,4 +26,4 @@ class WidgetConfig {
   WidgetBuilder? builderForTag(String tag) => custom[tag];
 }
 
-typedef WidgetBuilder = FutureOr<Widget?> Function(md.Element node);
+typedef WidgetBuilder = Widget? Function(md.Element node);

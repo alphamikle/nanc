@@ -94,9 +94,9 @@ Also, you are available to change Curve type of animation. More info about curve
   </column>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final FadeInArguments arguments = FadeInArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return FadeIn(
         duration: arguments.duration == null ? const Duration(milliseconds: 250) : Duration(milliseconds: arguments.duration!),

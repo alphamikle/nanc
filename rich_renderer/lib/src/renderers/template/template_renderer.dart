@@ -3,7 +3,6 @@ import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/renderers/template/template_arguments.dart';
-import 'package:tools/tools.dart';
 
 const String kTemplate = 'template';
 final RegExp _templateRegExp = RegExp(r'template\.(?<valueId>\w+)');
@@ -41,7 +40,7 @@ At the moment there is support only for parameters passing, but in the near futu
   </column>
 </container>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final TemplateArguments arguments = TemplateArguments.fromJson(element.attributes);
 
       if (arguments.id == null || arguments.id!.isEmpty) {
@@ -51,7 +50,7 @@ At the moment there is support only for parameters passing, but in the near futu
 
       // ignore: use_build_context_synchronously
       final TemplateStorage templateStorage = TemplateStorage.of(context);
-      final List<md.Node> preparedComponents = await _prepareTemplateContent(templateId, element.children ?? []);
+      final List<md.Node> preparedComponents = _prepareTemplateContent(templateId, element.children ?? []);
 
       templateStorage.saveTemplate(
         templateId: templateId,
@@ -63,18 +62,17 @@ At the moment there is support only for parameters passing, but in the near futu
   );
 }
 
-Future<List<md.Node>> _prepareTemplateContent(TemplateId templateId, List<md.Node> components) async {
+List<md.Node> _prepareTemplateContent(TemplateId templateId, List<md.Node> components) {
   final List<md.Node> preparedComponents = [];
   for (final md.Node node in components) {
-    preparedComponents.add(await _prepareTemplateChild(templateId, node));
+    preparedComponents.add(_prepareTemplateChild(templateId, node));
   }
   return preparedComponents;
 }
 
-Future<md.Node> _prepareTemplateChild(TemplateId templateId, md.Node child) async {
-  await wait(duration: Duration.zero, periodic: true, period: 20);
+md.Node _prepareTemplateChild(TemplateId templateId, md.Node child) {
   if (child is md.Element) {
-    final md.Element newElement = md.Element(child.tag, await _prepareTemplateContent(templateId, child.children ?? []));
+    final md.Element newElement = md.Element(child.tag, _prepareTemplateContent(templateId, child.children ?? []));
     for (final MapEntry<String, String> attributeEntry in child.attributes.entries) {
       newElement.attributes[attributeEntry.key] = _replaceSimpleTemplateExpressionWithComplex(templateId, attributeEntry.value);
     }

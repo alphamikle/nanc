@@ -2,12 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/decoration_arguments.dart';
-import 'package:rich_renderer/src/documentation/arguments/row_column_arguments.dart';
-import 'package:rich_renderer/src/documentation/arguments/scalar_arguments.dart';
-import 'package:rich_renderer/src/documentation/arguments/text_arguments.dart';
-import 'package:rich_renderer/src/documentation/properties/text_style_props.dart';
-import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_list.dart';
 import 'package:rich_renderer/src/renderers/text/text_arguments.dart';
 import 'package:rich_renderer/src/tools/text_extractor.dart';
@@ -72,9 +66,9 @@ This example shows how to display text using the [Text](widgets/Text-class.html)
   </text>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final TextArguments arguments = TextArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
       TextStyle? style = extractor.getProperty(textStyle);
 
       style ??= const TextStyle();
@@ -85,7 +79,7 @@ This example shows how to display text using the [Text](widgets/Text-class.html)
       if (style.color == null && arguments.color != null) {
         style = style.copyWith(color: arguments.color);
       }
-      final List<String> content = await extractTextFromChildren(context: context, element: element);
+      final List<String> content = extractTextFromChildren(context: context, element: element);
 
       return Text(
         content.join('\n'),

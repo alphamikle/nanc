@@ -54,9 +54,9 @@ If the [onPressed](material/ButtonStyleButton/onPressed.html) and [onLongPress](
   </center>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final TextButtonArguments arguments = TextButtonArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
       Widget? child;
       if (extractor.children.isNotEmpty) {
         child = compactWidgets(extractor.children, toRow: true);

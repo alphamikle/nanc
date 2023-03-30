@@ -22,21 +22,21 @@ TagRenderer codeRenderer() {
   </padding>`
 </code>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final CodeArguments arguments = CodeArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       if (arguments.language == null) {
         return ErrorWidget.withDetails(message: '"language" param must been specified');
       }
 
-      final List<String> content = await extractTextFromChildren(context: context, element: element);
+      final List<String> content = extractTextFromChildren(context: context, element: element);
 
       return HighlightView(
         content.join('\n'),
         language: arguments.language!,
         theme: githubTheme,
-        textStyle: TextStyle(
+        textStyle: const TextStyle(
           fontSize: 16,
         ),
       );

@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/row_column_arguments.dart';
 import 'package:rich_renderer/src/renderers/column/column_arguments.dart';
-import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 
 const String _description = '''
 # [Column](https://api.flutter.dev/flutter/widgets/Column-class.html)
@@ -50,9 +48,9 @@ TagRenderer columnRenderer() {
   </column>
 </container>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final ColumnArguments arguments = ColumnArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return Column(
         crossAxisAlignment: arguments.crossAxisAlignment ?? CrossAxisAlignment.center,

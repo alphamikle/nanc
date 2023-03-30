@@ -22,7 +22,7 @@ class ForValuesParser {
   int? _toNumber;
   List<Object?>? _values;
 
-  Future<void> parseValues() async {
+  void parseValues() {
     final RegExpMatch? match = _rangeValuesRegExp.firstMatch(valuesString);
     if (match != null) {
       _fromNumber = int.parse(match.namedGroup('from')!);

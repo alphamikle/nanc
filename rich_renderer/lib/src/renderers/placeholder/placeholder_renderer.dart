@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/decoration_arguments.dart';
-import 'package:rich_renderer/src/documentation/arguments/scalar_arguments.dart';
-import 'package:rich_renderer/src/documentation/arguments/size_arguments.dart';
 import 'package:rich_renderer/src/renderers/placeholder/placeholder_arguments.dart';
-import 'package:rich_renderer/src/rich_renderer.dart';
-import 'package:rich_renderer/src/tag_renderer.dart';
 
 TagRenderer placeholderRenderer() {
   return TagRenderer(
@@ -41,7 +36,7 @@ By default, the placeholder is sized to fit its container. If the placeholder is
   </center>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final PlaceholderArguments arguments = PlaceholderArguments.fromJson(element.attributes);
 
       return Placeholder(

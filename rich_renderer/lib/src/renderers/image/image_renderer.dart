@@ -102,7 +102,7 @@ Also, if you passed a some image url and don't see the image in the Nanc, potent
   </column>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final ImageArguments arguments = ImageArguments.fromJson(element.attributes);
       final RegExp blurHashRegExp = RegExp(r'[?|&]?bh=(?<hash>[^&]+)');
 

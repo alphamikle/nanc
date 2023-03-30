@@ -5,14 +5,14 @@ import 'package:rich_renderer/src/renderers/property/properties/alignment/alignm
 import 'package:rich_renderer/src/renderers/property/properties/button_style/button_style_arguments.dart';
 import 'package:rich_renderer/src/renderers/property/properties/button_style/button_style_property_widget.dart';
 
-Future<ButtonStylePropertyWidget> buttonStyleFactory({
+ButtonStylePropertyWidget buttonStyleFactory({
   required BuildContext context,
   required String name,
   required md.Element element,
   required RichRenderer richRenderer,
-}) async {
+}) {
   final ButtonStyleArguments arguments = ButtonStyleArguments.fromJson(element.attributes);
-  // final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+  // final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
   final ButtonStyle buttonStyle = ButtonStyle(
     // side: null,

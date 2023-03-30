@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:markdown_code_push_core/markdown_code_push_core.dart';
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:tools/tools.dart';
+
+typedef WidgetsFilter = void Function(Widget widget, List<Widget> output);
 
 class RichMarkdownList extends StatelessWidget {
   const RichMarkdownList({
@@ -36,8 +37,8 @@ class RichMarkdownList extends StatelessWidget {
     return richRenderer;
   }
 
-  MarkdownGeneratorV2 createGenerator(BuildContext context) {
-    return MarkdownGeneratorV2(
+  XmlWidgetGenerator createGenerator(BuildContext context) {
+    return XmlWidgetGenerator(
       context: context,
       data: markdownContent,
       widgetConfig: createRichWidgetConfig(
@@ -64,46 +65,18 @@ class RichMarkdownList extends StatelessWidget {
               return TemplateStorage(
                 child: Builder(
                   builder: (BuildContext context) {
-                    final Widget preloader = this.preloader ??
-                        const Center(
-                          child: SizedBox(
-                            height: 30,
-                            width: 30,
-                            child: CircularProgressIndicator(),
+                    final List<Widget> widgets = createGenerator(context).generate();
+                    return CustomScrollView(
+                      controller: scrollController,
+                      slivers: [
+                        SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            (BuildContext context, int index) => widgets[index],
+                            childCount: widgets.length,
                           ),
-                        );
-                    try {
-                      return FutureBuilder<List<Widget>>(
-                        // TODO(alphamikle): Use here a stream with async-generated widgets
-                        // ignore: discarded_futures
-                        future: createGenerator(context).generate(),
-                        builder: (BuildContext context, AsyncSnapshot<List<Widget>> asyncWidgets) {
-                          if (asyncWidgets.hasError) {
-                            logg(asyncWidgets.error, asyncWidgets.stackTrace);
-                            return ErrorWidget([asyncWidgets.error, asyncWidgets.stackTrace]);
-                          }
-                          if (asyncWidgets.hasData == false) {
-                            return preloader;
-                          }
-                          final List<Widget> widgets = asyncWidgets.data ?? [];
-                          // TODO(alphamikle): Подумать над тем, как можно оптимизировать моменты с отображением сливеров и не сливеров одновременно
-                          return CustomScrollView(
-                            controller: scrollController,
-                            slivers: [
-                              SliverList(
-                                delegate: SliverChildBuilderDelegate(
-                                  (BuildContext context, int index) => widgets[index],
-                                  childCount: widgets.length,
-                                ),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                    } catch (error) {
-                      logg(error);
-                      return ErrorWidget(error);
-                    }
+                        ),
+                      ],
+                    );
                   },
                 ),
               );

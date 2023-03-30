@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/padding_arguments.dart';
-import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/renderers/property/properties/padding/padding_arguments.dart';
-import 'package:rich_renderer/src/rich_renderer.dart';
-import 'package:rich_renderer/src/tag_renderer.dart';
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 TagRenderer paddingRenderer() {
@@ -44,9 +40,9 @@ When passing layout constraints to its child, padding shrinks the constraints by
   </center>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final PaddingArguments arguments = PaddingArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return Padding(
         padding: arguments.toPadding(),

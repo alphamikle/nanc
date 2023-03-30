@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/common.dart';
 import 'package:rich_renderer/src/renderers/data/data_arguments.dart';
 
 TagRenderer dataRenderer() {
@@ -47,7 +46,7 @@ Data consumes one required argument "id" and any another arguments, which you wa
   </container>
 </container>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final DataArguments arguments = DataArguments.fromJson(element.attributes);
 
       if (arguments.id != null && arguments.id!.isNotEmpty) {

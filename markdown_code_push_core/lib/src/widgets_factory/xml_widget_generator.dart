@@ -8,8 +8,8 @@ import 'package:xml/xml.dart';
 typedef MarkdownFormatter = String Function(BuildContext context, String rawMarkdown);
 typedef WidgetsFilter = void Function(Widget nodeWidget, List<Widget> output);
 
-class MarkdownGeneratorV2 {
-  MarkdownGeneratorV2({
+class XmlWidgetGenerator {
+  XmlWidgetGenerator({
     required this.context,
     required this.data,
     this.widgetConfig,
@@ -28,15 +28,15 @@ class MarkdownGeneratorV2 {
     }
   }
 
-  Future<List<Widget>> generate() async {
+  List<Widget> generate() {
     final List<Widget> widgets = [];
-    final XmlNode node = await parseXml(data);
+    final XmlNode node = parseXmlSync(data);
     final XmlElement rootElement = node.children.firstWhere((XmlNode it) => it is XmlElement && it.localName == kRootNode) as XmlElement;
     final List<XmlNode> widgetTags = rootElement.children.toList();
     final List<md.Node> nodes = widgetTags.toMarkdownNodes();
 
     for (final md.Node node in nodes) {
-      final Widget? nodeWidget = await _buildWidget(node);
+      final Widget? nodeWidget = _buildWidget(node);
       if (nodeWidget != null) {
         if (widgetsFilter == null) {
           _defaultWidgetsFilter(nodeWidget, widgets);
@@ -48,7 +48,7 @@ class MarkdownGeneratorV2 {
     return widgets;
   }
 
-  Future<Widget?> _buildWidget(md.Node node) async {
+  Widget? _buildWidget(md.Node node) {
     if (node is md.Text || node is md.UnparsedContent) {
       return null;
     }

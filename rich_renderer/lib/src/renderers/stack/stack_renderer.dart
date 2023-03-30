@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/position_arguments.dart';
-import 'package:rich_renderer/src/documentation/arguments/scalar_arguments.dart';
-import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/renderers/stack/stack_arguments.dart';
 
 TagRenderer stackRenderer() {
@@ -59,9 +56,9 @@ Using a [Stack](widgets/Stack-class.html) you can position widgets over one anot
   </stack>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final StackArguments arguments = StackArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return Stack(
         fit: arguments.fit ?? StackFit.loose,

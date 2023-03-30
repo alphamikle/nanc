@@ -44,9 +44,9 @@ For example, a 16:9 width:height aspect ratio would have a value of 16.0/9.0. If
   </aspectRatio>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final AspectRatioArguments arguments = AspectRatioArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       if (arguments.ratio == null || arguments.ratio! <= 0) {
         return compactWidgets(extractor.children);

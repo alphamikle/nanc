@@ -71,9 +71,9 @@ A carousel slider widget, support infinite scroll and custom child widget.
   </carouselSlider>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final ReviewsSliderArguments arguments = ReviewsSliderArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       final List<Widget> children = extractor.children;
       if (children.isEmpty) {

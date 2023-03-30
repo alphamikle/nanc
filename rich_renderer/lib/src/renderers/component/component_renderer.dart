@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/common.dart';
 import 'package:rich_renderer/src/renderers/component/component_arguments.dart';
-import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/tools/enrich_nodes.dart';
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
@@ -47,7 +45,7 @@ TagRenderer componentRenderer() {
   </column>
 </container>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final TemplateStorage templateStorage = TemplateStorage.of(context);
       final ComponentArguments arguments = ComponentArguments.fromJson(element.attributes);
 
@@ -62,7 +60,7 @@ TagRenderer componentRenderer() {
         return null;
       }
       final String hash = element.attributes.toString();
-      final List<md.Node>? richComponentContent = await enrichNodesWithAttribute(attributeName: kHashAttribute, attributeValue: hash, nodes: templateContent);
+      final List<md.Node>? richComponentContent = enrichNodesWithAttribute(attributeName: kHashAttribute, attributeValue: hash, nodes: templateContent);
       templateStorage.saveArguments(
         templateId: templateId,
         hash: hash,
@@ -70,8 +68,7 @@ TagRenderer componentRenderer() {
       );
       final PropertiesExtractor extractor = PropertiesExtractor(
         context: context,
-        // ignore: use_build_context_synchronously
-        rawChildren: await richRenderer.renderChildren(context, richComponentContent),
+        rawChildren: richRenderer.renderChildren(context, richComponentContent),
       );
       return compactWidgets(extractor.children);
     },

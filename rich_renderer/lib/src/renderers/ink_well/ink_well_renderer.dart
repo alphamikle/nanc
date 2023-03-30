@@ -55,9 +55,9 @@ The [InkWell](material/InkWell-class.html) widget must have a [Material](materia
     </center>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final InkWellArguments arguments = InkWellArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return InkWell(
         borderRadius: extractor.getProperty(borderRadius),

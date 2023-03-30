@@ -6,14 +6,14 @@ import 'package:rich_renderer/src/renderers/property/properties/gradient/gradien
 import 'package:rich_renderer/src/renderers/property/properties/gradient/gradient_property_widget.dart';
 import 'package:rich_renderer/src/rich_renderer.dart';
 
-Future<GradientPropertyWidget> gradientFactory({
+GradientPropertyWidget gradientFactory({
   required BuildContext context,
   required String name,
   required md.Element element,
   required RichRenderer richRenderer,
-}) async {
+}) {
   final GradientArguments arguments = GradientArguments.fromJson(element.attributes);
-  final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+  final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
   final Alignment beginValue = extractor.getProperty(begin) ?? Alignment.centerLeft;
   final Alignment endValue = extractor.getProperty(end) ?? Alignment.centerRight;

@@ -55,9 +55,9 @@ Tooltips provide text labels which help explain the function of a button or othe
   </center>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final TooltipArguments arguments = TooltipArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       if (arguments.text == null || arguments.text!.trim().isEmpty) {
         return compactWidgets(extractor.children);

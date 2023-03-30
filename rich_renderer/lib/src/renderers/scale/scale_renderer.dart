@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/border_radius_arguments.dart';
-import 'package:rich_renderer/src/documentation/arguments/position_arguments.dart';
-import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/renderers/scale/scale_arguments.dart';
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
@@ -42,9 +39,9 @@ Unlike [RotatedBox](widgets/RotatedBox-class.html), which applies a rotation pri
   </center>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final ScaleArguments arguments = ScaleArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return Transform.scale(
         scaleX: arguments.all ?? arguments.scaleX,

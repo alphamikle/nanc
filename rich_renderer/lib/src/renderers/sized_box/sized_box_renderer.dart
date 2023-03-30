@@ -42,9 +42,9 @@ The [SizedBox.expand](widgets/SizedBox/SizedBox.expand.html) constructor can be 
   </center>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final SizedBoxArguments arguments = SizedBoxArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
       final double? size = arguments.size;
 
       return SizedBox(

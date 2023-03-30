@@ -48,9 +48,9 @@ Specifying an [itemExtent](widgets/ListView/itemExtent.html) or an [prototypeIte
   </sizedBox>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final ListViewArguments arguments = ListViewArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       final List<Widget> children = extractor.children;
 

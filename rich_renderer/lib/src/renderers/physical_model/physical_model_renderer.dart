@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/clip_arguments.dart';
-import 'package:rich_renderer/src/documentation/arguments/decoration_arguments.dart';
-import 'package:rich_renderer/src/documentation/properties/border_radius.dart';
 import 'package:rich_renderer/src/renderers/physical_model/physical_model_arguments.dart';
-import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/renderers/property/mapper/properties_list.dart';
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
@@ -51,9 +47,9 @@ For shapes that cannot be expressed as a rectangle with rounded corners use [Phy
   </center>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final PhysicalModelArguments arguments = PhysicalModelArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return PhysicalModel(
         color: arguments.color ?? Colors.transparent,

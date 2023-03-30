@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:rich_renderer/rich_renderer.dart';
-import 'package:rich_renderer/src/documentation/arguments/border_radius_arguments.dart';
 import 'package:rich_renderer/src/renderers/clipr_rect/clipr_rect_arguments.dart';
-import 'package:rich_renderer/src/renderers/property/mapper/properties_extractor.dart';
 import 'package:rich_renderer/src/tools/widgets_compactor.dart';
 
 const String _description = '''
@@ -42,9 +40,9 @@ TagRenderer clipRRectRenderer() {
   </center>
 </container>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) async {
+    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
       final ClipRRectArguments arguments = ClipRRectArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: await richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return ClipRRect(
         borderRadius: arguments.toBorderRadius(),
