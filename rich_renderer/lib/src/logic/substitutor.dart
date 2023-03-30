@@ -4,7 +4,6 @@ import 'package:rich_renderer/rich_renderer.dart';
 import 'package:rich_renderer/src/renderers/component/element_hash_extension.dart';
 import 'package:rich_renderer/src/renderers/for/for_renderer.dart';
 import 'package:rich_renderer/src/tools/chain_extractor.dart';
-import 'package:tools/tools.dart';
 
 class Substitutor {
   Substitutor({
@@ -15,12 +14,12 @@ class Substitutor {
   final RegExp _substitutionRegExp = RegExp(r'{{.*}}');
   final RegExp _clearingRegExp = RegExp(r'(?<start>{{)(?<content>[^}]+)(?<end>}})');
 
-  static Future<md.Element> enrichElement({required BuildContext context, required md.Element node}) async {
+  static md.Element enrichElement({required BuildContext context, required md.Element node}) {
     final Substitutor substitutor = Substitutor(context: context);
     final Map<String, String> attributes = {...node.attributes};
     for (final MapEntry<String, String> attributeEntry in node.attributes.entries) {
       if (substitutor.haveExpression(attributeEntry.value)) {
-        attributes[attributeEntry.key] = await substitutor.substitute(node.contentHash, attributeEntry.value);
+        attributes[attributeEntry.key] = substitutor.substitute(node.contentHash, attributeEntry.value);
         attributes['${attributeEntry.key}_old'] = substitutor._clearValue(substitutor._prepareForClearing(attributeEntry.value));
       }
     }
@@ -31,8 +30,7 @@ class Substitutor {
 
   bool haveExpression(String value) => _substitutionRegExp.hasMatch(value);
 
-  Future<String> substitute(String hash, String value) async {
-    await wait(periodic: true, period: 20);
+  String substitute(String hash, String value) {
     final String withLocalData = _replaceWithLocalData(value);
     final String withTemplateData = _replaceWithTemplateData(hash, withLocalData);
     final String withPageData = _replaceWithPageData(withTemplateData);
