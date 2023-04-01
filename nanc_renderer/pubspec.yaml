@@ -13,8 +13,18 @@ dependencies:
     sdk: flutter
   markdown_code_push_core:
     path: ../markdown_code_push_core
-  rich_renderer:
-    path: ../rich_renderer
+  tools:
+    path: ../tools
+  icons:
+    path: ../icons
+  fonts:
+    path: ../fonts
+  markdown: ^6.0.1
+  json_annotation: ^4.8.0
+  copy_with_extension: ^5.0.0
+  cached_network_image: ^3.2.3
+  flutter_blurhash: ^0.7.0
+  xml: ^6.2.2
 
 dev_dependencies:
   flutter_test:
@@ -22,5 +32,8 @@ dev_dependencies:
   flutter_lints: ^2.0.1
   lint:
     path: ../lint
+  json_serializable: ^6.6.1
+  copy_with_extension_gen: ^5.0.0
+  build_runner: ^2.3.3
 
 flutter:

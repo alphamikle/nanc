@@ -10,12 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  rich_renderer:
-    path: ../rich_renderer
-  tools:
-    path: ../tools
   icons:
     path: ../icons
+  nanc_renderer:
+    path: ../nanc_renderer
+  tools:
+    path: ../tools
   markdown: ^6.0.1
   json_annotation: ^4.8.0
   copy_with_extension: ^5.0.0

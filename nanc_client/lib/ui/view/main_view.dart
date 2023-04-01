@@ -9,7 +9,7 @@ import 'package:nanc_client/logic/bloc/page_bloc.dart';
 import 'package:nanc_client/logic/bloc/page_state.dart';
 import 'package:nanc_client/ui/components/connection_modal.dart';
 import 'package:nanc_client/ui/components/content_page.dart';
-import 'package:rich_renderer/rich_renderer.dart';
+import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -28,7 +28,7 @@ class MainView extends StatefulWidget {
 class _MainViewState extends State<MainView> {
   final TextEditingController offerTextController = TextEditingController();
   final TextEditingController answerTextController = TextEditingController();
-  late final TagsRenderer tagsRenderer = _prepareTagsRenderer();
+  late final List<TagRenderer> tagsRenderer = _prepareTagsRenderer();
   bool isScreenReadyToShow = false;
   final StreamController<String> preloadingTextStreamController = StreamController.broadcast();
 
@@ -40,10 +40,10 @@ class _MainViewState extends State<MainView> {
     );
   }
 
-  TagsRenderer _prepareTagsRenderer() {
-    final TagsRenderer tagsRenderer = TagsRenderer();
-    tagsRenderer.registerRenderer(carouselSliderRenderer);
-    return tagsRenderer;
+  List<TagRenderer> _prepareTagsRenderer() {
+    return [
+      carouselSliderRenderer(),
+    ];
   }
 
   Future<void> _startLoadingAnimation() async {
@@ -106,7 +106,7 @@ class _MainViewState extends State<MainView> {
             builder: (_) => ContentPage(
               content: screenData,
               pageData: state.pageData,
-              renderer: tagsRenderer,
+              renderers: tagsRenderer,
               preloader: preloader,
             ),
           );

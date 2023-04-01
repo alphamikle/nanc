@@ -23,8 +23,8 @@ dependencies:
   json_annotation: ^4.8.0
   copy_with_extension: ^5.0.0
   cached_network_image: ^3.2.3
-  flutter_highlight2: ^0.8.3
   flutter_blurhash: ^0.7.0
+  flutter_highlight2: ^0.8.3
 
 dev_dependencies:
   flutter_test:

@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:markdown_code_push_core/markdown_code_push_core.dart';
-import 'package:rich_renderer/rich_renderer.dart';
+import 'package:nanc_renderer/src/domain/logic/tags/logic/for_storage.dart';
+import 'package:nanc_renderer/src/domain/logic/tags/logic/image_builder_delegate.dart';
+import 'package:nanc_renderer/src/domain/logic/tags/logic/local_data.dart';
+import 'package:nanc_renderer/src/domain/logic/tags/logic/page_data.dart';
+import 'package:nanc_renderer/src/domain/logic/tags/logic/template_storage.dart';
+import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
+import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
 
 typedef WidgetsFilter = void Function(Widget widget, List<Widget> output);
 
 class XmlWidgetsSliverList extends StatelessWidget {
   const XmlWidgetsSliverList({
     required this.markdownContent,
-    required this.renderer,
+    required this.renderers,
     required this.pageData,
     this.preloader,
     this.scrollController,
@@ -19,7 +25,7 @@ class XmlWidgetsSliverList extends StatelessWidget {
   });
 
   final String markdownContent;
-  final TagsRenderer renderer;
+  final List<TagRenderer> renderers;
   final ScrollController? scrollController;
   final Widget? preloader;
   final Map<String, dynamic> pageData;
@@ -28,11 +34,7 @@ class XmlWidgetsSliverList extends StatelessWidget {
   final ImageErrorWidgetBuilder? imageErrorBuilder;
   final ImageFrameBuilder? imageFrameBuilder;
 
-  RichRenderer get richRenderer => RichRenderer(
-        renderers: renderer.renderers.map(
-          (TagRendererFactory it) => it(),
-        ),
-      );
+  RichRenderer get richRenderer => RichRenderer(renderers: renderers);
 
   XmlWidgetGenerator createGenerator(BuildContext context) {
     return XmlWidgetGenerator(

@@ -53,7 +53,7 @@ Future<void> main() async {
       connectionManagerBloc: connectionManagerBloc,
     ),
     renderers: [
-      carouselSliderRenderer,
+      carouselSliderRenderer(),
     ],
     clickHandlers: [
       snackbarDemoHandler,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:markdown_code_push_core/src/widgets_factory/xml_node_extensions.dart';
 import 'package:markdown_code_push_core/src/xml_parser/xml_parser_expo.dart';
-import 'package:rich_renderer/rich_renderer.dart';
 import 'package:xml/xml.dart';
 
 typedef MarkdownFormatter = String Function(BuildContext context, String rawMarkdown);

@@ -16,8 +16,6 @@ dependencies:
     path: ../tools
   cms:
     path: ../cms
-  rich_renderer:
-    path: ../rich_renderer
   nanc_renderer:
     path: ../nanc_renderer
   ui_kit:

@@ -16,8 +16,6 @@ dependencies:
     path: ../markdown_code_push_core
   code_text_field:
     path: ../code_text_field
-  rich_renderer:
-    path: ../rich_renderer
   tools:
     path: ../tools
   fields:

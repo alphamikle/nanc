@@ -1,6 +1,6 @@
 import 'package:additions/additions.dart';
 import 'package:flutter/material.dart';
-import 'package:rich_renderer/rich_renderer.dart';
+import 'package:nanc_renderer/nanc_renderer.dart';
 
 class DataRepository {
   const DataRepository({
@@ -12,7 +12,7 @@ class DataRepository {
   });
 
   final List<RichClickHandler> clickHandlers;
-  final List<TagRendererFactory> renderers;
+  final List<TagRenderer> renderers;
   final ImageLoadingBuilder? imageLoadingBuilder;
   final ImageErrorWidgetBuilder? imageErrorBuilder;
   final ImageFrameBuilder? imageFrameBuilder;

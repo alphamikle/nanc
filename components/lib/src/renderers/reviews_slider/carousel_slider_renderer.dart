@@ -3,7 +3,7 @@ import 'package:components/src/renderers/reviews_slider/carousel_slider_argument
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:rich_renderer/rich_renderer.dart';
+import 'package:nanc_renderer/nanc_renderer.dart';
 
 TagRenderer carouselSliderRenderer() {
   return TagRenderer(

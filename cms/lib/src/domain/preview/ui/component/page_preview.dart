@@ -7,28 +7,11 @@ import 'package:cms/src/service/init/data_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
-import 'package:rich_renderer/rich_renderer.dart';
 
-class PagePreview extends StatefulWidget {
+class PagePreview extends StatelessWidget {
   const PagePreview({
     super.key,
   });
-
-  @override
-  State<PagePreview> createState() => _PagePreviewState();
-}
-
-class _PagePreviewState extends State<PagePreview> {
-  late final TagsRenderer tagsRenderer = _prepareTagsRenderer();
-
-  TagsRenderer _prepareTagsRenderer() {
-    final TagsRenderer tagsRenderer = TagsRenderer();
-    final DataRepository dataRepository = context.read();
-    for (final TagRendererFactory renderer in dataRepository.renderers) {
-      tagsRenderer.registerRenderer(renderer);
-    }
-    return tagsRenderer;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +27,7 @@ class _PagePreviewState extends State<PagePreview> {
                 scrollController: context.read<PreviewBloc>().scrollController,
                 markdownContent: previewState.markdownContent,
                 pageData: pageState.data,
-                renderer: tagsRenderer,
-                widgetsFilter: forWidgetFilter,
+                renderers: dataRepository.renderers,
                 imageLoadingBuilder: dataRepository.imageLoadingBuilder,
                 imageErrorBuilder: dataRepository.imageErrorBuilder,
                 imageFrameBuilder: dataRepository.imageFrameBuilder,

@@ -20,7 +20,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
 import 'package:model/model.dart';
-import 'package:rich_renderer/rich_renderer.dart';
+import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 
 class Initializer {
@@ -51,7 +51,7 @@ class Initializer {
   final List<BlocProvider<dynamic>> blocProviders = [];
   final List<RepositoryProvider<dynamic>> repositoryProviders = [];
   final List<ad.RichClickHandler> clickHandlers;
-  final List<TagRendererFactory> renderers;
+  final List<TagRenderer> renderers;
   final ImageLoadingBuilder? imageLoadingBuilder;
   final ImageErrorWidgetBuilder? imageErrorBuilder;
   final ImageFrameBuilder? imageFrameBuilder;
