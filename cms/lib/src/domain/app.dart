@@ -6,7 +6,6 @@ import 'package:animation_debugger/animation_debugger.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:cms/cms.dart';
 import 'package:cms/src/domain/wrapper/admin_wrapper.dart';
-import 'package:cms/src/service/code_style/code_style.dart';
 import 'package:cms/src/service/config/admin_config.dart';
 import 'package:cms/src/service/errors/error_toaster.dart';
 import 'package:cms/src/service/errors/error_wrapper.dart';
@@ -62,7 +61,6 @@ class _AppState extends State<App> {
     pageApi: widget.pageApi,
     config: widget.config,
     rootKey: rootKey,
-    patternMap: CodeStyle(rootKey: rootKey).patternMap,
     errorStreamController: widget.errorStreamController,
     clickHandlers: widget.clickHandlers,
     renderers: widget.renderers,

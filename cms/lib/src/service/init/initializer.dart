@@ -37,7 +37,6 @@ class Initializer {
     required this.imageErrorBuilder,
     required this.imageFrameBuilder,
     required this.customFonts,
-    this.patternMap = const {},
   });
 
   final List<Model> models;
@@ -46,7 +45,6 @@ class Initializer {
   final AdminConfig config;
 
   final RootKey rootKey;
-  final PatternMap patternMap;
   final StreamController<ErrorWrapper> errorStreamController;
   final List<BlocProvider<dynamic>> blocProviders = [];
   final List<RepositoryProvider<dynamic>> repositoryProviders = [];
@@ -76,7 +74,7 @@ class Initializer {
 
     /// ? BLOCS
     final PreviewBloc previewBloc = PreviewBloc(eventBus: eventBus);
-    final EditorBloc editorBloc = EditorBloc(eventBus: eventBus, patternMap: patternMap);
+    final EditorBloc editorBloc = EditorBloc(eventBus: eventBus);
     final MenuBloc menuBloc = MenuBloc(modelListBloc: modelListProvider);
     final HeaderBloc headerBloc = HeaderBloc();
     final ModelPageBloc modelPageBloc = ModelPageBloc(

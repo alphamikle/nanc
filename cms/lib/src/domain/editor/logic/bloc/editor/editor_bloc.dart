@@ -3,17 +3,16 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:cms/src/domain/editor/logic/bloc/editor/editor_event.dart';
 import 'package:cms/src/domain/editor/logic/bloc/editor/editor_state.dart';
-import 'package:cms/src/service/code_style/rich_markdown.dart';
 import 'package:code_text_field/code_text_field.dart';
 import 'package:fields/fields.dart';
 import 'package:file_syncer/file_syncer.dart';
 import 'package:flutter/material.dart';
+import 'package:highlight/languages/xml.dart';
 import 'package:tools/tools.dart';
 
 class EditorBloc extends Cubit<EditorState> {
   EditorBloc({
     required this.eventBus,
-    required this.patternMap,
     EditorState? initialState,
   }) : super(initialState ?? EditorState.empty()) {
     controller.addListener(controllerListener);
@@ -22,9 +21,8 @@ class EditorBloc extends Cubit<EditorState> {
 
   @protected
   final EventBus eventBus;
-  final Map<String, TextStyle> patternMap;
   final GlobalKey<CodeFieldState> codeFieldKey = GlobalKey();
-  late final CodeController controller = CodeController(language: richMarkdown, patternMap: patternMap);
+  late final CodeController controller = CodeController(language: xml);
   final FocusNode focusNode = FocusNode();
 
   FileSyncer? fileSyncer;

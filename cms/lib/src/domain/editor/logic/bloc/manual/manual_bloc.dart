@@ -9,7 +9,6 @@ final RegExp _prettyCodeRegExp = RegExp(r'> \s{1,3}');
 class ManualBloc extends EditorBloc {
   ManualBloc({
     required super.eventBus,
-    required super.patternMap,
   }) : super(initialState: ManualState.empty()) {
     controller.addListener(controllerListener);
     emit(state);

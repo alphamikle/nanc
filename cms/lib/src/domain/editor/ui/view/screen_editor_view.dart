@@ -33,7 +33,7 @@ class ScreenEditor extends FieldCellWidget<ScreenField> {
 class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<ScreenField, ScreenEditor> {
   late final StreamSubscription<EditorState> subscription;
   final EventBus localEventBus = EventBus();
-  late final ManualBloc manualBloc = ManualBloc(eventBus: localEventBus, patternMap: context.read<EditorBloc>().patternMap);
+  late final ManualBloc manualBloc = ManualBloc(eventBus: localEventBus);
   late final PreviewBloc previewBloc = PreviewBloc(eventBus: localEventBus);
   final GlobalKey<KitScreenPreloaderState> preloaderKey = GlobalKey();
   late final EditorBloc editorBloc = context.read();
