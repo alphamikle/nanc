@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nanc_renderer/src/domain/logic/tags/logic/data_context/data_context.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/logic/for_storage.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/logic/image_builder_delegate.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/logic/local_data.dart';
@@ -57,27 +58,30 @@ class XmlWidgetsSliverList extends StatelessWidget {
           child: LocalData(
             // ignore: prefer_const_literals_to_create_immutables
             data: {},
-            child: Builder(
-              builder: (BuildContext context) {
-                return TemplateStorage(
-                  child: Builder(
-                    builder: (BuildContext context) {
-                      final List<Widget> widgets = createGenerator(context).generate();
-                      return CustomScrollView(
-                        controller: scrollController,
-                        slivers: [
-                          SliverList(
-                            delegate: SliverChildBuilderDelegate(
-                              (BuildContext context, int index) => widgets[index],
-                              childCount: widgets.length,
+            child: DataContext(
+              storage: ValueNotifier({}),
+              child: Builder(
+                builder: (BuildContext context) {
+                  return TemplateStorage(
+                    child: Builder(
+                      builder: (BuildContext context) {
+                        final List<Widget> widgets = createGenerator(context).generate();
+                        return CustomScrollView(
+                          controller: scrollController,
+                          slivers: [
+                            SliverList(
+                              delegate: SliverChildBuilderDelegate(
+                                (BuildContext context, int index) => widgets[index],
+                                childCount: widgets.length,
+                              ),
                             ),
-                          ),
-                        ],
-                      );
-                    },
-                  ),
-                );
-              },
+                          ],
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
             ),
           ),
         ),

@@ -21,7 +21,7 @@ class RichRenderer {
 
   Widget? render(BuildContext context, md.Element element) {
     try {
-      final md.Element richNode = Substitutor.enrichElement(context: context, node: element);
+      final md.Element richNode = Substitutor.calculateExpressions(context: context, node: element);
       return _builders[richNode.tag]!.builder(context, richNode, this);
     } catch (error, stackTrace) {
       logg('Got a error while rendering tag', error, stackTrace);

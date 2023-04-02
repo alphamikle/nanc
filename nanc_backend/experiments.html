@@ -1,0 +1,14 @@
+<data test="1" name="Mike"/>
+
+<safeArea>
+  <for number in="{{ 0...3 }}">
+    <padding all="8">
+      <text>
+        {{ test > 1 ? 'TRUE' : 'FALSE' }}
+        {{ $loop.index > 1 ? 'INDEX > 25' : 'NOPE' }}
+        {{ ((1 + 5) * 2) / 3 > 5 ? 'TRUE: $test' : 'FALSE: $test' }}
+        Hello {{ name }}angelo! How are you?
+      </text>
+    </padding>
+  </for>
+</safeArea>

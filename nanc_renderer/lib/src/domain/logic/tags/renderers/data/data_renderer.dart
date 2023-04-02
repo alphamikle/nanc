@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:nanc_renderer/src/domain/logic/tags/documentation/documentation.dart';
+import 'package:nanc_renderer/src/domain/logic/tags/logic/data_context/data_context.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/logic/local_data.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/data/data_arguments.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
@@ -49,19 +49,13 @@ Data consumes one required argument "id" and any another arguments, which you wa
 </container>
 ''',
     builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
-      final DataArguments arguments = DataArguments.fromJson(element.attributes);
-
-      if (arguments.id != null && arguments.id!.isNotEmpty) {
-        final LocalData localDataStorage = LocalData.of(context);
-        for (final MapEntry<ValueId, String> attributeEntry in element.attributes.entries) {
-          localDataStorage.setValue(
-            dataId: arguments.id!,
-            valueId: attributeEntry.key,
-            value: attributeEntry.value,
-          );
-        }
+      final DataContext dataContext = DataContext.of(context);
+      for (final MapEntry<ValueId, String> attributeEntry in element.attributes.entries) {
+        dataContext.set(
+          attributeEntry.key,
+          attributeEntry.value,
+        );
       }
-
       return null;
     },
   );

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:markdown/markdown.dart' as md;
+import 'package:nanc_renderer/src/domain/logic/tags/logic/data_context/matcher.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/logic/for_storage.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/logic/local_data.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/logic/page_data.dart';
@@ -17,7 +18,10 @@ class Substitutor {
   final RegExp _substitutionRegExp = RegExp(r'{{.*}}');
   final RegExp _clearingRegExp = RegExp(r'(?<start>{{)(?<content>[^}]+)(?<end>}})');
 
-  static md.Element enrichElement({required BuildContext context, required md.Element node}) {
+  static md.Element calculateExpressions({
+    required BuildContext context,
+    required md.Element node,
+  }) {
     final Substitutor substitutor = Substitutor(context: context);
     final Map<String, String> attributes = {...node.attributes};
     for (final MapEntry<String, String> attributeEntry in node.attributes.entries) {
@@ -44,7 +48,7 @@ class Substitutor {
   }
 
   String _replaceWithLocalData(String value) {
-    final Iterable<RegExpMatch> matches = LocalData.getMatches(value);
+    final Iterable<RegExpMatch> matches = getDataContextMatches(value);
     if (matches.isEmpty) {
       return value;
     }
