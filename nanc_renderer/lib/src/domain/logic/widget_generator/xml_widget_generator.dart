@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
+import 'package:nanc_renderer/src/domain/logic/tags/renderers/for/for_widget.dart';
+import 'package:nanc_renderer/src/domain/logic/tags/renderers/for/for_widget_filter.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
 import 'package:nanc_renderer/src/domain/logic/widget_generator/xml_node_extensions.dart';
 import 'package:nanc_renderer/src/domain/logic/xml_parser/xml_parser_expo.dart';
@@ -23,7 +25,10 @@ class XmlWidgetGenerator {
 
   void _defaultWidgetsFilter(Widget? nodeWidget, List<Widget> output) {
     if (nodeWidget != null) {
-      output.add(nodeWidget);
+      forWidgetFilter(nodeWidget, output);
+    }
+    if (widgetsFilter != null && nodeWidget != null && nodeWidget is! ForWidget) {
+      widgetsFilter!(nodeWidget, output);
     }
   }
 
@@ -35,14 +40,7 @@ class XmlWidgetGenerator {
     final List<md.Node> nodes = widgetTags.toMarkdownNodes();
 
     for (final md.Node node in nodes) {
-      final Widget? nodeWidget = _buildWidget(node);
-      if (nodeWidget != null) {
-        if (widgetsFilter == null) {
-          _defaultWidgetsFilter(nodeWidget, widgets);
-        } else {
-          widgetsFilter!(nodeWidget, widgets);
-        }
-      }
+      _defaultWidgetsFilter(_buildWidget(node), widgets);
     }
     return widgets;
   }

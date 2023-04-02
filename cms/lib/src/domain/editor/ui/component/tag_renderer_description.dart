@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/github.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:rich_renderer/rich_renderer.dart';
+import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 

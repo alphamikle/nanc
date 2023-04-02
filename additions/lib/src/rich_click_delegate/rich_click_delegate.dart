@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:additions/src/rich_click_delegate/rich_click_handler.dart';
 import 'package:flutter/material.dart';
-import 'package:rich_renderer/rich_renderer.dart' as r;
+import 'package:nanc_renderer/nanc_renderer.dart';
 
 class _RichClickDelegate {
   factory _RichClickDelegate({
@@ -41,7 +41,7 @@ class _RichClickDelegate {
   }
 }
 
-r.Action clickHandler({
+ClickActionHandler clickHandler({
   required BuildContext context,
   List<RichClickHandler> handlers = const [],
 }) {

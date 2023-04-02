@@ -2,7 +2,7 @@ import 'package:cms/src/domain/editor/logic/bloc/editor/editor_bloc.dart';
 import 'package:cms/src/domain/editor/logic/bloc/manual/manual_state.dart';
 import 'package:cms/src/domain/general/logic/model/menu_element.dart';
 import 'package:fields/fields.dart';
-import 'package:rich_renderer/rich_renderer.dart';
+import 'package:nanc_renderer/nanc_renderer.dart';
 
 final RegExp _prettyCodeRegExp = RegExp(r'> \s{1,3}');
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:markdown_code_push_core/markdown_code_push_core.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/logic/for_storage.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/logic/image_builder_delegate.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/logic/local_data.dart';
@@ -7,6 +6,7 @@ import 'package:nanc_renderer/src/domain/logic/tags/logic/page_data.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/logic/template_storage.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
+import 'package:nanc_renderer/src/domain/logic/widget_generator/xml_widget_generator.dart';
 
 typedef WidgetsFilter = void Function(Widget widget, List<Widget> output);
 

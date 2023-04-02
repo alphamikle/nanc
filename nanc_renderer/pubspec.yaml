@@ -11,8 +11,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  markdown_code_push_core:
-    path: ../markdown_code_push_core
   tools:
     path: ../tools
   icons:
@@ -25,6 +23,7 @@ dependencies:
   cached_network_image: ^3.2.3
   flutter_blurhash: ^0.7.0
   xml: ^6.2.2
+  flutter_highlight2: ^0.8.3
 
 dev_dependencies:
   flutter_test:

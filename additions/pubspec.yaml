@@ -8,8 +8,8 @@ environment:
   flutter: '>=3.7.8'
 
 dependencies:
-  rich_renderer:
-    path: ../rich_renderer
+  nanc_renderer:
+    path: ../nanc_renderer
   icons:
     path: ../icons
   ui_kit:

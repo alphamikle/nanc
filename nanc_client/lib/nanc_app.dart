@@ -7,7 +7,7 @@ import 'package:device_frame/device_frame.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_client/routing/routes.dart';
-import 'package:rich_renderer/rich_renderer.dart' as rr;
+import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
@@ -52,7 +52,7 @@ class _NancAppState extends State<NancApp> {
       scrollBehavior: AlwaysTouchScrollBehavior(),
       builder: (BuildContext context, Widget child) {
         final double width = MediaQuery.of(context).size.width;
-        final rr.Action action = clickHandler(context: context, handlers: [
+        final ClickActionHandler action = clickHandler(context: context, handlers: [
           browserLinksEventDemoHandler,
           snackbarDemoHandler,
           deeplinkEventDemoHandler,
@@ -62,13 +62,13 @@ class _NancAppState extends State<NancApp> {
         if (width > 500) {
           return DeviceFrame(
             device: Devices.ios.iPhone13,
-            screen: rr.ClickDelegate(
+            screen: ClickDelegate(
               onPressed: action,
               child: child,
             ),
           );
         }
-        return rr.ClickDelegate(
+        return ClickDelegate(
           onPressed: action,
           child: child,
         );

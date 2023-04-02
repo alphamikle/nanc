@@ -12,8 +12,6 @@ dependencies:
     sdk: flutter
   nanc_renderer:
     path: ../nanc_renderer
-  markdown_code_push_core:
-    path: ../markdown_code_push_core
   code_text_field:
     path: ../code_text_field
   tools:

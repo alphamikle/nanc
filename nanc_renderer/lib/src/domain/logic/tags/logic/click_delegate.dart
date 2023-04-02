@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-typedef Action = FutureOr<void> Function(String event);
+typedef ClickActionHandler = FutureOr<void> Function(String event);
 
 class ClickDelegate extends InheritedWidget {
   const ClickDelegate({
@@ -28,7 +28,7 @@ class ClickDelegate extends InheritedWidget {
     return delegate;
   }
 
-  final Action onPressed;
+  final ClickActionHandler onPressed;
 
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => false;
