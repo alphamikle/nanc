@@ -31,7 +31,7 @@ class KitConfirmModal extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: context.theme.textTheme.headline6,
+                style: context.theme.textTheme.titleLarge,
               ),
               if (subtitle != null) KitDivider.vertical(Gap.large),
               if (subtitle != null) const KitLine(useGradient: false, opacity: 0.25),

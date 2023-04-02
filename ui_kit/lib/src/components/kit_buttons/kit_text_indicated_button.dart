@@ -77,7 +77,7 @@ class _KitTextIndicatedButtonState extends State<KitTextIndicatedButton> with Si
                   child: Center(
                     child: Text(
                       widget.text,
-                      style: context.theme.textTheme.subtitle1?.copyWith(
+                      style: context.theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: ColorTween(begin: baseTextColor, end: color).animate(animation).value,
                       ),

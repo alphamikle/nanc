@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_buttons/kit_button.dart';
-import 'package:ui_kit/src/components/kit_divider.dart';
-import 'package:ui_kit/src/constants/gap.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class KitBaseModalBottom extends StatelessWidget {

@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 
 const codeTheme = {
   'root': TextStyle(color: Color(0xff383a42), backgroundColor: Color(0xfffafafa)),

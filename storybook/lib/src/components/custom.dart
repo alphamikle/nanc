@@ -6,7 +6,6 @@ import 'package:storybook/src/tools/usecase_factory.dart';
 class _Card extends StatelessWidget {
   const _Card({
     required this.index,
-    super.key,
   });
 
   final int index;

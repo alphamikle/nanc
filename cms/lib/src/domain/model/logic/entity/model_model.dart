@@ -1,4 +1,3 @@
-import 'package:config/config.dart';
 import 'package:fields/fields.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
@@ -12,7 +11,6 @@ final Model modelModel = Model(
   name: 'Model',
   icon: IconPackNames.mdi_file_code,
   sort: 9998,
-  showInMenu: Env.isProduction == false,
   fields: [
     [
       fieldToModelId,

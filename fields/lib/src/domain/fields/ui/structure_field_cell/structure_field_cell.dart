@@ -202,7 +202,7 @@ class _StructureFieldCellState extends State<StructureFieldCell> with FieldCellH
                     padding: const EdgeInsets.only(right: Gap.regular),
                     child: Icon(contentIcon),
                   ),
-                Text(helper, style: theme.textTheme.subtitle1),
+                Text(helper, style: theme.textTheme.titleMedium),
                 const Spacer(),
                 KitButton(text: 'Add item', onPressed: addItem),
               ],

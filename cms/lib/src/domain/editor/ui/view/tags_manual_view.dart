@@ -72,7 +72,7 @@ class _TagsManualViewState extends State<TagsManualView> {
                     ),
                     Text(
                       'Tags manual',
-                      style: context.theme.textTheme.headline6,
+                      style: context.theme.textTheme.titleLarge,
                     ),
                     const Spacer(),
 

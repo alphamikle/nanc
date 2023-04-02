@@ -54,7 +54,7 @@ class SideMenu extends StatelessWidget {
                   padding: const EdgeInsets.only(left: kPadding),
                   child: Text(
                     'NANC',
-                    style: context.theme.textTheme.headline5?.copyWith(
+                    style: context.theme.textTheme.headlineSmall?.copyWith(
                       fontFamily: GoogleFonts.rubikMoonrocks().fontFamily,
                       fontSize: 36,
                     ),

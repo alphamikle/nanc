@@ -32,7 +32,6 @@ class ErrorToaster extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextStyle style = TextStyle(
       color: context.theme.colorScheme.onErrorContainer,
-      fontSize: Env.isProduction ? 16 : null,
     );
 
     final Widget text = Text(

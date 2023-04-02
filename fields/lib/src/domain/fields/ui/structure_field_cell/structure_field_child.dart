@@ -39,7 +39,7 @@ class _StructureFieldChildState extends State<StructureFieldChild> with SingleTi
     if (isActive) {
       await forward();
     } else {
-      await animateBack(0);
+      await animateBack();
     }
   }
 
@@ -106,7 +106,7 @@ class _StructureFieldChildState extends State<StructureFieldChild> with SingleTi
                     const Spacer(),
                     Text(
                       type,
-                      style: context.theme.textTheme.caption,
+                      style: context.theme.textTheme.bodySmall,
                     ),
                   ],
                 ),

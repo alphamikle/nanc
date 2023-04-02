@@ -75,12 +75,12 @@ class _SliderLayout extends MultiChildLayoutDelegate {
         height: size.height / 5,
       ),
     );
-    positionChild(track, Offset(15.0, size.height * 0.4));
+    positionChild(track, Offset(15, size.height * 0.4));
     layoutChild(
       thumb,
-      BoxConstraints.tightFor(width: 5.0, height: size.height / 4),
+      BoxConstraints.tightFor(width: 5, height: size.height / 4),
     );
-    positionChild(thumb, Offset(0.0, size.height * 0.4));
+    positionChild(thumb, Offset(0, size.height * 0.4));
     layoutChild(
       gestureContainer,
       BoxConstraints.tightFor(width: size.width, height: size.height),
@@ -123,13 +123,13 @@ class TrackPainter extends CustomPainter {
             Paint()
               ..shader = LinearGradient(
                 colors: [
-                  const HSVColor.fromAHSV(1.0, 0.0, 1.0, 1.0).toColor(),
-                  const HSVColor.fromAHSV(1.0, 60.0, 1.0, 1.0).toColor(),
-                  const HSVColor.fromAHSV(1.0, 120.0, 1.0, 1.0).toColor(),
-                  const HSVColor.fromAHSV(1.0, 180.0, 1.0, 1.0).toColor(),
-                  const HSVColor.fromAHSV(1.0, 240.0, 1.0, 1.0).toColor(),
-                  const HSVColor.fromAHSV(1.0, 300.0, 1.0, 1.0).toColor(),
-                  const HSVColor.fromAHSV(1.0, 360.0, 1.0, 1.0).toColor(),
+                  const HSVColor.fromAHSV(1, 0, 1, 1).toColor(),
+                  const HSVColor.fromAHSV(1, 60, 1, 1).toColor(),
+                  const HSVColor.fromAHSV(1, 120, 1, 1).toColor(),
+                  const HSVColor.fromAHSV(1, 180, 1, 1).toColor(),
+                  const HSVColor.fromAHSV(1, 240, 1, 1).toColor(),
+                  const HSVColor.fromAHSV(1, 300, 1, 1).toColor(),
+                  const HSVColor.fromAHSV(1, 360, 1, 1).toColor(),
                 ],
               ).createShader(rect));
         break;
@@ -139,8 +139,8 @@ class TrackPainter extends CustomPainter {
             Paint()
               ..shader = LinearGradient(
                 colors: [
-                  hsvColor.toColor().withOpacity(0.0),
-                  hsvColor.toColor().withOpacity(1.0),
+                  hsvColor.toColor().withOpacity(0),
+                  hsvColor.toColor().withOpacity(1),
                 ],
               ).createShader(rect));
         break;
@@ -163,21 +163,21 @@ class ThumbPainter extends CustomPainter {
     canvas.drawShadow(
       Path()
         ..addOval(
-          Rect.fromCircle(center: const Offset(0.5, 2.0), radius: size.width * 1.8),
+          Rect.fromCircle(center: const Offset(0.5, 2), radius: size.width * 1.8),
         ),
       Colors.black,
-      3.0,
+      3,
       true,
     );
     canvas.drawCircle(
-        Offset(0.0, size.height * 0.4),
+        Offset(0, size.height * 0.4),
         size.height,
         Paint()
           ..color = Colors.white
           ..style = PaintingStyle.fill);
     if (thumbColor != null) {
       canvas.drawCircle(
-          Offset(0.0, size.height * 0.4),
+          Offset(0, size.height * 0.4),
           size.height * (fullThumbColor ? 1.0 : 0.65),
           Paint()
             ..color = thumbColor!
@@ -229,10 +229,10 @@ class ColorPickerSlider extends StatelessWidget {
     this.trackType,
     this.hsvColor,
     this.onColorChanged, {
-    Key? key,
+    super.key,
     this.displayThumbColor = false,
     this.fullThumbColor = false,
-  }) : super(key: key);
+  });
 
   final TrackType trackType;
   final HSVColor hsvColor;
@@ -291,7 +291,7 @@ class ColorPickerSlider extends StatelessWidget {
           LayoutId(
             id: _SliderLayout.thumb,
             child: Transform.translate(
-              offset: Offset(thumbOffset, 0.0),
+              offset: Offset(thumbOffset, 0),
               child: CustomPaint(
                 painter: ThumbPainter(
                   thumbColor: displayThumbColor ? thumbColor : null,
@@ -322,10 +322,10 @@ class ColorPickerSlider extends StatelessWidget {
 class ColorIndicator extends StatelessWidget {
   const ColorIndicator(
     this.hsvColor, {
-    Key? key,
+    super.key,
     this.width = 50.0,
     this.height = 50.0,
-  }) : super(key: key);
+  });
 
   final HSVColor hsvColor;
   final double width;
@@ -337,11 +337,11 @@ class ColorIndicator extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(1000.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(1000)),
         border: Border.all(color: const Color(0xffdddddd)),
       ),
       child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(1000.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(1000)),
         child: CustomPaint(painter: IndicatorPainter(hsvColor.toColor())),
       ),
     );

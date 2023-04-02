@@ -256,7 +256,7 @@ class _DynamicFieldCellState extends State<DynamicFieldCell> with FieldCellHelpe
                     padding: const EdgeInsets.only(right: Gap.regular),
                     child: Icon(contentIcon),
                   ),
-                Text(helper, style: theme.textTheme.subtitle1),
+                Text(helper, style: theme.textTheme.titleMedium),
                 const Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(right: Gap.regular),

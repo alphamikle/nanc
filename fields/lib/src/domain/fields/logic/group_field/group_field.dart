@@ -25,7 +25,7 @@ class GroupField extends Field {
     super.type = FieldType.groupField,
   }) : super(id: id ?? toSnackCase(name));
 
-  factory GroupField.empty() => GroupField(id: '', name: '', fields: []);
+  factory GroupField.empty() => GroupField(id: '', name: '', fields: const []);
 
   factory GroupField.fromJson(dynamic json) => _$GroupFieldFromJson(castToJson(json));
 

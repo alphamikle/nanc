@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:cms/src/domain/model/logic/bloc/model_list_bloc/model_list_state.dart';
 import 'package:cms/src/domain/model/logic/provider/entity_model_provider.dart';
-import 'package:collection/collection.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 

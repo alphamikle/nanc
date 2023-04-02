@@ -220,7 +220,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
                     padding: const EdgeInsets.only(right: Gap.regular),
                     child: Icon(contentIcon),
                   ),
-                Text(helper, style: theme.textTheme.subtitle1),
+                Text(helper, style: theme.textTheme.titleMedium),
                 const Spacer(),
                 // TODO(alphamikle): FIX LOGIC OR FULLY REWRITE STRUCTURED FIELDS
                 Padding(

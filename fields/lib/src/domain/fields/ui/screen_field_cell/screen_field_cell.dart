@@ -82,7 +82,7 @@ class _ScreenFieldCellState extends State<ScreenFieldCell> with FieldCellHelper<
                   children: [
                     Text(
                       helper,
-                      style: theme.textTheme.subtitle1,
+                      style: theme.textTheme.titleMedium,
                     ),
                   ],
                 ),

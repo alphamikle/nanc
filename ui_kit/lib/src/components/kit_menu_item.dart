@@ -99,7 +99,7 @@ class _KitMenuItemState extends State<KitMenuItem> with SingleTickerProviderStat
                             padding: const EdgeInsets.only(left: Gap.regular),
                             child: Text(
                               widget.text,
-                              style: context.theme.textTheme.subtitle1?.copyWith(
+                              style: context.theme.textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.bold,
                                 color: textColor,
                                 fontSize: 16,

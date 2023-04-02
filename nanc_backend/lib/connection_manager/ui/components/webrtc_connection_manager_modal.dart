@@ -127,7 +127,7 @@ And play with the client app UI
                                       padding: const EdgeInsets.only(left: 16, top: 20, bottom: 12),
                                       child: Text(
                                         'Clients',
-                                        style: context.theme.textTheme.headline6?.copyWith(color: context.theme.textTheme.headline6?.color?.withOpacity(0.65)),
+                                        style: context.theme.textTheme.titleLarge?.copyWith(color: context.theme.textTheme.titleLarge?.color?.withOpacity(0.65)),
                                         maxLines: 1,
                                         overflow: TextOverflow.fade,
                                       ),
@@ -185,7 +185,7 @@ And play with the client app UI
                                           width: size,
                                           child: Text(
                                             'Scan it from the client app\nor press on it to copy to buffer',
-                                            style: context.theme.textTheme.headline5,
+                                            style: context.theme.textTheme.headlineSmall,
                                           ),
                                         ),
                                       ),

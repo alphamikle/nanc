@@ -14,7 +14,7 @@ class HeaderFieldCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle style = context.theme.textTheme.headline6 ?? DefaultTextStyle.of(context).style;
+    TextStyle style = context.theme.textTheme.titleLarge ?? DefaultTextStyle.of(context).style;
     final Color color = field.contentColor ?? style.color ?? context.theme.colorScheme.onSurface;
     if (field.contentFontSize != null && field.contentFontSize! > 0) {
       style = style.copyWith(fontSize: field.contentFontSize);

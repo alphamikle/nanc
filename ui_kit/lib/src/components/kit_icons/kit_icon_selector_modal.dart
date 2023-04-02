@@ -84,7 +84,7 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
             padding: const EdgeInsets.only(left: Gap.regular, right: Gap.regular, bottom: Gap.large),
             child: Text(
               value.title,
-              style: context.theme.textTheme.caption,
+              style: context.theme.textTheme.bodySmall,
               textAlign: TextAlign.center,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,

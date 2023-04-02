@@ -27,8 +27,8 @@ bool useWhiteForeground(Color backgroundColor, {double bias = 0.0}) {
 ///
 /// Reference: https://en.wikipedia.org/wiki/HSL_and_HSV#HSV_to_HSL
 HSLColor hsvToHsl(HSVColor color) {
-  double s = 0.0;
-  double l = 0.0;
+  double s = 0;
+  double l = 0;
   l = (2 - color.saturation) * color.value / 2;
   if (l != 0) {
     if (l == 1) {
@@ -51,8 +51,8 @@ HSLColor hsvToHsl(HSVColor color) {
 ///
 /// Reference: https://en.wikipedia.org/wiki/HSL_and_HSV#HSL_to_HSV
 HSVColor hslToHsv(HSLColor color) {
-  double s = 0.0;
-  double v = 0.0;
+  double s = 0;
+  double v = 0;
 
   v = color.lightness +
       color.saturation *

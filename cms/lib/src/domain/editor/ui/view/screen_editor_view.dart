@@ -111,7 +111,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                         /// ? TITLE
                         Text(
                           'Editing $helper',
-                          style: context.theme.textTheme.headline6,
+                          style: context.theme.textTheme.titleLarge,
                         ),
                         const Spacer(),
                         if (kDebugMode) KitDivider.horizontal(kPadding),

@@ -1,6 +1,4 @@
 import 'package:fields/fields.dart';
-import 'package:fields/src/domain/fields/logic/font_field/font_field.dart';
-import 'package:fields/src/domain/fields/ui/font_field_cell/font_field_cell.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';

@@ -42,7 +42,7 @@ class KitModalCard extends StatelessWidget {
                     children: [
                       if (header != null)
                         DefaultTextStyle(
-                          style: context.theme.textTheme.headline6 ?? const TextStyle(),
+                          style: context.theme.textTheme.titleLarge ?? const TextStyle(),
                           child: header!,
                         ),
                       const Spacer(),
