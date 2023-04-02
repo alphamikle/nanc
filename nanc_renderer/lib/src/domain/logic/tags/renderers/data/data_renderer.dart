@@ -12,8 +12,6 @@ TagRenderer dataRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_code_json,
     tag: 'data',
-    pattern: RegExp(r'<data.*/>'),
-    endPattern: null,
     description: TagDescription(
       description: '''
 # Data

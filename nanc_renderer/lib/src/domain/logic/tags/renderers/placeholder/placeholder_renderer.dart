@@ -11,8 +11,6 @@ TagRenderer placeholderRenderer() {
   return TagRenderer(
     icon: IconPack.flu_border_all_regular,
     tag: 'placeholder',
-    pattern: RegExp(r'<placeholder.*/>'),
-    endPattern: null,
     description: TagDescription(
       description: '''
 # [Placeholder](https://api.flutter.dev/flutter/widgets/Placeholder-class.html)

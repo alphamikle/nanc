@@ -26,8 +26,6 @@ TagRenderer columnRenderer() {
   return TagRenderer(
     icon: IconPack.flu_table_insert_column_regular,
     tag: 'column',
-    pattern: RegExp(r'<column.*>'),
-    endPattern: RegExp('</column>'),
     description: TagDescription(
       description: _description,
       arguments: [

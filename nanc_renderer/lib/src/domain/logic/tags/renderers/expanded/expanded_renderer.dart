@@ -13,8 +13,6 @@ TagRenderer expandedRenderer() {
   return TagRenderer(
     icon: IconPack.flu_arrow_autofit_content_regular,
     tag: 'expanded',
-    pattern: RegExp(r'<expanded.*>'),
-    endPattern: RegExp('</expanded>'),
     description: TagDescription(
       description: '''
 # [Expanded](https://api.flutter.dev/flutter/widgets/Expanded-class.html)

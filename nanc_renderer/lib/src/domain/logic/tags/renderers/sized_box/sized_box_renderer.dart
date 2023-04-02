@@ -13,8 +13,6 @@ TagRenderer sizedBoxRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_move_resize,
     tag: 'sizedBox',
-    pattern: RegExp(r'<sizedBox.*>'),
-    endPattern: RegExp('</sizedBox>'),
     description: TagDescription(
       description: '''
 # [SizedBox](https://api.flutter.dev/flutter/widgets/SizedBox-class.html)

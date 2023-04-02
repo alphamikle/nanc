@@ -13,8 +13,6 @@ TagRenderer scaleRenderer() {
   return TagRenderer(
     icon: IconPack.flu_scale_fill_filled,
     tag: 'scale',
-    pattern: RegExp(r'<scale.*>'),
-    endPattern: RegExp('</scale>'),
     description: TagDescription(
       description: '''
 # [Transform.scale](https://api.flutter.dev/flutter/widgets/Transform-class.html)

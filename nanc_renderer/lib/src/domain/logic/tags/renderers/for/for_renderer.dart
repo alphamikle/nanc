@@ -22,8 +22,6 @@ TagRenderer forRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_reiterate,
     tag: 'for',
-    pattern: RegExp(r'<for.*>'),
-    endPattern: RegExp('</for>'),
     description: TagDescription(
       description: '''
 # For (Cycles)

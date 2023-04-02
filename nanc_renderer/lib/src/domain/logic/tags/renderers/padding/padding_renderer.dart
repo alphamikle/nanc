@@ -13,8 +13,6 @@ TagRenderer paddingRenderer() {
   return TagRenderer(
     icon: IconPack.flu_padding_right_regular,
     tag: 'padding',
-    pattern: RegExp(r'<padding.*>'),
-    endPattern: RegExp('</padding>'),
     description: TagDescription(
       description: '''
 # [Padding](https://api.flutter.dev/flutter/widgets/Padding-class.html)

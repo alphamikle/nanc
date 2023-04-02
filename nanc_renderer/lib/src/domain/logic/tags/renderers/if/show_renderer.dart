@@ -13,8 +13,6 @@ TagRenderer showRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_directions_fork,
     tag: 'show',
-    pattern: RegExp(r'<show.*>'),
-    endPattern: RegExp('</show>'),
     description: TagDescription(
       description: '''
 # Show

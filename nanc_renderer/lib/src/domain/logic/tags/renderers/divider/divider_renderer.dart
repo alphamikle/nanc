@@ -11,8 +11,6 @@ TagRenderer dividerRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_diving_scuba_flag,
     tag: 'divider',
-    pattern: RegExp(r'<divider.*/>'),
-    endPattern: null,
     description: TagDescription(
       description: '''
 # Divider

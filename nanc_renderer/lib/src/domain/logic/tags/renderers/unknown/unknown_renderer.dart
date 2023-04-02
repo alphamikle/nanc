@@ -9,8 +9,6 @@ TagRenderer unknownRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_timeline_question_outline,
     tag: 'unknown',
-    pattern: RegExp(r'.*'),
-    endPattern: null,
     description: const TagDescription.empty(),
     example: '''
 TODO

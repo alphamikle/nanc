@@ -12,8 +12,6 @@ TagRenderer listViewRenderer() {
   return TagRenderer(
     icon: IconPack.flu_dual_screen_vertical_scroll_regular,
     tag: 'listView',
-    pattern: RegExp(r'<listView.*>'),
-    endPattern: RegExp('</listView>'),
     description: TagDescription(
       description: '''
 # [ListView](https://api.flutter.dev/flutter/widgets/ListView-class.html)

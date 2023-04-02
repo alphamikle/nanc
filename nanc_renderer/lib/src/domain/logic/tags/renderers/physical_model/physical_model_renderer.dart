@@ -14,8 +14,6 @@ TagRenderer physicalModelRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_box_shadow,
     tag: 'physicalModel',
-    pattern: RegExp(r'<physicalModel.*>'),
-    endPattern: RegExp('</physicalModel>'),
     description: TagDescription(
       description: '''
 # [Physical Model](https://api.flutter.dev/flutter/widgets/PhysicalModel-class.html)

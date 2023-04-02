@@ -15,8 +15,6 @@ TagRenderer inkWellRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_button_pointer,
     tag: 'inkWell',
-    pattern: RegExp(r'<inkWell.*>'),
-    endPattern: RegExp('</inkWell>'),
     description: TagDescription(
       description: '''
 # [InkWell](https://api.flutter.dev/flutter/material/InkWell-class.html)

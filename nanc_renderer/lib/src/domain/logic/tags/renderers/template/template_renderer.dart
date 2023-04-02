@@ -16,8 +16,6 @@ TagRenderer templateRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_content_copy,
     tag: 'template',
-    pattern: RegExp(r'<template.*>'),
-    endPattern: RegExp('</template>'),
     description: TagDescription(
       description: '''
 # Template

@@ -13,8 +13,6 @@ TagRenderer fractionalTranslationRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_triangle,
     tag: 'fractionalTranslation',
-    pattern: RegExp(r'<fractionalTranslation.*>'),
-    endPattern: RegExp('</fractionalTranslation>'),
     description: TagDescription(
       description: '''
 # [Fractional Translation](https://api.flutter.dev/flutter/widgets/FractionalTranslation-class.html)

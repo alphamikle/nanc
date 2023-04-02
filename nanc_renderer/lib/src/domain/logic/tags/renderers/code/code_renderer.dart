@@ -15,8 +15,6 @@ TagRenderer codeRenderer() {
   return TagRenderer(
     icon: IconPack.flu_code_filled,
     tag: 'code',
-    pattern: RegExp(r'<code.*>'),
-    endPattern: RegExp('</code>'),
     description: const TagDescription.empty(),
     example: '''
 <code language="html">

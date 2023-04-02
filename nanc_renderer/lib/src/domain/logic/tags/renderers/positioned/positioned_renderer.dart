@@ -13,8 +13,6 @@ TagRenderer positionedRenderer() {
   return TagRenderer(
     icon: IconPack.flu_position_to_front_regular,
     tag: 'positioned',
-    pattern: RegExp(r'<positioned.*>'),
-    endPattern: RegExp('</positioned>'),
     description: TagDescription(
       description: '''
 # [Positioned](https://api.flutter.dev/flutter/widgets/Positioned-class.html)

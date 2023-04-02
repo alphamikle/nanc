@@ -56,13 +56,10 @@ List<TagRendererFactory> propertiesRenderers() {
 
 TagRendererFactory propertyToRenderer(Property property) {
   final String name = property.name;
-  final bool haveChildren = property.haveChildren;
   return () {
     return PropertyTagRenderer(
       icon: IconPack.mdi_code_braces_box,
       tag: 'prop:$name',
-      pattern: RegExp('<prop:$name( .*)?${haveChildren ? '' : '/'}>'),
-      endPattern: haveChildren ? RegExp('</prop:$name>') : null,
       example: '',
       builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
         final Json arguments = element.attributes;

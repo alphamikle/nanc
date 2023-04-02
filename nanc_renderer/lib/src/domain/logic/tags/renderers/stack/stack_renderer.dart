@@ -12,8 +12,6 @@ TagRenderer stackRenderer() {
   return TagRenderer(
     icon: IconPack.flu_stack_regular,
     tag: 'stack',
-    pattern: RegExp(r'<stack.*>'),
-    endPattern: RegExp('</stack>'),
     description: TagDescription(
       description: '''
 # [Stack](https://api.flutter.dev/flutter/widgets/Stack-class.html)

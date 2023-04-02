@@ -14,8 +14,6 @@ TagRenderer textRenderer() {
   return TagRenderer(
     icon: IconPack.flu_text_field_regular,
     tag: 'text',
-    pattern: RegExp(r'<text.*>'),
-    endPattern: RegExp('</text>'),
     description: TagDescription(
       description: '''
 # [Text]()

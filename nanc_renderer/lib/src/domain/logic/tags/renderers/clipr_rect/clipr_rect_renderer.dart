@@ -21,8 +21,6 @@ TagRenderer clipRRectRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_scissors_cutting,
     tag: 'clipRRect',
-    pattern: RegExp(r'<clipRRect.*>'),
-    endPattern: RegExp('</clipRRect>'),
     description: TagDescription(
       description: _description,
       arguments: [

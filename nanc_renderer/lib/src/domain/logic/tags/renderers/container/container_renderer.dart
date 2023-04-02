@@ -26,8 +26,6 @@ TagRenderer containerRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_texture_box,
     tag: 'container',
-    pattern: RegExp(r'<container.*>'),
-    endPattern: RegExp(r'</container>'),
     description: TagDescription(
       description: _description,
       properties: [

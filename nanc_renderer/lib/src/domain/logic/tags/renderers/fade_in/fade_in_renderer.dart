@@ -66,8 +66,6 @@ TagRenderer fadeInRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_circle_opacity,
     tag: 'fadeIn',
-    pattern: RegExp(r'<fadeIn.*>'),
-    endPattern: RegExp('</fadeIn>'),
     description: TagDescription(
       description: '''
 # Fade in

@@ -9,8 +9,6 @@ TagRenderer carouselSliderRenderer() {
   return TagRenderer(
     icon: IconPack.flu_slide_transition_regular,
     tag: 'carouselSlider',
-    pattern: RegExp(r'<carouselSlider.*>'),
-    endPattern: RegExp('</carouselSlider>'),
     description: TagDescription(
       description: '''
 # Carousel slider

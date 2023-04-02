@@ -14,8 +14,6 @@ TagRenderer materialRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_material_design,
     tag: 'material',
-    pattern: RegExp(r'<material.*>'),
-    endPattern: RegExp('</material>'),
     description: TagDescription(
       description: '''
 # [Material](https://api.flutter.dev/flutter/material/Material-class.html)

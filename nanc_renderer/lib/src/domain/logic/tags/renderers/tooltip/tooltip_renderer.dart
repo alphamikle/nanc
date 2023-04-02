@@ -14,8 +14,6 @@ TagRenderer tooltipRenderer() {
   return TagRenderer(
     icon: IconPack.flu_tooltip_quote_filled,
     tag: 'tooltip',
-    pattern: RegExp(r'<tooltip.*>'),
-    endPattern: RegExp('</tooltip>'),
     description: TagDescription(
       description: '''
 # [Tooltip](https://api.flutter.dev/flutter/material/Tooltip-class.html)

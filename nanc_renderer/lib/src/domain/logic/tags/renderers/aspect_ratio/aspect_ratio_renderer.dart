@@ -13,8 +13,6 @@ TagRenderer aspectRatioRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_aspect_ratio,
     tag: 'aspectRatio',
-    pattern: RegExp(r'<aspectRatio.*>'),
-    endPattern: RegExp('</aspectRatio>'),
     description: TagDescription(
       description: '''
 # Aspect ratio

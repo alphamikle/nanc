@@ -12,8 +12,6 @@ TagRenderer rowRenderer() {
   return TagRenderer(
     icon: IconPack.flu_table_insert_row_regular,
     tag: 'row',
-    pattern: RegExp(r'<row.*>'),
-    endPattern: RegExp(r'</row>'),
     description: TagDescription(
       description: '''
 # [Row](https://api.flutter.dev/flutter/widgets/Row-class.html)

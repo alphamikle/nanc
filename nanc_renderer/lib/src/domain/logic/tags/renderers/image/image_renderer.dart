@@ -14,8 +14,6 @@ TagRenderer imageRenderer() {
   return TagRenderer(
     icon: IconPack.flu_image_filled,
     tag: 'image',
-    pattern: RegExp(r'<image.*/>'),
-    endPattern: null,
     description: TagDescription(
       description: '''
 # [Image](https://api.flutter.dev/flutter/widgets/Image-class.html)

@@ -21,8 +21,6 @@ TagRenderer centerRenderer() {
   return TagRenderer(
     icon: IconPack.flu_center_vertical_regular,
     tag: 'center',
-    pattern: RegExp(r'<center.*>'),
-    endPattern: RegExp('</center>'),
     description: TagDescription(
       description: _description,
       arguments: [

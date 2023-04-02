@@ -5,9 +5,6 @@ extension XmlNodeConverter on XmlNode {
   md.Node toMarkdownNode() {
     if (this is XmlElement) {
       final XmlElement self = this as XmlElement;
-      // if (self.localName == 'decoration') {
-      //   print(1);
-      // }
       final md.Element element = md.Element(
         self.qualifiedName,
         self.children.toMarkdownNodes(),

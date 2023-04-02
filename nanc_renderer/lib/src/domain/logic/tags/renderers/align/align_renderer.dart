@@ -13,8 +13,6 @@ TagRenderer alignRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_align_vertical_center,
     tag: 'align',
-    pattern: RegExp(r'<align.*>'),
-    endPattern: RegExp('</align>'),
     description: TagDescription(
       description: '''
 # [Align](https://api.flutter.dev/flutter/widgets/Align-class.html)

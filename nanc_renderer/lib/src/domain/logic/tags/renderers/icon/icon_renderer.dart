@@ -11,8 +11,6 @@ TagRenderer iconRenderer() {
   return TagRenderer(
     icon: IconPack.flu_paint_brush_regular,
     tag: 'icon',
-    pattern: RegExp(r'<icon.*/>'),
-    endPattern: null,
     description: TagDescription(
       description: '''
 # [Icon](https://api.flutter.dev/flutter/widgets/Icon-class.html)

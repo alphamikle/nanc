@@ -14,8 +14,6 @@ TagRenderer safeAreaRenderer() {
   return TagRenderer(
     icon: IconPack.flu_resize_large_regular,
     tag: 'safeArea',
-    pattern: RegExp(r'<safeArea.*>'),
-    endPattern: RegExp('</safeArea>'),
     description: TagDescription(
       description: '''
 # [SafeArea](https://api.flutter.dev/flutter/widgets/SafeArea-class.html)
