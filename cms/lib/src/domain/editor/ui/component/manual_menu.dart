@@ -1,15 +1,16 @@
-import 'package:cms/src/domain/editor/logic/bloc/editor/editor_bloc.dart';
-import 'package:cms/src/domain/editor/logic/bloc/editor/editor_state.dart';
-import 'package:cms/src/domain/editor/logic/bloc/manual/manual_bloc.dart';
-import 'package:cms/src/domain/editor/logic/bloc/manual/manual_state.dart';
-import 'package:cms/src/domain/general/logic/model/menu_element.dart';
-import 'package:cms/src/service/config/config.dart';
-import 'package:cms/src/service/init/data_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../../service/config/config.dart';
+import '../../../../service/init/data_repository.dart';
+import '../../../general/logic/model/menu_element.dart';
+import '../../logic/bloc/editor/editor_bloc.dart';
+import '../../logic/bloc/editor/editor_state.dart';
+import '../../logic/bloc/manual/manual_bloc.dart';
+import '../../logic/bloc/manual/manual_state.dart';
 
 class ManualMenu extends StatelessWidget {
   const ManualMenu({

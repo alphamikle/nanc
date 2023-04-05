@@ -1,6 +1,7 @@
-import 'package:cms/src/domain/collection/logic/logic/dto/query_parameter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
+
+import 'query_parameter.dart';
 
 part 'query_dto.g.dart';
 

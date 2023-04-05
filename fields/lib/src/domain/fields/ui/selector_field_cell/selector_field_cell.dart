@@ -1,15 +1,16 @@
 import 'dart:async';
 
 import 'package:cms/cms.dart';
-import 'package:fields/src/domain/fields/logic/selector_field/selector_field.dart';
-import 'package:fields/src/domain/fields/logic/selector_field/title_fields.dart';
-import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
-import 'package:fields/src/service/tools/complex_title_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../../service/tools/complex_title_tools.dart';
+import '../../logic/selector_field/selector_field.dart';
+import '../../logic/selector_field/title_fields.dart';
+import '../field_cell_mixin.dart';
 
 const String kLoadingText = 'Loading...';
 

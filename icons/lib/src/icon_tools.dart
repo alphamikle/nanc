@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:icons/src/icon_pack.dart';
 import 'package:tools/tools.dart';
+
+import 'icon_pack.dart';
 
 IconData getIconByName(String iconName) => iconPackMap[iconName]!;
 

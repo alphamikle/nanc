@@ -1,12 +1,13 @@
 import 'dart:convert';
 
-import 'package:cms/src/domain/collection/logic/logic/dto/params_dto.dart';
-import 'package:cms/src/domain/collection/logic/logic/provider/page_list_provider.dart';
-import 'package:cms/src/domain/model/logic/entity/model_model.dart';
-import 'package:cms/src/domain/page/logic/provider/entity_page_provider.dart';
 import 'package:fields/fields.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../../../collection/logic/logic/dto/params_dto.dart';
+import '../../../collection/logic/logic/provider/page_list_provider.dart';
+import '../../../page/logic/provider/entity_page_provider.dart';
+import '../entity/model_model.dart';
 
 class ModelProvider {
   ModelProvider({

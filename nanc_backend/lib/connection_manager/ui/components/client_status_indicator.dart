@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nanc_backend/connection_manager/logic/model/client.dart';
+import '../../logic/model/client.dart';
 
 const double _kSize = 20;
 

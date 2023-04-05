@@ -1,5 +1,5 @@
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/arguments/position_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
+import '../../tag_description.dart';
+import '../arguments/position_arguments.dart';
 
 TagProperty alignmentProp([String name = 'alignment']) => TagProperty(
       name: name,

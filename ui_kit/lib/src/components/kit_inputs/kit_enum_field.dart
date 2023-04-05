@@ -1,9 +1,10 @@
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_autocomplete_text_field.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_button_field_wrapper.dart';
-import 'package:ui_kit/src/components/kit_list_tile.dart';
+
+import '../kit_list_tile.dart';
+import 'kit_autocomplete_text_field.dart';
+import 'kit_button_field_wrapper.dart';
 
 class KitEnumField extends StatefulWidget {
   const KitEnumField({

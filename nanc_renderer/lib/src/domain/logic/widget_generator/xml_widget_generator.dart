@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/for/for_widget.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/for/for_widget_filter.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/widget_generator/xml_node_extensions.dart';
-import 'package:nanc_renderer/src/domain/logic/xml_parser/xml_parser_expo.dart';
 import 'package:xml/xml.dart';
+
+import '../tags/renderers/for/for_widget.dart';
+import '../tags/renderers/for/for_widget_filter.dart';
+import '../tags/rich_renderer.dart';
+import '../xml_parser/xml_parser_expo.dart';
+import 'xml_node_extensions.dart';
 
 typedef MarkdownFormatter = String Function(BuildContext context, String rawMarkdown);
 typedef WidgetsFilter = void Function(Widget nodeWidget, List<Widget> output);

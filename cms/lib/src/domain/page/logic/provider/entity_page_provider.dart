@@ -1,9 +1,10 @@
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_bloc.dart';
-import 'package:cms/src/domain/page/logic/provider/entity_page_api.dart';
-import 'package:cms/src/domain/page/logic/provider/entity_page_provider_interface.dart';
 import 'package:fields/fields.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../bloc/page_bloc/page_bloc.dart';
+import 'entity_page_api.dart';
+import 'entity_page_provider_interface.dart';
 
 class PageProvider implements PageProviderInterface {
   PageProvider({

@@ -1,11 +1,14 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:fields/src/domain/fields/logic/dynamic_field/dynamic_field.dart';
-import 'package:fields/src/domain/fields/logic/field/field_description.dart';
-import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../../../type/field_types.dart';
+import '../dynamic_field/dynamic_field.dart';
+import '../field/field_description.dart';
+import '../field/field_props.dart';
 
 part 'structure_field.g.dart';
 
@@ -15,6 +18,7 @@ part 'structure_field.g.dart';
 class StructureField extends DynamicField {
   StructureField({
     required super.name,
+    this.singleObject = false,
     String? id,
     super.showInList,
     super.isRequired,
@@ -30,6 +34,8 @@ class StructureField extends DynamicField {
 
   factory StructureField.fromJson(dynamic json) => _$StructureFieldFromJson(castToJson(json));
 
+  final bool singleObject;
+
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
@@ -37,6 +43,32 @@ class StructureField extends DynamicField {
       color: Color.fromRGBO(0, 0, 0, 1),
       title: 'Structure field',
       description: 'Technical field for CMS purposes',
+    );
+  }
+
+  @override
+  Model toModel() {
+    return Model(
+      name: description().title,
+      icon: 'key',
+      fields: [
+        [
+          fieldToModelName,
+          fieldToModelId,
+        ],
+        [
+          fieldToModelSort,
+          fieldToModelWidth,
+        ],
+        [
+          fieldToModelShowInList,
+          fieldToModelIsRequired,
+        ],
+        [
+          fieldToModelContentColor,
+          fieldToModelContentIcon,
+        ],
+      ],
     );
   }
 

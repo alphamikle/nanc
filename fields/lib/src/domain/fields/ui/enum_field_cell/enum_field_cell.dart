@@ -1,11 +1,12 @@
 import 'package:cms/cms.dart';
-import 'package:fields/src/domain/fields/logic/enum_field/enum_field.dart';
-import 'package:fields/src/domain/fields/logic/enum_field/enum_value.dart';
-import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../logic/enum_field/enum_field.dart';
+import '../../logic/enum_field/enum_value.dart';
+import '../field_cell_mixin.dart';
 
 class EnumFieldCell extends FieldCellWidget<EnumField> {
   const EnumFieldCell({

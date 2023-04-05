@@ -1,5 +1,5 @@
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/arguments/border_radius_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
+import '../../tag_description.dart';
+import '../arguments/border_radius_arguments.dart';
 
 TagProperty borderRadiusProp([String name = 'borderRadius']) => TagProperty(
       name: name,

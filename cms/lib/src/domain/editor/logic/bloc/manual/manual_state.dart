@@ -1,9 +1,10 @@
-import 'package:cms/src/domain/editor/logic/bloc/editor/editor_state.dart';
-import 'package:cms/src/domain/general/logic/model/menu_element.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
+
+import '../../../../general/logic/model/menu_element.dart';
+import '../editor/editor_state.dart';
 
 part 'manual_state.g.dart';
 

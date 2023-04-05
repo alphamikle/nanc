@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/documentation.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/divider/divider_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
+
+import '../../documentation/documentation.dart';
+import '../../rich_renderer.dart';
+import '../../tag_description.dart';
+import '../../tag_renderer.dart';
+import 'divider_arguments.dart';
 
 TagRenderer dividerRenderer() {
   return TagRenderer(

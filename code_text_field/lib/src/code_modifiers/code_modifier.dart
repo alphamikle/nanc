@@ -1,5 +1,6 @@
-import 'package:code_text_field/src/code_field/editor_params.dart';
 import 'package:flutter/material.dart';
+
+import '../code_field/editor_params.dart';
 
 abstract class CodeModifier {
 

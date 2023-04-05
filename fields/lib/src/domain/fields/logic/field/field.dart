@@ -2,14 +2,15 @@
 
 import 'package:config/config.dart';
 import 'package:equatable/equatable.dart';
-import 'package:fields/src/domain/fields/logic/field/field_description.dart';
-import 'package:fields/src/domain/fields/logic/field/field_props.dart';
-import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../../../type/field_types.dart';
+import 'field_description.dart';
+import 'field_props.dart';
 
 abstract class Field extends Equatable {
   const Field({

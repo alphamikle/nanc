@@ -1,7 +1,8 @@
-import 'package:additions/src/rich_click_delegate/rich_click_handler.dart';
 import 'package:analytics/analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+
+import '../rich_click_handler.dart';
 
 final RegExp _deeplinkRegExp = RegExp(r'^deeplink: ?(?<content>.*)$');
 

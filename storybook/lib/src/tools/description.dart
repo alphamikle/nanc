@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:storybook/src/tools/usecase_factory.dart';
+import 'usecase_factory.dart';
 
 class Description {
   const Description({

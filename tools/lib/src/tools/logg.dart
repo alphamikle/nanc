@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer' as dev;
 
 import 'package:flutter/foundation.dart';
-import 'package:tools/src/types/types.dart';
+import '../types/types.dart';
 
 // ignore: camel_case_types
 class logg {

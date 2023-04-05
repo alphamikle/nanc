@@ -1,4 +1,4 @@
-import 'package:fields/fields.dart';
+import '../../../../../fields.dart';
 
 const String fieldIdProperty = 'id';
 const String fieldNameProperty = 'name';

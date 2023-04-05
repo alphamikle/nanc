@@ -4,7 +4,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ui_kit/src/components/kit_color_picker/utils.dart';
+import 'utils.dart';
 
 /// Palette types for color picker area widget.
 enum PaletteType {

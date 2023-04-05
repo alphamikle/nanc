@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
-import 'package:tools/src/tools/color_tools.dart';
+import 'color_tools.dart';
 
 double? nullableDoubleFromJson(String? value) => double.tryParse(value ?? '');
 

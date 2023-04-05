@@ -1,27 +1,28 @@
 import 'dart:async';
 
 import 'package:additions/additions.dart' as ad;
-import 'package:cms/cms.dart';
-import 'package:cms/src/domain/collection/logic/logic/bloc/collection_bloc.dart';
-import 'package:cms/src/domain/collection/logic/logic/provider/page_list_provider.dart';
-import 'package:cms/src/domain/draft/logic/draft_service.dart';
-import 'package:cms/src/domain/general/logic/bloc/header/header_bloc.dart';
-import 'package:cms/src/domain/general/logic/bloc/side_menu/menu_bloc.dart';
-import 'package:cms/src/domain/model/logic/bloc/model_page_bloc/model_page_bloc.dart';
-import 'package:cms/src/domain/model/logic/provider/entity_model_provider.dart';
-import 'package:cms/src/domain/page/logic/provider/entity_page_provider.dart';
-import 'package:cms/src/domain/preview/logic/bloc/preview_bloc.dart';
-import 'package:cms/src/domain/tutorial/logic/bloc/tutorial_bloc.dart';
-import 'package:cms/src/service/config/admin_config.dart';
-import 'package:cms/src/service/errors/error_wrapper.dart';
-import 'package:cms/src/service/init/data_repository.dart';
-import 'package:cms/src/service/routing/routes_preloading_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
 import 'package:model/model.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
+
+import '../../../cms.dart';
+import '../../domain/collection/logic/logic/bloc/collection_bloc.dart';
+import '../../domain/collection/logic/logic/provider/page_list_provider.dart';
+import '../../domain/draft/logic/draft_service.dart';
+import '../../domain/general/logic/bloc/header/header_bloc.dart';
+import '../../domain/general/logic/bloc/side_menu/menu_bloc.dart';
+import '../../domain/model/logic/bloc/model_page_bloc/model_page_bloc.dart';
+import '../../domain/model/logic/provider/entity_model_provider.dart';
+import '../../domain/page/logic/provider/entity_page_provider.dart';
+import '../../domain/preview/logic/bloc/preview_bloc.dart';
+import '../../domain/tutorial/logic/bloc/tutorial_bloc.dart';
+import '../config/admin_config.dart';
+import '../errors/error_wrapper.dart';
+import '../routing/routes_preloading_service.dart';
+import 'data_repository.dart';
 
 class Initializer {
   Initializer({

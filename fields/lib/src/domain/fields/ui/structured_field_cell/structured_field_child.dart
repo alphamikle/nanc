@@ -1,11 +1,12 @@
-import 'package:fields/src/domain/fields/logic/dynamic_field/dynamic_field_item.dart';
-import 'package:fields/src/domain/fields/logic/field/field.dart';
-import 'package:fields/src/domain/fields/ui/dynamic_field_cell/dynamic_field_child_panel.dart';
-import 'package:fields/src/domain/fields/ui/structured_field_cell/structured_field_item.dart';
-import 'package:fields/src/domain/mapper/field_mapper.dart';
-import 'package:fields/src/domain/mapper/is_single_line_field_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../mapper/field_mapper.dart';
+import '../../../mapper/is_single_line_field_extension.dart';
+import '../../logic/dynamic_field/dynamic_field_item.dart';
+import '../../logic/field/field.dart';
+import '../dynamic_field_cell/dynamic_field_child_panel.dart';
+import 'structured_field_item.dart';
 
 class StructuredFieldChild extends StatefulWidget {
   const StructuredFieldChild({

@@ -1,16 +1,5 @@
 import 'dart:async';
 
-import 'package:cms/src/domain/editor/logic/bloc/editor/editor_bloc.dart';
-import 'package:cms/src/domain/editor/logic/bloc/editor/editor_state.dart';
-import 'package:cms/src/domain/editor/logic/bloc/manual/manual_bloc.dart';
-import 'package:cms/src/domain/editor/ui/component/page_editor.dart';
-import 'package:cms/src/domain/editor/ui/view/page_data_preview.dart';
-import 'package:cms/src/domain/editor/ui/view/tags_manual_view.dart';
-import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
-import 'package:cms/src/domain/preview/logic/bloc/preview_bloc.dart';
-import 'package:cms/src/domain/preview/ui/component/page_preview_with_frame.dart';
-import 'package:cms/src/service/config/config.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +7,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../../service/config/config.dart';
+import '../../../page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
+import '../../../page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import '../../../preview/logic/bloc/preview_bloc.dart';
+import '../../../preview/ui/component/page_preview_with_frame.dart';
+import '../../logic/bloc/editor/editor_bloc.dart';
+import '../../logic/bloc/editor/editor_state.dart';
+import '../../logic/bloc/manual/manual_bloc.dart';
+import '../component/page_editor.dart';
+import 'page_data_preview.dart';
+import 'tags_manual_view.dart';
 
 class ScreenEditor extends FieldCellWidget<ScreenField> {
   const ScreenEditor({

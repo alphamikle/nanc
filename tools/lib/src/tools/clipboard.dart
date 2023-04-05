@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:tools/src/tools/logg.dart';
+import 'logg.dart';
 // import 'package:super_clipboard/super_clipboard.dart';
 
 Future<bool> copyTextToClipboard(String? value) async {

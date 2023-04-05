@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_buttons/kit_input_button.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_segmented_field/kit_focus_stream_mixin.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_segmented_field/kit_segmented_field.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_text_field.dart';
-import 'package:ui_kit/src/theme/kit_input_decorations.dart';
+
+import '../../theme/kit_input_decorations.dart';
+import '../kit_buttons/kit_input_button.dart';
+import 'kit_segmented_field/kit_focus_stream_mixin.dart';
+import 'kit_segmented_field/kit_segmented_field.dart';
+import 'kit_text_field.dart';
 
 class KitIdInput extends StatefulWidget {
   const KitIdInput({

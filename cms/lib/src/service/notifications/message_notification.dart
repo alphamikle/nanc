@@ -1,8 +1,9 @@
 import 'package:bot_toast/bot_toast.dart';
-import 'package:cms/src/service/config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../config/config.dart';
 
 void showMessageNotification(String message) {
   BotToast.showCustomNotification(

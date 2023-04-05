@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/property_widget.dart';
 import 'package:tools/tools.dart';
+
+import '../property_widget.dart';
 
 class PropertiesExtractor {
   PropertiesExtractor({

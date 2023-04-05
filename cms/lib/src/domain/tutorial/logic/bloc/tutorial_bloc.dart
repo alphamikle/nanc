@@ -1,8 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:cms/src/domain/general/logic/bloc/header/header_bloc.dart';
-import 'package:cms/src/domain/tutorial/logic/bloc/tutorial_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:tools/tools.dart';
+
+import '../../../general/logic/bloc/header/header_bloc.dart';
+import 'tutorial_state.dart';
 
 class TutorialBloc extends Cubit<TutorialState> {
   TutorialBloc({

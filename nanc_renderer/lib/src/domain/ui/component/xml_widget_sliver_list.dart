@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/for_storage.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/image_builder_delegate.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/local_data.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/page_data.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/template_storage.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/widget_generator/xml_widget_generator.dart';
+import '../../logic/tags/logic/for_storage.dart';
+import '../../logic/tags/logic/image_builder_delegate.dart';
+import '../../logic/tags/logic/local_data.dart';
+import '../../logic/tags/logic/page_data.dart';
+import '../../logic/tags/logic/template_storage.dart';
+import '../../logic/tags/rich_renderer.dart';
+import '../../logic/tags/tag_renderer.dart';
+import '../../logic/widget_generator/xml_widget_generator.dart';
 
 typedef WidgetsFilter = void Function(Widget widget, List<Widget> output);
 

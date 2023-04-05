@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/text_style/text_decoration_enum.dart';
 import 'package:tools/tools.dart';
+
+import 'text_decoration_enum.dart';
 
 part 'text_style_arguments.g.dart';
 

@@ -1,7 +1,8 @@
-import 'package:fields/src/domain/fields/logic/number_field/number_field.dart';
-import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../logic/number_field/number_field.dart';
+import '../field_cell_mixin.dart';
 
 class NumberFieldCell extends FieldCellWidget<NumberField> {
   const NumberFieldCell({

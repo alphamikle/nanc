@@ -1,19 +1,20 @@
 import 'package:analytics/analytics.dart';
-import 'package:cms/src/domain/collection/ui/view/collection_view.dart';
-import 'package:cms/src/domain/collection/ui/view/empty_collection_view.dart';
-import 'package:cms/src/domain/general/ui/view/general_view_v2.dart';
-import 'package:cms/src/domain/model/ui/view/model_editor_initial_view.dart';
-import 'package:cms/src/domain/model/ui/view/model_page_view.dart';
-import 'package:cms/src/domain/page/ui/view/entity_page_view.dart';
-import 'package:cms/src/domain/page/ui/view/solo_empty_view.dart';
-import 'package:cms/src/domain/roles/ui/view/roles_view.dart';
-import 'package:cms/src/domain/welcome/ui/view/welcome_view.dart';
-import 'package:cms/src/service/routing/params_list.dart';
-import 'package:cms/src/service/routing/route_list.dart';
-import 'package:cms/src/service/routing/routes_preloading_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vrouter/vrouter.dart';
+
+import '../../domain/collection/ui/view/collection_view.dart';
+import '../../domain/collection/ui/view/empty_collection_view.dart';
+import '../../domain/general/ui/view/general_view_v2.dart';
+import '../../domain/model/ui/view/model_editor_initial_view.dart';
+import '../../domain/model/ui/view/model_page_view.dart';
+import '../../domain/page/ui/view/entity_page_view.dart';
+import '../../domain/page/ui/view/solo_empty_view.dart';
+import '../../domain/roles/ui/view/roles_view.dart';
+import '../../domain/welcome/ui/view/welcome_view.dart';
+import 'params_list.dart';
+import 'route_list.dart';
+import 'routes_preloading_service.dart';
 
 const bool sandbox = true;
 

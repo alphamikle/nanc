@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:storybook/src/tools/components_group.dart';
 import 'package:widgetbook/widgetbook.dart';
+
+import 'components_group.dart';
 
 typedef CategoryName = String;
 typedef GroupName = String;

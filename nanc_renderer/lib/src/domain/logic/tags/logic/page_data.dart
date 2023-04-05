@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/mock_page_data.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tools/chain_extractor.dart';
+
+import '../tools/chain_extractor.dart';
+import 'mock_page_data.dart';
 
 String _nextValue(int index) {
   return '(\\.(?<value$index>\\w+))?';

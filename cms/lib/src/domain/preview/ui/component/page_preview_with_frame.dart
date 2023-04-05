@@ -1,7 +1,8 @@
-import 'package:cms/src/domain/preview/ui/component/page_preview.dart';
-import 'package:cms/src/service/scroll/always_touch_scroll_behavior.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../service/scroll/always_touch_scroll_behavior.dart';
+import 'page_preview.dart';
 
 class PagePreviewWithFrame extends StatelessWidget {
   const PagePreviewWithFrame({

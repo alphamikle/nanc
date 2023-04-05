@@ -1,9 +1,10 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
+
+import '../../../../../fields.dart';
 
 part 'number_field.g.dart';
 

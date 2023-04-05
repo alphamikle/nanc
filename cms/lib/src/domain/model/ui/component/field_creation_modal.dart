@@ -1,13 +1,14 @@
-import 'package:cms/src/domain/field/logic/bloc/field_edition_bloc/field_edition_bloc.dart';
-import 'package:cms/src/domain/model/ui/component/fields_form.dart';
-import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import 'package:cms/src/service/config/config.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../../service/config/config.dart';
+import '../../../field/logic/bloc/field_edition_bloc/field_edition_bloc.dart';
+import '../../../page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
+import 'fields_form.dart';
 
 class FieldCreationModal extends StatefulWidget {
   const FieldCreationModal({

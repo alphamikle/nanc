@@ -2,16 +2,17 @@ import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_buttons/kit_input_button.dart';
-import 'package:ui_kit/src/components/kit_icons/kit_icon_selector_modal.dart';
-import 'package:ui_kit/src/components/kit_icons/kit_icons.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_autocomplete_text_field.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_segmented_field/kit_focus_stream_mixin.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_segmented_field/kit_segmented_field.dart';
-import 'package:ui_kit/src/components/kit_list_tile.dart';
-import 'package:ui_kit/src/constants/gap.dart';
-import 'package:ui_kit/src/theme/kit_colors.dart';
-import 'package:ui_kit/src/theme/kit_input_decorations.dart';
+
+import '../../constants/gap.dart';
+import '../../theme/kit_colors.dart';
+import '../../theme/kit_input_decorations.dart';
+import '../kit_buttons/kit_input_button.dart';
+import '../kit_icons/kit_icon_selector_modal.dart';
+import '../kit_icons/kit_icons.dart';
+import '../kit_list_tile.dart';
+import 'kit_autocomplete_text_field.dart';
+import 'kit_segmented_field/kit_focus_stream_mixin.dart';
+import 'kit_segmented_field/kit_segmented_field.dart';
 
 class KitIconInput extends StatefulWidget {
   const KitIconInput({

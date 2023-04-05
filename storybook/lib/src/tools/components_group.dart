@@ -1,4 +1,4 @@
-import 'package:storybook/src/tools/usecase_factory.dart';
+import 'usecase_factory.dart';
 
 typedef GroupRegistrar = void Function(UseCaseFactory factory);
 

@@ -1,9 +1,9 @@
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/arguments/decoration_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/arguments/row_column_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/arguments/size_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/arguments/text_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/mapper/properties_list.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
+import '../../renderers/property/mapper/properties_list.dart';
+import '../../tag_description.dart';
+import '../arguments/decoration_arguments.dart';
+import '../arguments/row_column_arguments.dart';
+import '../arguments/size_arguments.dart';
+import '../arguments/text_arguments.dart';
 
 TagProperty textStyleProp({
   String name = textStyle,

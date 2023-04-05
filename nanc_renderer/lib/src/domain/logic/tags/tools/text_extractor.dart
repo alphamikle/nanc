@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/logic/substitutor.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/component/element_hash_extension.dart';
 import 'package:tools/tools.dart';
+
+import '../logic/substitutor.dart';
+import '../renderers/component/element_hash_extension.dart';
 
 List<String> extractTextFromChildren({required BuildContext context, required md.Element element, bool convertToText = false}) {
   final List<String> content = [];

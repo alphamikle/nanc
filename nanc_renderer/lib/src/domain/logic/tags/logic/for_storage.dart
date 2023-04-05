@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tools/chain_extractor.dart';
+import '../tools/chain_extractor.dart';
 
 typedef CycleId = String;
 final RegExp _cycleRegExp = RegExp(r'cycle\((?<cycleId>[-:\w]+)\)\((?<index>\d+)\)\((?<paramName>[-:\w]+)\)\.?(?<expression>[-\w.]*)?');

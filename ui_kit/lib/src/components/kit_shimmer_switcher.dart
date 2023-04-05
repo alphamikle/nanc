@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_kit/src/components/kit_shimmer.dart';
+import 'kit_shimmer.dart';
 
 class KitShimmerSwitcher extends StatelessWidget {
   const KitShimmerSwitcher({

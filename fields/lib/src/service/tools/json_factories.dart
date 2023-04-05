@@ -1,6 +1,7 @@
-import 'package:fields/src/domain/fields/logic/field/field.dart';
-import 'package:fields/src/domain/mapper/field_mapper.dart';
 import 'package:tools/tools.dart';
+
+import '../../domain/fields/logic/field/field.dart';
+import '../../domain/mapper/field_mapper.dart';
 
 List<List<Field>> fieldsFromJson(List<dynamic> value) {
   final List<List<Field>> fields = [];

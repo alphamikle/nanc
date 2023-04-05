@@ -1,7 +1,8 @@
 import 'package:cms/cms.dart';
-import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../fields.dart';
 
 mixin FieldCell<F extends Field> on Widget {
   F get field;

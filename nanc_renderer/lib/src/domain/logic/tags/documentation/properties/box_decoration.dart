@@ -1,10 +1,10 @@
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/arguments/decoration_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/properties/border.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/properties/border_radius.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/properties/gradient.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/properties/shadow.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/mapper/properties_list.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
+import '../../renderers/property/mapper/properties_list.dart';
+import '../../tag_description.dart';
+import '../arguments/decoration_arguments.dart';
+import 'border.dart';
+import 'border_radius.dart';
+import 'gradient.dart';
+import 'shadow.dart';
 
 TagProperty boxDecorationProp([String name = 'decoration']) => TagProperty(
       name: name,

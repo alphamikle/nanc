@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_ink_well.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_segmented_field/kit_segmented_field.dart';
-import 'package:ui_kit/src/constants/gap.dart';
-import 'package:ui_kit/src/theme/kit_borders.dart';
-import 'package:ui_kit/src/theme/kit_colors.dart';
+
+import '../../constants/gap.dart';
+import '../../theme/kit_borders.dart';
+import '../../theme/kit_colors.dart';
+import '../kit_ink_well.dart';
+import 'kit_segmented_field/kit_segmented_field.dart';
 
 class KitBooleanInput extends StatefulWidget {
   const KitBooleanInput({

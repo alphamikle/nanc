@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/logic/for_storage.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/local_data.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/page_data.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/template_storage.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/component/element_hash_extension.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/for/for_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tools/chain_extractor.dart';
+
+import '../renderers/component/element_hash_extension.dart';
+import '../renderers/for/for_renderer.dart';
+import '../tools/chain_extractor.dart';
+import 'for_storage.dart';
+import 'local_data.dart';
+import 'page_data.dart';
+import 'template_storage.dart';
 
 class Substitutor {
   Substitutor({

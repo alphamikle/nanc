@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/border_radius/border_radius_arguments.dart';
 import 'package:tools/tools.dart';
+
+import '../property/properties/border_radius/border_radius_arguments.dart';
 
 part 'clipr_rect_arguments.g.dart';
 

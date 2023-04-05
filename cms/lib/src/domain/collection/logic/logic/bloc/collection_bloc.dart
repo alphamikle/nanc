@@ -1,12 +1,13 @@
 import 'package:bloc/bloc.dart';
-import 'package:cms/src/domain/collection/logic/logic/bloc/collection_state.dart';
-import 'package:cms/src/domain/collection/logic/logic/provider/page_list_provider.dart';
-import 'package:cms/src/domain/model/logic/bloc/model_list_bloc/model_list_bloc.dart';
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_bloc.dart';
-import 'package:cms/src/service/errors/errors.dart';
 import 'package:fields/fields.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../../../../../service/errors/errors.dart';
+import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import '../../../../page/logic/bloc/page_bloc/page_bloc.dart';
+import '../provider/page_list_provider.dart';
+import 'collection_state.dart';
 
 class CollectionBloc extends Cubit<CollectionState> {
   CollectionBloc({

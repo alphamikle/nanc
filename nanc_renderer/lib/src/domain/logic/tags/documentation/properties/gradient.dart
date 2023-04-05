@@ -1,8 +1,8 @@
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/arguments/decoration_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/properties/alignment.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/properties/color.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/properties/double.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
+import '../../tag_description.dart';
+import '../arguments/decoration_arguments.dart';
+import 'alignment.dart';
+import 'color.dart';
+import 'double.dart';
 
 TagProperty gradientProp([String name = 'gradient']) => TagProperty(
       name: name,

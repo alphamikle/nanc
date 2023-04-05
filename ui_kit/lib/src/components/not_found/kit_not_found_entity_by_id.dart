@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_kit/src/components/kit_not_found_text.dart';
+import '../kit_not_found_text.dart';
 
 class KitNotFoundModelById extends StatelessWidget {
   const KitNotFoundModelById({

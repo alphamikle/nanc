@@ -1,4 +1,4 @@
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_state.dart';
+import '../../domain/page/logic/bloc/page_bloc/page_state.dart';
 
 Never notFoundEntityIdError() => throw Exception('Not found entityId');
 

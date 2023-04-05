@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/alignment/alignment_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/button_style/button_style_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/button_style/button_style_property_widget.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
+
+import '../../../../rich_renderer.dart';
+import '../alignment/alignment_arguments.dart';
+import 'button_style_arguments.dart';
+import 'button_style_property_widget.dart';
 
 ButtonStylePropertyWidget buttonStyleFactory({
   required BuildContext context,

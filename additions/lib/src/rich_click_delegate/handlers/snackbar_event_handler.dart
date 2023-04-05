@@ -1,6 +1,7 @@
-import 'package:additions/src/rich_click_delegate/rich_click_handler.dart';
 import 'package:analytics/analytics.dart';
 import 'package:flutter/material.dart';
+
+import '../rich_click_handler.dart';
 
 final RegExp _snackBarRegExp = RegExp(r'^snackbar: ?(?<content>.*)$');
 

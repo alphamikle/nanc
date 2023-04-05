@@ -1,11 +1,12 @@
-import 'package:cms/src/domain/model/ui/component/fields_form_cell.dart';
-import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
-import 'package:cms/src/service/config/config.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
+
+import '../../../../service/config/config.dart';
+import '../../../page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
+import '../../../page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import 'fields_form_cell.dart';
 
 class FieldsForm extends StatelessWidget {
   const FieldsForm({

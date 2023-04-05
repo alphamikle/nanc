@@ -4,7 +4,7 @@ import 'package:config/config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:path_provider/path_provider.dart' as pp;
-import 'package:tools/tools.dart';
+import '../../../tools.dart';
 
 const String _kDynamicBoxId = 'DYNAMIC_BOX';
 

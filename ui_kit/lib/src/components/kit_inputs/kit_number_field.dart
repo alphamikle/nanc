@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_text_field.dart';
+import 'kit_text_field.dart';
 
 class KitNumberField extends StatefulWidget {
   const KitNumberField({

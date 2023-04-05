@@ -1,8 +1,9 @@
-import 'package:cms/cms.dart';
-import 'package:cms/src/service/animations/robot_cleaner.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
+
+import '../../../../../cms.dart';
+import '../../../../service/animations/robot_cleaner.dart';
 
 class EmptyCollectionView extends StatelessWidget {
   const EmptyCollectionView({

@@ -1,9 +1,10 @@
-import 'package:cms/src/domain/collection/logic/logic/dto/params_dto.dart';
-import 'package:cms/src/domain/collection/logic/logic/dto/query_dto.dart';
-import 'package:cms/src/domain/collection/logic/logic/provider/page_list_api.dart';
-import 'package:cms/src/domain/collection/logic/logic/provider/page_list_provider_interface.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../dto/params_dto.dart';
+import '../dto/query_dto.dart';
+import 'page_list_api.dart';
+import 'page_list_provider_interface.dart';
 
 class PageListProvider implements PageListProviderInterface {
   PageListProvider({

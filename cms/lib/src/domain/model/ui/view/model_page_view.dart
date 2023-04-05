@@ -1,16 +1,17 @@
-import 'package:cms/src/domain/model/logic/bloc/model_page_bloc/model_page_bloc.dart';
-import 'package:cms/src/domain/model/logic/bloc/model_page_bloc/model_page_state.dart';
-import 'package:cms/src/domain/model/ui/component/add_field_button.dart';
-import 'package:cms/src/domain/model/ui/component/field_card_functional_wrapper.dart';
-import 'package:cms/src/domain/model/ui/component/field_creation_modal.dart';
-import 'package:cms/src/domain/model/ui/component/field_editor_modal.dart';
-import 'package:cms/src/domain/model/ui/component/field_type_selector_modal.dart';
-import 'package:cms/src/service/config/config.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../../service/config/config.dart';
+import '../../logic/bloc/model_page_bloc/model_page_bloc.dart';
+import '../../logic/bloc/model_page_bloc/model_page_state.dart';
+import '../component/add_field_button.dart';
+import '../component/field_card_functional_wrapper.dart';
+import '../component/field_creation_modal.dart';
+import '../component/field_editor_modal.dart';
+import '../component/field_type_selector_modal.dart';
 
 class ModelPageView extends StatefulWidget {
   const ModelPageView({

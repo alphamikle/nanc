@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:fonts/fonts.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_buttons/kit_icon_button_v2.dart';
-import 'package:ui_kit/src/components/kit_fonts/kit_fonts.dart';
-import 'package:ui_kit/src/components/kit_icons/kit_icon_selector_modal.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_autocomplete_text_field.dart';
-import 'package:ui_kit/src/components/kit_list_tile.dart';
+
+import '../kit_buttons/kit_icon_button_v2.dart';
+import '../kit_fonts/kit_fonts.dart';
+import '../kit_icons/kit_icon_selector_modal.dart';
+import '../kit_list_tile.dart';
+import 'kit_autocomplete_text_field.dart';
 
 class KitFontInput extends StatefulWidget {
   const KitFontInput({

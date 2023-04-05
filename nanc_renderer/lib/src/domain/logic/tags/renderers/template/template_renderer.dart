@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/documentation.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/local_data.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/template_storage.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/template/template_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
+
+import '../../documentation/documentation.dart';
+import '../../logic/local_data.dart';
+import '../../logic/template_storage.dart';
+import '../../rich_renderer.dart';
+import '../../tag_description.dart';
+import '../../tag_renderer.dart';
+import 'template_arguments.dart';
 
 const String kTemplate = 'template';
 final RegExp _templateRegExp = RegExp(r'template\.(?<valueId>\w+)');

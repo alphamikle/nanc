@@ -1,15 +1,16 @@
 import 'dart:async';
 
-import 'package:cms/src/domain/collection/logic/logic/bloc/collection_bloc.dart';
-import 'package:cms/src/domain/general/logic/bloc/header/header_bloc.dart';
-import 'package:cms/src/domain/general/logic/bloc/side_menu/menu_bloc.dart';
-import 'package:cms/src/domain/model/logic/bloc/model_page_bloc/model_page_bloc.dart';
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_bloc.dart';
-import 'package:cms/src/service/routing/params_list.dart';
-import 'package:cms/src/service/routing/route_list.dart';
-import 'package:cms/src/service/routing/uri_extension.dart';
 import 'package:tools/tools.dart';
 import 'package:vrouter/vrouter.dart';
+
+import '../../domain/collection/logic/logic/bloc/collection_bloc.dart';
+import '../../domain/general/logic/bloc/header/header_bloc.dart';
+import '../../domain/general/logic/bloc/side_menu/menu_bloc.dart';
+import '../../domain/model/logic/bloc/model_page_bloc/model_page_bloc.dart';
+import '../../domain/page/logic/bloc/page_bloc/page_bloc.dart';
+import 'params_list.dart';
+import 'route_list.dart';
+import 'uri_extension.dart';
 
 const Duration kInterval = Duration(milliseconds: 500);
 

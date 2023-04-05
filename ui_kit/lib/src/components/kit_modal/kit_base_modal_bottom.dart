@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
+import '../../../ui_kit.dart';
 
 class KitBaseModalBottom extends StatelessWidget {
   const KitBaseModalBottom({

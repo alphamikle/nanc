@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_kit/src/components/kit_ink_well.dart';
+import '../kit_ink_well.dart';
 
 const double _kFieldHelperHeight = 24;
 

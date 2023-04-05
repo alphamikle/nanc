@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_text_field.dart';
-import 'package:ui_kit/src/theme/kit_borders.dart';
-import 'package:ui_kit/src/theme/kit_colors.dart';
+
+import '../../../theme/kit_borders.dart';
+import '../../../theme/kit_colors.dart';
+import '../kit_text_field.dart';
 
 class KitSegmentedFieldUI extends StatelessWidget {
   const KitSegmentedFieldUI({

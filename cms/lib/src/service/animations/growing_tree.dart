@@ -1,10 +1,11 @@
 import 'dart:async';
 
-import 'package:cms/src/service/tools/assets_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rive/rive.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../tools/assets_loader.dart';
 
 class GrowingTree extends StatefulWidget {
   const GrowingTree({

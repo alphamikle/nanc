@@ -1,8 +1,9 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nanc_backend/connection_manager/logic/model/client.dart';
 import 'package:tools/tools.dart';
+
+import 'model/client.dart';
 
 part 'connection_manager_state.g.dart';
 

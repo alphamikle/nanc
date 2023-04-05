@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/types/types.dart';
+import 'tag_description.dart';
+import 'types/types.dart';
 
 /// ? Entity, which configures an any custom tag rendering logic
 class TagRenderer {

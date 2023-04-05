@@ -1,7 +1,8 @@
-import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../../../fields.dart';
 
 abstract class FieldMapper {
   static T deepClone<T extends Field>(T field) {

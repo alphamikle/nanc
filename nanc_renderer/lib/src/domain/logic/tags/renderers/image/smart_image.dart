@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/image_builder_delegate.dart';
 import 'package:tools/tools.dart';
+
+import '../../logic/image_builder_delegate.dart';
 
 class SmartImage extends StatelessWidget {
   const SmartImage({

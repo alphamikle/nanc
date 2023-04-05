@@ -1,10 +1,11 @@
-import 'package:fields/src/domain/fields/logic/date_field/date_field.dart';
-import 'package:fields/src/domain/fields/ui/date_field_cell/date_mask.dart';
-import 'package:fields/src/domain/fields/ui/date_field_cell/time_mask.dart';
-import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../logic/date_field/date_field.dart';
+import '../field_cell_mixin.dart';
+import 'date_mask.dart';
+import 'time_mask.dart';
 
 class DateFieldCell extends FieldCellWidget<DateField> {
   const DateFieldCell({

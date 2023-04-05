@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
+import '../../rich_renderer.dart';
+import '../../tag_description.dart';
+import '../../tag_renderer.dart';
 
 TagRenderer unknownRenderer() {
   return TagRenderer(

@@ -1,8 +1,9 @@
-import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../../../fields.dart';
 
 class HeaderFieldCell extends StatelessWidget {
   const HeaderFieldCell({

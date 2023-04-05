@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'dart:js_util';
 
-import 'package:file_syncer/src/file_syncer_interface.dart';
 import 'package:js/js.dart';
+
+import 'file_syncer_interface.dart';
 
 class FileSyncerWeb implements FileSyncer {
   final StreamController<String?> _contentStreamController = StreamController.broadcast();

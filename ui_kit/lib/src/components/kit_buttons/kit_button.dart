@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_kit/src/components/kit_preloader.dart';
+import '../kit_preloader.dart';
 
 class KitButton extends StatelessWidget {
   const KitButton({

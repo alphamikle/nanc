@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_segmented_field/kit_segmented_field_ui.dart';
+import 'kit_segmented_field_ui.dart';
 
 class KitSegmentedField extends FormField<String> {
   KitSegmentedField({

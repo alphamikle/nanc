@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:tools/tools.dart';
+import '../../tools.dart';
 
 typedef Action<T> = FutureOr<T> Function();
 typedef Condition = FutureOr<bool> Function();

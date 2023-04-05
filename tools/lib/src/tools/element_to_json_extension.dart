@@ -1,5 +1,5 @@
 import 'package:markdown/markdown.dart' as md;
-import 'package:tools/src/types/types.dart';
+import '../types/types.dart';
 
 extension ElementToJson on md.Node {
   Json toJson() {

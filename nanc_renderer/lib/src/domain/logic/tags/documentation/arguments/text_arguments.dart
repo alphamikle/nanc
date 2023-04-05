@@ -1,6 +1,6 @@
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/arguments/scalar_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/documentation_types.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
+import '../../tag_description.dart';
+import '../documentation_types.dart';
+import 'scalar_arguments.dart';
 
 TagArgument maxLinesArg({
   String name = 'maxLines',

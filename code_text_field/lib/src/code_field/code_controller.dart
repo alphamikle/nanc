@@ -1,16 +1,17 @@
 import 'dart:math';
 
-import 'package:code_text_field/src/code_field/editor_params.dart';
-import 'package:code_text_field/src/code_modifiers/close_block_code_modifier.dart';
-import 'package:code_text_field/src/code_modifiers/code_modifier.dart';
-import 'package:code_text_field/src/code_modifiers/indent_code_modifier.dart';
-import 'package:code_text_field/src/code_modifiers/tab_code_modifier.dart';
-import 'package:code_text_field/src/code_theme/code_theme.dart';
-import 'package:code_text_field/src/code_theme/code_theme_data.dart';
 import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:highlight/highlight_core.dart';
+
+import '../code_modifiers/close_block_code_modifier.dart';
+import '../code_modifiers/code_modifier.dart';
+import '../code_modifiers/indent_code_modifier.dart';
+import '../code_modifiers/tab_code_modifier.dart';
+import '../code_theme/code_theme.dart';
+import '../code_theme/code_theme_data.dart';
+import 'editor_params.dart';
 
 const _middleDot = '·';
 

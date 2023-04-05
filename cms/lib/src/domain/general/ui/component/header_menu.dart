@@ -1,16 +1,17 @@
 import 'dart:async';
 
-import 'package:cms/src/domain/general/logic/bloc/header/header_bloc.dart';
-import 'package:cms/src/domain/general/logic/bloc/header/menu_state.dart';
-import 'package:cms/src/domain/general/logic/model/menu_element.dart';
-import 'package:cms/src/domain/tutorial/content/tutorial_content.dart';
-import 'package:cms/src/domain/tutorial/logic/bloc/tutorial_bloc.dart';
-import 'package:cms/src/domain/tutorial/ui/component/tutorial_target.dart';
-import 'package:cms/src/service/config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
+
+import '../../../../service/config/config.dart';
+import '../../../tutorial/content/tutorial_content.dart';
+import '../../../tutorial/logic/bloc/tutorial_bloc.dart';
+import '../../../tutorial/ui/component/tutorial_target.dart';
+import '../../logic/bloc/header/header_bloc.dart';
+import '../../logic/bloc/header/menu_state.dart';
+import '../../logic/model/menu_element.dart';
 
 const double kMenuItemWidth = 80;
 

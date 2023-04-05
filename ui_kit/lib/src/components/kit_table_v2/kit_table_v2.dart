@@ -4,7 +4,7 @@ import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_tooltip.dart';
+import '../kit_tooltip.dart';
 
 const double _kMinColumnWidth = 150;
 const double _kRowHeight = 56;

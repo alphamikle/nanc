@@ -1,10 +1,11 @@
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_bloc.dart';
-import 'package:cms/src/domain/page/logic/provider/entity_page_api.dart';
-import 'package:cms/src/user_space/api/db_extension.dart';
-import 'package:cms/src/user_space/api/tools.dart';
 import 'package:fields/fields.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../../domain/page/logic/bloc/page_bloc/page_bloc.dart';
+import '../../domain/page/logic/provider/entity_page_api.dart';
+import 'db_extension.dart';
+import 'tools.dart';
 
 class MockEntityPageApi extends MockApi implements PageApi {
   MockEntityPageApi({

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/logic/substitutor.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/for/for_widget_filter.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tags_collection.dart';
 import 'package:tools/tools.dart';
+
+import 'logic/substitutor.dart';
+import 'renderers/for/for_widget_filter.dart';
+import 'tag_renderer.dart';
+import 'tags_collection.dart';
 
 class RichRenderer {
   RichRenderer({

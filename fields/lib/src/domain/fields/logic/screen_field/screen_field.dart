@@ -1,15 +1,16 @@
 import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:fields/src/domain/fields/logic/bool_field/bool_field.dart';
-import 'package:fields/src/domain/fields/logic/field/field.dart';
-import 'package:fields/src/domain/fields/logic/field/field_description.dart';
-import 'package:fields/src/domain/fields/logic/field/field_props.dart';
-import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../../../type/field_types.dart';
+import '../bool_field/bool_field.dart';
+import '../field/field.dart';
+import '../field/field_description.dart';
+import '../field/field_props.dart';
 
 part 'screen_field.g.dart';
 

@@ -19,7 +19,7 @@ analyzer:
   errors:
     todo: warning
     missing_return: error
-    always_use_package_imports: error
+    prefer_relative_imports: error
     division_optimization: error
     must_call_super: error
     always_put_required_named_parameters_first: warning
@@ -35,7 +35,7 @@ linter:
   rules:
     # CUSTOM RULES
     always_put_required_named_parameters_first: true
-    always_use_package_imports: true
+    prefer_relative_imports: true
     omit_local_variable_types: false
     unnecessary_await_in_return: true
     sort_constructors_first: true

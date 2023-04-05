@@ -3,10 +3,11 @@ import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_table/kit_table_cell.dart';
-import 'package:ui_kit/src/components/kit_table/kit_table_header.dart';
-import 'package:ui_kit/src/constants/gap.dart';
 import 'package:vrouter/vrouter.dart';
+
+import '../../constants/gap.dart';
+import 'kit_table_cell.dart';
+import 'kit_table_header.dart';
 
 typedef CellBuilder = Widget Function(Field field, dynamic value);
 typedef OnRowPressed = void Function(Model entity);

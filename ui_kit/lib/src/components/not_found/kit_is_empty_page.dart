@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ui_kit/src/components/kit_buttons/kit_big_button.dart';
-import 'package:ui_kit/src/components/kit_not_found_text.dart';
-import 'package:ui_kit/src/constants/gap.dart';
+
+import '../../constants/gap.dart';
+import '../kit_buttons/kit_big_button.dart';
+import '../kit_not_found_text.dart';
 
 class KitIsEmptyPage extends StatelessWidget {
   const KitIsEmptyPage({

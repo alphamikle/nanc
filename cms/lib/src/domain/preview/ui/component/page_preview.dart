@@ -1,12 +1,13 @@
 import 'package:additions/additions.dart';
-import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
-import 'package:cms/src/domain/preview/logic/bloc/preview_bloc.dart';
-import 'package:cms/src/domain/preview/logic/bloc/preview_state.dart';
-import 'package:cms/src/service/init/data_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
+
+import '../../../../service/init/data_repository.dart';
+import '../../../page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
+import '../../../page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import '../../logic/bloc/preview_bloc.dart';
+import '../../logic/bloc/preview_state.dart';
 
 class PagePreview extends StatelessWidget {
   const PagePreview({

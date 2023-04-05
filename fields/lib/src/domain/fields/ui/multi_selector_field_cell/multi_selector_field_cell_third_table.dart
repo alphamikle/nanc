@@ -1,18 +1,19 @@
 import 'dart:async';
 
 import 'package:cms/cms.dart';
-import 'package:fields/src/domain/fields/logic/multi_selector_field/multi_selector_field.dart';
-import 'package:fields/src/domain/fields/logic/multi_selector_field/third_table.dart';
-import 'package:fields/src/domain/fields/logic/selector_field/title_fields.dart';
-import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
-import 'package:fields/src/domain/fields/ui/multi_selector_field_cell/multi_selector_modal.dart';
-import 'package:fields/src/domain/fields/ui/selector_field_cell/selector_field_cell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
+
+import '../../logic/multi_selector_field/multi_selector_field.dart';
+import '../../logic/multi_selector_field/third_table.dart';
+import '../../logic/selector_field/title_fields.dart';
+import '../field_cell_mixin.dart';
+import '../selector_field_cell/selector_field_cell.dart';
+import 'multi_selector_modal.dart';
 
 class MultiSelectorThirdTableFieldCell extends FieldCellWidget<MultiSelectorField> {
   const MultiSelectorThirdTableFieldCell({

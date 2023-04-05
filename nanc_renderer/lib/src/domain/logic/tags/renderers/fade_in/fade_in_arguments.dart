@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/fade_in/curve_enum.dart';
 import 'package:tools/tools.dart';
+
+import 'curve_enum.dart';
 
 part 'fade_in_arguments.g.dart';
 

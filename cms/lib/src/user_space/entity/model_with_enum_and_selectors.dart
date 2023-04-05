@@ -1,7 +1,8 @@
-import 'package:cms/src/user_space/entity/user_model.dart';
 import 'package:fields/fields.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
+
+import 'user_model.dart';
 
 final Model modelWithEnumAndSelectors = Model(
   name: 'Model with Enum and Selectors',

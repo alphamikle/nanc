@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_ink_well.dart';
-import 'package:ui_kit/src/components/kit_tooltip.dart';
-import 'package:ui_kit/src/constants/gap.dart';
+
+import '../constants/gap.dart';
+import 'kit_ink_well.dart';
+import 'kit_tooltip.dart';
 
 class KitMenuItem extends StatefulWidget {
   const KitMenuItem({

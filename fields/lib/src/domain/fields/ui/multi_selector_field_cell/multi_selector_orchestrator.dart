@@ -1,5 +1,5 @@
-import 'package:fields/fields.dart';
-import 'package:fields/src/domain/fields/ui/multi_selector_field_cell/multi_selector_field_cell_array_of_objects.dart';
+import '../../../../../fields.dart';
+import 'multi_selector_field_cell_array_of_objects.dart';
 
 FieldCell<MultiSelectorField> multiSelectorOrchestrator({required MultiSelectorField field, required bool creationMode}) {
   if (field.structure == MultiSelectorFieldStructure.arrayOfIds) {

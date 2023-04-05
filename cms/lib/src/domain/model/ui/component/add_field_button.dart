@@ -1,9 +1,10 @@
-import 'package:cms/src/domain/model/ui/component/field_card.dart';
-import 'package:cms/src/service/config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../../service/config/config.dart';
+import 'field_card.dart';
 
 class AddFieldButton extends StatelessWidget {
   const AddFieldButton({

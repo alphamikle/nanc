@@ -1,6 +1,7 @@
-import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../../../fields.dart';
 
 class StringFieldCell extends FieldCellWidget<StringField> {
   const StringFieldCell({

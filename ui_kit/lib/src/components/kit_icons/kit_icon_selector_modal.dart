@@ -3,17 +3,18 @@ import 'dart:async';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_circle_preloader.dart';
-import 'package:ui_kit/src/components/kit_icons/kit_icons.dart';
-import 'package:ui_kit/src/components/kit_ink_well.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_text_field.dart';
-import 'package:ui_kit/src/components/kit_modal/kit_base_modal_bottom.dart';
-import 'package:ui_kit/src/components/kit_modal/kit_modal_card.dart';
-import 'package:ui_kit/src/components/kit_preloader.dart';
-import 'package:ui_kit/src/components/kit_tooltip.dart';
-import 'package:ui_kit/src/constants/gap.dart';
-import 'package:ui_kit/src/theme/kit_borders.dart';
-import 'package:ui_kit/src/theme/kit_colors.dart';
+
+import '../../constants/gap.dart';
+import '../../theme/kit_borders.dart';
+import '../../theme/kit_colors.dart';
+import '../kit_circle_preloader.dart';
+import '../kit_ink_well.dart';
+import '../kit_inputs/kit_text_field.dart';
+import '../kit_modal/kit_base_modal_bottom.dart';
+import '../kit_modal/kit_modal_card.dart';
+import '../kit_preloader.dart';
+import '../kit_tooltip.dart';
+import 'kit_icons.dart';
 
 class KitIconSelectorModal extends StatefulWidget {
   const KitIconSelectorModal({

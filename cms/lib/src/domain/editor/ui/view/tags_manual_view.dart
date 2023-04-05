@@ -1,16 +1,17 @@
-import 'package:cms/cms.dart';
-import 'package:cms/src/domain/editor/logic/bloc/manual/manual_state.dart';
-import 'package:cms/src/domain/editor/ui/component/manual_menu.dart';
-import 'package:cms/src/domain/editor/ui/component/page_editor.dart';
-import 'package:cms/src/domain/editor/ui/component/tag_renderer_description.dart';
-import 'package:cms/src/domain/general/ui/view/general_view_v2.dart';
-import 'package:cms/src/domain/preview/ui/component/page_preview_with_frame.dart';
-import 'package:cms/src/service/config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../../../cms.dart';
+import '../../../../service/config/config.dart';
+import '../../../general/ui/view/general_view_v2.dart';
+import '../../../preview/ui/component/page_preview_with_frame.dart';
+import '../../logic/bloc/manual/manual_state.dart';
+import '../component/manual_menu.dart';
+import '../component/page_editor.dart';
+import '../component/tag_renderer_description.dart';
 
 class TagsManualView extends StatefulWidget {
   const TagsManualView({super.key});

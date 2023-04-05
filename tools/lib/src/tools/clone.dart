@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:tools/tools.dart';
+import '../../tools.dart';
 
 // TODO(alphamikle): Make it faster, not by using json logic
 Json clone(Json json) {

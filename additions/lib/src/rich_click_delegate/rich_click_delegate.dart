@@ -1,8 +1,9 @@
 import 'dart:async';
 
-import 'package:additions/src/rich_click_delegate/rich_click_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
+
+import 'rich_click_handler.dart';
 
 class _RichClickDelegate {
   factory _RichClickDelegate({

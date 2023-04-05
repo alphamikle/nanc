@@ -1,5 +1,5 @@
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/documentation_types.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
+import '../../tag_description.dart';
+import '../documentation_types.dart';
 
 TagArgument crossAxisAlignmentArg([String name = 'crossAxisAlignment']) => TagArgument(name, DocumentationTypes.crossAxisAlignmentValues);
 TagArgument mainAxisAlignmentArg([String name = 'mainAxisAlignment']) => TagArgument(name, DocumentationTypes.mainAxisAlignmentValues);

@@ -1,9 +1,10 @@
-import 'package:cms/src/domain/editor/logic/bloc/editor/editor_event.dart';
-import 'package:cms/src/domain/editor/logic/bloc/editor/editor_state.dart';
-import 'package:cms/src/domain/preview/logic/bloc/preview_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tools/tools.dart';
+
+import '../../../editor/logic/bloc/editor/editor_event.dart';
+import '../../../editor/logic/bloc/editor/editor_state.dart';
+import 'preview_state.dart';
 
 class PreviewBloc extends Cubit<PreviewState> {
   PreviewBloc({

@@ -1,10 +1,10 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ui_kit/src/constants/gap.dart';
-import 'package:ui_kit/src/theme/kit_borders.dart';
-import 'package:ui_kit/src/theme/kit_colors.dart';
-import 'package:ui_kit/src/theme/kit_input_decorations.dart';
+import '../constants/gap.dart';
+import 'kit_borders.dart';
+import 'kit_colors.dart';
+import 'kit_input_decorations.dart';
 
 ThemeData themeBuilder(BuildContext context, {bool dark = false}) {
   final builder = dark ? FlexThemeData.dark : FlexThemeData.light;

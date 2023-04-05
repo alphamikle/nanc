@@ -1,5 +1,5 @@
-import 'package:cms/src/service/routing/params_list.dart';
-import 'package:cms/src/service/routing/uri_extension.dart';
+import 'params_list.dart';
+import 'uri_extension.dart';
 
 abstract class Routes {
   static const String root = '/';

@@ -1,8 +1,9 @@
-import 'package:cms/src/service/errors/error_wrapper.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import 'error_wrapper.dart';
 
 class ErrorToaster extends StatelessWidget {
   const ErrorToaster({

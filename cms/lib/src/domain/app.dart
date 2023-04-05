@@ -4,12 +4,6 @@ import 'package:additions/additions.dart';
 import 'package:analytics/analytics.dart';
 import 'package:animation_debugger/animation_debugger.dart';
 import 'package:bot_toast/bot_toast.dart';
-import 'package:cms/cms.dart';
-import 'package:cms/src/domain/wrapper/admin_wrapper.dart';
-import 'package:cms/src/service/config/admin_config.dart';
-import 'package:cms/src/service/errors/error_toaster.dart';
-import 'package:cms/src/service/errors/error_wrapper.dart';
-import 'package:cms/src/service/init/initializer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
@@ -18,6 +12,13 @@ import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
+
+import '../../cms.dart';
+import '../service/config/admin_config.dart';
+import '../service/errors/error_toaster.dart';
+import '../service/errors/error_wrapper.dart';
+import '../service/init/initializer.dart';
+import 'wrapper/admin_wrapper.dart';
 
 class App extends StatefulWidget {
   const App({

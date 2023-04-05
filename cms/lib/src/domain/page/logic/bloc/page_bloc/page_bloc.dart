@@ -1,14 +1,15 @@
 import 'dart:convert';
 
-import 'package:cms/src/domain/model/logic/bloc/model_list_bloc/model_list_bloc.dart';
-import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_state.dart';
-import 'package:cms/src/domain/page/logic/provider/entity_page_provider.dart';
-import 'package:cms/src/service/errors/errors.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../../../../../service/errors/errors.dart';
+import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import '../../provider/entity_page_provider.dart';
+import '../base_entity_page_bloc/base_page_bloc.dart';
+import 'page_state.dart';
 
 enum PageEvents {
   save,

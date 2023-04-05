@@ -5,13 +5,14 @@ import 'package:cms/cms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
-import 'package:nanc_backend/connection_manager/logic/connection_manager_bloc.dart';
-import 'package:nanc_backend/connection_manager/logic/connection_manager_state.dart';
-import 'package:nanc_backend/connection_manager/logic/model/client.dart';
-import 'package:nanc_backend/connection_manager/ui/components/client_status_indicator.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../logic/connection_manager_bloc.dart';
+import '../../logic/connection_manager_state.dart';
+import '../../logic/model/client.dart';
+import 'client_status_indicator.dart';
 
 const double _kMenuWidth = 250;
 

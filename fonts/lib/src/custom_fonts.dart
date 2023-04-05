@@ -1,4 +1,4 @@
-import 'package:fonts/src/custom_font.dart';
+import 'custom_font.dart';
 
 final Map<String, CustomFont> _fonts = {};
 

@@ -1,14 +1,15 @@
-import 'package:cms/src/domain/collection/logic/logic/bloc/collection_bloc.dart';
-import 'package:cms/src/domain/collection/logic/logic/bloc/collection_state.dart';
-import 'package:cms/src/domain/model/logic/bloc/model_list_bloc/model_list_bloc.dart';
-import 'package:cms/src/service/routing/params_list.dart';
-import 'package:cms/src/service/routing/route_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
+
+import '../../../../service/routing/params_list.dart';
+import '../../../../service/routing/route_list.dart';
+import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import '../../logic/logic/bloc/collection_bloc.dart';
+import '../../logic/logic/bloc/collection_state.dart';
 
 class CollectionView extends StatefulWidget {
   const CollectionView({

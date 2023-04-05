@@ -1,17 +1,18 @@
 import 'dart:async';
 
 import 'package:animation_debugger/animation_debugger.dart';
-import 'package:cms/src/domain/general/logic/bloc/header/menu_state.dart';
-import 'package:cms/src/domain/general/logic/bloc/side_menu/menu_bloc.dart';
-import 'package:cms/src/domain/general/ui/component/header_menu.dart';
-import 'package:cms/src/domain/general/ui/component/side_menu.dart';
-import 'package:cms/src/service/routing/route_list.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
+
+import '../../../../service/routing/route_list.dart';
+import '../../logic/bloc/header/menu_state.dart';
+import '../../logic/bloc/side_menu/menu_bloc.dart';
+import '../component/header_menu.dart';
+import '../component/side_menu.dart';
 
 const double kMenuWidth = 241 + kMenuRightPadding;
 const double kMenuRightPadding = 24;

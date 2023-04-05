@@ -3,12 +3,13 @@ import 'package:flutter_highlight2/flutter_highlight.dart';
 import 'package:flutter_highlight2/themes/github.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/code/code_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/mapper/properties_extractor.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tools/text_extractor.dart';
+
+import '../../rich_renderer.dart';
+import '../../tag_description.dart';
+import '../../tag_renderer.dart';
+import '../../tools/text_extractor.dart';
+import '../property/mapper/properties_extractor.dart';
+import 'code_arguments.dart';
 
 // TODO(alphamikle): This tag wouldn't work until markdown will not be replaced by another parser logic
 TagRenderer codeRenderer() {

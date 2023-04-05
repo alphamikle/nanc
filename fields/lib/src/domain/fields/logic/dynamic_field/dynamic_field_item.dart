@@ -1,10 +1,11 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
-import 'package:fields/src/domain/fields/logic/field/field.dart';
-import 'package:fields/src/domain/mapper/field_mapper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
+
+import '../../../mapper/field_mapper.dart';
+import '../field/field.dart';
 
 part 'dynamic_field_item.g.dart';
 

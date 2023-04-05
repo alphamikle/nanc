@@ -1,9 +1,10 @@
-import 'package:cms/src/service/animations/growing_tree.dart';
-import 'package:cms/src/service/scenario/episode.dart';
-import 'package:cms/src/service/scenario/scenario.dart';
-import 'package:cms/src/service/scenario/scenario_player.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
+
+import '../../../../service/animations/growing_tree.dart';
+import '../../../../service/scenario/episode.dart';
+import '../../../../service/scenario/scenario.dart';
+import '../../../../service/scenario/scenario_player.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({

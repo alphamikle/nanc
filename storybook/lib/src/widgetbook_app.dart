@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:storybook/src/components.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:widgetbook/widgetbook.dart';
+
+import 'components.dart';
 
 class WidgetbookApp extends StatelessWidget {
   const WidgetbookApp({

@@ -2,8 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_ink_well.dart';
-import 'package:ui_kit/src/theme/kit_colors.dart';
+
+import '../../theme/kit_colors.dart';
+import '../kit_ink_well.dart';
 
 class KitIconButton extends StatelessWidget {
   const KitIconButton({

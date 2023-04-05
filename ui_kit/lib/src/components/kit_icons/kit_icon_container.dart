@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/theme/kit_borders.dart';
-import 'package:ui_kit/src/theme/kit_colors.dart';
+import '../../theme/kit_borders.dart';
+import '../../theme/kit_colors.dart';
 
 class KitIconContainer extends StatelessWidget {
   const KitIconContainer({

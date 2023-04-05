@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/mapper/properties_extractor.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/mapper/properties_list.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/decoration/decoration_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/decoration/decoration_property_widget.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
+
+import '../../../../rich_renderer.dart';
+import '../../mapper/properties_extractor.dart';
+import '../../mapper/properties_list.dart';
+import 'decoration_arguments.dart';
+import 'decoration_property_widget.dart';
 
 DecorationPropertyWidget decorationFactory({
   required BuildContext context,

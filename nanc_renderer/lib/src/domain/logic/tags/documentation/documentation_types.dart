@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/fade_in/curve_enum.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/list_view/list_view_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/alignment/alignment_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/text_style/text_decoration_enum.dart';
+import '../renderers/fade_in/curve_enum.dart';
+import '../renderers/list_view/list_view_arguments.dart';
+import '../renderers/property/properties/alignment/alignment_arguments.dart';
+import '../renderers/property/properties/text_style/text_decoration_enum.dart';
 
 part 'documentation_types.g.dart';
 

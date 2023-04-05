@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:file_syncer/src/file_syncer_interface.dart';
+import 'file_syncer_interface.dart';
 
 class FileSyncerNative implements FileSyncer {
   final StreamController<String?> _contentStreamController = StreamController.broadcast();

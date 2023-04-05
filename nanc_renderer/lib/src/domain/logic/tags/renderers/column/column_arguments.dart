@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/row/row_arguments.dart';
 import 'package:tools/tools.dart';
+
+import '../row/row_arguments.dart';
 
 part 'column_arguments.g.dart';
 

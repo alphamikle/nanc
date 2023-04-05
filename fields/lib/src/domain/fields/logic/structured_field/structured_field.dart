@@ -1,16 +1,17 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:fields/src/domain/fields/logic/dynamic_field/dynamic_field.dart';
-import 'package:fields/src/domain/fields/logic/field/field.dart';
-import 'package:fields/src/domain/fields/logic/field/field_description.dart';
-import 'package:fields/src/domain/fields/logic/field/field_props.dart';
-import 'package:fields/src/domain/fields/logic/structure_field/structure_field.dart';
-import 'package:fields/src/domain/type/field_types.dart';
-import 'package:fields/src/service/tools/json_factories.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../../../../service/tools/json_factories.dart';
+import '../../../type/field_types.dart';
+import '../dynamic_field/dynamic_field.dart';
+import '../field/field.dart';
+import '../field/field_description.dart';
+import '../field/field_props.dart';
+import '../structure_field/structure_field.dart';
 
 part 'structured_field.g.dart';
 

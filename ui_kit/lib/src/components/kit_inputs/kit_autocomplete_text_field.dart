@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show TextInputFormatter;
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_circle_preloader.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_text_field.dart';
-import 'package:ui_kit/src/components/kit_list_tile.dart';
-import 'package:ui_kit/src/components/kit_preloader.dart';
-import 'package:ui_kit/src/theme/kit_borders.dart';
+
+import '../../theme/kit_borders.dart';
+import '../kit_circle_preloader.dart';
+import '../kit_list_tile.dart';
+import '../kit_preloader.dart';
+import 'kit_text_field.dart';
 
 class KitAutocompleteTextField<T extends Object> extends StatefulWidget {
   const KitAutocompleteTextField({

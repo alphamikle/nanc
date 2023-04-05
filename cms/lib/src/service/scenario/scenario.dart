@@ -1,4 +1,4 @@
-import 'package:cms/src/service/scenario/episode.dart';
+import 'episode.dart';
 
 typedef DurationFactory = Duration Function(Episode? episode);
 

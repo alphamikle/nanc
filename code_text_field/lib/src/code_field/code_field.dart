@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:code_text_field/src/code_field/code_controller.dart';
-import 'package:code_text_field/src/code_theme/code_theme.dart';
-import 'package:code_text_field/src/line_numbers/line_number_controller.dart';
-import 'package:code_text_field/src/line_numbers/line_number_style.dart';
 import 'package:flutter/material.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
+
+import '../code_theme/code_theme.dart';
+import '../line_numbers/line_number_controller.dart';
+import '../line_numbers/line_number_style.dart';
+import 'code_controller.dart';
 
 class CodeField extends StatefulWidget {
 

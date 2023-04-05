@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/theme/kit_colors.dart';
+import '../theme/kit_colors.dart';
 
 class KitListTile extends StatelessWidget {
   const KitListTile({

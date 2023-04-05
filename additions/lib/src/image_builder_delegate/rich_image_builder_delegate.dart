@@ -1,7 +1,8 @@
-import 'package:additions/src/image_builder_delegate/fade_in.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import 'fade_in.dart';
 
 Widget imageLoadingBuilder(
   BuildContext context,

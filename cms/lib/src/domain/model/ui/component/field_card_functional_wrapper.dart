@@ -1,12 +1,13 @@
 import 'dart:async';
 
-import 'package:cms/src/domain/model/ui/component/field_card.dart';
-import 'package:cms/src/domain/model/ui/component/field_card_deleter.dart';
-import 'package:cms/src/domain/model/ui/component/field_card_mover.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import 'field_card.dart';
+import 'field_card_deleter.dart';
+import 'field_card_mover.dart';
 
 class FieldCardFunctionalWrapper extends StatefulWidget {
   const FieldCardFunctionalWrapper({

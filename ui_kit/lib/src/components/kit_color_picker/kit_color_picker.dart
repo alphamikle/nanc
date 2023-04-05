@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ui_kit/src/components/kit_color_picker/palette.dart';
-import 'package:ui_kit/src/constants/gap.dart';
+
+import '../../constants/gap.dart';
+import 'palette.dart';
 
 class KitColorPicker extends StatefulWidget {
   const KitColorPicker({

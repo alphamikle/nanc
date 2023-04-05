@@ -1,8 +1,9 @@
-import 'package:cms/src/service/config/config.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../../service/config/config.dart';
 
 class FieldCard extends StatelessWidget {
   const FieldCard({

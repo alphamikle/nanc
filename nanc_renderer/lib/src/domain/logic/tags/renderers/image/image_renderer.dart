@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/src/blurhash.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/documentation.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/image/image_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/image/smart_image.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
 import 'package:tools/tools.dart';
+
+import '../../documentation/documentation.dart';
+import '../../rich_renderer.dart';
+import '../../tag_description.dart';
+import '../../tag_renderer.dart';
+import 'image_arguments.dart';
+import 'smart_image.dart';
 
 TagRenderer imageRenderer() {
   return TagRenderer(

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_divider.dart';
-import 'package:ui_kit/src/components/kit_line.dart';
-import 'package:ui_kit/src/components/kit_modal/kit_base_modal.dart';
-import 'package:ui_kit/src/components/kit_modal/kit_base_modal_bottom.dart';
-import 'package:ui_kit/src/constants/gap.dart';
+
+import '../../constants/gap.dart';
+import '../kit_divider.dart';
+import '../kit_line.dart';
+import 'kit_base_modal.dart';
+import 'kit_base_modal_bottom.dart';
 
 typedef ModalWrapper = Widget Function(BuildContext context, Widget child);
 

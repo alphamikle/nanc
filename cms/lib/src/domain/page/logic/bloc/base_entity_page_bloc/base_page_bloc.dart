@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cms/src/domain/draft/logic/draft_service.dart';
-import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_state.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
+
+import '../../../../draft/logic/draft_service.dart';
+import '../page_bloc/page_state.dart';
+import 'base_page_state.dart';
 
 abstract class BasePageBloc<T extends BaseEntityPageState> extends Cubit<T> {
   BasePageBloc({

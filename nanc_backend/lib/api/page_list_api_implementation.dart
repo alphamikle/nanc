@@ -1,8 +1,9 @@
 import 'package:cms/cms.dart';
 import 'package:model/model.dart';
-import 'package:nanc_backend/api/db_extension.dart';
-import 'package:nanc_backend/api/tools.dart';
 import 'package:tools/tools.dart';
+
+import 'db_extension.dart';
+import 'tools.dart';
 
 class PageListApiImplementation extends MockApi implements PageListApi {
   PageListApiImplementation({

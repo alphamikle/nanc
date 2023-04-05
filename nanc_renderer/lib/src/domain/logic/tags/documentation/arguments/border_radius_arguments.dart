@@ -1,5 +1,5 @@
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/arguments/scalar_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
+import '../../tag_description.dart';
+import 'scalar_arguments.dart';
 
 TagArgument topLeftArg([String name = 'topLeft']) => doubleArg(name);
 TagArgument topRightArg([String name = 'topRight']) => doubleArg(name);

@@ -1,4 +1,4 @@
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
+import '../../tag_description.dart';
 
 TagArgument doubleArg(String name, [String description = '']) => TagArgument(name, {'double'}, description);
 TagArgument stringArg(String name, [String description = '']) => TagArgument(name, {'String'}, description);

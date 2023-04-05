@@ -1,10 +1,11 @@
 import 'dart:convert';
 
-import 'package:fields/src/domain/fields/logic/id_field/id_field.dart';
-import 'package:fields/src/domain/fields/logic/string_field/string_field.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../id_field/id_field.dart';
+import '../string_field/string_field.dart';
 
 const String _kStructureKey = 'structure:2a650905-5bb1-402c-a64b-5ac6f410283a';
 

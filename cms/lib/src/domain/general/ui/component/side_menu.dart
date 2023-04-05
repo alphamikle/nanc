@@ -1,8 +1,3 @@
-import 'package:cms/src/domain/general/logic/bloc/header/menu_state.dart';
-import 'package:cms/src/domain/general/logic/bloc/side_menu/menu_bloc.dart';
-import 'package:cms/src/domain/general/logic/model/menu_element.dart';
-import 'package:cms/src/domain/model/logic/bloc/model_list_bloc/model_list_bloc.dart';
-import 'package:cms/src/service/config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
@@ -11,6 +6,12 @@ import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
+
+import '../../../../service/config/config.dart';
+import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import '../../logic/bloc/header/menu_state.dart';
+import '../../logic/bloc/side_menu/menu_bloc.dart';
+import '../../logic/model/menu_element.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({

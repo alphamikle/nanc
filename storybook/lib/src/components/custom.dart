@@ -1,7 +1,7 @@
 import 'package:components/components.dart';
 import 'package:flutter/material.dart';
-import 'package:storybook/src/tools/components_group.dart';
-import 'package:storybook/src/tools/usecase_factory.dart';
+import '../tools/components_group.dart';
+import '../tools/usecase_factory.dart';
 
 class _Card extends StatelessWidget {
   const _Card({

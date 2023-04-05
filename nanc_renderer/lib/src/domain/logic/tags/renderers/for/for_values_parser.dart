@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/for_storage.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/page_data.dart';
+import '../../logic/for_storage.dart';
+import '../../logic/page_data.dart';
 
 final RegExp _rangeValuesRegExp = RegExp(r'(?<from>\d+)\.\.\.(?<to>\d+)');
 final RegExp _valuesRegExp = RegExp(r'page.(?<expression>[-\w.]+)');

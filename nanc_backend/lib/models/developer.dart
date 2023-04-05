@@ -1,7 +1,7 @@
 import 'package:fields/fields.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
-import 'package:nanc_backend/models/position.dart';
+import 'position.dart';
 
 final Model developer = Model(
   name: 'Developer',

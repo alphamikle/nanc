@@ -2,9 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/src/components/kit_color_picker/kit_color_picker.dart';
-import 'package:ui_kit/src/components/kit_inputs/kit_autocomplete_text_field.dart';
-import 'package:ui_kit/src/theme/kit_borders.dart';
+
+import '../../../theme/kit_borders.dart';
+import '../../kit_color_picker/kit_color_picker.dart';
+import '../kit_autocomplete_text_field.dart';
 
 String? _isValueColor(String? value) {
   if (value == null || value.isEmpty) {

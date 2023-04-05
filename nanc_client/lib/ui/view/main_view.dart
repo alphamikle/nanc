@@ -5,13 +5,14 @@ import 'package:components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
-import 'package:nanc_client/logic/bloc/page_bloc.dart';
-import 'package:nanc_client/logic/bloc/page_state.dart';
-import 'package:nanc_client/ui/components/connection_modal.dart';
-import 'package:nanc_client/ui/components/content_page.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../logic/bloc/page_bloc.dart';
+import '../../logic/bloc/page_state.dart';
+import '../components/connection_modal.dart';
+import '../components/content_page.dart';
 
 class MainView extends StatefulWidget {
   const MainView({

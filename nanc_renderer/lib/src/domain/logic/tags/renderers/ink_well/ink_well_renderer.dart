@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/documentation.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/actions_handler.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/ink_well/ink_well_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/mapper/properties_extractor.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/mapper/properties_list.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tools/widgets_compactor.dart';
+
+import '../../documentation/documentation.dart';
+import '../../logic/actions_handler.dart';
+import '../../rich_renderer.dart';
+import '../../tag_description.dart';
+import '../../tag_renderer.dart';
+import '../../tools/widgets_compactor.dart';
+import '../property/mapper/properties_extractor.dart';
+import '../property/mapper/properties_list.dart';
+import 'ink_well_arguments.dart';
 
 TagRenderer inkWellRenderer() {
   return TagRenderer(

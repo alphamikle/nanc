@@ -1,8 +1,9 @@
-import 'package:cms/src/service/animations/robot_cleaner.dart';
-import 'package:cms/src/service/routing/route_list.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
+
+import '../../../../service/animations/robot_cleaner.dart';
+import '../../../../service/routing/route_list.dart';
 
 class SoloEmptyView extends StatelessWidget {
   const SoloEmptyView({

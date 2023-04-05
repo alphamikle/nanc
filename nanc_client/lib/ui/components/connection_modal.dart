@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:nanc_client/logic/bloc/page_bloc.dart';
-import 'package:nanc_client/logic/bloc/page_state.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../logic/bloc/page_bloc.dart';
+import '../../logic/bloc/page_state.dart';
 
 class ConnectionModal extends StatefulWidget {
   const ConnectionModal({super.key});

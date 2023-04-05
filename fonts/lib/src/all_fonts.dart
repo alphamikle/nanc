@@ -1,5 +1,5 @@
-import 'package:fonts/src/custom_fonts.dart';
-import 'package:fonts/src/google_fonts.dart';
+import 'custom_fonts.dart';
+import 'google_fonts.dart';
 
 String? tryToGetFontByName(String? font) {
   if (font == null) {

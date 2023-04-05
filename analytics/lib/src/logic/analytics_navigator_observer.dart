@@ -1,5 +1,6 @@
-import 'package:analytics/analytics.dart';
 import 'package:vrouter/vrouter.dart';
+
+import '../../analytics.dart';
 
 typedef VRouterNavigationEventObserver = Future<void> Function(VRedirector vRedirector);
 

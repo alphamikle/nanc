@@ -1,13 +1,14 @@
 import 'package:bloc/bloc.dart';
-import 'package:cms/src/domain/general/logic/bloc/header/menu_state.dart';
-import 'package:cms/src/domain/general/logic/model/menu_element.dart';
-import 'package:cms/src/domain/model/logic/bloc/model_list_bloc/model_list_bloc.dart';
-import 'package:cms/src/domain/model/logic/entity/model_model.dart';
-import 'package:cms/src/service/routing/route_list.dart';
 import 'package:config/config.dart';
 import 'package:fields/fields.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../../../../../service/routing/route_list.dart';
+import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import '../../../../model/logic/entity/model_model.dart';
+import '../../model/menu_element.dart';
+import '../header/menu_state.dart';
 
 class MenuBloc extends Cubit<MenuState> {
   MenuBloc({

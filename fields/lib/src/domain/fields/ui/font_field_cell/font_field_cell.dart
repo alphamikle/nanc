@@ -1,7 +1,8 @@
-import 'package:fields/src/domain/fields/logic/font_field/font_field.dart';
-import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../logic/font_field/font_field.dart';
+import '../field_cell_mixin.dart';
 
 class FontFieldCell extends FieldCellWidget<FontField> {
   const FontFieldCell({

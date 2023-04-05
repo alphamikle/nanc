@@ -1,19 +1,20 @@
 import 'dart:async';
 
 import 'package:cms/cms.dart';
-import 'package:fields/src/domain/fields/logic/dynamic_field/dynamic_field_item.dart';
-import 'package:fields/src/domain/fields/logic/field/field.dart';
-import 'package:fields/src/domain/fields/logic/structure_field/structure_field.dart';
-import 'package:fields/src/domain/fields/ui/dynamic_field_cell/child_indicator.dart';
-import 'package:fields/src/domain/fields/ui/field_cell_mixin.dart';
-import 'package:fields/src/domain/fields/ui/structure_field_cell/structure_field_child.dart';
-import 'package:fields/src/domain/mapper/field_mapper.dart';
-import 'package:fields/src/domain/type/field_types.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../mapper/field_mapper.dart';
+import '../../../type/field_types.dart';
+import '../../logic/dynamic_field/dynamic_field_item.dart';
+import '../../logic/field/field.dart';
+import '../../logic/structure_field/structure_field.dart';
+import '../dynamic_field_cell/child_indicator.dart';
+import '../field_cell_mixin.dart';
+import 'structure_field_child.dart';
 
 class StructureFieldCell extends FieldCellWidget<StructureField> {
   const StructureFieldCell({

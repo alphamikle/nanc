@@ -1,4 +1,4 @@
-import 'package:fields/src/domain/fields/logic/selector_field/title_fields.dart';
+import '../../domain/fields/logic/selector_field/title_fields.dart';
 
 final RegExp possibleDelimiters = RegExp(r'[- .,_|]');
 

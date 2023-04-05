@@ -1,10 +1,11 @@
-import 'package:cms/src/domain/page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_bloc.dart';
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_state.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../../../../page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
+import '../../../../page/logic/bloc/page_bloc/page_bloc.dart';
+import '../../../../page/logic/bloc/page_bloc/page_state.dart';
 
 const String _kIdWasChanged = 'idWasChanged';
 

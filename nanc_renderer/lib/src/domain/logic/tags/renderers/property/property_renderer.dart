@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/mapper/properties_list.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/alignment/alignment_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/alignment/alignment_property_widget.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/border/border_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/border/border_property_widget.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/border_radius/border_radius_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/border_radius/border_radius_property_widget.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/button_style/button_style_factory.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/color/color_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/color/color_property_widget.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/decoration/decoration_factory.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/double/double_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/double/double_property_widget.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/gradient/gradient_factory.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/padding/padding_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/padding/padding_property_widget.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/shadow/shadow_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/shadow/shadow_property_widget.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/text_style/text_style_factory.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/property.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/property_tag_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/property_widget.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/types/types.dart';
 import 'package:tools/tools.dart';
+
+import '../../rich_renderer.dart';
+import '../../types/types.dart';
+import 'mapper/properties_list.dart';
+import 'properties/alignment/alignment_arguments.dart';
+import 'properties/alignment/alignment_property_widget.dart';
+import 'properties/border/border_arguments.dart';
+import 'properties/border/border_property_widget.dart';
+import 'properties/border_radius/border_radius_arguments.dart';
+import 'properties/border_radius/border_radius_property_widget.dart';
+import 'properties/button_style/button_style_factory.dart';
+import 'properties/color/color_arguments.dart';
+import 'properties/color/color_property_widget.dart';
+import 'properties/decoration/decoration_factory.dart';
+import 'properties/double/double_arguments.dart';
+import 'properties/double/double_property_widget.dart';
+import 'properties/gradient/gradient_factory.dart';
+import 'properties/padding/padding_arguments.dart';
+import 'properties/padding/padding_property_widget.dart';
+import 'properties/shadow/shadow_arguments.dart';
+import 'properties/shadow/shadow_property_widget.dart';
+import 'properties/text_style/text_style_factory.dart';
+import 'property.dart';
+import 'property_tag_renderer.dart';
+import 'property_widget.dart';
 
 List<Property> properties() => [
       Property(alignment),

@@ -1,6 +1,7 @@
-import 'package:cms/src/service/tools/assets_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
+
+import '../tools/assets_loader.dart';
 
 class RobotCleaner extends StatefulWidget {
   const RobotCleaner({super.key});

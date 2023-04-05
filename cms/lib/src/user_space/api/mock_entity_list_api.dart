@@ -1,12 +1,13 @@
-import 'package:cms/src/domain/collection/logic/logic/dto/params_dto.dart';
-import 'package:cms/src/domain/collection/logic/logic/dto/query_dto.dart';
-import 'package:cms/src/domain/collection/logic/logic/dto/query_parameter.dart';
-import 'package:cms/src/domain/collection/logic/logic/dto/query_parameter_value.dart';
-import 'package:cms/src/domain/collection/logic/logic/provider/page_list_api.dart';
-import 'package:cms/src/user_space/api/db_extension.dart';
-import 'package:cms/src/user_space/api/tools.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../../domain/collection/logic/logic/dto/params_dto.dart';
+import '../../domain/collection/logic/logic/dto/query_dto.dart';
+import '../../domain/collection/logic/logic/dto/query_parameter.dart';
+import '../../domain/collection/logic/logic/dto/query_parameter_value.dart';
+import '../../domain/collection/logic/logic/provider/page_list_api.dart';
+import 'db_extension.dart';
+import 'tools.dart';
 
 class MockEntityListApi extends MockApi implements PageListApi {
   MockEntityListApi({

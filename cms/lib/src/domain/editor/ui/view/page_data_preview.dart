@@ -1,10 +1,11 @@
-import 'package:cms/src/service/code_style/code_theme.dart';
-import 'package:cms/src/service/config/config.dart';
 import 'package:code_text_field/code_text_field.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:highlight/languages/json.dart';
 import 'package:tools/tools.dart';
+
+import '../../../../service/code_style/code_theme.dart';
+import '../../../../service/config/config.dart';
 
 class PageDataPreview extends StatefulWidget {
   const PageDataPreview({

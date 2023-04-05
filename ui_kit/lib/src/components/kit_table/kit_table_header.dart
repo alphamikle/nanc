@@ -1,7 +1,7 @@
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
-import 'package:ui_kit/src/components/kit_table/kit_table_header_cell.dart';
+import 'kit_table_header_cell.dart';
 
 class KitTableHeader extends StatelessWidget {
   const KitTableHeader({

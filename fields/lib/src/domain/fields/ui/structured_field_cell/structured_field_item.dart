@@ -1,8 +1,9 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:fields/src/domain/fields/logic/dynamic_field/dynamic_field_item.dart';
-import 'package:fields/src/domain/fields/logic/field/field.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
+
+import '../../logic/dynamic_field/dynamic_field_item.dart';
+import '../../logic/field/field.dart';
 
 part 'structured_field_item.g.dart';
 

@@ -3,9 +3,10 @@ import 'dart:async';
 import 'package:analytics/analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nanc_client/logic/bloc/page_bloc.dart';
-import 'package:nanc_client/ui/view/main_view.dart';
 import 'package:vrouter/vrouter.dart';
+
+import '../logic/bloc/page_bloc.dart';
+import '../ui/view/main_view.dart';
 
 typedef RouterHook = Future<void> Function(VRedirector vRedirector);
 

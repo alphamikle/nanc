@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fonts/fonts.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/text_style/text_decoration_enum.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/text_style/text_style_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/properties/text_style/text_style_property_widget.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
 import 'package:tools/tools.dart';
+
+import '../../../../rich_renderer.dart';
+import 'text_decoration_enum.dart';
+import 'text_style_arguments.dart';
+import 'text_style_property_widget.dart';
 
 FontWeight? _mapFontWeight(FontWeightEnum? weight) {
   if (weight == null) {

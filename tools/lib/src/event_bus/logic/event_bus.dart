@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:tools/src/event_bus/logic/event_bus_request.dart';
-import 'package:tools/src/event_bus/logic/event_bus_response.dart';
-import 'package:tools/src/tools/tools.dart';
+
+import '../../tools/tools.dart';
+import 'event_bus_request.dart';
+import 'event_bus_response.dart';
 
 typedef EventBusHandler<Response, Request> = FutureOr<Response> Function(Request request);
 

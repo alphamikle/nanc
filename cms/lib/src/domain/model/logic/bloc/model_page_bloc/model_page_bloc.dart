@@ -1,14 +1,15 @@
 import 'package:bloc/bloc.dart';
-import 'package:cms/src/domain/general/logic/bloc/side_menu/menu_bloc.dart';
-import 'package:cms/src/domain/model/logic/bloc/model_list_bloc/model_list_bloc.dart';
-import 'package:cms/src/domain/model/logic/bloc/model_page_bloc/model_page_state.dart';
-import 'package:cms/src/domain/model/logic/provider/entity_model_provider.dart';
-import 'package:cms/src/service/errors/errors.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../../../service/errors/errors.dart';
+import '../../../../general/logic/bloc/side_menu/menu_bloc.dart';
+import '../../provider/entity_model_provider.dart';
+import '../model_list_bloc/model_list_bloc.dart';
+import 'model_page_state.dart';
 
 class ModelPageBloc extends Cubit<ModelPageState> {
   ModelPageBloc({

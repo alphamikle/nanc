@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/documentation.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/logic/template_storage.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/component/component_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/mapper/properties_extractor.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tools/enrich_nodes.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tools/widgets_compactor.dart';
+
+import '../../documentation/documentation.dart';
+import '../../logic/template_storage.dart';
+import '../../rich_renderer.dart';
+import '../../tag_description.dart';
+import '../../tag_renderer.dart';
+import '../../tools/enrich_nodes.dart';
+import '../../tools/widgets_compactor.dart';
+import '../property/mapper/properties_extractor.dart';
+import 'component_arguments.dart';
 
 const String kHashAttribute = r'_$componentDataHash';
 

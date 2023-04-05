@@ -5,10 +5,11 @@ import 'package:analytics/analytics.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
-import 'package:nanc_backend/connection_manager/logic/connection_manager_state.dart';
-import 'package:nanc_backend/connection_manager/logic/model/client.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
 import 'package:tools/tools.dart';
+
+import 'connection_manager_state.dart';
+import 'model/client.dart';
 
 class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
   ConnectionManagerBloc({

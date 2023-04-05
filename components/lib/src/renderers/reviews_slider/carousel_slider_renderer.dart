@@ -1,9 +1,10 @@
-import 'package:components/components.dart';
-import 'package:components/src/renderers/reviews_slider/carousel_slider_arguments.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:nanc_renderer/nanc_renderer.dart';
+
+import '../../../components.dart';
+import 'carousel_slider_arguments.dart';
 
 TagRenderer carouselSliderRenderer() {
   return TagRenderer(

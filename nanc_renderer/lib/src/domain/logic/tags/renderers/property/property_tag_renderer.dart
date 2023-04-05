@@ -1,5 +1,5 @@
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
+import '../../tag_description.dart';
+import '../../tag_renderer.dart';
 
 class PropertyTagRenderer extends TagRenderer {
   PropertyTagRenderer({

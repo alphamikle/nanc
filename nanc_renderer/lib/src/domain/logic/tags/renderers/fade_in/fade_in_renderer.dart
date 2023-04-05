@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/documentation.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/fade_in/curve_enum.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/fade_in/fade_in.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/fade_in/fade_in_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/mapper/properties_extractor.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/rich_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_renderer.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tools/widgets_compactor.dart';
+
+import '../../documentation/documentation.dart';
+import '../../rich_renderer.dart';
+import '../../tag_description.dart';
+import '../../tag_renderer.dart';
+import '../../tools/widgets_compactor.dart';
+import '../property/mapper/properties_extractor.dart';
+import 'curve_enum.dart';
+import 'fade_in.dart';
+import 'fade_in_arguments.dart';
 
 Curve? _mapCurveEnumToCurve(CurveEnum? curveEnum) {
   if (curveEnum == null) {

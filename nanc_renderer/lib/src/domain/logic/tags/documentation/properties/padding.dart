@@ -1,6 +1,6 @@
-import 'package:nanc_renderer/src/domain/logic/tags/documentation/arguments/padding_arguments.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/mapper/properties_list.dart';
-import 'package:nanc_renderer/src/domain/logic/tags/tag_description.dart';
+import '../../renderers/property/mapper/properties_list.dart';
+import '../../tag_description.dart';
+import '../arguments/padding_arguments.dart';
 
 TagProperty paddingProp([String name = padding]) => TagProperty(
       name: name,

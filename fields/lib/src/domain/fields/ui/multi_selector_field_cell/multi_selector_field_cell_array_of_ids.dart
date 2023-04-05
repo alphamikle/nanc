@@ -1,12 +1,13 @@
 import 'dart:async';
 
 import 'package:cms/cms.dart';
-import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+import '../../../../../fields.dart';
 
 class MultiSelectorArrayOfIdsFieldCell extends FieldCellWidget<MultiSelectorField> {
   const MultiSelectorArrayOfIdsFieldCell({

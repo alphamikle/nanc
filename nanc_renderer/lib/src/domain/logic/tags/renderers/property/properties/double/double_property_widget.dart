@@ -1,4 +1,4 @@
-import 'package:nanc_renderer/src/domain/logic/tags/renderers/property/property_widget.dart';
+import '../../property_widget.dart';
 
 class DoublePropertyWidget extends PropertyWidget<double> {
   const DoublePropertyWidget({

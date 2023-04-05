@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_kit/src/theme/kit_borders.dart';
+import '../theme/kit_borders.dart';
 
 class KitInkWell extends StatelessWidget {
   const KitInkWell({

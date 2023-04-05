@@ -1,7 +1,8 @@
-import 'package:cms/src/domain/page/logic/bloc/page_bloc/page_bloc.dart';
 import 'package:fields/fields.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../bloc/page_bloc/page_bloc.dart';
 
 abstract class PageProviderInterface {
   Future<Json> fetchPageData({

@@ -2,11 +2,11 @@ import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
-import 'package:nanc_backend/models/bullet.dart';
-import 'package:nanc_backend/models/developer.dart';
-import 'package:nanc_backend/models/feature.dart';
-import 'package:nanc_backend/models/image.dart';
-import 'package:nanc_backend/models/review.dart';
+import 'bullet.dart';
+import 'developer.dart';
+import 'feature.dart';
+import 'image.dart';
+import 'review.dart';
 
 final Model landingPage = Model(
   name: 'Landing page',

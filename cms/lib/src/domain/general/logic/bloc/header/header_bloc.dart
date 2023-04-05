@@ -1,9 +1,10 @@
 import 'package:bloc/bloc.dart';
-import 'package:cms/src/domain/general/logic/bloc/header/menu_state.dart';
-import 'package:cms/src/domain/general/logic/model/menu_element.dart';
-import 'package:cms/src/service/routing/route_list.dart';
 import 'package:collection/collection.dart';
 import 'package:config/config.dart';
+
+import '../../../../../service/routing/route_list.dart';
+import '../../model/menu_element.dart';
+import 'menu_state.dart';
 
 const String collectionMenuItemTitle = 'Collection';
 const String soloMenuItemTitle = 'Solo';

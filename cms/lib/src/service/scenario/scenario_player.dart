@@ -1,9 +1,10 @@
 import 'dart:async';
 
-import 'package:cms/src/service/scenario/episode.dart';
-import 'package:cms/src/service/scenario/scenario.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
+
+import 'episode.dart';
+import 'scenario.dart';
 
 class ScenarioPlayer extends StatefulWidget {
   const ScenarioPlayer({
