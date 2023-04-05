@@ -20,7 +20,7 @@ class LocalData extends InheritedWidget {
   static LocalData of(BuildContext context) {
     final LocalData? localDataStorage = context.dependOnInheritedWidgetOfExactType<LocalData>();
     if (localDataStorage == null) {
-      throw Exception('Not found LocalDataStorage at the widget tree');
+      throw Exception('Not found LocalData storage at the widget tree');
     }
     return localDataStorage;
   }
