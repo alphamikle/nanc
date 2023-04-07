@@ -9,7 +9,7 @@ part of 'selector_field.dart';
 extension _$SelectorFieldAutoequal on SelectorField {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [model, titleFields, structure];
+  List<Object?> get _$props => [virtualField, model, titleFields];
 }
 
 // **************************************************************************
@@ -23,7 +23,7 @@ abstract class _$SelectorFieldCWProxy {
 
   SelectorField titleFields(List<TitleField> titleFields);
 
-  SelectorField structure(SelectorFieldStructure structure);
+  SelectorField virtualField(String? virtualField);
 
   SelectorField id(String? id);
 
@@ -49,7 +49,7 @@ abstract class _$SelectorFieldCWProxy {
     String? name,
     Model? model,
     List<TitleField>? titleFields,
-    SelectorFieldStructure? structure,
+    String? virtualField,
     String? id,
     bool? showInList,
     bool? isRequired,
@@ -77,8 +77,8 @@ class _$SelectorFieldCWProxyImpl implements _$SelectorFieldCWProxy {
       this(titleFields: titleFields);
 
   @override
-  SelectorField structure(SelectorFieldStructure structure) =>
-      this(structure: structure);
+  SelectorField virtualField(String? virtualField) =>
+      this(virtualField: virtualField);
 
   @override
   SelectorField id(String? id) => this(id: id);
@@ -114,7 +114,7 @@ class _$SelectorFieldCWProxyImpl implements _$SelectorFieldCWProxy {
     Object? name = const $CopyWithPlaceholder(),
     Object? model = const $CopyWithPlaceholder(),
     Object? titleFields = const $CopyWithPlaceholder(),
-    Object? structure = const $CopyWithPlaceholder(),
+    Object? virtualField = const $CopyWithPlaceholder(),
     Object? id = const $CopyWithPlaceholder(),
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
@@ -137,10 +137,10 @@ class _$SelectorFieldCWProxyImpl implements _$SelectorFieldCWProxy {
               ? _value.titleFields
               // ignore: cast_nullable_to_non_nullable
               : titleFields as List<TitleField>,
-      structure: structure == const $CopyWithPlaceholder() || structure == null
-          ? _value.structure
+      virtualField: virtualField == const $CopyWithPlaceholder()
+          ? _value.virtualField
           // ignore: cast_nullable_to_non_nullable
-          : structure as SelectorFieldStructure,
+          : virtualField as String?,
       id: id == const $CopyWithPlaceholder()
           ? _value.id
           // ignore: cast_nullable_to_non_nullable
@@ -190,8 +190,7 @@ SelectorField _$SelectorFieldFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       model: _entityFromJson(json['model']),
       titleFields: titleFieldsFromJson(json['titleFields']),
-      structure:
-          $enumDecode(_$SelectorFieldStructureEnumMap, json['structure']),
+      virtualField: json['virtualField'] as String?,
       id: json['id'] as String?,
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
@@ -210,15 +209,10 @@ Map<String, dynamic> _$SelectorFieldToJson(SelectorField instance) =>
       'sort': instance.sort,
       'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
+      'virtualField': instance.virtualField,
       'model': _entityToJson(instance.model),
       'titleFields': titleFieldsToJson(instance.titleFields),
-      'structure': _$SelectorFieldStructureEnumMap[instance.structure]!,
     };
-
-const _$SelectorFieldStructureEnumMap = {
-  SelectorFieldStructure.id: 'id',
-  SelectorFieldStructure.object: 'object',
-};
 
 const _$FieldTypeEnumMap = {
   FieldType.custom: 'custom',

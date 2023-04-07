@@ -31,13 +31,10 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
         model.id,
         model.idField.id,
         ...titleFields.toFieldsIds(),
-        structure.name,
       ].join();
-
+  String get virtualField => widget.field.virtualField;
   List<TitleField> get titleFields => field.titleFields;
   Model get model => field.model;
-  SelectorFieldStructure get structure => field.structure;
-
   late final EventBus eventBus = context.read();
   bool isPreloading = false;
   bool isLoadingFullPageData = false;
@@ -71,20 +68,9 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
     final String pageId = json[field.model.idField.id].toString();
     final List<String> titleSegments = titleFields.toTitleSegments(json);
     final String title = titleSegments.join();
-
-    if (structure == SelectorFieldStructure.id) {
-      pageBloc.updateValue(fieldId, pageId);
-    } else if (structure == SelectorFieldStructure.object) {
-      setState(() => isLoadingFullPageData = true);
-      unawaited(context.read<PageBloc>().loadPageData(model: model, pageId: pageId).then((Json value) {
-        pageBloc.updateValue(fieldId, value);
-        setState(() => isLoadingFullPageData = false);
-
-        /// ? We need to set text value here again, because of replacing it after update in the state
-        controller.text = title;
-      }));
-    }
+    pageBloc.updateValue(fieldId, pageId);
     controller.text = title;
+    unawaited(updateVirtualField(pageId));
   }
 
   Widget itemBuilder(BuildContext context, Json data) {
@@ -92,11 +78,7 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
     final dynamic dataId = data[field.model.idField.id];
     final dynamic value = pageBloc.valueForKey(fieldId);
     if (value != null) {
-      if (structure == SelectorFieldStructure.id) {
-        isSelected = value == dataId;
-      } else if (structure == SelectorFieldStructure.object) {
-        isSelected = value[field.model.idField.id] == dataId;
-      }
+      isSelected = value == dataId;
     }
 
     final String title = titleFields.toTitleSegments(data).join();
@@ -112,37 +94,34 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
   Future<void> preload() async {
     setState(() => isPreloading = true);
     controller.text = kLoadingText;
-    if (structure == SelectorFieldStructure.id) {
-      final String? modelId = pageBloc.valueForKey(fieldId) as String?;
-      if (modelId == null) {
-        controller.clear();
-        setState(() => isPreloading = false);
-        return;
-      }
-      final Json data = await context.read<PageProviderInterface>().fetchPageData(
-        model: model,
-        id: modelId,
-        subset: [
-          modelId,
-          ...titleFields.toFieldsIds(),
-        ],
-      );
-      final String title = titleFields.toTitleSegments(data).join();
-      controller.text = title;
-    } else if (structure == SelectorFieldStructure.object) {
-      final DJson? modelData = pageBloc.valueForKey(fieldId) as DJson?;
-      if (modelData == null) {
-        controller.text = '';
-      } else {
-        final String title = titleFields.toTitleSegments(modelData).join();
-        controller.text = title;
-      }
-    } else {
-      throw UnimplementedError('Not found a new structure preloading logic: $structure');
+    final String? pageId = pageBloc.valueForKey(fieldId) as String?;
+    if (pageId == null) {
+      controller.clear();
+      setState(() => isPreloading = false);
+      return;
     }
+    final Json data = await context.read<PageProviderInterface>().fetchPageData(
+      model: model,
+      id: pageId,
+      subset: [
+        model.idField.id,
+        ...titleFields.toFieldsIds(),
+      ],
+    );
+    final String title = titleFields.toTitleSegments(data).join();
+    controller.text = title;
     if (mounted) {
       setState(() => isPreloading = false);
     }
+    unawaited(updateVirtualField(pageId));
+  }
+
+  Future<void> updateVirtualField(String pageId) async {
+    setState(() => isLoadingFullPageData = true);
+    final PageBloc pageBloc = context.read();
+    final Json data = await pageBloc.loadPageData(model: model, pageId: pageId);
+    pageBloc.updateValue(virtualField, data);
+    setState(() => isLoadingFullPageData = false);
   }
 
   @override

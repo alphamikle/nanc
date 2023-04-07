@@ -18,9 +18,11 @@ const String fieldStructureProperty = 'structure';
 const String fieldThirdTableProperty = 'thirdTable';
 const String fieldMaxLinesProperty = 'maxLines';
 const String fieldDefaultValueProperty = 'defaultValue';
+const String fieldVirtualFieldProperty = 'virtualField';
 
 final StringField fieldToModelName = StringField(id: fieldNameProperty, name: 'Field name', isRequired: true, maxLines: 1);
 final IdField fieldToModelId = IdField(id: fieldIdProperty, name: 'Field ID');
+final StringField fieldToModelVirtualField = StringField(id: fieldVirtualFieldProperty, name: 'Virtual field');
 final NumberField fieldToModelSort = NumberField(id: fieldSortProperty, name: 'Sort (in table view)');
 final NumberField fieldToModelMaxLines = NumberField(id: fieldMaxLinesProperty, name: 'Maximum lines');
 final NumberField fieldToModelWidth = NumberField(id: fieldWidthProperty, name: 'Width (in table view)');

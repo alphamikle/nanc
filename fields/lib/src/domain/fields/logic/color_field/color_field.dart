@@ -47,5 +47,5 @@ class ColorField extends Field {
   bool get isEmpty => this == ColorField.empty();
 
   @override
-  List<Object?> get props => _$props;
+  List<Object?> get props => [...super.props, ..._$props];
 }

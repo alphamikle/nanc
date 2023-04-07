@@ -49,7 +49,7 @@ class EnumField extends Field {
   }
 
   @override
-  List<Object?> get props => _$props;
+  List<Object?> get props => [...super.props, ..._$props];
 
   @override
   Json toJson() => _$EnumFieldToJson(this);

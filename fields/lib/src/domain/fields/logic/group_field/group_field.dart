@@ -49,7 +49,7 @@ class GroupField extends Field {
   Json toJson() => _$GroupFieldToJson(this);
 
   @override
-  List<Object?> get props => _$props;
+  List<Object?> get props => [...super.props, ..._$props];
 
   @override
   bool get isEmpty => this == GroupField.empty();

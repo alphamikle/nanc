@@ -1,6 +1,7 @@
 import 'package:fields/fields.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
+
 import 'position.dart';
 
 final Model developer = Model(
@@ -20,7 +21,6 @@ final Model developer = Model(
         titleFields: const [
           ExternalField('position'),
         ],
-        structure: SelectorFieldStructure.object,
         isRequired: true,
       ),
       StringField(name: 'Image', maxLines: 1, isRequired: true),

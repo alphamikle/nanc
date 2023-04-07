@@ -30,11 +30,6 @@ Model _entityFromJson(dynamic value) {
 
 Json _entityToJson(Model entity) => entity.toJson();
 
-enum SelectorFieldStructure {
-  id,
-  object,
-}
-
 @autoequal
 @CopyWith()
 @JsonSerializable()
@@ -43,7 +38,7 @@ class SelectorField extends Field {
     required super.name,
     required this.model,
     required this.titleFields,
-    required this.structure,
+    String? virtualField,
     String? id,
     super.showInList,
     super.isRequired,
@@ -51,25 +46,25 @@ class SelectorField extends Field {
     super.width,
     super.validator,
     super.type = FieldType.selectorField,
-  }) : super(id: id ?? toSnackCase(name));
+  })  : virtualField = virtualField ?? '\$${id ?? toSnackCase(name)}',
+        super(id: id ?? toSnackCase(name));
 
   factory SelectorField.empty() => SelectorField(
         id: '',
         name: '',
         model: IdField.empty().toModel(),
         titleFields: const [],
-        structure: SelectorFieldStructure.id,
       );
 
   factory SelectorField.fromJson(dynamic json) => _$SelectorFieldFromJson(castToJson(json));
+
+  final String virtualField;
 
   @JsonKey(fromJson: _entityFromJson, toJson: _entityToJson)
   final Model model;
 
   @JsonKey(fromJson: titleFieldsFromJson, toJson: titleFieldsToJson)
   final List<TitleField> titleFields;
-
-  final SelectorFieldStructure structure;
 
   @override
   FieldDescription description([BuildContext? context]) {
@@ -92,6 +87,7 @@ class SelectorField extends Field {
         [
           fieldToModelName,
           fieldToModelId,
+          fieldToModelVirtualField,
         ],
         [
           // TODO(alphamikle): Новое поле "OtherModelField" - которое показывает выбор из других моделей
@@ -118,7 +114,7 @@ class SelectorField extends Field {
   }
 
   @override
-  List<Object?> get props => _$props;
+  List<Object?> get props => [...super.props, ..._$props];
 
   @override
   bool get isEmpty => this == SelectorField.empty();

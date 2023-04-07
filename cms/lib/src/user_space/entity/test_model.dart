@@ -47,7 +47,6 @@ final Model testModel = Model(
           ExternalField('name'),
           ExternalField('lastname'),
         ],
-        structure: SelectorFieldStructure.id,
         isRequired: true,
       ),
       MultiSelectorField(

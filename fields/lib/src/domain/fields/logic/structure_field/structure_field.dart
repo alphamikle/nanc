@@ -47,7 +47,7 @@ class StructureField extends DynamicField {
   Json toJson() => _$StructureFieldToJson(this);
 
   @override
-  List<Object?> get props => _$props;
+  List<Object?> get props => [...super.props, ..._$props];
 
   @override
   bool get isEmpty => this == StructureField.empty();

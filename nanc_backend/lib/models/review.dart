@@ -1,6 +1,7 @@
 import 'package:fields/fields.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
+
 import 'position.dart';
 
 final Model review = Model(
@@ -21,7 +22,6 @@ final Model review = Model(
         titleFields: const [
           ExternalField('position'),
         ],
-        structure: SelectorFieldStructure.object,
       ),
     ],
     [

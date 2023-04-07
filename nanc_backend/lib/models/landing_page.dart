@@ -109,7 +109,6 @@ final Model landingPage = Model(
             titleFields: const [
               ExternalField('title'),
             ],
-            structure: SelectorFieldStructure.object,
           ),
         ],
       ),
@@ -160,7 +159,6 @@ final Model landingPage = Model(
               ExternalField('name'),
               ExternalField('second_name'),
             ],
-            structure: SelectorFieldStructure.object,
           ),
         ],
       ),

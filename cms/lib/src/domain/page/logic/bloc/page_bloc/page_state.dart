@@ -78,5 +78,5 @@ class PageState extends BaseEntityPageState {
   Json toJson() => _$PageStateToJson(this);
 
   @override
-  List<Object?> get props => _$props;
+  List<Object?> get props => [...super.props, ..._$props];
 }

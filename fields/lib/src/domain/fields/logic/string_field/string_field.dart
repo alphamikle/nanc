@@ -76,7 +76,7 @@ class StringField extends Field {
   }
 
   @override
-  List<Object?> get props => _$props;
+  List<Object?> get props => [...super.props, ..._$props];
 
   @override
   bool get isEmpty => this == StringField.empty();

@@ -41,7 +41,7 @@ class ManualState extends EditorState {
   final TagRenderer activeTagRenderer;
 
   @override
-  List<Object?> get props => _$props;
+  List<Object?> get props => [...super.props, ..._$props];
 
   @override
   Json toJson() => _$ManualStateToJson(this);

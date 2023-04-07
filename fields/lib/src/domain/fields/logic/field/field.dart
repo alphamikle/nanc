@@ -16,7 +16,6 @@ import 'field_props.dart';
 part 'field.g.dart';
 
 @autoequal
-@JsonSerializable()
 abstract class Field extends Equatable {
   const Field({
     required this.id,
