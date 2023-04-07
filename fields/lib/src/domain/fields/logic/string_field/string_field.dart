@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ import '../field/field_props.dart';
 
 part 'string_field.g.dart';
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class StringField extends Field {
@@ -74,10 +76,7 @@ class StringField extends Field {
   }
 
   @override
-  List<Object?> get props => [
-        ...super.props,
-        maxLines,
-      ];
+  List<Object?> get props => _$props;
 
   @override
   bool get isEmpty => this == StringField.empty();

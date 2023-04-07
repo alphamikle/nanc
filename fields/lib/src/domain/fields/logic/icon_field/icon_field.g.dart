@@ -3,6 +3,16 @@
 part of 'icon_field.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$IconFieldAutoequal on IconField {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

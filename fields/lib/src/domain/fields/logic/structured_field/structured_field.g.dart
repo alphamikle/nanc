@@ -3,6 +3,16 @@
 part of 'structured_field.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$StructuredFieldAutoequal on StructuredField {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [structure, singleObject];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -10,6 +20,8 @@ abstract class _$StructuredFieldCWProxy {
   StructuredField name(String name);
 
   StructuredField structure(List<Field> structure);
+
+  StructuredField singleObject(bool singleObject);
 
   StructuredField id(String? id);
 
@@ -38,6 +50,7 @@ abstract class _$StructuredFieldCWProxy {
   StructuredField call({
     String? name,
     List<Field>? structure,
+    bool? singleObject,
     String? id,
     bool? showInList,
     bool? isRequired,
@@ -62,6 +75,10 @@ class _$StructuredFieldCWProxyImpl implements _$StructuredFieldCWProxy {
   @override
   StructuredField structure(List<Field> structure) =>
       this(structure: structure);
+
+  @override
+  StructuredField singleObject(bool singleObject) =>
+      this(singleObject: singleObject);
 
   @override
   StructuredField id(String? id) => this(id: id);
@@ -104,6 +121,7 @@ class _$StructuredFieldCWProxyImpl implements _$StructuredFieldCWProxy {
   StructuredField call({
     Object? name = const $CopyWithPlaceholder(),
     Object? structure = const $CopyWithPlaceholder(),
+    Object? singleObject = const $CopyWithPlaceholder(),
     Object? id = const $CopyWithPlaceholder(),
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
@@ -123,6 +141,11 @@ class _$StructuredFieldCWProxyImpl implements _$StructuredFieldCWProxy {
           ? _value.structure
           // ignore: cast_nullable_to_non_nullable
           : structure as List<Field>,
+      singleObject:
+          singleObject == const $CopyWithPlaceholder() || singleObject == null
+              ? _value.singleObject
+              // ignore: cast_nullable_to_non_nullable
+              : singleObject as bool,
       id: id == const $CopyWithPlaceholder()
           ? _value.id
           // ignore: cast_nullable_to_non_nullable
@@ -181,6 +204,7 @@ StructuredField _$StructuredFieldFromJson(Map<String, dynamic> json) =>
       structure: json['structure'] == null
           ? []
           : fieldsFromJsonRow(json['structure'] as List),
+      singleObject: json['singleObject'] as bool? ?? false,
       id: json['id'] as String?,
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
@@ -204,6 +228,7 @@ Map<String, dynamic> _$StructuredFieldToJson(StructuredField instance) =>
       'contentIcon': instance.contentIcon,
       'contentColor': colorToJson(instance.contentColor),
       'structure': fieldsToJsonRow(instance.structure),
+      'singleObject': instance.singleObject,
     };
 
 const _$FieldTypeEnumMap = {

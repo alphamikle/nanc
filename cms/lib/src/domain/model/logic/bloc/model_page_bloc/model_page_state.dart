@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,6 +7,7 @@ import 'package:tools/tools.dart';
 
 part 'model_page_state.g.dart';
 
+@autoequal
 @CopyWith()
 class ModelPageState extends Equatable {
   const ModelPageState({
@@ -33,11 +35,5 @@ class ModelPageState extends Equatable {
   bool get hasAnyChanges => editableModel != initialModel;
 
   @override
-  List<Object?> get props => [
-        editableModel,
-        initialModel,
-        controllerMap,
-        idWasChanged,
-        isSaving,
-      ];
+  List<Object?> get props => _$props;
 }

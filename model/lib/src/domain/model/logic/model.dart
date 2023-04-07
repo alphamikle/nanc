@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fields/fields.dart';
@@ -11,6 +12,7 @@ bool _codeFirstFlagFromJson(dynamic value) => false;
 bool _codeFirstFlagToJson(dynamic value) => false;
 
 /// [Model] is a representation of some domain object, which we want to have shown at the admin panel
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class Model extends Equatable {
@@ -140,16 +142,7 @@ class Model extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
-        id,
-        name,
-        icon,
-        isCollection,
-        sort,
-        showInMenu,
-        fields,
-        codeFirstEntity,
-      ];
+  List<Object?> get props => _$props;
 }
 
 extension FieldsIds on List<Field> {

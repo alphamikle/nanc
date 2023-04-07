@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -11,6 +12,7 @@ import '../field/field_description.dart';
 
 part 'group_field.g.dart';
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class GroupField extends Field {
@@ -45,6 +47,9 @@ class GroupField extends Field {
 
   @override
   Json toJson() => _$GroupFieldToJson(this);
+
+  @override
+  List<Object?> get props => _$props;
 
   @override
   bool get isEmpty => this == GroupField.empty();

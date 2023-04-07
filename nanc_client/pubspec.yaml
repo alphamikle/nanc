@@ -40,6 +40,7 @@ dependencies:
   device_frame: ^1.1.0
   mobile_scanner: ^3.1.0
   dio: ^4.0.6
+  autoequal: ^0.5.1
 
 #dependency_overrides:
 #  mobile_scanner:
@@ -50,14 +51,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  
-  flutter_lints: ^2.0.1
   lint:
     path: ../lint
+  flutter_lints: ^2.0.1
   json_serializable: ^6.6.1
   copy_with_extension_gen: ^5.0.2
   build_runner: ^2.3.3
   flutter_launcher_icons: ^0.12.0
+  autoequal_gen: ^0.5.1
 
 flutter:
   uses-material-design: true

@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -11,6 +12,7 @@ import '../field/field_description.dart';
 part 'structure_field.g.dart';
 
 /// ? THIS FIELD IS FOR PRIVATE PURPOSES OF THE FRAMEWORK
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class StructureField extends DynamicField {
@@ -43,6 +45,9 @@ class StructureField extends DynamicField {
 
   @override
   Json toJson() => _$StructureFieldToJson(this);
+
+  @override
+  List<Object?> get props => _$props;
 
   @override
   bool get isEmpty => this == StructureField.empty();

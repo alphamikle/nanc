@@ -3,6 +3,17 @@
 part of 'third_table.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$ThirdTableAutoequal on ThirdTable {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props =>
+      [relationsEntity, parentEntityIdName, childEntityIdName];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

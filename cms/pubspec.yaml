@@ -55,18 +55,20 @@ dependencies:
   rive: ^0.10.1
   lottie: ^2.2.0
   flutter_markdown: ^0.6.13+1
+  autoequal: ^0.5.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
   lint:
     path: ../lint
+  flutter_lints: ^2.0.1
   json_serializable: ^6.6.1
   copy_with_extension_gen: ^5.0.0
   build_runner: ^2.3.3
   path: ^1.8.2
   flutter_launcher_icons: ^0.11.0
+  autoequal_gen: ^0.5.1
 
 flutter:
   uses-material-design: true

@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:icons/icons.dart';
@@ -9,6 +10,7 @@ import '../../../../../fields.dart';
 
 part 'header_field.g.dart';
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class HeaderField extends Field {
@@ -75,6 +77,9 @@ class HeaderField extends Field {
       ],
     );
   }
+
+  @override
+  List<Object?> get props => _$props;
 
   @override
   bool get isEmpty => this == HeaderField.empty();

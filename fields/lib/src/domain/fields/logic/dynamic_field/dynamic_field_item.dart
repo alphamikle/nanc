@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
@@ -40,6 +41,7 @@ Json _toStructureObject(Json listFieldItemJson) {
   return listFieldItemJson;
 }
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class DynamicFieldItem extends Equatable {
@@ -85,12 +87,5 @@ class DynamicFieldItem extends Equatable {
   Json toJson() => _$DynamicFieldItemToJson(this);
 
   @override
-  List<Object?> get props {
-    return [
-      controller,
-      value,
-      field,
-      children,
-    ];
-  }
+  List<Object?> get props => _$props;
 }

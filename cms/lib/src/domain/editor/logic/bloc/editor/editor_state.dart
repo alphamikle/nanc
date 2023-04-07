@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -5,6 +6,7 @@ import 'package:tools/tools.dart';
 
 part 'editor_state.g.dart';
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class EditorState extends Equatable {
@@ -23,11 +25,7 @@ class EditorState extends Equatable {
   final bool isSyncedWithFile;
 
   @override
-  List<Object?> get props => [
-        isLoading,
-        markdownContent,
-        isSyncedWithFile,
-      ];
+  List<Object?> get props => _$props;
 
   Json toJson() => _$EditorStateToJson(this);
 }

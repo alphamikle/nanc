@@ -19,5 +19,6 @@ flutter pub get || exit
 
 if grep -q "build_runner" "./pubspec.yaml"; then
   printStage "BUILD RUNNER"
+  flutter pub run build_runner clean
   flutter pub run build_runner build --delete-conflicting-outputs || exit
 fi

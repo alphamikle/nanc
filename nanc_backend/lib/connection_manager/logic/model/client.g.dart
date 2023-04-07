@@ -3,6 +3,16 @@
 part of 'client.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$ClientAutoequal on Client {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [roomId, status, serviceId];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

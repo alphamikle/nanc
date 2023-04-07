@@ -3,6 +3,16 @@
 part of 'number_field.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$NumberFieldAutoequal on NumberField {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

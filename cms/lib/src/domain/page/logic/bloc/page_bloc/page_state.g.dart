@@ -3,6 +3,16 @@
 part of 'page_state.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$PageStateAutoequal on PageState {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [thirdTableData, thirdTable];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ Json _controllerMapToJson(TextControllerMap controllerMap) => <String, dynamic>{
 typedef ModelId = String;
 typedef ThirdTableData = Map<ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>>;
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class PageState extends BaseEntityPageState {
@@ -76,9 +78,5 @@ class PageState extends BaseEntityPageState {
   Json toJson() => _$PageStateToJson(this);
 
   @override
-  List<Object?> get props => [
-        ...super.props,
-        thirdTableData,
-        thirdTable,
-      ];
+  List<Object?> get props => _$props;
 }

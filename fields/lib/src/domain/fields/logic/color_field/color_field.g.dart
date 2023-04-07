@@ -3,6 +3,16 @@
 part of 'color_field.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$ColorFieldAutoequal on ColorField {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

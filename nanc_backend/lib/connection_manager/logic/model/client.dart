@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -12,6 +13,7 @@ enum ClientStatus {
   disconnected,
 }
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class Client extends Equatable {
@@ -32,9 +34,5 @@ class Client extends Equatable {
   Json toJson() => _$ClientToJson(this);
 
   @override
-  List<Object?> get props => [
-        roomId,
-        status,
-        serviceId,
-      ];
+  List<Object?> get props => _$props;
 }

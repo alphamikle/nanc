@@ -3,6 +3,16 @@
 part of 'menu_element.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$MenuElementAutoequal on MenuElement {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [title, url, aliases];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

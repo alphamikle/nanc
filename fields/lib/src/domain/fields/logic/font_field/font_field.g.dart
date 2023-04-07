@@ -3,6 +3,16 @@
 part of 'font_field.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$FontFieldAutoequal on FontField {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

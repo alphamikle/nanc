@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ enum MultiSelectorFieldStructure {
   arrayOfObjects,
 }
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class MultiSelectorField extends Field {
@@ -110,13 +112,7 @@ class MultiSelectorField extends Field {
   }
 
   @override
-  List<Object?> get props => [
-        ...super.props,
-        model,
-        titleFields,
-        structure,
-        thirdTable,
-      ];
+  List<Object?> get props => _$props;
 
   @override
   bool get isEmpty => this == MultiSelectorField.empty();

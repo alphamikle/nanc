@@ -3,6 +3,16 @@
 part of 'bool_field.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$BoolFieldAutoequal on BoolField {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [defaultValue];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -9,6 +10,7 @@ import '../../../../../fields.dart';
 
 part 'bool_field.g.dart';
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class BoolField extends Field {
@@ -72,17 +74,7 @@ class BoolField extends Field {
       };
 
   @override
-  List<Object?> get props => [
-        id,
-        sort,
-        name,
-        showInList,
-        isRequired,
-        width,
-        validator,
-        type,
-        defaultValue,
-      ];
+  List<Object?> get props => _$props;
 
   @override
   bool get isEmpty => this == BoolField.empty();

@@ -3,6 +3,16 @@
 part of 'editor_state.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$EditorStateAutoequal on EditorState {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [isLoading, markdownContent, isSyncedWithFile];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

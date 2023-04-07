@@ -3,6 +3,16 @@
 part of 'enum_value.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$EnumValueAutoequal on EnumValue {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [title, value];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

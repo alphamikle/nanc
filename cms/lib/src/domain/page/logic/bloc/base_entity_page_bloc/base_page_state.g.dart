@@ -3,6 +3,17 @@
 part of 'base_page_state.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$BaseEntityPageStateAutoequal on BaseEntityPageState {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props =>
+      [data, initialData, isLoading, isSaving, isDeleting, controllerMap];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

@@ -3,6 +3,16 @@
 part of 'date_field.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$DateFieldAutoequal on DateField {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [isCreatedAtField, isUpdatedAtField];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

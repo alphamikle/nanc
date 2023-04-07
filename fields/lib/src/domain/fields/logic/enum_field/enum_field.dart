@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -14,6 +15,7 @@ import 'enum_value.dart';
 
 part 'enum_field.g.dart';
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class EnumField extends Field {
@@ -47,12 +49,7 @@ class EnumField extends Field {
   }
 
   @override
-  List<Object?> get props {
-    return [
-      ...super.props,
-      ...values,
-    ];
-  }
+  List<Object?> get props => _$props;
 
   @override
   Json toJson() => _$EnumFieldToJson(this);

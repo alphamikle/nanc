@@ -29,16 +29,17 @@ dependencies:
   bloc: ^8.1.0
   flutter_bloc: ^8.1.1
   vrouter: ^1.2.1
+  autoequal: ^0.5.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  
-  flutter_lints: ^2.0.1
   lint:
     path: ../lint
   json_serializable: ^6.6.1
   copy_with_extension_gen: ^5.0.0
   build_runner: ^2.3.3
+  autoequal_gen: ^0.5.1
+  flutter_lints: ^2.0.1
 
 flutter:

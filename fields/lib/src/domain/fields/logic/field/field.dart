@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:autoequal/autoequal.dart';
 import 'package:config/config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,6 +13,10 @@ import '../../../type/field_types.dart';
 import 'field_description.dart';
 import 'field_props.dart';
 
+part 'field.g.dart';
+
+@autoequal
+@JsonSerializable()
 abstract class Field extends Equatable {
   const Field({
     required this.id,
@@ -35,7 +40,6 @@ abstract class Field extends Equatable {
 
   @JsonKey(ignore: true)
   final FormFieldValidator<Object>? validator;
-
   final FieldType type;
 
   FieldDescription description([BuildContext? context]);
@@ -75,15 +79,5 @@ abstract class Field extends Equatable {
   bool get isEmpty;
 
   @override
-  List<Object?> get props => [
-        id,
-        sort,
-        name,
-        showInList,
-        isRequired,
-        width,
-        editableField,
-        validator,
-        type,
-      ];
+  List<Object?> get props => _$props;
 }

@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -10,6 +11,7 @@ import '../field/field_description.dart';
 
 part 'icon_field.g.dart';
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class IconField extends Field {
@@ -40,6 +42,9 @@ class IconField extends Field {
 
   @override
   Json toJson() => _$IconFieldToJson(this);
+
+  @override
+  List<Object?> get props => _$props;
 
   @override
   bool get isEmpty => this == IconField.empty();

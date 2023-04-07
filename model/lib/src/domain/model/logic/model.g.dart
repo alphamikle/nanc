@@ -3,6 +3,29 @@
 part of 'model.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$ModelAutoequal on Model {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [
+        id,
+        name,
+        icon,
+        isCollection,
+        sort,
+        showInMenu,
+        fields,
+        codeFirstEntity,
+        flattenFields,
+        listFields,
+        idField,
+        dynamicFields
+      ];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

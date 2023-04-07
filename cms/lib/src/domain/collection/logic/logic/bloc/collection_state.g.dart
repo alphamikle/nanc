@@ -3,6 +3,16 @@
 part of 'collection_state.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$CollectionStateAutoequal on CollectionState {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [dataRows, currentPage, totalPages, isLoading];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

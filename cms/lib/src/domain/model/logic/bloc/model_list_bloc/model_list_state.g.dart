@@ -3,6 +3,17 @@
 part of 'model_list_state.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$ModelListStateAutoequal on ModelListState {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props =>
+      [preloadedModels, collectionModels, soloModels, hiddenModels, isLoading];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

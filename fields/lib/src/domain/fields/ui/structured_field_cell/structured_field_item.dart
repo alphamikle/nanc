@@ -1,4 +1,6 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
@@ -7,9 +9,10 @@ import '../../logic/field/field.dart';
 
 part 'structured_field_item.g.dart';
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
-class StructuredFieldItem {
+class StructuredFieldItem extends Equatable {
   const StructuredFieldItem({
     required this.items,
   });
@@ -36,9 +39,6 @@ class StructuredFieldItem {
 
   Json toJson() => _$StructuredFieldItemToJson(this);
 
-  List<Object?> get props {
-    return [
-      items,
-    ];
-  }
+  @override
+  List<Object?> get props => _$props;
 }

@@ -3,6 +3,16 @@
 part of 'selector_field.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$SelectorFieldAutoequal on SelectorField {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [model, titleFields, structure];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

@@ -3,6 +3,16 @@
 part of 'manual_state.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$ManualStateAutoequal on ManualState {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [activeElement, activeTagRenderer];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

@@ -3,6 +3,16 @@
 part of 'multi_selector_field.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$MultiSelectorFieldAutoequal on MultiSelectorField {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [model, titleFields, thirdTable, structure];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -10,6 +11,7 @@ import '../field/field_description.dart';
 
 part 'color_field.g.dart';
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class ColorField extends Field {
@@ -43,4 +45,7 @@ class ColorField extends Field {
 
   @override
   bool get isEmpty => this == ColorField.empty();
+
+  @override
+  List<Object?> get props => _$props;
 }

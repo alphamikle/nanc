@@ -3,6 +3,16 @@
 part of 'group_field.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$GroupFieldAutoequal on GroupField {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [fields];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

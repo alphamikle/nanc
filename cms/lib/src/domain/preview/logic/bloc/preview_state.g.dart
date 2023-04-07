@@ -3,6 +3,16 @@
 part of 'preview_state.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$PreviewStateAutoequal on PreviewState {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [isLoading, markdownContent];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

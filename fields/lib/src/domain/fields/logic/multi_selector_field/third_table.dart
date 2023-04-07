@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -6,6 +7,7 @@ import 'package:tools/tools.dart';
 
 part 'third_table.g.dart';
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class ThirdTable extends Equatable {
@@ -26,9 +28,5 @@ class ThirdTable extends Equatable {
   Json toJson() => _$ThirdTableToJson(this);
 
   @override
-  List<Object?> get props => [
-        relationsEntity,
-        parentEntityIdName,
-        childEntityIdName,
-      ];
+  List<Object?> get props => _$props;
 }

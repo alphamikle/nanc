@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
@@ -12,6 +13,7 @@ TagRenderer _rendererFrom(dynamic _) => TagRenderer.empty();
 
 dynamic _rendererTo(dynamic _) => null;
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class ManualState extends EditorState {
@@ -39,11 +41,7 @@ class ManualState extends EditorState {
   final TagRenderer activeTagRenderer;
 
   @override
-  List<Object?> get props => [
-        ...super.props,
-        activeElement,
-        activeTagRenderer,
-      ];
+  List<Object?> get props => _$props;
 
   @override
   Json toJson() => _$ManualStateToJson(this);

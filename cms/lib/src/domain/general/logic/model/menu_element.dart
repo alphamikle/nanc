@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -7,6 +8,7 @@ part 'menu_element.g.dart';
 
 typedef RouteChecker = bool Function(String route);
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class MenuElement extends Equatable {
@@ -27,9 +29,5 @@ class MenuElement extends Equatable {
   Json toJson() => _$MenuElementToJson(this);
 
   @override
-  List<Object?> get props => [
-        title,
-        url,
-        aliases,
-      ];
+  List<Object?> get props => _$props;
 }

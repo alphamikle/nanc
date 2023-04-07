@@ -3,6 +3,16 @@
 part of 'structure_field.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$StructureFieldAutoequal on StructureField {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

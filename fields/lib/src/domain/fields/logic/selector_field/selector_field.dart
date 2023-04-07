@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +35,7 @@ enum SelectorFieldStructure {
   object,
 }
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class SelectorField extends Field {
@@ -92,10 +94,11 @@ class SelectorField extends Field {
           fieldToModelId,
         ],
         [
-          // TODO(alphamikle): Structure field
+          // TODO(alphamikle): Новое поле "OtherModelField" - которое показывает выбор из других моделей
           StringField(id: fieldModelProperty, name: 'Model'),
+          // TODO(alphamikle): Новое поле "OtherModelFieldsField" - которое показывает список полей из выбранной модели и выбирать мы можем их или другие [TitleField]s
           StringField(id: fieldTitleFieldProperty, name: 'Name of field with title from the child object'),
-          // TODO(alphamikle): Enum field
+          // TODO(alphamikle): Упразднится
           StringField(id: fieldStructureProperty, name: 'Type of structure'),
         ],
         [
@@ -115,12 +118,7 @@ class SelectorField extends Field {
   }
 
   @override
-  List<Object?> get props => [
-        ...super.props,
-        model,
-        titleFields,
-        structure,
-      ];
+  List<Object?> get props => _$props;
 
   @override
   bool get isEmpty => this == SelectorField.empty();

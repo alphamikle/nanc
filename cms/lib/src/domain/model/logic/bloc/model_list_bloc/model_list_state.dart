@@ -1,9 +1,11 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:model/model.dart';
 
 part 'model_list_state.g.dart';
 
+@autoequal
 @CopyWith()
 class ModelListState extends Equatable {
   const ModelListState({
@@ -35,11 +37,5 @@ class ModelListState extends Equatable {
       ];
 
   @override
-  List<Object?> get props => [
-        preloadedModels,
-        collectionModels,
-        soloModels,
-        hiddenModels,
-        isLoading,
-      ];
+  List<Object?> get props => _$props;
 }

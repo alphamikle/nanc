@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ TextControllerMap _controllerMapFromJson(Json? json) => {};
 
 Json _controllerMapToJson(TextControllerMap controllerMap) => <String, dynamic>{};
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class BaseEntityPageState extends Equatable {
@@ -57,14 +59,5 @@ class BaseEntityPageState extends Equatable {
   }
 
   @override
-  List<Object?> get props {
-    return [
-      data,
-      initialData,
-      isLoading,
-      isSaving,
-      isDeleting,
-      controllerMap,
-    ];
-  }
+  List<Object?> get props => _$props;
 }

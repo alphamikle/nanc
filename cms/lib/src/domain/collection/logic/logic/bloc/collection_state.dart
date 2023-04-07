@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -5,6 +6,7 @@ import 'package:tools/tools.dart';
 
 part 'collection_state.g.dart';
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class CollectionState extends Equatable {
@@ -25,12 +27,7 @@ class CollectionState extends Equatable {
   final bool isLoading;
 
   @override
-  List<Object?> get props => [
-        dataRows,
-        currentPage,
-        totalPages,
-        isLoading,
-      ];
+  List<Object?> get props => _$props;
 
   Json toJson() => _$CollectionStateToJson(this);
 }

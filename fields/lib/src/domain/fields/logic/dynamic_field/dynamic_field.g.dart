@@ -3,6 +3,16 @@
 part of 'dynamic_field.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$DynamicFieldAutoequal on DynamicField {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [contentIcon, contentColor];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

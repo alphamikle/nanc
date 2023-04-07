@@ -3,6 +3,16 @@
 part of 'screen_field.dart';
 
 // **************************************************************************
+// AutoequalGenerator
+// **************************************************************************
+
+extension _$ScreenFieldAutoequal on ScreenField {
+  @Deprecated(r'Use _$props instead')
+  List<Object?> get _autoequalProps => _$props;
+  List<Object?> get _$props => [isScrollable];
+}
+
+// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 

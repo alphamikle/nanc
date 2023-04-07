@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -8,6 +9,7 @@ import '../../../../../fields.dart';
 
 part 'number_field.g.dart';
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class NumberField extends Field {
@@ -38,6 +40,9 @@ class NumberField extends Field {
 
   @override
   Json toJson() => _$NumberFieldToJson(this);
+
+  @override
+  List<Object?> get props => _$props;
 
   @override
   bool get isEmpty => this == NumberField.empty();

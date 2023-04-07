@@ -1,3 +1,4 @@
+import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -16,6 +17,7 @@ import '../structure_field/structure_field.dart';
 
 part 'structured_field.g.dart';
 
+@autoequal
 @CopyWith()
 @JsonSerializable()
 class StructuredField extends DynamicField {
@@ -87,10 +89,7 @@ class StructuredField extends DynamicField {
   }
 
   @override
-  List<Object?> get props => [
-        ...super.props,
-        structure,
-      ];
+  List<Object?> get props => _$props;
 
   @override
   bool get isEmpty => this == StructuredField.empty();
