@@ -19,7 +19,9 @@ class FieldEditionBloc extends BasePageBloc<PageState> with EntityPageBlocStub i
   }) : super(state: PageState.empty()) {
     final Json entityFieldsJson = _mapEntityToFieldsJson(entity, field ?? FieldMapper.fieldTypeToField(fieldType));
     final TextControllerMap controllerMap = _mapPageDataToControllerMap(entityFieldsJson);
-    entityFieldsJson[fieldNameProperty] = fieldType.name;
+
+    /// ! This thing rewrote model's name every time. Delete after few weeks, if all is ok without it
+    // entityFieldsJson[fieldNameProperty] = fieldType.name;
     emit(state.copyWith(
       data: entityFieldsJson,
       controllerMap: controllerMap,
@@ -61,7 +63,6 @@ class FieldEditionBloc extends BasePageBloc<PageState> with EntityPageBlocStub i
   }
 
   Field compileToField() {
-    logg(1);
     return FieldMapper.jsonToField(state.data);
   }
 

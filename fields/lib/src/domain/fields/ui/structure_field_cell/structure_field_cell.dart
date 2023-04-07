@@ -45,7 +45,6 @@ class _StructureFieldCellState extends State<StructureFieldCell> with FieldCellH
         FieldType.dynamicField,
         FieldType.screenField,
         FieldType.structureField,
-        FieldType.structuredField,
       },
     );
     Field? field;
