@@ -9,6 +9,7 @@ import '../../../type/field_types.dart';
 import '../field/field.dart';
 import '../field/field_description.dart';
 import '../string_field/string_field.dart';
+import '../structured_field/structured_field.dart';
 import 'enum_value.dart';
 
 part 'enum_field.g.dart';
@@ -60,8 +61,14 @@ class EnumField extends Field {
   Model toModel() {
     final Model entity = super.toModel();
     entity.fields.add([
-      // TODO(alphamikle): Try to use Structure field
-      StringField(id: 'values', name: 'Enum values'),
+      StructuredField(
+        id: 'values',
+        name: 'Enum values',
+        structure: [
+          StringField(id: 'title', name: 'Title'),
+          StringField(id: 'value', name: 'Value'),
+        ],
+      ),
     ]);
     return entity;
   }
