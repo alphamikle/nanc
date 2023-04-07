@@ -6,6 +6,7 @@ import 'src/user_space/api/mock_entity_list_api.dart';
 import 'src/user_space/api/mock_entity_page_api.dart';
 import 'src/user_space/entity/feature_toggles_model.dart';
 import 'src/user_space/entity/model_with_enum_and_selectors.dart';
+import 'src/user_space/entity/structure_field_example_model.dart';
 import 'src/user_space/entity/test_model.dart';
 import 'src/user_space/entity/user_model.dart';
 
@@ -18,6 +19,7 @@ Future<void> main() async {
       testModel,
       featureTogglesModel,
       modelWithEnumAndSelectors,
+      structureFieldExampleModel,
     ],
     pageListApi: MockEntityListApi(
       dbService: dbService,

@@ -7,6 +7,7 @@ import 'package:tools/tools.dart';
 
 import '../../../../service/tools/json_factories.dart';
 import '../../../type/field_types.dart';
+import '../bool_field/bool_field.dart';
 import '../dynamic_field/dynamic_field.dart';
 import '../field/field.dart';
 import '../field/field_description.dart';
@@ -21,6 +22,7 @@ class StructuredField extends DynamicField {
   StructuredField({
     required super.name,
     required this.structure,
+    this.singleObject = false,
     String? id,
     super.showInList,
     super.isRequired,
@@ -38,6 +40,8 @@ class StructuredField extends DynamicField {
 
   @JsonKey(fromJson: fieldsFromJsonRow, toJson: fieldsToJsonRow, defaultValue: <Field>[])
   final List<Field> structure;
+
+  final bool singleObject;
 
   @override
   FieldDescription description([BuildContext? context]) {
@@ -69,6 +73,7 @@ class StructuredField extends DynamicField {
         [
           fieldToModelShowInList,
           fieldToModelIsRequired,
+          BoolField(id: 'singleObject', name: 'Store one object only?'),
         ],
         [
           fieldToModelContentColor,

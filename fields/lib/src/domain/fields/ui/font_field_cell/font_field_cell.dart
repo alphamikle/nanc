@@ -21,7 +21,6 @@ class _FontFieldCellState extends State<FontFieldCell> with FieldCellHelper<Font
     return KitFontInput(
       controller: controller,
       helper: helper,
-      placeholder: 'Type font name...',
       onChanged: (String fontName) => pageBloc.updateValue(fieldId, fontName),
       isChanged: pageBloc.fieldWasChanged(fieldId),
       isRequired: field.isRequired,

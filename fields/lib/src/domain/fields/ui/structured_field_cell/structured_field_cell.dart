@@ -35,6 +35,7 @@ class StructuredFieldCell extends FieldCellWidget<StructuredField> {
 }
 
 class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCellHelper<StructuredField, StructuredFieldCell> {
+  Key childrenKey = UniqueKey();
   String get structureFieldId => generateStructureFieldId(fieldId);
   int get deepLevel => widget.deepLevel;
   bool get isParentList => deepLevel == 0;
@@ -58,13 +59,17 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
     return result;
   }
 
-  void toggleEditMode() => setState(() => isEditMode = !isEditMode);
+  void toggleEditMode() {
+    setState(() => isEditMode = !isEditMode);
+  }
 
   Future<void> addItem() async {
     final StructuredFieldItem structuredItem = StructuredFieldItem(items: field.structure.map((Field field) => DynamicFieldItem.fromField(field)).toList());
     childrenData.add(structuredItem);
     onChildChange();
   }
+
+  void refreshChildrenKey() => childrenKey = UniqueKey();
 
   void onChildChange({String? fieldId, Object? value, int? index}) {
     if (fieldId != null && index != null) {
@@ -91,9 +96,9 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
     pageBloc.updateValue(this.fieldId, childrenDataJson);
   }
 
-  void _onChildChange(int index, List<StructuredFieldItem> items) {
-    logg('_onChildChange: $index / $items');
-  }
+  // void _onChildChange(int index, List<StructuredFieldItem> items) {
+  //   logg('_onChildChange: $index / $items');
+  // }
 
   void switchItems(int firstItemIndex, int secondItemIndex) {
     final List<StructuredFieldItem> newChildrenData = [...childrenData];
@@ -107,6 +112,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
     /// ? Update
     onChildChange();
     setState(() {});
+    refreshChildrenKey();
   }
 
   Future<void> deleteItem(int index) async {
@@ -114,6 +120,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
     if (isConfirmed) {
       childrenData.removeAt(index);
       onChildChange();
+      refreshChildrenKey();
     }
   }
 
@@ -156,7 +163,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
                 deepLevel: deepLevel + 1,
                 initialChildrenData: item,
                 editMode: isEditMode,
-                onChildChange: (List<StructuredFieldItem> items) => _onChildChange(index, items),
+                // onChildChange: (List<StructuredFieldItem> items) => _onChildChange(index, items),
                 onMoveUp: index == 0 ? null : () => switchItems(index, index - 1),
                 onMoveDown: isLast ? null : () => switchItems(index, index + 1),
                 onDelete: () async => deleteItem(index),
@@ -265,6 +272,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
               ? const SizedBox.shrink()
               : Padding(
                   padding: const EdgeInsets.only(left: Gap.large, right: Gap.regular),
+                  key: childrenKey,
                   child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: childrenBuilder,

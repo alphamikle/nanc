@@ -14,7 +14,6 @@ class KitFontInput extends StatefulWidget {
   const KitFontInput({
     required this.controller,
     required this.helper,
-    required this.placeholder,
     required this.onChanged,
     this.isChanged = false,
     this.isReadOnly = false,
@@ -23,7 +22,6 @@ class KitFontInput extends StatefulWidget {
   });
 
   final String helper;
-  final String placeholder;
   final bool isChanged;
   final bool isReadOnly;
   final bool isRequired;
@@ -114,10 +112,10 @@ class _KitFontInputState extends State<KitFontInput> {
     return KitAutocompleteTextField(
       controller: widget.controller,
       helper: widget.helper,
-      label: 'Type to search fonts...',
       validator: groupOfValidators([
         _fontValidator,
       ]),
+      placeholder: 'Type to search font name...',
       finder: fontFinder,
       onSelect: onSelect,
       itemBuilder: fontItemBuilder,
