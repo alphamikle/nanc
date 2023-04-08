@@ -126,7 +126,7 @@ class _MultiSelectorThirdTableFieldCellState extends State<MultiSelectorThirdTab
   Future<void> preload() async {
     if (mounted) {
       controller.text = kLoadingText;
-      setState(() => isPreloading = true);
+      safeSetState(() => isPreloading = true);
       final List<Json> childrenEntities = await context.read<PageListProviderInterface>().fetchPageList(
             model: model,
             subset: [
@@ -150,7 +150,7 @@ class _MultiSelectorThirdTableFieldCellState extends State<MultiSelectorThirdTab
       final String resultTitle = childrenEntities.map((Json row) => titleFields.toTitleSegments(row).join()).join(' | ');
       controller.text = resultTitle;
       if (mounted) {
-        setState(() => isPreloading = false);
+        safeSetState(() => isPreloading = false);
       }
     }
   }

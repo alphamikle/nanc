@@ -1,3 +1,5 @@
+flutter pub cache repair
+
 bash build.sh ./additions || exit
 bash build.sh ./analytics || exit
 bash build.sh ./cms || exit

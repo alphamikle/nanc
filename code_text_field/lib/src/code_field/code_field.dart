@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
+import 'package:tools/tools.dart';
 
 import '../code_theme/code_theme.dart';
 import '../line_numbers/line_number_controller.dart';
@@ -10,9 +11,9 @@ import '../line_numbers/line_number_style.dart';
 import 'code_controller.dart';
 
 class CodeField extends StatefulWidget {
-
   const CodeField({
-    required this.controller, super.key,
+    required this.controller,
+    super.key,
     this.minLines,
     this.maxLines,
     this.expands = false,
@@ -36,6 +37,7 @@ class CodeField extends StatefulWidget {
     this.lineNumbers = true,
     this.horizontalScroll = true,
   });
+
   /// {@macro flutter.widgets.textField.smartQuotesType}
   final SmartQuotesType? smartQuotesType;
 
@@ -144,7 +146,7 @@ class CodeFieldState extends State<CodeField> {
   }
 
   void rebuild() {
-    setState(() {});
+    safeSetState();
   }
 
   void _onTextChanged() {
@@ -164,7 +166,7 @@ class CodeFieldState extends State<CodeField> {
       if (line.length > longestLine.length) longestLine = line;
     });
 
-    setState(() {});
+    safeSetState();
   }
 
   // Wrap the codeField in a horizontal scrollView

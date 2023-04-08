@@ -65,7 +65,7 @@ class _MultiSelectorArrayOfIdsFieldCellState extends State<MultiSelectorArrayOfI
     await wait(duration: const Duration(milliseconds: 50));
     if (mounted) {
       controller.text = kLoadingText;
-      setState(() => isPreloading = true);
+      safeSetState(() => isPreloading = true);
       final List<Json> childrenEntities = await context.read<PageListProviderInterface>().fetchPageList(
             model: model,
             subset: [
@@ -89,7 +89,7 @@ class _MultiSelectorArrayOfIdsFieldCellState extends State<MultiSelectorArrayOfI
       final String resultTitle = childrenEntities.map((Json row) => titleFields.toTitleSegments(row).join()).join(' | ');
       controller.text = resultTitle;
       if (mounted) {
-        setState(() => isPreloading = false);
+        safeSetState(() => isPreloading = false);
       }
     }
   }

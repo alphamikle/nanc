@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:tools/tools.dart';
 
 class ReviewsSlider extends StatefulWidget {
   const ReviewsSlider({
@@ -108,7 +109,7 @@ class _ReviewsSliderState extends State<ReviewsSlider> {
               enlargeCenterPage: true,
               enlargeFactor: 0.35,
               enlargeStrategy: CenterPageEnlargeStrategy.zoom,
-              onPageChanged: (int index, CarouselPageChangedReason reason) => setState(() => activeIndex = index),
+              onPageChanged: (int index, CarouselPageChangedReason reason) => safeSetState(() => activeIndex = index),
             ),
             items: List.generate(widget.children.length, (int index) => _itemBuilder(index)),
           ),

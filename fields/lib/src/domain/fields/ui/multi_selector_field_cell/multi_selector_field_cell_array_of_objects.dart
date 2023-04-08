@@ -79,7 +79,7 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
     );
     if (result != null && mounted) {
       controller.text = kLoadingText;
-      setState(() => isPreloading = true);
+      safeSetState(() => isPreloading = true);
       final List<Json> selectedObjects = await context.read<PageListProviderInterface>().fetchPageList(
             model: model,
             subset: model.flattenFields.map((Field field) => field.id).toList(),
@@ -110,7 +110,7 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
       pageBloc.updateValue(fieldId, selectedObjects);
       unawaited(wait(duration: const Duration(milliseconds: 300)).toFuture().then((_) {
         if (mounted) {
-          setState(() => isPreloading = false);
+          safeSetState(() => isPreloading = false);
         }
       }));
     }
@@ -119,7 +119,7 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
   Future<void> preload() async {
     if (mounted) {
       controller.text = kLoadingText;
-      setState(() => isPreloading = true);
+      safeSetState(() => isPreloading = true);
       final List<Json> childrenEntities = await context.read<PageListProviderInterface>().fetchPageList(
             model: model,
             subset: [
@@ -152,7 +152,7 @@ class _MultiSelectorArrayOfObjectsFieldCellState extends State<MultiSelectorArra
         controller.text = '';
       }
       if (mounted) {
-        setState(() => isPreloading = false);
+        safeSetState(() => isPreloading = false);
       }
     }
   }

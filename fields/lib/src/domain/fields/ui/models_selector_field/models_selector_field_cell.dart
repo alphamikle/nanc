@@ -67,19 +67,19 @@ class _ModelsSelectorFieldCellState extends State<ModelsSelectorFieldCell> with 
   Future<void> saveEventHandler(Model entity) async => preload();
 
   Future<void> preload() async {
-    setState(() => isPreloading = true);
+    safeSetState(() => isPreloading = true);
     controller.text = kLoadingText;
     final dynamic json = pageBloc.valueForKey(fieldId);
     if (json == null) {
       controller.clear();
-      setState(() => isPreloading = false);
+      safeSetState(() => isPreloading = false);
       return;
     }
     final List<String> titleSegments = titleFields.toTitleSegments(json);
     final String title = titleSegments.join();
     controller.text = title;
     if (mounted) {
-      setState(() => isPreloading = false);
+      safeSetState(() => isPreloading = false);
     }
   }
 

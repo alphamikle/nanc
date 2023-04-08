@@ -44,7 +44,7 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
       queryTimer?.cancel();
       queryTimer = null;
     } else {
-      setState(() => isLoading = true);
+      safeSetState(() => isLoading = true);
     }
     queryTimer = Timer(const Duration(milliseconds: 500), () async {
       queryTimer = null;
@@ -52,14 +52,14 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
       final List<EnumValue> icons = await iconFinder(query);
       foundIcons.clear();
       foundIcons.addAll(icons);
-      setState(() => isLoading = false);
+      safeSetState(() => isLoading = false);
     });
   }
 
   Future<void> selectIcon(EnumValue iconEnum) async {
     await copyTextToClipboard(iconEnum.title);
     await wait(duration: const Duration(milliseconds: 200));
-    setState(() => selectedIcon = iconEnum);
+    safeSetState(() => selectedIcon = iconEnum);
   }
 
   Widget iconBuilder(BuildContext context, int index) {

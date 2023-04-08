@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';
 import 'palette.dart';
@@ -25,7 +26,7 @@ class _KitColorPickerState extends State<KitColorPicker> {
 
   // ignore: avoid_positional_boolean_parameters
   void updateColorOfPickerSlider(HSVColor color, bool isMonochromeMode) {
-    setState(() => currentHsvColor = color);
+    safeSetState(() => currentHsvColor = color);
     if (isMonochromeMode == false) {
       widget.onColorChanged(currentHsvColor.toColor());
     }
@@ -38,7 +39,7 @@ class _KitColorPickerState extends State<KitColorPicker> {
   }
 
   void onColorChanging(HSVColor color) {
-    setState(() => currentHsvColor = color);
+    safeSetState(() => currentHsvColor = color);
     widget.onColorChanged(currentHsvColor.toColor());
   }
 

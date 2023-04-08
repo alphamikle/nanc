@@ -33,29 +33,29 @@ class KitScreenPreloaderState extends State<KitScreenPreloader> with AfterRender
   bool _canCreateChild = false;
 
   void _buildChild() {
-    setState(() {
+    safeSetState(() {
       _canCreateChild = true;
     });
   }
 
   void _hidePreloader() {
-    setState(() {
+    safeSetState(() {
       _isPreloaderVisible = false;
     });
   }
 
   void _removePreloader() {
-    setState(() {
+    safeSetState(() {
       _isPreloaderExist = false;
     });
   }
 
   Future<void> disablePreloadedScreen() async {
-    setState(() => _isPreloaderExist = true);
+    safeSetState(() => _isPreloaderExist = true);
     await Future<void>.delayed(const Duration(milliseconds: 10));
-    setState(() => _isPreloaderVisible = true);
+    safeSetState(() => _isPreloaderVisible = true);
     await Future<void>.delayed(const Duration(milliseconds: 250));
-    setState(() => _canCreateChild = false);
+    safeSetState(() => _canCreateChild = false);
   }
 
   Future<void> _startAnimation() async {

@@ -40,7 +40,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
   late final EditorBloc editorBloc = context.read();
   bool isPageJsonAvailable = false;
 
-  void toggleJsonView() => setState(() => isPageJsonAvailable = !isPageJsonAvailable);
+  void toggleJsonView() => safeSetState(() => isPageJsonAvailable = !isPageJsonAvailable);
 
   Widget manualBuilder(BuildContext context, CloseContainerActionCallback<String> action) {
     return MultiBlocProvider(

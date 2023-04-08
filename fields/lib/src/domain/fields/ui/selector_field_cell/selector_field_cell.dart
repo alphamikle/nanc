@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:cms/cms.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -35,12 +34,12 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
   String get virtualField => widget.field.virtualField;
   List<TitleField> get titleFields => field.titleFields;
   Model get model => field.model;
-  late final EventBus eventBus = context.read();
+  late final EventBus eventBus = read();
   bool isPreloading = false;
   bool isLoadingFullPageData = false;
 
   Future<List<Json>> finder(String searchQuery) {
-    final PageListProviderInterface entityListProvider = context.read();
+    final PageListProviderInterface entityListProvider = read();
     final List<QueryParameterValue> values = splitComplexTitle(query: searchQuery, titleFields: titleFields)
         .map(
           (String value) => QueryStringValue(value),
@@ -92,15 +91,15 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
   Future<void> saveEventHandler(Model entity) async => preload();
 
   Future<void> preload() async {
-    setState(() => isPreloading = true);
+    safeSetState(() => isPreloading = true);
     controller.text = kLoadingText;
     final String? pageId = pageBloc.valueForKey(fieldId) as String?;
     if (pageId == null) {
       controller.clear();
-      setState(() => isPreloading = false);
+      safeSetState(() => isPreloading = false);
       return;
     }
-    final Json data = await context.read<PageProviderInterface>().fetchPageData(
+    final Json data = await read<PageProviderInterface>().fetchPageData(
       model: model,
       id: pageId,
       subset: [
@@ -111,19 +110,16 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
     final String title = titleFields.toTitleSegments(data).join();
     controller.text = title;
     if (mounted) {
-      setState(() => isPreloading = false);
+      safeSetState(() => isPreloading = false);
     }
     unawaited(updateVirtualField(pageId));
   }
 
   Future<void> updateVirtualField(String pageId) async {
-    setState(() => isLoadingFullPageData = true);
-    final PageBloc pageBloc = context.read();
-    final Json data = await pageBloc.loadPageData(model: model, pageId: pageId);
-    pageBloc.updateValue(virtualField, data);
-    if (mounted) {
-      setState(() => isLoadingFullPageData = false);
-    }
+    safeSetState(() => isLoadingFullPageData = true);
+    final Json data = await read<PageBloc>().loadPageData(model: model, pageId: pageId);
+    safeRead<PageBloc>()?.updateValue(virtualField, data);
+    safeSetState(() => isLoadingFullPageData = false);
   }
 
   @override

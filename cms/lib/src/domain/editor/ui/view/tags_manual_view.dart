@@ -23,7 +23,7 @@ class TagsManualView extends StatefulWidget {
 class _TagsManualViewState extends State<TagsManualView> {
   bool showDescription = true;
 
-  void toggleDescription() => setState(() => showDescription = !showDescription);
+  void toggleDescription() => safeSetState(() => showDescription = !showDescription);
 
   Widget tagDescription() {
     return BlocBuilder<EditorBloc, EditorState>(

@@ -1,7 +1,7 @@
 name: code_text_field
 description: A customizable code field supporting syntax highlighting, bi-directionnal scrolling and code modifiers
 version: 1.0.3
-homepage: https://github.com/BertrandBev/code_field
+publish_to: none
 
 environment:
   sdk: '>=2.19.5 <4.0.0'
@@ -10,6 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  tools:
+    path: ../tools
   linked_scroll_controller: ^0.2.0
   highlight: ^0.7.0
   flutter_highlight: ^0.7.0

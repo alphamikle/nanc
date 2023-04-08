@@ -45,7 +45,7 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
   }
 
   Future<void> finder({bool immediately = false}) async {
-    setState(() => isLoading = true);
+    safeSetState(() => isLoading = true);
     searchDebounce?.cancel();
     searchDebounce = Timer(immediately ? Duration.zero : const Duration(milliseconds: 500), () async {
       if (mounted) {
@@ -71,7 +71,7 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
         foundRows.clear();
         foundRows.addAll(data);
         searchDebounce = null;
-        setState(() => isLoading = false);
+        safeSetState(() => isLoading = false);
       }
     });
   }
@@ -91,7 +91,7 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
     } else {
       selectedIds.add(id);
     }
-    setState(() {});
+    safeSetState();
   }
 
   Widget rowBuilder(BuildContext context, Json rowData, Widget child) {

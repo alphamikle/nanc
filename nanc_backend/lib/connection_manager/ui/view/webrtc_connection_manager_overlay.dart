@@ -31,7 +31,7 @@ class _WebRTCConnectionManagerOverlayState extends State<WebRTCConnectionManager
 
   Future<void> showConnectionModal() async {
     Analytics.sendEvent('CMS_OPENED_CONNECTION_MANAGER');
-    setState(() => isModalVisible = true);
+    safeSetState(() => isModalVisible = true);
     final ConnectionManagerBloc connectionManagerBloc = context.read();
 
     await showDialog<void>(
@@ -46,7 +46,7 @@ class _WebRTCConnectionManagerOverlayState extends State<WebRTCConnectionManager
         );
       },
     );
-    setState(() => isModalVisible = false);
+    safeSetState(() => isModalVisible = false);
   }
 
   @override

@@ -58,7 +58,7 @@ class _DynamicFieldCellState extends State<DynamicFieldCell> with FieldCellHelpe
     return childrenData.map((DynamicFieldItem item) => item.structureObject).toList();
   }
 
-  void toggleEditMode() => setState(() => isEditMode = !isEditMode);
+  void toggleEditMode() => safeSetState(() => isEditMode = !isEditMode);
 
   Future<void> addItem() async {
     final FieldType? fieldType = await showFieldTypeSelectorModal(context);
@@ -67,7 +67,7 @@ class _DynamicFieldCellState extends State<DynamicFieldCell> with FieldCellHelpe
       field = await showFieldCreationModal(context, fieldType);
     }
     if (field != null) {
-      setState(() {
+      safeSetState(() {
         final DynamicFieldItem childData = DynamicFieldItem.fromField(field!);
         childrenData.add(childData);
         onChildChange(childData.value, childrenData.length - 1);
@@ -192,7 +192,7 @@ class _DynamicFieldCellState extends State<DynamicFieldCell> with FieldCellHelpe
   }
 
   Future<void> preload() async {
-    setState(() => isPreloading = true);
+    safeSetState(() => isPreloading = true);
     final dynamic values = pageBloc.valueForKey(fieldId);
     final dynamic structures = pageBloc.valueForKey(generateStructureFieldId(fieldId));
     if (values is List<dynamic> && structures is List<dynamic>) {
@@ -214,7 +214,7 @@ class _DynamicFieldCellState extends State<DynamicFieldCell> with FieldCellHelpe
         childrenData[i] = item.copyWith(value: value);
       }
     }
-    setState(() => isPreloading = false);
+    safeSetState(() => isPreloading = false);
   }
 
   @override

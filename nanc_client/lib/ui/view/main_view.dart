@@ -102,7 +102,7 @@ class _MainViewState extends State<MainView> {
             delayBeforeBuildChild: const Duration(milliseconds: 50),
             delayAfterBuildChild: const Duration(milliseconds: 1600),
             timeForHide: const Duration(milliseconds: 400),
-            onShowChild: () => setState(() => isScreenReadyToShow = true),
+            onShowChild: () => safeSetState(() => isScreenReadyToShow = true),
             loader: preloader,
             builder: (_) => ContentPage(
               content: screenData,

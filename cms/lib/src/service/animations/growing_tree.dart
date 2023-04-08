@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rive/rive.dart';
+import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../tools/assets_loader.dart';
@@ -50,7 +51,7 @@ class _GrowingTreeState extends State<GrowingTree> with SingleTickerProviderStat
       input?.value = 0;
     }
     initialized = true;
-    setState(() {});
+    safeSetState();
     await forward();
   }
 

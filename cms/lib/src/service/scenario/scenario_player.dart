@@ -39,7 +39,7 @@ class _ScenarioPlayerState extends State<ScenarioPlayer> {
     if (mounted == false) {
       return;
     }
-    setState(() {
+    safeSetState(() {
       activeEpisode++;
     });
     await wait(duration: widget.scenario.delayFactory(currentEpisode));

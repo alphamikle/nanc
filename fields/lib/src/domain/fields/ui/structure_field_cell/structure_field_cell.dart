@@ -52,7 +52,7 @@ class _StructureFieldCellState extends State<StructureFieldCell> with FieldCellH
       field = await showFieldCreationModal(context, fieldType);
     }
     if (field != null) {
-      setState(() {
+      safeSetState(() {
         final DynamicFieldItem childData = DynamicFieldItem.fromField(field!);
         childrenData.add(childData);
         onChildChange(childData.value, childrenData.length - 1);
@@ -67,7 +67,7 @@ class _StructureFieldCellState extends State<StructureFieldCell> with FieldCellH
       final DynamicFieldItem oldItem = childrenData[index];
       childrenData[index] = DynamicFieldItem(controller: oldItem.controller, value: value, field: oldItem.field, children: oldItem.children);
     }
-    setState(() {});
+    safeSetState();
     pageBloc.updateValue(fieldId, childrenFieldsJson);
   }
 
@@ -162,7 +162,7 @@ class _StructureFieldCellState extends State<StructureFieldCell> with FieldCellH
   }
 
   Future<void> preload() async {
-    setState(() => isPreloading = true);
+    safeSetState(() => isPreloading = true);
     final dynamic values = pageBloc.valueForKey(fieldId);
     if (values is List<dynamic>) {
       for (int i = 0; i < values.length; i++) {
@@ -172,7 +172,7 @@ class _StructureFieldCellState extends State<StructureFieldCell> with FieldCellH
         childrenData.add(item);
       }
     }
-    setState(() => isPreloading = false);
+    safeSetState(() => isPreloading = false);
   }
 
   @override

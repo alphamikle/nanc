@@ -50,7 +50,7 @@ class _FieldCardFunctionalWrapperState extends State<FieldCardFunctionalWrapper>
   }
 
   Future<void> _showElements() async {
-    setState(() => _isFunctionalElementsExists = true);
+    safeSetState(() => _isFunctionalElementsExists = true);
     await wait(duration: const Duration(milliseconds: 10));
     unawaited(controller?.forward());
   }
@@ -58,7 +58,7 @@ class _FieldCardFunctionalWrapperState extends State<FieldCardFunctionalWrapper>
   Future<void> _hideElements() async {
     await controller?.animateBack(0);
     if (mounted) {
-      setState(() => _isFunctionalElementsExists = false);
+      safeSetState(() => _isFunctionalElementsExists = false);
     }
   }
 

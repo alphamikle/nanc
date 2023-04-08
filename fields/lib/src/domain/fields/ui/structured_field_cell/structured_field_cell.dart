@@ -60,7 +60,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
   }
 
   void toggleEditMode() {
-    setState(() => isEditMode = !isEditMode);
+    safeSetState(() => isEditMode = !isEditMode);
   }
 
   Future<void> addItem() async {
@@ -111,7 +111,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
 
     /// ? Update
     onChildChange();
-    setState(() {});
+    safeSetState();
     refreshChildrenKey();
   }
 
@@ -176,7 +176,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
   }
 
   Future<void> preload() async {
-    setState(() => isPreloading = true);
+    safeSetState(() => isPreloading = true);
     final dynamic values = pageBloc.valueForKey(fieldId);
     if (values is List<dynamic>) {
       for (int i = 0; i < values.length; i++) {
@@ -185,7 +185,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
         childrenData.add(structuredItem);
       }
     }
-    setState(() => isPreloading = false);
+    safeSetState(() => isPreloading = false);
   }
 
   @override
