@@ -34,7 +34,7 @@ class StructuredField extends DynamicField {
     super.contentIcon,
     super.contentColor,
     super.type = FieldType.structuredField,
-  }) : super(id: id ?? toSnackCase(name));
+  }) : super(id: id ?? toSnakeCase(name));
 
   factory StructuredField.empty() => StructuredField(id: '', name: '', structure: const []);
 

@@ -28,7 +28,7 @@ class StringField extends Field {
     super.validator,
     this.maxLines,
     super.type = FieldType.stringField,
-  }) : super(id: id ?? toSnackCase(name));
+  }) : super(id: id ?? toSnakeCase(name));
 
   factory StringField.empty() => StringField(id: '', name: '');
 

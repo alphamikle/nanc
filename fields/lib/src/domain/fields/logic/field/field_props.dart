@@ -33,3 +33,4 @@ final StringField fieldToModelValidator = StringField(id: fieldValidatorProperty
 final StringField fieldToModelContent = StringField(id: fieldContentProperty, name: 'Content', isRequired: true, maxLines: 1);
 final ColorField fieldToModelContentColor = ColorField(id: fieldContentColorProperty, name: 'Color');
 final IconField fieldToModelContentIcon = IconField(id: fieldContentIconProperty, name: 'Icon');
+final ModelsSelectorField fieldToModelModel = ModelsSelectorField(id: fieldModelProperty, name: 'Model');

@@ -29,7 +29,7 @@ class EnumField extends Field {
     super.width,
     super.validator,
     super.type = FieldType.enumField,
-  }) : super(id: id ?? toSnackCase(name));
+  }) : super(id: id ?? toSnakeCase(name));
 
   factory EnumField.empty() => EnumField(id: '', name: '', values: const []);
 

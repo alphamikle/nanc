@@ -18,5 +18,6 @@ enum FieldType {
   headerField,
   groupField,
   fontField,
+  modelsSelectorField,
   // TODO(alphamikle): Add new field types here
 }

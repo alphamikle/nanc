@@ -24,7 +24,7 @@ class FontField extends Field {
     super.width,
     super.validator,
     super.type = FieldType.fontField,
-  }) : super(id: id ?? toSnackCase(name));
+  }) : super(id: id ?? toSnakeCase(name));
 
   factory FontField.empty() => FontField(id: '', name: '');
 

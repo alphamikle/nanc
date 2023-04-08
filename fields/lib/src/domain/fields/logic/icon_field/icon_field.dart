@@ -24,7 +24,7 @@ class IconField extends Field {
     super.width,
     super.validator,
     super.type = FieldType.iconField,
-  }) : super(id: id ?? toSnackCase(name));
+  }) : super(id: id ?? toSnakeCase(name));
 
   factory IconField.empty() => IconField(id: '', name: '');
 

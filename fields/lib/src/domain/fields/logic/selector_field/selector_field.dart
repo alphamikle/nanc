@@ -46,8 +46,8 @@ class SelectorField extends Field {
     super.width,
     super.validator,
     super.type = FieldType.selectorField,
-  })  : virtualField = virtualField ?? '\$${id ?? toSnackCase(name)}',
-        super(id: id ?? toSnackCase(name));
+  })  : virtualField = virtualField ?? '\$${id ?? toSnakeCase(name)}',
+        super(id: id ?? toSnakeCase(name));
 
   factory SelectorField.empty() => SelectorField(
         id: '',
@@ -90,12 +90,9 @@ class SelectorField extends Field {
           fieldToModelVirtualField,
         ],
         [
-          // TODO(alphamikle): Новое поле "OtherModelField" - которое показывает выбор из других моделей
-          StringField(id: fieldModelProperty, name: 'Model'),
+          fieldToModelModel,
           // TODO(alphamikle): Новое поле "OtherModelFieldsField" - которое показывает список полей из выбранной модели и выбирать мы можем их или другие [TitleField]s
           StringField(id: fieldTitleFieldProperty, name: 'Name of field with title from the child object'),
-          // TODO(alphamikle): Упразднится
-          StringField(id: fieldStructureProperty, name: 'Type of structure'),
         ],
         [
           fieldToModelSort,

@@ -26,6 +26,8 @@ abstract class FieldMapper {
       return (field as IconField).copyWith() as T;
     } else if (type == FieldType.idField) {
       return (field as IdField).copyWith() as T;
+    } else if (type == FieldType.modelsSelectorField) {
+      return (field as ModelsSelectorField).copyWith() as T;
     } else if (type == FieldType.stringField) {
       return (field as StringField).copyWith() as T;
     } else if (type == FieldType.multiSelectorField) {
@@ -88,6 +90,8 @@ abstract class FieldMapper {
       return IconFieldCell(field: field, creationMode: creationMode);
     } else if (field is IdField) {
       return IdFieldCell(field: field, creationMode: creationMode);
+    } else if (field is ModelsSelectorField) {
+      return ModelsSelectorFieldCell(field: field, creationMode: creationMode);
     } else if (field is StringField) {
       return StringFieldCell(field: field, creationMode: creationMode);
     } else if (field is MultiSelectorField) {
@@ -143,6 +147,8 @@ abstract class FieldMapper {
       return field.toJson();
     } else if (field is IdField) {
       return field.toJson();
+    } else if (field is ModelsSelectorField) {
+      return field.toJson();
     } else if (field is StringField) {
       return field.toJson();
     } else if (field is MultiSelectorField) {
@@ -187,6 +193,8 @@ abstract class FieldMapper {
       return IconField.fromJson(json) as T;
     } else if (type == FieldType.idField.name) {
       return IdField.fromJson(json) as T;
+    } else if (type == FieldType.modelsSelectorField.name) {
+      return ModelsSelectorField.fromJson(json) as T;
     } else if (type == FieldType.stringField.name) {
       return StringField.fromJson(json) as T;
     } else if (type == FieldType.multiSelectorField.name) {
@@ -227,6 +235,8 @@ abstract class FieldMapper {
       return IconField.empty().toModel();
     } else if (fieldType == FieldType.idField) {
       return IdField.empty().toModel();
+    } else if (fieldType == FieldType.modelsSelectorField) {
+      return ModelsSelectorField.empty().toModel();
     } else if (fieldType == FieldType.stringField) {
       return StringField.empty().toModel();
     } else if (fieldType == FieldType.multiSelectorField) {
@@ -267,6 +277,8 @@ abstract class FieldMapper {
       return IconField.empty() as T;
     } else if (fieldType == FieldType.idField) {
       return IdField.empty() as T;
+    } else if (fieldType == FieldType.modelsSelectorField) {
+      return ModelsSelectorField.empty() as T;
     } else if (fieldType == FieldType.stringField) {
       return StringField.empty() as T;
     } else if (fieldType == FieldType.multiSelectorField) {
@@ -309,6 +321,7 @@ abstract class FieldMapper {
       // StructureField.empty(),
       StructuredField.empty(),
       ScreenField.empty(),
+      ModelsSelectorField.empty(),
       // TODO(alphamikle): [FIELDS] Add new fields here
     ];
   }

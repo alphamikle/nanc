@@ -6,7 +6,6 @@ import 'package:tools/tools.dart';
 
 import '../../../../../service/routing/route_list.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
-import '../../../../model/logic/entity/model_model.dart';
 import '../../model/menu_element.dart';
 import '../header/menu_state.dart';
 

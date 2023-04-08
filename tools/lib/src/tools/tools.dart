@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
+
 import '../../tools.dart';
 
 typedef Action<T> = FutureOr<T> Function();
@@ -11,7 +12,7 @@ T cast<T>(dynamic value) {
   return value as T;
 }
 
-String toSnackCase(String value) {
+String toSnakeCase(String value) {
   return value.toLowerCase().replaceAll(' ', '_');
 }
 

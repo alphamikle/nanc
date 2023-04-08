@@ -24,7 +24,7 @@ class ColorField extends Field {
     super.width,
     super.validator,
     super.type = FieldType.colorField,
-  }) : super(id: id ?? toSnackCase(name));
+  }) : super(id: id ?? toSnakeCase(name));
 
   factory ColorField.empty() => ColorField(id: '', name: '');
 

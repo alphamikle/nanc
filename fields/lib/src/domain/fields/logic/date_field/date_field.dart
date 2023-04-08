@@ -25,7 +25,7 @@ class DateField extends Field {
     super.width,
     super.validator,
     super.type = FieldType.dateField,
-  }) : super(id: id ?? toSnackCase(name));
+  }) : super(id: id ?? toSnakeCase(name));
 
   factory DateField.empty() => DateField(id: '', name: '');
 

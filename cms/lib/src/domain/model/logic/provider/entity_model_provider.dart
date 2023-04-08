@@ -7,7 +7,6 @@ import 'package:tools/tools.dart';
 import '../../../collection/logic/logic/dto/params_dto.dart';
 import '../../../collection/logic/logic/provider/page_list_provider.dart';
 import '../../../page/logic/provider/entity_page_provider.dart';
-import '../entity/model_model.dart';
 
 class ModelProvider {
   ModelProvider({

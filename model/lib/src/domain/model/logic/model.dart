@@ -25,7 +25,7 @@ class Model extends Equatable {
     this.showInMenu = true,
     String? id,
     this.codeFirstEntity = true,
-  }) : id = id ?? toSnackCase(name) {
+  }) : id = id ?? toSnakeCase(name) {
     /// ? FLATTEN FIELDS
     flattenFields = fields.fold(<Field>[], (List<Field> previousValue, List<Field> element) => previousValue..addAll(element));
 

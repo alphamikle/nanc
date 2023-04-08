@@ -12,7 +12,6 @@ import '../service/config/admin_config.dart';
 import '../service/errors/error_wrapper.dart';
 import 'app.dart';
 import 'collection/logic/logic/provider/page_list_api.dart';
-import 'model/logic/entity/model_model.dart';
 import 'page/logic/provider/entity_page_api.dart';
 import 'wrapper/admin_wrapper.dart';
 

@@ -24,7 +24,7 @@ class BoolField extends Field {
     super.width,
     super.validator,
     super.type = FieldType.boolField,
-  }) : super(id: id ?? toSnackCase(name));
+  }) : super(id: id ?? toSnakeCase(name));
 
   factory BoolField.empty() => BoolField(id: '', name: '');
 

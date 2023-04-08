@@ -1,7 +1,8 @@
 import 'package:fields/fields.dart';
 import 'package:icons/icons.dart';
-import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import 'model.dart';
 
 const String _kModelKey = 'model:5655186f-9213-4e21-9847-4f2c6db1a789';
 

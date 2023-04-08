@@ -26,7 +26,7 @@ class GroupField extends Field {
     super.width,
     super.validator,
     super.type = FieldType.groupField,
-  }) : super(id: id ?? toSnackCase(name));
+  }) : super(id: id ?? toSnakeCase(name));
 
   factory GroupField.empty() => GroupField(id: '', name: '', fields: const []);
 

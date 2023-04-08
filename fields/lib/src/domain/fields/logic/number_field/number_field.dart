@@ -22,7 +22,7 @@ class NumberField extends Field {
     super.width,
     super.validator,
     super.type = FieldType.numberField,
-  }) : super(id: id ?? toSnackCase(name));
+  }) : super(id: id ?? toSnakeCase(name));
 
   factory NumberField.empty() => NumberField(id: '', name: '');
 

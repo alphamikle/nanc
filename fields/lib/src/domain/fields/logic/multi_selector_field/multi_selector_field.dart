@@ -42,7 +42,7 @@ class MultiSelectorField extends Field {
     super.validator,
     super.type = FieldType.multiSelectorField,
   })  : assert(structure == MultiSelectorFieldStructure.thirdTable && thirdTable != null || thirdTable == null),
-        super(id: id ?? toSnackCase(name));
+        super(id: id ?? toSnakeCase(name));
 
   factory MultiSelectorField.empty() => MultiSelectorField(
         id: '',

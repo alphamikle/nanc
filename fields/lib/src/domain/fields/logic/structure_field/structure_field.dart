@@ -27,7 +27,7 @@ class StructureField extends DynamicField {
     super.contentIcon,
     super.contentColor,
     super.type = FieldType.structureField,
-  }) : super(id: id ?? toSnackCase(name));
+  }) : super(id: id ?? toSnakeCase(name));
 
   factory StructureField.empty() => StructureField(id: '', name: '');
 

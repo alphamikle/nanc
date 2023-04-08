@@ -29,7 +29,7 @@ class ScreenField extends Field {
     super.validator,
     this.isScrollable = true,
     super.type = FieldType.screenField,
-  }) : super(id: id ?? toSnackCase(name));
+  }) : super(id: id ?? toSnakeCase(name));
 
   factory ScreenField.empty() => ScreenField(id: '', name: '');
 

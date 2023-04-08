@@ -1,4 +1,5 @@
 import 'package:autoequal/autoequal.dart';
+import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -6,15 +7,18 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
-import '../../../../../fields.dart';
+import '../../../type/field_types.dart';
+import '../field/field.dart';
+import '../field/field_description.dart';
+import '../field/field_props.dart';
 
-part 'dynamic_field.g.dart';
+part 'models_selector_field.g.dart';
 
 @autoequal
 @CopyWith()
 @JsonSerializable()
-class DynamicField extends Field {
-  DynamicField({
+class ModelsSelectorField extends Field {
+  ModelsSelectorField({
     required super.name,
     String? id,
     super.showInList,
@@ -22,38 +26,33 @@ class DynamicField extends Field {
     super.sort,
     super.width,
     super.validator,
-    this.contentIcon,
-    this.contentColor,
-    super.type = FieldType.dynamicField,
+    super.type = FieldType.modelsSelectorField,
   }) : super(id: id ?? toSnakeCase(name));
 
-  factory DynamicField.empty() => DynamicField(id: '', name: '');
+  factory ModelsSelectorField.empty() => ModelsSelectorField(
+        id: '',
+        name: '',
+      );
 
-  factory DynamicField.fromJson(dynamic json) => _$DynamicFieldFromJson(castToJson(json));
-
-  final String? contentIcon;
-
-  @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
-  final Color? contentColor;
+  factory ModelsSelectorField.fromJson(dynamic json) => _$ModelsSelectorFieldFromJson(castToJson(json));
 
   @override
   FieldDescription description([BuildContext? context]) {
     return const FieldDescription(
-      icon: IconPack.mdi_playlist_edit,
-      color: Color.fromRGBO(245, 163, 98, 1),
-      title: 'Dynamic field',
-      description: 'A field with the ability to specify any data format of any nesting depth. You can describe any structure with this field',
+      icon: IconPack.mdi_floor_plan,
+      color: Color.fromRGBO(89, 52, 79, 1),
+      title: 'Models Selector Field',
+      description: 'A field that allows you to select a model from your models\' list',
     );
   }
 
   @override
-  Json toJson() => _$DynamicFieldToJson(this);
+  Json toJson() => _$ModelsSelectorFieldToJson(this);
 
   @override
   Model toModel() {
-    return Model(
-      name: description().title,
-      icon: 'key',
+    final Model entity = super.toModel();
+    return entity.copyWith(
       fields: [
         [
           fieldToModelName,
@@ -68,8 +67,8 @@ class DynamicField extends Field {
           fieldToModelIsRequired,
         ],
         [
-          fieldToModelContentColor,
-          fieldToModelContentIcon,
+          // TODO(alphamikle): Make code field
+          if (Env.isRealCMS) fieldToModelValidator,
         ],
       ],
     );
@@ -79,5 +78,5 @@ class DynamicField extends Field {
   List<Object?> get props => [...super.props, ..._$props];
 
   @override
-  bool get isEmpty => this == DynamicField.empty();
+  bool get isEmpty => this == ModelsSelectorField.empty();
 }

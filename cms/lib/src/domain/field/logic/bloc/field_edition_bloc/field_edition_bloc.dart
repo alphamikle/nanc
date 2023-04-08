@@ -51,7 +51,7 @@ class FieldEditionBloc extends BasePageBloc<PageState> with EntityPageBlocStub i
     data[fieldId] = fieldValue;
     if (fieldId == fieldNameProperty) {
       if (data[_kIdWasChanged] != true) {
-        final String id = toSnackCase(fieldValue.toString());
+        final String id = toSnakeCase(fieldValue.toString());
         data[fieldIdProperty] = id;
         final TextEditingController idTextEditingController = controllerFor(fieldIdProperty);
         idTextEditingController.text = id;

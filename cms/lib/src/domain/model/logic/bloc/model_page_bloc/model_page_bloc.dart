@@ -166,7 +166,7 @@ class ModelPageBloc extends Cubit<ModelPageState> {
           name: name,
         )));
       } else {
-        final String autoIdValue = toSnackCase(cast<String>(value));
+        final String autoIdValue = toSnakeCase(cast<String>(value));
         state.controllerMap[Model.idPropertyName]!.text = autoIdValue;
         emit(state.copyWith(
           editableModel: model.copyWith(

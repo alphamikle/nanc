@@ -82,5 +82,8 @@ final Model testModel = Model(
     [
       FontField(name: 'Font Field'),
     ],
+    [
+      ModelsSelectorField(name: 'Example model'),
+    ]
   ],
 );
