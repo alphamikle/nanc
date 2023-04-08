@@ -121,7 +121,9 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
     final PageBloc pageBloc = context.read();
     final Json data = await pageBloc.loadPageData(model: model, pageId: pageId);
     pageBloc.updateValue(virtualField, data);
-    setState(() => isLoadingFullPageData = false);
+    if (mounted) {
+      setState(() => isLoadingFullPageData = false);
+    }
   }
 
   @override

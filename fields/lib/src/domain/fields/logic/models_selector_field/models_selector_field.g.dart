@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'structure_field.dart';
+part of 'models_selector_field.dart';
 
 // **************************************************************************
 // AutoequalGenerator
 // **************************************************************************
 
-extension _$StructureFieldAutoequal on StructureField {
+extension _$ModelsSelectorFieldAutoequal on ModelsSelectorField {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [];
@@ -16,34 +16,30 @@ extension _$StructureFieldAutoequal on StructureField {
 // CopyWithGenerator
 // **************************************************************************
 
-abstract class _$StructureFieldCWProxy {
-  StructureField name(String name);
+abstract class _$ModelsSelectorFieldCWProxy {
+  ModelsSelectorField name(String name);
 
-  StructureField id(String? id);
+  ModelsSelectorField id(String? id);
 
-  StructureField showInList(bool showInList);
+  ModelsSelectorField showInList(bool showInList);
 
-  StructureField isRequired(bool isRequired);
+  ModelsSelectorField isRequired(bool isRequired);
 
-  StructureField sort(int sort);
+  ModelsSelectorField sort(int sort);
 
-  StructureField width(double? width);
+  ModelsSelectorField width(double? width);
 
-  StructureField validator(String? Function(Object?)? validator);
+  ModelsSelectorField validator(String? Function(Object?)? validator);
 
-  StructureField contentIcon(String? contentIcon);
+  ModelsSelectorField type(FieldType type);
 
-  StructureField contentColor(Color? contentColor);
-
-  StructureField type(FieldType type);
-
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `StructureField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ModelsSelectorField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// StructureField(...).copyWith(id: 12, name: "My name")
+  /// ModelsSelectorField(...).copyWith(id: 12, name: "My name")
   /// ````
-  StructureField call({
+  ModelsSelectorField call({
     String? name,
     String? id,
     bool? showInList,
@@ -51,60 +47,52 @@ abstract class _$StructureFieldCWProxy {
     int? sort,
     double? width,
     String? Function(Object?)? validator,
-    String? contentIcon,
-    Color? contentColor,
     FieldType? type,
   });
 }
 
-/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfStructureField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfStructureField.copyWith.fieldName(...)`
-class _$StructureFieldCWProxyImpl implements _$StructureFieldCWProxy {
-  const _$StructureFieldCWProxyImpl(this._value);
+/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfModelsSelectorField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfModelsSelectorField.copyWith.fieldName(...)`
+class _$ModelsSelectorFieldCWProxyImpl implements _$ModelsSelectorFieldCWProxy {
+  const _$ModelsSelectorFieldCWProxyImpl(this._value);
 
-  final StructureField _value;
-
-  @override
-  StructureField name(String name) => this(name: name);
+  final ModelsSelectorField _value;
 
   @override
-  StructureField id(String? id) => this(id: id);
+  ModelsSelectorField name(String name) => this(name: name);
 
   @override
-  StructureField showInList(bool showInList) => this(showInList: showInList);
+  ModelsSelectorField id(String? id) => this(id: id);
 
   @override
-  StructureField isRequired(bool isRequired) => this(isRequired: isRequired);
+  ModelsSelectorField showInList(bool showInList) =>
+      this(showInList: showInList);
 
   @override
-  StructureField sort(int sort) => this(sort: sort);
+  ModelsSelectorField isRequired(bool isRequired) =>
+      this(isRequired: isRequired);
 
   @override
-  StructureField width(double? width) => this(width: width);
+  ModelsSelectorField sort(int sort) => this(sort: sort);
 
   @override
-  StructureField validator(String? Function(Object?)? validator) =>
+  ModelsSelectorField width(double? width) => this(width: width);
+
+  @override
+  ModelsSelectorField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
   @override
-  StructureField contentIcon(String? contentIcon) =>
-      this(contentIcon: contentIcon);
-
-  @override
-  StructureField contentColor(Color? contentColor) =>
-      this(contentColor: contentColor);
-
-  @override
-  StructureField type(FieldType type) => this(type: type);
+  ModelsSelectorField type(FieldType type) => this(type: type);
 
   @override
 
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `StructureField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ModelsSelectorField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// StructureField(...).copyWith(id: 12, name: "My name")
+  /// ModelsSelectorField(...).copyWith(id: 12, name: "My name")
   /// ````
-  StructureField call({
+  ModelsSelectorField call({
     Object? name = const $CopyWithPlaceholder(),
     Object? id = const $CopyWithPlaceholder(),
     Object? showInList = const $CopyWithPlaceholder(),
@@ -112,11 +100,9 @@ class _$StructureFieldCWProxyImpl implements _$StructureFieldCWProxy {
     Object? sort = const $CopyWithPlaceholder(),
     Object? width = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
-    Object? contentIcon = const $CopyWithPlaceholder(),
-    Object? contentColor = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
   }) {
-    return StructureField(
+    return ModelsSelectorField(
       name: name == const $CopyWithPlaceholder() || name == null
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
@@ -147,14 +133,6 @@ class _$StructureFieldCWProxyImpl implements _$StructureFieldCWProxy {
           ? _value.validator
           // ignore: cast_nullable_to_non_nullable
           : validator as String? Function(Object?)?,
-      contentIcon: contentIcon == const $CopyWithPlaceholder()
-          ? _value.contentIcon
-          // ignore: cast_nullable_to_non_nullable
-          : contentIcon as String?,
-      contentColor: contentColor == const $CopyWithPlaceholder()
-          ? _value.contentColor
-          // ignore: cast_nullable_to_non_nullable
-          : contentColor as Color?,
       type: type == const $CopyWithPlaceholder() || type == null
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
@@ -163,31 +141,31 @@ class _$StructureFieldCWProxyImpl implements _$StructureFieldCWProxy {
   }
 }
 
-extension $StructureFieldCopyWith on StructureField {
-  /// Returns a callable class that can be used as follows: `instanceOfStructureField.copyWith(...)` or like so:`instanceOfStructureField.copyWith.fieldName(...)`.
+extension $ModelsSelectorFieldCopyWith on ModelsSelectorField {
+  /// Returns a callable class that can be used as follows: `instanceOfModelsSelectorField.copyWith(...)` or like so:`instanceOfModelsSelectorField.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
-  _$StructureFieldCWProxy get copyWith => _$StructureFieldCWProxyImpl(this);
+  _$ModelsSelectorFieldCWProxy get copyWith =>
+      _$ModelsSelectorFieldCWProxyImpl(this);
 }
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-StructureField _$StructureFieldFromJson(Map<String, dynamic> json) =>
-    StructureField(
+ModelsSelectorField _$ModelsSelectorFieldFromJson(Map<String, dynamic> json) =>
+    ModelsSelectorField(
       name: json['name'] as String,
       id: json['id'] as String?,
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
       width: (json['width'] as num?)?.toDouble(),
-      contentIcon: json['contentIcon'] as String?,
-      contentColor: nullableColorFromJson(json['contentColor'] as String?),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
-          FieldType.structureField,
+          FieldType.modelsSelectorField,
     );
 
-Map<String, dynamic> _$StructureFieldToJson(StructureField instance) =>
+Map<String, dynamic> _$ModelsSelectorFieldToJson(
+        ModelsSelectorField instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -196,8 +174,6 @@ Map<String, dynamic> _$StructureFieldToJson(StructureField instance) =>
       'sort': instance.sort,
       'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
-      'contentIcon': instance.contentIcon,
-      'contentColor': colorToJson(instance.contentColor),
     };
 
 const _$FieldTypeEnumMap = {

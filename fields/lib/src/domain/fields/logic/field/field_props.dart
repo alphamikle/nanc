@@ -14,11 +14,13 @@ const String fieldContentIconProperty = 'contentIcon';
 const String fieldIsScrollableProperty = 'isScrollable';
 const String fieldModelProperty = 'model';
 const String fieldTitleFieldProperty = 'titleField';
+const String fieldTitleFieldsProperty = 'titleFields';
 const String fieldStructureProperty = 'structure';
 const String fieldThirdTableProperty = 'thirdTable';
 const String fieldMaxLinesProperty = 'maxLines';
 const String fieldDefaultValueProperty = 'defaultValue';
 const String fieldVirtualFieldProperty = 'virtualField';
+const String fieldValueProperty = 'value';
 
 final StringField fieldToModelName = StringField(id: fieldNameProperty, name: 'Field name', isRequired: true, maxLines: 1);
 final IdField fieldToModelId = IdField(id: fieldIdProperty, name: 'Field ID');

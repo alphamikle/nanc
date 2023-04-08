@@ -32,8 +32,8 @@ class _EnumFieldCellState extends State<EnumFieldCell> with FieldCellHelper<Enum
   }
 
   void onSelect(EnumValue? value) {
-    controller.text = value?.title ?? '';
     pageBloc.updateValue(fieldId, value?.value);
+    controller.text = value?.title ?? '';
   }
 
   EnumValue? findSelected() {

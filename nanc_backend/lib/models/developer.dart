@@ -19,7 +19,7 @@ final Model developer = Model(
         id: 'position_new',
         model: position,
         titleFields: const [
-          ExternalField('position'),
+          ExternalField.id('position'),
         ],
         isRequired: true,
       ),

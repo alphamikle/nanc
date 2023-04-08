@@ -20,7 +20,7 @@ final Model review = Model(
         id: 'position_new',
         model: position,
         titleFields: const [
-          ExternalField('position'),
+          ExternalField.id('position'),
         ],
       ),
     ],

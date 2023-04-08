@@ -2,6 +2,7 @@ import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
+
 import 'bullet.dart';
 import 'developer.dart';
 import 'feature.dart';
@@ -107,7 +108,7 @@ final Model landingPage = Model(
             name: 'Image',
             model: image,
             titleFields: const [
-              ExternalField('title'),
+              ExternalField.id('title'),
             ],
           ),
         ],
@@ -123,7 +124,7 @@ final Model landingPage = Model(
         name: 'Bullets',
         model: bullet,
         titleFields: const [
-          ExternalField('title'),
+          ExternalField.id('title'),
         ],
         structure: MultiSelectorFieldStructure.arrayOfObjects,
       ),
@@ -138,7 +139,7 @@ final Model landingPage = Model(
         name: 'Features',
         model: feature,
         titleFields: const [
-          ExternalField('title'),
+          ExternalField.id('title'),
         ],
         structure: MultiSelectorFieldStructure.arrayOfObjects,
       ),
@@ -156,8 +157,8 @@ final Model landingPage = Model(
             name: 'Team Member',
             model: developer,
             titleFields: const [
-              ExternalField('name'),
-              ExternalField('second_name'),
+              ExternalField.id('name'),
+              ExternalField.id('second_name'),
             ],
           ),
         ],
@@ -173,8 +174,8 @@ final Model landingPage = Model(
         name: 'Reviews',
         model: review,
         titleFields: const [
-          ExternalField('customer_name'),
-          ExternalField('customer_lastname'),
+          ExternalField.id('customer_name'),
+          ExternalField.id('customer_lastname'),
         ],
         structure: MultiSelectorFieldStructure.arrayOfObjects,
       ),

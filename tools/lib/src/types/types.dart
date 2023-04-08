@@ -8,6 +8,7 @@ typedef TextControllerMap = Map<String, TextEditingController>;
 typedef RootKey = GlobalKey<NavigatorState>;
 typedef PatternMap = Map<String, TextStyle>;
 typedef DJson = Map<dynamic, dynamic>;
+typedef CastingFallback<T> = T Function(dynamic json);
 
 Json castToJson(dynamic json) {
   if (json is DJson) {
@@ -29,4 +30,12 @@ Json castToJson(dynamic json) {
     return result;
   }
   throw Exception('${json.runtimeType} is not a Map<dynamic, dynamic>');
+}
+
+T castToJsonOr<T>(dynamic json, CastingFallback<T> fallback) {
+  try {
+    return castToJson(json) as T;
+  } catch (error) {
+    return fallback(json);
+  }
 }

@@ -3,9 +3,16 @@ import 'package:tools/tools.dart';
 
 part 'title_fields.g.dart';
 
+enum TitleFieldType {
+  externalField,
+  fieldsDivider,
+  fieldsDecorator,
+}
+
 abstract class TitleField {
   const TitleField();
 
+  TitleFieldType? get type;
   String? get value;
   String get strictValue => value!;
   bool get isValid;
@@ -16,10 +23,30 @@ abstract class TitleField {
 
 @JsonSerializable()
 class ExternalField extends TitleField {
-  const ExternalField(this.id);
+  factory ExternalField({
+    TitleFieldType? type,
+    String? id,
+    String? value,
+  }) {
+    if (type == null && id != null) {
+      return ExternalField.id(id);
+    } else if (type == TitleFieldType.externalField && value != null) {
+      return ExternalField.id(value);
+    }
+    return const ExternalField._(id: null, type: null);
+  }
+
+  const ExternalField.id(this.id) : type = TitleFieldType.externalField;
+
+  const ExternalField._({
+    required this.type,
+    required this.id,
+  });
 
   factory ExternalField.fromJson(dynamic json) => _$ExternalFieldFromJson(castToJson(json));
 
+  @override
+  final TitleFieldType? type;
   final String? id;
 
   @override
@@ -34,10 +61,30 @@ class ExternalField extends TitleField {
 
 @JsonSerializable()
 class FieldsDivider extends TitleField {
-  const FieldsDivider(this.divider);
+  factory FieldsDivider({
+    TitleFieldType? type,
+    String? divider,
+    String? value,
+  }) {
+    if (type == null && divider != null) {
+      return FieldsDivider.divider(divider);
+    } else if (type == TitleFieldType.fieldsDivider && value != null) {
+      return FieldsDivider.divider(value);
+    }
+    return const FieldsDivider._(divider: null, type: null);
+  }
+
+  const FieldsDivider.divider(this.divider) : type = TitleFieldType.fieldsDivider;
+
+  const FieldsDivider._({
+    required this.type,
+    required this.divider,
+  });
 
   factory FieldsDivider.fromJson(dynamic json) => _$FieldsDividerFromJson(castToJson(json));
 
+  @override
+  final TitleFieldType? type;
   final String? divider;
 
   @override
@@ -52,10 +99,30 @@ class FieldsDivider extends TitleField {
 
 @JsonSerializable()
 class FieldsDecorator extends TitleField {
-  const FieldsDecorator(this.decorator);
+  factory FieldsDecorator({
+    TitleFieldType? type,
+    String? decorator,
+    String? value,
+  }) {
+    if (type == null && decorator != null) {
+      return FieldsDecorator.decorator(decorator);
+    } else if (type == TitleFieldType.fieldsDecorator && value != null) {
+      return FieldsDecorator.decorator(value);
+    }
+    return const FieldsDecorator._(decorator: null, type: null);
+  }
+
+  const FieldsDecorator.decorator(this.decorator) : type = TitleFieldType.fieldsDecorator;
+
+  const FieldsDecorator._({
+    required this.type,
+    required this.decorator,
+  });
 
   factory FieldsDecorator.fromJson(dynamic json) => _$FieldsDecoratorFromJson(castToJson(json));
 
+  @override
+  final TitleFieldType? type;
   final String? decorator;
 
   @override
@@ -85,7 +152,7 @@ TitleField titleFieldFromJson(dynamic json) {
       return fieldsDivider;
     }
   }
-  return const FieldsDivider(' ');
+  return FieldsDivider(divider: ' ', type: TitleFieldType.fieldsDivider);
 }
 
 List<TitleField> titleFieldsFromJson(dynamic json) {

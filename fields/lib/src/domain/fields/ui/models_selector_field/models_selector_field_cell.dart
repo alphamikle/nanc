@@ -3,11 +3,13 @@ import 'dart:async';
 import 'package:cms/cms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../../fields.dart';
+import 'model_structure_modal.dart';
 
 class ModelsSelectorFieldCell extends FieldCellWidget<ModelsSelectorField> {
   const ModelsSelectorFieldCell({
@@ -26,7 +28,9 @@ class _ModelsSelectorFieldCellState extends State<ModelsSelectorFieldCell> with 
         model.id,
         model.idField.id,
       ].join();
-  List<TitleField> get titleFields => const [ExternalField(fieldNameProperty)];
+  List<TitleField> get titleFields => const [
+        ExternalField.id(fieldNameProperty),
+      ];
   Model get model => modelModel;
   late final EventBus eventBus = context.read();
   bool isPreloading = false;
@@ -79,6 +83,18 @@ class _ModelsSelectorFieldCellState extends State<ModelsSelectorFieldCell> with 
     }
   }
 
+  void showModelStructure() {
+    unawaited(
+      showDialog(
+        context: context,
+        builder: (_) => ModelStructureModal(
+          modelName: controller.text.isEmpty ? 'Empty' : controller.text,
+          structure: pageBloc.valueForKey(fieldId) ?? <String, dynamic>{},
+        ),
+      ),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -94,19 +110,33 @@ class _ModelsSelectorFieldCellState extends State<ModelsSelectorFieldCell> with 
 
   @override
   Widget build(BuildContext context) {
-    return KitShimmerSwitcher(
-      showShimmer: isPreloading,
-      child: KitAutocompleteTextField(
-        controller: controller,
-        finder: finder,
-        placeholder: 'Write something to search...',
-        helper: helper,
-        onSelect: updateValue,
-        itemBuilder: itemBuilder,
-        isChanged: pageBloc.fieldWasChanged(fieldId),
-        isRequired: field.isRequired,
-        suffix: KitCirclePreloader(isLoading: isLoadingFullPageData),
-      ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: KitShimmerSwitcher(
+            showShimmer: isPreloading,
+            child: KitAutocompleteTextField(
+              controller: controller,
+              finder: finder,
+              placeholder: 'Write something to search...',
+              helper: helper,
+              onSelect: updateValue,
+              itemBuilder: itemBuilder,
+              isChanged: pageBloc.fieldWasChanged(fieldId),
+              isRequired: field.isRequired,
+              suffix: KitCirclePreloader(isLoading: isLoadingFullPageData),
+            ),
+          ),
+        ),
+        const KitDivider(width: Gap.regular),
+        KitInputButton(
+          icon: IconPack.mdi_code_json,
+          tooltip: 'Show model structure',
+          embed: false,
+          onPressed: showModelStructure,
+        ),
+      ],
     );
   }
 }

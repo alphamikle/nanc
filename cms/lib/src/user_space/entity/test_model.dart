@@ -44,8 +44,8 @@ final Model testModel = Model(
         name: 'Selector field',
         model: userModel,
         titleFields: const [
-          ExternalField('name'),
-          ExternalField('lastname'),
+          ExternalField.id('name'),
+          ExternalField.id('lastname'),
         ],
         isRequired: true,
       ),
@@ -54,10 +54,10 @@ final Model testModel = Model(
         name: 'Multi selector field',
         model: userModel,
         titleFields: const [
-          ExternalField('name'),
-          FieldsDivider(': '),
-          ExternalField('age'),
-          FieldsDecorator(' y.o.'),
+          ExternalField.id('name'),
+          FieldsDivider.divider(': '),
+          ExternalField.id('age'),
+          FieldsDecorator.decorator(' y.o.'),
         ],
         structure: MultiSelectorFieldStructure.arrayOfIds,
         isRequired: true,
@@ -84,6 +84,6 @@ final Model testModel = Model(
     ],
     [
       ModelsSelectorField(name: 'Example model'),
-    ]
+    ],
   ],
 );

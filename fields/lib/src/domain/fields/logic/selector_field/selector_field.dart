@@ -1,5 +1,4 @@
 import 'package:autoequal/autoequal.dart';
-import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -7,13 +6,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
-import '../../../type/field_types.dart';
-import '../field/field.dart';
-import '../field/field_description.dart';
-import '../field/field_props.dart';
-import '../id_field/id_field.dart';
-import '../string_field/string_field.dart';
-import 'title_fields.dart';
+import '../../../../../fields.dart';
 
 part 'selector_field.g.dart';
 
@@ -90,11 +83,6 @@ class SelectorField extends Field {
           fieldToModelVirtualField,
         ],
         [
-          fieldToModelModel,
-          // TODO(alphamikle): Новое поле "OtherModelFieldsField" - которое показывает список полей из выбранной модели и выбирать мы можем их или другие [TitleField]s
-          StringField(id: fieldTitleFieldProperty, name: 'Name of field with title from the child object'),
-        ],
-        [
           fieldToModelSort,
           fieldToModelWidth,
         ],
@@ -103,8 +91,30 @@ class SelectorField extends Field {
           fieldToModelIsRequired,
         ],
         [
+          fieldToModelModel,
+        ],
+        [
+          StructuredField(
+            id: fieldTitleFieldsProperty,
+            name: 'Related model fields',
+            structure: [
+              EnumField(
+                id: fieldTypeProperty,
+                name: 'Type',
+                isRequired: true,
+                values: [
+                  EnumValue(title: 'Field', value: TitleFieldType.externalField.name),
+                  EnumValue(title: 'Divider', value: TitleFieldType.fieldsDivider.name),
+                  EnumValue(title: 'Decorator', value: TitleFieldType.fieldsDecorator.name),
+                ],
+              ),
+              StringField(id: fieldValueProperty, name: 'Value', isRequired: true),
+            ],
+          ),
+        ],
+        [
           // TODO(alphamikle): Make code field
-          if (Env.isRealCMS) fieldToModelValidator,
+          // if (Env.isRealCMS) fieldToModelValidator,
         ],
       ],
     );

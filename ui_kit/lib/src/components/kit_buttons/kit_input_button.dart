@@ -3,6 +3,7 @@ import 'package:tools/tools.dart';
 
 import '../../theme/kit_borders.dart';
 import '../kit_ink_well.dart';
+import '../kit_inputs/kit_empty_input.dart';
 import '../kit_tooltip.dart';
 
 class KitInputButton extends StatelessWidget {
@@ -14,6 +15,7 @@ class KitInputButton extends StatelessWidget {
     this.tooltip,
     this.first = false,
     this.last = false,
+    this.embed = true,
     super.key,
   }) : assert(icon != null || child != null);
 
@@ -24,6 +26,7 @@ class KitInputButton extends StatelessWidget {
   final String? tooltip;
   final bool first;
   final bool last;
+  final bool embed;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +34,8 @@ class KitInputButton extends StatelessWidget {
     final double radiusValue = inputRadius.topLeft.x;
     final Radius effectiveRadius = Radius.circular(radiusValue * 0.8);
 
-    final Widget button = SizedBox(
+    Widget button = SizedBox(
+      height: embed ? null : 51,
       width: 48,
       child: KitInkWell(
         borderRadius: first == false && last == false
@@ -51,7 +55,12 @@ class KitInputButton extends StatelessWidget {
       ),
     );
     if (tooltip != null && tooltip!.isNotEmpty) {
-      return KitTooltip(text: tooltip!, child: button);
+      button = KitTooltip(text: tooltip!, child: button);
+    }
+    if (embed == false) {
+      button = KitEmptyInput(
+        child: button,
+      );
     }
     return button;
   }

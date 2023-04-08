@@ -20,8 +20,8 @@ final Model modelWithEnumAndSelectors = Model(
         name: 'Related users',
         model: userModel,
         titleFields: const [
-          ExternalField('name'),
-          ExternalField('lastname'),
+          ExternalField.id('name'),
+          ExternalField.id('lastname'),
         ],
         structure: MultiSelectorFieldStructure.arrayOfObjects,
       ),

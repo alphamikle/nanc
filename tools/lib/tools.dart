@@ -28,6 +28,7 @@ export 'src/tools/is_the_same.dart';
 export 'src/tools/json_factories.dart';
 export 'src/tools/logg.dart';
 export 'src/tools/navigator_extensions.dart';
+export 'src/tools/stateful_widget_state_extension.dart';
 export 'src/tools/theme_extensions.dart';
 export 'src/tools/tools.dart';
 export 'src/tools/validators.dart';

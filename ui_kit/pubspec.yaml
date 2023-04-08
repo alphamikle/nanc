@@ -23,6 +23,8 @@ dependencies:
     path: ../icons
   fonts:
     path: ../fonts
+  code_text_field:
+    path: ../code_text_field
   flutter_typeahead: ^4.3.3
   dropdown_search: ^5.0.5
   animations: ^2.0.7
@@ -30,6 +32,8 @@ dependencies:
   vrouter: ^1.2.1
   flex_color_scheme: ^6.1.2
   shimmer: ^2.0.0
+  flutter_highlight: ^0.7.0
+  highlight: ^0.7.0
 
 dev_dependencies:
   flutter_test:

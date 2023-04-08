@@ -206,4 +206,5 @@ const _$FieldTypeEnumMap = {
   FieldType.groupField: 'groupField',
   FieldType.fontField: 'fontField',
   FieldType.modelsSelectorField: 'modelsSelectorField',
+  FieldType.titleFieldsField: 'titleFieldsField',
 };
