@@ -18,12 +18,6 @@ import 'third_table.dart';
 
 part 'multi_selector_field.g.dart';
 
-enum MultiSelectorFieldStructure {
-  arrayOfIds,
-  thirdTable,
-  arrayOfObjects,
-}
-
 @autoequal
 @CopyWith()
 @JsonSerializable()
@@ -32,16 +26,16 @@ class MultiSelectorField extends Field {
     required super.name,
     required this.model,
     required this.titleFields,
-    required this.structure,
+    required this.thirdTable,
+    String? virtualField,
     String? id,
-    this.thirdTable,
     super.showInList,
     super.isRequired,
     super.sort,
     super.width,
     super.validator,
     super.type = FieldType.multiSelectorField,
-  })  : assert(structure == MultiSelectorFieldStructure.thirdTable && thirdTable != null || thirdTable == null),
+  })  : virtualField = virtualField ?? '\$${id ?? toSnakeCase(name)}',
         super(id: id ?? toSnakeCase(name));
 
   factory MultiSelectorField.empty() => MultiSelectorField(
@@ -49,18 +43,18 @@ class MultiSelectorField extends Field {
         name: '',
         model: IdField.empty().toModel(),
         titleFields: const [],
-        structure: MultiSelectorFieldStructure.arrayOfIds,
+        thirdTable: ThirdTable.empty(),
       );
 
   factory MultiSelectorField.fromJson(dynamic json) => _$MultiSelectorFieldFromJson(castToJson(json));
 
+  final String virtualField;
   final Model model;
 
   @JsonKey(fromJson: titleFieldsFromJson, toJson: titleFieldsToJson)
   final List<TitleField> titleFields;
 
-  final ThirdTable? thirdTable;
-  final MultiSelectorFieldStructure structure;
+  final ThirdTable thirdTable;
 
   @override
   FieldDescription description([BuildContext? context]) {

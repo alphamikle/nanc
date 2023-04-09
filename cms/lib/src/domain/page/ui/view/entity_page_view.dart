@@ -34,6 +34,7 @@ class EntityPageView extends StatefulWidget {
 
 class _EntityPageViewState extends State<EntityPageView> {
   GlobalKey<FormState> formKey = GlobalKey();
+
   PageBloc get pageBloc {
     final BasePageBloc bloc = context.read();
     if (bloc is PageBloc) {
@@ -139,18 +140,53 @@ class _EntityPageViewState extends State<EntityPageView> {
                         color: context.theme.colorScheme.error,
                         child: AnimatedSwitcher(
                           duration: const Duration(milliseconds: 250),
-                          child: state.isDeleting ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error)) : const Text('Delete'),
+                          child: state.isDeleting ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error)) : Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const [
+                              Icon(IconPack.mdi_delete_empty),
+                              KitDivider(width: Gap.regular),
+                              Text('Delete'),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   Padding(
                     padding: const EdgeInsets.only(right: Gap.large),
                     child: KitButton(
+                      onPressed: () async => showJsonPreviewModal(
+                        context: context,
+                        title: 'Page data',
+                        structure: pageBloc.state.data,
+                      ),
+                      color: context.kitColors.successColor,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: const [
+                          Icon(IconPack.mdi_code_json),
+                          KitDivider(width: Gap.regular),
+                          Text('Structure'),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: Gap.large),
+                    child: KitButton(
                       onPressed: state.isChanged ? () async => confirmAndReset(entity) : null,
-                      color: context.kitColors.warning,
+                      color: context.theme.colorScheme.error,
                       child: AnimatedSwitcher(
                         duration: const Duration(milliseconds: 250),
-                        child: state.isDeleting ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error)) : const Text('Reset'),
+                        child: state.isDeleting
+                            ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error))
+                            : Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: const [
+                                  Icon(IconPack.mdi_notification_clear_all),
+                                  KitDivider(width: Gap.regular),
+                                  Text('Reset'),
+                                ],
+                              ),
                       ),
                     ),
                   ),
@@ -158,7 +194,16 @@ class _EntityPageViewState extends State<EntityPageView> {
                     onPressed: state.isChanged ? () async => validateAndSave(entity) : null,
                     child: AnimatedSwitcher(
                       duration: const Duration(milliseconds: 250),
-                      child: state.isSaving ? const SizedBox(width: 35, child: KitPreloader()) : const Text('Save'),
+                      child: state.isSaving
+                          ? const SizedBox(width: 35, child: KitPreloader())
+                          : Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Icon(IconPack.flu_save_filled),
+                                KitDivider(width: Gap.regular),
+                                Text('Save'),
+                              ],
+                            ),
                     ),
                   ),
                 ],

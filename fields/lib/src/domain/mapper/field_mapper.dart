@@ -37,7 +37,7 @@ import '../fields/ui/header_field/header_field_cell.dart';
 import '../fields/ui/icon_field_cell/icon_field_cell.dart';
 import '../fields/ui/id_field_cell/id_field_cell.dart';
 import '../fields/ui/models_selector_field/models_selector_field_cell.dart';
-import '../fields/ui/multi_selector_field_cell/multi_selector_orchestrator.dart';
+import '../fields/ui/multi_selector_field_cell/multi_selector_field_cell.dart';
 import '../fields/ui/multiline_string_field_cell/string_field_cell.dart';
 import '../fields/ui/number_field_cell/number_field_cell.dart';
 import '../fields/ui/screen_field_cell/screen_field_cell.dart';
@@ -74,15 +74,13 @@ abstract class FieldMapper {
     } else if (type == FieldType.stringField) {
       return (field as StringField).copyWith() as T;
     } else if (type == FieldType.multiSelectorField) {
-      final ThirdTable? thirdTable = (field as MultiSelectorField).thirdTable;
+      final ThirdTable thirdTable = (field as MultiSelectorField).thirdTable;
       final Model model = field.model;
       return field.copyWith(
         model: model.deepClone(),
-        thirdTable: thirdTable == null
-            ? null
-            : thirdTable.copyWith(
-                relationsEntity: thirdTable.relationsEntity.deepClone(),
-              ),
+        thirdTable: thirdTable.copyWith(
+          relationsEntity: thirdTable.relationsEntity.deepClone(),
+        ),
       ) as T;
     } else if (type == FieldType.numberField) {
       return (field as NumberField).copyWith() as T;
@@ -138,7 +136,7 @@ abstract class FieldMapper {
     } else if (field is StringField) {
       return StringFieldCell(field: field, creationMode: creationMode);
     } else if (field is MultiSelectorField) {
-      return multiSelectorOrchestrator(field: field, creationMode: creationMode);
+      return MultiSelectorFieldCell(field: field, creationMode: creationMode);
     } else if (field is NumberField) {
       return NumberFieldCell(field: field, creationMode: creationMode);
     } else if (field is ScreenField) {

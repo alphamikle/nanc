@@ -188,7 +188,7 @@ extension $SelectorFieldCopyWith on SelectorField {
 SelectorField _$SelectorFieldFromJson(Map<String, dynamic> json) =>
     SelectorField(
       name: json['name'] as String,
-      model: _entityFromJson(json['model']),
+      model: Model.fromJson(json['model']),
       titleFields: titleFieldsFromJson(json['titleFields']),
       virtualField: json['virtualField'] as String?,
       id: json['id'] as String?,
@@ -210,7 +210,7 @@ Map<String, dynamic> _$SelectorFieldToJson(SelectorField instance) =>
       'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
       'virtualField': instance.virtualField,
-      'model': _entityToJson(instance.model),
+      'model': instance.model.toJson(),
       'titleFields': titleFieldsToJson(instance.titleFields),
     };
 

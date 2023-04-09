@@ -10,19 +10,6 @@ import '../../../../../fields.dart';
 
 part 'selector_field.g.dart';
 
-Model _entityFromJson(dynamic value) {
-  if (value is Map) {
-    final Json json = <String, dynamic>{};
-    for (final entry in value.entries) {
-      json[entry.key.toString()] = entry.value;
-    }
-    return Model.fromJson(json);
-  }
-  throw Exception('Incorrect type of Entity Json representation');
-}
-
-Json _entityToJson(Model entity) => entity.toJson();
-
 @autoequal
 @CopyWith()
 @JsonSerializable()
@@ -52,8 +39,6 @@ class SelectorField extends Field {
   factory SelectorField.fromJson(dynamic json) => _$SelectorFieldFromJson(castToJson(json));
 
   final String virtualField;
-
-  @JsonKey(fromJson: _entityFromJson, toJson: _entityToJson)
   final Model model;
 
   @JsonKey(fromJson: titleFieldsFromJson, toJson: titleFieldsToJson)

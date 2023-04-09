@@ -9,7 +9,7 @@ part of 'multi_selector_field.dart';
 extension _$MultiSelectorFieldAutoequal on MultiSelectorField {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [model, titleFields, thirdTable, structure];
+  List<Object?> get _$props => [virtualField, model, titleFields, thirdTable];
 }
 
 // **************************************************************************
@@ -23,11 +23,11 @@ abstract class _$MultiSelectorFieldCWProxy {
 
   MultiSelectorField titleFields(List<TitleField> titleFields);
 
-  MultiSelectorField structure(MultiSelectorFieldStructure structure);
+  MultiSelectorField thirdTable(ThirdTable thirdTable);
+
+  MultiSelectorField virtualField(String? virtualField);
 
   MultiSelectorField id(String? id);
-
-  MultiSelectorField thirdTable(ThirdTable? thirdTable);
 
   MultiSelectorField showInList(bool showInList);
 
@@ -51,9 +51,9 @@ abstract class _$MultiSelectorFieldCWProxy {
     String? name,
     Model? model,
     List<TitleField>? titleFields,
-    MultiSelectorFieldStructure? structure,
-    String? id,
     ThirdTable? thirdTable,
+    String? virtualField,
+    String? id,
     bool? showInList,
     bool? isRequired,
     int? sort,
@@ -80,15 +80,15 @@ class _$MultiSelectorFieldCWProxyImpl implements _$MultiSelectorFieldCWProxy {
       this(titleFields: titleFields);
 
   @override
-  MultiSelectorField structure(MultiSelectorFieldStructure structure) =>
-      this(structure: structure);
+  MultiSelectorField thirdTable(ThirdTable thirdTable) =>
+      this(thirdTable: thirdTable);
+
+  @override
+  MultiSelectorField virtualField(String? virtualField) =>
+      this(virtualField: virtualField);
 
   @override
   MultiSelectorField id(String? id) => this(id: id);
-
-  @override
-  MultiSelectorField thirdTable(ThirdTable? thirdTable) =>
-      this(thirdTable: thirdTable);
 
   @override
   MultiSelectorField showInList(bool showInList) =>
@@ -123,9 +123,9 @@ class _$MultiSelectorFieldCWProxyImpl implements _$MultiSelectorFieldCWProxy {
     Object? name = const $CopyWithPlaceholder(),
     Object? model = const $CopyWithPlaceholder(),
     Object? titleFields = const $CopyWithPlaceholder(),
-    Object? structure = const $CopyWithPlaceholder(),
-    Object? id = const $CopyWithPlaceholder(),
     Object? thirdTable = const $CopyWithPlaceholder(),
+    Object? virtualField = const $CopyWithPlaceholder(),
+    Object? id = const $CopyWithPlaceholder(),
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
@@ -147,18 +147,19 @@ class _$MultiSelectorFieldCWProxyImpl implements _$MultiSelectorFieldCWProxy {
               ? _value.titleFields
               // ignore: cast_nullable_to_non_nullable
               : titleFields as List<TitleField>,
-      structure: structure == const $CopyWithPlaceholder() || structure == null
-          ? _value.structure
+      thirdTable:
+          thirdTable == const $CopyWithPlaceholder() || thirdTable == null
+              ? _value.thirdTable
+              // ignore: cast_nullable_to_non_nullable
+              : thirdTable as ThirdTable,
+      virtualField: virtualField == const $CopyWithPlaceholder()
+          ? _value.virtualField
           // ignore: cast_nullable_to_non_nullable
-          : structure as MultiSelectorFieldStructure,
+          : virtualField as String?,
       id: id == const $CopyWithPlaceholder()
           ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String?,
-      thirdTable: thirdTable == const $CopyWithPlaceholder()
-          ? _value.thirdTable
-          // ignore: cast_nullable_to_non_nullable
-          : thirdTable as ThirdTable?,
       showInList:
           showInList == const $CopyWithPlaceholder() || showInList == null
               ? _value.showInList
@@ -205,12 +206,9 @@ MultiSelectorField _$MultiSelectorFieldFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       model: Model.fromJson(json['model']),
       titleFields: titleFieldsFromJson(json['titleFields']),
-      structure:
-          $enumDecode(_$MultiSelectorFieldStructureEnumMap, json['structure']),
+      thirdTable: ThirdTable.fromJson(json['thirdTable']),
+      virtualField: json['virtualField'] as String?,
       id: json['id'] as String?,
-      thirdTable: json['thirdTable'] == null
-          ? null
-          : ThirdTable.fromJson(json['thirdTable']),
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
@@ -228,17 +226,11 @@ Map<String, dynamic> _$MultiSelectorFieldToJson(MultiSelectorField instance) =>
       'sort': instance.sort,
       'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
+      'virtualField': instance.virtualField,
       'model': instance.model.toJson(),
       'titleFields': titleFieldsToJson(instance.titleFields),
-      'thirdTable': instance.thirdTable?.toJson(),
-      'structure': _$MultiSelectorFieldStructureEnumMap[instance.structure]!,
+      'thirdTable': instance.thirdTable.toJson(),
     };
-
-const _$MultiSelectorFieldStructureEnumMap = {
-  MultiSelectorFieldStructure.arrayOfIds: 'arrayOfIds',
-  MultiSelectorFieldStructure.thirdTable: 'thirdTable',
-  MultiSelectorFieldStructure.arrayOfObjects: 'arrayOfObjects',
-};
 
 const _$FieldTypeEnumMap = {
   FieldType.custom: 'custom',

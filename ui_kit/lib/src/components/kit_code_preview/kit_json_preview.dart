@@ -4,6 +4,7 @@ import 'package:highlight/languages/json.dart';
 import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';
+import '../kit_modal/kit_modal_card.dart';
 import 'code_theme.dart';
 
 class KitJsonPreview extends StatefulWidget {
@@ -107,4 +108,22 @@ class _KitJsonPreviewState extends State<KitJsonPreview> {
       ),
     );
   }
+}
+
+Future<void> showJsonPreviewModal({
+  required BuildContext context,
+  required String title,
+  required dynamic structure,
+}) async {
+  await showDialog(
+    context: context,
+    builder: (_) => KitModalCard(
+      onClose: () => context.navigator.pop(),
+      header: Text(title),
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: Gap.large),
+        child: KitJsonPreview(data: structure),
+      ),
+    ),
+  );
 }

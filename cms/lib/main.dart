@@ -4,22 +4,18 @@ import 'src/domain/admin_runner.dart';
 import 'src/service/config/admin_config.dart';
 import 'src/user_space/api/mock_entity_list_api.dart';
 import 'src/user_space/api/mock_entity_page_api.dart';
-import 'src/user_space/entity/feature_toggles_model.dart';
-import 'src/user_space/entity/model_with_enum_and_selectors.dart';
-import 'src/user_space/entity/structure_field_example_model.dart';
-import 'src/user_space/entity/test_model.dart';
-import 'src/user_space/entity/user_model.dart';
+import 'src/user_space/entity/demo_multi_selector.dart';
+import 'src/user_space/entity/demo_multi_selector_to_user.dart';
+import 'src/user_space/entity/demo_user.dart';
 
 Future<void> main() async {
   final DbService dbService = createDbService();
 
   await adminRunner(
     models: [
-      userModel,
-      testModel,
-      featureTogglesModel,
-      modelWithEnumAndSelectors,
-      structureFieldExampleModel,
+      demoUser,
+      demoMultiSelector,
+      demoMultiSelectorToUser,
     ],
     pageListApi: MockEntityListApi(
       dbService: dbService,

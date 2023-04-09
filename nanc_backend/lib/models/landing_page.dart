@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 
-import 'bullet.dart';
 import 'developer.dart';
-import 'feature.dart';
 import 'image.dart';
-import 'review.dart';
 
 final Model landingPage = Model(
   name: 'Landing page',
@@ -119,31 +116,33 @@ final Model landingPage = Model(
     [
       HeaderField(name: 'Bullets Header', content: 'Bullets', contentIcon: 'flu_text_bullet_list_ltr_filled'),
     ],
-    [
-      MultiSelectorField(
-        name: 'Bullets',
-        model: bullet,
-        titleFields: const [
-          ExternalField.id('title'),
-        ],
-        structure: MultiSelectorFieldStructure.arrayOfObjects,
-      ),
-    ],
+    // TODO(alphamikle): Fix it
+    // [
+    //   MultiSelectorField(
+    //     name: 'Bullets',
+    //     model: bullet,
+    //     titleFields: const [
+    //       ExternalField.id('title'),
+    //     ],
+    //     structure: MultiSelectorFieldStructure.arrayOfObjects,
+    //   ),
+    // ],
 
     /// ? FEATURES
     [
       HeaderField(name: 'Features Header', content: 'Features', contentIcon: 'flu_text_bullet_list_ltr_filled'),
     ],
-    [
-      MultiSelectorField(
-        name: 'Features',
-        model: feature,
-        titleFields: const [
-          ExternalField.id('title'),
-        ],
-        structure: MultiSelectorFieldStructure.arrayOfObjects,
-      ),
-    ],
+    // TODO(alphamikle): Fix it
+    // [
+    //   MultiSelectorField(
+    //     name: 'Features',
+    //     model: feature,
+    //     titleFields: const [
+    //       ExternalField.id('title'),
+    //     ],
+    //     structure: MultiSelectorFieldStructure.arrayOfObjects,
+    //   ),
+    // ],
 
     /// ? DEVELOPERS
     [
@@ -169,17 +168,18 @@ final Model landingPage = Model(
     [
       HeaderField(name: 'Reviews Header', content: 'Reviews', contentIcon: 'flu_checkmark_starburst_filled'),
     ],
-    [
-      MultiSelectorField(
-        name: 'Reviews',
-        model: review,
-        titleFields: const [
-          ExternalField.id('customer_name'),
-          ExternalField.id('customer_lastname'),
-        ],
-        structure: MultiSelectorFieldStructure.arrayOfObjects,
-      ),
-    ],
+    // TODO(alphamikle): Fix it
+    // [
+    //   MultiSelectorField(
+    //     name: 'Reviews',
+    //     model: review,
+    //     titleFields: const [
+    //       ExternalField.id('customer_name'),
+    //       ExternalField.id('customer_lastname'),
+    //     ],
+    //     structure: MultiSelectorFieldStructure.arrayOfObjects,
+    //   ),
+    // ],
     [
       HeaderField(name: 'Divider', content: '', useAsDivider: true, contentColor: const Color.fromRGBO(0, 0, 0, 0.497)),
     ],
