@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:autoequal/autoequal.dart';
-import 'package:config/config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -62,10 +61,10 @@ abstract class Field extends Equatable {
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],
-        [
-          // TODO(alphamikle): Make code field
-          if (Env.isRealCMS) fieldToModelValidator,
-        ],
+        // TODO(alphamikle): Make code field
+        // [
+        //   if (Env.isRealCMS) fieldToModelValidator,
+        // ],
       ],
     );
   }

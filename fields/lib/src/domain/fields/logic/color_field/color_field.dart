@@ -3,11 +3,13 @@ import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
 import '../../../type/field_types.dart';
 import '../field/field.dart';
 import '../field/field_description.dart';
+import '../field/field_props.dart';
 
 part 'color_field.g.dart';
 
@@ -42,6 +44,28 @@ class ColorField extends Field {
 
   @override
   Json toJson() => _$ColorFieldToJson(this);
+
+  @override
+  Model toModel() {
+    return Model(
+      name: 'Color field',
+      icon: IconPackNames.mdi_palette_advanced,
+      fields: [
+        [
+          fieldToModelName,
+          fieldToModelId,
+        ],
+        [
+          fieldToModelSort,
+          fieldToModelWidth,
+        ],
+        [
+          fieldToModelShowInList,
+          fieldToModelIsRequired,
+        ],
+      ],
+    );
+  }
 
   @override
   bool get isEmpty => this == ColorField.empty();

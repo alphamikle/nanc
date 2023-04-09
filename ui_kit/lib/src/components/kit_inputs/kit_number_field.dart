@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'kit_text_field.dart';
 
 class KitNumberField extends StatefulWidget {
@@ -45,11 +46,11 @@ class _KitNumberFieldState extends State<KitNumberField> {
       onChanged: onChanged,
       formatters: [
         FilteringTextInputFormatter(
-          RegExp(r'^(0|[1-9]*)(\d*)(\.?\d*)?'),
+          RegExp(r'^-?(0|[1-9]*)(\d*)(\.?\d*)?'),
           allow: true,
         ),
         FilteringTextInputFormatter(
-          RegExp(r'^0+[1-9]'),
+          RegExp(r'^-?0+[1-9]'),
           allow: false,
         ),
       ], //

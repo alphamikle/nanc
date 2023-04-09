@@ -103,9 +103,22 @@ class _KitColorPickerState extends State<KitColorPicker> {
                             height: 40,
                             child: colorPickerSlider(TrackType.hue),
                           ),
-                          SizedBox(
-                            height: 40,
-                            child: colorPickerSlider(TrackType.alpha),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: SizedBox(
+                                  height: 40,
+                                  child: colorPickerSlider(TrackType.alpha),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 3.5),
+                                child: Text(
+                                  ((currentHsvColor.alpha * 100 * 2).round() / 2).toString(),
+                                  style: context.theme.textTheme.bodyLarge,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),

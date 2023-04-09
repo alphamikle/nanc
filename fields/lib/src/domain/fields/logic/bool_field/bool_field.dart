@@ -48,8 +48,8 @@ class BoolField extends Field {
   @override
   Model toModel() {
     return Model(
-      name: 'Field $name',
-      icon: 'key',
+      name: 'Boolean Field',
+      icon: IconPackNames.mdi_toggle_switch_off_outline,
       fields: [
         [
           fieldToModelName,
