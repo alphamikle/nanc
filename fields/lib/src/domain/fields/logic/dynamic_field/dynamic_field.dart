@@ -53,7 +53,7 @@ class DynamicField extends Field {
   Model toModel() {
     return Model(
       name: description().title,
-      icon: 'key',
+      icon: IconPackNames.mdi_playlist_edit,
       fields: [
         [
           fieldToModelName,
