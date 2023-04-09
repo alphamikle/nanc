@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'date_field.dart';
+part of 'date_time_field.dart';
 
 // **************************************************************************
 // AutoequalGenerator
 // **************************************************************************
 
-extension _$DateFieldAutoequal on DateField {
+extension _$DateTimeFieldAutoequal on DateTimeField {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [isCreatedAtField, isUpdatedAtField];
@@ -16,34 +16,34 @@ extension _$DateFieldAutoequal on DateField {
 // CopyWithGenerator
 // **************************************************************************
 
-abstract class _$DateFieldCWProxy {
-  DateField name(String name);
+abstract class _$DateTimeFieldCWProxy {
+  DateTimeField name(String name);
 
-  DateField isCreatedAtField(bool isCreatedAtField);
+  DateTimeField isCreatedAtField(bool isCreatedAtField);
 
-  DateField isUpdatedAtField(bool isUpdatedAtField);
+  DateTimeField isUpdatedAtField(bool isUpdatedAtField);
 
-  DateField id(String? id);
+  DateTimeField id(String? id);
 
-  DateField showInList(bool showInList);
+  DateTimeField showInList(bool showInList);
 
-  DateField isRequired(bool isRequired);
+  DateTimeField isRequired(bool isRequired);
 
-  DateField sort(int sort);
+  DateTimeField sort(int sort);
 
-  DateField width(double? width);
+  DateTimeField width(double? width);
 
-  DateField validator(String? Function(Object?)? validator);
+  DateTimeField validator(String? Function(Object?)? validator);
 
-  DateField type(FieldType type);
+  DateTimeField type(FieldType type);
 
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `DateField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `DateTimeField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// DateField(...).copyWith(id: 12, name: "My name")
+  /// DateTimeField(...).copyWith(id: 12, name: "My name")
   /// ````
-  DateField call({
+  DateTimeField call({
     String? name,
     bool? isCreatedAtField,
     bool? isUpdatedAtField,
@@ -57,54 +57,54 @@ abstract class _$DateFieldCWProxy {
   });
 }
 
-/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfDateField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfDateField.copyWith.fieldName(...)`
-class _$DateFieldCWProxyImpl implements _$DateFieldCWProxy {
-  const _$DateFieldCWProxyImpl(this._value);
+/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfDateTimeField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfDateTimeField.copyWith.fieldName(...)`
+class _$DateTimeFieldCWProxyImpl implements _$DateTimeFieldCWProxy {
+  const _$DateTimeFieldCWProxyImpl(this._value);
 
-  final DateField _value;
-
-  @override
-  DateField name(String name) => this(name: name);
+  final DateTimeField _value;
 
   @override
-  DateField isCreatedAtField(bool isCreatedAtField) =>
+  DateTimeField name(String name) => this(name: name);
+
+  @override
+  DateTimeField isCreatedAtField(bool isCreatedAtField) =>
       this(isCreatedAtField: isCreatedAtField);
 
   @override
-  DateField isUpdatedAtField(bool isUpdatedAtField) =>
+  DateTimeField isUpdatedAtField(bool isUpdatedAtField) =>
       this(isUpdatedAtField: isUpdatedAtField);
 
   @override
-  DateField id(String? id) => this(id: id);
+  DateTimeField id(String? id) => this(id: id);
 
   @override
-  DateField showInList(bool showInList) => this(showInList: showInList);
+  DateTimeField showInList(bool showInList) => this(showInList: showInList);
 
   @override
-  DateField isRequired(bool isRequired) => this(isRequired: isRequired);
+  DateTimeField isRequired(bool isRequired) => this(isRequired: isRequired);
 
   @override
-  DateField sort(int sort) => this(sort: sort);
+  DateTimeField sort(int sort) => this(sort: sort);
 
   @override
-  DateField width(double? width) => this(width: width);
+  DateTimeField width(double? width) => this(width: width);
 
   @override
-  DateField validator(String? Function(Object?)? validator) =>
+  DateTimeField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
   @override
-  DateField type(FieldType type) => this(type: type);
+  DateTimeField type(FieldType type) => this(type: type);
 
   @override
 
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `DateField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `DateTimeField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// DateField(...).copyWith(id: 12, name: "My name")
+  /// DateTimeField(...).copyWith(id: 12, name: "My name")
   /// ````
-  DateField call({
+  DateTimeField call({
     Object? name = const $CopyWithPlaceholder(),
     Object? isCreatedAtField = const $CopyWithPlaceholder(),
     Object? isUpdatedAtField = const $CopyWithPlaceholder(),
@@ -116,7 +116,7 @@ class _$DateFieldCWProxyImpl implements _$DateFieldCWProxy {
     Object? validator = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
   }) {
-    return DateField(
+    return DateTimeField(
       name: name == const $CopyWithPlaceholder() || name == null
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
@@ -165,17 +165,18 @@ class _$DateFieldCWProxyImpl implements _$DateFieldCWProxy {
   }
 }
 
-extension $DateFieldCopyWith on DateField {
-  /// Returns a callable class that can be used as follows: `instanceOfDateField.copyWith(...)` or like so:`instanceOfDateField.copyWith.fieldName(...)`.
+extension $DateTimeFieldCopyWith on DateTimeField {
+  /// Returns a callable class that can be used as follows: `instanceOfDateTimeField.copyWith(...)` or like so:`instanceOfDateTimeField.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
-  _$DateFieldCWProxy get copyWith => _$DateFieldCWProxyImpl(this);
+  _$DateTimeFieldCWProxy get copyWith => _$DateTimeFieldCWProxyImpl(this);
 }
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-DateField _$DateFieldFromJson(Map<String, dynamic> json) => DateField(
+DateTimeField _$DateTimeFieldFromJson(Map<String, dynamic> json) =>
+    DateTimeField(
       name: json['name'] as String,
       isCreatedAtField: json['isCreatedAtField'] as bool? ?? false,
       isUpdatedAtField: json['isUpdatedAtField'] as bool? ?? false,
@@ -188,7 +189,8 @@ DateField _$DateFieldFromJson(Map<String, dynamic> json) => DateField(
           FieldType.dateField,
     );
 
-Map<String, dynamic> _$DateFieldToJson(DateField instance) => <String, dynamic>{
+Map<String, dynamic> _$DateTimeFieldToJson(DateTimeField instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'showInList': instance.showInList,

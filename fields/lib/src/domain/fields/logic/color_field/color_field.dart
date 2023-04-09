@@ -48,7 +48,7 @@ class ColorField extends Field {
   @override
   Model toModel() {
     return Model(
-      name: 'Color field',
+      name: description().title,
       icon: IconPackNames.mdi_palette_advanced,
       fields: [
         [

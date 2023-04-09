@@ -29,7 +29,7 @@ final Model demoStructured = Model(
                 name: 'Departments',
                 structure: [
                   ColorField(name: 'Department color'),
-                  DateField(name: 'Department date'),
+                  DateTimeField(name: 'Department date'),
                 ],
               ),
             ],

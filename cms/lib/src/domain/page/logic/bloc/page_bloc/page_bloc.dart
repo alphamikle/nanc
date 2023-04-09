@@ -309,9 +309,9 @@ class PageBloc extends BasePageBloc<PageState> {
   }
 
   Json _updateCreatedAtOrUpdatedAtFields(Model model, Json data) {
-    final List<DateField> dateTimeFields = model.flattenFields.whereType<DateField>().toList();
+    final List<DateTimeField> dateTimeFields = model.flattenFields.whereType<DateTimeField>().toList();
     if (dateTimeFields.isNotEmpty) {
-      for (final DateField field in dateTimeFields) {
+      for (final DateTimeField field in dateTimeFields) {
         final dynamic currentValue = data[field.id];
         if (field.isCreatedAtField && (currentValue == null || currentValue == '') || field.isUpdatedAtField) {
           data[field.id] = DateTime.now().toIso8601String();

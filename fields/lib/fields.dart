@@ -2,7 +2,7 @@ library fields;
 
 export 'src/domain/fields/logic/bool_field/bool_field.dart';
 export 'src/domain/fields/logic/color_field/color_field.dart';
-export 'src/domain/fields/logic/date_field/date_field.dart';
+export 'src/domain/fields/logic/date_time_field/date_time_field.dart';
 export 'src/domain/fields/logic/dynamic_field/dynamic_field.dart';
 export 'src/domain/fields/logic/dynamic_field/dynamic_field_item.dart';
 export 'src/domain/fields/logic/dynamic_field/structure_model.dart';

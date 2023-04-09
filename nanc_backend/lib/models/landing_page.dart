@@ -184,7 +184,7 @@ final Model landingPage = Model(
       HeaderField(name: 'Divider', content: '', useAsDivider: true, contentColor: const Color.fromRGBO(0, 0, 0, 0.497)),
     ],
     [
-      DateField(name: 'Updated At', isUpdatedAtField: true),
+      DateTimeField(name: 'Updated At', isUpdatedAtField: true),
     ],
   ],
 );

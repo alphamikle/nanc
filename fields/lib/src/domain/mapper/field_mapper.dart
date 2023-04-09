@@ -4,7 +4,7 @@ import 'package:tools/tools.dart';
 
 import '../fields/logic/bool_field/bool_field.dart';
 import '../fields/logic/color_field/color_field.dart';
-import '../fields/logic/date_field/date_field.dart';
+import '../fields/logic/date_time_field/date_time_field.dart';
 import '../fields/logic/dynamic_field/dynamic_field.dart';
 import '../fields/logic/dynamic_field/dynamic_field_item.dart';
 import '../fields/logic/enum_field/enum_field.dart';
@@ -56,7 +56,7 @@ abstract class FieldMapper {
     } else if (type == FieldType.colorField) {
       return (field as ColorField).copyWith() as T;
     } else if (type == FieldType.dateField) {
-      return (field as DateField).copyWith() as T;
+      return (field as DateTimeField).copyWith() as T;
     } else if (type == FieldType.enumField) {
       return (field as EnumField).copyWith(values: field.values.map((EnumValue value) => value.copyWith()).toList()) as T;
     } else if (type == FieldType.fontField) {
@@ -117,7 +117,7 @@ abstract class FieldMapper {
       return BoolFieldCell(field: field, creationMode: creationMode);
     } else if (field is ColorField) {
       return ColorFieldCell(field: field, creationMode: creationMode);
-    } else if (field is DateField) {
+    } else if (field is DateTimeField) {
       return DateFieldCell(field: field, creationMode: creationMode);
     } else if (field is EnumField) {
       return EnumFieldCell(field: field, creationMode: creationMode);
@@ -174,7 +174,7 @@ abstract class FieldMapper {
       return field.toJson();
     } else if (field is ColorField) {
       return field.toJson();
-    } else if (field is DateField) {
+    } else if (field is DateTimeField) {
       return field.toJson();
     } else if (field is EnumField) {
       return field.toJson();
@@ -221,7 +221,7 @@ abstract class FieldMapper {
     } else if (type == FieldType.colorField.name) {
       return ColorField.fromJson(json) as T;
     } else if (type == FieldType.dateField.name) {
-      return DateField.fromJson(json) as T;
+      return DateTimeField.fromJson(json) as T;
     } else if (type == FieldType.enumField.name) {
       return EnumField.fromJson(json) as T;
     } else if (type == FieldType.fontField.name) {
@@ -263,7 +263,7 @@ abstract class FieldMapper {
     } else if (fieldType == FieldType.colorField) {
       return ColorField.empty().toModel();
     } else if (fieldType == FieldType.dateField) {
-      return DateField.empty().toModel();
+      return DateTimeField.empty().toModel();
     } else if (fieldType == FieldType.enumField) {
       return EnumField.empty().toModel();
     } else if (fieldType == FieldType.fontField) {
@@ -305,7 +305,7 @@ abstract class FieldMapper {
     } else if (fieldType == FieldType.colorField) {
       return ColorField.empty() as T;
     } else if (fieldType == FieldType.dateField) {
-      return DateField.empty() as T;
+      return DateTimeField.empty() as T;
     } else if (fieldType == FieldType.enumField) {
       return EnumField.empty() as T;
     } else if (fieldType == FieldType.fontField) {
@@ -346,7 +346,7 @@ abstract class FieldMapper {
       IdField.empty(),
       StringField.empty(),
       NumberField.empty(),
-      DateField.empty(),
+      DateTimeField.empty(),
       BoolField.empty(),
       ColorField.empty(),
       HeaderField.empty(),

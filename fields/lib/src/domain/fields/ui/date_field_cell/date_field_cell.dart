@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-import '../../logic/date_field/date_field.dart';
+import '../../logic/date_time_field/date_time_field.dart';
 import '../field_cell_mixin.dart';
 import 'date_mask.dart';
 import 'time_mask.dart';
 
-class DateFieldCell extends FieldCellWidget<DateField> {
+class DateFieldCell extends FieldCellWidget<DateTimeField> {
   const DateFieldCell({
     required super.field,
     required super.creationMode,
@@ -18,7 +18,7 @@ class DateFieldCell extends FieldCellWidget<DateField> {
   State<DateFieldCell> createState() => _DateFieldCellState();
 }
 
-class _DateFieldCellState extends State<DateFieldCell> with FieldCellHelper<DateField, DateFieldCell>, KitFocusStreamMixin<DateFieldCell> {
+class _DateFieldCellState extends State<DateFieldCell> with FieldCellHelper<DateTimeField, DateFieldCell>, KitFocusStreamMixin<DateFieldCell> {
   final FocusNode dateFocus = FocusNode();
   final FocusNode timeFocus = FocusNode();
 
