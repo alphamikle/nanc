@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -19,6 +21,19 @@ class BoolFieldCell extends FieldCellWidget<BoolField> {
 class _BoolFieldCellState extends State<BoolFieldCell> with FieldCellHelper<BoolField, BoolFieldCell> {
   // ignore: avoid_positional_boolean_parameters
   void onSelect(bool value) => pageBloc.updateValue(fieldId, value);
+
+  Future<void> preload() async {
+    final Object? value = currentValue();
+    if (value == null) {
+      pageBloc.updateValue(fieldId, field.defaultValue);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(preload());
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -56,6 +56,7 @@ mixin FieldCellHelper<F extends Field, T extends FieldCellWidget<F>> on State<T>
   bool get isGrouped => groupPosition != null;
   String get fieldId => widget.field.id;
   late final BasePageBloc pageBloc = context.read();
+  Object? currentValue() => pageBloc.valueForKey(fieldId);
   TextEditingController get controller => pageBloc.controllerFor(widget.field.id);
   String get helper => '${field.name}${isRequired ? ' (required)' : ''}';
   bool get creationMode => widget.creationMode;
