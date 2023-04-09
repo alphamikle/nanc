@@ -16,10 +16,6 @@ import '../field_cell_mixin.dart';
 import '../selector_field_cell/selector_field_cell.dart';
 import 'multi_selector_modal.dart';
 
-String newRelationsId(Model parentModel) {
-  return 'NEW_RELATIONS_ID:${parentModel.id}';
-}
-
 class MultiSelectorFieldCell extends FieldCellWidget<MultiSelectorField> {
   const MultiSelectorFieldCell({
     required super.field,
@@ -126,10 +122,10 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
 
   Future<void> selectFields() async {
     focusNode.requestFocus();
-    // if (parentEntityId == null) {
-    //   showMessageNotification('You cannot add "${model.name}" entities until you\'ve saved current page');
-    //   return;
-    // }
+    if (parentModelId == null) {
+      showMessageNotification('To select related pages, generate an ID for the current page first.');
+      return;
+    }
     final List<String> selectedIds = await getSelectedIds();
     if (!mounted) {
       return;

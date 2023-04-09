@@ -60,18 +60,12 @@ class PageBloc extends BasePageBloc<PageState> {
   Future<void> save(Model model) async {
     emit(state.copyWith.isSaving(true));
     try {
-      for (final MapEntry<ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>> thirdTableEntry in state.thirdTableData.entries) {
-        await pageProvider.saveThirdTable(
-          thirdTable: state.thirdTable,
-          parentEntityId: thirdTableEntry.value.keys.first,
-          childEntityIds: thirdTableEntry.value.values.first,
-        );
-      }
       final Json savedData = await pageProvider.saveEditedPage(
         entity: model,
         id: state.data[model.idField.id].toString(),
         data: _updateCreatedAtOrUpdatedAtFields(model, _clearDataFromStructures(state.data)),
       );
+      await _saveThirdTableData();
       await _upsertDynamicFieldStructures(
         pageId: state.data[model.idField.id].toString(),
         data: state.data,
@@ -100,6 +94,7 @@ class PageBloc extends BasePageBloc<PageState> {
         entity: model,
         data: _updateCreatedAtOrUpdatedAtFields(model, _clearDataFromStructures(state.data)),
       );
+      await _saveThirdTableData();
       await _upsertDynamicFieldStructures(
         pageId: savedData[model.idField.id].toString(),
         data: state.data,
@@ -117,6 +112,16 @@ class PageBloc extends BasePageBloc<PageState> {
       rethrow;
     }
     emit(state.copyWith.isSaving(false));
+  }
+
+  Future<void> _saveThirdTableData() async {
+    for (final MapEntry<ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>> thirdTableEntry in state.thirdTableData.entries) {
+      await pageProvider.saveThirdTable(
+        thirdTable: state.thirdTable,
+        parentEntityId: thirdTableEntry.value.keys.first,
+        childEntityIds: thirdTableEntry.value.values.first,
+      );
+    }
   }
 
   Future<void> delete(Model model) async {
