@@ -1,5 +1,4 @@
 import 'package:autoequal/autoequal.dart';
-import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -57,20 +56,14 @@ class StringField extends Field {
         [
           fieldToModelName,
           fieldToModelId,
+          fieldToModelMaxLines,
         ],
         [
-          fieldToModelMaxLines,
           fieldToModelSort,
           fieldToModelWidth,
-        ],
-        [
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],
-        [
-          // TODO(alphamikle): Make code field
-          if (Env.isRealCMS) fieldToModelValidator,
-        ]
       ],
     );
   }

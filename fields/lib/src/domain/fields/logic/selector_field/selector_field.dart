@@ -70,8 +70,6 @@ class SelectorField extends Field {
         [
           fieldToModelSort,
           fieldToModelWidth,
-        ],
-        [
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],
@@ -96,10 +94,6 @@ class SelectorField extends Field {
               StringField(id: fieldValueProperty, name: 'Value', isRequired: true),
             ],
           ),
-        ],
-        [
-          // TODO(alphamikle): Make code field
-          // if (Env.isRealCMS) fieldToModelValidator,
         ],
       ],
     );

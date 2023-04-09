@@ -54,7 +54,7 @@ class KitTableV2 extends StatelessWidget {
       final Field field = listFields[i];
       if (columnSizes != null && field.width == null) {
         widths[i] = columnSizes![i];
-      } else if (field.width != null) {
+      } else if (field.width != null && field.width! > 0) {
         widths[i] = field.width;
       }
     }
@@ -174,7 +174,7 @@ class KitTableV2 extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         final double totalWidth = constraints.maxWidth;
         final int totalColumns = model.listFields.length;
-        assert(columnSizes == null || columnSizes!.length == totalColumns || columnSizes!.length > totalColumns,
+        assert(columnSizes == null || columnSizes!.length == totalColumns,
             'Length of columnSizes (${columnSizes?.length}) should be the same, as length of listFields ($totalColumns) of model');
         final List<double> resultColumnSizes = _calculateResultColumnSizes(totalWidth, totalColumns);
 
@@ -185,7 +185,11 @@ class KitTableV2 extends StatelessWidget {
               delegate: _TableHeaderDelegate(
                 child: Material(
                   child: ListView.builder(
-                    itemBuilder: (BuildContext context, int index) => _headerCellBuilder(context, index, resultColumnSizes[index]),
+                    itemBuilder: (BuildContext context, int index) => _headerCellBuilder(
+                      context,
+                      index,
+                      resultColumnSizes[index],
+                    ),
                     controller: horizontalScrollController,
                     scrollDirection: Axis.horizontal,
                     itemCount: totalColumns,

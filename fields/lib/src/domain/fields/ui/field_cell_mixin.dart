@@ -7,10 +7,6 @@ import '../../../../fields.dart';
 mixin FieldCell<F extends Field> on Widget {
   F get field;
   bool get creationMode;
-  GroupPosition? get groupPosition;
-
-  /// Should used to embed one field into another, for example - into the [GroupField]
-  FieldCell<F> toGroupedCell(GroupPosition position) => this;
 }
 
 class ErrorFieldCell extends StatelessWidget {
@@ -45,15 +41,10 @@ abstract class FieldCellWidget<F extends Field> extends StatefulWidget with Fiel
 
   @override
   final bool creationMode;
-
-  @override
-  GroupPosition? get groupPosition => null;
 }
 
 mixin FieldCellHelper<F extends Field, T extends FieldCellWidget<F>> on State<T> {
   F get field => widget.field;
-  GroupPosition? get groupPosition => widget.groupPosition;
-  bool get isGrouped => groupPosition != null;
   String get fieldId => widget.field.id;
   late final BasePageBloc pageBloc = context.read();
   Object? currentValue() => pageBloc.valueForKey(fieldId);

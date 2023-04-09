@@ -1,11 +1,12 @@
 import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
+
 import 'color_tools.dart';
 
-double? nullableDoubleFromJson(String? value) => double.tryParse(value ?? '');
+double? nullableDoubleFromJson(dynamic value) => double.tryParse((value ?? '').toString());
 
-int? nullableIntFromJson(String? value) => int.tryParse(value ?? '');
+int? nullableIntFromJson(dynamic value) => int.tryParse((value ?? '').toString());
 
 // ignore: prefer_void_to_null
 Null toNullJson(dynamic value) => null;

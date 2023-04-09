@@ -1,5 +1,4 @@
 import 'package:autoequal/autoequal.dart';
-import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -67,11 +66,7 @@ class ScreenField extends Field {
         [
           fieldToModelShowInList,
           fieldToModelIsRequired,
-          if (Env.isRealCMS) BoolField(id: fieldIsScrollableProperty, name: 'Will this screen be a simple scrollable view?', defaultValue: true),
-        ],
-        [
-          // TODO(alphamikle): Make code field
-          if (Env.isRealCMS) fieldToModelValidator,
+          BoolField(id: fieldIsScrollableProperty, name: 'Will this screen be a simple scrollable view?', defaultValue: true),
         ],
       ],
     );

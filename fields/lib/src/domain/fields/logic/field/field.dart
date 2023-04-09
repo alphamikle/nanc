@@ -56,8 +56,6 @@ abstract class Field extends Equatable {
         [
           fieldToModelSort,
           fieldToModelWidth,
-        ],
-        [
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],

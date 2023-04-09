@@ -3,6 +3,7 @@ import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../fields.dart';
@@ -40,6 +41,26 @@ class NumberField extends Field {
 
   @override
   Json toJson() => _$NumberFieldToJson(this);
+
+  @override
+  Model toModel() {
+    return Model(
+      name: description().title,
+      icon: IconPackNames.mdi_numeric,
+      fields: [
+        [
+          fieldToModelName,
+          fieldToModelId,
+        ],
+        [
+          fieldToModelSort,
+          fieldToModelWidth,
+          fieldToModelShowInList,
+          fieldToModelIsRequired,
+        ],
+      ],
+    );
+  }
 
   @override
   List<Object?> get props => [...super.props, ..._$props];

@@ -157,8 +157,7 @@ HeaderField _$HeaderFieldFromJson(Map<String, dynamic> json) => HeaderField(
       content: json['content'] as String?,
       contentColor: nullableColorFromJson(json['contentColor'] as String?),
       contentIcon: json['contentIcon'] as String?,
-      contentFontSize:
-          nullableDoubleFromJson(json['contentFontSize'] as String?),
+      contentFontSize: nullableDoubleFromJson(json['contentFontSize']),
       useAsDivider: json['useAsDivider'] as bool? ?? false,
       id: json['id'] as String?,
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??

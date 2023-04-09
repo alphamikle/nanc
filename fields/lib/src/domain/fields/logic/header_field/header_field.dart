@@ -59,7 +59,7 @@ class HeaderField extends Field {
   Model toModel() {
     return Model(
       name: description().title,
-      icon: 'mdi_format_header_pound',
+      icon: IconPackNames.mdi_format_header_pound,
       fields: [
         [
           fieldToModelName,

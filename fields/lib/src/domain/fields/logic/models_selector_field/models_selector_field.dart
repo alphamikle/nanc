@@ -1,5 +1,4 @@
 import 'package:autoequal/autoequal.dart';
-import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -51,8 +50,9 @@ class ModelsSelectorField extends Field {
 
   @override
   Model toModel() {
-    final Model entity = super.toModel();
-    return entity.copyWith(
+    return Model(
+      name: description().title,
+      icon: IconPackNames.mdi_floor_plan,
       fields: [
         [
           fieldToModelName,
@@ -61,14 +61,8 @@ class ModelsSelectorField extends Field {
         [
           fieldToModelSort,
           fieldToModelWidth,
-        ],
-        [
           fieldToModelShowInList,
           fieldToModelIsRequired,
-        ],
-        [
-          // TODO(alphamikle): Make code field
-          if (Env.isRealCMS) fieldToModelValidator,
         ],
       ],
     );

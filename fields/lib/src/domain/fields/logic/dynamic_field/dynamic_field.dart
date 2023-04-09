@@ -62,8 +62,6 @@ class DynamicField extends Field {
         [
           fieldToModelSort,
           fieldToModelWidth,
-        ],
-        [
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],

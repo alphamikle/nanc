@@ -21,6 +21,8 @@ abstract class _$IdFieldCWProxy {
 
   IdField name(String? name);
 
+  IdField showInList(bool showInList);
+
   IdField isRequired(bool isRequired);
 
   IdField sort(int sort);
@@ -38,6 +40,7 @@ abstract class _$IdFieldCWProxy {
   IdField call({
     String? id,
     String? name,
+    bool? showInList,
     bool? isRequired,
     int? sort,
     double? width,
@@ -56,6 +59,9 @@ class _$IdFieldCWProxyImpl implements _$IdFieldCWProxy {
 
   @override
   IdField name(String? name) => this(name: name);
+
+  @override
+  IdField showInList(bool showInList) => this(showInList: showInList);
 
   @override
   IdField isRequired(bool isRequired) => this(isRequired: isRequired);
@@ -80,6 +86,7 @@ class _$IdFieldCWProxyImpl implements _$IdFieldCWProxy {
   IdField call({
     Object? id = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
+    Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
     Object? width = const $CopyWithPlaceholder(),
@@ -94,6 +101,11 @@ class _$IdFieldCWProxyImpl implements _$IdFieldCWProxy {
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
           : name as String?,
+      showInList:
+          showInList == const $CopyWithPlaceholder() || showInList == null
+              ? _value.showInList
+              // ignore: cast_nullable_to_non_nullable
+              : showInList as bool,
       isRequired:
           isRequired == const $CopyWithPlaceholder() || isRequired == null
               ? _value.isRequired
@@ -128,9 +140,10 @@ extension $IdFieldCopyWith on IdField {
 IdField _$IdFieldFromJson(Map<String, dynamic> json) => IdField(
       id: json['id'] as String?,
       name: json['name'] as String?,
+      showInList: json['showInList'] as bool? ?? true,
       isRequired: json['isRequired'] as bool? ?? true,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble() ?? 400,
+      width: (json['width'] as num?)?.toDouble(),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.idField,
     );
@@ -138,6 +151,7 @@ IdField _$IdFieldFromJson(Map<String, dynamic> json) => IdField(
 Map<String, dynamic> _$IdFieldToJson(IdField instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'showInList': instance.showInList,
       'isRequired': instance.isRequired,
       'sort': instance.sort,
       'width': instance.width,

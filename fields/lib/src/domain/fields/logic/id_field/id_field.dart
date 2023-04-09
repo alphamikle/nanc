@@ -18,11 +18,12 @@ class IdField extends Field {
   IdField({
     String? id,
     String? name,
+    super.showInList = true,
     super.isRequired = true,
     super.sort,
-    super.width = 400,
+    super.width,
     super.type = FieldType.idField,
-  }) : super(name: name ?? 'ID', id: id ?? 'id', showInList: true);
+  }) : super(name: name ?? 'ID', id: id ?? 'id');
 
   factory IdField.empty() => IdField(id: '', name: '');
 
@@ -45,7 +46,7 @@ class IdField extends Field {
   Model toModel() {
     return Model(
       name: description().title,
-      icon: 'key',
+      icon: IconPackNames.mdi_key_chain,
       fields: [
         [
           fieldToModelName,
@@ -54,6 +55,7 @@ class IdField extends Field {
         [
           fieldToModelSort,
           fieldToModelWidth,
+          fieldToModelShowInList,
           fieldToModelIsRequired,
         ],
       ],

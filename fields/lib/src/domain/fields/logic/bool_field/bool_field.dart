@@ -58,8 +58,6 @@ class BoolField extends Field {
         [
           fieldToModelSort,
           fieldToModelWidth,
-        ],
-        [
           fieldToModelShowInList,
           fieldToModelDefaultValue,
         ],

@@ -12,7 +12,6 @@ import '../fields/logic/enum_field/enum_value.dart';
 import '../fields/logic/field/field.dart';
 import '../fields/logic/field/field_props.dart';
 import '../fields/logic/font_field/font_field.dart';
-import '../fields/logic/group_field/group_field.dart';
 import '../fields/logic/header_field/header_field.dart';
 import '../fields/logic/icon_field/icon_field.dart';
 import '../fields/logic/id_field/id_field.dart';
@@ -32,7 +31,6 @@ import '../fields/ui/dynamic_field_cell/dynamic_field_cell.dart';
 import '../fields/ui/enum_field_cell/enum_field_cell.dart';
 import '../fields/ui/field_cell_mixin.dart';
 import '../fields/ui/font_field_cell/font_field_cell.dart';
-import '../fields/ui/group_field_cell/group_field_cell.dart';
 import '../fields/ui/header_field/header_field_cell.dart';
 import '../fields/ui/icon_field_cell/icon_field_cell.dart';
 import '../fields/ui/id_field_cell/id_field_cell.dart';
@@ -61,8 +59,6 @@ abstract class FieldMapper {
       return (field as EnumField).copyWith(values: field.values.map((EnumValue value) => value.copyWith()).toList()) as T;
     } else if (type == FieldType.fontField) {
       return (field as FontField).copyWith() as T;
-    } else if (type == FieldType.groupField) {
-      return (field as GroupField).copyWith(fields: field.fields.map(deepClone).toList()) as T;
     } else if (type == FieldType.headerField) {
       return (field as HeaderField).copyWith() as T;
     } else if (type == FieldType.iconField) {
@@ -123,8 +119,6 @@ abstract class FieldMapper {
       return EnumFieldCell(field: field, creationMode: creationMode);
     } else if (field is FontField) {
       return FontFieldCell(field: field, creationMode: creationMode);
-    } else if (field is GroupField) {
-      return GroupFieldCell(field: field, creationMode: creationMode);
     } else if (field is HeaderField) {
       return HeaderFieldCell(field: field);
     } else if (field is IconField) {
@@ -180,8 +174,6 @@ abstract class FieldMapper {
       return field.toJson();
     } else if (field is FontField) {
       return field.toJson();
-    } else if (field is GroupField) {
-      return field.toJson();
     } else if (field is HeaderField) {
       return field.toJson();
     } else if (field is IconField) {
@@ -226,8 +218,6 @@ abstract class FieldMapper {
       return EnumField.fromJson(json) as T;
     } else if (type == FieldType.fontField.name) {
       return FontField.fromJson(json) as T;
-    } else if (type == FieldType.groupField.name) {
-      return GroupField.fromJson(json) as T;
     } else if (type == FieldType.headerField.name) {
       return HeaderField.fromJson(json) as T;
     } else if (type == FieldType.iconField.name) {
@@ -268,8 +258,6 @@ abstract class FieldMapper {
       return EnumField.empty().toModel();
     } else if (fieldType == FieldType.fontField) {
       return FontField.empty().toModel();
-    } else if (fieldType == FieldType.groupField) {
-      return GroupField.empty().toModel();
     } else if (fieldType == FieldType.headerField) {
       return HeaderField.empty().toModel();
     } else if (fieldType == FieldType.iconField) {
@@ -310,8 +298,6 @@ abstract class FieldMapper {
       return EnumField.empty() as T;
     } else if (fieldType == FieldType.fontField) {
       return FontField.empty() as T;
-    } else if (fieldType == FieldType.groupField) {
-      return GroupField.empty() as T;
     } else if (fieldType == FieldType.headerField) {
       return HeaderField.empty() as T;
     } else if (fieldType == FieldType.iconField) {

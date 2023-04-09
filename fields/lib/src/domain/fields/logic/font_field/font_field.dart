@@ -3,11 +3,13 @@ import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
 import '../../../type/field_types.dart';
 import '../field/field.dart';
 import '../field/field_description.dart';
+import '../field/field_props.dart';
 
 part 'font_field.g.dart';
 
@@ -42,6 +44,26 @@ class FontField extends Field {
 
   @override
   Json toJson() => _$FontFieldToJson(this);
+
+  @override
+  Model toModel() {
+    return Model(
+      name: description().title,
+      icon: IconPackNames.mdi_format_font,
+      fields: [
+        [
+          fieldToModelName,
+          fieldToModelId,
+        ],
+        [
+          fieldToModelSort,
+          fieldToModelWidth,
+          fieldToModelShowInList,
+          fieldToModelIsRequired,
+        ],
+      ],
+    );
+  }
 
   @override
   List<Object?> get props => [...super.props, ..._$props];

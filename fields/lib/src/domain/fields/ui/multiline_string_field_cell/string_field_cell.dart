@@ -8,23 +8,7 @@ class StringFieldCell extends FieldCellWidget<StringField> {
     required super.field,
     required super.creationMode,
     super.key,
-  }) : groupPosition = null;
-
-  const StringFieldCell._toFlatCell({
-    required super.field,
-    required super.creationMode,
-    required this.groupPosition,
   });
-
-  @override
-  final GroupPosition? groupPosition;
-
-  @override
-  FieldCell<StringField> toGroupedCell(GroupPosition position) => StringFieldCell._toFlatCell(
-        field: field,
-        creationMode: creationMode,
-        groupPosition: position,
-      );
 
   @override
   State<StringFieldCell> createState() => _MultilineTextFieldCellState();
