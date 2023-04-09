@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
@@ -140,14 +141,16 @@ class _EntityPageViewState extends State<EntityPageView> {
                         color: context.theme.colorScheme.error,
                         child: AnimatedSwitcher(
                           duration: const Duration(milliseconds: 250),
-                          child: state.isDeleting ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error)) : Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: const [
-                              Icon(IconPack.mdi_delete_empty),
-                              KitDivider(width: Gap.regular),
-                              Text('Delete'),
-                            ],
-                          ),
+                          child: state.isDeleting
+                              ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error))
+                              : Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: const [
+                                    Icon(IconPack.mdi_delete_empty),
+                                    KitDivider(width: Gap.regular),
+                                    Text('Delete'),
+                                  ],
+                                ),
                         ),
                       ),
                     ),
@@ -157,7 +160,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                       onPressed: () async => showJsonPreviewModal(
                         context: context,
                         title: 'Page data',
-                        structure: pageBloc.state.data,
+                        structure: filterJsonFromStructures(pageBloc.state.data),
                       ),
                       color: context.kitColors.successColor,
                       child: Row(

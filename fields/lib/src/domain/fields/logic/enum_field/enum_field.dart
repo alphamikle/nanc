@@ -9,6 +9,7 @@ import 'package:tools/tools.dart';
 import '../../../type/field_types.dart';
 import '../field/field.dart';
 import '../field/field_description.dart';
+import '../field/field_props.dart';
 import '../string_field/string_field.dart';
 import '../structured_field/structured_field.dart';
 import 'enum_value.dart';
@@ -56,18 +57,34 @@ class EnumField extends Field {
 
   @override
   Model toModel() {
-    final Model entity = super.toModel();
-    entity.fields.add([
-      StructuredField(
-        id: 'values',
-        name: 'Enum values',
-        structure: [
-          StringField(id: 'title', name: 'Title'),
-          StringField(id: 'value', name: 'Value'),
+    return Model(
+      name: description().title,
+      icon: IconPackNames.mdi_format_list_bulleted_square,
+      fields: [
+        [
+          fieldToModelName,
+          fieldToModelId,
         ],
-      ),
-    ]);
-    return entity;
+        [
+          fieldToModelSort,
+          fieldToModelWidth,
+        ],
+        [
+          fieldToModelShowInList,
+          fieldToModelIsRequired,
+        ],
+        [
+          StructuredField(
+            id: 'values',
+            name: 'Enum values',
+            structure: [
+              StringField(id: 'title', name: 'Title'),
+              StringField(id: 'value', name: 'Value'),
+            ],
+          ),
+        ],
+      ],
+    );
   }
 
   @override

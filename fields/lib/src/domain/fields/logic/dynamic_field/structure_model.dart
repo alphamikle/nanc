@@ -12,6 +12,23 @@ const String _kStructureKey = 'structure:2a650905-5bb1-402c-a64b-5ac6f410283a';
 const String kStructureIdField = 'id';
 const String kStructureField = 'structure';
 
+dynamic filterJsonFromStructures(dynamic json) {
+  if (json is List) {
+    return json.map((dynamic it) => filterJsonFromStructures(it)).toList();
+  } else if (json is Map) {
+    final Json filteredJson = {};
+    for (final MapEntry<dynamic, dynamic> entry in json.entries) {
+      final String key = entry.key.toString();
+      if (key.contains(_kStructureKey) == false) {
+        filteredJson[key] = filterJsonFromStructures(entry.value);
+      }
+    }
+    return filteredJson;
+  } else {
+    return json;
+  }
+}
+
 final Model structureModel = Model(
   name: 'Structure',
   icon: IconPackNames.flu_broad_activity_feed_regular,
