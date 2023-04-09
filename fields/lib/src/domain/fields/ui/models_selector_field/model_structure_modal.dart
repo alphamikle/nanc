@@ -15,9 +15,15 @@ class ModelStructureModal extends StatelessWidget {
   List<String> get prettyStructure {
     final List<String> output = [];
     if (structure.containsKey('fields') && structure['fields'] is List) {
+      final List<dynamic> flattedFields = [];
       final List<dynamic> fields = structure['fields'];
-      for (final field in fields) {
-        final Json fieldJson = castToJson(field[0]);
+      for (final dynamic fieldsRow in fields) {
+        if (fieldsRow is List<dynamic>) {
+          flattedFields.addAll(fieldsRow);
+        }
+      }
+      for (final dynamic field in flattedFields) {
+        final Json fieldJson = castToJson(field);
         output.add(fieldJson['id'].toString());
       }
     }

@@ -4,6 +4,7 @@ import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
 import '../kit_tooltip.dart';
 
 const double _kMinColumnWidth = 150;
@@ -173,7 +174,7 @@ class KitTableV2 extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         final double totalWidth = constraints.maxWidth;
         final int totalColumns = model.listFields.length;
-        assert(columnSizes == null || columnSizes!.length == totalColumns,
+        assert(columnSizes == null || columnSizes!.length == totalColumns || columnSizes!.length > totalColumns,
             'Length of columnSizes (${columnSizes?.length}) should be the same, as length of listFields ($totalColumns) of model');
         final List<double> resultColumnSizes = _calculateResultColumnSizes(totalWidth, totalColumns);
 

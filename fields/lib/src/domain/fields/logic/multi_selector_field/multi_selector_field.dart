@@ -1,5 +1,4 @@
 import 'package:autoequal/autoequal.dart';
-import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -70,6 +69,7 @@ class MultiSelectorField extends Field {
         [
           fieldToModelName,
           fieldToModelId,
+          fieldToModelVirtualField,
         ],
         [
           fieldToModelModel,
@@ -94,8 +94,20 @@ class MultiSelectorField extends Field {
           ),
         ],
         [
-          // TODO(alphamikle): Structure field
-          StringField(id: fieldThirdTableProperty, name: 'Third table'),
+          StructuredField(
+            id: fieldThirdTableProperty,
+            name: 'Third table',
+            singleObject: true,
+            structure: [
+              ModelsSelectorField(
+                id: 'relationsEntity',
+                name: 'Relations model',
+                isRequired: true,
+              ),
+              StringField(id: 'parentEntityIdName', name: 'Parent Model ID', isRequired: true),
+              StringField(id: 'childEntityIdName', name: 'Child Model ID', isRequired: true),
+            ],
+          ),
         ],
         [
           fieldToModelSort,
@@ -105,10 +117,10 @@ class MultiSelectorField extends Field {
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],
-        [
-          // TODO(alphamikle): Make code field
-          if (Env.isRealCMS) fieldToModelValidator,
-        ]
+        // TODO(alphamikle): Make code field
+        // [
+        //   if (Env.isRealCMS) fieldToModelValidator,
+        // ],
       ],
     );
   }
