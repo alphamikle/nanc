@@ -15,6 +15,7 @@ class StructuredFieldChild extends StatefulWidget {
     required this.deepLevel,
     required this.initialChildrenData,
     required this.editMode,
+    required this.singleObject,
     this.onChildChange,
     this.onMoveUp,
     this.onMoveDown,
@@ -28,6 +29,7 @@ class StructuredFieldChild extends StatefulWidget {
   final StructuredFieldItem? initialChildrenData;
   final ValueChanged<List<StructuredFieldItem>>? onChildChange;
   final bool editMode;
+  final bool singleObject;
   final VoidCallback? onMoveUp;
   final VoidCallback? onMoveDown;
   final VoidCallback? onDelete;
@@ -39,6 +41,7 @@ class StructuredFieldChild extends StatefulWidget {
 class _StructuredFieldChildState extends State<StructuredFieldChild> with SingleTickerProviderStateMixin, AnimatedState {
   @override
   Curve get animationCurve => Curves.easeInQuart;
+  bool get singleObject => widget.singleObject;
 
   @override
   Duration get animationDuration => const Duration(milliseconds: 250);
@@ -141,6 +144,12 @@ class _StructuredFieldChildState extends State<StructuredFieldChild> with Single
 
   @override
   Widget build(BuildContext context) {
+    final Widget childFields = ListView.builder(
+      itemBuilder: fieldRowBuilder,
+      itemCount: rowsCount,
+      shrinkWrap: true,
+    );
+
     return KitInkWell(
       onPressed: () {},
       borderRadius: BorderRadius.zero,
@@ -148,7 +157,7 @@ class _StructuredFieldChildState extends State<StructuredFieldChild> with Single
       noReaction: true,
       child: AnimatedBuilder(
         animation: animation,
-        builder: (context, child) {
+        builder: (BuildContext context, Widget? child) {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -157,7 +166,7 @@ class _StructuredFieldChildState extends State<StructuredFieldChild> with Single
                 sizeFactor: animation,
                 axis: Axis.horizontal,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: Gap.regular, right: Gap.small),
+                  padding: EdgeInsets.only(left: singleObject ? Gap.small : Gap.regular, right: Gap.small),
                   child: Opacity(
                     opacity: animation.value,
                     child: DynamicFieldChildPanel(
@@ -172,16 +181,14 @@ class _StructuredFieldChildState extends State<StructuredFieldChild> with Single
           );
         },
         child: Expanded(
-          child: KitEmptyInput(
-            child: Padding(
-              padding: const EdgeInsets.all(Gap.regular),
-              child: ListView.builder(
-                itemBuilder: fieldRowBuilder,
-                itemCount: rowsCount,
-                shrinkWrap: true,
-              ),
-            ),
-          ),
+          child: singleObject
+              ? childFields
+              : KitEmptyInput(
+                  child: Padding(
+                    padding: const EdgeInsets.all(Gap.regular),
+                    child: childFields,
+                  ),
+                ),
         ),
       ),
     );

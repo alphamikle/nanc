@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../kit_preloader.dart';
 
 class KitButton extends StatelessWidget {
@@ -24,7 +25,7 @@ class KitButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedOpacity(
       duration: const Duration(milliseconds: 250),
-      opacity: color == null || isEnabled ? 1 : 0.65,
+      opacity: color == null || isEnabled ? 1 : 0.3,
       child: OutlinedButton(
         onPressed: onPressed,
         style: color == null

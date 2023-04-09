@@ -13,7 +13,6 @@ const String fieldContentColorProperty = 'contentColor';
 const String fieldContentIconProperty = 'contentIcon';
 const String fieldIsScrollableProperty = 'isScrollable';
 const String fieldModelProperty = 'model';
-const String fieldTitleFieldProperty = 'titleField';
 const String fieldTitleFieldsProperty = 'titleFields';
 const String fieldStructureProperty = 'structure';
 const String fieldThirdTableProperty = 'thirdTable';

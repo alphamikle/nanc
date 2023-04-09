@@ -40,6 +40,8 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
   int get deepLevel => widget.deepLevel;
   bool get isParentList => deepLevel == 0;
   bool get isChildList => deepLevel > 0;
+  bool get singleObject => field.singleObject;
+  bool get multiObject => singleObject == false;
   late final List<StructuredFieldItem> childrenData = [...widget.initialChildrenData];
   bool isPreloading = false;
   bool isEditMode = false;
@@ -64,7 +66,9 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
   }
 
   Future<void> addItem() async {
-    final StructuredFieldItem structuredItem = StructuredFieldItem(items: field.structure.map((Field field) => DynamicFieldItem.fromField(field)).toList());
+    final StructuredFieldItem structuredItem = StructuredFieldItem(
+      items: field.structure.map((Field field) => DynamicFieldItem.fromField(field)).toList(),
+    );
     childrenData.add(structuredItem);
     onChildChange();
   }
@@ -93,12 +97,12 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
     if (widget.onChildChange != null) {
       widget.onChildChange!(childrenData);
     }
-    pageBloc.updateValue(this.fieldId, childrenDataJson);
+    if (singleObject) {
+      pageBloc.updateValue(this.fieldId, childrenDataJson.isEmpty ? <String, dynamic>{} : childrenDataJson.first);
+    } else {
+      pageBloc.updateValue(this.fieldId, childrenDataJson);
+    }
   }
-
-  // void _onChildChange(int index, List<StructuredFieldItem> items) {
-  //   logg('_onChildChange: $index / $items');
-  // }
 
   void switchItems(int firstItemIndex, int secondItemIndex) {
     final List<StructuredFieldItem> newChildrenData = [...childrenData];
@@ -138,32 +142,33 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
     }
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: Gap.large),
+      padding: EdgeInsets.only(bottom: singleObject ? Gap.regular : Gap.large),
       child: BlocProvider.value(
         value: entityPageBloc,
         child: Stack(
           children: [
-            Positioned(
-              left: 0,
-              top: 0,
-              bottom: 0,
-              width: 15,
-              child: ChildIndicator(
-                parentColor: indicatorParentColor,
-                childColor: indicatorChildColor,
-                position: position,
-                middleBottomFixer: Gap.large,
+            if (multiObject)
+              Positioned(
+                left: 0,
+                top: 0,
+                bottom: 0,
+                width: 15,
+                child: ChildIndicator(
+                  parentColor: indicatorParentColor,
+                  childColor: indicatorChildColor,
+                  position: position,
+                  middleBottomFixer: Gap.large,
+                ),
               ),
-            ),
             Padding(
-              padding: const EdgeInsets.only(left: 15),
+              padding: EdgeInsets.only(left: singleObject ? 0 : 15),
               child: StructuredFieldChild(
                 item: item,
                 creationMode: creationMode,
                 deepLevel: deepLevel + 1,
                 initialChildrenData: item,
                 editMode: isEditMode,
-                // onChildChange: (List<StructuredFieldItem> items) => _onChildChange(index, items),
+                singleObject: singleObject,
                 onMoveUp: index == 0 ? null : () => switchItems(index, index - 1),
                 onMoveDown: isLast ? null : () => switchItems(index, index + 1),
                 onDelete: () async => deleteItem(index),
@@ -184,6 +189,11 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
         final StructuredFieldItem structuredItem = StructuredFieldItem.fromValues(value, field.structure);
         childrenData.add(structuredItem);
       }
+    } else if (values is Map) {
+      final StructuredFieldItem structuredItem = StructuredFieldItem.fromValues(values, field.structure);
+      childrenData.add(structuredItem);
+    } else if (values == null && singleObject) {
+      unawaited(addItem());
     }
     safeSetState(() => isPreloading = false);
   }
@@ -211,9 +221,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
       decoration: BoxDecoration(
         color: contentColor == null ? theme.inputDecorationTheme.fillColor : contentColor.o075,
         borderRadius: context.kitBorders.inputRadius,
-        border: Border.all(
-          color: borderColor,
-        ),
+        border: Border.all(color: borderColor),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -230,24 +238,24 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
                   ),
                 Text(helper, style: theme.textTheme.titleMedium),
                 const Spacer(),
-                // TODO(alphamikle): FIX LOGIC OR FULLY REWRITE STRUCTURED FIELDS
-                Padding(
-                  padding: const EdgeInsets.only(right: Gap.regular),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.only(right: Gap.small),
-                        child: Text('Edit'),
-                      ),
-                      Switch(
-                        onChanged: (_) => toggleEditMode(),
-                        value: isEditMode,
-                      ),
-                    ],
+                if (multiObject)
+                  Padding(
+                    padding: const EdgeInsets.only(right: Gap.regular),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(right: Gap.small),
+                          child: Text('Edit'),
+                        ),
+                        Switch(
+                          onChanged: (_) => toggleEditMode(),
+                          value: isEditMode,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                KitButton(text: 'Add item', onPressed: addItem),
+                if (multiObject) KitButton(text: 'Add item', onPressed: addItem),
               ],
             ),
           ),
@@ -257,7 +265,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
               children: [
                 SizedBox(
                   height: Gap.large,
-                  child: childrenData.isEmpty
+                  child: childrenData.isEmpty || singleObject
                       ? const SizedBox.shrink()
                       : ChildIndicator(
                           parentColor: indicatorParentColor,
@@ -271,7 +279,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
           childrenData.isEmpty
               ? const SizedBox.shrink()
               : Padding(
-                  padding: const EdgeInsets.only(left: Gap.large, right: Gap.regular),
+                  padding: EdgeInsets.only(left: singleObject ? Gap.regular : Gap.large, right: Gap.regular),
                   key: childrenKey,
                   child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),

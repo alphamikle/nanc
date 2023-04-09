@@ -7,14 +7,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
-import '../../../type/field_types.dart';
-import '../field/field.dart';
-import '../field/field_description.dart';
-import '../field/field_props.dart';
-import '../id_field/id_field.dart';
-import '../selector_field/title_fields.dart';
-import '../string_field/string_field.dart';
-import 'third_table.dart';
+import '../../../../../fields.dart';
 
 part 'multi_selector_field.g.dart';
 
@@ -79,15 +72,30 @@ class MultiSelectorField extends Field {
           fieldToModelId,
         ],
         [
-          // TODO(alphamikle): Structure field
-          StringField(id: fieldModelProperty, name: 'Model'),
-          StringField(id: fieldTitleFieldProperty, name: 'Name of the field with a title from the child object'),
+          fieldToModelModel,
+        ],
+        [
+          StructuredField(
+            id: fieldTitleFieldsProperty,
+            name: 'Related model fields',
+            structure: [
+              EnumField(
+                id: fieldTypeProperty,
+                name: 'Type',
+                isRequired: true,
+                values: [
+                  EnumValue(title: 'Field', value: TitleFieldType.externalField.name),
+                  EnumValue(title: 'Divider', value: TitleFieldType.fieldsDivider.name),
+                  EnumValue(title: 'Decorator', value: TitleFieldType.fieldsDecorator.name),
+                ],
+              ),
+              StringField(id: fieldValueProperty, name: 'Value', isRequired: true),
+            ],
+          ),
         ],
         [
           // TODO(alphamikle): Structure field
           StringField(id: fieldThirdTableProperty, name: 'Third table'),
-          // TODO(alphamikle): Enum field
-          StringField(id: fieldStructureProperty, name: 'Type of structure'),
         ],
         [
           fieldToModelSort,
