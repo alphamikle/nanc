@@ -12,19 +12,33 @@ part 'collection_state.g.dart';
 class CollectionState extends Equatable {
   const CollectionState({
     required this.dataRows,
+    required this.modelId,
     required this.currentPage,
     required this.totalPages,
     required this.isLoading,
+    required this.isGlobalSearchLoading,
+    required this.notFoundAnything,
   });
 
-  factory CollectionState.empty() => const CollectionState(dataRows: [], currentPage: 0, totalPages: 0, isLoading: false);
+  factory CollectionState.empty() => const CollectionState(
+        dataRows: [],
+        modelId: '',
+        currentPage: 0,
+        totalPages: 0,
+        isLoading: false,
+        isGlobalSearchLoading: false,
+        notFoundAnything: false,
+      );
 
   factory CollectionState.fromJson(dynamic json) => _$CollectionStateFromJson(castToJson(json));
 
   final List<Json> dataRows;
+  final String modelId;
   final int currentPage;
   final int totalPages;
   final bool isLoading;
+  final bool isGlobalSearchLoading;
+  final bool notFoundAnything;
 
   @override
   List<Object?> get props => _$props;

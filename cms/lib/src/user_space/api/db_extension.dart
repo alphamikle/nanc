@@ -1,6 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import '../../service/tools/assets_loader.dart';
+
+const bool useAssetsMocks = bool.fromEnvironment('USE_ASSETS_MOCKS');
 
 abstract class MockApi {
   @protected
@@ -9,6 +16,17 @@ abstract class MockApi {
   @protected
   Future<List<Json>> fetchFullList(Model entity) async {
     late List<Json> data;
+    try {
+      if (useAssetsMocks) {
+        final String rawMockContent = await rootBundle.loadString(prepareAssetPath('assets/${entity.id}.json'));
+        final List<dynamic> parsedMockContent = jsonDecode(rawMockContent);
+        final List<Json> preparedMockContent = parsedMockContent.map(castToJson).toList();
+        await saveFullList(entity, preparedMockContent);
+        return preparedMockContent;
+      }
+    } catch (error) {
+      logg('Not found assets for the model: ${entity.id}');
+    }
     if (await dbService.has(entity.id)) {
       final dynamic response = await dbService.get(entity.id);
       if (response is List) {

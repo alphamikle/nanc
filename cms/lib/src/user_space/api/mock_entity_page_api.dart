@@ -16,18 +16,18 @@ class MockEntityPageApi extends MockApi implements PageApi {
   final DbService dbService;
 
   @override
-  Future<Json> fetchPageData(Model entity, String id, List<String> subset) async {
+  Future<Json> fetchPageData(Model model, String id, List<String> subset) async {
     try {
       await networkDelay();
-      final List<Json> data = await fetchFullList(entity);
-      final Json targetEntity = data.firstWhere((Json dataRow) => dataRow[entity.idField.id] == id);
+      final List<Json> data = await fetchFullList(model);
+      final Json targetPage = data.firstWhere((Json dataRow) => dataRow[model.idField.id].toString() == id);
       final Json response = <String, dynamic>{};
       for (final String field in subset) {
-        response[field] = targetEntity[field];
+        response[field] = targetPage[field];
       }
       return response;
     } catch (error) {
-      throw Exception('Not found page with id "$id" of model "$entity"');
+      throw Exception('Not found page with id "$id" of model "${model.name}"');
     }
   }
 

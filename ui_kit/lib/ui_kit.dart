@@ -39,6 +39,7 @@ export 'src/components/kit_inputs/kit_segmented_field/kit_segmented_field.dart';
 export 'src/components/kit_inputs/kit_segmented_field/kit_segmented_field_ui.dart';
 export 'src/components/kit_inputs/kit_text_field.dart';
 export 'src/components/kit_inputs/logic/field_controller.dart';
+export 'src/components/kit_inputs/styles/search_input_style.dart';
 export 'src/components/kit_line.dart';
 export 'src/components/kit_list_tile.dart';
 export 'src/components/kit_menu_item.dart';

@@ -8,6 +8,7 @@ import 'src/user_space/entity/demo_multi_selector.dart';
 import 'src/user_space/entity/demo_multi_selector_to_user.dart';
 import 'src/user_space/entity/demo_structured.dart';
 import 'src/user_space/entity/demo_user.dart';
+import 'src/user_space/entity/mock_data.dart';
 
 Future<void> main() async {
   final DbService dbService = createDbService();
@@ -18,6 +19,7 @@ Future<void> main() async {
       demoMultiSelector,
       demoMultiSelectorToUser,
       demoStructured,
+      mockData,
     ],
     pageListApi: MockEntityListApi(
       dbService: dbService,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -48,7 +49,7 @@ class _CollectionViewState extends State<CollectionView> {
         builder: (BuildContext context, CollectionState state) {
           if (state.isLoading) {
             return const KitPreloader();
-          } else if (state.dataRows.isEmpty) {
+          } else if (state.dataRows.isEmpty && state.notFoundAnything == false) {
             return Center(
               child: KitBigButton(
                 text: 'Create first page',
@@ -62,21 +63,44 @@ class _CollectionViewState extends State<CollectionView> {
               KitViewHeader(
                 children: [
                   KitButton(
-                    text: 'Create',
                     onPressed: () => context.vRouter.to(Routes.createModelPage(modelId)),
+                    child: Row(
+                      children: const [
+                        Icon(IconPack.flu_form_new_filled),
+                        KitDivider(width: Gap.regular),
+                        Text('Create'),
+                      ],
+                    ),
+                  ),
+                  const Spacer(),
+                  SizedBox(
+                    width: 250,
+                    child: KitTextField(
+                      controller: read<CollectionBloc>().tableSearchController,
+                      decoration: searchInputDecoration(
+                        context: context,
+                        placeholder: 'Search...',
+                      ),
+                      prefixIcon: IconPack.flu_search_filled,
+                      suffix: KitCirclePreloader(
+                        isLoading: state.isGlobalSearchLoading,
+                      ),
+                    ),
                   ),
                 ],
               ),
               Expanded(
-                child: Material(
-                  type: MaterialType.transparency,
-                  child: KitTableV2(
-                    model: model,
-                    dataRows: state.dataRows,
-                    horizontalScrollController: horizontalScrollController,
-                    onRowPressed: (Json rowData) => openRow(model, rowData),
-                  ),
-                ),
+                child: state.notFoundAnything
+                    ? const KitNotFoundText(text: 'Not found')
+                    : Material(
+                        type: MaterialType.transparency,
+                        child: KitTableV2(
+                          model: model,
+                          dataRows: state.dataRows,
+                          horizontalScrollController: horizontalScrollController,
+                          onRowPressed: (Json rowData) => openRow(model, rowData),
+                        ),
+                      ),
               ),
             ],
           );
