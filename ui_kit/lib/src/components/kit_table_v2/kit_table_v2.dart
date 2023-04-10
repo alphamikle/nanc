@@ -24,6 +24,7 @@ class KitTableV2 extends StatelessWidget {
     required this.dataRows,
     required this.horizontalScrollController,
     this.columnSizes,
+    this.restorationId,
     this.rowBuilder,
     this.cellBuilder,
     this.headerCellBuilder,
@@ -38,6 +39,7 @@ class KitTableV2 extends StatelessWidget {
   final List<Json> dataRows;
   final ScrollController horizontalScrollController;
   final List<double?>? columnSizes;
+  final String? restorationId;
 
   final KitTableRowBuilder? rowBuilder;
   final KitTableCellBuilder? cellBuilder;
@@ -179,6 +181,7 @@ class KitTableV2 extends StatelessWidget {
         final List<double> resultColumnSizes = _calculateResultColumnSizes(totalWidth, totalColumns);
 
         return CustomScrollView(
+          restorationId: restorationId,
           slivers: [
             SliverPersistentHeader(
               floating: true,

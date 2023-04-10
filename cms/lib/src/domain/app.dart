@@ -135,28 +135,31 @@ class _AppState extends State<App> {
       initialData: false,
       builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
         if (snapshot.data ?? false) {
-          return MultiRepositoryProvider(
-            providers: initializer.repositoryProviders,
-            child: MultiBlocProvider(
-              providers: initializer.blocProviders,
-              child: Builder(
-                builder: (BuildContext context) {
-                  return VRouter(
-                    debugShowCheckedModeBanner: false,
-                    navigatorKey: rootKey,
-                    routes: buildRoutes(context),
-                    onPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
-                    onSystemPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
-                    builder: AnimationDebugger.builderWrapper(adminBuilder),
-                    navigatorObservers: [
-                      BotToastNavigatorObserver(),
-                    ],
-                    theme: themeBuilder(context),
-                    darkTheme: themeBuilder(context, dark: true),
-                    themeMode: ThemeMode.light,
-                    buildTransition: (Animation<double> animation, Animation<double> animation2, Widget child) => child,
-                  );
-                },
+          return RestorationScope(
+            restorationId: 'root',
+            child: MultiRepositoryProvider(
+              providers: initializer.repositoryProviders,
+              child: MultiBlocProvider(
+                providers: initializer.blocProviders,
+                child: Builder(
+                  builder: (BuildContext context) {
+                    return VRouter(
+                      debugShowCheckedModeBanner: false,
+                      navigatorKey: rootKey,
+                      routes: buildRoutes(context),
+                      onPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
+                      onSystemPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
+                      builder: AnimationDebugger.builderWrapper(adminBuilder),
+                      navigatorObservers: [
+                        BotToastNavigatorObserver(),
+                      ],
+                      theme: themeBuilder(context),
+                      darkTheme: themeBuilder(context, dark: true),
+                      themeMode: ThemeMode.light,
+                      buildTransition: (Animation<double> animation, Animation<double> animation2, Widget child) => child,
+                    );
+                  },
+                ),
               ),
             ),
           );
