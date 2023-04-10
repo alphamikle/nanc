@@ -1,5 +1,6 @@
 import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:fields/fields.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
@@ -23,6 +24,7 @@ class ManualState extends EditorState {
     required this.activeElement,
     required this.activeTagRenderer,
     required super.isSyncedWithFile,
+    required super.contentType,
   });
 
   factory ManualState.fromJson(dynamic json) => _$ManualStateFromJson(castToJson(json));
@@ -33,6 +35,7 @@ class ManualState extends EditorState {
         activeElement: MenuElement.empty(),
         activeTagRenderer: TagRenderer.empty(),
         isSyncedWithFile: false,
+        contentType: ScreenContentType.scrollable,
       );
 
   final MenuElement activeElement;

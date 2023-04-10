@@ -6,14 +6,11 @@ part 'screen_content_model.g.dart';
 
 enum ScreenContentType {
   scrollable,
-  freeform,
+  stack;
+
+  bool get isScrollable => this == ScreenContentType.scrollable;
+  bool get isStack => this == ScreenContentType.stack;
 }
-
-const String _fieldType = 'screenContent';
-
-String _fieldTypeToJson(dynamic _) => _fieldType;
-
-String _fieldTypeFromJson(dynamic _) => _fieldType;
 
 @CopyWith()
 @JsonSerializable()
@@ -21,16 +18,12 @@ class ScreenContentModel {
   const ScreenContentModel({
     required this.content,
     required this.contentType,
-    this.fieldType = _fieldType,
   });
 
   factory ScreenContentModel.fromJson(dynamic json) => _$ScreenContentModelFromJson(castToJson(json));
 
   final String content;
   final ScreenContentType contentType;
-
-  @JsonKey(toJson: _fieldTypeToJson, fromJson: _fieldTypeFromJson)
-  final String fieldType;
 
   Json toJson() => _$ScreenContentModelToJson(this);
 }

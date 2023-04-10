@@ -24,7 +24,19 @@ class PagePreview extends StatelessWidget {
         builder: (BuildContext context, BaseEntityPageState pageState) {
           return BlocBuilder<PreviewBloc, PreviewState>(
             builder: (BuildContext context, PreviewState previewState) {
-              return XmlWidgetsSliverList(
+              final bool isScrollable = previewState.contentType.isScrollable;
+              if (isScrollable) {
+                return XmlWidgetsSliverList(
+                  scrollController: context.read<PreviewBloc>().scrollController,
+                  markdownContent: previewState.markdownContent,
+                  pageData: pageState.data,
+                  renderers: dataRepository.renderers,
+                  imageLoadingBuilder: dataRepository.imageLoadingBuilder,
+                  imageErrorBuilder: dataRepository.imageErrorBuilder,
+                  imageFrameBuilder: dataRepository.imageFrameBuilder,
+                );
+              }
+              return XmlWidgetsStack(
                 scrollController: context.read<PreviewBloc>().scrollController,
                 markdownContent: previewState.markdownContent,
                 pageData: pageState.data,

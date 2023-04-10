@@ -6,11 +6,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
-import '../../../type/field_types.dart';
-import '../bool_field/bool_field.dart';
-import '../field/field.dart';
-import '../field/field_description.dart';
-import '../field/field_props.dart';
+import '../../../../../fields.dart';
 
 part 'screen_field.g.dart';
 
@@ -20,21 +16,21 @@ part 'screen_field.g.dart';
 class ScreenField extends Field {
   ScreenField({
     required super.name,
+    required this.screenContentType,
     String? id,
     super.showInList,
     super.isRequired,
     super.sort,
     super.width,
     super.validator,
-    this.isScrollable = true,
     super.type = FieldType.screenField,
   }) : super(id: id ?? toSnakeCase(name));
 
-  factory ScreenField.empty() => ScreenField(id: '', name: '');
+  factory ScreenField.empty() => ScreenField(id: '', name: '', screenContentType: ScreenContentType.scrollable);
 
   factory ScreenField.fromJson(dynamic json) => _$ScreenFieldFromJson(castToJson(json));
 
-  final bool isScrollable;
+  final ScreenContentType screenContentType;
 
   @override
   FieldDescription description([BuildContext? context]) {
@@ -62,11 +58,19 @@ class ScreenField extends Field {
         [
           fieldToModelSort,
           fieldToModelWidth,
-        ],
-        [
           fieldToModelShowInList,
           fieldToModelIsRequired,
-          BoolField(id: fieldIsScrollableProperty, name: 'Will this screen be a simple scrollable view?', defaultValue: true),
+        ],
+        [
+          EnumField(
+            id: 'screenContentType',
+            name: 'Screen Type',
+            isRequired: true,
+            values: [
+              EnumValue(title: 'Scrollable', value: ScreenContentType.scrollable.name),
+              EnumValue(title: 'Stack', value: ScreenContentType.stack.name),
+            ],
+          ),
         ],
       ],
     );

@@ -11,8 +11,6 @@ abstract class _$ScreenContentModelCWProxy {
 
   ScreenContentModel contentType(ScreenContentType contentType);
 
-  ScreenContentModel fieldType(String fieldType);
-
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ScreenContentModel(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -22,7 +20,6 @@ abstract class _$ScreenContentModelCWProxy {
   ScreenContentModel call({
     String? content,
     ScreenContentType? contentType,
-    String? fieldType,
   });
 }
 
@@ -40,9 +37,6 @@ class _$ScreenContentModelCWProxyImpl implements _$ScreenContentModelCWProxy {
       this(contentType: contentType);
 
   @override
-  ScreenContentModel fieldType(String fieldType) => this(fieldType: fieldType);
-
-  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ScreenContentModel(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -53,7 +47,6 @@ class _$ScreenContentModelCWProxyImpl implements _$ScreenContentModelCWProxy {
   ScreenContentModel call({
     Object? content = const $CopyWithPlaceholder(),
     Object? contentType = const $CopyWithPlaceholder(),
-    Object? fieldType = const $CopyWithPlaceholder(),
   }) {
     return ScreenContentModel(
       content: content == const $CopyWithPlaceholder() || content == null
@@ -65,10 +58,6 @@ class _$ScreenContentModelCWProxyImpl implements _$ScreenContentModelCWProxy {
               ? _value.contentType
               // ignore: cast_nullable_to_non_nullable
               : contentType as ScreenContentType,
-      fieldType: fieldType == const $CopyWithPlaceholder() || fieldType == null
-          ? _value.fieldType
-          // ignore: cast_nullable_to_non_nullable
-          : fieldType as String,
     );
   }
 }
@@ -88,19 +77,15 @@ ScreenContentModel _$ScreenContentModelFromJson(Map<String, dynamic> json) =>
     ScreenContentModel(
       content: json['content'] as String,
       contentType: $enumDecode(_$ScreenContentTypeEnumMap, json['contentType']),
-      fieldType: json['fieldType'] == null
-          ? _fieldType
-          : _fieldTypeFromJson(json['fieldType']),
     );
 
 Map<String, dynamic> _$ScreenContentModelToJson(ScreenContentModel instance) =>
     <String, dynamic>{
       'content': instance.content,
       'contentType': _$ScreenContentTypeEnumMap[instance.contentType]!,
-      'fieldType': _fieldTypeToJson(instance.fieldType),
     };
 
 const _$ScreenContentTypeEnumMap = {
   ScreenContentType.scrollable: 'scrollable',
-  ScreenContentType.freeform: 'freeform',
+  ScreenContentType.stack: 'stack',
 };

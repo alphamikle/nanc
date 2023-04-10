@@ -30,7 +30,12 @@ class EditorBloc extends Cubit<EditorState> {
   StreamSubscription<String?>? fileContentSubscription;
   StreamSubscription<bool>? syncerActiveStatusSubscription;
 
-  void initFromModel(ScreenContentModel model) => controller.text = model.content;
+  void initFromModel(ScreenContentModel model) {
+    controller.text = model.content;
+    emit(state.copyWith(
+      contentType: model.contentType,
+    ));
+  }
 
   Future<void> syncWithFile() async {
     if (this.fileSyncer != null) {

@@ -35,7 +35,12 @@ class XmlWidgetGenerator {
 
   List<Widget> generate() {
     final List<Widget> widgets = [];
-    final XmlNode node = parseXmlSync(data);
+    late final XmlNode node;
+    try {
+      node = parseXmlSync(data);
+    } catch (error) {
+      return [];
+    }
     final XmlElement rootElement = node.children.firstWhere((XmlNode it) => it is XmlElement && it.localName == kRootNode) as XmlElement;
     final List<XmlNode> widgetTags = rootElement.children.toList();
     final List<md.Node> nodes = widgetTags.toMarkdownNodes();

@@ -57,7 +57,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
       fieldId,
       ScreenContentModel(
         content: state.markdownContent,
-        contentType: field.isScrollable ? ScreenContentType.scrollable : ScreenContentType.freeform,
+        contentType: field.screenContentType,
       ).toJson(),
     );
   }

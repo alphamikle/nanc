@@ -9,7 +9,8 @@ part of 'editor_state.dart';
 extension _$EditorStateAutoequal on EditorState {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [isLoading, markdownContent, isSyncedWithFile];
+  List<Object?> get _$props =>
+      [isLoading, markdownContent, contentType, isSyncedWithFile];
 }
 
 // **************************************************************************
@@ -20,6 +21,8 @@ abstract class _$EditorStateCWProxy {
   EditorState isLoading(bool isLoading);
 
   EditorState markdownContent(String markdownContent);
+
+  EditorState contentType(ScreenContentType contentType);
 
   EditorState isSyncedWithFile(bool isSyncedWithFile);
 
@@ -32,6 +35,7 @@ abstract class _$EditorStateCWProxy {
   EditorState call({
     bool? isLoading,
     String? markdownContent,
+    ScreenContentType? contentType,
     bool? isSyncedWithFile,
   });
 }
@@ -50,6 +54,10 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
       this(markdownContent: markdownContent);
 
   @override
+  EditorState contentType(ScreenContentType contentType) =>
+      this(contentType: contentType);
+
+  @override
   EditorState isSyncedWithFile(bool isSyncedWithFile) =>
       this(isSyncedWithFile: isSyncedWithFile);
 
@@ -64,6 +72,7 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
   EditorState call({
     Object? isLoading = const $CopyWithPlaceholder(),
     Object? markdownContent = const $CopyWithPlaceholder(),
+    Object? contentType = const $CopyWithPlaceholder(),
     Object? isSyncedWithFile = const $CopyWithPlaceholder(),
   }) {
     return EditorState(
@@ -76,6 +85,11 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
           ? _value.markdownContent
           // ignore: cast_nullable_to_non_nullable
           : markdownContent as String,
+      contentType:
+          contentType == const $CopyWithPlaceholder() || contentType == null
+              ? _value.contentType
+              // ignore: cast_nullable_to_non_nullable
+              : contentType as ScreenContentType,
       isSyncedWithFile: isSyncedWithFile == const $CopyWithPlaceholder() ||
               isSyncedWithFile == null
           ? _value.isSyncedWithFile
@@ -98,6 +112,7 @@ extension $EditorStateCopyWith on EditorState {
 EditorState _$EditorStateFromJson(Map<String, dynamic> json) => EditorState(
       isLoading: json['isLoading'] as bool,
       markdownContent: json['markdownContent'] as String,
+      contentType: $enumDecode(_$ScreenContentTypeEnumMap, json['contentType']),
       isSyncedWithFile: json['isSyncedWithFile'] as bool,
     );
 
@@ -105,5 +120,11 @@ Map<String, dynamic> _$EditorStateToJson(EditorState instance) =>
     <String, dynamic>{
       'isLoading': instance.isLoading,
       'markdownContent': instance.markdownContent,
+      'contentType': _$ScreenContentTypeEnumMap[instance.contentType]!,
       'isSyncedWithFile': instance.isSyncedWithFile,
     };
+
+const _$ScreenContentTypeEnumMap = {
+  ScreenContentType.scrollable: 'scrollable',
+  ScreenContentType.stack: 'stack',
+};

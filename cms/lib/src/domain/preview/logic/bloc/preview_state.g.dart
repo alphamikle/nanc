@@ -9,7 +9,7 @@ part of 'preview_state.dart';
 extension _$PreviewStateAutoequal on PreviewState {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [isLoading, markdownContent];
+  List<Object?> get _$props => [isLoading, markdownContent, contentType];
 }
 
 // **************************************************************************
@@ -21,6 +21,8 @@ abstract class _$PreviewStateCWProxy {
 
   PreviewState markdownContent(String markdownContent);
 
+  PreviewState contentType(ScreenContentType contentType);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `PreviewState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -30,6 +32,7 @@ abstract class _$PreviewStateCWProxy {
   PreviewState call({
     bool? isLoading,
     String? markdownContent,
+    ScreenContentType? contentType,
   });
 }
 
@@ -47,6 +50,10 @@ class _$PreviewStateCWProxyImpl implements _$PreviewStateCWProxy {
       this(markdownContent: markdownContent);
 
   @override
+  PreviewState contentType(ScreenContentType contentType) =>
+      this(contentType: contentType);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `PreviewState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -57,6 +64,7 @@ class _$PreviewStateCWProxyImpl implements _$PreviewStateCWProxy {
   PreviewState call({
     Object? isLoading = const $CopyWithPlaceholder(),
     Object? markdownContent = const $CopyWithPlaceholder(),
+    Object? contentType = const $CopyWithPlaceholder(),
   }) {
     return PreviewState(
       isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
@@ -68,6 +76,11 @@ class _$PreviewStateCWProxyImpl implements _$PreviewStateCWProxy {
           ? _value.markdownContent
           // ignore: cast_nullable_to_non_nullable
           : markdownContent as String,
+      contentType:
+          contentType == const $CopyWithPlaceholder() || contentType == null
+              ? _value.contentType
+              // ignore: cast_nullable_to_non_nullable
+              : contentType as ScreenContentType,
     );
   }
 }
@@ -85,10 +98,17 @@ extension $PreviewStateCopyWith on PreviewState {
 PreviewState _$PreviewStateFromJson(Map<String, dynamic> json) => PreviewState(
       isLoading: json['isLoading'] as bool,
       markdownContent: json['markdownContent'] as String,
+      contentType: $enumDecode(_$ScreenContentTypeEnumMap, json['contentType']),
     );
 
 Map<String, dynamic> _$PreviewStateToJson(PreviewState instance) =>
     <String, dynamic>{
       'isLoading': instance.isLoading,
       'markdownContent': instance.markdownContent,
+      'contentType': _$ScreenContentTypeEnumMap[instance.contentType]!,
     };
+
+const _$ScreenContentTypeEnumMap = {
+  ScreenContentType.scrollable: 'scrollable',
+  ScreenContentType.stack: 'stack',
+};

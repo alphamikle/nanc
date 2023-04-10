@@ -18,7 +18,7 @@ final Model landingPageV2 = Model(
       HeaderField(name: 'View'),
     ],
     [
-      ScreenField(name: 'Main Page UI'),
+      ScreenField(name: 'Main Page UI', screenContentType: ScreenContentType.scrollable),
     ],
 
     /// ? Fonts

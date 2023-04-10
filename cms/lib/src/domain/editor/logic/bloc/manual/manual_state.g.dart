@@ -27,6 +27,8 @@ abstract class _$ManualStateCWProxy {
 
   ManualState isSyncedWithFile(bool isSyncedWithFile);
 
+  ManualState contentType(ScreenContentType contentType);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ManualState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -39,6 +41,7 @@ abstract class _$ManualStateCWProxy {
     MenuElement? activeElement,
     TagRenderer? activeTagRenderer,
     bool? isSyncedWithFile,
+    ScreenContentType? contentType,
   });
 }
 
@@ -68,6 +71,10 @@ class _$ManualStateCWProxyImpl implements _$ManualStateCWProxy {
       this(isSyncedWithFile: isSyncedWithFile);
 
   @override
+  ManualState contentType(ScreenContentType contentType) =>
+      this(contentType: contentType);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ManualState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -81,6 +88,7 @@ class _$ManualStateCWProxyImpl implements _$ManualStateCWProxy {
     Object? activeElement = const $CopyWithPlaceholder(),
     Object? activeTagRenderer = const $CopyWithPlaceholder(),
     Object? isSyncedWithFile = const $CopyWithPlaceholder(),
+    Object? contentType = const $CopyWithPlaceholder(),
   }) {
     return ManualState(
       isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
@@ -107,6 +115,11 @@ class _$ManualStateCWProxyImpl implements _$ManualStateCWProxy {
           ? _value.isSyncedWithFile
           // ignore: cast_nullable_to_non_nullable
           : isSyncedWithFile as bool,
+      contentType:
+          contentType == const $CopyWithPlaceholder() || contentType == null
+              ? _value.contentType
+              // ignore: cast_nullable_to_non_nullable
+              : contentType as ScreenContentType,
     );
   }
 }
@@ -127,13 +140,20 @@ ManualState _$ManualStateFromJson(Map<String, dynamic> json) => ManualState(
       activeElement: MenuElement.fromJson(json['activeElement']),
       activeTagRenderer: _rendererFrom(json['activeTagRenderer']),
       isSyncedWithFile: json['isSyncedWithFile'] as bool,
+      contentType: $enumDecode(_$ScreenContentTypeEnumMap, json['contentType']),
     );
 
 Map<String, dynamic> _$ManualStateToJson(ManualState instance) =>
     <String, dynamic>{
       'isLoading': instance.isLoading,
       'markdownContent': instance.markdownContent,
+      'contentType': _$ScreenContentTypeEnumMap[instance.contentType]!,
       'isSyncedWithFile': instance.isSyncedWithFile,
       'activeElement': instance.activeElement.toJson(),
       'activeTagRenderer': _rendererTo(instance.activeTagRenderer),
     };
+
+const _$ScreenContentTypeEnumMap = {
+  ScreenContentType.scrollable: 'scrollable',
+  ScreenContentType.stack: 'stack',
+};

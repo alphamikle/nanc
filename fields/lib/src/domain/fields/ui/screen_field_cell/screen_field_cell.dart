@@ -30,8 +30,7 @@ class _ScreenFieldCellState extends State<ScreenFieldCell> with FieldCellHelper<
     } else {
       model = const ScreenContentModel(content: '', contentType: ScreenContentType.scrollable);
     }
-    // TODO(alphamikle): For now ScreenField supports only scrollable type
-    context.read<EditorBloc>().initFromModel(model.copyWith(contentType: ScreenContentType.scrollable));
+    context.read<EditorBloc>().initFromModel(model);
   }
 
   Widget editorPageBuilder(BuildContext context, CloseContainerActionCallback<String> action) {

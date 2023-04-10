@@ -23,7 +23,7 @@ final Model landingPage = Model(
       HeaderField(name: 'Screen Header', content: 'Page Interface', contentIcon: 'flu_phone_regular'),
     ],
     [
-      ScreenField(name: 'Screen'),
+      ScreenField(name: 'Screen', screenContentType: ScreenContentType.scrollable),
     ],
 
     /// ? COLORS AND FONTS

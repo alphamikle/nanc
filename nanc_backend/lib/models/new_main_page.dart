@@ -15,7 +15,7 @@ final Model newMainPageModel = Model(
       HeaderField(name: 'Screen UI'),
     ],
     [
-      ScreenField(name: 'Screen'),
+      ScreenField(name: 'Screen', screenContentType: ScreenContentType.scrollable),
     ],
 
     /// ? UI PARAMS
