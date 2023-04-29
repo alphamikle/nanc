@@ -2,21 +2,15 @@ import 'dart:math';
 
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
+import '../kit_table_v3/kit_table_v3.dart';
 import '../kit_tooltip.dart';
 
 const double _kMinColumnWidth = 150;
 const double _kRowHeight = 56;
-
-typedef KitTableRowBuilder = Widget Function(BuildContext context, Json data, Widget child);
-typedef KitTableCellBuilder = Widget Function(BuildContext context, MapEntry<String, dynamic> cellData);
-typedef KitTableHeaderCellBuilder = Widget Function(BuildContext context, Field field);
-
-typedef KitTableRowPressedCallback = void Function(Json rowData);
-typedef KitTableCellPressedCallback = void Function(MapEntry<String, dynamic> cellData);
-typedef KitTableHeaderCellPressedCallback = void Function(Field field);
 
 class KitTableV2 extends StatelessWidget {
   const KitTableV2({
@@ -91,11 +85,21 @@ class KitTableV2 extends StatelessWidget {
       height: _kRowHeight,
       width: columnWidth,
       child: ListTile(
-        onTap: onHeaderCellPressed == null ? null : () => onHeaderCellPressed!(field),
+        onTap: onHeaderCellPressed == null ? () {} : () => onHeaderCellPressed!(field),
         title: headerCellBuilder == null
-            ? Text(
-                field.name,
-                style: context.theme.textTheme.titleLarge,
+            ? Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    field.name,
+                    style: context.theme.textTheme.titleLarge,
+                  ),
+                  const Spacer(),
+                  IconButton(
+                    icon: const Icon(IconPack.mdi_filter_cog),
+                    onPressed: () {},
+                  ),
+                ],
               )
             : headerCellBuilder!(context, field),
       ),
