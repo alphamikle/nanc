@@ -2,13 +2,15 @@ import 'dart:math';
 
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
+import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
 import '../kit_tooltip.dart';
+import 'size_adjuster.dart';
 
-const double _kMinColumnWidth = 150;
-const double _kRowHeight = 56;
+const double _kMinColumnWidth = 140;
+const double _kRowHeight = 48;
 
 typedef KitTableRowBuilder = Widget Function(BuildContext context, Json data, Widget child);
 typedef KitTableCellBuilder = Widget Function(BuildContext context, MapEntry<String, dynamic> cellData);
@@ -18,11 +20,10 @@ typedef KitTableRowPressedCallback = void Function(Json rowData);
 typedef KitTableCellPressedCallback = void Function(MapEntry<String, dynamic> cellData);
 typedef KitTableHeaderCellPressedCallback = void Function(Field field);
 
-class KitTableV2 extends StatelessWidget {
+class KitTableV2 extends StatefulWidget {
   const KitTableV2({
     required this.model,
     required this.dataRows,
-    required this.horizontalScrollController,
     this.columnSizes,
     this.restorationId,
     this.rowBuilder,
@@ -37,7 +38,6 @@ class KitTableV2 extends StatelessWidget {
 
   final Model model;
   final List<Json> dataRows;
-  final ScrollController horizontalScrollController;
   final List<double?>? columnSizes;
   final String? restorationId;
 
@@ -49,81 +49,74 @@ class KitTableV2 extends StatelessWidget {
   final KitTableCellPressedCallback? onCellPressed;
   final KitTableHeaderCellPressedCallback? onHeaderCellPressed;
 
-  List<double> _calculateResultColumnSizes(double totalWidth, int totalColumns) {
-    final List<double?> widths = List.generate(totalColumns, (index) => null);
-    final List<Field> listFields = model.listFields;
-    for (int i = 0; i < listFields.length; i++) {
-      final Field field = listFields[i];
-      if (columnSizes != null && field.width == null) {
-        widths[i] = columnSizes![i];
-      } else if (field.width != null && field.width! > 0) {
-        widths[i] = field.width;
-      }
-    }
-    if (widths.every((double? width) => width != null)) {
-      widths.removeLast();
-      widths.add(null);
-    }
-    double restOfTheSpace = totalWidth;
-    int defaultWidthCount = 0;
-    for (final double? width in widths) {
-      if (width != null) {
-        restOfTheSpace = restOfTheSpace - width;
-      } else {
-        defaultWidthCount++;
-      }
-    }
-    final List<double> result = [];
-    for (final double? width in widths) {
-      if (width != null) {
-        result.add(width);
-      } else {
-        result.add(max(restOfTheSpace / defaultWidthCount, _kMinColumnWidth));
-      }
-    }
-    return result;
+  @override
+  State<KitTableV2> createState() => _KitTableV2State();
+}
+
+class _KitTableV2State extends State<KitTableV2> {
+  final Map<int, double> columnSizes = {};
+  final Map<int, ScrollController> horizontalScrollControllers = {};
+  late final ScrollController headerScrollController = scrollControllersGroup.addAndGet();
+  final LinkedScrollControllerGroup scrollControllersGroup = LinkedScrollControllerGroup();
+
+  void resizeColumn(int columnIndex, double diff) {
+    safeSetState(() {
+      final double oldSize = columnSizes[columnIndex] ?? _kMinColumnWidth;
+      final double newSize = max(oldSize + diff, _kMinColumnWidth / 2);
+      columnSizes[columnIndex] = newSize;
+    });
   }
 
   Widget _headerCellBuilder(BuildContext context, int index, double columnWidth) {
-    final Field field = model.listFields[index];
+    final Field field = widget.model.listFields[index];
 
     return SizedBox(
       height: _kRowHeight,
       width: columnWidth,
-      child: ListTile(
-        onTap: onHeaderCellPressed == null ? null : () => onHeaderCellPressed!(field),
-        title: headerCellBuilder == null
-            ? Text(
-                field.name,
-                style: context.theme.textTheme.titleLarge,
-              )
-            : headerCellBuilder!(context, field),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Flexible(
+            child: ListTile(
+              onTap: widget.onHeaderCellPressed == null ? null : () => widget.onHeaderCellPressed!(field),
+              title: widget.headerCellBuilder == null
+                  ? Text(
+                      field.name,
+                      style: context.theme.textTheme.titleMedium,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    )
+                  : widget.headerCellBuilder!(context, field),
+            ),
+          ),
+          SizeAdjuster(
+            resizingCallback: (double diff) => resizeColumn(index, diff),
+          ),
+        ],
       ),
     );
   }
 
   Widget _cellBuilder(BuildContext context, MapEntry<String, dynamic> cellData, double columnWidth) {
-    final Widget child = Align(
+    Widget child = Align(
       alignment: Alignment.centerLeft,
-      child: cellBuilder == null
+      child: widget.cellBuilder == null
           ? KitTooltip(
               text: cellData.value.toString(),
               child: Text(
                 cellData.value.toString(),
+                style: context.theme.textTheme.bodyMedium?.copyWith(height: 1),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
             )
-          : cellBuilder!(context, cellData),
+          : widget.cellBuilder!(context, cellData),
     );
 
-    if (onCellPressed != null) {
-      return SizedBox(
-        width: columnWidth,
-        child: ListTile(
-          onTap: () => onCellPressed!(cellData),
-          title: child,
-        ),
+    if (widget.onCellPressed != null) {
+      child = ListTile(
+        onTap: () => widget.onCellPressed!(cellData),
+        title: child,
       );
     }
     return SizedBox(
@@ -132,83 +125,94 @@ class KitTableV2 extends StatelessWidget {
     );
   }
 
-  Widget _rowBuilder(BuildContext context, Json rowData, List<double> columnWidth) {
-    final List<Field> listFields = model.listFields;
+  Widget _rowBuilder(BuildContext context, int index) {
+    final Json rowData = widget.dataRows[index];
+    final List<Field> listFields = widget.model.listFields;
     final List<MapEntry<String, dynamic>> entries = [];
     for (final Field field in listFields) {
       entries.add(MapEntry<String, dynamic>(field.id, rowData[field.id]));
     }
 
+    final int scrollIndex = index % 100;
+    if (horizontalScrollControllers.containsKey(scrollIndex) == false) {
+      horizontalScrollControllers[scrollIndex] = scrollControllersGroup.addAndGet();
+    }
+    final ScrollController scrollController = horizontalScrollControllers[scrollIndex]!;
+
     Widget child = ListView.builder(
-      itemBuilder: (BuildContext context, int index) => _cellBuilder(context, entries[index], columnWidth[index]),
+      itemBuilder: (BuildContext context, int index) => _cellBuilder(context, entries[index], columnSizes[index] ?? _kMinColumnWidth),
       itemCount: listFields.length,
-      controller: horizontalScrollController,
-      physics: const NeverScrollableScrollPhysics(),
+      controller: scrollController,
       scrollDirection: Axis.horizontal,
       padding: EdgeInsets.zero,
     );
 
-    child = rowBuilder == null ? child : rowBuilder!(context, rowData, child);
+    child = widget.rowBuilder == null ? child : widget.rowBuilder!(context, rowData, child);
 
-    if (onRowPressed != null) {
-      return ListTile(
+    if (widget.onRowPressed != null) {
+      child = ListTile(
         minVerticalPadding: 0,
-        contentPadding: rowBuilder == null ? null : EdgeInsets.zero,
-        onTap: () => onRowPressed!(rowData),
+        contentPadding: widget.rowBuilder == null ? null : EdgeInsets.zero,
+        onTap: () => widget.onRowPressed!(rowData),
         title: child,
       );
     }
-    return child;
-  }
-
-  Widget _effectiveRowBuilder(BuildContext context, int index, List<double> columnWidths) {
-    final Json rowData = dataRows[index];
-
     return SizedBox(
       height: _kRowHeight,
-      child: _rowBuilder(context, rowData, columnWidths),
+      child: child,
     );
+  }
+
+  void initColumnSizes() {
+    int index = 0;
+    if (widget.columnSizes?.isNotEmpty ?? false) {
+      for (final double? size in widget.columnSizes!) {
+        columnSizes[index] = size ?? _kMinColumnWidth;
+        index++;
+      }
+    } else {
+      for (final Field field in widget.model.listFields) {
+        columnSizes[index] = field.width ?? _kMinColumnWidth;
+        index++;
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initColumnSizes();
   }
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        final double totalWidth = constraints.maxWidth;
-        final int totalColumns = model.listFields.length;
-        assert(columnSizes == null || columnSizes!.length == totalColumns,
-            'Length of columnSizes (${columnSizes?.length}) should be the same, as length of listFields ($totalColumns) of model');
-        final List<double> resultColumnSizes = _calculateResultColumnSizes(totalWidth, totalColumns);
-
-        return CustomScrollView(
-          restorationId: restorationId,
-          slivers: [
-            SliverPersistentHeader(
-              floating: true,
-              delegate: _TableHeaderDelegate(
-                child: Material(
-                  child: ListView.builder(
-                    itemBuilder: (BuildContext context, int index) => _headerCellBuilder(
-                      context,
-                      index,
-                      resultColumnSizes[index],
-                    ),
-                    controller: horizontalScrollController,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: totalColumns,
-                  ),
+    return CustomScrollView(
+      restorationId: widget.restorationId,
+      slivers: [
+        SliverPersistentHeader(
+          floating: true,
+          delegate: _TableHeaderDelegate(
+            child: Material(
+              child: ListView.builder(
+                itemBuilder: (BuildContext context, int index) => _headerCellBuilder(
+                  context,
+                  index,
+                  columnSizes[index] ?? _kMinColumnWidth,
                 ),
+                controller: headerScrollController,
+                scrollDirection: Axis.horizontal,
+                itemCount: widget.model.listFields.length,
               ),
             ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) => _effectiveRowBuilder(context, index, resultColumnSizes),
-                childCount: dataRows.length,
-              ),
-            ),
-          ],
-        );
-      },
+          ),
+        ),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int index) => _rowBuilder(context, index),
+            childCount: widget.dataRows.length,
+          ),
+        ),
+      ],
     );
   }
 }

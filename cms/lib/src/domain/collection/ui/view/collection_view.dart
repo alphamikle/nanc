@@ -22,8 +22,6 @@ class CollectionView extends StatefulWidget {
 }
 
 class _CollectionViewState extends State<CollectionView> {
-  final ScrollController horizontalScrollController = ScrollController();
-
   void openRow(Model model, Json rowData) => context.vRouter.to(
         Routes.pageOfCollectionModel(
           Uri.encodeComponent(model.id),
@@ -97,7 +95,6 @@ class _CollectionViewState extends State<CollectionView> {
                         child: KitTableV2(
                           model: model,
                           dataRows: state.dataRows,
-                          horizontalScrollController: horizontalScrollController,
                           onRowPressed: (Json rowData) => openRow(model, rowData),
                         ),
                       ),

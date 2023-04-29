@@ -34,6 +34,7 @@ dependencies:
   shimmer: ^2.0.0
   flutter_highlight: ^0.7.0
   highlight: ^0.7.0
+  linked_scroll_controller: ^0.2.0
 
 dev_dependencies:
   flutter_test:

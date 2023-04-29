@@ -28,7 +28,6 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
   MultiSelectorField get field => widget.field;
   Timer? searchDebounce;
   final TextEditingController searchController = TextEditingController();
-  final ScrollController tableScrollController = ScrollController();
   final Set<String> selectedIds = {};
   final List<Json> foundRows = [];
   bool isLoading = false;
@@ -188,7 +187,6 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
                         : KitTableV2(
                             model: shortChildEntity,
                             dataRows: foundRows,
-                            horizontalScrollController: tableScrollController,
                             columnSizes: shortChildEntity.flattenFields.map((Field field) => field.width).toList(),
                             onRowPressed: (Json rowData) => toggleRow(rowData),
                             rowBuilder: rowBuilder,
