@@ -52,7 +52,7 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
         final List<QueryParameterValue> values =
             splitComplexTitle(query: searchController.text, titleFields: field.titleFields).map((String it) => QueryStringValue(it)).toList();
 
-        final List<Json> data = await provider.fetchPageList(
+        final PageListResponseDto result = await provider.fetchPageList(
           model: field.model,
           subset: [
             field.model.idField.id,
@@ -68,7 +68,7 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
           ),
         );
         foundRows.clear();
-        foundRows.addAll(data);
+        foundRows.addAll(result.data);
         searchDebounce = null;
         safeSetState(() => isLoading = false);
       }
@@ -187,6 +187,9 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
                         : KitTableV2(
                             model: shortChildEntity,
                             dataRows: foundRows,
+                            totalPages: 0,
+                            currentPage: 0,
+                            paginationEnabled: false,
                             columnSizes: shortChildEntity.flattenFields.map((Field field) => field.width).toList(),
                             onRowPressed: (Json rowData) => toggleRow(rowData),
                             rowBuilder: rowBuilder,

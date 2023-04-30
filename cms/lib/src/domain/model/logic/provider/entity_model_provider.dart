@@ -4,6 +4,7 @@ import 'package:fields/fields.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
+import '../../../collection/logic/logic/dto/page_list_response_dto.dart';
 import '../../../collection/logic/logic/dto/params_dto.dart';
 import '../../../collection/logic/logic/provider/page_list_provider.dart';
 import '../../../page/logic/provider/entity_page_provider.dart';
@@ -18,7 +19,7 @@ class ModelProvider {
   final PageListProvider pageListProvider;
 
   Future<List<Model>> fetchModels() async {
-    final List<Json> models = await pageListProvider.fetchPageList(
+    final PageListResponseDto result = await pageListProvider.fetchPageList(
       model: modelModel,
       subset: [fieldIdProperty, kModelField],
       params: const ParamsDto(
@@ -30,6 +31,7 @@ class ModelProvider {
         ),
       ),
     );
+    final List<Json> models = result.data;
     final List<Model> response = [];
     for (int i = 0; i < models.length; i++) {
       final Json encodedModel = models[i];

@@ -1,6 +1,7 @@
 library cms;
 
 export 'src/domain/admin_runner.dart';
+export 'src/domain/collection/logic/logic/dto/page_list_response_dto.dart';
 export 'src/domain/collection/logic/logic/dto/params_dto.dart';
 export 'src/domain/collection/logic/logic/dto/query_dto.dart';
 export 'src/domain/collection/logic/logic/dto/query_parameter.dart';

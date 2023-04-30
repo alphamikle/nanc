@@ -74,7 +74,7 @@ class _CollectionViewState extends State<CollectionView> {
                   SizedBox(
                     width: 250,
                     child: KitTextField(
-                      controller: read<CollectionBloc>().tableSearchController,
+                      controller: read<CollectionBloc>().globalSearchController,
                       decoration: searchInputDecoration(
                         context: context,
                         placeholder: 'Search...',
@@ -95,6 +95,9 @@ class _CollectionViewState extends State<CollectionView> {
                         child: KitTableV2(
                           model: model,
                           dataRows: state.dataRows,
+                          currentPage: state.currentPage,
+                          totalPages: state.totalPages,
+                          onPagination: read<CollectionBloc>().paginate,
                           onRowPressed: (Json rowData) => openRow(model, rowData),
                         ),
                       ),

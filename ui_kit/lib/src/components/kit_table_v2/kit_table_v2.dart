@@ -22,11 +22,14 @@ typedef KitTableHeaderCellBuilder = Widget Function(BuildContext context, Field 
 typedef KitTableRowPressedCallback = void Function(Json rowData);
 typedef KitTableCellPressedCallback = void Function(MapEntry<String, dynamic> cellData);
 typedef KitTableHeaderCellPressedCallback = void Function(Field field);
+typedef OnPagination = void Function(int pageNumber);
 
 class KitTableV2 extends StatefulWidget {
   const KitTableV2({
     required this.model,
     required this.dataRows,
+    required this.currentPage,
+    required this.totalPages,
     this.columnSizes,
     this.restorationId,
     this.rowBuilder,
@@ -35,6 +38,8 @@ class KitTableV2 extends StatefulWidget {
     this.onRowPressed,
     this.onCellPressed,
     this.onHeaderCellPressed,
+    this.onPagination,
+    this.paginationEnabled = true,
     super.key,
   })  : assert(onRowPressed != null || onCellPressed != null),
         assert(onRowPressed == null || onCellPressed == null);
@@ -43,6 +48,9 @@ class KitTableV2 extends StatefulWidget {
   final List<Json> dataRows;
   final List<double?>? columnSizes;
   final String? restorationId;
+  final int currentPage;
+  final int totalPages;
+  final bool paginationEnabled;
 
   final KitTableRowBuilder? rowBuilder;
   final KitTableCellBuilder? cellBuilder;
@@ -51,6 +59,7 @@ class KitTableV2 extends StatefulWidget {
   final KitTableRowPressedCallback? onRowPressed;
   final KitTableCellPressedCallback? onCellPressed;
   final KitTableHeaderCellPressedCallback? onHeaderCellPressed;
+  final OnPagination? onPagination;
 
   @override
   State<KitTableV2> createState() => _KitTableV2State();
@@ -63,13 +72,12 @@ class _KitTableV2State extends State<KitTableV2> {
   final LinkedScrollControllerGroup scrollControllersGroup = LinkedScrollControllerGroup();
   final ScrollController tableScrollController = ScrollController();
   final StreamController<double> paginatorPositionStreamController = StreamController();
+  bool get paginationEnabled => widget.paginationEnabled && currentPage > 0 && totalPages > 0;
+
   double prevDiff = 0;
   double prevOffset = Gap.large;
-
-  /// ? TEMP
-  int currentPage = 1;
-  int totalPages = 12;
-  int perPage = 20;
+  late int currentPage = widget.currentPage;
+  late int totalPages = widget.totalPages;
 
   void resizeColumn(int columnIndex, double diff) {
     safeSetState(() {
@@ -175,15 +183,18 @@ class _KitTableV2State extends State<KitTableV2> {
     );
   }
 
-  void goToPageWithNumber(int pageNumber) {
-    safeSetState(() {
-      currentPage = pageNumber;
-      if (currentPage < 1) {
-        currentPage = 1;
-      } else if (currentPage > totalPages) {
-        currentPage = totalPages;
-      }
-    });
+  void paginationHandler(int pageNumber) {
+    if (widget.onPagination != null) {
+      safeSetState(() {
+        currentPage = pageNumber;
+        if (currentPage < 1) {
+          currentPage = 1;
+        } else if (currentPage > totalPages) {
+          currentPage = totalPages;
+        }
+      });
+      widget.onPagination!(currentPage);
+    }
   }
 
   void initColumnSizes() {
@@ -217,11 +228,25 @@ class _KitTableV2State extends State<KitTableV2> {
   }
 
   void initPaginator() {
-    tableScrollController.addListener(adjustPaginatorPosition);
+    if (paginationEnabled) {
+      tableScrollController.addListener(adjustPaginatorPosition);
+    }
+  }
+
+  @override
+  void didUpdateWidget(KitTableV2 oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget != widget) {
+      currentPage = widget.currentPage;
+      totalPages = widget.totalPages;
+    }
   }
 
   @override
   void dispose() {
+    if (paginationEnabled) {
+      tableScrollController.removeListener(adjustPaginatorPosition);
+    }
     tableScrollController.dispose();
     unawaited(paginatorPositionStreamController.close());
     super.dispose();
@@ -269,23 +294,23 @@ class _KitTableV2State extends State<KitTableV2> {
             ],
           ),
         ),
-        StreamBuilder<double>(
-          stream: paginatorPositionStreamController.stream,
-          builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
-            return Positioned(
-              right: Gap.large,
-              bottom: snapshot.data ?? Gap.large,
-              child: StatefulBuilder(
-                builder: (BuildContext context, StateSetter setState) => TablePaginator(
+        if (paginationEnabled)
+          StreamBuilder<double>(
+            stream: paginatorPositionStreamController.stream,
+            builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
+              return Positioned(
+                right: Gap.large,
+                bottom: snapshot.data ?? Gap.large,
+                child: TablePaginator(
                   currentPage: currentPage,
-                  perPage: perPage,
+                  // TODO(alphamikle): Set this from the user settings
+                  perPage: 50,
                   totalPages: totalPages,
-                  onPageNumberPressed: goToPageWithNumber,
+                  onPagination: paginationHandler,
                 ),
-              ),
-            );
-          },
-        ),
+              );
+            },
+          ),
       ],
     );
   }

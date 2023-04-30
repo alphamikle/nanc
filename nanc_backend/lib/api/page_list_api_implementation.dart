@@ -14,16 +14,19 @@ class PageListApiImplementation extends MockApi implements PageListApi {
   DbService dbService;
 
   @override
-  Future<List<Json>> fetchPageList(Model entity, List<String> subset, QueryDto query, ParamsDto params) async {
+  Future<PageListResponseDto> fetchPageList(Model entity, List<String> subset, QueryDto query, ParamsDto params) async {
     await networkDelay();
-    final List<Json> content = await fetchFullList(entity);
-    return content.map((Json dataRow) {
+    final List<Json> rawData = await fetchFullList(entity);
+
+    final List<Json> requiredData = rawData.map((Json dataRow) {
       final Json fragment = <String, dynamic>{};
       for (final String field in subset) {
         fragment[field] = dataRow[field];
       }
       return fragment;
-    }).where((Json dataRow) {
+    }).toList();
+
+    final List<Json> filteredData = requiredData.where((Json dataRow) {
       if (query.multipleValues.isEmpty && query.singleValues.isEmpty) {
         return true;
       }
@@ -50,5 +53,19 @@ class PageListApiImplementation extends MockApi implements PageListApi {
       }
       return false;
     }).toList();
+
+    int page = params.page;
+    if (page > (filteredData.length / params.limit).round()) {
+      page = (filteredData.length / params.limit).round();
+    } else if (page < 1) {
+      page = 1;
+    }
+    final List<Json> chunk = filteredData.sublist((page - 1) * params.limit, (page * params.limit));
+    final int totalPages = (filteredData.length / params.limit).round();
+    return PageListResponseDto(
+      page: page,
+      totalPages: totalPages,
+      data: chunk,
+    );
   }
 }

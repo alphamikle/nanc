@@ -101,7 +101,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
       }
     }
 
-    final List<Json> thirdTableData = await context.read<PageListProviderInterface>().fetchPageList(
+    final PageListResponseDto thirdTableData = await context.read<PageListProviderInterface>().fetchPageList(
           model: thirdTable.relationsEntity,
           subset: [
             thirdTable.relationsEntity.idField.id,
@@ -117,7 +117,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
             ],
           ),
         );
-    return thirdTableData.map((Json rowData) => rowData[thirdTable.childEntityIdName].toString()).toList();
+    return thirdTableData.data.map((Json rowData) => rowData[thirdTable.childEntityIdName].toString()).toList();
   }
 
   Future<void> selectFields() async {
@@ -150,7 +150,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
     if (mounted) {
       controller.text = kLoadingText;
       safeSetState(() => isPreloading = true);
-      final List<Json> childrenEntities = await context.read<PageListProviderInterface>().fetchPageList(
+      final PageListResponseDto childrenEntities = await context.read<PageListProviderInterface>().fetchPageList(
             model: model,
             subset: [
               model.idField.id,
@@ -171,7 +171,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
             ),
           );
       titleChips.clear();
-      for (final Json child in childrenEntities) {
+      for (final Json child in childrenEntities.data) {
         final String rowTitle = titleFields.toTitleSegments(child).join();
         titleChips.add(titleToChip(rowTitle));
       }
@@ -197,7 +197,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
   Future<void> updateVirtualField() async {
     final List<String> selectedIds = await getSelectedIds();
     if (mounted) {
-      final List<Json> data = await read<PageListProviderInterface>().fetchPageList(
+      final PageListResponseDto result = await read<PageListProviderInterface>().fetchPageList(
         model: model,
         subset: model.flattenFields.map((Field field) => field.id).toList(),
         query: QueryDto(
@@ -214,7 +214,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
           sort: Sort(field: model.idField.id, order: Order.asc),
         ),
       );
-      pageBloc.updateValue(virtualField, data);
+      pageBloc.updateValue(virtualField, result.data);
     }
   }
 

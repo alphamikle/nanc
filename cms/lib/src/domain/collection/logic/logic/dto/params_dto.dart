@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
 part 'params_dto.g.dart';
@@ -16,10 +17,10 @@ class ParamsDto {
     required this.sort,
   });
 
-  const ParamsDto.initial()
+  ParamsDto.initial(Model model)
       : page = 1,
         limit = 50,
-        sort = const Sort(field: 'id', order: Order.asc);
+        sort = Sort(field: model.idField.id, order: Order.asc);
 
   Json toJson() => _$ParamsDtoToJson(this);
 

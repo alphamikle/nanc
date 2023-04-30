@@ -38,7 +38,7 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
   bool isPreloading = false;
   bool isLoadingFullPageData = false;
 
-  Future<List<Json>> finder(String searchQuery) {
+  Future<List<Json>> finder(String searchQuery) async {
     final PageListProviderInterface entityListProvider = read();
     final List<QueryParameterValue> values = splitComplexTitle(query: searchQuery, titleFields: titleFields)
         .map(
@@ -46,7 +46,7 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
         )
         .toList();
 
-    return entityListProvider.fetchPageList(
+    final PageListResponseDto result = await entityListProvider.fetchPageList(
       model: model,
       subset: [
         model.idField.id,
@@ -61,6 +61,7 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
         sort: Sort(field: model.idField.id, order: Order.asc),
       ),
     );
+    return result.data;
   }
 
   Future<void> updateValue(Json json) async {
