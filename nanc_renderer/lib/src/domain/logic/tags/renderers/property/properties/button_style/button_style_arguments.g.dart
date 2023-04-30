@@ -9,10 +9,10 @@ part of 'button_style_arguments.dart';
 ButtonStyleArguments _$ButtonStyleArgumentsFromJson(
         Map<String, dynamic> json) =>
     ButtonStyleArguments(
-      iconSize: nullableDoubleFromJson(json['iconSize'] as String?),
+      iconSize: nullableDoubleFromJson(json['iconSize']),
       align: $enumDecodeNullable(_$AlignmentEnumEnumMap, json['align'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
-      elevation: nullableDoubleFromJson(json['elevation'] as String?),
+      elevation: nullableDoubleFromJson(json['elevation']),
       iconColor: nullableColorFromJson(json['iconColor'] as String?),
       shadowColor: nullableColorFromJson(json['shadowColor'] as String?),
       backgroundColor:

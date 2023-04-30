@@ -8,13 +8,13 @@ part of 'tooltip_arguments.dart';
 
 TooltipArguments _$TooltipArgumentsFromJson(Map<String, dynamic> json) =>
     TooltipArguments(
-      height: nullableDoubleFromJson(json['height'] as String?),
+      height: nullableDoubleFromJson(json['height']),
       align: $enumDecodeNullable(_$TextAlignEnumMap, json['align']),
       text: json['text'] as String?,
       below: boolFromJson(json['below']),
-      offset: nullableDoubleFromJson(json['offset'] as String?),
-      showDuration: nullableIntFromJson(json['showDuration'] as String?),
-      waitDuration: nullableIntFromJson(json['waitDuration'] as String?),
+      offset: nullableDoubleFromJson(json['offset']),
+      showDuration: nullableIntFromJson(json['showDuration']),
+      waitDuration: nullableIntFromJson(json['waitDuration']),
     );
 
 Map<String, dynamic> _$TooltipArgumentsToJson(TooltipArguments instance) =>

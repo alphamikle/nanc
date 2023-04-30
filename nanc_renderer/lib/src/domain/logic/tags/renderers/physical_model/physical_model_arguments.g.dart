@@ -12,7 +12,7 @@ PhysicalModelArguments _$PhysicalModelArgumentsFromJson(
       color: nullableColorFromJson(json['color'] as String?),
       clip: $enumDecodeNullable(_$ClipEnumMap, json['clip'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
-      elevation: nullableDoubleFromJson(json['elevation'] as String?),
+      elevation: nullableDoubleFromJson(json['elevation']),
       shadowColor: nullableColorFromJson(json['shadowColor'] as String?),
       shape: $enumDecodeNullable(_$BoxShapeEnumMap, json['shape'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),

@@ -8,9 +8,9 @@ part of 'scale_arguments.dart';
 
 ScaleArguments _$ScaleArgumentsFromJson(Map<String, dynamic> json) =>
     ScaleArguments(
-      all: nullableDoubleFromJson(json['all'] as String?),
-      scaleX: nullableDoubleFromJson(json['scaleX'] as String?),
-      scaleY: nullableDoubleFromJson(json['scaleY'] as String?),
+      all: nullableDoubleFromJson(json['all']),
+      scaleX: nullableDoubleFromJson(json['scaleX']),
+      scaleY: nullableDoubleFromJson(json['scaleY']),
     );
 
 Map<String, dynamic> _$ScaleArgumentsToJson(ScaleArguments instance) =>

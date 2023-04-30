@@ -12,8 +12,8 @@ ListViewArguments _$ListViewArgumentsFromJson(Map<String, dynamic> json) =>
           unknownValue: JsonKey.nullForUndefinedEnumValue),
       axis: $enumDecodeNullable(_$AxisEnumMap, json['axis'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
-      cacheExtent: nullableDoubleFromJson(json['cacheExtent'] as String?),
-      itemExtent: nullableDoubleFromJson(json['itemExtent'] as String?),
+      cacheExtent: nullableDoubleFromJson(json['cacheExtent']),
+      itemExtent: nullableDoubleFromJson(json['itemExtent']),
       reverse: json['reverse'] as bool? ?? false,
       shrinkWrap: json['shrinkWrap'] as bool? ?? false,
     );

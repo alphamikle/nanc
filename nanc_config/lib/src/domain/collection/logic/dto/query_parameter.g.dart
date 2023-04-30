@@ -17,7 +17,7 @@ Map<String, dynamic> _$QuerySingleParameterToJson(
         QuerySingleParameter instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'value': instance.value.toJson(),
+      'value': instance.value,
     };
 
 QueryMultipleParameter _$QueryMultipleParameterFromJson(
@@ -31,5 +31,5 @@ Map<String, dynamic> _$QueryMultipleParameterToJson(
         QueryMultipleParameter instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'values': instance.values.map((e) => e.toJson()).toList(),
+      'values': instance.values,
     };

@@ -8,12 +8,12 @@ part of 'align_arguments.dart';
 
 AlignArguments _$AlignArgumentsFromJson(Map<String, dynamic> json) =>
     AlignArguments(
-      x: nullableDoubleFromJson(json['x'] as String?),
-      y: nullableDoubleFromJson(json['y'] as String?),
+      x: nullableDoubleFromJson(json['x']),
+      y: nullableDoubleFromJson(json['y']),
       align: $enumDecodeNullable(_$AlignmentEnumEnumMap, json['align'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
-      heightFactor: nullableDoubleFromJson(json['heightFactor'] as String?),
-      widthFactor: nullableDoubleFromJson(json['widthFactor'] as String?),
+      heightFactor: nullableDoubleFromJson(json['heightFactor']),
+      widthFactor: nullableDoubleFromJson(json['widthFactor']),
     );
 
 Map<String, dynamic> _$AlignArgumentsToJson(AlignArguments instance) =>

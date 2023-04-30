@@ -8,8 +8,8 @@ part of 'alignment_arguments.dart';
 
 AlignmentArguments _$AlignmentArgumentsFromJson(Map<String, dynamic> json) =>
     AlignmentArguments(
-      x: nullableDoubleFromJson(json['x'] as String?),
-      y: nullableDoubleFromJson(json['y'] as String?),
+      x: nullableDoubleFromJson(json['x']),
+      y: nullableDoubleFromJson(json['y']),
       align: $enumDecodeNullable(_$AlignmentEnumEnumMap, json['align'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
     );

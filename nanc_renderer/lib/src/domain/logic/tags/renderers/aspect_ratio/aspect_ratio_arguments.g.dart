@@ -9,7 +9,7 @@ part of 'aspect_ratio_arguments.dart';
 AspectRatioArguments _$AspectRatioArgumentsFromJson(
         Map<String, dynamic> json) =>
     AspectRatioArguments(
-      ratio: nullableDoubleFromJson(json['ratio'] as String?),
+      ratio: nullableDoubleFromJson(json['ratio']),
     );
 
 Map<String, dynamic> _$AspectRatioArgumentsToJson(

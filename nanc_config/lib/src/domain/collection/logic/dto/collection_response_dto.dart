@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
-part 'page_list_response_dto.g.dart';
+part 'collection_response_dto.g.dart';
 
 const List<String> _possibleTotalPagesKeys = [
   'totalPages',
@@ -25,14 +25,14 @@ int _findTotalPagesKey(DJson parentObject, String defaultKey) {
 @autoequal
 @CopyWith()
 @JsonSerializable()
-class PageListResponseDto extends Equatable {
-  const PageListResponseDto({
+class CollectionResponseDto extends Equatable {
+  const CollectionResponseDto({
     required this.page,
     required this.totalPages,
     required this.data,
   });
 
-  factory PageListResponseDto.fromJson(dynamic json) => _$PageListResponseDtoFromJson(castToJson(json));
+  factory CollectionResponseDto.fromJson(dynamic json) => _$CollectionResponseDtoFromJson(castToJson(json));
 
   @JsonKey(defaultValue: 1)
   final int page;
@@ -42,7 +42,7 @@ class PageListResponseDto extends Equatable {
 
   final List<Json> data;
 
-  Json toJson() => _$PageListResponseDtoToJson(this);
+  Json toJson() => _$CollectionResponseDtoToJson(this);
 
   @override
   List<Object?> get props => _$props;

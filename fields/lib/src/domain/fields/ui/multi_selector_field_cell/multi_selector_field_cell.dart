@@ -4,6 +4,7 @@ import 'package:cms/cms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
@@ -101,7 +102,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
       }
     }
 
-    final PageListResponseDto thirdTableData = await context.read<PageListProviderInterface>().fetchPageList(
+    final CollectionResponseDto thirdTableData = await context.read<ICollectionProvider>().fetchPageList(
           model: thirdTable.relationsEntity,
           subset: [
             thirdTable.relationsEntity.idField.id,
@@ -150,7 +151,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
     if (mounted) {
       controller.text = kLoadingText;
       safeSetState(() => isPreloading = true);
-      final PageListResponseDto childrenEntities = await context.read<PageListProviderInterface>().fetchPageList(
+      final CollectionResponseDto childrenEntities = await context.read<ICollectionProvider>().fetchPageList(
             model: model,
             subset: [
               model.idField.id,
@@ -197,7 +198,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
   Future<void> updateVirtualField() async {
     final List<String> selectedIds = await getSelectedIds();
     if (mounted) {
-      final PageListResponseDto result = await read<PageListProviderInterface>().fetchPageList(
+      final CollectionResponseDto result = await read<ICollectionProvider>().fetchPageList(
         model: model,
         subset: model.flattenFields.map((Field field) => field.id).toList(),
         query: QueryDto(

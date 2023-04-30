@@ -8,9 +8,9 @@ part of 'sized_box_arguments.dart';
 
 SizedBoxArguments _$SizedBoxArgumentsFromJson(Map<String, dynamic> json) =>
     SizedBoxArguments(
-      height: nullableDoubleFromJson(json['height'] as String?),
-      width: nullableDoubleFromJson(json['width'] as String?),
-      size: nullableDoubleFromJson(json['size'] as String?),
+      height: nullableDoubleFromJson(json['height']),
+      width: nullableDoubleFromJson(json['width']),
+      size: nullableDoubleFromJson(json['size']),
     );
 
 Map<String, dynamic> _$SizedBoxArgumentsToJson(SizedBoxArguments instance) =>

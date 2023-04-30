@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cms/cms.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -39,14 +40,14 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
   bool isLoadingFullPageData = false;
 
   Future<List<Json>> finder(String searchQuery) async {
-    final PageListProviderInterface entityListProvider = read();
+    final ICollectionProvider entityListProvider = read();
     final List<QueryParameterValue> values = splitComplexTitle(query: searchQuery, titleFields: titleFields)
         .map(
           (String value) => QueryStringValue(value),
         )
         .toList();
 
-    final PageListResponseDto result = await entityListProvider.fetchPageList(
+    final CollectionResponseDto result = await entityListProvider.fetchPageList(
       model: model,
       subset: [
         model.idField.id,

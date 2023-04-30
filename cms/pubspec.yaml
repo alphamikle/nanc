@@ -36,15 +36,14 @@ dependencies:
     path: ../analytics
   fonts:
     path: ../fonts
+  nanc_config:
+    path: ../nanc_config
   cupertino_icons: ^1.0.5
   device_frame: ^1.1.0
   markdown: ^6.0.1
   vrouter: ^1.2.1
   bloc: ^8.1.0
   flutter_bloc: ^8.1.1
-  equatable: ^2.0.5
-  json_annotation: ^4.8.0
-  copy_with_extension: ^5.0.0
   bot_toast: ^4.0.3
   ulid: ^2.0.0
   flutter_highlight: ^0.7.0
@@ -55,6 +54,9 @@ dependencies:
   rive: ^0.10.1
   lottie: ^2.2.0
   flutter_markdown: ^0.6.13+1
+  copy_with_extension: ^5.0.0
+  json_annotation: ^4.8.0
+  equatable: ^2.0.5
   autoequal: ^0.5.1
 
 dev_dependencies:
@@ -66,9 +68,9 @@ dev_dependencies:
   json_serializable: ^6.6.1
   copy_with_extension_gen: ^5.0.0
   build_runner: ^2.3.3
+  autoequal_gen: ^0.5.1
   path: ^1.8.2
   flutter_launcher_icons: ^0.11.0
-  autoequal_gen: ^0.5.1
 
 flutter:
   uses-material-design: true

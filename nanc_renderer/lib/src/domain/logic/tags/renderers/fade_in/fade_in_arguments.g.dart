@@ -8,8 +8,8 @@ part of 'fade_in_arguments.dart';
 
 FadeInArguments _$FadeInArgumentsFromJson(Map<String, dynamic> json) =>
     FadeInArguments(
-      duration: nullableIntFromJson(json['duration'] as String?),
-      delay: nullableIntFromJson(json['delay'] as String?),
+      duration: nullableIntFromJson(json['duration']),
+      delay: nullableIntFromJson(json['delay']),
       curve: $enumDecodeNullable(_$CurveEnumEnumMap, json['curve'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
     );

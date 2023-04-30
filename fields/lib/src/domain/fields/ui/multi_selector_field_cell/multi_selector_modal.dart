@@ -4,6 +4,7 @@ import 'package:cms/cms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -48,11 +49,11 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
     searchDebounce?.cancel();
     searchDebounce = Timer(immediately ? Duration.zero : const Duration(milliseconds: 500), () async {
       if (mounted) {
-        final PageListProviderInterface provider = context.read<PageListProviderInterface>();
+        final ICollectionProvider provider = context.read();
         final List<QueryParameterValue> values =
             splitComplexTitle(query: searchController.text, titleFields: field.titleFields).map((String it) => QueryStringValue(it)).toList();
 
-        final PageListResponseDto result = await provider.fetchPageList(
+        final CollectionResponseDto result = await provider.fetchPageList(
           model: field.model,
           subset: [
             field.model.idField.id,

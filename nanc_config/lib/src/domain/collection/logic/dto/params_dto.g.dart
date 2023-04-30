@@ -15,7 +15,7 @@ ParamsDto _$ParamsDtoFromJson(Map<String, dynamic> json) => ParamsDto(
 Map<String, dynamic> _$ParamsDtoToJson(ParamsDto instance) => <String, dynamic>{
       'page': instance.page,
       'limit': instance.limit,
-      'sort': instance.sort.toJson(),
+      'sort': instance.sort,
     };
 
 Sort _$SortFromJson(Map<String, dynamic> json) => Sort(

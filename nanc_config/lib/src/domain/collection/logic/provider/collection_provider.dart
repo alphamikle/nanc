@@ -1,20 +1,20 @@
 import 'package:model/model.dart';
 
-import '../dto/page_list_response_dto.dart';
+import '../dto/collection_response_dto.dart';
 import '../dto/params_dto.dart';
 import '../dto/query_dto.dart';
-import 'page_list_api.dart';
-import 'page_list_provider_interface.dart';
+import 'collection_api_interface.dart';
+import 'collection_provider_interface.dart';
 
-class PageListProvider implements PageListProviderInterface {
-  PageListProvider({
+class CollectionProvider implements ICollectionProvider {
+  CollectionProvider({
     required this.api,
   });
 
-  final PageListApi api;
+  final ICollectionApi api;
 
   @override
-  Future<PageListResponseDto> fetchPageList({
+  Future<CollectionResponseDto> fetchPageList({
     required Model model,
     List<String> subset = const [],
     QueryDto query = const QueryDto(),

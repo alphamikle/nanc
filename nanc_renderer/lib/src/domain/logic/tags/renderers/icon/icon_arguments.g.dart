@@ -10,7 +10,7 @@ IconArguments _$IconArgumentsFromJson(Map<String, dynamic> json) =>
     IconArguments(
       icon: tryToGetIconByName(json['icon'] as String?),
       color: nullableColorFromJson(json['color'] as String?),
-      size: nullableDoubleFromJson(json['size'] as String?),
+      size: nullableDoubleFromJson(json['size']),
     );
 
 Map<String, dynamic> _$IconArgumentsToJson(IconArguments instance) =>

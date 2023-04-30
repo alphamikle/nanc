@@ -9,7 +9,7 @@ part of 'border_arguments.dart';
 BorderArguments _$BorderArgumentsFromJson(Map<String, dynamic> json) =>
     BorderArguments(
       color: nullableColorFromJson(json['color'] as String?),
-      width: nullableDoubleFromJson(json['width'] as String?),
+      width: nullableDoubleFromJson(json['width']),
     );
 
 Map<String, dynamic> _$BorderArgumentsToJson(BorderArguments instance) =>

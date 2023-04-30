@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -38,7 +39,7 @@ class App extends StatefulWidget {
   });
 
   final List<Model> models;
-  final PageListApi pageListApi;
+  final ICollectionApi pageListApi;
   final PageApi pageApi;
   final AdminConfig config;
   final StreamController<ErrorWrapper> errorStreamController;

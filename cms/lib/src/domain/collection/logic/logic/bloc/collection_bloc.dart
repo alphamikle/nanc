@@ -1,17 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../service/errors/errors.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../../../page/logic/bloc/page_bloc/page_bloc.dart';
-import '../dto/page_list_response_dto.dart';
-import '../dto/params_dto.dart';
-import '../dto/query_dto.dart';
-import '../dto/query_parameter.dart';
-import '../dto/query_parameter_value.dart';
-import '../provider/page_list_provider.dart';
 import 'collection_state.dart';
 
 class CollectionBloc extends Cubit<CollectionState> {
@@ -24,7 +19,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     _initTableSearchListener();
   }
 
-  final PageListProvider pageListProvider;
+  final ICollectionProvider pageListProvider;
   final ModelListBloc modelListBloc;
   final EventBus eventBus;
   final TextEditingController globalSearchController = TextEditingController();
@@ -37,11 +32,11 @@ class CollectionBloc extends Cubit<CollectionState> {
       isLoading: true,
       modelId: modelId,
     ));
-    final PageListResponseDto response = await _loadData(modelId: modelId);
+    final CollectionResponseDto dto = await _loadData(modelId: modelId);
     emit(state.copyWith(
-      dataRows: response.data,
-      totalPages: response.totalPages,
-      currentPage: response.page,
+      dataRows: dto.data,
+      totalPages: dto.totalPages,
+      currentPage: dto.page,
     ));
     emit(state.copyWith.isLoading(false));
   }
@@ -51,14 +46,14 @@ class CollectionBloc extends Cubit<CollectionState> {
   Future<void> _filterTableByGlobalSearch() async {
     emit(state.copyWith(isGlobalSearchLoading: true));
     await Debouncer.run(id: '_filterTableByGlobalSearch', () async {
-      final PageListResponseDto response = await _loadData(modelId: state.modelId);
-      final List<Json> data = response.data;
+      final CollectionResponseDto dto = await _loadData(modelId: state.modelId);
+      final List<Json> data = dto.data;
       emit(state.copyWith(
         dataRows: data,
         isGlobalSearchLoading: false,
         notFoundAnything: data.isEmpty,
-        currentPage: response.page,
-        totalPages: response.totalPages,
+        currentPage: dto.page,
+        totalPages: dto.totalPages,
       ));
     });
   }
@@ -67,7 +62,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     globalSearchController.addListener(_filterTableByGlobalSearch);
   }
 
-  Future<PageListResponseDto> _loadData({
+  Future<CollectionResponseDto> _loadData({
     required String modelId,
     int page = 1,
     int limit = 50,
@@ -78,7 +73,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     }
     final String query = globalSearchController.text;
 
-    final PageListResponseDto response = await pageListProvider.fetchPageList(
+    final CollectionResponseDto dto = await pageListProvider.fetchPageList(
       model: model,
       subset: model.listFields.ids,
       params: ParamsDto(
@@ -100,27 +95,21 @@ class CollectionBloc extends Cubit<CollectionState> {
                   .toList(),
             ),
     );
-    return response;
+    return dto;
   }
 
   Future<void> paginate(int page) async {
-    final PageListResponseDto response = await _loadData(
+    final CollectionResponseDto dto = await _loadData(
       modelId: state.modelId,
       page: page,
     );
     emit(state.copyWith(
-      dataRows: response.data,
-      currentPage: response.page,
-      totalPages: response.totalPages,
-      notFoundAnything: response.data.isEmpty,
+      dataRows: dto.data,
+      currentPage: dto.page,
+      totalPages: dto.totalPages,
+      notFoundAnything: dto.data.isEmpty,
     ));
   }
-
-  /// NEXT PAGE
-
-  /// PREV PAGE
-
-  /// ANY PAGE
 
   /// FILTER LIST (SEARCH, SORT, ETC)
 }

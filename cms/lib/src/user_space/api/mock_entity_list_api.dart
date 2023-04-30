@@ -1,11 +1,11 @@
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
-import '../../../cms.dart';
 import 'db_extension.dart';
 import 'tools.dart';
 
-class MockEntityListApi extends MockApi implements PageListApi {
+class MockEntityListApi extends MockApi implements ICollectionApi {
   MockEntityListApi({
     required this.dbService,
   });
@@ -14,7 +14,7 @@ class MockEntityListApi extends MockApi implements PageListApi {
   DbService dbService;
 
   @override
-  Future<PageListResponseDto> fetchPageList(Model entity, List<String> subset, QueryDto query, ParamsDto params) async {
+  Future<CollectionResponseDto> fetchPageList(Model entity, List<String> subset, QueryDto query, ParamsDto params) async {
     await networkDelay();
     final List<Json> rawData = await fetchFullList(entity);
     final List<Json> requiredData = rawData.map((Json dataRow) {
@@ -61,7 +61,7 @@ class MockEntityListApi extends MockApi implements PageListApi {
     }
     final List<Json> chunk = params.limit <= filteredData.length ? filteredData.sublist((page - 1) * params.limit, (page * params.limit)) : filteredData;
     final int totalPages = (filteredData.length / params.limit).round();
-    return PageListResponseDto(
+    return CollectionResponseDto(
       page: page,
       totalPages: totalPages,
       data: chunk,

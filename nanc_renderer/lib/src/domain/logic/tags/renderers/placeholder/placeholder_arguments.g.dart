@@ -10,9 +10,9 @@ PlaceholderArguments _$PlaceholderArgumentsFromJson(
         Map<String, dynamic> json) =>
     PlaceholderArguments(
       color: nullableColorFromJson(json['color'] as String?),
-      height: nullableDoubleFromJson(json['height'] as String?),
-      width: nullableDoubleFromJson(json['width'] as String?),
-      strokeWidth: nullableDoubleFromJson(json['strokeWidth'] as String?),
+      height: nullableDoubleFromJson(json['height']),
+      width: nullableDoubleFromJson(json['width']),
+      strokeWidth: nullableDoubleFromJson(json['strokeWidth']),
       text: json['text'] as String?,
     );
 

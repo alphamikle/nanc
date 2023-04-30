@@ -8,7 +8,7 @@ part of 'expanded_arguments.dart';
 
 ExpandedArguments _$ExpandedArgumentsFromJson(Map<String, dynamic> json) =>
     ExpandedArguments(
-      flex: nullableIntFromJson(json['flex'] as String?),
+      flex: nullableIntFromJson(json['flex']),
     );
 
 Map<String, dynamic> _$ExpandedArgumentsToJson(ExpandedArguments instance) =>

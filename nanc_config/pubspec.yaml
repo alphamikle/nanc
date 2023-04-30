@@ -1,6 +1,6 @@
-name: fields
-description: A new Flutter package project.
-version: 0.0.1
+name: nanc_config
+description: Set of config interfaces and APIs for Nanc
+version: 1.0.0
 homepage: nope
 publish_to: none
 
@@ -15,22 +15,9 @@ dependencies:
     path: ../tools
   model:
     path: ../model
-  ui_kit:
-    path: ../ui_kit
-  cms:
-    path: ../cms
-  icons:
-    path: ../icons
-  config:
-    path: ../config
-  nanc_config:
-    path: ../nanc_config
-  equatable: ^2.0.5
-  json_annotation: ^4.8.0
   copy_with_extension: ^5.0.0
-  bloc: ^8.1.0
-  flutter_bloc: ^8.1.1
-  vrouter: ^1.2.1
+  json_annotation: ^4.8.0
+  equatable: ^2.0.5
   autoequal: ^0.5.1
 
 dev_dependencies:
@@ -38,10 +25,10 @@ dev_dependencies:
     sdk: flutter
   lint:
     path: ../lint
+  flutter_lints: ^2.0.1
   json_serializable: ^6.6.1
   copy_with_extension_gen: ^5.0.0
   build_runner: ^2.3.3
   autoequal_gen: ^0.5.1
-  flutter_lints: ^2.0.1
 
 flutter:

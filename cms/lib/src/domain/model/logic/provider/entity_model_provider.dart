@@ -2,24 +2,22 @@ import 'dart:convert';
 
 import 'package:fields/fields.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
-import '../../../collection/logic/logic/dto/page_list_response_dto.dart';
-import '../../../collection/logic/logic/dto/params_dto.dart';
-import '../../../collection/logic/logic/provider/page_list_provider.dart';
 import '../../../page/logic/provider/entity_page_provider.dart';
 
 class ModelProvider {
   ModelProvider({
     required this.pageProvider,
-    required this.pageListProvider,
+    required this.collectionProvider,
   });
 
   final PageProvider pageProvider;
-  final PageListProvider pageListProvider;
+  final ICollectionProvider collectionProvider;
 
   Future<List<Model>> fetchModels() async {
-    final PageListResponseDto result = await pageListProvider.fetchPageList(
+    final CollectionResponseDto result = await collectionProvider.fetchPageList(
       model: modelModel,
       subset: [fieldIdProperty, kModelField],
       params: const ParamsDto(

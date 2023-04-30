@@ -9,8 +9,8 @@ part of 'fractional_translation_arguments.dart';
 FractionalTranslationArguments _$FractionalTranslationArgumentsFromJson(
         Map<String, dynamic> json) =>
     FractionalTranslationArguments(
-      dx: nullableDoubleFromJson(json['dx'] as String?),
-      dy: nullableDoubleFromJson(json['dy'] as String?),
+      dx: nullableDoubleFromJson(json['dx']),
+      dy: nullableDoubleFromJson(json['dy']),
     );
 
 Map<String, dynamic> _$FractionalTranslationArgumentsToJson(

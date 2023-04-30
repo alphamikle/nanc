@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 
 import '../../../cms.dart';
 import '../../domain/collection/logic/logic/bloc/collection_bloc.dart';
-import '../../domain/collection/logic/logic/provider/page_list_provider.dart';
 import '../../domain/draft/logic/draft_service.dart';
 import '../../domain/general/logic/bloc/header/header_bloc.dart';
 import '../../domain/general/logic/bloc/side_menu/menu_bloc.dart';
@@ -41,7 +41,7 @@ class Initializer {
   });
 
   final List<Model> models;
-  final PageListApi pageListApi;
+  final ICollectionApi pageListApi;
   final PageApi pageApi;
   final AdminConfig config;
 
@@ -67,8 +67,8 @@ class Initializer {
 
     /// ? PROVIDERS
     final PageProvider pageProvider = PageProvider(api: pageApi);
-    final PageListProvider pageListProvider = PageListProvider(api: pageListApi);
-    final ModelProvider modelProvider = ModelProvider(pageProvider: pageProvider, pageListProvider: pageListProvider);
+    final ICollectionProvider pageListProvider = CollectionProvider(api: pageListApi);
+    final ModelProvider modelProvider = ModelProvider(pageProvider: pageProvider, collectionProvider: pageListProvider);
 
     /// ? ENTITY WITH NAV
     final ModelListBloc modelListProvider = ModelListBloc(modelProvider: modelProvider);
@@ -136,8 +136,8 @@ class Initializer {
         RepositoryProvider<RootKey>.value(value: rootKey),
         RepositoryProvider<EventBus>.value(value: eventBus),
         RepositoryProvider<ModelProvider>.value(value: modelProvider),
-        RepositoryProvider<PageListProvider>.value(value: pageListProvider),
-        RepositoryProvider<PageListProviderInterface>.value(value: pageListProvider),
+        RepositoryProvider<ICollectionProvider>.value(value: pageListProvider),
+        RepositoryProvider<CollectionProvider>.value(value: pageListProvider as CollectionProvider),
         RepositoryProvider<PageProvider>.value(value: pageProvider),
         RepositoryProvider<PageProviderInterface>.value(value: pageProvider),
         RepositoryProvider<AdminConfig>.value(value: config),
