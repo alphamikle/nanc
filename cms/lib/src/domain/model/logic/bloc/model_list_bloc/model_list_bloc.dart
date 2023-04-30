@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
-import '../../provider/entity_model_provider.dart';
+import '../../provider/model_provider.dart';
 import 'model_list_state.dart';
 
 class ModelListBloc extends Cubit<ModelListState> {

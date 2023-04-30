@@ -1,10 +1,5 @@
 import 'package:model/model.dart';
-
-import '../dto/collection_response_dto.dart';
-import '../dto/params_dto.dart';
-import '../dto/query_dto.dart';
-import 'collection_api_interface.dart';
-import 'collection_provider_interface.dart';
+import 'package:nanc_config/nanc_config.dart';
 
 class CollectionProvider implements ICollectionProvider {
   CollectionProvider({

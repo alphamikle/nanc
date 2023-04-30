@@ -1,13 +1,12 @@
 import 'package:fields/fields.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
-import '../../domain/page/logic/bloc/page_bloc/page_bloc.dart';
-import '../../domain/page/logic/provider/entity_page_api.dart';
 import 'db_extension.dart';
 import 'tools.dart';
 
-class MockEntityPageApi extends MockApi implements PageApi {
+class MockEntityPageApi extends MockApi implements IPageApi {
   MockEntityPageApi({
     required this.dbService,
   });

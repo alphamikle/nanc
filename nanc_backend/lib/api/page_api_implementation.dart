@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:cms/cms.dart';
 import 'package:fields/fields.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../connection_manager/logic/connection_manager_bloc.dart';
@@ -10,7 +10,7 @@ import '../models/landing_page.dart';
 import 'db_extension.dart';
 import 'tools.dart';
 
-class PageApiImplementation extends MockApi implements PageApi {
+class PageApiImplementation extends MockApi implements IPageApi {
   PageApiImplementation({
     required this.dbService,
     required this.connectionManagerBloc,

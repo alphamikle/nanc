@@ -6,5 +6,6 @@ export 'src/domain/collection/logic/dto/query_dto.dart';
 export 'src/domain/collection/logic/dto/query_parameter.dart';
 export 'src/domain/collection/logic/dto/query_parameter_value.dart';
 export 'src/domain/collection/logic/provider/collection_api_interface.dart';
-export 'src/domain/collection/logic/provider/collection_provider.dart';
 export 'src/domain/collection/logic/provider/collection_provider_interface.dart';
+export 'src/domain/page/logic/provider/page_api_interface.dart';
+export 'src/domain/page/logic/provider/page_provider_interface.dart';

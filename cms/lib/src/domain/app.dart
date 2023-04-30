@@ -40,7 +40,7 @@ class App extends StatefulWidget {
 
   final List<Model> models;
   final ICollectionApi pageListApi;
-  final PageApi pageApi;
+  final IPageApi pageApi;
   final AdminConfig config;
   final StreamController<ErrorWrapper> errorStreamController;
   final AdminWrapperBuilder? wrapperBuilder;

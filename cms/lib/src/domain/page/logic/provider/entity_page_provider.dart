@@ -1,17 +1,14 @@
 import 'package:fields/fields.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
-import '../bloc/page_bloc/page_bloc.dart';
-import 'entity_page_api.dart';
-import 'entity_page_provider_interface.dart';
-
-class PageProvider implements PageProviderInterface {
+class PageProvider implements IPageProvider {
   PageProvider({
     required this.api,
   });
 
-  final PageApi api;
+  final IPageApi api;
 
   @override
   Future<Json> fetchPageData({
@@ -47,8 +44,8 @@ class PageProvider implements PageProviderInterface {
   @override
   Future<void> saveThirdTable({
     required ThirdTable thirdTable,
-    required ParentEntityDataId parentEntityId,
-    required List<ChildEntityDataId> childEntityIds,
+    required String parentEntityId,
+    required List<String> childEntityIds,
   }) async {
     // TODO(alphamikle): Try to create method on the existing page methods
     await api.saveThirdTable(thirdTable, parentEntityId, childEntityIds);

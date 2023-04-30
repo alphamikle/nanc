@@ -12,7 +12,6 @@ import 'package:nanc_renderer/nanc_renderer.dart';
 import '../service/config/admin_config.dart';
 import '../service/errors/error_wrapper.dart';
 import 'app.dart';
-import 'page/logic/provider/entity_page_api.dart';
 import 'wrapper/admin_wrapper.dart';
 
 const Set<String> _skippingErrors = {
@@ -22,7 +21,7 @@ const Set<String> _skippingErrors = {
 Future<void> adminRunner({
   required List<Model> models,
   required ICollectionApi pageListApi,
-  required PageApi pageApi,
+  required IPageApi pageApi,
   List<TagRenderer> renderers = const [],
   List<RichClickHandler> clickHandlers = const [],
   AdminConfig? config,

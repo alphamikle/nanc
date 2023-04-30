@@ -101,7 +101,7 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
       safeSetState(() => isPreloading = false);
       return;
     }
-    final Json data = await read<PageProviderInterface>().fetchPageData(
+    final Json data = await read<IPageProvider>().fetchPageData(
       model: model,
       id: pageId,
       subset: [

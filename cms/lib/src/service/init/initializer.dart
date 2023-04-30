@@ -11,11 +11,12 @@ import 'package:tools/tools.dart';
 
 import '../../../cms.dart';
 import '../../domain/collection/logic/logic/bloc/collection_bloc.dart';
+import '../../domain/collection/logic/logic/provider/collection_provider.dart';
 import '../../domain/draft/logic/draft_service.dart';
 import '../../domain/general/logic/bloc/header/header_bloc.dart';
 import '../../domain/general/logic/bloc/side_menu/menu_bloc.dart';
 import '../../domain/model/logic/bloc/model_page_bloc/model_page_bloc.dart';
-import '../../domain/model/logic/provider/entity_model_provider.dart';
+import '../../domain/model/logic/provider/model_provider.dart';
 import '../../domain/page/logic/provider/entity_page_provider.dart';
 import '../../domain/preview/logic/bloc/preview_bloc.dart';
 import '../../domain/tutorial/logic/bloc/tutorial_bloc.dart';
@@ -42,7 +43,7 @@ class Initializer {
 
   final List<Model> models;
   final ICollectionApi pageListApi;
-  final PageApi pageApi;
+  final IPageApi pageApi;
   final AdminConfig config;
 
   final RootKey rootKey;
@@ -67,7 +68,7 @@ class Initializer {
 
     /// ? PROVIDERS
     final PageProvider pageProvider = PageProvider(api: pageApi);
-    final ICollectionProvider pageListProvider = CollectionProvider(api: pageListApi);
+    final CollectionProvider pageListProvider = CollectionProvider(api: pageListApi);
     final ModelProvider modelProvider = ModelProvider(pageProvider: pageProvider, collectionProvider: pageListProvider);
 
     /// ? ENTITY WITH NAV
@@ -137,9 +138,9 @@ class Initializer {
         RepositoryProvider<EventBus>.value(value: eventBus),
         RepositoryProvider<ModelProvider>.value(value: modelProvider),
         RepositoryProvider<ICollectionProvider>.value(value: pageListProvider),
-        RepositoryProvider<CollectionProvider>.value(value: pageListProvider as CollectionProvider),
+        RepositoryProvider<CollectionProvider>.value(value: pageListProvider),
+        RepositoryProvider<IPageProvider>.value(value: pageProvider),
         RepositoryProvider<PageProvider>.value(value: pageProvider),
-        RepositoryProvider<PageProviderInterface>.value(value: pageProvider),
         RepositoryProvider<AdminConfig>.value(value: config),
         RepositoryProvider<RoutesPreloadingService>.value(value: routesPreloadingService),
         RepositoryProvider<DraftService>.value(value: draftService),

@@ -2,9 +2,9 @@ import 'package:fields/fields.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
-import '../bloc/page_bloc/page_bloc.dart';
+import 'page_api_interface.dart';
 
-abstract class PageProviderInterface {
+abstract class IPageProvider {
   Future<Json> fetchPageData({
     required Model model,
     required String id,

@@ -2,9 +2,10 @@ import 'package:fields/fields.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
-import '../bloc/page_bloc/page_bloc.dart';
+typedef ParentEntityDataId = String;
+typedef ChildEntityDataId = String;
 
-abstract class PageApi {
+abstract class IPageApi {
   Future<Json> fetchPageData(Model entity, String id, List<String> subset);
 
   Future<Json> upsertPage(Model entity, String? id, Json pageData);

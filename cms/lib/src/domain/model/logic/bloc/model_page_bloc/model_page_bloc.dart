@@ -7,7 +7,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../../service/errors/errors.dart';
 import '../../../../general/logic/bloc/side_menu/menu_bloc.dart';
-import '../../provider/entity_model_provider.dart';
+import '../../provider/model_provider.dart';
 import '../model_list_bloc/model_list_bloc.dart';
 import 'model_page_state.dart';
 
