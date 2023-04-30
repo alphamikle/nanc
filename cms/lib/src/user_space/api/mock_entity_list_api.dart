@@ -59,7 +59,7 @@ class MockEntityListApi extends MockApi implements PageListApi {
     } else if (page < 1) {
       page = 1;
     }
-    final List<Json> chunk = filteredData.sublist((page - 1) * params.limit, (page * params.limit));
+    final List<Json> chunk = params.limit <= filteredData.length ? filteredData.sublist((page - 1) * params.limit, (page * params.limit)) : filteredData;
     final int totalPages = (filteredData.length / params.limit).round();
     return PageListResponseDto(
       page: page,
