@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:fields/fields.dart';
@@ -6,8 +7,10 @@ import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
+import '../../constants/gap.dart';
 import '../kit_tooltip.dart';
 import 'size_adjuster.dart';
+import 'table_paginator.dart';
 
 const double _kMinColumnWidth = 140;
 const double _kRowHeight = 48;
@@ -58,6 +61,15 @@ class _KitTableV2State extends State<KitTableV2> {
   final Map<int, ScrollController> horizontalScrollControllers = {};
   late final ScrollController headerScrollController = scrollControllersGroup.addAndGet();
   final LinkedScrollControllerGroup scrollControllersGroup = LinkedScrollControllerGroup();
+  final ScrollController tableScrollController = ScrollController();
+  final StreamController<double> paginatorPositionStreamController = StreamController();
+  double prevDiff = 0;
+  double prevOffset = Gap.large;
+
+  /// ? TEMP
+  int currentPage = 1;
+  int totalPages = 12;
+  int perPage = 20;
 
   void resizeColumn(int columnIndex, double diff) {
     safeSetState(() {
@@ -163,6 +175,17 @@ class _KitTableV2State extends State<KitTableV2> {
     );
   }
 
+  void goToPageWithNumber(int pageNumber) {
+    safeSetState(() {
+      currentPage = pageNumber;
+      if (currentPage < 1) {
+        currentPage = 1;
+      } else if (currentPage > totalPages) {
+        currentPage = totalPages;
+      }
+    });
+  }
+
   void initColumnSizes() {
     int index = 0;
     if (widget.columnSizes?.isNotEmpty ?? false) {
@@ -178,39 +201,90 @@ class _KitTableV2State extends State<KitTableV2> {
     }
   }
 
+  void adjustPaginatorPosition() {
+    final double diff = tableScrollController.offset - prevDiff;
+    prevDiff = tableScrollController.offset;
+    double paginatorBottomOffset = prevOffset - diff;
+    if (paginatorBottomOffset < -kPaginatorHeight) {
+      paginatorBottomOffset = -kPaginatorHeight;
+    } else if (paginatorBottomOffset > Gap.large) {
+      paginatorBottomOffset = Gap.large;
+    }
+    if (paginatorBottomOffset != prevOffset) {
+      paginatorPositionStreamController.add(paginatorBottomOffset);
+      prevOffset = paginatorBottomOffset;
+    }
+  }
+
+  void initPaginator() {
+    tableScrollController.addListener(adjustPaginatorPosition);
+  }
+
+  @override
+  void dispose() {
+    tableScrollController.dispose();
+    unawaited(paginatorPositionStreamController.close());
+    super.dispose();
+  }
+
   @override
   void initState() {
     super.initState();
     initColumnSizes();
+    initPaginator();
   }
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      restorationId: widget.restorationId,
-      slivers: [
-        SliverPersistentHeader(
-          floating: true,
-          delegate: _TableHeaderDelegate(
-            child: Material(
-              child: ListView.builder(
-                itemBuilder: (BuildContext context, int index) => _headerCellBuilder(
-                  context,
-                  index,
-                  columnSizes[index] ?? _kMinColumnWidth,
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: CustomScrollView(
+            restorationId: widget.restorationId,
+            controller: tableScrollController,
+            slivers: [
+              SliverPersistentHeader(
+                floating: true,
+                delegate: _TableHeaderDelegate(
+                  child: Material(
+                    child: ListView.builder(
+                      itemBuilder: (BuildContext context, int index) => _headerCellBuilder(
+                        context,
+                        index,
+                        columnSizes[index] ?? _kMinColumnWidth,
+                      ),
+                      controller: headerScrollController,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: widget.model.listFields.length,
+                    ),
+                  ),
                 ),
-                controller: headerScrollController,
-                scrollDirection: Axis.horizontal,
-                itemCount: widget.model.listFields.length,
               ),
-            ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) => _rowBuilder(context, index),
+                  childCount: widget.dataRows.length,
+                ),
+              ),
+            ],
           ),
         ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) => _rowBuilder(context, index),
-            childCount: widget.dataRows.length,
-          ),
+        StreamBuilder<double>(
+          stream: paginatorPositionStreamController.stream,
+          builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
+            return Positioned(
+              right: Gap.large,
+              bottom: snapshot.data ?? Gap.large,
+              child: StatefulBuilder(
+                builder: (BuildContext context, StateSetter setState) => TablePaginator(
+                  currentPage: currentPage,
+                  perPage: perPage,
+                  totalPages: totalPages,
+                  onPageNumberPressed: goToPageWithNumber,
+                ),
+              ),
+            );
+          },
         ),
       ],
     );

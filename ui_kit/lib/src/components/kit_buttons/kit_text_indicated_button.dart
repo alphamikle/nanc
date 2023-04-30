@@ -6,15 +6,23 @@ import '../kit_ink_well.dart';
 
 class KitTextIndicatedButton extends StatefulWidget {
   const KitTextIndicatedButton({
-    required this.text,
+    this.text,
+    this.child,
     this.isActive = false,
     this.onPressed,
+    this.borderRadius,
+    this.gap = 16,
+    this.padding = const EdgeInsets.only(left: Gap.large, top: Gap.regular, right: Gap.large, bottom: Gap.regular),
     super.key,
-  });
+  }) : assert(child != null || text != null);
 
-  final String text;
+  final Widget? child;
+  final String? text;
   final bool isActive;
   final VoidCallback? onPressed;
+  final BorderRadius? borderRadius;
+  final double gap;
+  final EdgeInsets padding;
 
   @override
   State<KitTextIndicatedButton> createState() => _KitTextIndicatedButtonState();
@@ -55,7 +63,7 @@ class _KitTextIndicatedButtonState extends State<KitTextIndicatedButton> with Si
   Widget build(BuildContext context) {
     final Color baseTextColor = context.theme.colorScheme.onTertiaryContainer.withOpacity(0.65);
     final Color color = context.theme.colorScheme.tertiary;
-    final BorderRadius radius = BorderRadius.circular(12);
+    final BorderRadius radius = widget.borderRadius ?? BorderRadius.circular(12);
 
     return KitInkWell(
       borderRadius: radius,
@@ -74,21 +82,22 @@ class _KitTextIndicatedButtonState extends State<KitTextIndicatedButton> with Si
                   borderRadius: radius,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: Gap.large, top: Gap.regular, right: Gap.large, bottom: Gap.regular),
+                  padding: widget.padding,
                   child: Center(
-                    child: Text(
-                      widget.text,
+                    child: DefaultTextStyle(
                       style: context.theme.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: ColorTween(begin: baseTextColor, end: color).animate(animation).value,
-                      ),
+                            fontWeight: FontWeight.bold,
+                            color: ColorTween(begin: baseTextColor, end: color).animate(animation).value,
+                          ) ??
+                          const TextStyle(),
+                      child: widget.child ?? Text(widget.text!),
                     ),
                   ),
                 ),
               ),
               Positioned(
-                left: (20 * reversedValue + 16),
-                right: (20 * reversedValue + 16),
+                left: (20 * reversedValue + widget.gap),
+                right: (20 * reversedValue + widget.gap),
                 bottom: 0,
                 height: 3,
                 child: Container(
