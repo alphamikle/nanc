@@ -18,6 +18,8 @@ dependencies:
     sdk: flutter
   analytics:
     path: ../analytics
+  nanc_config:
+    path: ../nanc_config
   url_launcher: ^6.1.8
   share_plus: ^6.3.0
 

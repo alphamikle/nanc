@@ -1,12 +1,11 @@
 import 'package:analytics/analytics.dart';
 import 'package:flutter/material.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:share_plus/share_plus.dart';
-
-import '../rich_click_handler.dart';
 
 final RegExp _shareRegExp = RegExp(r'^share: ?(?<content>.*)$');
 
-final RichClickHandler shareDemoHandler = RichClickHandler(
+final ClickHandler shareDemoHandler = ClickHandler(
   test: (BuildContext context, String event) => _shareRegExp.hasMatch(event),
   handler: (BuildContext context, String event) {
     final String content = _shareRegExp.firstMatch(event)!.namedGroup('content')!;

@@ -1,55 +1,29 @@
 import 'dart:async';
 
-import 'package:additions/additions.dart';
 import 'package:analytics/analytics.dart';
 import 'package:animation_debugger/animation_debugger.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fonts/fonts.dart';
-import 'package:model/model.dart';
 import 'package:nanc_config/nanc_config.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../../cms.dart';
-import '../service/config/admin_config.dart';
 import '../service/errors/error_toaster.dart';
 import '../service/errors/error_wrapper.dart';
 import '../service/init/initializer.dart';
-import 'wrapper/admin_wrapper.dart';
 
 class App extends StatefulWidget {
   const App({
-    required this.models,
-    required this.pageListApi,
-    required this.pageApi,
     required this.config,
     required this.errorStreamController,
-    this.wrapperBuilder,
-    this.clickHandlers = const [],
-    this.renderers = const [],
-    this.imageLoadingBuilder,
-    this.imageErrorBuilder,
-    this.imageFrameBuilder,
-    this.customFonts = const [],
     super.key,
   });
 
-  final List<Model> models;
-  final ICollectionApi pageListApi;
-  final IPageApi pageApi;
-  final AdminConfig config;
+  final CmsConfig config;
   final StreamController<ErrorWrapper> errorStreamController;
-  final AdminWrapperBuilder? wrapperBuilder;
-  final List<RichClickHandler> clickHandlers;
-  final List<TagRenderer> renderers;
-  final ImageLoadingBuilder? imageLoadingBuilder;
-  final ImageErrorWidgetBuilder? imageErrorBuilder;
-  final ImageFrameBuilder? imageFrameBuilder;
-  final List<CustomFont> customFonts;
 
   @override
   State<App> createState() => _AppState();
@@ -58,18 +32,9 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   final GlobalKey<NavigatorState> rootKey = GlobalKey();
   late final Initializer initializer = Initializer(
-    models: widget.models,
-    pageListApi: widget.pageListApi,
-    pageApi: widget.pageApi,
     config: widget.config,
     rootKey: rootKey,
     errorStreamController: widget.errorStreamController,
-    clickHandlers: widget.clickHandlers,
-    renderers: widget.renderers,
-    imageLoadingBuilder: widget.imageLoadingBuilder,
-    imageErrorBuilder: widget.imageErrorBuilder,
-    imageFrameBuilder: widget.imageFrameBuilder,
-    customFonts: widget.customFonts,
   );
   late final Future<bool> result = initializer.init();
   late final StreamSubscription<ErrorWrapper> errorStreamSubscription;
@@ -101,10 +66,10 @@ class _AppState extends State<App> {
 
     final TransitionBuilder toastBuilder = BotToastInit();
     final Widget toastContainer = toastBuilder(context, child);
-    if (widget.wrapperBuilder == null) {
+    if (widget.config.adminWrapperBuilder == null) {
       return toastContainer;
     }
-    final Widget wrapperContainer = widget.wrapperBuilder!(context, rootKey, toastContainer);
+    final Widget wrapperContainer = widget.config.adminWrapperBuilder!(context, rootKey, toastContainer);
     return wrapperContainer;
   }
 

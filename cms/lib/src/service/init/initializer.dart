@@ -1,12 +1,8 @@
 import 'dart:async';
 
-import 'package:additions/additions.dart' as ad;
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
-import 'package:model/model.dart';
 import 'package:nanc_config/nanc_config.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 
 import '../../../cms.dart';
@@ -20,46 +16,27 @@ import '../../domain/model/logic/provider/model_provider.dart';
 import '../../domain/page/logic/provider/entity_page_provider.dart';
 import '../../domain/preview/logic/bloc/preview_bloc.dart';
 import '../../domain/tutorial/logic/bloc/tutorial_bloc.dart';
-import '../config/admin_config.dart';
 import '../errors/error_wrapper.dart';
 import '../routing/routes_preloading_service.dart';
 import 'data_repository.dart';
 
 class Initializer {
   Initializer({
-    required this.models,
-    required this.pageListApi,
-    required this.pageApi,
     required this.config,
     required this.rootKey,
     required this.errorStreamController,
-    required this.clickHandlers,
-    required this.renderers,
-    required this.imageLoadingBuilder,
-    required this.imageErrorBuilder,
-    required this.imageFrameBuilder,
-    required this.customFonts,
   });
 
-  final List<Model> models;
-  final ICollectionApi pageListApi;
-  final IPageApi pageApi;
-  final AdminConfig config;
-
-  final RootKey rootKey;
+  final CmsConfig config;
   final StreamController<ErrorWrapper> errorStreamController;
+  final RootKey rootKey;
+
   final List<BlocProvider<dynamic>> blocProviders = [];
   final List<RepositoryProvider<dynamic>> repositoryProviders = [];
-  final List<ad.RichClickHandler> clickHandlers;
-  final List<TagRenderer> renderers;
-  final ImageLoadingBuilder? imageLoadingBuilder;
-  final ImageErrorWidgetBuilder? imageErrorBuilder;
-  final ImageFrameBuilder? imageFrameBuilder;
-  final List<CustomFont> customFonts;
 
   Future<bool> init() async {
     /// ? FONTS
-    customFonts.forEach(registerCustomFont);
+    config.customFonts.forEach(registerCustomFont);
 
     /// ? SERVICES
     final EventBus eventBus = EventBus();
@@ -67,29 +44,29 @@ class Initializer {
     final DraftService draftService = DraftService(dbService: dbService);
 
     /// ? PROVIDERS
-    final PageProvider pageProvider = PageProvider(api: pageApi);
-    final CollectionProvider pageListProvider = CollectionProvider(api: pageListApi);
+    final PageProvider pageProvider = PageProvider(api: config.pageApi);
+    final CollectionProvider pageListProvider = CollectionProvider(api: config.collectionApi);
     final ModelProvider modelProvider = ModelProvider(pageProvider: pageProvider, collectionProvider: pageListProvider);
 
     /// ? ENTITY WITH NAV
-    final ModelListBloc modelListProvider = ModelListBloc(modelProvider: modelProvider);
+    final ModelListBloc modelCollectionBloc = ModelListBloc(modelProvider: modelProvider);
 
     /// ? BLOCS
     final PreviewBloc previewBloc = PreviewBloc(eventBus: eventBus);
     final EditorBloc editorBloc = EditorBloc(eventBus: eventBus);
-    final MenuBloc menuBloc = MenuBloc(modelListBloc: modelListProvider);
+    final MenuBloc menuBloc = MenuBloc(modelListBloc: modelCollectionBloc);
     final HeaderBloc headerBloc = HeaderBloc();
     final ModelPageBloc modelPageBloc = ModelPageBloc(
-      modelListBloc: modelListProvider,
+      modelListBloc: modelCollectionBloc,
       rootKey: rootKey,
       modelProvider: modelProvider,
       menuBloc: menuBloc,
     );
     final TutorialBloc tutorialBloc = TutorialBloc(dbService: dbService, rootKey: rootKey);
 
-    final CollectionBloc collectionBloc = CollectionBloc(modelListBloc: modelListProvider, pageListProvider: pageListProvider, eventBus: eventBus);
+    final CollectionBloc collectionBloc = CollectionBloc(modelListBloc: modelCollectionBloc, pageListProvider: pageListProvider, eventBus: eventBus);
     final PageBloc pageBloc = PageBloc(
-      modelListBloc: modelListProvider,
+      modelListBloc: modelCollectionBloc,
       pageProvider: pageProvider,
       eventBus: eventBus,
       draftService: draftService,
@@ -104,16 +81,16 @@ class Initializer {
     );
 
     /// ? PRE-INITIALIZATION
-    await modelListProvider.preloadModelsFromCode(models);
-    unawaited(modelListProvider.loadDynamicModels(models));
+    await modelCollectionBloc.preloadModelsFromCode(config.predefinedModels);
+    unawaited(modelCollectionBloc.loadDynamicModels(config.predefinedModels));
     unawaited(headerBloc.initItems());
 
     final DataRepository dataRepository = DataRepository(
-      clickHandlers: clickHandlers,
-      renderers: renderers,
-      imageLoadingBuilder: imageLoadingBuilder,
-      imageErrorBuilder: imageErrorBuilder,
-      imageFrameBuilder: imageFrameBuilder,
+      clickHandlers: config.clickHandlers,
+      renderers: config.customRenderers,
+      imageLoadingBuilder: config.imageBuilderDelegate?.imageLoadingBuilder,
+      imageErrorBuilder: config.imageBuilderDelegate?.imageErrorWidgetBuilder,
+      imageFrameBuilder: config.imageBuilderDelegate?.imageFrameBuilder,
     );
 
     blocProviders
@@ -122,7 +99,7 @@ class Initializer {
         BlocProvider<PreviewBloc>.value(value: previewBloc),
         BlocProvider<EditorBloc>.value(value: editorBloc),
         BlocProvider<MenuBloc>.value(value: menuBloc),
-        BlocProvider<ModelListBloc>.value(value: modelListProvider),
+        BlocProvider<ModelListBloc>.value(value: modelCollectionBloc),
         BlocProvider<CollectionBloc>.value(value: collectionBloc),
         BlocProvider<BasePageBloc<BaseEntityPageState>>.value(value: pageBloc),
         BlocProvider<PageBloc>.value(value: pageBloc),
@@ -141,7 +118,7 @@ class Initializer {
         RepositoryProvider<CollectionProvider>.value(value: pageListProvider),
         RepositoryProvider<IPageProvider>.value(value: pageProvider),
         RepositoryProvider<PageProvider>.value(value: pageProvider),
-        RepositoryProvider<AdminConfig>.value(value: config),
+        RepositoryProvider<NetworkConfig>.value(value: config.networkConfig),
         RepositoryProvider<RoutesPreloadingService>.value(value: routesPreloadingService),
         RepositoryProvider<DraftService>.value(value: draftService),
         RepositoryProvider<DataRepository>.value(value: dataRepository),

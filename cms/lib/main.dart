@@ -1,7 +1,7 @@
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import 'src/domain/admin_runner.dart';
-import 'src/service/config/admin_config.dart';
 import 'src/user_space/api/mock_entity_list_api.dart';
 import 'src/user_space/api/mock_entity_page_api.dart';
 import 'src/user_space/entity/demo_multi_selector.dart';
@@ -14,22 +14,29 @@ Future<void> main() async {
   final DbService dbService = createDbService();
 
   await adminRunner(
-    models: [
-      demoUser,
-      demoMultiSelector,
-      demoMultiSelectorToUser,
-      demoStructured,
-      mockData,
-    ],
-    pageListApi: MockEntityListApi(
-      dbService: dbService,
-    ),
-    pageApi: MockEntityPageApi(
-      dbService: dbService,
-    ),
-    config: const AdminConfig(
-      pageNumberParameterName: 'page',
-      limitPerPageParameterName: 'limit',
+    CmsConfig(
+      collectionApi: MockEntityListApi(
+        dbService: dbService,
+      ),
+      pageApi: MockEntityPageApi(
+        dbService: dbService,
+      ),
+      networkConfig: const NetworkConfig(
+        paginationPageNumberParameterName: 'page',
+        paginationLimitParameterName: 'limit',
+      ),
+      imageBuilderDelegate: null,
+      adminWrapperBuilder: null,
+      predefinedModels: [
+        demoUser,
+        demoMultiSelector,
+        demoMultiSelectorToUser,
+        demoStructured,
+        mockData,
+      ],
+      customRenderers: [],
+      clickHandlers: [],
+      customFonts: [],
     ),
   );
 }

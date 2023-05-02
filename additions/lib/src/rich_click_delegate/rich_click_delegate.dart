@@ -1,14 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
-
-import 'rich_click_handler.dart';
 
 class _RichClickDelegate {
   factory _RichClickDelegate({
     required BuildContext context,
-    List<RichClickHandler> handlers = const [],
+    List<ClickHandler> handlers = const [],
   }) =>
       _instance ??= _RichClickDelegate._(context: context, handlers: handlers);
 
@@ -20,7 +19,7 @@ class _RichClickDelegate {
   static _RichClickDelegate? _instance;
 
   final BuildContext context;
-  final List<RichClickHandler> handlers;
+  final List<ClickHandler> handlers;
 
   Future<void> handler(String argument) async {
     for (final handler in handlers) {
@@ -44,7 +43,7 @@ class _RichClickDelegate {
 
 ClickActionHandler clickHandler({
   required BuildContext context,
-  List<RichClickHandler> handlers = const [],
+  List<ClickHandler> handlers = const [],
 }) {
   final _RichClickDelegate delegate = _RichClickDelegate(context: context, handlers: handlers);
   return delegate.handler;

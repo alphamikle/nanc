@@ -17,6 +17,10 @@ dependencies:
     path: ../model
   fields:
     path: ../fields
+  nanc_renderer:
+    path: ../nanc_renderer
+  fonts:
+    path: ../fonts
   copy_with_extension: ^5.0.0
   json_annotation: ^4.8.0
   equatable: ^2.0.5

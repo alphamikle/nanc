@@ -6,4 +6,3 @@ export 'src/rich_click_delegate/handlers/deeplink_event_handler.dart';
 export 'src/rich_click_delegate/handlers/share_event_handler.dart';
 export 'src/rich_click_delegate/handlers/snackbar_event_handler.dart';
 export 'src/rich_click_delegate/rich_click_delegate.dart' show clickHandler;
-export 'src/rich_click_delegate/rich_click_handler.dart';

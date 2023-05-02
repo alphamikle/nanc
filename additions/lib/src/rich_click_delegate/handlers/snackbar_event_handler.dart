@@ -1,11 +1,10 @@
 import 'package:analytics/analytics.dart';
 import 'package:flutter/material.dart';
-
-import '../rich_click_handler.dart';
+import 'package:nanc_config/nanc_config.dart';
 
 final RegExp _snackBarRegExp = RegExp(r'^snackbar: ?(?<content>.*)$');
 
-final RichClickHandler snackbarDemoHandler = RichClickHandler(
+final ClickHandler snackbarDemoHandler = ClickHandler(
   test: (BuildContext context, String event) => _snackBarRegExp.hasMatch(event),
   handler: (BuildContext context, String event) {
     final String content = _snackBarRegExp.firstMatch(event)!.namedGroup('content')!;
