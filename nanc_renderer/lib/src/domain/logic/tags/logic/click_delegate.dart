@@ -1,14 +1,12 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-typedef ClickActionHandler = FutureOr<void> Function(String event);
+import 'package:nanc_config/nanc_config.dart';
 
 class ClickDelegate extends InheritedWidget {
   const ClickDelegate({
     required super.child,
-    required this.onPressed,
+    this.handlers = const [],
     super.key,
   });
 
@@ -16,19 +14,31 @@ class ClickDelegate extends InheritedWidget {
   static ClickDelegate of(BuildContext context) {
     final ClickDelegate? delegate = context.dependOnInheritedWidgetOfExactType<ClickDelegate>();
     if (delegate == null) {
-      return ClickDelegate(
-        child: const SizedBox(),
-        onPressed: (String event) {
-          if (kDebugMode) {
-            print('ClickDelegate not found in the widget tree. Event "$event" was missed!');
-          }
-        },
-      );
+      return const ClickDelegate(child: SizedBox());
     }
     return delegate;
   }
 
-  final ClickActionHandler onPressed;
+  Future<void> onPressed(BuildContext context, String event) async {
+    for (final handler in handlers) {
+      final FutureOr<bool> canHandleRaw = handler.test(context, event);
+      bool canHandle = false;
+      if (canHandleRaw is Future) {
+        canHandle = await canHandleRaw;
+      } else {
+        canHandle = canHandleRaw;
+      }
+      if (canHandle) {
+        // ignore: use_build_context_synchronously
+        final FutureOr<void> resultRaw = handler.handler(context, event);
+        if (resultRaw is Future) {
+          await resultRaw;
+        }
+      }
+    }
+  }
+
+  final List<ClickHandler> handlers;
 
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => false;

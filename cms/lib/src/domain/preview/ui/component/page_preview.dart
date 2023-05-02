@@ -1,4 +1,3 @@
-import 'package:additions/additions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
@@ -19,7 +18,7 @@ class PagePreview extends StatelessWidget {
     final DataRepository dataRepository = context.read();
 
     return ClickDelegate(
-      onPressed: clickHandler(context: context, handlers: dataRepository.clickHandlers),
+      handlers: dataRepository.clickHandlers,
       child: BlocBuilder<BasePageBloc, BaseEntityPageState>(
         builder: (BuildContext context, BaseEntityPageState pageState) {
           return BlocBuilder<PreviewBloc, PreviewState>(

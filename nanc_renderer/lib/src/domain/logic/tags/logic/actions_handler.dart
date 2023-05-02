@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'click_delegate.dart';
 
 VoidCallback? handleClick(BuildContext context, String? event) {
@@ -6,5 +7,5 @@ VoidCallback? handleClick(BuildContext context, String? event) {
     return null;
   }
   // ignore: discarded_futures
-  return () => ClickDelegate.of(context).onPressed(event);
+  return () => ClickDelegate.of(context).onPressed(context, event);
 }

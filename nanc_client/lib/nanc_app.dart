@@ -53,24 +53,24 @@ class _NancAppState extends State<NancApp> {
       scrollBehavior: AlwaysTouchScrollBehavior(),
       builder: (BuildContext context, Widget child) {
         final double width = MediaQuery.of(context).size.width;
-        final ClickActionHandler action = clickHandler(context: context, handlers: [
+        final handlers = [
           browserLinksEventDemoHandler,
           snackbarDemoHandler,
           deeplinkEventDemoHandler,
           shareDemoHandler,
-        ]);
+        ];
 
         if (width > 500) {
           return DeviceFrame(
             device: Devices.ios.iPhone13,
             screen: ClickDelegate(
-              onPressed: action,
+              handlers: handlers,
               child: child,
             ),
           );
         }
         return ClickDelegate(
-          onPressed: action,
+          handlers: handlers,
           child: child,
         );
       },
