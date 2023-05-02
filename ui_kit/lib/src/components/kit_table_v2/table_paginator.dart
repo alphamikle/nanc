@@ -32,12 +32,16 @@ class TablePaginator extends StatefulWidget {
     required this.totalPages,
     required this.perPage,
     required this.onPagination,
+    required this.pinned,
+    required this.onPin,
     super.key,
   });
 
   final int currentPage;
   final int totalPages;
   final int perPage;
+  final bool pinned;
+  final VoidCallback onPin;
   final ValueSetter<int> onPagination;
 
   @override
@@ -104,72 +108,108 @@ class _TablePaginatorState extends State<TablePaginator> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: context.theme.colorScheme.tertiaryContainer,
-        borderRadius: BorderRadius.circular(Gap.regular),
-        boxShadow: [
-          BoxShadow(
-            color: context.theme.colorScheme.shadow,
-            spreadRadius: -10,
-            blurRadius: 12,
-          ),
-        ],
-      ),
-      width: kPaginatorButtonWidth * (visiblePages + 2),
-      height: kPaginatorHeight,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          SizedBox(
-            width: kPaginatorButtonWidth,
-            child: KitInkWell(
-              onPressed: prevActive ? prevHandler : null,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(Gap.regular),
-                bottomLeft: Radius.circular(Gap.regular),
+    if (totalPages < 2) {
+      return const SizedBox.shrink();
+    }
+
+    return Row(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: context.theme.colorScheme.tertiaryContainer,
+            borderRadius: BorderRadius.circular(Gap.regular),
+            boxShadow: [
+              BoxShadow(
+                color: context.theme.colorScheme.shadow,
+                spreadRadius: -10,
+                blurRadius: 12,
               ),
-              child: AnimatedOpacity(
-                duration: const Duration(milliseconds: 250),
-                opacity: prevActive ? 1 : 0.5,
-                child: Icon(
-                  IconPack.flu_caret_left_filled,
-                  size: 30,
-                  color: context.theme.textTheme.bodyMedium?.color,
+            ],
+          ),
+          width: kPaginatorHeight,
+          height: kPaginatorHeight,
+          child: KitInkWell(
+            borderRadius: BorderRadius.circular(Gap.regular),
+            onPressed: widget.onPin,
+            child: Center(
+              child: AnimatedCrossFade(
+                duration: const Duration(milliseconds: 150),
+                crossFadeState: widget.pinned ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+                firstChild: const Icon(IconPack.mdi_pin),
+                secondChild: const Icon(IconPack.mdi_pin_off),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(width: Gap.large),
+        Container(
+          decoration: BoxDecoration(
+            color: context.theme.colorScheme.tertiaryContainer,
+            borderRadius: BorderRadius.circular(Gap.regular),
+            boxShadow: [
+              BoxShadow(
+                color: context.theme.colorScheme.shadow,
+                spreadRadius: -10,
+                blurRadius: 12,
+              ),
+            ],
+          ),
+          width: kPaginatorButtonWidth * (visiblePages + 2),
+          height: kPaginatorHeight,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                width: kPaginatorButtonWidth,
+                child: KitInkWell(
+                  onPressed: prevActive ? prevHandler : null,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(Gap.regular),
+                    bottomLeft: Radius.circular(Gap.regular),
+                  ),
+                  child: AnimatedOpacity(
+                    duration: const Duration(milliseconds: 250),
+                    opacity: prevActive ? 1 : 0.5,
+                    child: Icon(
+                      IconPack.flu_caret_left_filled,
+                      size: 30,
+                      color: context.theme.textTheme.bodyMedium?.color,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: pageBuilder,
-              scrollDirection: Axis.horizontal,
-              controller: pagesController,
-              // physics: const NeverScrollableScrollPhysics(),
-              itemCount: widget.totalPages,
-            ),
-          ),
-          SizedBox(
-            width: kPaginatorButtonWidth,
-            child: KitInkWell(
-              onPressed: nextActive ? nextHandler : null,
-              borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(Gap.regular),
-                bottomRight: Radius.circular(Gap.regular),
-              ),
-              child: AnimatedOpacity(
-                duration: const Duration(milliseconds: 250),
-                opacity: nextActive ? 1 : 0.5,
-                child: Icon(
-                  IconPack.flu_caret_right_filled,
-                  size: 30,
-                  color: context.theme.textTheme.bodyMedium?.color,
+              Expanded(
+                child: ListView.builder(
+                  itemBuilder: pageBuilder,
+                  scrollDirection: Axis.horizontal,
+                  controller: pagesController,
+                  // physics: const NeverScrollableScrollPhysics(),
+                  itemCount: widget.totalPages,
                 ),
               ),
-            ),
+              SizedBox(
+                width: kPaginatorButtonWidth,
+                child: KitInkWell(
+                  onPressed: nextActive ? nextHandler : null,
+                  borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(Gap.regular),
+                    bottomRight: Radius.circular(Gap.regular),
+                  ),
+                  child: AnimatedOpacity(
+                    duration: const Duration(milliseconds: 250),
+                    opacity: nextActive ? 1 : 0.5,
+                    child: Icon(
+                      IconPack.flu_caret_right_filled,
+                      size: 30,
+                      color: context.theme.textTheme.bodyMedium?.color,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

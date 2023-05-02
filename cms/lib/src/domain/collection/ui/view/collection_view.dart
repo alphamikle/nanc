@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
@@ -24,8 +22,6 @@ class CollectionView extends StatefulWidget {
 }
 
 class _CollectionViewState extends State<CollectionView> {
-  final ScrollController tableScrollController = ScrollController();
-
   void openRow(Model model, Json rowData) => context.vRouter.to(
         Routes.pageOfCollectionModel(
           Uri.encodeComponent(model.id),
@@ -34,11 +30,6 @@ class _CollectionViewState extends State<CollectionView> {
           ),
         ),
       );
-
-  Future<void> paginate(int page) async {
-    await read<CollectionBloc>().paginate(page);
-    unawaited(tableScrollController.animateTo(0, duration: const Duration(milliseconds: 250), curve: Curves.easeInOut));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -106,8 +97,7 @@ class _CollectionViewState extends State<CollectionView> {
                       dataRows: state.dataRows,
                       currentPage: state.currentPage,
                       totalPages: state.totalPages,
-                      scrollController: tableScrollController,
-                      onPagination: paginate,
+                      onPagination: read<CollectionBloc>().paginate,
                       onRowPressed: (Json rowData) => openRow(model, rowData),
                     ),
                   ),

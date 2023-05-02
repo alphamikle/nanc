@@ -23,7 +23,7 @@ typedef KitTableHeaderCellBuilder = Widget Function(BuildContext context, Field 
 typedef KitTableRowPressedCallback = void Function(Json rowData);
 typedef KitTableCellPressedCallback = void Function(MapEntry<String, dynamic> cellData);
 typedef KitTableHeaderCellPressedCallback = void Function(Field field);
-typedef OnPagination = void Function(int pageNumber);
+typedef OnPagination = Future<void> Function(int pageNumber);
 
 class KitTableV2 extends StatefulWidget {
   const KitTableV2({
@@ -73,14 +73,16 @@ class _KitTableV2State extends State<KitTableV2> {
   final Map<int, ScrollController> horizontalScrollControllers = {};
   late final ScrollController headerScrollController = scrollControllersGroup.addAndGet();
   final LinkedScrollControllerGroup scrollControllersGroup = LinkedScrollControllerGroup();
-  late final ScrollController tableScrollController = widget.scrollController ?? ScrollController();
+  final ScrollController tableScrollController = ScrollController();
   final StreamController<double> paginatorPositionStreamController = StreamController();
-  bool get paginationEnabled => widget.paginationEnabled && currentPage > 0 && totalPages > 0;
+  final StreamController<bool> paginatorPinnedStatusController = StreamController();
+  bool get paginationEnabled => widget.paginationEnabled;
 
   double prevDiff = 0;
   double prevOffset = Gap.large;
   late int currentPage = widget.currentPage;
   late int totalPages = widget.totalPages;
+  bool paginatorPinned = false;
 
   void resizeColumn(int columnIndex, double diff) {
     safeSetState(() {
@@ -88,6 +90,11 @@ class _KitTableV2State extends State<KitTableV2> {
       final double newSize = max(oldSize + diff, _kMinColumnWidth / 2);
       columnSizes[columnIndex] = newSize;
     });
+  }
+
+  void togglePin() {
+    paginatorPinned = !paginatorPinned;
+    paginatorPinnedStatusController.add(paginatorPinned);
   }
 
   Widget _headerCellBuilder(BuildContext context, int index, double columnWidth) {
@@ -197,7 +204,15 @@ class _KitTableV2State extends State<KitTableV2> {
           currentPage = totalPages;
         }
       });
-      widget.onPagination!(currentPage);
+      unawaited(
+        widget.onPagination!(currentPage).then(
+          (_) => tableScrollController.animateTo(
+            0,
+            duration: const Duration(milliseconds: 250),
+            curve: Curves.easeInOut,
+          ),
+        ),
+      );
     }
   }
 
@@ -219,6 +234,9 @@ class _KitTableV2State extends State<KitTableV2> {
   void adjustPaginatorPosition() {
     final double diff = tableScrollController.offset - prevDiff;
     prevDiff = tableScrollController.offset;
+    if (diff > 0 && paginatorPinned) {
+      return;
+    }
     double paginatorBottomOffset = prevOffset - diff;
     if (paginatorBottomOffset < -kPaginatorHeight) {
       paginatorBottomOffset = -kPaginatorHeight;
@@ -253,6 +271,7 @@ class _KitTableV2State extends State<KitTableV2> {
     }
     tableScrollController.dispose();
     unawaited(paginatorPositionStreamController.close());
+    unawaited(paginatorPinnedStatusController.close());
     super.dispose();
   }
 
@@ -319,13 +338,19 @@ class _KitTableV2State extends State<KitTableV2> {
               return Positioned(
                 right: Gap.large,
                 bottom: snapshot.data ?? Gap.large,
-                child: TablePaginator(
-                  currentPage: currentPage,
-                  // TODO(alphamikle): Set this from the user settings
-                  perPage: 50,
-                  totalPages: totalPages,
-                  onPagination: paginationHandler,
-                ),
+                child: StreamBuilder<bool>(
+                    stream: paginatorPinnedStatusController.stream,
+                    builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+                      return TablePaginator(
+                        currentPage: currentPage,
+                        pinned: snapshot.data ?? false,
+                        onPin: togglePin,
+                        // TODO(alphamikle): Set this from the user settings
+                        perPage: 50,
+                        totalPages: totalPages,
+                        onPagination: paginationHandler,
+                      );
+                    }),
               );
             },
           ),
