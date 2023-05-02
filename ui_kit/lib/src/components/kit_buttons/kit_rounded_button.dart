@@ -4,6 +4,7 @@ import 'package:tools/tools.dart';
 import '../../constants/gap.dart';
 import '../../theme/kit_borders.dart';
 import '../kit_ink_well.dart';
+import '../kit_text.dart';
 
 class KitRoundedButton extends StatelessWidget {
   const KitRoundedButton({
@@ -26,8 +27,8 @@ class KitRoundedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget topping = child ??
-        Text(
-          text!,
+        KitText(
+          text: text!,
           style: DefaultTextStyle.of(context).style.copyWith(color: textColor ?? context.theme.colorScheme.onPrimary),
         );
     if (expanded) {

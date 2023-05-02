@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
@@ -31,14 +33,18 @@ class CollectionBloc extends Cubit<CollectionState> {
     emit(state.copyWith(
       isLoading: true,
       modelId: modelId,
+      dataRows: [],
+      totalPages: 0,
+      currentPage: 0,
     ));
     final CollectionResponseDto dto = await _loadData(modelId: modelId);
+    emit(state.copyWith.isLoading(false));
+    await _uiDelay();
     emit(state.copyWith(
       dataRows: dto.data,
       totalPages: dto.totalPages,
       currentPage: dto.page,
     ));
-    emit(state.copyWith.isLoading(false));
   }
 
   Future<void> _reloadEntitiesAfterSave(Model model) async => loadPages(model.id);
@@ -48,9 +54,10 @@ class CollectionBloc extends Cubit<CollectionState> {
     await Debouncer.run(id: '_filterTableByGlobalSearch', () async {
       final CollectionResponseDto dto = await _loadData(modelId: state.modelId);
       final List<Json> data = dto.data;
+      emit(state.copyWith(isGlobalSearchLoading: false));
+      await _uiDelay();
       emit(state.copyWith(
         dataRows: data,
-        isGlobalSearchLoading: false,
         notFoundAnything: data.isEmpty,
         currentPage: dto.page,
         totalPages: dto.totalPages,
@@ -99,10 +106,16 @@ class CollectionBloc extends Cubit<CollectionState> {
   }
 
   Future<void> paginate(int page) async {
+    emit(state.copyWith(
+      isLoading: true,
+      currentPage: page,
+    ));
     final CollectionResponseDto dto = await _loadData(
       modelId: state.modelId,
       page: page,
     );
+    emit(state.copyWith(isLoading: false));
+    await _uiDelay();
     emit(state.copyWith(
       dataRows: dto.data,
       currentPage: dto.page,
@@ -113,3 +126,5 @@ class CollectionBloc extends Cubit<CollectionState> {
 
   /// FILTER LIST (SEARCH, SORT, ETC)
 }
+
+Future<void> _uiDelay() async => wait(duration: const Duration(milliseconds: 100));

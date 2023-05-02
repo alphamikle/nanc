@@ -28,7 +28,7 @@ void showMessageNotification(String message) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(message.trim()),
+                    KitText(text: message.trim()),
                     Padding(
                       padding: const EdgeInsets.only(top: Gap.regular),
                       child: KitButton(

@@ -148,7 +148,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                                   children: const [
                                     Icon(IconPack.mdi_delete_empty),
                                     KitDivider(width: Gap.regular),
-                                    Text('Delete'),
+                                    KitText(text: 'Delete'),
                                   ],
                                 ),
                         ),
@@ -168,7 +168,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                         children: const [
                           Icon(IconPack.mdi_code_json),
                           KitDivider(width: Gap.regular),
-                          Text('Structure'),
+                          KitText(text: 'Structure'),
                         ],
                       ),
                     ),
@@ -187,7 +187,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                                 children: const [
                                   Icon(IconPack.mdi_notification_clear_all),
                                   KitDivider(width: Gap.regular),
-                                  Text('Reset'),
+                                  KitText(text: 'Reset'),
                                 ],
                               ),
                       ),
@@ -204,7 +204,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                               children: const [
                                 Icon(IconPack.flu_save_filled),
                                 KitDivider(width: Gap.regular),
-                                Text('Save'),
+                                KitText(text: 'Save'),
                               ],
                             ),
                     ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-class KitNotFoundText extends StatelessWidget {
-  const KitNotFoundText({
+import '../../ui_kit.dart';
+
+class KitCenteredText extends StatelessWidget {
+  const KitCenteredText({
     required this.text,
     super.key,
   });
@@ -11,7 +13,7 @@ class KitNotFoundText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(text),
+      child: KitText(text: text),
     );
   }
 }

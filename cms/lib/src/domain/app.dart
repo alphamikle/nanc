@@ -55,8 +55,8 @@ class _AppState extends State<App> {
       return Material(
         color: context.theme.colorScheme.surface,
         child: Center(
-          child: Text(
-            'The screen width is too small - ${width.toInt()}px\nNanc supporting only ${minWidth.toInt()}px+ width for now',
+          child: KitText(
+            text: 'The screen width is too small - ${width.toInt()}px\nNanc supporting only ${minWidth.toInt()}px+ width for now',
             textAlign: TextAlign.center,
             style: context.theme.textTheme.headlineMedium,
           ),

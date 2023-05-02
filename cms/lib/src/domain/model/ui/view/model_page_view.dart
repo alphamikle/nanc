@@ -161,8 +161,8 @@ class _ModelPageViewState extends State<ModelPageView> {
             builder: (BuildContext context, ModelPageState state) {
               return KitViewHeader(
                 children: [
-                  Text(
-                    state.hasAnyChanges ? 'Model was changed...' : 'Model was not changed...',
+                  KitText(
+                    text: state.hasAnyChanges ? 'Model was changed...' : 'Model was not changed...',
                   ),
                   const Spacer(),
                   KitButton(

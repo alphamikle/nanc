@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../kit_preloader.dart';
+import '../kit_text.dart';
 
 class KitButton extends StatelessWidget {
   const KitButton({
@@ -45,7 +46,7 @@ class KitButton extends StatelessWidget {
                 )
               : withChild
                   ? child!
-                  : Text(text!),
+                  : KitText(text: text!),
         ),
       ),
     );

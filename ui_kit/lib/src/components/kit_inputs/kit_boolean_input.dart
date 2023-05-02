@@ -6,6 +6,7 @@ import '../../constants/gap.dart';
 import '../../theme/kit_borders.dart';
 import '../../theme/kit_colors.dart';
 import '../kit_ink_well.dart';
+import '../kit_text.dart';
 import 'kit_segmented_field/kit_segmented_field.dart';
 
 class KitBooleanInput extends StatefulWidget {
@@ -126,7 +127,7 @@ class _BooleanFieldSegment extends StatelessWidget {
                             color: iconColor,
                           ),
                   ),
-                  Text(value ? 'True' : 'False'),
+                  KitText(text: value ? 'True' : 'False'),
                 ],
               ),
             ),

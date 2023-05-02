@@ -1,6 +1,8 @@
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 
+import '../kit_text.dart';
+
 class EntityTableCell extends StatelessWidget {
   const EntityTableCell({
     required this.field,
@@ -13,6 +15,6 @@ class EntityTableCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('$value');
+    return KitText(text: '$value');
   }
 }

@@ -10,6 +10,7 @@ import '../kit_buttons/kit_input_button.dart';
 import '../kit_icons/kit_icon_selector_modal.dart';
 import '../kit_icons/kit_icons.dart';
 import '../kit_list_tile.dart';
+import '../kit_text.dart';
 import 'kit_autocomplete_text_field.dart';
 import 'kit_segmented_field/kit_focus_stream_mixin.dart';
 import 'kit_segmented_field/kit_segmented_field.dart';
@@ -82,7 +83,7 @@ class _KitIconInputState extends State<KitIconInput> with KitFocusStreamMixin {
             padding: const EdgeInsets.only(right: Gap.large),
             child: buildIcon(enumValue),
           ),
-          Text(enumValue.title),
+          KitText(text: enumValue.title),
         ],
       ),
     );

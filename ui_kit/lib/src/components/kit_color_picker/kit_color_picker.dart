@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';
+import '../kit_text.dart';
 import 'palette.dart';
 
 class KitColorPicker extends StatefulWidget {
@@ -113,8 +114,8 @@ class _KitColorPickerState extends State<KitColorPicker> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 3.5),
-                                child: Text(
-                                  ((currentHsvColor.alpha * 100 * 2).round() / 2).toString(),
+                                child: KitText(
+                                  text: ((currentHsvColor.alpha * 100 * 2).round() / 2).toString(),
                                   style: context.theme.textTheme.bodyLarge,
                                 ),
                               ),

@@ -1,6 +1,8 @@
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 
+import '../kit_text.dart';
+
 class KitTableHeaderCell extends StatelessWidget {
   const KitTableHeaderCell({
     required this.field,
@@ -27,7 +29,7 @@ class KitTableHeaderCell extends StatelessWidget {
       child: Material(
         type: MaterialType.transparency,
         child: ListTile(
-          title: Text(field.name),
+          title: KitText(text: field.name),
           onTap: () {},
         ),
       ),

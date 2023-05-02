@@ -71,8 +71,8 @@ class _TagsManualViewState extends State<TagsManualView> {
                         onPressed: () => context.navigator.pop(),
                       ),
                     ),
-                    Text(
-                      'Tags manual',
+                    KitText(
+                      text: 'Tags manual',
                       style: context.theme.textTheme.titleLarge,
                     ),
                     const Spacer(),

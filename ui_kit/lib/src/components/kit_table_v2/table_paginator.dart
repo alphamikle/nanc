@@ -65,8 +65,8 @@ class _TablePaginatorState extends State<TablePaginator> {
         gap: 10,
         padding: EdgeInsets.zero,
         onPressed: () => pagePressedHandler(pageNumber),
-        child: Text(
-          numberToIconString(pageNumber),
+        child: KitText(
+          text: numberToIconString(pageNumber),
           style: TextStyle(
             inherit: false,
             color: isActive ? context.theme.colorScheme.tertiary : context.theme.textTheme.titleMedium?.color?.withOpacity(0.6),

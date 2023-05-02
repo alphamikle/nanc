@@ -5,6 +5,7 @@ import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';
 import '../kit_modal/kit_modal_card.dart';
+import '../kit_text.dart';
 import 'code_theme.dart';
 
 class KitJsonPreview extends StatefulWidget {
@@ -119,7 +120,7 @@ Future<void> showJsonPreviewModal({
     context: context,
     builder: (_) => KitModalCard(
       onClose: () => context.navigator.pop(),
-      header: Text(title),
+      header: KitText(text: title),
       child: Padding(
         padding: const EdgeInsets.only(bottom: Gap.large),
         child: KitJsonPreview(data: structure),

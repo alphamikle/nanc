@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
@@ -22,6 +24,8 @@ class CollectionView extends StatefulWidget {
 }
 
 class _CollectionViewState extends State<CollectionView> {
+  final ScrollController tableScrollController = ScrollController();
+
   void openRow(Model model, Json rowData) => context.vRouter.to(
         Routes.pageOfCollectionModel(
           Uri.encodeComponent(model.id),
@@ -30,6 +34,11 @@ class _CollectionViewState extends State<CollectionView> {
           ),
         ),
       );
+
+  Future<void> paginate(int page) async {
+    await read<CollectionBloc>().paginate(page);
+    unawaited(tableScrollController.animateTo(0, duration: const Duration(milliseconds: 250), curve: Curves.easeInOut));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,16 +54,7 @@ class _CollectionViewState extends State<CollectionView> {
     return KitViewSubContainer(
       child: BlocBuilder<CollectionBloc, CollectionState>(
         builder: (BuildContext context, CollectionState state) {
-          if (state.isLoading) {
-            return const KitPreloader();
-          } else if (state.dataRows.isEmpty && state.notFoundAnything == false) {
-            return Center(
-              child: KitBigButton(
-                text: 'Create first page',
-                onPressed: () => context.vRouter.to(Routes.createModelPage(modelId)),
-              ),
-            );
-          }
+          final bool loadingWithNoData = state.isLoading && state.dataRows.isEmpty && state.notFoundAnything == false;
 
           return KitColumn(
             children: [
@@ -66,7 +66,7 @@ class _CollectionViewState extends State<CollectionView> {
                       children: const [
                         Icon(IconPack.flu_form_new_filled),
                         KitDivider(width: Gap.regular),
-                        Text('Create'),
+                        KitText(text: 'Create'),
                       ],
                     ),
                   ),
@@ -77,7 +77,7 @@ class _CollectionViewState extends State<CollectionView> {
                       controller: read<CollectionBloc>().globalSearchController,
                       decoration: searchInputDecoration(
                         context: context,
-                        placeholder: 'Search...',
+                        placeholder: 'Search',
                       ),
                       prefixIcon: IconPack.flu_search_filled,
                       suffix: KitCirclePreloader(
@@ -87,20 +87,31 @@ class _CollectionViewState extends State<CollectionView> {
                   ),
                 ],
               ),
+              AnimatedCrossFade(
+                duration: const Duration(milliseconds: 500),
+                crossFadeState: state.isLoading ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+                firstChild: const LinearProgressIndicator(minHeight: 3, value: 0),
+                secondChild: const LinearProgressIndicator(minHeight: 3),
+              ),
               Expanded(
-                child: state.notFoundAnything
-                    ? const KitNotFoundText(text: 'Not found')
-                    : Material(
-                        type: MaterialType.transparency,
-                        child: KitTableV2(
-                          model: model,
-                          dataRows: state.dataRows,
-                          currentPage: state.currentPage,
-                          totalPages: state.totalPages,
-                          onPagination: read<CollectionBloc>().paginate,
-                          onRowPressed: (Json rowData) => openRow(model, rowData),
-                        ),
-                      ),
+                child: KitShowIf(
+                  c1: state.notFoundAnything,
+                  w1: const KitCenteredText(text: 'Not found'),
+                  c2: loadingWithNoData,
+                  w2: const KitCenteredText(text: 'Loading'),
+                  fallback: Material(
+                    type: MaterialType.transparency,
+                    child: KitTableV2(
+                      model: model,
+                      dataRows: state.dataRows,
+                      currentPage: state.currentPage,
+                      totalPages: state.totalPages,
+                      scrollController: tableScrollController,
+                      onPagination: paginate,
+                      onRowPressed: (Json rowData) => openRow(model, rowData),
+                    ),
+                  ),
+                ),
               ),
             ],
           );

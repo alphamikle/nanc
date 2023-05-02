@@ -3,6 +3,7 @@ import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';
 import '../kit_ink_well.dart';
+import '../kit_text.dart';
 
 class KitTextIndicatedButton extends StatefulWidget {
   const KitTextIndicatedButton({
@@ -90,7 +91,7 @@ class _KitTextIndicatedButtonState extends State<KitTextIndicatedButton> with Si
                             color: ColorTween(begin: baseTextColor, end: color).animate(animation).value,
                           ) ??
                           const TextStyle(),
-                      child: widget.child ?? Text(widget.text!),
+                      child: widget.child ?? KitText(text: widget.text!),
                     ),
                   ),
                 ),

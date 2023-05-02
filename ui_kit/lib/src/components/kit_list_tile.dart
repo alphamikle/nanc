@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import '../theme/kit_colors.dart';
+
+import '../../ui_kit.dart';
 
 class KitListTile extends StatelessWidget {
   const KitListTile({
@@ -20,7 +21,7 @@ class KitListTile extends StatelessWidget {
       minVerticalPadding: 0,
       selected: isSelected,
       selectedTileColor: context.theme.colorScheme.tertiary.o075,
-      title: child ?? Text(title!),
+      title: child ?? KitText(text: title!),
     );
   }
 }

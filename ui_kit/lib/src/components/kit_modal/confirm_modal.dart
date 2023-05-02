@@ -4,6 +4,7 @@ import 'package:tools/tools.dart';
 import '../../constants/gap.dart';
 import '../kit_divider.dart';
 import '../kit_line.dart';
+import '../kit_text.dart';
 import 'kit_base_modal.dart';
 import 'kit_base_modal_bottom.dart';
 
@@ -30,8 +31,8 @@ class KitConfirmModal extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                title,
+              KitText(
+                text: title,
                 style: context.theme.textTheme.titleLarge,
               ),
               if (subtitle != null) KitDivider.vertical(Gap.large),
@@ -43,7 +44,7 @@ class KitConfirmModal extends StatelessWidget {
             ? null
             : Padding(
                 padding: const EdgeInsets.only(top: Gap.regular, bottom: Gap.regular),
-                child: Text(subtitle!),
+                child: KitText(text: subtitle!),
               ),
         bottom: KitBaseModalBottom(
           onOk: () => context.navigator.pop(true),

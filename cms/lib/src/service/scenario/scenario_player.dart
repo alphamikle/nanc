@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 import 'episode.dart';
 import 'scenario.dart';
@@ -50,8 +51,8 @@ class _ScenarioPlayerState extends State<ScenarioPlayer> {
     final Episode episode = widget.scenario.episodes[index];
     late final Widget child;
     if (episode.text != null) {
-      child = Text(
-        episode.text!,
+      child = KitText(
+        text: episode.text!,
         style: episode.style ?? widget.textStyle,
       );
     } else if (episode.builder != null) {

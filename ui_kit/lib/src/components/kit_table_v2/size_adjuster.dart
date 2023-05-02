@@ -3,8 +3,7 @@ import 'package:tools/tools.dart';
 
 import '../kit_ink_well.dart';
 
-const double _maxWidth = 4;
-const double _minWidth = 1;
+const double _minWidth = 3;
 const Duration _duration = Duration(milliseconds: 250);
 
 typedef ColumnResizingCallback = ValueSetter<double>;
@@ -39,23 +38,12 @@ class _SizeAdjusterState extends State<SizeAdjuster> {
         noReaction: true,
         mouseCursor: SystemMouseCursors.resizeColumn,
         onHover: toggleHover,
-        child: SizedBox(
-          width: _maxWidth,
-          child: AnimatedPadding(
-            duration: _duration,
-            padding: EdgeInsets.only(
-              left: isHovered ? 0 : (_maxWidth - _minWidth) / 2,
-              right: isHovered ? 0 : (_maxWidth - _minWidth) / 2,
-            ),
-            child: AnimatedContainer(
-              duration: _duration,
-              decoration: BoxDecoration(
-                color: context.theme.colorScheme.primary.withOpacity(isHovered ? 1 : 0.1),
-                borderRadius: BorderRadius.circular(2),
-              ),
-              width: isHovered ? _maxWidth : _minWidth,
-            ),
+        child: AnimatedContainer(
+          duration: _duration,
+          decoration: BoxDecoration(
+            color: isHovered ? context.theme.colorScheme.primary : context.theme.colorScheme.surfaceVariant,
           ),
+          width: _minWidth,
         ),
       ),
     );

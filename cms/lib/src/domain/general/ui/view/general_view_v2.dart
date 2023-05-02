@@ -142,8 +142,8 @@ class _GeneralViewV2State extends State<GeneralViewV2> with SingleTickerProvider
               right: 32,
               child: Opacity(
                 opacity: 0.25,
-                child: Text(
-                  '''
+                child: KitText(
+                  text: '''
 Current url $currentUrl
 Current route $currentRoute
 '''

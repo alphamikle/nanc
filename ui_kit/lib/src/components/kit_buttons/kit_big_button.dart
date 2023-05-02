@@ -4,6 +4,7 @@ import 'package:tools/tools.dart';
 import '../../constants/gap.dart';
 import '../../theme/kit_borders.dart';
 import '../kit_ink_well.dart';
+import '../kit_text.dart';
 
 class KitBigButton extends StatelessWidget {
   const KitBigButton({
@@ -37,7 +38,7 @@ class KitBigButton extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: Gap.large, horizontal: Gap.extra),
-              child: child == null ? Text(text!) : child!,
+              child: child == null ? KitText(text: text!) : child!,
             ),
           ),
         ),

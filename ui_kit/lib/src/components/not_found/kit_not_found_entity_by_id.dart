@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../kit_not_found_text.dart';
+
+import '../kit_centered_text.dart';
 
 class KitNotFoundModelById extends StatelessWidget {
   const KitNotFoundModelById({
@@ -11,6 +12,6 @@ class KitNotFoundModelById extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return KitNotFoundText(text: 'TODO: NOT FOUND ENTITY BY ID "$modelId"');
+    return KitCenteredText(text: 'TODO: NOT FOUND ENTITY BY ID "$modelId"');
   }
 }

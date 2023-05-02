@@ -9,6 +9,7 @@ import '../../theme/kit_borders.dart';
 import '../kit_circle_preloader.dart';
 import '../kit_list_tile.dart';
 import '../kit_preloader.dart';
+import '../kit_text.dart';
 import 'kit_text_field.dart';
 
 class KitAutocompleteTextField<T extends Object> extends StatefulWidget {
@@ -121,7 +122,7 @@ class _KitAutocompleteTextFieldState<T extends Object> extends State<KitAutocomp
   }
 
   Widget notFoundBuilderDefault(BuildContext context) {
-    return const ListTile(title: Text('Not found...'));
+    return const ListTile(title: KitText(text: 'Not found...'));
   }
 
   Widget fieldPreloader({

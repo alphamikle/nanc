@@ -8,6 +8,7 @@ import '../kit_buttons/kit_icon_button_v2.dart';
 import '../kit_fonts/kit_fonts.dart';
 import '../kit_icons/kit_icon_selector_modal.dart';
 import '../kit_list_tile.dart';
+import '../kit_text.dart';
 import 'kit_autocomplete_text_field.dart';
 
 class KitFontInput extends StatefulWidget {
@@ -62,7 +63,7 @@ class _KitFontInputState extends State<KitFontInput> {
   Widget fontItemBuilder(BuildContext context, EnumValue enumValue) {
     final String font = enumValue.title;
     final bool isCustom = isCustomFontExist(font);
-    final Text fontWidget = Text('$font${isCustom ? ' (custom)' : ''}');
+    final Widget fontWidget = KitText(text: '$font${isCustom ? ' (custom)' : ''}');
 
     return KitListTile(
       child: Row(

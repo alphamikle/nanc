@@ -63,14 +63,14 @@ class FieldCard extends StatelessWidget {
                     child: KitColumn(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(
-                          editorMode ? field.name : field.description(context).title,
+                        KitText(
+                          text: editorMode ? field.name : field.description(context).title,
                           style: titleStyle?.copyWith(color: titleStyle.color?.withOpacity(0.8)),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        Text(
-                          editorMode ? field.id : field.description(context).description,
+                        KitText(
+                          text: editorMode ? field.id : field.description(context).description,
                           style: subtitleStyle?.copyWith(color: subtitleStyle.color?.withOpacity(0.5)),
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,

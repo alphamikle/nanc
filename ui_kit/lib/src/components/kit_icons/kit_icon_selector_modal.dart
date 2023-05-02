@@ -13,6 +13,7 @@ import '../kit_inputs/kit_text_field.dart';
 import '../kit_modal/kit_base_modal_bottom.dart';
 import '../kit_modal/kit_modal_card.dart';
 import '../kit_preloader.dart';
+import '../kit_text.dart';
 import '../kit_tooltip.dart';
 import 'kit_icons.dart';
 
@@ -83,8 +84,8 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: Gap.regular, right: Gap.regular, bottom: Gap.large),
-            child: Text(
-              value.title,
+            child: KitText(
+              text: value.title,
               style: context.theme.textTheme.bodySmall,
               textAlign: TextAlign.center,
               maxLines: 1,
@@ -131,7 +132,7 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
   Widget build(BuildContext context) {
     return KitModalCard(
       onClose: () => context.navigator.pop(),
-      header: const Text('Select icon'),
+      header: const KitText(text: 'Select icon'),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -173,7 +174,7 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
                         ? const KitPreloader()
                         : foundIcons.isEmpty
                             ? const Center(
-                                child: Text('Not found any icon'),
+                                child: KitText(text: 'Not found any icon'),
                               )
                             : GridView.builder(
                                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

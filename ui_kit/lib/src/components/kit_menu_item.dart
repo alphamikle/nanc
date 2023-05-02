@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
-import '../constants/gap.dart';
-import 'kit_ink_well.dart';
-import 'kit_tooltip.dart';
+import '../../ui_kit.dart';
 
 class KitMenuItem extends StatefulWidget {
   const KitMenuItem({
@@ -98,8 +96,8 @@ class _KitMenuItemState extends State<KitMenuItem> with SingleTickerProviderStat
                           flex: 4,
                           child: Padding(
                             padding: const EdgeInsets.only(left: Gap.regular),
-                            child: Text(
-                              widget.text,
+                            child: KitText(
+                              text: widget.text,
                               style: context.theme.textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.bold,
                                 color: textColor,

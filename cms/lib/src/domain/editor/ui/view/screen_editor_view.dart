@@ -110,8 +110,8 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                         ),
 
                         /// ? TITLE
-                        Text(
-                          'Editing $helper',
+                        KitText(
+                          text: 'Editing $helper',
                           style: context.theme.textTheme.titleLarge,
                         ),
                         const Spacer(),
@@ -130,7 +130,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Text(synced ? 'Cancel' : 'Sync'),
+                                    KitText(text: synced ? 'Cancel' : 'Sync'),
                                     Padding(
                                       padding: const EdgeInsets.only(left: kPaddingSmall),
                                       child: Icon(
@@ -152,7 +152,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                           onPressed: toggleJsonView,
                           child: Row(
                             children: [
-                              Text(isPageJsonAvailable ? 'Screen code' : 'Page data'),
+                              KitText(text: isPageJsonAvailable ? 'Screen code' : 'Page data'),
                               Padding(
                                 padding: const EdgeInsets.only(left: kPaddingSmall),
                                 child: Icon(
@@ -170,7 +170,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                           onPressed: () async => selectIcon(context: context, query: '', selectedIcon: null),
                           child: Row(
                             children: const [
-                              Text('Icons'),
+                              KitText(text: 'Icons'),
                               Padding(
                                 padding: EdgeInsets.only(left: kPaddingSmall),
                                 child: Icon(
@@ -194,7 +194,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                             onPressed: action,
                             child: Row(
                               children: const [
-                                Text('Help'),
+                                KitText(text: 'Help'),
                                 Padding(
                                   padding: EdgeInsets.only(left: kPaddingSmall),
                                   child: Icon(

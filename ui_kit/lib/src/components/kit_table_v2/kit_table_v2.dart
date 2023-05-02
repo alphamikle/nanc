@@ -8,6 +8,7 @@ import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';
+import '../kit_text.dart';
 import '../kit_tooltip.dart';
 import 'size_adjuster.dart';
 import 'table_paginator.dart';
@@ -39,6 +40,7 @@ class KitTableV2 extends StatefulWidget {
     this.onCellPressed,
     this.onHeaderCellPressed,
     this.onPagination,
+    this.scrollController,
     this.paginationEnabled = true,
     super.key,
   })  : assert(onRowPressed != null || onCellPressed != null),
@@ -51,6 +53,7 @@ class KitTableV2 extends StatefulWidget {
   final int currentPage;
   final int totalPages;
   final bool paginationEnabled;
+  final ScrollController? scrollController;
 
   final KitTableRowBuilder? rowBuilder;
   final KitTableCellBuilder? cellBuilder;
@@ -70,7 +73,7 @@ class _KitTableV2State extends State<KitTableV2> {
   final Map<int, ScrollController> horizontalScrollControllers = {};
   late final ScrollController headerScrollController = scrollControllersGroup.addAndGet();
   final LinkedScrollControllerGroup scrollControllersGroup = LinkedScrollControllerGroup();
-  final ScrollController tableScrollController = ScrollController();
+  late final ScrollController tableScrollController = widget.scrollController ?? ScrollController();
   final StreamController<double> paginatorPositionStreamController = StreamController();
   bool get paginationEnabled => widget.paginationEnabled && currentPage > 0 && totalPages > 0;
 
@@ -98,10 +101,11 @@ class _KitTableV2State extends State<KitTableV2> {
         children: [
           Flexible(
             child: ListTile(
-              onTap: widget.onHeaderCellPressed == null ? null : () => widget.onHeaderCellPressed!(field),
+              onTap: () {},
+              // onTap: widget.onHeaderCellPressed == null ? null : () => widget.onHeaderCellPressed!(field),
               title: widget.headerCellBuilder == null
-                  ? Text(
-                      field.name,
+                  ? KitText(
+                      text: field.name,
                       style: context.theme.textTheme.titleMedium,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -123,8 +127,8 @@ class _KitTableV2State extends State<KitTableV2> {
       child: widget.cellBuilder == null
           ? KitTooltip(
               text: cellData.value.toString(),
-              child: Text(
-                cellData.value.toString(),
+              child: KitText(
+                text: cellData.value.toString(),
                 style: context.theme.textTheme.bodyMedium?.copyWith(height: 1),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -271,16 +275,30 @@ class _KitTableV2State extends State<KitTableV2> {
               SliverPersistentHeader(
                 floating: true,
                 delegate: _TableHeaderDelegate(
+                  height: _kRowHeight + 5,
                   child: Material(
-                    child: ListView.builder(
-                      itemBuilder: (BuildContext context, int index) => _headerCellBuilder(
-                        context,
-                        index,
-                        columnSizes[index] ?? _kMinColumnWidth,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(
+                            width: 3,
+                            color: context.theme.colorScheme.surfaceVariant,
+                          ),
+                        ),
                       ),
-                      controller: headerScrollController,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: widget.model.listFields.length,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 3),
+                        child: ListView.builder(
+                          itemBuilder: (BuildContext context, int index) => _headerCellBuilder(
+                            context,
+                            index,
+                            columnSizes[index] ?? _kMinColumnWidth,
+                          ),
+                          controller: headerScrollController,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: widget.model.listFields.length,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -319,6 +337,7 @@ class _KitTableV2State extends State<KitTableV2> {
 class _TableHeaderDelegate extends SliverPersistentHeaderDelegate {
   _TableHeaderDelegate({
     required this.child,
+    this.height = _kRowHeight,
   });
 
   final Widget child;
@@ -328,11 +347,13 @@ class _TableHeaderDelegate extends SliverPersistentHeaderDelegate {
     return child;
   }
 
-  @override
-  double get maxExtent => _kRowHeight;
+  final double height;
 
   @override
-  double get minExtent => maxExtent;
+  double get maxExtent => height;
+
+  @override
+  double get minExtent => height;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) => true;

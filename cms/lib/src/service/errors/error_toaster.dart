@@ -35,8 +35,8 @@ class ErrorToaster extends StatelessWidget {
       color: context.theme.colorScheme.onErrorContainer,
     );
 
-    final Widget text = Text(
-      errorText,
+    final Widget text = KitText(
+      text: errorText,
       style: style,
     );
     final Widget closeButton = KitButton(
@@ -55,8 +55,8 @@ class ErrorToaster extends StatelessWidget {
         ),
         text,
         KitDivider.vertical(Gap.large),
-        Text(
-          errorWrapper.stackTrace.toString(),
+        KitText(
+          text: errorWrapper.stackTrace.toString(),
           style: style,
         ),
       ],
