@@ -17,7 +17,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     required this.pageListProvider,
     required this.eventBus,
   }) : super(CollectionState.empty()) {
-    eventBus.onEvent(consumer: runtimeType.toString(), eventId: PageEvents.save, handler: _reloadEntitiesAfterSave);
+    eventBus.onEvent(consumer: 'CollectionBloc', eventId: PageEvents.save, handler: _reloadEntitiesAfterSave);
     _initTableSearchListener();
   }
 
@@ -50,11 +50,11 @@ class CollectionBloc extends Cubit<CollectionState> {
   Future<void> _reloadEntitiesAfterSave(Model model) async => loadPages(model.id);
 
   Future<void> _filterTableByGlobalSearch() async {
-    emit(state.copyWith(isGlobalSearchLoading: true));
+    emit(state.copyWith(isLoading: true));
     await Debouncer.run(id: '_filterTableByGlobalSearch', () async {
       final CollectionResponseDto dto = await _loadData(modelId: state.modelId);
       final List<Json> data = dto.data;
-      emit(state.copyWith(isGlobalSearchLoading: false));
+      emit(state.copyWith(isLoading: false));
       await _uiDelay();
       emit(state.copyWith(
         dataRows: data,

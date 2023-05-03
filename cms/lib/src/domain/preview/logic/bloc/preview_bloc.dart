@@ -10,8 +10,8 @@ class PreviewBloc extends Cubit<PreviewState> {
   PreviewBloc({
     required this.eventBus,
   }) : super(PreviewState.empty()) {
-    eventBus.onEvent(consumer: runtimeType.toString(), eventId: EditorEvent.changed, handler: _handleEditorChanges);
-    eventBus.onEvent(consumer: runtimeType.toString(), eventId: EditorEvent.scroll, handler: _handleScrollChanges);
+    eventBus.onEvent(consumer: 'PreviewBloc', eventId: EditorEvent.changed, handler: _handleEditorChanges);
+    eventBus.onEvent(consumer: 'PreviewBloc', eventId: EditorEvent.scroll, handler: _handleScrollChanges);
   }
 
   @protected
