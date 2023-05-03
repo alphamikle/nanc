@@ -42,7 +42,13 @@ Future<void> main() async {
         dbService: dbService,
         connectionManagerBloc: connectionManagerBloc,
       ),
-      networkConfig: const NetworkConfig(paginationLimitParameterName: 'limit', paginationPageNumberParameterName: 'page'),
+      networkConfig: NetworkConfig(
+        paginationLimitParameterName: 'limit',
+        paginationPageNumberParameterName: 'page',
+        paginationDataContainerParameterName: 'data',
+        paginationTotalPagesParameterName: 'total',
+        paginationLimitParameterDefaultValue: 15,
+      ),
       imageBuilderDelegate: const ImageBuilderDelegate(imageFrameBuilder: imageFrameBuilder),
       adminWrapperBuilder: (BuildContext context, GlobalKey<NavigatorState> navigatorKey, Widget adminPanel) {
         return MultiBlocProvider(

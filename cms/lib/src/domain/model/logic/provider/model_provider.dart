@@ -22,7 +22,9 @@ class ModelProvider {
       subset: [fieldIdProperty, kModelField],
       params: const ParamsDto(
         page: 1,
-        limit: 9999,
+
+        /// ? We always want to download all the models
+        limit: 49990,
         sort: Sort(
           field: fieldDefaultValueProperty,
           order: Order.asc,

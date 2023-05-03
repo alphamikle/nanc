@@ -21,9 +21,12 @@ Future<void> main() async {
       pageApi: MockEntityPageApi(
         dbService: dbService,
       ),
-      networkConfig: const NetworkConfig(
+      networkConfig: NetworkConfig(
         paginationPageNumberParameterName: 'page',
         paginationLimitParameterName: 'limit',
+        paginationDataContainerParameterName: 'data',
+        paginationTotalPagesParameterName: 'total_pages',
+        paginationLimitParameterDefaultValue: 100,
       ),
       imageBuilderDelegate: null,
       adminWrapperBuilder: null,

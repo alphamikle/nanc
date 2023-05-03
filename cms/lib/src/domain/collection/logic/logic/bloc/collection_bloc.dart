@@ -72,7 +72,7 @@ class CollectionBloc extends Cubit<CollectionState> {
   Future<CollectionResponseDto> _loadData({
     required String modelId,
     int page = 1,
-    int limit = 50,
+    int? limit,
   }) async {
     final Model? model = modelListBloc.findModelById(modelId);
     if (model == null) {
@@ -85,7 +85,7 @@ class CollectionBloc extends Cubit<CollectionState> {
       subset: model.listFields.ids,
       params: ParamsDto(
         page: page,
-        limit: limit,
+        limit: limit ?? NetworkConfig.paginationLimitParameterDefaultValue,
         sort: Sort(
           field: model.idField.id,
           order: Order.asc,

@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 part 'params_dto.g.dart';
@@ -19,7 +20,7 @@ class ParamsDto {
 
   ParamsDto.initial(Model model)
       : page = 1,
-        limit = 50,
+        limit = NetworkConfig.paginationLimitParameterDefaultValue,
         sort = Sort(field: model.idField.id, order: Order.asc);
 
   Json toJson() => _$ParamsDtoToJson(this);
