@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -10,6 +11,7 @@ import 'package:tools/tools.dart';
 import '../../constants/gap.dart';
 import '../kit_text.dart';
 import '../kit_tooltip.dart';
+import 'popups/kit_table_popup_button.dart';
 import 'size_adjuster.dart';
 import 'table_paginator.dart';
 
@@ -108,8 +110,7 @@ class _KitTableV2State extends State<KitTableV2> {
         children: [
           Flexible(
             child: ListTile(
-              onTap: () {},
-              // onTap: widget.onHeaderCellPressed == null ? null : () => widget.onHeaderCellPressed!(field),
+              onTap: widget.onHeaderCellPressed == null ? null : () => widget.onHeaderCellPressed!(field),
               title: widget.headerCellBuilder == null
                   ? KitText(
                       text: field.name,
@@ -118,6 +119,14 @@ class _KitTableV2State extends State<KitTableV2> {
                       overflow: TextOverflow.ellipsis,
                     )
                   : widget.headerCellBuilder!(context, field),
+            ),
+          ),
+          KitTablePopupButton(
+            field: field,
+            child: Icon(
+              IconPack.mdi_filter,
+              color: context.theme.colorScheme.primaryContainer,
+              size: 20,
             ),
           ),
           SizeAdjuster(

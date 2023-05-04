@@ -9,15 +9,8 @@ part of 'collection_state.dart';
 extension _$CollectionStateAutoequal on CollectionState {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [
-        dataRows,
-        modelId,
-        currentPage,
-        totalPages,
-        isLoading,
-        isGlobalSearchLoading,
-        notFoundAnything
-      ];
+  List<Object?> get _$props =>
+      [dataRows, modelId, currentPage, totalPages, isLoading, notFoundAnything];
 }
 
 // **************************************************************************
@@ -35,8 +28,6 @@ abstract class _$CollectionStateCWProxy {
 
   CollectionState isLoading(bool isLoading);
 
-  CollectionState isGlobalSearchLoading(bool isGlobalSearchLoading);
-
   CollectionState notFoundAnything(bool notFoundAnything);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `CollectionState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
@@ -51,7 +42,6 @@ abstract class _$CollectionStateCWProxy {
     int? currentPage,
     int? totalPages,
     bool? isLoading,
-    bool? isGlobalSearchLoading,
     bool? notFoundAnything,
   });
 }
@@ -80,10 +70,6 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
   CollectionState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
-  CollectionState isGlobalSearchLoading(bool isGlobalSearchLoading) =>
-      this(isGlobalSearchLoading: isGlobalSearchLoading);
-
-  @override
   CollectionState notFoundAnything(bool notFoundAnything) =>
       this(notFoundAnything: notFoundAnything);
 
@@ -101,7 +87,6 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
     Object? currentPage = const $CopyWithPlaceholder(),
     Object? totalPages = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
-    Object? isGlobalSearchLoading = const $CopyWithPlaceholder(),
     Object? notFoundAnything = const $CopyWithPlaceholder(),
   }) {
     return CollectionState(
@@ -127,12 +112,6 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
           ? _value.isLoading
           // ignore: cast_nullable_to_non_nullable
           : isLoading as bool,
-      isGlobalSearchLoading:
-          isGlobalSearchLoading == const $CopyWithPlaceholder() ||
-                  isGlobalSearchLoading == null
-              ? _value.isGlobalSearchLoading
-              // ignore: cast_nullable_to_non_nullable
-              : isGlobalSearchLoading as bool,
       notFoundAnything: notFoundAnything == const $CopyWithPlaceholder() ||
               notFoundAnything == null
           ? _value.notFoundAnything
@@ -161,7 +140,6 @@ CollectionState _$CollectionStateFromJson(Map<String, dynamic> json) =>
       currentPage: json['currentPage'] as int,
       totalPages: json['totalPages'] as int,
       isLoading: json['isLoading'] as bool,
-      isGlobalSearchLoading: json['isGlobalSearchLoading'] as bool,
       notFoundAnything: json['notFoundAnything'] as bool,
     );
 
@@ -172,6 +150,5 @@ Map<String, dynamic> _$CollectionStateToJson(CollectionState instance) =>
       'currentPage': instance.currentPage,
       'totalPages': instance.totalPages,
       'isLoading': instance.isLoading,
-      'isGlobalSearchLoading': instance.isGlobalSearchLoading,
       'notFoundAnything': instance.notFoundAnything,
     };

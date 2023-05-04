@@ -71,9 +71,6 @@ class _CollectionViewState extends State<CollectionView> {
                         placeholder: 'Search',
                       ),
                       prefixIcon: IconPack.flu_search_filled,
-                      suffix: KitCirclePreloader(
-                        isLoading: state.isGlobalSearchLoading,
-                      ),
                     ),
                   ),
                 ],

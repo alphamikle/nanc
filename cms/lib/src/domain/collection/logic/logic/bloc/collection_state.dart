@@ -16,7 +16,6 @@ class CollectionState extends Equatable {
     required this.currentPage,
     required this.totalPages,
     required this.isLoading,
-    required this.isGlobalSearchLoading,
     required this.notFoundAnything,
   });
 
@@ -26,7 +25,6 @@ class CollectionState extends Equatable {
         currentPage: 0,
         totalPages: 0,
         isLoading: false,
-        isGlobalSearchLoading: false,
         notFoundAnything: false,
       );
 
@@ -37,7 +35,6 @@ class CollectionState extends Equatable {
   final int currentPage;
   final int totalPages;
   final bool isLoading;
-  final bool isGlobalSearchLoading;
   final bool notFoundAnything;
 
   @override
