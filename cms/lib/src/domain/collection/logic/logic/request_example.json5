@@ -1,0 +1,25 @@
+{
+  request: {
+    type: 'OR',
+    fields: [
+      {
+        type: 'EQ',
+        field: 'first_name',
+        value: 'Alex'
+      },
+      {
+        type: 'EQ',
+        field: 'first_name',
+        value: 'Mike'
+      },
+      {
+        type: 'AND',
+        fields: [
+          {
+
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -8,6 +8,7 @@ enum FieldType {
   stringField,
   multiSelectorField,
   numberField,
+  queryFilterField,
   selectorField,
   boolField,
   dynamicField,

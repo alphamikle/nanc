@@ -168,6 +168,7 @@ const _$FieldTypeEnumMap = {
   FieldType.stringField: 'stringField',
   FieldType.multiSelectorField: 'multiSelectorField',
   FieldType.numberField: 'numberField',
+  FieldType.queryFilterField: 'queryFilterField',
   FieldType.selectorField: 'selectorField',
   FieldType.boolField: 'boolField',
   FieldType.dynamicField: 'dynamicField',

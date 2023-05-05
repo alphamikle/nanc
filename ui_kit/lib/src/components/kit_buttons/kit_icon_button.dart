@@ -29,7 +29,7 @@ class KitIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BorderRadius radius = BorderRadius.all(Radius.circular(max(rounder, iconSize / 2 - rounder)));
-    final Color backgroundColor = (color ?? context.theme.colorScheme.secondaryContainer).o5;
+    final Color backgroundColor = (color ?? context.theme.colorScheme.secondaryContainer).o50;
     final Color iconColor = (this.iconColor ?? context.theme.colorScheme.onPrimaryContainer).withOpacity(1);
 
     return Stack(

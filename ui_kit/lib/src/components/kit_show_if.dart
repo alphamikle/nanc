@@ -17,6 +17,7 @@ class KitShowIf extends StatelessWidget {
     this.c7 = false,
     this.w7,
     this.fallback,
+    this.animate = true,
     super.key,
   });
 
@@ -35,24 +36,33 @@ class KitShowIf extends StatelessWidget {
   final bool c7;
   final Widget? w7;
   final Widget? fallback;
+  final bool animate;
 
   @override
   Widget build(BuildContext context) {
+    Widget? result;
     if (c1) {
-      return w1!;
+      result = w1!;
     } else if (c2) {
-      return w2!;
+      result = w2!;
     } else if (c3) {
-      return w3!;
+      result = w3!;
     } else if (c4) {
-      return w4!;
+      result = w4!;
     } else if (c5) {
-      return w5!;
+      result = w5!;
     } else if (c6) {
-      return w6!;
+      result = w6!;
     } else if (c7) {
-      return w7!;
+      result = w7!;
     }
-    return fallback ?? const SizedBox.shrink();
+    result ??= fallback ?? const SizedBox.shrink();
+    if (animate) {
+      return AnimatedSwitcher(
+        duration: const Duration(milliseconds: 250),
+        child: result,
+      );
+    }
+    return result;
   }
 }

@@ -43,7 +43,7 @@ class _FieldEditorModalState extends State<FieldEditorModal> {
 
   @override
   Widget build(BuildContext context) {
-    return KitModalCard(
+    return KitModal(
       header: KitText(text: 'Editing ${capitalize(widget.field.type.name)}'),
       onClose: () => context.navigator.pop(),
       child: Column(

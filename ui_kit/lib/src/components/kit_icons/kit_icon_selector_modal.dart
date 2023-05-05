@@ -11,7 +11,7 @@ import '../kit_circle_preloader.dart';
 import '../kit_ink_well.dart';
 import '../kit_inputs/kit_text_field.dart';
 import '../kit_modal/kit_base_modal_bottom.dart';
-import '../kit_modal/kit_modal_card.dart';
+import '../kit_modal/kit_modal.dart';
 import '../kit_preloader.dart';
 import '../kit_text.dart';
 import '../kit_tooltip.dart';
@@ -103,7 +103,7 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
                 Positioned.fill(
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: context.theme.colorScheme.primaryContainer.o5,
+                      color: context.theme.colorScheme.primaryContainer.o50,
                       borderRadius: context.kitBorders.smallRadius,
                     ),
                   ),
@@ -130,7 +130,7 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
 
   @override
   Widget build(BuildContext context) {
-    return KitModalCard(
+    return KitModal(
       onClose: () => context.navigator.pop(),
       header: const KitText(text: 'Select icon'),
       child: Column(

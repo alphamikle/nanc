@@ -19,6 +19,7 @@ export 'src/domain/fields/logic/models_selector_field/models_selector_field.dart
 export 'src/domain/fields/logic/multi_selector_field/multi_selector_field.dart';
 export 'src/domain/fields/logic/multi_selector_field/third_table.dart';
 export 'src/domain/fields/logic/number_field/number_field.dart';
+export 'src/domain/fields/logic/query_filter_field/query_filter_field.dart';
 export 'src/domain/fields/logic/screen_field/screen_content_model.dart';
 export 'src/domain/fields/logic/screen_field/screen_field.dart';
 export 'src/domain/fields/logic/selector_field/selector_field.dart';
@@ -44,6 +45,7 @@ export 'src/domain/fields/ui/multi_selector_field_cell/multi_selector_field_cell
 export 'src/domain/fields/ui/multi_selector_field_cell/multi_selector_modal.dart';
 export 'src/domain/fields/ui/multiline_string_field_cell/string_field_cell.dart';
 export 'src/domain/fields/ui/number_field_cell/number_field_cell.dart';
+export 'src/domain/fields/ui/query_filter_cell/query_filter_cell.dart';
 export 'src/domain/fields/ui/screen_field_cell/screen_field_cell.dart';
 export 'src/domain/fields/ui/selector_field_cell/selector_field_cell.dart';
 export 'src/domain/fields/ui/structure_field_cell/structure_field_cell.dart';

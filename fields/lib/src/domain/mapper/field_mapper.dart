@@ -19,6 +19,7 @@ import '../fields/logic/models_selector_field/models_selector_field.dart';
 import '../fields/logic/multi_selector_field/multi_selector_field.dart';
 import '../fields/logic/multi_selector_field/third_table.dart';
 import '../fields/logic/number_field/number_field.dart';
+import '../fields/logic/query_filter_field/query_filter_field.dart';
 import '../fields/logic/screen_field/screen_field.dart';
 import '../fields/logic/selector_field/selector_field.dart';
 import '../fields/logic/string_field/string_field.dart';
@@ -38,6 +39,7 @@ import '../fields/ui/models_selector_field/models_selector_field_cell.dart';
 import '../fields/ui/multi_selector_field_cell/multi_selector_field_cell.dart';
 import '../fields/ui/multiline_string_field_cell/string_field_cell.dart';
 import '../fields/ui/number_field_cell/number_field_cell.dart';
+import '../fields/ui/query_filter_cell/query_filter_cell.dart';
 import '../fields/ui/screen_field_cell/screen_field_cell.dart';
 import '../fields/ui/selector_field_cell/selector_field_cell.dart';
 import '../fields/ui/structure_field_cell/structure_field_cell.dart';
@@ -80,6 +82,8 @@ abstract class FieldMapper {
       ) as T;
     } else if (type == FieldType.numberField) {
       return (field as NumberField).copyWith() as T;
+    } else if (type == FieldType.queryFilterField) {
+      return (field as QueryFilterField).copyWith() as T;
     } else if (type == FieldType.screenField) {
       return (field as ScreenField).copyWith() as T;
     } else if (type == FieldType.selectorField) {
@@ -133,6 +137,13 @@ abstract class FieldMapper {
       return MultiSelectorFieldCell(field: field, creationMode: creationMode);
     } else if (field is NumberField) {
       return NumberFieldCell(field: field, creationMode: creationMode);
+    } else if (field is QueryFilterField) {
+      return QueryFilterCell(
+        field: field,
+        creationMode: creationMode,
+        onChildChange: onChildChange,
+        deepLevel: deepLevel ?? 0,
+      );
     } else if (field is ScreenField) {
       return ScreenFieldCell(field: field, creationMode: creationMode);
     } else if (field is SelectorField) {
@@ -232,6 +243,8 @@ abstract class FieldMapper {
       return MultiSelectorField.fromJson(json) as T;
     } else if (type == FieldType.numberField.name) {
       return NumberField.fromJson(json) as T;
+    } else if (type == FieldType.queryFilterField.name) {
+      return QueryFilterField.fromJson(json) as T;
     } else if (type == FieldType.screenField.name) {
       return ScreenField.fromJson(json) as T;
     } else if (type == FieldType.selectorField.name) {
@@ -272,6 +285,8 @@ abstract class FieldMapper {
       return MultiSelectorField.empty().toModel();
     } else if (fieldType == FieldType.numberField) {
       return NumberField.empty().toModel();
+    } else if (fieldType == FieldType.queryFilterField) {
+      return QueryFilterField.empty().toModel();
     } else if (fieldType == FieldType.screenField) {
       return ScreenField.empty().toModel();
     } else if (fieldType == FieldType.selectorField) {
@@ -312,6 +327,8 @@ abstract class FieldMapper {
       return MultiSelectorField.empty() as T;
     } else if (fieldType == FieldType.numberField) {
       return NumberField.empty() as T;
+    } else if (fieldType == FieldType.queryFilterField) {
+      return QueryFilterField.empty() as T;
     } else if (fieldType == FieldType.screenField) {
       return ScreenField.empty() as T;
     } else if (fieldType == FieldType.selectorField) {
@@ -340,15 +357,15 @@ abstract class FieldMapper {
       SelectorField.empty(),
       EnumField.empty(),
       FontField.empty(),
-      // GroupField.empty(),
       MultiSelectorField.empty(),
       DynamicField.empty(),
-
-      /// ? THIS FIELD IS FOR PRIVATE USE ONLY
-      // StructureField.empty(),
       StructuredField.empty(),
       ScreenField.empty(),
       ModelsSelectorField.empty(),
+
+      /// ? THIS FIELD IS FOR PRIVATE USE ONLY
+      // StructureField.empty(),
+      QueryFilterField.empty(),
       // TODO(alphamikle): [FIELDS] Add new fields here
     ];
   }

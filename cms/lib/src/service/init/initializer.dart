@@ -7,6 +7,7 @@ import 'package:tools/tools.dart';
 
 import '../../../cms.dart';
 import '../../domain/collection/logic/logic/bloc/collection_bloc.dart';
+import '../../domain/collection/logic/logic/bloc/collection_filter_bloc.dart';
 import '../../domain/collection/logic/logic/provider/collection_provider.dart';
 import '../../domain/draft/logic/draft_service.dart';
 import '../../domain/general/logic/bloc/header/header_bloc.dart';
@@ -45,8 +46,8 @@ class Initializer {
 
     /// ? PROVIDERS
     final PageProvider pageProvider = PageProvider(api: config.pageApi);
-    final CollectionProvider pageListProvider = CollectionProvider(api: config.collectionApi);
-    final ModelProvider modelProvider = ModelProvider(pageProvider: pageProvider, collectionProvider: pageListProvider);
+    final CollectionProvider collectionProvider = CollectionProvider(api: config.collectionApi);
+    final ModelProvider modelProvider = ModelProvider(pageProvider: pageProvider, collectionProvider: collectionProvider);
 
     /// ? ENTITY WITH NAV
     final ModelListBloc modelCollectionBloc = ModelListBloc(modelProvider: modelProvider);
@@ -63,8 +64,12 @@ class Initializer {
       menuBloc: menuBloc,
     );
     final TutorialBloc tutorialBloc = TutorialBloc(dbService: dbService, rootKey: rootKey);
-
-    final CollectionBloc collectionBloc = CollectionBloc(modelListBloc: modelCollectionBloc, pageListProvider: pageListProvider, eventBus: eventBus);
+    final CollectionFilterBloc collectionFilterBloc = CollectionFilterBloc(eventBus: eventBus);
+    final CollectionBloc collectionBloc = CollectionBloc(
+      modelListBloc: modelCollectionBloc,
+      pageListProvider: collectionProvider,
+      eventBus: eventBus,
+    );
     final PageBloc pageBloc = PageBloc(
       modelListBloc: modelCollectionBloc,
       pageProvider: pageProvider,
@@ -106,6 +111,7 @@ class Initializer {
         BlocProvider<ModelPageBloc>.value(value: modelPageBloc),
         BlocProvider<HeaderBloc>.value(value: headerBloc),
         BlocProvider<TutorialBloc>.value(value: tutorialBloc),
+        BlocProvider<CollectionFilterBloc>.value(value: collectionFilterBloc),
       ]);
 
     repositoryProviders
@@ -114,8 +120,8 @@ class Initializer {
         RepositoryProvider<RootKey>.value(value: rootKey),
         RepositoryProvider<EventBus>.value(value: eventBus),
         RepositoryProvider<ModelProvider>.value(value: modelProvider),
-        RepositoryProvider<ICollectionProvider>.value(value: pageListProvider),
-        RepositoryProvider<CollectionProvider>.value(value: pageListProvider),
+        RepositoryProvider<ICollectionProvider>.value(value: collectionProvider),
+        RepositoryProvider<CollectionProvider>.value(value: collectionProvider),
         RepositoryProvider<IPageProvider>.value(value: pageProvider),
         RepositoryProvider<PageProvider>.value(value: pageProvider),
         RepositoryProvider<NetworkConfig>.value(value: config.networkConfig),

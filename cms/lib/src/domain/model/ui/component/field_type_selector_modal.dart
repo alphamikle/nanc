@@ -40,7 +40,7 @@ class FieldTypeSelectorModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return KitModalCard(
+    return KitModal(
       header: const KitText(text: 'Select field type'),
       onClose: () => context.navigator.pop(null),
       child: Padding(

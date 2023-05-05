@@ -95,7 +95,7 @@ And play with the client app UI
     final Size screenSize = MediaQuery.of(context).size;
     final double size = min(screenSize.width, screenSize.height) * 0.5;
 
-    return KitModalCard(
+    return KitModal(
       onClose: widget.onClose,
       header: const Text('Connection manager'),
       child: BlocConsumer<ConnectionManagerBloc, ConnectionManagerState>(
@@ -128,7 +128,8 @@ And play with the client app UI
                                       padding: const EdgeInsets.only(left: 16, top: 20, bottom: 12),
                                       child: Text(
                                         'Clients',
-                                        style: context.theme.textTheme.titleLarge?.copyWith(color: context.theme.textTheme.titleLarge?.color?.withOpacity(0.65)),
+                                        style:
+                                            context.theme.textTheme.titleLarge?.copyWith(color: context.theme.textTheme.titleLarge?.color?.withOpacity(0.65)),
                                         maxLines: 1,
                                         overflow: TextOverflow.fade,
                                       ),

@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:cms/cms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
@@ -148,7 +147,7 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
 
   @override
   Widget build(BuildContext context) {
-    return KitModalCard(
+    return KitModal(
       onClose: () => context.navigator.pop(),
       header: Text('${widget.field.name} - editing'),
       child: Column(

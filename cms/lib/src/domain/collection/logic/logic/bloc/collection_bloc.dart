@@ -32,6 +32,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     }
     emit(state.copyWith(
       isLoading: true,
+      notFoundAnything: false,
       modelId: modelId,
       dataRows: [],
       totalPages: 0,
@@ -44,6 +45,7 @@ class CollectionBloc extends Cubit<CollectionState> {
       dataRows: dto.data,
       totalPages: dto.totalPages,
       currentPage: dto.page,
+      notFoundAnything: dto.data.isEmpty,
     ));
   }
 

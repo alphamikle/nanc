@@ -10,7 +10,9 @@ import '../../../../service/routing/params_list.dart';
 import '../../../../service/routing/route_list.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../logic/logic/bloc/collection_bloc.dart';
+import '../../logic/logic/bloc/collection_filter_bloc.dart';
 import '../../logic/logic/bloc/collection_state.dart';
+import '../component/collection_filter_modal.dart';
 
 class CollectionView extends StatefulWidget {
   const CollectionView({
@@ -62,16 +64,33 @@ class _CollectionViewState extends State<CollectionView> {
                     ),
                   ),
                   const Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.only(right: Gap.regular),
+                    child: KitTooltip(
+                      text: 'Advanced search',
+                      child: SizedBox(
+                        height: 44,
+                        width: 44,
+                        child: KitIconButton(
+                          onPressed: () async => showModal(
+                            context: context,
+                            builder: (BuildContext context) => BlocProvider<CollectionFilterBloc>.value(
+                              value: context.read<CollectionFilterBloc>(),
+                              child: const CollectionFilterModal(),
+                            ),
+                          ),
+                          icon: IconPack.mdi_filter_cog,
+                          iconColor: context.theme.colorScheme.onSurfaceVariant,
+                          color: context.theme.colorScheme.surfaceVariant,
+                          rounder: 10,
+                          iconSize: 24,
+                        ),
+                      ),
+                    ),
+                  ),
                   SizedBox(
                     width: 250,
-                    child: KitTextField(
-                      controller: read<CollectionBloc>().globalSearchController,
-                      decoration: searchInputDecoration(
-                        context: context,
-                        placeholder: 'Search',
-                      ),
-                      prefixIcon: IconPack.flu_search_filled,
-                    ),
+                    child: KitSearchInput(controller: read<CollectionBloc>().globalSearchController),
                   ),
                 ],
               ),

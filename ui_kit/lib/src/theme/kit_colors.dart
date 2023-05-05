@@ -44,7 +44,7 @@ extension KitColorsTransparencies on Color {
   }
 
   /// Equals to [Color.withOpacity] with (0.5)
-  Color get o5 {
+  Color get o50 {
     return withOpacity(0.5);
   }
 }

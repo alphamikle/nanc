@@ -9,8 +9,8 @@ import '../kit_tooltip.dart';
 const double _kHSize = 0.90;
 const double _kWSize = 0.75;
 
-class KitModalCard extends StatelessWidget {
-  const KitModalCard({
+class KitModal extends StatelessWidget {
+  const KitModal({
     required this.child,
     required this.onClose,
     this.header,
@@ -28,13 +28,16 @@ class KitModalCard extends StatelessWidget {
     const BorderRadius radius = BorderRadius.all(Radius.circular(Gap.regular));
 
     return Center(
-      child: SizedBox(
-        width: width,
-        height: height,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: height,
+          maxWidth: width,
+        ),
         child: ClipRRect(
           borderRadius: radius,
           child: Material(
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(

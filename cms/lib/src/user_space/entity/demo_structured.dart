@@ -5,6 +5,7 @@ import 'package:model/model.dart';
 final Model demoStructured = Model(
   name: 'Structured',
   icon: IconPackNames.mdi_numeric_2,
+  sort: -9,
   fields: [
     [
       IdField(),

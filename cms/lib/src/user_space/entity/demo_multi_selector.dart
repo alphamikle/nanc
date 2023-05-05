@@ -8,6 +8,7 @@ import 'demo_user.dart';
 final Model demoMultiSelector = Model(
   name: 'Multi Selector',
   icon: IconPackNames.mdi_numeric_1,
+  sort: -10,
   fields: [
     [
       IdField(),

@@ -4,7 +4,7 @@ import 'package:highlight/languages/json.dart';
 import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';
-import '../kit_modal/kit_modal_card.dart';
+import '../kit_modal/kit_modal.dart';
 import '../kit_text.dart';
 import 'code_theme.dart';
 
@@ -118,7 +118,7 @@ Future<void> showJsonPreviewModal({
 }) async {
   await showDialog(
     context: context,
-    builder: (_) => KitModalCard(
+    builder: (_) => KitModal(
       onClose: () => context.navigator.pop(),
       header: KitText(text: title),
       child: Padding(

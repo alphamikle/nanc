@@ -40,7 +40,7 @@ class _FieldCreationModalState extends State<FieldCreationModal> {
 
   @override
   Widget build(BuildContext context) {
-    return KitModalCard(
+    return KitModal(
       header: KitText(text: 'Creating a new ${capitalize(widget.fieldType.name)}'),
       onClose: () => context.navigator.pop(null),
       child: KitColumn(

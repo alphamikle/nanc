@@ -32,7 +32,7 @@ class ModelStructureModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return KitModalCard(
+    return KitModal(
       onClose: () => context.navigator.pop(),
       header: Text('Fields of $modelName model'),
       child: Padding(

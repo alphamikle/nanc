@@ -135,7 +135,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                   const Spacer(),
                   if (creationMode == false)
                     Padding(
-                      padding: const EdgeInsets.only(right: Gap.large),
+                      padding: const EdgeInsets.only(right: Gap.regular),
                       child: KitButton(
                         onPressed: () async => confirmAndDelete(entity),
                         color: context.theme.colorScheme.error,
@@ -155,7 +155,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                       ),
                     ),
                   Padding(
-                    padding: const EdgeInsets.only(right: Gap.large),
+                    padding: const EdgeInsets.only(right: Gap.regular),
                     child: KitButton(
                       onPressed: () async => showJsonPreviewModal(
                         context: context,
@@ -174,7 +174,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: Gap.large),
+                    padding: const EdgeInsets.only(right: Gap.regular),
                     child: KitButton(
                       onPressed: state.isChanged ? () async => confirmAndReset(entity) : null,
                       color: context.theme.colorScheme.error,

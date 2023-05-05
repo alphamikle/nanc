@@ -300,37 +300,38 @@ class _KitTableV2State extends State<KitTableV2> {
             restorationId: widget.restorationId,
             controller: tableScrollController,
             slivers: [
-              SliverPersistentHeader(
-                floating: true,
-                delegate: _TableHeaderDelegate(
-                  height: _kRowHeight + 5,
-                  child: Material(
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                            width: 3,
-                            color: context.theme.colorScheme.surfaceVariant,
+              if (widget.dataRows.isNotEmpty)
+                SliverPersistentHeader(
+                  floating: true,
+                  delegate: _TableHeaderDelegate(
+                    height: _kRowHeight + 5,
+                    child: Material(
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                              width: 3,
+                              color: context.theme.colorScheme.surfaceVariant,
+                            ),
                           ),
                         ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 3),
-                        child: ListView.builder(
-                          itemBuilder: (BuildContext context, int index) => _headerCellBuilder(
-                            context,
-                            index,
-                            columnSizes[index] ?? _kMinColumnWidth,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 3),
+                          child: ListView.builder(
+                            itemBuilder: (BuildContext context, int index) => _headerCellBuilder(
+                              context,
+                              index,
+                              columnSizes[index] ?? _kMinColumnWidth,
+                            ),
+                            controller: headerScrollController,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: widget.model.listFields.length,
                           ),
-                          controller: headerScrollController,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: widget.model.listFields.length,
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
               SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) => _rowBuilder(context, index),
