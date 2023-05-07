@@ -78,7 +78,9 @@ class WelcomeView extends StatelessWidget {
             SizedBox(
               height: size.height * 0.75,
               width: size.height * 0.75,
-              child: const GrowingTree(),
+              child: const RepaintBoundary(
+                child: GrowingTree(),
+              ),
             ),
             Expanded(
               child: Center(

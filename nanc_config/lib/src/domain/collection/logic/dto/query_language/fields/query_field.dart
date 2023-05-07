@@ -13,21 +13,22 @@ enum QueryFieldType {
   notEndsWith('Not ends with'),
   contains('Contains'),
   notContains('Not contains'),
-  empty('Empty'),
-  notEmpty('Not empty'),
+  empty('Empty', false),
+  notEmpty('Not empty', false),
   less('Less'),
   lessOrEquals('Less or equals'),
   greater('Greater'),
   greaterOrEquals('Greater or equals'),
-  isTrue('Is true'),
-  isFalse('Is false'),
-  isNull('Is null'),
-  isNotNull('Is not null'),
-  unknown('Unknown');
+  isTrue('Is true', false),
+  isFalse('Is false', false),
+  isNull('Is null', false),
+  isNotNull('Is not null', false),
+  unknown('Unknown', false);
 
   final String title;
+  final bool needToShowValueField;
 
-  const QueryFieldType(this.title);
+  const QueryFieldType(this.title, [this.needToShowValueField = true]);
 
   static List<QueryFieldType> get valueTypes {
     return [
@@ -47,6 +48,42 @@ enum QueryFieldType {
       QueryFieldType.greaterOrEquals,
       QueryFieldType.isTrue,
       QueryFieldType.isFalse,
+      QueryFieldType.isNull,
+      QueryFieldType.isNotNull,
+    ];
+  }
+
+  static List<QueryFieldType> get onlyNumericTypes {
+    return [
+      QueryFieldType.less,
+      QueryFieldType.lessOrEquals,
+      QueryFieldType.greater,
+      QueryFieldType.greaterOrEquals,
+    ];
+  }
+
+  static List<QueryFieldType> get onlyStringTypes {
+    return [
+      QueryFieldType.startsWith,
+      QueryFieldType.notStartsWith,
+      QueryFieldType.endsWith,
+      QueryFieldType.notEndsWith,
+      QueryFieldType.contains,
+      QueryFieldType.notContains,
+      QueryFieldType.empty,
+      QueryFieldType.notEmpty,
+    ];
+  }
+
+  static List<QueryFieldType> get onlyBoolTypes {
+    return [
+      QueryFieldType.isTrue,
+      QueryFieldType.isFalse,
+    ];
+  }
+
+  static List<QueryFieldType> get commonTypes {
+    return [
       QueryFieldType.isNull,
       QueryFieldType.isNotNull,
     ];

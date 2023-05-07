@@ -12,6 +12,17 @@ final Model demoFilter = Model(
     ],
     [
       QueryFilterField(name: 'Collection filter', id: 'test_collection_filter_field'),
+    ],
+    [
+      NumberField(name: 'Age'),
+      DateTimeField(name: 'Birth Date'),
+    ],
+    [
+      StringField(name: 'Name'),
+      StringField(name: 'Lastname'),
+    ],
+    [
+      BoolField(name: 'Has WA?'),
     ]
   ],
 );

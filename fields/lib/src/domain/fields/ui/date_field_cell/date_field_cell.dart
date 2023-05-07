@@ -75,8 +75,9 @@ class _DateFieldCellState extends State<DateFieldCell> with FieldCellHelper<Date
 
   @override
   Widget build(BuildContext context) {
-    final String datePlaceholder = dateTimeRegExp.firstMatch(DateTime.now().toIso8601String())!.namedGroup('date')!;
-    final String timePlaceholder = dateTimeRegExp.firstMatch(DateTime.now().toIso8601String())!.namedGroup('time')!;
+    final String placeholderDate = DateTime.parse('1994-05-30T12:00:00.000Z').toIso8601String();
+    final String datePlaceholder = dateTimeRegExp.firstMatch(placeholderDate)!.namedGroup('date')!;
+    final String timePlaceholder = dateTimeRegExp.firstMatch(placeholderDate)!.namedGroup('time')!;
 
     return KitSegmentedField(
       controller: controller,

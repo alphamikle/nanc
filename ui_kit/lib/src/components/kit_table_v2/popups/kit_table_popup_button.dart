@@ -17,33 +17,20 @@ class KitTablePopupButton extends StatelessWidget {
   final Widget child;
   final double size;
 
-  bool get isNumberField => field is NumberField;
-
-  bool get isStringField {
-    return field is StringField ||
-        field is DateTimeField ||
-        field is EnumField ||
-        field is ColorField ||
-        field is FontField ||
-        field is IconField ||
-        field is IdField ||
-        field is SelectorField;
-  }
-
   List<PopupMenuEntry<dynamic>> itemBuilder(BuildContext context) {
     return [
       sortMenuItem(
-        field: isNumberField
+        field: field.isNumeric
             ? SortFieldType.number
-            : isStringField
+            : field.isString
                 ? SortFieldType.string
                 : SortFieldType.other,
         sort: SortType.asc,
       ),
       sortMenuItem(
-        field: isNumberField
+        field: field.isNumeric
             ? SortFieldType.number
-            : isStringField
+            : field.isString
                 ? SortFieldType.string
                 : SortFieldType.other,
         sort: SortType.desc,
