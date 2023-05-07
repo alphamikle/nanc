@@ -73,7 +73,7 @@ extension $StructuredFieldItemCopyWith on StructuredFieldItem {
 StructuredFieldItem _$StructuredFieldItemFromJson(Map<String, dynamic> json) =>
     StructuredFieldItem(
       items: (json['items'] as List<dynamic>)
-          .map((e) => DynamicFieldItem.fromJson(e))
+          .map(DynamicFieldItem.fromJson)
           .toList(),
     );
 

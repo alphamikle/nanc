@@ -8,7 +8,6 @@ import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../logic/dynamic_field/dynamic_field_item.dart';
-import '../../logic/dynamic_field/structure_model.dart';
 import '../../logic/field/field.dart';
 import '../../logic/structured_field/structured_field.dart';
 import '../dynamic_field_cell/child_indicator.dart';
@@ -36,7 +35,6 @@ class StructuredFieldCell extends FieldCellWidget<StructuredField> {
 
 class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCellHelper<StructuredField, StructuredFieldCell> {
   Key childrenKey = UniqueKey();
-  String get structureFieldId => generateStructureFieldId(fieldId);
   int get deepLevel => widget.deepLevel;
   bool get isParentList => deepLevel == 0;
   bool get isChildList => deepLevel > 0;

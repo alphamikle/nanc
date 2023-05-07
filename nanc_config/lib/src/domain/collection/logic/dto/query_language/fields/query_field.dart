@@ -21,6 +21,8 @@ enum QueryFieldType {
   greaterOrEquals('Greater or equals'),
   isTrue('Is true'),
   isFalse('Is false'),
+  isNull('Is null'),
+  isNotNull('Is not null'),
   unknown('Unknown');
 
   final String title;
@@ -45,6 +47,8 @@ enum QueryFieldType {
       QueryFieldType.greaterOrEquals,
       QueryFieldType.isTrue,
       QueryFieldType.isFalse,
+      QueryFieldType.isNull,
+      QueryFieldType.isNotNull,
     ];
   }
 }

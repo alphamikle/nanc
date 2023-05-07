@@ -8,11 +8,11 @@ part of 'query_dto.dart';
 
 QueryDto _$QueryDtoFromJson(Map<String, dynamic> json) => QueryDto(
       singleValues: (json['singleValues'] as List<dynamic>?)
-              ?.map((e) => QuerySingleParameter.fromJson(e))
+              ?.map(QuerySingleParameter.fromJson)
               .toList() ??
           const [],
       multipleValues: (json['multipleValues'] as List<dynamic>?)
-              ?.map((e) => QueryMultipleParameter.fromJson(e))
+              ?.map(QueryMultipleParameter.fromJson)
               .toList() ??
           const [],
     );

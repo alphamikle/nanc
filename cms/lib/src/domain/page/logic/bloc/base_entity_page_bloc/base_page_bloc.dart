@@ -42,18 +42,9 @@ abstract class BasePageBloc<T extends BaseEntityPageState> extends Cubit<T> {
   }
 
   void updateValues(Json json) {
-    final Json data = <String, dynamic>{
-      ...state.data,
-    };
     for (final MapEntry<String, dynamic> entry in json.entries) {
-      final bool isValueEmpty = isEmpty(entry.value);
-      if (isValueEmpty) {
-        data.remove(entry.key);
-      } else {
-        data[entry.key] = entry.value;
-      }
+      updateValue(entry.key, entry.value);
     }
-    _updateData(data);
   }
 
   TextEditingController controllerFor(String fieldCode) {
@@ -70,9 +61,6 @@ abstract class BasePageBloc<T extends BaseEntityPageState> extends Cubit<T> {
           fieldCode: TextEditingController(),
         }) as T);
       }
-    }
-    if (state.controllerMap.containsKey(fieldCode) == false) {
-      print(fieldCode);
     }
     return state.controllerMap[fieldCode]!;
   }

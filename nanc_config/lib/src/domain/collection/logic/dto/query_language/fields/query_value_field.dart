@@ -12,12 +12,16 @@ part 'query_value_field.g.dart';
 @JsonSerializable()
 class QueryValueField extends Equatable implements QueryField {
   const QueryValueField({
-    required this.fieldId,
-    required this.value,
-    required this.type,
+    this.fieldId = '',
+    this.value,
+    this.type = QueryFieldType.unknown,
   });
 
   factory QueryValueField.fromJson(dynamic json) => _$QueryValueFieldFromJson(castToJson(json));
+
+  static const String fieldIdKey = 'field_id';
+  static const String valueKey = 'value';
+  static const String valueWrapperKey = 'value_wrapper';
 
   @JsonKey(defaultValue: '')
   final String fieldId;

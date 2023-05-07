@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
+import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../../../page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
 import '../../../../page/logic/bloc/page_bloc/page_bloc.dart';
 import '../../../../page/logic/bloc/page_bloc/page_state.dart';
@@ -111,4 +112,7 @@ class FieldEditionBloc extends BasePageBloc<PageState> with EntityPageBlocStub i
   Future<Json> loadPageData({required String pageId, Model? model, String? modelId}) async {
     throw UnimplementedError();
   }
+
+  @override
+  ModelListBloc get modelCollectionBloc => throw UnimplementedError();
 }

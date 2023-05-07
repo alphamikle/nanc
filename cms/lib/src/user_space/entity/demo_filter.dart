@@ -11,7 +11,7 @@ final Model demoFilter = Model(
       IdField(),
     ],
     [
-      QueryFilterField(name: 'Collection filter'),
+      QueryFilterField(name: 'Collection filter', id: 'test_collection_filter_field'),
     ]
   ],
 );

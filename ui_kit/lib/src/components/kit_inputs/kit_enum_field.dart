@@ -16,6 +16,7 @@ class KitEnumField extends StatefulWidget {
     required this.placeholder,
     this.isChanged = false,
     this.isRequired = false,
+    this.withSearch = false,
     super.key,
   });
 
@@ -27,6 +28,7 @@ class KitEnumField extends StatefulWidget {
   final String placeholder;
   final bool isChanged;
   final bool isRequired;
+  final bool withSearch;
 
   @override
   State<KitEnumField> createState() => _KitEnumFieldState();
@@ -62,27 +64,34 @@ class _KitEnumFieldState extends State<KitEnumField> {
 
   @override
   Widget build(BuildContext context) {
-    return KitButtonFieldWrapper(
-      onPressed: () => focusNode.requestFocus(),
-      child: KitAutocompleteTextField(
-        controller: widget.controller,
-        finder: (_) => widget.values,
-        onSelect: widget.onSelect,
-        helper: widget.helper,
-        placeholder: widget.placeholder,
-        readOnly: true,
-        isChanged: widget.isChanged,
-        itemBuilder: itemBuilder,
-        formatters: [
+    final Widget child = KitAutocompleteTextField(
+      controller: widget.controller,
+      finder: (_) => widget.values,
+      onSelect: widget.onSelect,
+      helper: widget.helper,
+      placeholder: widget.placeholder,
+      readOnly: widget.withSearch == false,
+      isChanged: widget.isChanged,
+      itemBuilder: itemBuilder,
+      formatters: [
+        if (widget.withSearch == false)
           FilteringTextInputFormatter(
             '',
             allow: true,
           ),
-        ],
-        withCursor: false,
-        focusNode: focusNode,
-        isRequired: widget.isRequired,
-      ),
+      ],
+      withCursor: widget.withSearch,
+      focusNode: focusNode,
+      isRequired: widget.isRequired,
+    );
+
+    if (widget.withSearch) {
+      return child;
+    }
+
+    return KitButtonFieldWrapper(
+      onPressed: () => focusNode.requestFocus(),
+      child: child,
     );
   }
 }

@@ -83,6 +83,7 @@ class _StructuredFieldChildState extends State<StructuredFieldChild> with Single
         field: field,
         creationMode: widget.creationMode,
         onChildChange: widget.onChildChange,
+        deepLevel: widget.deepLevel,
       );
       if (isLast && i == 0) {
         return Padding(

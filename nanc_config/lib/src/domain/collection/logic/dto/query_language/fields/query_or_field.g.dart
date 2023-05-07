@@ -81,7 +81,9 @@ extension $QueryOrFieldCopyWith on QueryOrField {
 // **************************************************************************
 
 QueryOrField _$QueryOrFieldFromJson(Map<String, dynamic> json) => QueryOrField(
-      fields: queryFieldsFromJson(json['fields']),
+      fields: json['fields'] == null
+          ? const []
+          : queryFieldsFromJson(json['fields']),
       type: $enumDecodeNullable(_$QueryFieldTypeEnumMap, json['type']) ??
           QueryFieldType.or,
     );
@@ -111,5 +113,7 @@ const _$QueryFieldTypeEnumMap = {
   QueryFieldType.greaterOrEquals: 'greaterOrEquals',
   QueryFieldType.isTrue: 'isTrue',
   QueryFieldType.isFalse: 'isFalse',
+  QueryFieldType.isNull: 'isNull',
+  QueryFieldType.isNotNull: 'isNotNull',
   QueryFieldType.unknown: 'unknown',
 };

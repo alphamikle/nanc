@@ -111,7 +111,7 @@ extension $MenuStateCopyWith on MenuState {
 MenuState _$MenuStateFromJson(Map<String, dynamic> json) => MenuState(
       activeElement: MenuElement.fromJson(json['activeElement']),
       elements: (json['elements'] as List<dynamic>)
-          .map((e) => MenuElement.fromJson(e))
+          .map(MenuElement.fromJson)
           .toList(),
       isLoading: json['isLoading'] as bool,
       activeHeaderSegment: json['activeHeaderSegment'] as String,

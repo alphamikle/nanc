@@ -7,7 +7,6 @@ import 'package:tools/tools.dart';
 
 import '../../../cms.dart';
 import '../../domain/collection/logic/logic/bloc/collection_bloc.dart';
-import '../../domain/collection/logic/logic/bloc/collection_filter_bloc.dart';
 import '../../domain/collection/logic/logic/provider/collection_provider.dart';
 import '../../domain/draft/logic/draft_service.dart';
 import '../../domain/general/logic/bloc/header/header_bloc.dart';
@@ -58,20 +57,23 @@ class Initializer {
     final MenuBloc menuBloc = MenuBloc(modelListBloc: modelCollectionBloc);
     final HeaderBloc headerBloc = HeaderBloc();
     final ModelPageBloc modelPageBloc = ModelPageBloc(
-      modelListBloc: modelCollectionBloc,
+      modelCollectionBloc: modelCollectionBloc,
       rootKey: rootKey,
       modelProvider: modelProvider,
       menuBloc: menuBloc,
     );
     final TutorialBloc tutorialBloc = TutorialBloc(dbService: dbService, rootKey: rootKey);
-    final CollectionFilterBloc collectionFilterBloc = CollectionFilterBloc(eventBus: eventBus);
+    final CollectionFilterBloc collectionFilterBloc = CollectionFilterBloc(
+      eventBus: eventBus,
+      modelCollectionBloc: modelCollectionBloc,
+    );
     final CollectionBloc collectionBloc = CollectionBloc(
-      modelListBloc: modelCollectionBloc,
+      modelCollectionBloc: modelCollectionBloc,
       pageListProvider: collectionProvider,
       eventBus: eventBus,
     );
     final PageBloc pageBloc = PageBloc(
-      modelListBloc: modelCollectionBloc,
+      modelCollectionBloc: modelCollectionBloc,
       pageProvider: pageProvider,
       eventBus: eventBus,
       draftService: draftService,

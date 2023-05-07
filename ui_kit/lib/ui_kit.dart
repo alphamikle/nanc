@@ -8,6 +8,7 @@ export 'src/components/kit_buttons/kit_button.dart';
 export 'src/components/kit_buttons/kit_icon_button.dart';
 export 'src/components/kit_buttons/kit_icon_button_v2.dart';
 export 'src/components/kit_buttons/kit_input_button.dart';
+export 'src/components/kit_buttons/kit_popup_button.dart';
 export 'src/components/kit_buttons/kit_rounded_button.dart';
 export 'src/components/kit_buttons/kit_text_indicated_button.dart';
 export 'src/components/kit_centered_text.dart';

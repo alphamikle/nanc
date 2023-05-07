@@ -162,9 +162,8 @@ extension $EnumFieldCopyWith on EnumField {
 
 EnumField _$EnumFieldFromJson(Map<String, dynamic> json) => EnumField(
       name: json['name'] as String,
-      values: (json['values'] as List<dynamic>)
-          .map((e) => EnumValue.fromJson(e))
-          .toList(),
+      values:
+          (json['values'] as List<dynamic>).map(EnumValue.fromJson).toList(),
       id: json['id'] as String?,
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
@@ -196,6 +195,7 @@ const _$FieldTypeEnumMap = {
   FieldType.multiSelectorField: 'multiSelectorField',
   FieldType.numberField: 'numberField',
   FieldType.queryFilterField: 'queryFilterField',
+  FieldType.queryFilterValueField: 'queryFilterValueField',
   FieldType.selectorField: 'selectorField',
   FieldType.boolField: 'boolField',
   FieldType.dynamicField: 'dynamicField',

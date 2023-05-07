@@ -102,9 +102,7 @@ ConnectionManagerState _$ConnectionManagerStateFromJson(
     ConnectionManagerState(
       isLoading: json['isLoading'] as bool,
       freshRoomId: json['freshRoomId'] as String,
-      clients: (json['clients'] as List<dynamic>)
-          .map((e) => Client.fromJson(e))
-          .toList(),
+      clients: (json['clients'] as List<dynamic>).map(Client.fromJson).toList(),
     );
 
 Map<String, dynamic> _$ConnectionManagerStateToJson(

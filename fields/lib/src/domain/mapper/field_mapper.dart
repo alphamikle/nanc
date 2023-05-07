@@ -20,6 +20,7 @@ import '../fields/logic/multi_selector_field/multi_selector_field.dart';
 import '../fields/logic/multi_selector_field/third_table.dart';
 import '../fields/logic/number_field/number_field.dart';
 import '../fields/logic/query_filter_field/query_filter_field.dart';
+import '../fields/logic/query_filter_value_field/query_filter_value_field.dart';
 import '../fields/logic/screen_field/screen_field.dart';
 import '../fields/logic/selector_field/selector_field.dart';
 import '../fields/logic/string_field/string_field.dart';
@@ -40,6 +41,7 @@ import '../fields/ui/multi_selector_field_cell/multi_selector_field_cell.dart';
 import '../fields/ui/multiline_string_field_cell/string_field_cell.dart';
 import '../fields/ui/number_field_cell/number_field_cell.dart';
 import '../fields/ui/query_filter_cell/query_filter_cell.dart';
+import '../fields/ui/query_filter_value_field_cell/query_filter_value_field_cell.dart';
 import '../fields/ui/screen_field_cell/screen_field_cell.dart';
 import '../fields/ui/selector_field_cell/selector_field_cell.dart';
 import '../fields/ui/structure_field_cell/structure_field_cell.dart';
@@ -84,6 +86,8 @@ abstract class FieldMapper {
       return (field as NumberField).copyWith() as T;
     } else if (type == FieldType.queryFilterField) {
       return (field as QueryFilterField).copyWith() as T;
+    } else if (type == FieldType.queryFilterValueField) {
+      return (field as QueryFilterValueField).copyWith() as T;
     } else if (type == FieldType.screenField) {
       return (field as ScreenField).copyWith() as T;
     } else if (type == FieldType.selectorField) {
@@ -109,9 +113,15 @@ abstract class FieldMapper {
     required Field field,
     required bool creationMode,
     int? deepLevel,
+
+    /// ? Dynamic Field recursive callback
     ValueChanged<List<DynamicFieldItem>>? onChangeChildStructure,
-    List<DynamicFieldItem>? initialChildrenData,
+
+    /// ? Structured field recursive callback
     ValueChanged<List<StructuredFieldItem>>? onChildChange,
+
+    /// ? Dynamic field recursive initial data
+    List<DynamicFieldItem>? initialChildrenData,
   }) {
     if (field is BoolField) {
       return BoolFieldCell(field: field, creationMode: creationMode);
@@ -144,6 +154,8 @@ abstract class FieldMapper {
         onChildChange: onChildChange,
         deepLevel: deepLevel ?? 0,
       );
+    } else if (field is QueryFilterValueField) {
+      return QueryFilterValueFieldCell(field: field, creationMode: creationMode);
     } else if (field is ScreenField) {
       return ScreenFieldCell(field: field, creationMode: creationMode);
     } else if (field is SelectorField) {
@@ -199,6 +211,10 @@ abstract class FieldMapper {
       return field.toJson();
     } else if (field is NumberField) {
       return field.toJson();
+    } else if (field is QueryFilterField) {
+      return field.toJson();
+    } else if (field is QueryFilterValueField) {
+      return field.toJson();
     } else if (field is ScreenField) {
       return field.toJson();
     } else if (field is SelectorField) {
@@ -245,6 +261,8 @@ abstract class FieldMapper {
       return NumberField.fromJson(json) as T;
     } else if (type == FieldType.queryFilterField.name) {
       return QueryFilterField.fromJson(json) as T;
+    } else if (type == FieldType.queryFilterValueField.name) {
+      return QueryFilterValueField.fromJson(json) as T;
     } else if (type == FieldType.screenField.name) {
       return ScreenField.fromJson(json) as T;
     } else if (type == FieldType.selectorField.name) {
@@ -287,6 +305,8 @@ abstract class FieldMapper {
       return NumberField.empty().toModel();
     } else if (fieldType == FieldType.queryFilterField) {
       return QueryFilterField.empty().toModel();
+    } else if (fieldType == FieldType.queryFilterValueField) {
+      return QueryFilterValueField.empty().toModel();
     } else if (fieldType == FieldType.screenField) {
       return ScreenField.empty().toModel();
     } else if (fieldType == FieldType.selectorField) {
@@ -329,6 +349,8 @@ abstract class FieldMapper {
       return NumberField.empty() as T;
     } else if (fieldType == FieldType.queryFilterField) {
       return QueryFilterField.empty() as T;
+    } else if (fieldType == FieldType.queryFilterValueField) {
+      return QueryFilterValueField.empty() as T;
     } else if (fieldType == FieldType.screenField) {
       return ScreenField.empty() as T;
     } else if (fieldType == FieldType.selectorField) {
@@ -366,6 +388,7 @@ abstract class FieldMapper {
       /// ? THIS FIELD IS FOR PRIVATE USE ONLY
       // StructureField.empty(),
       QueryFilterField.empty(),
+      QueryFilterValueField.empty(),
       // TODO(alphamikle): [FIELDS] Add new fields here
     ];
   }

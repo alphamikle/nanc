@@ -1,11 +1,14 @@
 library cms;
 
 export 'src/domain/admin_runner.dart';
+export 'src/domain/collection/logic/logic/bloc/collection_filter_bloc.dart';
+export 'src/domain/collection/logic/logic/bloc/collection_filter_state.dart';
 export 'src/domain/editor/logic/bloc/editor/editor_bloc.dart';
 export 'src/domain/editor/logic/bloc/editor/editor_event.dart';
 export 'src/domain/editor/logic/bloc/editor/editor_state.dart';
 export 'src/domain/editor/ui/view/screen_editor_view.dart';
 export 'src/domain/field/logic/bloc/list_field_bloc/list_field_bloc.dart';
+export 'src/domain/field/logic/bloc/local_page_bloc/local_page_bloc.dart';
 export 'src/domain/model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 export 'src/domain/model/logic/bloc/model_list_bloc/model_list_state.dart';
 export 'src/domain/model/ui/component/field_creation_modal.dart';

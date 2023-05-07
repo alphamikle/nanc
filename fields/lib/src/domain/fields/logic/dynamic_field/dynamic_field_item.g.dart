@@ -112,7 +112,7 @@ DynamicFieldItem _$DynamicFieldItemFromJson(Map<String, dynamic> json) =>
       value: json['value'],
       field: _fieldFromJson(json['field']),
       children: (json['children'] as List<dynamic>?)
-              ?.map((e) => DynamicFieldItem.fromJson(e))
+              ?.map(DynamicFieldItem.fromJson)
               .toList() ??
           const [],
     );

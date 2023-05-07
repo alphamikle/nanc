@@ -5,6 +5,7 @@ export 'src/domain/collection/logic/dto/collection_response_dto.dart';
 export 'src/domain/collection/logic/dto/params_dto.dart';
 export 'src/domain/collection/logic/dto/query_dto.dart';
 export 'src/domain/collection/logic/dto/query_language/fields/query_and_field.dart';
+export 'src/domain/collection/logic/dto/query_language/fields/query_condition_field.dart';
 export 'src/domain/collection/logic/dto/query_language/fields/query_field.dart';
 export 'src/domain/collection/logic/dto/query_language/fields/query_or_field.dart';
 export 'src/domain/collection/logic/dto/query_language/fields/query_value_field.dart';

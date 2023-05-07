@@ -1,24 +1,24 @@
 {
-  request: {
+  condition: {
     type: 'OR',
     fields: [
       {
         type: 'EQ',
-        field: 'first_name',
+        field_id: 'first_name',
         value: 'Alex'
       },
       {
         type: 'EQ',
-        field: 'first_name',
+        field_id: 'first_name',
         value: 'Mike'
       },
       {
-        type: 'AND',
-        fields: [
-          {
-
-          }
-        ]
+        condition: {
+          type: 'AND',
+          fields: [
+            /// ...
+          ]
+        },
       }
     ]
   }

@@ -13,13 +13,13 @@ import 'model_page_state.dart';
 
 class ModelPageBloc extends Cubit<ModelPageState> {
   ModelPageBloc({
-    required this.modelListBloc,
+    required this.modelCollectionBloc,
     required this.menuBloc,
     required this.rootKey,
     required this.modelProvider,
   }) : super(ModelPageState.empty());
 
-  final ModelListBloc modelListBloc;
+  final ModelListBloc modelCollectionBloc;
   final MenuBloc menuBloc;
   final RootKey rootKey;
   final ModelProvider modelProvider;
@@ -34,7 +34,7 @@ class ModelPageBloc extends Cubit<ModelPageState> {
   }
 
   Future<void> loadModel(String modelId) async {
-    final Model? model = modelListBloc.findModelById(modelId) ?? await modelProvider.findModelById(modelId);
+    final Model? model = modelCollectionBloc.findModelById(modelId) ?? await modelProvider.findModelById(modelId);
     if (model == null) {
       notFoundModelError(modelId);
     }
@@ -68,7 +68,7 @@ class ModelPageBloc extends Cubit<ModelPageState> {
     }
     if (confirmed) {
       final Model newModel = await modelProvider.saveModel(oldModel: state.initialModel, newModel: state.editableModel);
-      await modelListBloc.reloadDynamicModels();
+      await modelCollectionBloc.reloadDynamicModels();
       await menuBloc.reInitItems();
       emit(state.copyWith(
         editableModel: newModel,
@@ -83,7 +83,7 @@ class ModelPageBloc extends Cubit<ModelPageState> {
   Future<void> create() async {
     emit(state.copyWith(isSaving: true));
     final Model newModel = await modelProvider.createModel(state.editableModel);
-    await modelListBloc.reloadDynamicModels();
+    await modelCollectionBloc.reloadDynamicModels();
     await menuBloc.reInitItems();
     emit(state.copyWith(
       editableModel: newModel,

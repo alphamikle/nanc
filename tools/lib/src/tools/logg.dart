@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer' as dev;
 
 import 'package:flutter/foundation.dart';
+
 import '../types/types.dart';
 
 // ignore: camel_case_types
@@ -51,6 +52,14 @@ class logg {
     return logg('''
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ${prefix == null ? '' : '$prefix\n'}$valueToPrint
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+''');
+  }
+
+  factory logg.rows(Object? v1, [Object? v2, Object? v3, Object? v4, Object? v5]) {
+    return logg('''
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+$v1${v2 == null ? '' : '\n$v2'}${v3 == null ? '' : '\n$v3'}${v4 == null ? '' : '\n$v4'}${v5 == null ? '' : '\n$v5'}
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 ''');
   }

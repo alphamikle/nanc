@@ -95,8 +95,9 @@ QueryValueField _$QueryValueFieldFromJson(Map<String, dynamic> json) =>
     QueryValueField(
       fieldId: json['fieldId'] as String? ?? '',
       value: json['value'] ?? '',
-      type: $enumDecode(_$QueryFieldTypeEnumMap, json['type'],
-          unknownValue: QueryFieldType.unknown),
+      type: $enumDecodeNullable(_$QueryFieldTypeEnumMap, json['type'],
+              unknownValue: QueryFieldType.unknown) ??
+          QueryFieldType.unknown,
     );
 
 Map<String, dynamic> _$QueryValueFieldToJson(QueryValueField instance) =>
@@ -125,5 +126,7 @@ const _$QueryFieldTypeEnumMap = {
   QueryFieldType.greaterOrEquals: 'greaterOrEquals',
   QueryFieldType.isTrue: 'isTrue',
   QueryFieldType.isFalse: 'isFalse',
+  QueryFieldType.isNull: 'isNull',
+  QueryFieldType.isNotNull: 'isNotNull',
   QueryFieldType.unknown: 'unknown',
 };

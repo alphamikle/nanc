@@ -6,27 +6,27 @@ import 'package:model/model.dart';
 import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
-import '../../../../../service/errors/errors.dart';
-import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
-import '../../../../page/logic/bloc/page_bloc/page_bloc.dart';
+import '../../../../../../cms.dart';
 import 'collection_state.dart';
 
 class CollectionBloc extends Cubit<CollectionState> {
   CollectionBloc({
-    required this.modelListBloc,
+    required this.modelCollectionBloc,
     required this.pageListProvider,
     required this.eventBus,
   }) : super(CollectionState.empty()) {
     eventBus.onEvent(consumer: 'CollectionBloc', eventId: PageEvents.save, handler: _reloadEntitiesAfterSave);
+    eventBus.onEvent(consumer: 'CollectionBloc', eventId: CollectionFilterEvents.filterChanges, handler: _loadFilteredPages);
     _initTableSearchListener();
   }
 
   final ICollectionProvider pageListProvider;
-  final ModelListBloc modelListBloc;
+  final ModelListBloc modelCollectionBloc;
   final EventBus eventBus;
   final TextEditingController globalSearchController = TextEditingController();
 
   Future<void> loadPages(String modelId) async {
+    eventBus.send(eventId: CollectionFilterEvents.collectionLoad, request: modelId);
     if (state.modelId != modelId) {
       globalSearchController.clear();
     }
@@ -76,7 +76,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     int page = 1,
     int? limit,
   }) async {
-    final Model? model = modelListBloc.findModelById(modelId);
+    final Model? model = modelCollectionBloc.findModelById(modelId);
     if (model == null) {
       throw notFoundModelError(modelId);
     }
@@ -105,6 +105,10 @@ class CollectionBloc extends Cubit<CollectionState> {
             ),
     );
     return dto;
+  }
+
+  Future<void> _loadFilteredPages(CollectionFilterState filterState) async {
+    logg.rows('Filter event: $filterState');
   }
 
   Future<void> paginate(int page) async {
