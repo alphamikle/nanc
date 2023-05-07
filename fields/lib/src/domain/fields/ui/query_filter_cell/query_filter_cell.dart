@@ -33,11 +33,10 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
   int get deepLevel => widget.deepLevel;
   bool get isParentList => deepLevel == 0;
   bool get isChildList => deepLevel > 0;
-  bool get singleObject => false;
-  bool get multiObject => singleObject == false;
   late final List<StructuredFieldItem> childrenData = [...widget.initialChildrenData];
   bool isPreloading = false;
   bool isEditMode = false;
+  bool isAnd = false;
 
   Color get indicatorParentColor => (context.theme.colorScheme.primary).withOpacity(1);
   Color get indicatorChildColor => indicatorParentColor;
@@ -64,6 +63,13 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
     return [
       QueryFilterValueField(name: 'Value', id: QueryValueField.valueWrapperKey),
     ];
+  }
+
+  void toggleAndOr() {
+    safeSetState(() {
+      isAnd = !isAnd;
+    });
+    onChildChange();
   }
 
   void addCondition() {
@@ -110,11 +116,13 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
     if (widget.onChildChange != null) {
       widget.onChildChange!(childrenData);
     }
-    if (singleObject) {
-      pageBloc.updateValue(this.fieldId, childrenDataJson.isEmpty ? <String, dynamic>{} : childrenDataJson.first);
-    } else {
-      pageBloc.updateValue(this.fieldId, childrenDataJson);
-    }
+    pageBloc.updateValue(
+      this.fieldId,
+      <String, dynamic>{
+        QueryField.typeKey: isAnd ? QueryFieldType.and.name : QueryFieldType.or.name,
+        QueryConditionField.fieldsKey: childrenDataJson,
+      },
+    );
   }
 
   void switchItems(int firstItemIndex, int secondItemIndex) {
@@ -155,33 +163,32 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
     }
 
     return Padding(
-      padding: EdgeInsets.only(bottom: singleObject ? Gap.regular : Gap.large),
+      padding: const EdgeInsets.only(bottom: Gap.large),
       child: BlocProvider.value(
         value: entityPageBloc,
         child: Stack(
           children: [
-            if (multiObject)
-              Positioned(
-                left: 0,
-                top: 0,
-                bottom: 0,
-                width: 15,
-                child: ChildIndicator(
-                  parentColor: indicatorParentColor,
-                  childColor: indicatorChildColor,
-                  position: position,
-                  middleBottomFixer: Gap.large,
-                ),
+            Positioned(
+              left: 0,
+              top: 0,
+              bottom: 0,
+              width: 15,
+              child: ChildIndicator(
+                parentColor: indicatorParentColor,
+                childColor: indicatorChildColor,
+                position: position,
+                middleBottomFixer: Gap.large,
               ),
+            ),
             Padding(
-              padding: EdgeInsets.only(left: singleObject ? 0 : 15),
+              padding: const EdgeInsets.only(left: 15),
               child: StructuredFieldChild(
                 item: item,
                 creationMode: creationMode,
                 deepLevel: deepLevel + 1,
                 initialChildrenData: item,
                 editMode: isEditMode,
-                singleObject: singleObject,
+                singleObject: item.items.isNotEmpty && item.items.first.field is QueryFilterField,
                 onMoveUp: index == 0 ? null : () => switchItems(index, index - 1),
                 onMoveDown: isLast ? null : () => switchItems(index, index + 1),
                 onDelete: () async => deleteItem(index),
@@ -196,19 +203,31 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
   Future<void> preload() async {
     safeSetState(() => isPreloading = true);
     final dynamic values = pageBloc.valueForKey(fieldId);
+    _handleValue(values);
+    safeSetState(() => isPreloading = false);
+  }
+
+  void _handleValue(dynamic values) {
     if (values is List<dynamic>) {
       for (int i = 0; i < values.length; i++) {
         final Object? value = values[i];
-        final StructuredFieldItem structuredItem = StructuredFieldItem.fromValues(value, _isCondition(value) ? andOrStructure : valueStructure);
-        childrenData.add(structuredItem);
+        _handleValue(value);
       }
-    } else if (values is Map) {
+    } else if (values is DJson) {
+      final String? type = values[QueryField.typeKey];
+      if (type == QueryFieldType.and.name) {
+        safeSetState(() {
+          isAnd = true;
+        });
+      }
+      final List<dynamic>? fields = values[QueryConditionField.fieldsKey];
+      if (fields != null) {
+        _handleValue(fields);
+        return;
+      }
       final StructuredFieldItem structuredItem = StructuredFieldItem.fromValues(values, _isCondition(values) ? andOrStructure : valueStructure);
       childrenData.add(structuredItem);
-    } else if (values == null && singleObject) {
-      // unawaited(addItem());
     }
-    safeSetState(() => isPreloading = false);
   }
 
   @override
@@ -249,66 +268,80 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
                     padding: const EdgeInsets.only(right: Gap.regular),
                     child: Icon(contentIcon),
                   ),
-                Text(helper, style: theme.textTheme.titleMedium),
+                KitText(text: isAnd ? 'All are true' : 'Any is true', style: theme.textTheme.titleMedium),
                 const Spacer(),
-                if (multiObject)
-                  Padding(
-                    padding: const EdgeInsets.only(right: Gap.regular),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(right: Gap.small),
-                          child: Text('Edit'),
-                        ),
-                        Switch(
-                          onChanged: (_) => toggleEditMode(),
-                          value: isEditMode,
-                        ),
-                      ],
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(right: Gap.regular),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: Gap.small),
+                        child: KitText(text: isAnd ? 'AND' : 'OR'),
+                      ),
+                      Switch(
+                        onChanged: (_) => toggleAndOr(),
+                        value: isAnd,
+                      ),
+                    ],
                   ),
-                if (multiObject)
-                  Builder(
-                    builder: (BuildContext context) {
-                      return KitPopupButton(
-                        builder: (BuildContext context, VoidCallback onPressed) {
-                          return KitButton(
-                            text: 'Add item',
-                            onPressed: onPressed,
-                          );
-                        },
-                        itemBuilder: (BuildContext context) {
-                          return [
-                            PopupMenuItem(
-                              onTap: addCondition,
-                              child: Row(
-                                children: const [
-                                  Padding(
-                                    padding: EdgeInsets.only(right: Gap.regular),
-                                    child: Icon(IconPack.mdi_call_split),
-                                  ),
-                                  KitText(text: 'Add condition'),
-                                ],
-                              ),
-                            ),
-                            PopupMenuItem(
-                              onTap: addValue,
-                              child: Row(
-                                children: const [
-                                  Padding(
-                                    padding: EdgeInsets.only(right: Gap.regular),
-                                    child: Icon(IconPack.mdi_link_box_variant),
-                                  ),
-                                  KitText(text: 'Add value'),
-                                ],
-                              ),
-                            ),
-                          ];
-                        },
-                      );
-                    },
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: Gap.regular),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(right: Gap.small),
+                        child: Text('Edit'),
+                      ),
+                      Switch(
+                        onChanged: (_) => toggleEditMode(),
+                        value: isEditMode,
+                      ),
+                    ],
                   ),
+                ),
+                Builder(
+                  builder: (BuildContext context) {
+                    return KitPopupButton(
+                      builder: (BuildContext context, VoidCallback onPressed) {
+                        return KitButton(
+                          text: 'Add item',
+                          onPressed: onPressed,
+                        );
+                      },
+                      itemBuilder: (BuildContext context) {
+                        return [
+                          PopupMenuItem(
+                            onTap: addCondition,
+                            child: Row(
+                              children: const [
+                                Padding(
+                                  padding: EdgeInsets.only(right: Gap.regular),
+                                  child: Icon(IconPack.mdi_call_split),
+                                ),
+                                KitText(text: 'Add condition'),
+                              ],
+                            ),
+                          ),
+                          PopupMenuItem(
+                            onTap: addValue,
+                            child: Row(
+                              children: const [
+                                Padding(
+                                  padding: EdgeInsets.only(right: Gap.regular),
+                                  child: Icon(IconPack.mdi_link_box_variant),
+                                ),
+                                KitText(text: 'Add value'),
+                              ],
+                            ),
+                          ),
+                        ];
+                      },
+                    );
+                  },
+                ),
               ],
             ),
           ),
@@ -318,7 +351,7 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
               children: [
                 SizedBox(
                   height: Gap.large,
-                  child: childrenData.isEmpty || singleObject
+                  child: childrenData.isEmpty
                       ? const SizedBox.shrink()
                       : ChildIndicator(
                           parentColor: indicatorParentColor,
@@ -332,7 +365,7 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
           childrenData.isEmpty
               ? const SizedBox.shrink()
               : Padding(
-                  padding: EdgeInsets.only(left: singleObject ? Gap.regular : Gap.large, right: Gap.regular),
+                  padding: const EdgeInsets.only(left: Gap.large, right: Gap.regular),
                   key: childrenKey,
                   child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
