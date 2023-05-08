@@ -41,7 +41,7 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
 
   Future<List<Json>> finder(String searchQuery) async {
     final ICollectionProvider entityListProvider = read();
-    final List<String> values = splitComplexTitle(query: searchQuery, titleFields: field.titleFields);
+    final List<String> values = splitComplexTitle(query: searchQuery, titleFields: field.titleFields).where((String value) => value.trim().isNotEmpty).toList();
     final List<QueryValueField> queryValues = [];
     final List<String> titleFieldsIds = field.titleFields.toFieldsIds();
 

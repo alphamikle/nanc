@@ -18,7 +18,7 @@ abstract class MockApi {
     late List<Json> data;
     try {
       if (useAssetsMocks) {
-        final String rawMockContent = await rootBundle.loadString(prepareAssetPath('assets/${entity.id}.json'));
+        final String rawMockContent = await rootBundle.loadString(prepareAssetPath('assets/mock_data/${entity.id}.json'));
         final List<dynamic> parsedMockContent = jsonDecode(rawMockContent);
         final List<Json> preparedMockContent = parsedMockContent.map(castToJson).toList();
         await saveFullList(entity, preparedMockContent);

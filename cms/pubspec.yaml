@@ -83,6 +83,7 @@ flutter:
     - assets/
     - assets/animations/
     - assets/fonts/
+    - assets/mock_data/
 
 # flutter pub run flutter_launcher_icons
 flutter_icons:

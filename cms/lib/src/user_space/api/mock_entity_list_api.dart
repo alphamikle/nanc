@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:model/model.dart';
 import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
@@ -33,7 +35,8 @@ class MockEntityListApi extends MockApi implements ICollectionApi {
     } else if (page < 1) {
       page = 1;
     }
-    final List<Json> chunk = params.limit <= filteredData.length ? filteredData.sublist((page - 1) * params.limit, (page * params.limit)) : filteredData;
+    final List<Json> chunk =
+        params.limit <= filteredData.length ? filteredData.sublist((page - 1) * params.limit, min((page * params.limit), filteredData.length)) : filteredData;
     final int totalPages = (filteredData.length / params.limit).round();
     return CollectionResponseDto(
       page: page,

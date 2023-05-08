@@ -4,12 +4,12 @@ import 'package:tools/tools.dart';
 import 'src/domain/admin_runner.dart';
 import 'src/user_space/api/mock_entity_list_api.dart';
 import 'src/user_space/api/mock_entity_page_api.dart';
-import 'src/user_space/entity/demo_filter.dart';
-import 'src/user_space/entity/demo_multi_selector.dart';
-import 'src/user_space/entity/demo_multi_selector_to_user.dart';
-import 'src/user_space/entity/demo_structured.dart';
-import 'src/user_space/entity/demo_user.dart';
-import 'src/user_space/entity/mock_data.dart';
+import 'src/user_space/entity/quich/bills.dart';
+import 'src/user_space/entity/quich/categories.dart';
+import 'src/user_space/entity/quich/currencies.dart';
+import 'src/user_space/entity/quich/purchases.dart';
+import 'src/user_space/entity/quich/purses.dart';
+import 'src/user_space/entity/quich/users.dart';
 
 Future<void> main() async {
   final DbService dbService = createDbService();
@@ -32,12 +32,12 @@ Future<void> main() async {
       imageBuilderDelegate: null,
       adminWrapperBuilder: null,
       predefinedModels: [
-        demoUser,
-        demoMultiSelector,
-        demoMultiSelectorToUser,
-        demoStructured,
-        mockData,
-        demoFilter,
+        quichBill,
+        quichCategory,
+        quichCurrency,
+        quichPurchase,
+        quichPurse,
+        quichUser,
       ],
       customRenderers: [],
       clickHandlers: [],
