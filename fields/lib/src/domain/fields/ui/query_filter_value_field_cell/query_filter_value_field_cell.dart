@@ -104,7 +104,7 @@ class _QueryFilterValueFieldCellState extends State<QueryFilterValueFieldCell> w
     final DJson? rawJson = pageBloc.valueForKey(fieldId);
     if (rawJson != null) {
       final Json json = castToJson(rawJson);
-      localPageBloc.initFromJson(json);
+      localPageBloc.updateValues(json);
       onFieldIdSelect(findSelectedField());
       onConditionSelect(findSelectedCondition());
       final Object? value = localPageBloc.valueForKey(QueryValueField.valueKey);
@@ -250,7 +250,6 @@ class _QueryFilterValueFieldCellState extends State<QueryFilterValueFieldCell> w
                 builder: (BuildContext context, BaseEntityPageState state) {
                   return LayoutBuilder(
                     builder: (BuildContext context, BoxConstraints constraints) {
-                      logg.rows('Constraints', constraints);
                       final double widthPerField = (constraints.maxWidth - (Gap.regular * 2)) / 3;
 
                       return Row(

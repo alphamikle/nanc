@@ -36,9 +36,13 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
         model.idField.id,
         ...titleFields.toFieldsIds(),
       ].join();
+
   String get virtualField => widget.field.virtualField;
+
   List<TitleField> get titleFields => field.titleFields;
+
   Model get model => field.model;
+
   ThirdTable get thirdTable => field.thirdTable;
   late final EventBus eventBus = context.read();
   bool isPreloading = false;
@@ -109,13 +113,10 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
             thirdTable.parentEntityIdName,
             thirdTable.childEntityIdName,
           ],
-          query: QueryDto(
-            singleValues: [
-              QuerySingleParameter(
-                name: thirdTable.parentEntityIdName,
-                value: QueryStringValue(parentModelId!),
-              ),
-            ],
+          query: QueryValueField(
+            fieldId: thirdTable.parentEntityIdName,
+            value: parentModelId!,
+            type: QueryFieldType.equals,
           ),
         );
     return thirdTableData.data.map((Json rowData) => rowData[thirdTable.childEntityIdName].toString()).toList();
@@ -157,11 +158,14 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
               model.idField.id,
               ...titleFields.toFieldsIds(),
             ],
-            query: QueryDto(
-              multipleValues: [
-                QueryMultipleParameter(
-                  name: model.idField.id,
-                  values: (await getSelectedIds()).map((String id) => QueryStringValue(id)).toList(),
+            query: QueryOrField(
+              fields: [
+                ...(await getSelectedIds()).map(
+                  (String id) => QueryValueField(
+                    fieldId: model.idField.id,
+                    type: QueryFieldType.equals,
+                    value: id,
+                  ),
                 ),
               ],
             ),
@@ -201,11 +205,14 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
       final CollectionResponseDto result = await read<ICollectionProvider>().fetchPageList(
         model: model,
         subset: model.flattenFields.map((Field field) => field.id).toList(),
-        query: QueryDto(
-          multipleValues: [
-            QueryMultipleParameter(
-              name: model.idField.id,
-              values: (selectedIds).map((String id) => QueryStringValue(id)).toList(),
+        query: QueryOrField(
+          fields: [
+            ...selectedIds.map(
+              (String id) => QueryValueField(
+                fieldId: model.idField.id,
+                type: QueryFieldType.equals,
+                value: id,
+              ),
             ),
           ],
         ),

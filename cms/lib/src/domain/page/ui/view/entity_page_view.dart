@@ -108,8 +108,8 @@ class _EntityPageViewState extends State<EntityPageView> {
     if (entityId == null) {
       return const KitNotFoundModelId();
     }
-    final Model? entity = context.read<ModelListBloc>().findModelById(entityId);
-    if (entity == null) {
+    final Model? model = context.read<ModelListBloc>().findModelById(entityId);
+    if (model == null) {
       return KitNotFoundModelById(modelId: entityId);
     }
 
@@ -137,7 +137,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                     Padding(
                       padding: const EdgeInsets.only(right: Gap.regular),
                       child: KitButton(
-                        onPressed: () async => confirmAndDelete(entity),
+                        onPressed: () async => confirmAndDelete(model),
                         color: context.theme.colorScheme.error,
                         child: AnimatedSwitcher(
                           duration: const Duration(milliseconds: 250),
@@ -176,7 +176,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                   Padding(
                     padding: const EdgeInsets.only(right: Gap.regular),
                     child: KitButton(
-                      onPressed: state.isChanged ? () async => confirmAndReset(entity) : null,
+                      onPressed: state.isChanged ? () async => confirmAndReset(model) : null,
                       color: context.theme.colorScheme.error,
                       child: AnimatedSwitcher(
                         duration: const Duration(milliseconds: 250),
@@ -194,7 +194,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                     ),
                   ),
                   KitButton(
-                    onPressed: state.isChanged ? () async => validateAndSave(entity) : null,
+                    onPressed: state.isChanged ? () async => validateAndSave(model) : null,
                     child: AnimatedSwitcher(
                       duration: const Duration(milliseconds: 250),
                       child: state.isSaving
@@ -222,7 +222,7 @@ class _EntityPageViewState extends State<EntityPageView> {
 
                 return FieldsForm(
                   formKey: formKey,
-                  model: entity,
+                  model: model,
                   creationMode: creationMode,
                   withBottomPadding: true,
                 );

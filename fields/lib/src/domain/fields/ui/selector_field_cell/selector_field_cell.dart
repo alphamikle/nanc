@@ -41,11 +41,21 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
 
   Future<List<Json>> finder(String searchQuery) async {
     final ICollectionProvider entityListProvider = read();
-    final List<QueryParameterValue> values = splitComplexTitle(query: searchQuery, titleFields: titleFields)
-        .map(
-          (String value) => QueryStringValue(value),
-        )
-        .toList();
+    final List<String> values = splitComplexTitle(query: searchQuery, titleFields: field.titleFields);
+    final List<QueryValueField> queryValues = [];
+    final List<String> titleFieldsIds = field.titleFields.toFieldsIds();
+
+    for (final String titleFieldId in titleFieldsIds) {
+      for (final String value in values) {
+        queryValues.add(
+          QueryValueField(
+            fieldId: titleFieldId,
+            value: value,
+            type: QueryFieldType.equals,
+          ),
+        );
+      }
+    }
 
     final CollectionResponseDto result = await entityListProvider.fetchPageList(
       model: model,
@@ -53,9 +63,7 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
         model.idField.id,
         ...titleFields.toFieldsIds(),
       ],
-      query: QueryDto(
-        multipleValues: titleFields.toFieldsIds().map((String it) => QueryMultipleParameter(name: it, values: values)).toList(),
-      ),
+      query: QueryOrField(fields: queryValues),
       params: ParamsDto(
         page: 1,
         limit: 50,

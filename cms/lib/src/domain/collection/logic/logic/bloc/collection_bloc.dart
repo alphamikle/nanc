@@ -15,7 +15,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     required this.pageListProvider,
     required this.eventBus,
   }) : super(CollectionState.empty()) {
-    eventBus.onEvent(consumer: 'CollectionBloc', eventId: PageEvents.save, handler: _reloadEntitiesAfterSave);
+    eventBus.onEvent(consumer: 'CollectionBloc', eventId: PageEvents.save, handler: _reloadCollection);
     eventBus.onEvent(consumer: 'CollectionBloc', eventId: CollectionFilterEvents.filterChanges, handler: _loadFilteredPages);
     _initTableSearchListener();
   }
@@ -25,20 +25,58 @@ class CollectionBloc extends Cubit<CollectionState> {
   final EventBus eventBus;
   final TextEditingController globalSearchController = TextEditingController();
 
-  Future<void> loadPages(String modelId) async {
+  Future<void> loadCollection(String modelId) async {
     eventBus.send(eventId: CollectionFilterEvents.collectionLoad, request: modelId);
-    if (state.modelId != modelId) {
+    final bool isTheSameCollection = state.modelId == modelId;
+    if (isTheSameCollection == false) {
       globalSearchController.clear();
+      emit(state.copyWith(query: null));
     }
     emit(state.copyWith(
       isLoading: true,
       notFoundAnything: false,
       modelId: modelId,
       dataRows: [],
-      totalPages: 0,
-      currentPage: 0,
+      totalPages: 1,
+      currentPage: 1,
     ));
-    final CollectionResponseDto dto = await _loadData(modelId: modelId);
+    await _loadData(modelId: modelId);
+  }
+
+  Future<void> _reloadCollection(Model model) async => _loadData(modelId: model.id, page: state.currentPage);
+
+  // TODO(alphamikle): Use class CollectionFilterBloc and do filter through it
+  Future<void> _filterTableByGlobalSearch() async {
+    // emit(state.copyWith(isLoading: true));
+    // await Debouncer.run(id: '_filterTableByGlobalSearch', () async => _loadData(modelId: state.modelId));
+  }
+
+  void _initTableSearchListener() => globalSearchController.addListener(_filterTableByGlobalSearch);
+
+  Future<void> _loadData({
+    required String modelId,
+    int page = 1,
+    int? limit,
+  }) async {
+    final Model? model = modelCollectionBloc.findModelById(modelId);
+    if (model == null) {
+      throw notFoundModelError(modelId);
+    }
+
+    final CollectionResponseDto dto = await pageListProvider.fetchPageList(
+      model: model,
+      subset: model.listFields.ids,
+      params: ParamsDto(
+        page: page,
+        limit: limit ?? NetworkConfig.paginationLimitParameterDefaultValue,
+        // TODO(alphamikle): Add sorting via UI
+        sort: Sort(
+          field: model.idField.id,
+          order: Order.asc,
+        ),
+      ),
+      query: state.query,
+    );
     emit(state.copyWith.isLoading(false));
     await _uiDelay();
     emit(state.copyWith(
@@ -49,66 +87,12 @@ class CollectionBloc extends Cubit<CollectionState> {
     ));
   }
 
-  Future<void> _reloadEntitiesAfterSave(Model model) async => loadPages(model.id);
-
-  Future<void> _filterTableByGlobalSearch() async {
-    emit(state.copyWith(isLoading: true));
-    await Debouncer.run(id: '_filterTableByGlobalSearch', () async {
-      final CollectionResponseDto dto = await _loadData(modelId: state.modelId);
-      final List<Json> data = dto.data;
-      emit(state.copyWith(isLoading: false));
-      await _uiDelay();
-      emit(state.copyWith(
-        dataRows: data,
-        notFoundAnything: data.isEmpty,
-        currentPage: dto.page,
-        totalPages: dto.totalPages,
-      ));
-    });
-  }
-
-  void _initTableSearchListener() {
-    globalSearchController.addListener(_filterTableByGlobalSearch);
-  }
-
-  Future<CollectionResponseDto> _loadData({
-    required String modelId,
-    int page = 1,
-    int? limit,
-  }) async {
-    final Model? model = modelCollectionBloc.findModelById(modelId);
-    if (model == null) {
-      throw notFoundModelError(modelId);
-    }
-    final String query = globalSearchController.text;
-
-    final CollectionResponseDto dto = await pageListProvider.fetchPageList(
-      model: model,
-      subset: model.listFields.ids,
-      params: ParamsDto(
-        page: page,
-        limit: limit ?? NetworkConfig.paginationLimitParameterDefaultValue,
-        sort: Sort(
-          field: model.idField.id,
-          order: Order.asc,
-        ),
-      ),
-      query: query.isEmpty
-          ? const QueryDto()
-          : QueryDto(
-              singleValues: model.listFields.ids
-                  .map((String fieldId) => QuerySingleParameter(
-                        name: fieldId,
-                        value: QueryStringValue(query),
-                      ))
-                  .toList(),
-            ),
-    );
-    return dto;
-  }
-
-  Future<void> _loadFilteredPages(CollectionFilterState filterState) async {
-    logg.rows('Filter event: $filterState');
+  Future<void> _loadFilteredPages(QueryField query) async {
+    emit(state.copyWith(
+      isLoading: true,
+      query: query,
+    ));
+    await _loadData(modelId: state.modelId);
   }
 
   Future<void> paginate(int page) async {
@@ -116,21 +100,8 @@ class CollectionBloc extends Cubit<CollectionState> {
       isLoading: true,
       currentPage: page,
     ));
-    final CollectionResponseDto dto = await _loadData(
-      modelId: state.modelId,
-      page: page,
-    );
-    emit(state.copyWith(isLoading: false));
-    await _uiDelay();
-    emit(state.copyWith(
-      dataRows: dto.data,
-      currentPage: dto.page,
-      totalPages: dto.totalPages,
-      notFoundAnything: dto.data.isEmpty,
-    ));
+    await _loadData(modelId: state.modelId, page: page);
   }
-
-  /// FILTER LIST (SEARCH, SORT, ETC)
 }
 
 Future<void> _uiDelay() async => wait(duration: const Duration(milliseconds: 100));

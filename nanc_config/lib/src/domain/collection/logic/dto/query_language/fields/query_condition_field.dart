@@ -4,7 +4,7 @@ import 'query_field.dart';
 
 part 'query_condition_field.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 abstract class QueryConditionField implements QueryField {
   factory QueryConditionField() => throw UnimplementedError();
 

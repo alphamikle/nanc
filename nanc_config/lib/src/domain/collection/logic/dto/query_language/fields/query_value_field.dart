@@ -9,7 +9,7 @@ part 'query_value_field.g.dart';
 
 @autoequal
 @CopyWith()
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class QueryValueField extends Equatable implements QueryField {
   const QueryValueField({
     this.fieldId = '',
@@ -37,5 +37,6 @@ class QueryValueField extends Equatable implements QueryField {
   @override
   List<Object?> get props => _$props;
 
+  @override
   Json toJson() => _$QueryValueFieldToJson(this);
 }

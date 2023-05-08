@@ -66,6 +66,7 @@ class Initializer {
     final CollectionFilterBloc collectionFilterBloc = CollectionFilterBloc(
       eventBus: eventBus,
       modelCollectionBloc: modelCollectionBloc,
+      filterStructureBloc: LocalPageBloc(draftService: draftService),
     );
     final CollectionBloc collectionBloc = CollectionBloc(
       modelCollectionBloc: modelCollectionBloc,

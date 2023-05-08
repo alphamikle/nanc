@@ -1,4 +1,6 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tools/tools.dart';
 
 part 'query_field.g.dart';
 
@@ -90,11 +92,13 @@ enum QueryFieldType {
   }
 }
 
-@JsonSerializable()
-abstract class QueryField {
+@JsonSerializable(fieldRename: FieldRename.snake)
+abstract class QueryField extends Equatable {
   factory QueryField() => throw UnimplementedError();
 
   static const String typeKey = 'type';
 
   QueryFieldType get type;
+
+  Json toJson();
 }

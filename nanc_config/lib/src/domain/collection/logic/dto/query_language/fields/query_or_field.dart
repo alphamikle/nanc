@@ -11,7 +11,7 @@ part 'query_or_field.g.dart';
 
 @autoequal
 @CopyWith()
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class QueryOrField extends Equatable implements QueryConditionField {
   const QueryOrField({
     this.fields = const [],
@@ -30,5 +30,6 @@ class QueryOrField extends Equatable implements QueryConditionField {
   @override
   List<Object?> get props => _$props;
 
+  @override
   Json toJson() => _$QueryOrFieldToJson(this);
 }

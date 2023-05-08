@@ -57,6 +57,11 @@ class FieldsForm extends StatelessWidget {
         final List<Widget> children = [];
 
         for (int i = 0; i < model.fields.length; i++) {
+          final List<Field> rowFields = model.fields[i];
+          if (rowFields.every((Field field) => field is IdField && field.isStub)) {
+            continue;
+          }
+
           children.add(formRowBuilder(context, i));
           if (i != model.fields.length - 1) {
             children.add(const SizedBox(height: kPadding));

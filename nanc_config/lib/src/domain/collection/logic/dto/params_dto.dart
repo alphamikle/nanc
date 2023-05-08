@@ -1,3 +1,6 @@
+import 'package:autoequal/autoequal.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:nanc_config/nanc_config.dart';
@@ -10,8 +13,10 @@ enum Order {
   desc,
 }
 
+@autoequal
+@CopyWith()
 @JsonSerializable()
-class ParamsDto {
+class ParamsDto extends Equatable {
   const ParamsDto({
     required this.page,
     required this.limit,
@@ -23,15 +28,20 @@ class ParamsDto {
         limit = NetworkConfig.paginationLimitParameterDefaultValue,
         sort = Sort(field: model.idField.id, order: Order.asc);
 
-  Json toJson() => _$ParamsDtoToJson(this);
-
   final int page;
   final int limit;
   final Sort sort;
+
+  @override
+  List<Object?> get props => _$props;
+
+  Json toJson() => _$ParamsDtoToJson(this);
 }
 
+@autoequal
+@CopyWith()
 @JsonSerializable()
-class Sort {
+class Sort extends Equatable {
   const Sort({
     required this.field,
     required this.order,
@@ -41,6 +51,9 @@ class Sort {
 
   final String field;
   final Order order;
+
+  @override
+  List<Object?> get props => _$props;
 
   Json toJson() => _$SortToJson(this);
 }

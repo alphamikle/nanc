@@ -14,7 +14,7 @@ class PageListApiImplementation extends MockApi implements ICollectionApi {
   DbService dbService;
 
   @override
-  Future<CollectionResponseDto> fetchPageList(Model entity, List<String> subset, QueryDto query, ParamsDto params) async {
+  Future<CollectionResponseDto> fetchPageList(Model entity, List<String> subset, QueryField query, ParamsDto params) async {
     await networkDelay();
     final List<Json> rawData = await fetchFullList(entity);
 
@@ -26,33 +26,35 @@ class PageListApiImplementation extends MockApi implements ICollectionApi {
       return fragment;
     }).toList();
 
-    final List<Json> filteredData = requiredData.where((Json dataRow) {
-      if (query.multipleValues.isEmpty && query.singleValues.isEmpty) {
-        return true;
-      }
-      // TODO(alphamikle): This is a very simple realization. When will be implemented a custom queries logic - need to made more complexity here
-      for (final QuerySingleParameter singleParameter in query.singleValues) {
-        final String name = singleParameter.name;
-        final dynamic value = singleParameter.value.value;
-        if (dataRow[name] == value) {
-          return true;
-        } else if (dataRow[name].toString().toLowerCase().contains(value.toString().toLowerCase())) {
-          return true;
-        }
-      }
-      for (final QueryMultipleParameter multipleParameter in query.multipleValues) {
-        final String name = multipleParameter.name;
-        for (final QueryParameterValue queryParameterValue in multipleParameter.values) {
-          final dynamic value = queryParameterValue.value;
-          if (dataRow[name] == value) {
-            return true;
-          } else if (dataRow[name].toString().toLowerCase().contains(value.toString().toLowerCase())) {
-            return true;
-          }
-        }
-      }
-      return false;
-    }).toList();
+    final List<Json> filteredData = requiredData;
+
+    // TODO(alphamikle): Implement complex filtering logic
+    // final List<Json> filteredData = requiredData.where((Json dataRow) {
+    //   if (query.multipleValues.isEmpty && query.singleValues.isEmpty) {
+    //     return true;
+    //   }
+    //   for (final QuerySingleParameter singleParameter in query.singleValues) {
+    //     final String name = singleParameter.name;
+    //     final dynamic value = singleParameter.value.value;
+    //     if (dataRow[name] == value) {
+    //       return true;
+    //     } else if (dataRow[name].toString().toLowerCase().contains(value.toString().toLowerCase())) {
+    //       return true;
+    //     }
+    //   }
+    //   for (final QueryMultipleParameter multipleParameter in query.multipleValues) {
+    //     final String name = multipleParameter.name;
+    //     for (final QueryParameterValue queryParameterValue in multipleParameter.values) {
+    //       final dynamic value = queryParameterValue.value;
+    //       if (dataRow[name] == value) {
+    //         return true;
+    //       } else if (dataRow[name].toString().toLowerCase().contains(value.toString().toLowerCase())) {
+    //         return true;
+    //       }
+    //     }
+    //   }
+    //   return false;
+    // }).toList();
 
     int page = params.page;
     if (page > (filteredData.length / params.limit).round()) {

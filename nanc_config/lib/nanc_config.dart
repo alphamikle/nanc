@@ -9,6 +9,7 @@ export 'src/domain/collection/logic/dto/query_language/fields/query_condition_fi
 export 'src/domain/collection/logic/dto/query_language/fields/query_field.dart';
 export 'src/domain/collection/logic/dto/query_language/fields/query_or_field.dart';
 export 'src/domain/collection/logic/dto/query_language/fields/query_value_field.dart';
+export 'src/domain/collection/logic/dto/query_language/mapper/query_field_mapper.dart';
 export 'src/domain/collection/logic/dto/query_parameter.dart';
 export 'src/domain/collection/logic/dto/query_parameter_value.dart';
 export 'src/domain/collection/logic/provider/collection_api_interface.dart';

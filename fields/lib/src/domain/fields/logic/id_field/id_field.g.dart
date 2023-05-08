@@ -9,7 +9,7 @@ part of 'id_field.dart';
 extension _$IdFieldAutoequal on IdField {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [];
+  List<Object?> get _$props => [isStub];
 }
 
 // **************************************************************************
@@ -29,6 +29,8 @@ abstract class _$IdFieldCWProxy {
 
   IdField width(double? width);
 
+  IdField isStub(bool isStub);
+
   IdField type(FieldType type);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `IdField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
@@ -44,6 +46,7 @@ abstract class _$IdFieldCWProxy {
     bool? isRequired,
     int? sort,
     double? width,
+    bool? isStub,
     FieldType? type,
   });
 }
@@ -73,6 +76,9 @@ class _$IdFieldCWProxyImpl implements _$IdFieldCWProxy {
   IdField width(double? width) => this(width: width);
 
   @override
+  IdField isStub(bool isStub) => this(isStub: isStub);
+
+  @override
   IdField type(FieldType type) => this(type: type);
 
   @override
@@ -90,6 +96,7 @@ class _$IdFieldCWProxyImpl implements _$IdFieldCWProxy {
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
     Object? width = const $CopyWithPlaceholder(),
+    Object? isStub = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
   }) {
     return IdField(
@@ -119,6 +126,10 @@ class _$IdFieldCWProxyImpl implements _$IdFieldCWProxy {
           ? _value.width
           // ignore: cast_nullable_to_non_nullable
           : width as double?,
+      isStub: isStub == const $CopyWithPlaceholder() || isStub == null
+          ? _value.isStub
+          // ignore: cast_nullable_to_non_nullable
+          : isStub as bool,
       type: type == const $CopyWithPlaceholder() || type == null
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
@@ -144,6 +155,7 @@ IdField _$IdFieldFromJson(Map<String, dynamic> json) => IdField(
       isRequired: json['isRequired'] as bool? ?? true,
       sort: json['sort'] as int? ?? 0,
       width: (json['width'] as num?)?.toDouble(),
+      isStub: json['isStub'] as bool? ?? false,
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.idField,
     );
@@ -156,6 +168,7 @@ Map<String, dynamic> _$IdFieldToJson(IdField instance) => <String, dynamic>{
       'sort': instance.sort,
       'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
+      'isStub': instance.isStub,
     };
 
 const _$FieldTypeEnumMap = {

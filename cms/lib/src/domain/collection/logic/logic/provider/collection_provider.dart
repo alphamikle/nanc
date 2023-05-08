@@ -12,9 +12,9 @@ class CollectionProvider implements ICollectionProvider {
   Future<CollectionResponseDto> fetchPageList({
     required Model model,
     List<String> subset = const [],
-    QueryDto query = const QueryDto(),
+    QueryField? query,
     ParamsDto? params,
   }) async {
-    return api.fetchPageList(model, subset, query, params ?? ParamsDto.initial(model));
+    return api.fetchPageList(model, subset, query ?? const QueryOrField(), params ?? ParamsDto.initial(model));
   }
 }

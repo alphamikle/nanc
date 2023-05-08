@@ -9,8 +9,15 @@ part of 'collection_state.dart';
 extension _$CollectionStateAutoequal on CollectionState {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props =>
-      [dataRows, modelId, currentPage, totalPages, isLoading, notFoundAnything];
+  List<Object?> get _$props => [
+        dataRows,
+        modelId,
+        currentPage,
+        totalPages,
+        isLoading,
+        notFoundAnything,
+        query
+      ];
 }
 
 // **************************************************************************
@@ -30,6 +37,8 @@ abstract class _$CollectionStateCWProxy {
 
   CollectionState notFoundAnything(bool notFoundAnything);
 
+  CollectionState query(QueryField? query);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `CollectionState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -43,6 +52,7 @@ abstract class _$CollectionStateCWProxy {
     int? totalPages,
     bool? isLoading,
     bool? notFoundAnything,
+    QueryField? query,
   });
 }
 
@@ -74,6 +84,9 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
       this(notFoundAnything: notFoundAnything);
 
   @override
+  CollectionState query(QueryField? query) => this(query: query);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `CollectionState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -88,6 +101,7 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
     Object? totalPages = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
     Object? notFoundAnything = const $CopyWithPlaceholder(),
+    Object? query = const $CopyWithPlaceholder(),
   }) {
     return CollectionState(
       dataRows: dataRows == const $CopyWithPlaceholder() || dataRows == null
@@ -117,6 +131,10 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
           ? _value.notFoundAnything
           // ignore: cast_nullable_to_non_nullable
           : notFoundAnything as bool,
+      query: query == const $CopyWithPlaceholder()
+          ? _value.query
+          // ignore: cast_nullable_to_non_nullable
+          : query as QueryField?,
     );
   }
 }
@@ -141,6 +159,7 @@ CollectionState _$CollectionStateFromJson(Map<String, dynamic> json) =>
       totalPages: json['totalPages'] as int,
       isLoading: json['isLoading'] as bool,
       notFoundAnything: json['notFoundAnything'] as bool,
+      query: queryFieldFromJson(json['query']),
     );
 
 Map<String, dynamic> _$CollectionStateToJson(CollectionState instance) =>
@@ -151,4 +170,5 @@ Map<String, dynamic> _$CollectionStateToJson(CollectionState instance) =>
       'totalPages': instance.totalPages,
       'isLoading': instance.isLoading,
       'notFoundAnything': instance.notFoundAnything,
+      'query': queryFieldToJson(instance.query),
     };

@@ -49,8 +49,21 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
     searchDebounce = Timer(immediately ? Duration.zero : const Duration(milliseconds: 500), () async {
       if (mounted) {
         final ICollectionProvider provider = context.read();
-        final List<QueryParameterValue> values =
-            splitComplexTitle(query: searchController.text, titleFields: field.titleFields).map((String it) => QueryStringValue(it)).toList();
+        final List<String> values = splitComplexTitle(query: searchController.text, titleFields: field.titleFields);
+        final List<QueryValueField> queryValues = [];
+        final List<String> titleFieldsIds = field.titleFields.toFieldsIds();
+
+        for (final String titleFieldId in titleFieldsIds) {
+          for (final String value in values) {
+            queryValues.add(
+              QueryValueField(
+                fieldId: titleFieldId,
+                value: value,
+                type: QueryFieldType.equals,
+              ),
+            );
+          }
+        }
 
         final CollectionResponseDto result = await provider.fetchPageList(
           model: field.model,
@@ -58,9 +71,7 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
             field.model.idField.id,
             ...field.titleFields.toFieldsIds(),
           ],
-          query: QueryDto(
-            multipleValues: field.titleFields.toFieldsIds().map((String it) => QueryMultipleParameter(name: it, values: values)).toList(),
-          ),
+          query: QueryOrField(fields: queryValues),
           params: ParamsDto(
             page: 1,
             limit: 50,

@@ -93,7 +93,7 @@ extension $QueryValueFieldCopyWith on QueryValueField {
 
 QueryValueField _$QueryValueFieldFromJson(Map<String, dynamic> json) =>
     QueryValueField(
-      fieldId: json['fieldId'] as String? ?? '',
+      fieldId: json['field_id'] as String? ?? '',
       value: json['value'] ?? '',
       type: $enumDecodeNullable(_$QueryFieldTypeEnumMap, json['type'],
               unknownValue: QueryFieldType.unknown) ??
@@ -102,7 +102,7 @@ QueryValueField _$QueryValueFieldFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$QueryValueFieldToJson(QueryValueField instance) =>
     <String, dynamic>{
-      'fieldId': instance.fieldId,
+      'field_id': instance.fieldId,
       'value': instance.value,
       'type': _$QueryFieldTypeEnumMap[instance.type]!,
     };

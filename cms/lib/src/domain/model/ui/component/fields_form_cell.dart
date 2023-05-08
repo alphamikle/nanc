@@ -23,7 +23,6 @@ class FieldsFormCell extends StatelessWidget {
         left: Gap.regular,
         top: Gap.regular,
         right: Gap.regular,
-        // bottom: Gap.regular,
       ),
       child: BlocBuilder<BasePageBloc, BaseEntityPageState>(
         builder: (BuildContext context, BaseEntityPageState state) => FieldMapper.fieldToInput(

@@ -37,7 +37,7 @@ class RoutesPreloadingService {
 
   Future<void> preloadCollectionDataList(VRedirector vRedirector) async {
     _selectSideMenuElement(vRedirector);
-    unawaited(collectionBloc.loadPages(vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? ''));
+    unawaited(collectionBloc.loadCollection(vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? ''));
   }
 
   Future<void> preloadCollectionPage(VRedirector vRedirector) async {

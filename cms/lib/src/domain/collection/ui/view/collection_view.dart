@@ -74,6 +74,7 @@ class _CollectionViewState extends State<CollectionView> {
                         child: KitIconButton(
                           onPressed: () async => showModal(
                             context: context,
+                            configuration: const FadeScaleTransitionConfiguration(barrierDismissible: false),
                             builder: (BuildContext context) => BlocProvider<CollectionFilterBloc>.value(
                               value: context.read<CollectionFilterBloc>(),
                               child: const CollectionFilterModal(),

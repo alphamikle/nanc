@@ -22,6 +22,7 @@ class IdField extends Field {
     super.isRequired = true,
     super.sort,
     super.width,
+    this.isStub = false,
     super.type = FieldType.idField,
   }) : super(name: name ?? 'ID', id: id ?? 'id');
 
@@ -38,6 +39,8 @@ class IdField extends Field {
       description: 'A field for selecting a unique identifier. You can use any value you want or quickly generate a UUID with only one click',
     );
   }
+
+  final bool isStub;
 
   @override
   Json toJson() => _$IdFieldToJson(this);
