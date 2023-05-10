@@ -71,20 +71,23 @@ class _CollectionViewState extends State<CollectionView> {
                       child: SizedBox(
                         height: 44,
                         width: 44,
-                        child: KitIconButton(
-                          onPressed: () async => showModal(
-                            context: context,
-                            configuration: const FadeScaleTransitionConfiguration(barrierDismissible: false),
-                            builder: (BuildContext context) => BlocProvider<CollectionFilterBloc>.value(
-                              value: context.read<CollectionFilterBloc>(),
-                              child: const CollectionFilterModal(),
+                        child: AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 250),
+                          child: KitIconButton(
+                            onPressed: () async => showModal(
+                              context: context,
+                              configuration: const FadeScaleTransitionConfiguration(barrierDismissible: false),
+                              builder: (BuildContext context) => BlocProvider<CollectionFilterBloc>.value(
+                                value: context.read<CollectionFilterBloc>(),
+                                child: const CollectionFilterModal(),
+                              ),
                             ),
+                            icon: state.query != null ? IconPack.mdi_filter_check : IconPack.mdi_filter_cog,
+                            iconColor: context.theme.colorScheme.onSurfaceVariant,
+                            color: state.query != null ? context.kitColors.successColor.o25 : context.theme.colorScheme.surfaceVariant,
+                            rounder: 10,
+                            iconSize: 24,
                           ),
-                          icon: IconPack.mdi_filter_cog,
-                          iconColor: context.theme.colorScheme.onSurfaceVariant,
-                          color: context.theme.colorScheme.surfaceVariant,
-                          rounder: 10,
-                          iconSize: 24,
                         ),
                       ),
                     ),

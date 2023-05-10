@@ -47,6 +47,11 @@ extension KitColorsTransparencies on Color {
   Color get o50 {
     return withOpacity(0.5);
   }
+
+  /// Equals to [Color.withOpacity] with (0.75)
+  Color get o75 {
+    return withOpacity(0.75);
+  }
 }
 
 extension KitColorsFromContext on BuildContext {
