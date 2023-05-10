@@ -19,6 +19,8 @@ class CollectionState extends Equatable {
     required this.isLoading,
     required this.notFoundAnything,
     required this.query,
+    required this.globalSearchQuery,
+    required this.sort,
   });
 
   factory CollectionState.empty() => const CollectionState(
@@ -29,6 +31,8 @@ class CollectionState extends Equatable {
         isLoading: false,
         notFoundAnything: false,
         query: null,
+        globalSearchQuery: null,
+        sort: null,
       );
 
   factory CollectionState.fromJson(dynamic json) => _$CollectionStateFromJson(castToJson(json));
@@ -42,6 +46,11 @@ class CollectionState extends Equatable {
 
   @JsonKey(fromJson: queryFieldFromJson, toJson: queryFieldToJson)
   final QueryField? query;
+
+  @JsonKey(fromJson: queryFieldFromJson, toJson: queryFieldToJson)
+  final QueryField? globalSearchQuery;
+
+  final Sort? sort;
 
   @override
   List<Object?> get props => _$props;

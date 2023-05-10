@@ -2,10 +2,11 @@ import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nanc_config/src/domain/collection/logic/dto/query_language/fields/query_condition_field.dart';
-import 'package:nanc_config/src/domain/collection/logic/dto/query_language/fields/query_field.dart';
-import 'package:nanc_config/src/domain/collection/logic/dto/query_language/mapper/query_field_mapper.dart';
 import 'package:tools/tools.dart';
+
+import '../mapper/query_field_mapper.dart';
+import 'query_condition_field.dart';
+import 'query_field.dart';
 
 part 'query_and_field.g.dart';
 

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 
+import '../../tools/logg.dart';
 import '../../tools/tools.dart';
 import 'event_bus_request.dart';
 import 'event_bus_response.dart';
@@ -98,6 +99,7 @@ class EventBus {
         response = EventBusResponse<dynamic>(data: result);
       } catch (error) {
         response = EventBusResponse<dynamic>(error: error);
+        logg.rows('ERROR', error);
       }
 
       /// It's means that we used [send] method, instead of [run]

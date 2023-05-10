@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
+import '../../../../../service/errors/errors.dart';
 import '../../provider/model_provider.dart';
 import 'model_list_state.dart';
 
@@ -55,8 +56,16 @@ class ModelListBloc extends Cubit<ModelListState> {
 
   Future<void> reloadDynamicModels() async => loadDynamicModels(state.preloadedModels);
 
-  Model? findModelById(String modelId) {
+  Model? tryToFindModelById(String modelId) {
     final Model? targetModel = state.allModels.firstWhereOrNull((Model entity) => entity.id == modelId);
     return targetModel;
+  }
+
+  Model findModelById(String modelId) {
+    final Model? model = tryToFindModelById(modelId);
+    if (model == null) {
+      throw notFoundModelError(modelId);
+    }
+    return model;
   }
 }

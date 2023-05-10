@@ -26,7 +26,7 @@ class ModelProvider {
         /// ? We always want to download all the models
         limit: 49990,
         sort: Sort(
-          field: fieldDefaultValueProperty,
+          fieldId: fieldDefaultValueProperty,
           order: Order.asc,
         ),
       ),

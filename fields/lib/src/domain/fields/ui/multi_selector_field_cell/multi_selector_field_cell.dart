@@ -60,7 +60,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
     if (modelId == null) {
       notFoundEntityIdError();
     }
-    final Model? parentModel = context.read<ModelListBloc>().findModelById(modelId);
+    final Model? parentModel = context.read<ModelListBloc>().tryToFindModelById(modelId);
     if (parentModel == null) {
       notFoundModelError(modelId);
     }
@@ -172,7 +172,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
             params: ParamsDto(
               page: 1,
               limit: 50,
-              sort: Sort(field: model.idField.id, order: Order.asc),
+              sort: Sort(fieldId: model.idField.id, order: Order.asc),
             ),
           );
       titleChips.clear();
@@ -219,7 +219,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
         params: ParamsDto(
           page: 1,
           limit: selectedIds.length,
-          sort: Sort(field: model.idField.id, order: Order.asc),
+          sort: Sort(fieldId: model.idField.id, order: Order.asc),
         ),
       );
       pageBloc.updateValue(virtualField, result.data);

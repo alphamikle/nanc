@@ -26,7 +26,7 @@ class ParamsDto extends Equatable {
   ParamsDto.initial(Model model)
       : page = 1,
         limit = NetworkConfig.paginationLimitParameterDefaultValue,
-        sort = Sort(field: model.idField.id, order: Order.asc);
+        sort = Sort(fieldId: model.idField.id, order: Order.asc);
 
   final int page;
   final int limit;
@@ -40,16 +40,16 @@ class ParamsDto extends Equatable {
 
 @autoequal
 @CopyWith()
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Sort extends Equatable {
   const Sort({
-    required this.field,
+    required this.fieldId,
     required this.order,
   });
 
   factory Sort.fromJson(Json json) => _$SortFromJson(json);
 
-  final String field;
+  final String fieldId;
   final Order order;
 
   @override

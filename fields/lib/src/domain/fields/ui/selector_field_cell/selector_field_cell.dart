@@ -67,7 +67,7 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
       params: ParamsDto(
         page: 1,
         limit: 50,
-        sort: Sort(field: model.idField.id, order: Order.asc),
+        sort: Sort(fieldId: model.idField.id, order: Order.asc),
       ),
     );
     return result.data;

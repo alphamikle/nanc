@@ -150,7 +150,9 @@ class _QueryFilterValueFieldCellState extends State<QueryFilterValueFieldCell> w
         resetCondition();
       } else if (isNumericField && (selectedCondition!.isStringOnlyType || selectedCondition!.isBoolOnlyType)) {
         resetCondition();
-      } else if (isBoolField && (selectedCondition!.isStringOnlyType || selectedCondition!.isNumericOnlyType || selectedCondition!.isCommonType == false)) {
+      } else if (isBoolField &&
+          (selectedCondition!.isStringOnlyType || selectedCondition!.isNumericOnlyType || selectedCondition!.isCommonType == false) &&
+          selectedCondition!.isBoolOnlyType == false) {
         resetCondition();
       }
     }

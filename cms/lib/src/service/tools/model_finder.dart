@@ -12,7 +12,7 @@ Model findEntity(BuildContext context) {
   if (entityId == null) {
     notFoundEntityIdError();
   }
-  final Model? entity = context.read<ModelListBloc>().findModelById(entityId);
+  final Model? entity = context.read<ModelListBloc>().tryToFindModelById(entityId);
   if (entity == null) {
     notFoundModelError(entityId);
   }

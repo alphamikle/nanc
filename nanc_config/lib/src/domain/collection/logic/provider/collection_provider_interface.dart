@@ -2,7 +2,7 @@ import 'package:model/model.dart';
 
 import '../dto/collection_response_dto.dart';
 import '../dto/params_dto.dart';
-import '../dto/query_language/fields/query_field.dart';
+import '../query_language/fields/query_field.dart';
 
 abstract class ICollectionProvider {
   Future<CollectionResponseDto> fetchPageList({

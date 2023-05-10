@@ -14,12 +14,14 @@ class KitModal extends StatelessWidget {
     required this.child,
     required this.onClose,
     this.header,
+    this.headerSuffix,
     super.key,
   });
 
   final Widget child;
   final VoidCallback onClose;
   final Widget? header;
+  final Widget? headerSuffix;
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +52,7 @@ class KitModal extends StatelessWidget {
                           child: header!,
                         ),
                       const Spacer(),
+                      if (headerSuffix != null) headerSuffix!,
                       Material(
                         child: KitTooltip(
                           text: 'Close',

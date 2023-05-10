@@ -15,7 +15,7 @@ extension _$ParamsDtoAutoequal on ParamsDto {
 extension _$SortAutoequal on Sort {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [field, order];
+  List<Object?> get _$props => [fieldId, order];
 }
 
 // **************************************************************************
@@ -94,7 +94,7 @@ extension $ParamsDtoCopyWith on ParamsDto {
 }
 
 abstract class _$SortCWProxy {
-  Sort field(String field);
+  Sort fieldId(String fieldId);
 
   Sort order(Order order);
 
@@ -105,7 +105,7 @@ abstract class _$SortCWProxy {
   /// Sort(...).copyWith(id: 12, name: "My name")
   /// ````
   Sort call({
-    String? field,
+    String? fieldId,
     Order? order,
   });
 }
@@ -117,7 +117,7 @@ class _$SortCWProxyImpl implements _$SortCWProxy {
   final Sort _value;
 
   @override
-  Sort field(String field) => this(field: field);
+  Sort fieldId(String fieldId) => this(fieldId: fieldId);
 
   @override
   Sort order(Order order) => this(order: order);
@@ -131,14 +131,14 @@ class _$SortCWProxyImpl implements _$SortCWProxy {
   /// Sort(...).copyWith(id: 12, name: "My name")
   /// ````
   Sort call({
-    Object? field = const $CopyWithPlaceholder(),
+    Object? fieldId = const $CopyWithPlaceholder(),
     Object? order = const $CopyWithPlaceholder(),
   }) {
     return Sort(
-      field: field == const $CopyWithPlaceholder() || field == null
-          ? _value.field
+      fieldId: fieldId == const $CopyWithPlaceholder() || fieldId == null
+          ? _value.fieldId
           // ignore: cast_nullable_to_non_nullable
-          : field as String,
+          : fieldId as String,
       order: order == const $CopyWithPlaceholder() || order == null
           ? _value.order
           // ignore: cast_nullable_to_non_nullable
@@ -170,12 +170,12 @@ Map<String, dynamic> _$ParamsDtoToJson(ParamsDto instance) => <String, dynamic>{
     };
 
 Sort _$SortFromJson(Map<String, dynamic> json) => Sort(
-      field: json['field'] as String,
+      fieldId: json['field_id'] as String,
       order: $enumDecode(_$OrderEnumMap, json['order']),
     );
 
 Map<String, dynamic> _$SortToJson(Sort instance) => <String, dynamic>{
-      'field': instance.field,
+      'field_id': instance.fieldId,
       'order': _$OrderEnumMap[instance.order]!,
     };
 

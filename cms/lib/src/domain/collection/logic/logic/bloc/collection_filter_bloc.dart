@@ -44,8 +44,14 @@ class CollectionFilterBloc extends Cubit<CollectionFilterState> {
     filterStructureBloc.updateValues(state.backup);
   }
 
+  void reset() {
+    filterStructureBloc.clear();
+    emit(state.copyWith(query: null, backup: null));
+    apply();
+  }
+
   void _setUpModel(String modelId) {
-    final Model? model = modelCollectionBloc.findModelById(modelId);
+    final Model? model = modelCollectionBloc.tryToFindModelById(modelId);
     if (model == null) {
       throw notFoundModelError(modelId);
     }
@@ -54,7 +60,6 @@ class CollectionFilterBloc extends Cubit<CollectionFilterState> {
 
   void _onFilterStructureChanged(Json filterStructure) {
     final QueryField? query = queryFieldFromJson(mapQueryFieldCellJsonToQueryFieldJson(filterStructure));
-
     emit(state.copyWith(query: query));
   }
 }

@@ -108,7 +108,7 @@ class _EntityPageViewState extends State<EntityPageView> {
     if (entityId == null) {
       return const KitNotFoundModelId();
     }
-    final Model? model = context.read<ModelListBloc>().findModelById(entityId);
+    final Model? model = context.read<ModelListBloc>().tryToFindModelById(entityId);
     if (model == null) {
       return KitNotFoundModelById(modelId: entityId);
     }

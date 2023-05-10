@@ -16,7 +16,9 @@ extension _$CollectionStateAutoequal on CollectionState {
         totalPages,
         isLoading,
         notFoundAnything,
-        query
+        query,
+        globalSearchQuery,
+        sort
       ];
 }
 
@@ -39,6 +41,10 @@ abstract class _$CollectionStateCWProxy {
 
   CollectionState query(QueryField? query);
 
+  CollectionState globalSearchQuery(QueryField? globalSearchQuery);
+
+  CollectionState sort(Sort? sort);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `CollectionState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -53,6 +59,8 @@ abstract class _$CollectionStateCWProxy {
     bool? isLoading,
     bool? notFoundAnything,
     QueryField? query,
+    QueryField? globalSearchQuery,
+    Sort? sort,
   });
 }
 
@@ -87,6 +95,13 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
   CollectionState query(QueryField? query) => this(query: query);
 
   @override
+  CollectionState globalSearchQuery(QueryField? globalSearchQuery) =>
+      this(globalSearchQuery: globalSearchQuery);
+
+  @override
+  CollectionState sort(Sort? sort) => this(sort: sort);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `CollectionState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -102,6 +117,8 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
     Object? isLoading = const $CopyWithPlaceholder(),
     Object? notFoundAnything = const $CopyWithPlaceholder(),
     Object? query = const $CopyWithPlaceholder(),
+    Object? globalSearchQuery = const $CopyWithPlaceholder(),
+    Object? sort = const $CopyWithPlaceholder(),
   }) {
     return CollectionState(
       dataRows: dataRows == const $CopyWithPlaceholder() || dataRows == null
@@ -135,6 +152,14 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
           ? _value.query
           // ignore: cast_nullable_to_non_nullable
           : query as QueryField?,
+      globalSearchQuery: globalSearchQuery == const $CopyWithPlaceholder()
+          ? _value.globalSearchQuery
+          // ignore: cast_nullable_to_non_nullable
+          : globalSearchQuery as QueryField?,
+      sort: sort == const $CopyWithPlaceholder()
+          ? _value.sort
+          // ignore: cast_nullable_to_non_nullable
+          : sort as Sort?,
     );
   }
 }
@@ -160,6 +185,10 @@ CollectionState _$CollectionStateFromJson(Map<String, dynamic> json) =>
       isLoading: json['isLoading'] as bool,
       notFoundAnything: json['notFoundAnything'] as bool,
       query: queryFieldFromJson(json['query']),
+      globalSearchQuery: queryFieldFromJson(json['globalSearchQuery']),
+      sort: json['sort'] == null
+          ? null
+          : Sort.fromJson(json['sort'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CollectionStateToJson(CollectionState instance) =>
@@ -171,4 +200,6 @@ Map<String, dynamic> _$CollectionStateToJson(CollectionState instance) =>
       'isLoading': instance.isLoading,
       'notFoundAnything': instance.notFoundAnything,
       'query': queryFieldToJson(instance.query),
+      'globalSearchQuery': queryFieldToJson(instance.globalSearchQuery),
+      'sort': instance.sort?.toJson(),
     };

@@ -35,7 +35,7 @@ class PageBloc extends BasePageBloc<PageState> {
     this.pageId = pageId;
     emit(state.copyWith.isLoading(true));
     await wait(duration: const Duration(milliseconds: 50));
-    final Model? model = modelCollectionBloc.findModelById(modelId);
+    final Model? model = modelCollectionBloc.tryToFindModelById(modelId);
     if (model == null) {
       notFoundModelError(modelId);
     }
@@ -147,7 +147,7 @@ class PageBloc extends BasePageBloc<PageState> {
     pageId = null;
     emit(state.copyWith(isLoading: true));
     emit(PageState.empty());
-    final Model? model = modelCollectionBloc.findModelById(modelId);
+    final Model? model = modelCollectionBloc.tryToFindModelById(modelId);
     if (model == null) {
       throw Exception('Error while loading model page with id "$modelId"');
     }
@@ -218,7 +218,7 @@ class PageBloc extends BasePageBloc<PageState> {
   }) async {
     assert(model != null || modelId != null);
     await wait(duration: const Duration(milliseconds: 50));
-    final Model? effectiveModel = model ?? modelCollectionBloc.findModelById(modelId!);
+    final Model? effectiveModel = model ?? modelCollectionBloc.tryToFindModelById(modelId!);
     if (effectiveModel == null) {
       throw Exception('Error while loading model page data with id "$modelId"');
     }

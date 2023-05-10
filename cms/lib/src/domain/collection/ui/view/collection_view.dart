@@ -39,7 +39,7 @@ class _CollectionViewState extends State<CollectionView> {
     if (modelId == null) {
       return const KitNotFoundModelId();
     }
-    final Model? model = context.read<ModelListBloc>().findModelById(modelId);
+    final Model? model = context.read<ModelListBloc>().tryToFindModelById(modelId);
     if (model == null) {
       return KitNotFoundModelById(modelId: modelId);
     }
@@ -95,12 +95,7 @@ class _CollectionViewState extends State<CollectionView> {
                   ),
                 ],
               ),
-              AnimatedCrossFade(
-                duration: const Duration(milliseconds: 500),
-                crossFadeState: state.isLoading ? CrossFadeState.showSecond : CrossFadeState.showFirst,
-                firstChild: const LinearProgressIndicator(minHeight: 3, value: 0),
-                secondChild: const LinearProgressIndicator(minHeight: 3),
-              ),
+              KitPreloaderV2(isLoading: state.isLoading),
               Expanded(
                 child: KitShowIf(
                   c1: state.notFoundAnything,

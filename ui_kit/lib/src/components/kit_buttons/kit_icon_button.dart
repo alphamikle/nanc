@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
-import '../../theme/kit_colors.dart';
 import '../kit_ink_well.dart';
 
 class KitIconButton extends StatelessWidget {
@@ -12,7 +11,7 @@ class KitIconButton extends StatelessWidget {
     this.onPressed,
     this.color,
     this.iconColor,
-    this.iconSize = 36,
+    this.iconSize = 30,
     this.rounder = 4,
     this.padding = const EdgeInsets.all(4),
     super.key,
@@ -29,8 +28,8 @@ class KitIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BorderRadius radius = BorderRadius.all(Radius.circular(max(rounder, iconSize / 2 - rounder)));
-    final Color backgroundColor = (color ?? context.theme.colorScheme.secondaryContainer).o50;
-    final Color iconColor = (this.iconColor ?? context.theme.colorScheme.onPrimaryContainer).withOpacity(1);
+    final Color backgroundColor = color ?? context.theme.colorScheme.primaryContainer;
+    final Color iconColor = this.iconColor ?? context.theme.colorScheme.onPrimary;
 
     return Stack(
       children: [

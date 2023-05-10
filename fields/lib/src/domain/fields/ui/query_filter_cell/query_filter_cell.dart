@@ -307,8 +307,14 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
                     return KitPopupButton(
                       builder: (BuildContext context, VoidCallback onPressed) {
                         return KitButton(
-                          text: 'Add item',
                           onPressed: onPressed,
+                          child: Row(
+                            children: const [
+                              Icon(IconPack.flu_add_circle_regular),
+                              KitDivider(width: Gap.regular),
+                              KitText(text: 'Add item'),
+                            ],
+                          ),
                         );
                       },
                       itemBuilder: (BuildContext context) {

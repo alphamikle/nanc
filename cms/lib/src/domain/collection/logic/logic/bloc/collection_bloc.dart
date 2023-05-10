@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:nanc_config/nanc_config.dart';
@@ -30,7 +31,11 @@ class CollectionBloc extends Cubit<CollectionState> {
     final bool isTheSameCollection = state.modelId == modelId;
     if (isTheSameCollection == false) {
       globalSearchController.clear();
-      emit(state.copyWith(query: null));
+      emit(state.copyWith(
+        query: null,
+        globalSearchQuery: null,
+        sort: null,
+      ));
     }
     emit(state.copyWith(
       isLoading: true,
@@ -43,12 +48,34 @@ class CollectionBloc extends Cubit<CollectionState> {
     await _loadData(modelId: modelId);
   }
 
+  Future<void> paginate(int page) async {
+    emit(state.copyWith(
+      isLoading: true,
+      currentPage: page,
+    ));
+    await _loadData(modelId: state.modelId, page: page);
+  }
+
   Future<void> _reloadCollection(Model model) async => _loadData(modelId: model.id, page: state.currentPage);
 
-  // TODO(alphamikle): Use class CollectionFilterBloc and do filter through it
   Future<void> _filterTableByGlobalSearch() async {
-    // emit(state.copyWith(isLoading: true));
-    // await Debouncer.run(id: '_filterTableByGlobalSearch', () async => _loadData(modelId: state.modelId));
+    if (state.modelId.isEmpty) {
+      return;
+    }
+    final QueryField? globalSearchQuery = _mapSearchQueryToLanguageQuery(
+      globalSearchController.text,
+      modelCollectionBloc.findModelById(state.modelId).flattenFields,
+    );
+    if (globalSearchQuery != state.globalSearchQuery) {
+      emit(state.copyWith(isLoading: true));
+      await Debouncer.run(
+        id: '_filterTableByGlobalSearch',
+        () async {
+          emit(state.copyWith(globalSearchQuery: globalSearchQuery));
+          await _loadData(modelId: state.modelId);
+        },
+      );
+    }
   }
 
   void _initTableSearchListener() => globalSearchController.addListener(_filterTableByGlobalSearch);
@@ -58,10 +85,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     int page = 1,
     int? limit,
   }) async {
-    final Model? model = modelCollectionBloc.findModelById(modelId);
-    if (model == null) {
-      throw notFoundModelError(modelId);
-    }
+    final Model model = modelCollectionBloc.findModelById(modelId);
 
     final CollectionResponseDto dto = await pageListProvider.fetchPageList(
       model: model,
@@ -71,11 +95,11 @@ class CollectionBloc extends Cubit<CollectionState> {
         limit: limit ?? NetworkConfig.paginationLimitParameterDefaultValue,
         // TODO(alphamikle): Add sorting via UI
         sort: Sort(
-          field: model.idField.id,
+          fieldId: model.idField.id,
           order: Order.asc,
         ),
       ),
-      query: state.query,
+      query: state.query ?? state.globalSearchQuery,
     );
     emit(state.copyWith.isLoading(false));
     await _uiDelay();
@@ -87,7 +111,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     ));
   }
 
-  Future<void> _loadFilteredPages(QueryField query) async {
+  Future<void> _loadFilteredPages(QueryField? query) async {
     emit(state.copyWith(
       isLoading: true,
       query: query,
@@ -95,12 +119,30 @@ class CollectionBloc extends Cubit<CollectionState> {
     await _loadData(modelId: state.modelId);
   }
 
-  Future<void> paginate(int page) async {
-    emit(state.copyWith(
-      isLoading: true,
-      currentPage: page,
-    ));
-    await _loadData(modelId: state.modelId, page: page);
+  QueryField? _mapSearchQueryToLanguageQuery(String query, List<Field> fields) {
+    if (query.isEmpty || fields.isEmpty) {
+      return null;
+    }
+    if (fields.length == 1) {
+      return QueryValueField(value: query, type: QueryFieldType.contains, fieldId: fields.first.id);
+    }
+    final List<QueryValueField> valueFields = [];
+    final num? queryNumber = num.tryParse(query);
+    final bool? queryBool = query == 'true'
+        ? true
+        : query == 'false'
+            ? false
+            : null;
+    for (final Field field in fields) {
+      if (queryBool != null && field.isBool) {
+        valueFields.add(QueryValueField(type: queryBool ? QueryFieldType.isTrue : QueryFieldType.isFalse, fieldId: field.id));
+      } else if (queryNumber != null && field.isNumeric) {
+        valueFields.add(QueryValueField(type: QueryFieldType.equals, fieldId: field.id, value: queryNumber));
+      } else if (field.isString) {
+        valueFields.add(QueryValueField(type: QueryFieldType.contains, fieldId: field.id, value: query));
+      }
+    }
+    return QueryOrField(type: QueryFieldType.contains, fields: valueFields);
   }
 }
 

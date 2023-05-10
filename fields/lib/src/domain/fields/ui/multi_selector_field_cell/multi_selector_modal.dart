@@ -75,7 +75,7 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
           params: ParamsDto(
             page: 1,
             limit: 50,
-            sort: Sort(field: field.model.idField.id, order: Order.asc),
+            sort: Sort(fieldId: field.model.idField.id, order: Order.asc),
           ),
         );
         foundRows.clear();

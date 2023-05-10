@@ -27,7 +27,7 @@ class MockEntityListApi extends MockApi implements ICollectionApi {
       return fragment;
     }).toList();
 
-    final List<Json> filteredData = _searchEngine(requiredData, query);
+    final List<Json> filteredData = await _searchEngine(requiredData, query);
 
     int page = params.page;
     if (page > (filteredData.length / params.limit).round()) {
@@ -46,11 +46,17 @@ class MockEntityListApi extends MockApi implements ICollectionApi {
   }
 }
 
-List<Json> _searchEngine(List<Json> data, QueryField query) {
-  return data.where((Json row) => _filterRow(row, query)).toList();
+Future<List<Json>> _searchEngine(List<Json> data, QueryField query) async {
+  final List<Json> output = [];
+  for (int i = 0; i < data.length; i++) {
+    if (await _filterRow(data[i], query)) {
+      output.add(data[i]);
+    }
+  }
+  return output;
 }
 
-bool _filterRow(Json row, QueryField query) {
+Future<bool> _filterRow(Json row, QueryField query) async {
   if (query is QueryValueField) {
     return _filterByValue(row[query.fieldId], query.type, query.value);
   } else if (query is QueryOrField) {
@@ -58,7 +64,7 @@ bool _filterRow(Json row, QueryField query) {
       return true;
     }
     for (final QueryField childQuery in query.fields) {
-      final isOk = _filterRow(row, childQuery);
+      final isOk = await _filterRow(row, childQuery);
       if (isOk) {
         return true;
       }
@@ -69,7 +75,7 @@ bool _filterRow(Json row, QueryField query) {
       return true;
     }
     for (final QueryField childQuery in query.fields) {
-      final isOk = _filterRow(row, childQuery);
+      final isOk = await _filterRow(row, childQuery);
       if (isOk == false) {
         return false;
       }
@@ -79,7 +85,7 @@ bool _filterRow(Json row, QueryField query) {
   return false;
 }
 
-bool _filterByValue(Object? rowValue, QueryFieldType type, Object? value) {
+Future<bool> _filterByValue(Object? rowValue, QueryFieldType type, Object? value) async {
   final bool rowValueNotNull = rowValue != null;
   final bool queryValueNotNull = value != null;
 
@@ -153,6 +159,8 @@ bool _filterByValue(Object? rowValue, QueryFieldType type, Object? value) {
   } else if (type == QueryFieldType.isNotNull) {
     return rowValue != null;
   }
+
+  await wait(periodic: true, period: 50);
 
   return false;
 }

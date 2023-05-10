@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../../cms.dart';
@@ -12,13 +13,21 @@ class LocalPageBloc extends BasePageBloc<BaseEntityPageState> {
 
   DataChangesCallback? onDataChanged;
 
-  void clear() => emit(state.copyWith(data: {}));
+  void clear() {
+    emit(state.copyWith(
+      data: {},
+      initialData: {},
+    ));
+    for (final TextEditingController controller in state.controllerMap.values) {
+      controller.clear();
+    }
+    updateValue('', null);
+    onDataChanged?.call(state.data);
+  }
 
   @override
   void updateValue(String fieldId, dynamic fieldValue) {
     super.updateValue(fieldId, fieldValue);
-    if (onDataChanged != null) {
-      onDataChanged!.call(state.data);
-    }
+    onDataChanged?.call(state.data);
   }
 }
