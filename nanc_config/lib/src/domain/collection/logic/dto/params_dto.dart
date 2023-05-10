@@ -10,7 +10,10 @@ part 'params_dto.g.dart';
 
 enum Order {
   asc,
-  desc,
+  desc;
+
+  bool get isAsc => this == Order.asc;
+  bool get isDesc => this == Order.desc;
 }
 
 @autoequal

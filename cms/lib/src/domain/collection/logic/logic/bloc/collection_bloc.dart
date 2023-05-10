@@ -56,6 +56,15 @@ class CollectionBloc extends Cubit<CollectionState> {
     await _loadData(modelId: state.modelId, page: page);
   }
 
+  Future<void> sort(Field field, Order order) async {
+    final Sort sort = Sort(fieldId: field.id, order: order);
+    emit(state.copyWith(
+      isLoading: true,
+      sort: sort == state.sort ? null : sort,
+    ));
+    await _loadData(modelId: state.modelId);
+  }
+
   Future<void> _reloadCollection(Model model) async => _loadData(modelId: model.id, page: state.currentPage);
 
   Future<void> _filterTableByGlobalSearch() async {
@@ -93,11 +102,11 @@ class CollectionBloc extends Cubit<CollectionState> {
       params: ParamsDto(
         page: page,
         limit: limit ?? NetworkConfig.paginationLimitParameterDefaultValue,
-        // TODO(alphamikle): Add sorting via UI
-        sort: Sort(
-          fieldId: model.idField.id,
-          order: Order.asc,
-        ),
+        sort: state.sort ??
+            Sort(
+              fieldId: model.idField.id,
+              order: Order.asc,
+            ),
       ),
       query: state.query ?? state.globalSearchQuery,
     );

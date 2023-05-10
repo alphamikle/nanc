@@ -1,52 +1,62 @@
+import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
+import 'package:nanc_config/nanc_config.dart';
+import 'package:tools/tools.dart';
 
-import '../../../constants/gap.dart';
-import '../../kit_text.dart';
-
-enum SortType {
-  asc,
-  desc;
-
-  bool get isAsc => this == SortType.asc;
-  bool get isDesc => this == SortType.desc;
-}
-
-enum SortFieldType {
-  string,
-  other,
-  number;
-
-  bool get isString => this == SortFieldType.string;
-  bool get isNumber => this == SortFieldType.number;
-}
+import '../../../../ui_kit.dart';
 
 PopupMenuItem<T> sortMenuItem<T>({
-  required SortType sort,
-  required SortFieldType field,
+  required BuildContext context,
+  required Order order,
+  required Field field,
+  required VoidCallback onPressed,
+  required bool isSelected,
 }) {
   late final String text;
   late final IconData icon;
+
   if (field.isString) {
-    text = sort.isAsc ? 'Sort A to Z' : 'Sort Z to A';
-    icon = sort.isAsc ? IconPack.mdi_sort_alphabetical_ascending : IconPack.mdi_sort_alphabetical_descending;
-  } else if (field.isNumber) {
-    text = sort.isAsc ? 'Sort small to large' : 'Sort large to small';
-    icon = sort.isAsc ? IconPack.mdi_sort_numeric_ascending : IconPack.mdi_sort_numeric_descending;
+    text = order.isAsc ? 'Sort A to Z' : 'Sort Z to A';
+    icon = order.isAsc ? IconPack.mdi_sort_alphabetical_ascending : IconPack.mdi_sort_alphabetical_descending;
+  } else if (field.isNumeric) {
+    text = order.isAsc ? 'Sort small to large' : 'Sort large to small';
+    icon = order.isAsc ? IconPack.mdi_sort_numeric_ascending : IconPack.mdi_sort_numeric_descending;
+  } else if (field.isDateTime) {
+    text = order.isAsc ? 'Sort old to new' : 'Sort new to old';
+    icon = order.isAsc ? IconPack.mdi_sort_calendar_ascending : IconPack.mdi_sort_calendar_descending;
   } else {
-    text = sort.isAsc ? 'Sort Ascending' : 'Sort Descending';
-    icon = sort.isAsc ? IconPack.mdi_sort_ascending : IconPack.mdi_sort_descending;
+    text = order.isAsc ? 'Sort Ascending' : 'Sort Descending';
+    icon = order.isAsc ? IconPack.mdi_sort_ascending : IconPack.mdi_sort_descending;
   }
 
   return PopupMenuItem(
+    onTap: onPressed,
     child: Row(
       children: [
         Padding(
           padding: const EdgeInsets.only(right: Gap.regular),
-          child: Icon(icon),
+          child: Icon(
+            icon,
+            color: isSelected ? context.theme.primaryColor : null,
+          ),
         ),
         Expanded(
-          child: KitText(text: text),
+          child: KitText(
+            text: text,
+            style: DefaultTextStyle.of(context).style.copyWith(
+                  color: isSelected ? context.theme.primaryColor : null,
+                ),
+          ),
+        ),
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 250),
+          width: Gap.regular,
+          height: Gap.regular,
+          decoration: BoxDecoration(
+            color: context.theme.primaryColor.withOpacity(isSelected ? 1 : 0),
+            borderRadius: BorderRadius.circular(3),
+          ),
         ),
       ],
     ),

@@ -109,11 +109,13 @@ class _CollectionViewState extends State<CollectionView> {
                     type: MaterialType.transparency,
                     child: KitTableV2(
                       model: model,
+                      selectedSort: state.sort,
                       dataRows: state.dataRows,
                       currentPage: state.currentPage,
                       totalPages: state.totalPages,
                       onPagination: read<CollectionBloc>().paginate,
                       onRowPressed: (Json rowData) => openRow(model, rowData),
+                      onSort: read<CollectionBloc>().sort,
                     ),
                   ),
                 ),

@@ -28,16 +28,17 @@ class MockEntityListApi extends MockApi implements ICollectionApi {
     }).toList();
 
     final List<Json> filteredData = await _searchEngine(requiredData, query);
+    final List<Json> sortedData = await _sort(filteredData, params.sort);
 
     int page = params.page;
-    if (page > (filteredData.length / params.limit).round()) {
-      page = (filteredData.length / params.limit).round();
+    if (page > (sortedData.length / params.limit).round()) {
+      page = (sortedData.length / params.limit).round();
     } else if (page < 1) {
       page = 1;
     }
     final List<Json> chunk =
-        params.limit <= filteredData.length ? filteredData.sublist((page - 1) * params.limit, min((page * params.limit), filteredData.length)) : filteredData;
-    final int totalPages = (filteredData.length / params.limit).round();
+        params.limit <= sortedData.length ? sortedData.sublist((page - 1) * params.limit, min((page * params.limit), sortedData.length)) : sortedData;
+    final int totalPages = (sortedData.length / params.limit).round();
     return CollectionResponseDto(
       page: page,
       totalPages: totalPages,
@@ -163,4 +164,19 @@ Future<bool> _filterByValue(Object? rowValue, QueryFieldType type, Object? value
   await wait(periodic: true, period: 50);
 
   return false;
+}
+
+Future<List<Json>> _sort(List<Json> data, Sort sort) async {
+  final List<Json> sortedData = List.of(data);
+  sortedData.sort((Json a, Json b) {
+    final Object? firstField = sort.order.isAsc ? a[sort.fieldId] : b[sort.fieldId];
+    final Object? secondField = sort.order.isAsc ? b[sort.fieldId] : a[sort.fieldId];
+    if (firstField is String && secondField is String) {
+      return firstField.compareTo(secondField);
+    } else if (firstField is num && secondField is num) {
+      return firstField.compareTo(secondField);
+    }
+    return 0;
+  });
+  return sortedData;
 }

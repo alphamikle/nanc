@@ -61,6 +61,7 @@ export 'src/components/kit_table/kit_table_cell.dart';
 export 'src/components/kit_table/kit_table_header.dart';
 export 'src/components/kit_table/kit_table_header_cell.dart';
 export 'src/components/kit_table_v2/kit_table_v2.dart';
+export 'src/components/kit_table_v2/popups/sort_menu_item.dart';
 export 'src/components/kit_text.dart';
 export 'src/components/kit_tooltip.dart';
 export 'src/components/kit_view/kit_view_container.dart';

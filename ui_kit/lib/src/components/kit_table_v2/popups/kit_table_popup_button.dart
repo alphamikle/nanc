@@ -1,14 +1,18 @@
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
-import 'menu_divider.dart';
 import 'sort_menu_item.dart';
+
+typedef SortingCallback = void Function(Field field, Order order);
 
 class KitTablePopupButton extends StatelessWidget {
   const KitTablePopupButton({
     required this.field,
     required this.child,
+    required this.onSort,
+    required this.selectedSort,
     this.size = 26,
     super.key,
   });
@@ -16,26 +20,25 @@ class KitTablePopupButton extends StatelessWidget {
   final Field field;
   final Widget child;
   final double size;
+  final Sort? selectedSort;
+  final SortingCallback onSort;
 
   List<PopupMenuEntry<dynamic>> itemBuilder(BuildContext context) {
     return [
       sortMenuItem(
-        field: field.isNumeric
-            ? SortFieldType.number
-            : field.isString
-                ? SortFieldType.string
-                : SortFieldType.other,
-        sort: SortType.asc,
+        context: context,
+        field: field,
+        order: Order.asc,
+        isSelected: selectedSort?.fieldId == field.id && selectedSort?.order == Order.asc,
+        onPressed: () => onSort(field, Order.asc),
       ),
       sortMenuItem(
-        field: field.isNumeric
-            ? SortFieldType.number
-            : field.isString
-                ? SortFieldType.string
-                : SortFieldType.other,
-        sort: SortType.desc,
+        context: context,
+        field: field,
+        order: Order.desc,
+        isSelected: selectedSort?.fieldId == field.id && selectedSort?.order == Order.desc,
+        onPressed: () => onSort(field, Order.desc),
       ),
-      menuDividerItem(context),
     ];
   }
 

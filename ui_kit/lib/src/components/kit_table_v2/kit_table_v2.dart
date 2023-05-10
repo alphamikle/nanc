@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';
@@ -42,8 +43,10 @@ class KitTableV2 extends StatefulWidget {
     this.onCellPressed,
     this.onHeaderCellPressed,
     this.onPagination,
+    this.onSort,
     this.scrollController,
     this.paginationEnabled = true,
+    this.selectedSort,
     super.key,
   })  : assert(onRowPressed != null || onCellPressed != null),
         assert(onRowPressed == null || onCellPressed == null);
@@ -55,6 +58,7 @@ class KitTableV2 extends StatefulWidget {
   final int currentPage;
   final int totalPages;
   final bool paginationEnabled;
+  final Sort? selectedSort;
   final ScrollController? scrollController;
 
   final KitTableRowBuilder? rowBuilder;
@@ -65,6 +69,7 @@ class KitTableV2 extends StatefulWidget {
   final KitTableCellPressedCallback? onCellPressed;
   final KitTableHeaderCellPressedCallback? onHeaderCellPressed;
   final OnPagination? onPagination;
+  final SortingCallback? onSort;
 
   @override
   State<KitTableV2> createState() => _KitTableV2State();
@@ -78,6 +83,7 @@ class _KitTableV2State extends State<KitTableV2> {
   final ScrollController tableScrollController = ScrollController();
   final StreamController<double> paginatorPositionStreamController = StreamController();
   final StreamController<bool> paginatorPinnedStatusController = StreamController();
+
   bool get paginationEnabled => widget.paginationEnabled;
 
   double prevDiff = 0;
@@ -101,6 +107,9 @@ class _KitTableV2State extends State<KitTableV2> {
 
   Widget _headerCellBuilder(BuildContext context, int index, double columnWidth) {
     final Field field = widget.model.listFields[index];
+    final bool isCurrentSorted = widget.selectedSort?.fieldId == field.id;
+    final bool isCurrentSortedAsc = isCurrentSorted && widget.selectedSort?.order == Order.asc;
+    final bool isCurrentSortedDesc = isCurrentSorted && widget.selectedSort?.order == Order.desc;
 
     return SizedBox(
       height: _kRowHeight,
@@ -121,14 +130,38 @@ class _KitTableV2State extends State<KitTableV2> {
                   : widget.headerCellBuilder!(context, field),
             ),
           ),
-          KitTablePopupButton(
-            field: field,
-            child: Icon(
-              IconPack.mdi_filter,
-              color: context.theme.colorScheme.primaryContainer,
-              size: 20,
+          if (widget.onSort != null)
+            Padding(
+              padding: const EdgeInsets.only(right: Gap.small),
+              child: KitTablePopupButton(
+                field: field,
+                onSort: widget.onSort!,
+                selectedSort: widget.selectedSort,
+                child: AnimatedCrossFade(
+                  crossFadeState: isCurrentSorted ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+                  duration: const Duration(milliseconds: 250),
+                  firstChild: Icon(
+                    IconPack.flu_text_align_justify_filled,
+                    color: context.theme.colorScheme.surfaceTint.withOpacity(isCurrentSorted ? 1 : 0.35),
+                    size: 20,
+                  ),
+                  secondChild: AnimatedCrossFade(
+                    crossFadeState: isCurrentSortedDesc ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+                    duration: const Duration(milliseconds: 250),
+                    firstChild: Icon(
+                      IconPack.mdi_sort_reverse_variant,
+                      color: context.theme.colorScheme.surfaceTint.withOpacity(isCurrentSorted ? 1 : 0.35),
+                      size: 20,
+                    ),
+                    secondChild: Icon(
+                      IconPack.mdi_sort_variant,
+                      color: context.theme.colorScheme.surfaceTint.withOpacity(isCurrentSorted ? 1 : 0.35),
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ),
             ),
-          ),
           SizeAdjuster(
             resizingCallback: (double diff) => resizeColumn(index, diff),
           ),
