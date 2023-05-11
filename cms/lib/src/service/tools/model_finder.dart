@@ -10,7 +10,7 @@ import '../routing/params_list.dart';
 Model findEntity(BuildContext context) {
   final String? entityId = context.vRouter.pathParameters[Params.modelId.name];
   if (entityId == null) {
-    notFoundEntityIdError();
+    notFoundModelIdError();
   }
   final Model? entity = context.read<ModelListBloc>().tryToFindModelById(entityId);
   if (entity == null) {

@@ -33,7 +33,7 @@ final Model quichPurse = Model(
     ],
     [
       NumberField(name: 'Total Sum', id: 'totalSum', showInList: true),
-      NumberField(name: 'Total Sum (Main Currency)', id: 'totalSum'),
+      NumberField(name: 'Total Sum (Main Currency)', id: 'mainTotalSum'),
       EnumField(
         name: 'Type',
         id: 'type',

@@ -6,9 +6,11 @@ import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
 
+import '../../../../service/errors/errors.dart';
 import '../../../../service/routing/params_list.dart';
 import '../../../../service/routing/route_list.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import '../../../settings/logic/bloc/settings_bloc.dart';
 import '../../logic/logic/bloc/collection_bloc.dart';
 import '../../logic/logic/bloc/collection_filter_bloc.dart';
 import '../../logic/logic/bloc/collection_state.dart';
@@ -24,6 +26,9 @@ class CollectionView extends StatefulWidget {
 }
 
 class _CollectionViewState extends State<CollectionView> {
+  late final Model model = _findModel();
+  late final Map<int, double>? initialSizes = read<SettingsBloc>().widthForModel(model.id);
+
   void openRow(Model model, Json rowData) => context.vRouter.to(
         Routes.pageOfCollectionModel(
           Uri.encodeComponent(model.id),
@@ -32,6 +37,18 @@ class _CollectionViewState extends State<CollectionView> {
           ),
         ),
       );
+
+  Model _findModel() {
+    final String? modelId = context.vRouter.pathParameters[Params.modelId.name];
+    if (modelId == null) {
+      throw notFoundModelIdError(modelId);
+    }
+    final Model? model = context.read<ModelListBloc>().tryToFindModelById(modelId);
+    if (model == null) {
+      return notFoundModelError(modelId);
+    }
+    return model;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +72,8 @@ class _CollectionViewState extends State<CollectionView> {
                 children: [
                   KitButton(
                     onPressed: () => context.vRouter.to(Routes.createModelPage(modelId)),
-                    child: Row(
-                      children: const [
+                    child: const Row(
+                      children: [
                         Icon(IconPack.flu_form_new_filled),
                         KitDivider(width: Gap.regular),
                         KitText(text: 'Create'),
@@ -116,6 +133,8 @@ class _CollectionViewState extends State<CollectionView> {
                       onPagination: read<CollectionBloc>().paginate,
                       onRowPressed: (Json rowData) => openRow(model, rowData),
                       onSort: read<CollectionBloc>().sort,
+                      onResize: (Map<int, double> widths) => read<SettingsBloc>().saveWidth(modelId: modelId, widths: widths),
+                      initialSizes: initialSizes,
                     ),
                   ),
                 ),

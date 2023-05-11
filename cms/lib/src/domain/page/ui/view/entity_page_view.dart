@@ -118,10 +118,6 @@ class _EntityPageViewState extends State<EntityPageView> {
         children: [
           BlocBuilder<BasePageBloc, BaseEntityPageState>(
             builder: (BuildContext context, BaseEntityPageState state) {
-              if (state.isLoading) {
-                return const SizedBox.shrink();
-              }
-
               return KitViewHeader(
                 children: [
                   if (soloEntity == false)
@@ -143,9 +139,9 @@ class _EntityPageViewState extends State<EntityPageView> {
                           duration: const Duration(milliseconds: 250),
                           child: state.isDeleting
                               ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error))
-                              : Row(
+                              : const Row(
                                   mainAxisSize: MainAxisSize.min,
-                                  children: const [
+                                  children: [
                                     Icon(IconPack.mdi_delete_empty),
                                     KitDivider(width: Gap.regular),
                                     KitText(text: 'Delete'),
@@ -163,9 +159,9 @@ class _EntityPageViewState extends State<EntityPageView> {
                         structure: filterJsonFromStructures(pageBloc.state.data),
                       ),
                       color: context.kitColors.successColor,
-                      child: Row(
+                      child: const Row(
                         mainAxisSize: MainAxisSize.min,
-                        children: const [
+                        children: [
                           Icon(IconPack.mdi_code_json),
                           KitDivider(width: Gap.regular),
                           KitText(text: 'Structure'),
@@ -182,9 +178,9 @@ class _EntityPageViewState extends State<EntityPageView> {
                         duration: const Duration(milliseconds: 250),
                         child: state.isDeleting
                             ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error))
-                            : Row(
+                            : const Row(
                                 mainAxisSize: MainAxisSize.min,
-                                children: const [
+                                children: [
                                   Icon(IconPack.mdi_notification_clear_all),
                                   KitDivider(width: Gap.regular),
                                   KitText(text: 'Reset'),
@@ -199,9 +195,9 @@ class _EntityPageViewState extends State<EntityPageView> {
                       duration: const Duration(milliseconds: 250),
                       child: state.isSaving
                           ? const SizedBox(width: 35, child: KitPreloader())
-                          : Row(
+                          : const Row(
                               mainAxisSize: MainAxisSize.min,
-                              children: const [
+                              children: [
                                 Icon(IconPack.flu_save_filled),
                                 KitDivider(width: Gap.regular),
                                 KitText(text: 'Save'),
@@ -213,11 +209,16 @@ class _EntityPageViewState extends State<EntityPageView> {
               );
             },
           ),
+          BlocBuilder<BasePageBloc, BaseEntityPageState>(
+            builder: (BuildContext context, BaseEntityPageState state) {
+              return KitPreloaderV2(isLoading: state.isLoading);
+            },
+          ),
           Expanded(
             child: BlocBuilder<BasePageBloc, BaseEntityPageState>(
               builder: (BuildContext context, BaseEntityPageState state) {
                 if (state.isLoading) {
-                  return const KitPreloader();
+                  return const KitCenteredText(text: 'Loading');
                 }
 
                 return FieldsForm(

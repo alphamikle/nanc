@@ -32,16 +32,8 @@ abstract class MockApi {
       if (response is List) {
         final List<Json> tempData = [];
         for (final dynamic row in response) {
-          final Json result = <String, dynamic>{};
-          if (row is Map) {
-            for (final MapEntry<dynamic, dynamic> entry in row.entries) {
-              result[entry.key.toString()] = entry.value;
-            }
-          } else {
-            throw Exception('Incorrect type of row: ${row.runtimeType}');
-          }
-          tempData.add(result);
-          await wait();
+          tempData.add(castToJson(row));
+          await wait(periodic: true, period: 150);
         }
         data = tempData;
       } else {

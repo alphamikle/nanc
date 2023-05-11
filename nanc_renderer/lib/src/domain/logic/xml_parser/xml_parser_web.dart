@@ -1,7 +1,5 @@
 import 'package:xml/xml.dart';
 
-Future<XmlDocument> parse(String xml) async => parseSync(xml);
-
 XmlDocument parseSync(String xml) => XmlDocument.parse(_prepareXml(xml));
 
 String _prepareXml(String html) {

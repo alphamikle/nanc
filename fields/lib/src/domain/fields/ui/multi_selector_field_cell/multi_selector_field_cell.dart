@@ -58,7 +58,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
   String? get parentModelId {
     final String? modelId = context.vRouter.pathParameters[Params.modelId.name];
     if (modelId == null) {
-      notFoundEntityIdError();
+      notFoundModelIdError();
     }
     final Model? parentModel = context.read<ModelListBloc>().tryToFindModelById(modelId);
     if (parentModel == null) {

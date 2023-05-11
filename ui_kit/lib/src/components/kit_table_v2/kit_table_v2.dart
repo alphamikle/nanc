@@ -47,6 +47,8 @@ class KitTableV2 extends StatefulWidget {
     this.scrollController,
     this.paginationEnabled = true,
     this.selectedSort,
+    this.onResize,
+    this.initialSizes,
     super.key,
   })  : assert(onRowPressed != null || onCellPressed != null),
         assert(onRowPressed == null || onCellPressed == null);
@@ -60,6 +62,7 @@ class KitTableV2 extends StatefulWidget {
   final bool paginationEnabled;
   final Sort? selectedSort;
   final ScrollController? scrollController;
+  final Map<int, double>? initialSizes;
 
   final KitTableRowBuilder? rowBuilder;
   final KitTableCellBuilder? cellBuilder;
@@ -70,13 +73,14 @@ class KitTableV2 extends StatefulWidget {
   final KitTableHeaderCellPressedCallback? onHeaderCellPressed;
   final OnPagination? onPagination;
   final SortingCallback? onSort;
+  final ColumnsResizingCallback? onResize;
 
   @override
   State<KitTableV2> createState() => _KitTableV2State();
 }
 
 class _KitTableV2State extends State<KitTableV2> {
-  final Map<int, double> columnSizes = {};
+  late final Map<int, double> columnSizes = widget.initialSizes ?? {};
   final Map<int, ScrollController> horizontalScrollControllers = {};
   late final ScrollController headerScrollController = scrollControllersGroup.addAndGet();
   final LinkedScrollControllerGroup scrollControllersGroup = LinkedScrollControllerGroup();
@@ -97,6 +101,7 @@ class _KitTableV2State extends State<KitTableV2> {
       final double oldSize = columnSizes[columnIndex] ?? _kMinColumnWidth;
       final double newSize = max(oldSize + diff, _kMinColumnWidth / 2);
       columnSizes[columnIndex] = newSize;
+      widget.onResize?.call(columnSizes);
     });
   }
 
@@ -259,16 +264,18 @@ class _KitTableV2State extends State<KitTableV2> {
   }
 
   void initColumnSizes() {
-    int index = 0;
-    if (widget.columnSizes?.isNotEmpty ?? false) {
-      for (final double? size in widget.columnSizes!) {
-        columnSizes[index] = size ?? _kMinColumnWidth;
-        index++;
-      }
-    } else {
-      for (final Field field in widget.model.listFields) {
-        columnSizes[index] = field.width ?? _kMinColumnWidth;
-        index++;
+    if (widget.initialSizes == null || widget.initialSizes!.isEmpty) {
+      int index = 0;
+      if (widget.columnSizes?.isNotEmpty ?? false) {
+        for (final double? size in widget.columnSizes!) {
+          columnSizes[index] = size ?? _kMinColumnWidth;
+          index++;
+        }
+      } else {
+        for (final Field field in widget.model.listFields) {
+          columnSizes[index] = field.width ?? _kMinColumnWidth;
+          index++;
+        }
       }
     }
   }

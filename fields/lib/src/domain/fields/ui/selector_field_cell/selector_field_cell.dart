@@ -127,7 +127,7 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
 
   Future<void> updateVirtualField(String pageId) async {
     safeSetState(() => isLoadingFullPageData = true);
-    final Json data = await read<PageBloc>().loadPageData(model: model, pageId: pageId);
+    final Json? data = await safeRead<PageBloc>()?.loadPageData(model: model, pageId: pageId);
     safeRead<PageBloc>()?.updateValue(virtualField, data);
     safeSetState(() => isLoadingFullPageData = false);
   }

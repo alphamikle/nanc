@@ -7,6 +7,7 @@ const double _minWidth = 3;
 const Duration _duration = Duration(milliseconds: 250);
 
 typedef ColumnResizingCallback = ValueSetter<double>;
+typedef ColumnsResizingCallback = void Function(Map<int, double> widths);
 
 class SizeAdjuster extends StatefulWidget {
   const SizeAdjuster({
