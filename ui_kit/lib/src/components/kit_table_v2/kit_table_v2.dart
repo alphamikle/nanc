@@ -11,7 +11,7 @@ import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';
 import '../kit_text.dart';
-import '../kit_tooltip.dart';
+import 'kit_table_cell.dart';
 import 'popups/kit_table_popup_button.dart';
 import 'size_adjuster.dart';
 import 'table_paginator.dart';
@@ -113,7 +113,7 @@ class _KitTableV2State extends State<KitTableV2> {
   Widget _headerCellBuilder(BuildContext context, int index, double columnWidth) {
     final Field field = widget.model.listFields[index];
     final bool isCurrentSorted = widget.selectedSort?.fieldId == field.id;
-    final bool isCurrentSortedAsc = isCurrentSorted && widget.selectedSort?.order == Order.asc;
+    // final bool isCurrentSortedAsc = isCurrentSorted && widget.selectedSort?.order == Order.asc;
     final bool isCurrentSortedDesc = isCurrentSorted && widget.selectedSort?.order == Order.desc;
 
     return SizedBox(
@@ -175,18 +175,14 @@ class _KitTableV2State extends State<KitTableV2> {
     );
   }
 
-  Widget _cellBuilder(BuildContext context, MapEntry<String, dynamic> cellData, double columnWidth) {
+  Widget _cellBuilder(BuildContext context, MapEntry<String, dynamic> cellData, Field field, double columnWidth) {
     Widget child = Align(
       alignment: Alignment.centerLeft,
       child: widget.cellBuilder == null
-          ? KitTooltip(
-              text: cellData.value.toString(),
-              child: KitText(
-                text: cellData.value.toString(),
-                style: context.theme.textTheme.bodyMedium?.copyWith(height: 1),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
+          ? KitTableCell(
+              cellData: cellData,
+              field: field,
+              columnWidth: columnWidth,
             )
           : widget.cellBuilder!(context, cellData),
     );
@@ -218,7 +214,7 @@ class _KitTableV2State extends State<KitTableV2> {
     final ScrollController scrollController = horizontalScrollControllers[scrollIndex]!;
 
     Widget child = ListView.builder(
-      itemBuilder: (BuildContext context, int index) => _cellBuilder(context, entries[index], columnSizes[index] ?? _kMinColumnWidth),
+      itemBuilder: (BuildContext context, int index) => _cellBuilder(context, entries[index], listFields[index], columnSizes[index] ?? _kMinColumnWidth),
       itemCount: listFields.length,
       controller: scrollController,
       scrollDirection: Axis.horizontal,
