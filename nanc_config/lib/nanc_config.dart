@@ -20,3 +20,5 @@ export 'src/domain/config/logic/image_builder_delegate.dart';
 export 'src/domain/config/logic/network_config.dart';
 export 'src/domain/page/logic/provider/page_api_interface.dart';
 export 'src/domain/page/logic/provider/page_provider_interface.dart';
+export 'src/domain/settings/logic/bloc/settings_bloc.dart';
+export 'src/domain/settings/logic/bloc/settings_state.dart';

@@ -18,12 +18,12 @@ class SettingsBloc extends Cubit<SettingsState> {
     required String modelId,
     required TableWidth widths,
   }) {
-    unawaited(Debouncer.run(id: 'saveWidth:$modelId', () async {
+    Debouncer.run(id: 'saveWidth:$modelId', () async {
       final TablesWidths tablesWidths = _convertDynamicMapToTablesWidths(state.tablesWidths);
       tablesWidths[modelId] = widths;
       await dbService.save(key: _kTablesWidths, value: tablesWidths);
       emit(state.copyWith(tablesWidths: tablesWidths));
-    }));
+    });
   }
 
   Future<void> preloadSettings() async {

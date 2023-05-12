@@ -7,12 +7,13 @@ import 'package:tools/tools.dart';
 import '../../constants/gap.dart';
 import '../../theme/kit_borders.dart';
 import '../../theme/kit_colors.dart';
-import '../kit_circle_preloader.dart';
+import '../kit_centered_text.dart';
 import '../kit_ink_well.dart';
 import '../kit_inputs/kit_text_field.dart';
 import '../kit_modal/kit_base_modal_bottom.dart';
 import '../kit_modal/kit_modal.dart';
 import '../kit_preloader.dart';
+import '../kit_preloader_v2.dart';
 import '../kit_text.dart';
 import '../kit_tooltip.dart';
 import 'kit_icons.dart';
@@ -136,29 +137,22 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    left: Gap.large,
-                    top: Gap.large,
-                    right: Gap.large,
-                    bottom: Gap.large,
-                  ),
-                  // TODO(alphamikle): Add loader
-                  child: Material(
-                    child: KitTextField(
-                      controller: searchController,
-                      label: 'Filter icons',
-                      maxLines: 1,
-                      suffix: KitCirclePreloader(isLoading: isLoading),
-                    ),
-                  ),
-                ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: Gap.large,
+              top: Gap.large,
+              right: Gap.large,
+              bottom: Gap.large,
+            ),
+            child: Material(
+              child: KitTextField(
+                controller: searchController,
+                label: 'Filter icons',
+                maxLines: 1,
               ),
-            ],
+            ),
           ),
+          KitPreloaderV2(isLoading: isLoading),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(
@@ -171,11 +165,9 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
                   child: AnimatedSwitcher(
                     duration: const Duration(milliseconds: 250),
                     child: isLoading && foundIcons.isEmpty
-                        ? const KitPreloader()
+                        ? const KitCenteredText(text: 'Loading')
                         : foundIcons.isEmpty
-                            ? const Center(
-                                child: KitText(text: 'Not found any icon'),
-                              )
+                            ? const KitCenteredText(text: 'Not found any icon')
                             : GridView.builder(
                                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: context.query.size.width ~/ 200,

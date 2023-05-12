@@ -77,7 +77,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     );
     if (globalSearchQuery != state.globalSearchQuery) {
       emit(state.copyWith(isLoading: true));
-      await Debouncer.run(
+      Debouncer.run(
         id: '_filterTableByGlobalSearch',
         () async {
           emit(state.copyWith(globalSearchQuery: globalSearchQuery));

@@ -25,6 +25,8 @@ dependencies:
   json_annotation: ^4.8.0
   equatable: ^2.0.5
   autoequal: ^0.5.1
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
 
 dev_dependencies:
   flutter_test:

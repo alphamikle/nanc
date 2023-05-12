@@ -16,7 +16,7 @@ import 'popups/kit_table_popup_button.dart';
 import 'size_adjuster.dart';
 import 'table_paginator.dart';
 
-const double _kMinColumnWidth = 140;
+const double _kMinColumnWidth = 220;
 const double _kRowHeight = 48;
 
 typedef KitTableRowBuilder = Widget Function(BuildContext context, Json data, Widget child);

@@ -25,9 +25,10 @@ class MultiSelectorModal extends StatefulWidget {
 }
 
 class _MultiSelectorModalState extends State<MultiSelectorModal> {
+  String get tableId => '${field.id}:multi_selector_modal';
   MultiSelectorField get field => widget.field;
-  Timer? searchDebounce;
   final TextEditingController searchController = TextEditingController();
+  late final Map<int, double>? initialSizes = read<SettingsBloc>().widthForModel(tableId);
   final Set<String> selectedIds = {};
   final List<Json> foundRows = [];
   bool isLoading = false;
@@ -45,8 +46,7 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
 
   Future<void> finder({bool immediately = false}) async {
     safeSetState(() => isLoading = true);
-    searchDebounce?.cancel();
-    searchDebounce = Timer(immediately ? Duration.zero : const Duration(milliseconds: 500), () async {
+    Debouncer.run(id: '${field.id}:finder', () async {
       if (mounted) {
         final ICollectionProvider provider = context.read();
         final List<String> values = splitComplexTitle(query: searchController.text, titleFields: field.titleFields);
@@ -80,7 +80,6 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
         );
         foundRows.clear();
         foundRows.addAll(result.data);
-        searchDebounce = null;
         safeSetState(() => isLoading = false);
       }
     });
@@ -140,10 +139,6 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
     return child;
   }
 
-  Widget buildPreloader() {
-    return const KitPreloader();
-  }
-
   @override
   void initState() {
     super.initState();
@@ -164,49 +159,42 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    left: Gap.large,
-                    top: Gap.large,
-                    right: Gap.large,
-                    bottom: Gap.large,
-                  ),
-                  // TODO(alphamikle): Add loader
-                  child: Material(
-                    child: KitTextField(
-                      controller: searchController,
-                      label: 'Search',
-                    ),
-                  ),
-                ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: Gap.large,
+              top: Gap.large,
+              right: Gap.large,
+              bottom: Gap.large,
+            ),
+            child: Material(
+              child: KitTextField(
+                controller: searchController,
+                label: 'Search',
               ),
-            ],
+            ),
           ),
+          KitPreloaderV2(isLoading: isLoading),
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: Gap.large, right: Gap.large), //
-              child: AnimatedSwitcher(
-                duration: const Duration(milliseconds: 250),
-                child: Material(
-                  child: AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 250),
-                    child: isLoading && foundRows.isEmpty
-                        ? buildPreloader()
-                        : KitTableV2(
-                            model: shortChildEntity,
-                            dataRows: foundRows,
-                            totalPages: 0,
-                            currentPage: 0,
-                            paginationEnabled: false,
-                            columnSizes: shortChildEntity.flattenFields.map((Field field) => field.width).toList(),
-                            onRowPressed: (Json rowData) => toggleRow(rowData),
-                            rowBuilder: rowBuilder,
-                            cellBuilder: cellBuilder,
-                          ),
-                  ),
+            child: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 250),
+              child: Material(
+                child: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 250),
+                  child: isLoading && foundRows.isEmpty
+                      ? const KitCenteredText(text: 'Loading')
+                      : KitTableV2(
+                          model: shortChildEntity,
+                          dataRows: foundRows,
+                          totalPages: 0,
+                          currentPage: 0,
+                          paginationEnabled: false,
+                          columnSizes: shortChildEntity.flattenFields.map((Field field) => field.width).toList(),
+                          onRowPressed: (Json rowData) => toggleRow(rowData),
+                          rowBuilder: rowBuilder,
+                          cellBuilder: cellBuilder,
+                          onResize: (Map<int, double> widths) => read<SettingsBloc>().saveWidth(modelId: tableId, widths: widths),
+                          initialSizes: initialSizes,
+                        ),
                 ),
               ),
             ),

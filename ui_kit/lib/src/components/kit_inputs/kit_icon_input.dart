@@ -116,7 +116,6 @@ class _KitIconInputState extends State<KitIconInput> with KitFocusStreamMixin {
   @override
   Widget build(BuildContext context) {
     final EnumValue? selected = findSelected();
-    // v2
     return Stack(
       children: [
         KitSegmentedField(
