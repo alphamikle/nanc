@@ -4,7 +4,9 @@ import 'package:model/model.dart';
 
 final Model demoUser = Model(
   name: 'User',
+  id: 'demo_users',
   icon: IconPackNames.rmx_user_3_fill,
+  sort: 11,
   fields: [
     [
       IdField(),

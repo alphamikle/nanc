@@ -59,7 +59,7 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
               QueryValueField(
                 fieldId: titleFieldId,
                 value: value,
-                type: QueryFieldType.equals,
+                type: QueryFieldType.contains,
               ),
             );
           }

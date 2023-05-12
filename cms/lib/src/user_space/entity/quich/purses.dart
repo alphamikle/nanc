@@ -8,6 +8,7 @@ final Model quichPurse = Model(
   name: 'Purses',
   id: 'purses',
   icon: 'mdi_purse',
+  sort: 4,
   fields: [
     [
       IdField(),

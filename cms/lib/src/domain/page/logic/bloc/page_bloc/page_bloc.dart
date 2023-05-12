@@ -52,7 +52,7 @@ class PageBloc extends BasePageBloc<PageState> {
       initialData: clone(data),
       controllerMap: controllerMap,
       thirdTableData: {},
-      thirdTable: ThirdTable.empty(),
+      thirdTable: {},
       isLoading: false,
     ));
   }
@@ -117,7 +117,7 @@ class PageBloc extends BasePageBloc<PageState> {
   Future<void> _saveThirdTableData() async {
     for (final MapEntry<ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>> thirdTableEntry in state.thirdTableData.entries) {
       await pageProvider.saveThirdTable(
-        thirdTable: state.thirdTable,
+        thirdTable: state.thirdTable[thirdTableEntry.key] ?? ThirdTable.empty(),
         parentEntityId: thirdTableEntry.value.keys.first,
         childEntityIds: thirdTableEntry.value.values.first,
       );
@@ -178,7 +178,12 @@ class PageBloc extends BasePageBloc<PageState> {
   }
 
   void updateThirdTableValue(ThirdTable thirdTable, Map<ParentEntityDataId, List<ChildEntityDataId>> thirdTableData) {
-    emit(state.copyWith.thirdTable(thirdTable));
+    emit(state.copyWith(
+      thirdTable: {
+        ...state.thirdTable,
+        thirdTable.relationsEntity.id: thirdTable,
+      },
+    ));
     emit(state.copyWith.thirdTableData({
       ...state.thirdTableData,
       thirdTable.relationsEntity.id: thirdTableData,
@@ -327,7 +332,7 @@ mixin EntityPageBlocStub implements PageBloc {
   Future<void> create(Model entity) => throw UnimplementedError();
 
   @override
-  ModelListBloc get modelListBloc => throw UnimplementedError();
+  ModelListBloc get modelCollectionBloc => throw UnimplementedError();
 
   @override
   PageProvider get pageProvider => throw UnimplementedError();

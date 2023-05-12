@@ -4,6 +4,7 @@ import 'package:model/model.dart';
 final Model quichUser = Model(
   name: 'Users',
   icon: 'rmx_user_3_line',
+  sort: 5,
   fields: [
     [
       IdField(),

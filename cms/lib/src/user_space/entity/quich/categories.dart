@@ -6,6 +6,7 @@ import 'users.dart';
 final Model quichCategory = Model(
   name: 'Categories',
   icon: 'flu_box_multiple_search_regular',
+  sort: 1,
   fields: [
     [
       IdField(),

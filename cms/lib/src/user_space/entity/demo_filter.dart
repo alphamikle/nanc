@@ -5,7 +5,7 @@ import 'package:model/model.dart';
 final Model demoFilter = Model(
   name: 'Filter',
   icon: IconPackNames.mdi_numeric_3,
-  sort: -8,
+  sort: 6,
   fields: [
     [
       IdField(),

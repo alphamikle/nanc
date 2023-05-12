@@ -67,7 +67,6 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
     final dynamic parentModelId = context.read<BasePageBloc>().valueForKey(parentModel.idField.id);
     if (parentModelId == null) {
       return null;
-      // return newRelationsId(parentModel);
     }
     return parentModelId.toString();
   }
@@ -149,32 +148,38 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
   }
 
   Future<void> preload() async {
+    final List<String> selectedIds = await getSelectedIds();
     if (mounted) {
       controller.text = kLoadingText;
       safeSetState(() => isPreloading = true);
-      final CollectionResponseDto childrenEntities = await context.read<ICollectionProvider>().fetchPageList(
-            model: model,
-            subset: [
-              model.idField.id,
-              ...titleFields.toFieldsIds(),
-            ],
-            query: QueryOrField(
-              fields: [
-                ...(await getSelectedIds()).map(
-                  (String id) => QueryValueField(
-                    fieldId: model.idField.id,
-                    type: QueryFieldType.equals,
-                    value: id,
-                  ),
-                ),
+      late final CollectionResponseDto childrenEntities;
+      if (selectedIds.isEmpty) {
+        childrenEntities = const CollectionResponseDto(page: 1, totalPages: 1, data: []);
+      } else {
+        childrenEntities = await context.read<ICollectionProvider>().fetchPageList(
+              model: model,
+              subset: [
+                model.idField.id,
+                ...titleFields.toFieldsIds(),
               ],
-            ),
-            params: ParamsDto(
-              page: 1,
-              limit: 50,
-              sort: Sort(fieldId: model.idField.id, order: Order.asc),
-            ),
-          );
+              query: QueryOrField(
+                fields: [
+                  ...selectedIds.map(
+                    (String id) => QueryValueField(
+                      fieldId: model.idField.id,
+                      type: QueryFieldType.equals,
+                      value: id,
+                    ),
+                  ),
+                ],
+              ),
+              params: ParamsDto(
+                page: 1,
+                limit: NetworkConfig.paginationLimitParameterDefaultValue,
+                sort: Sort(fieldId: model.idField.id, order: Order.asc),
+              ),
+            );
+      }
       titleChips.clear();
       for (final Json child in childrenEntities.data) {
         final String rowTitle = titleFields.toTitleSegments(child).join();
@@ -218,7 +223,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
         ),
         params: ParamsDto(
           page: 1,
-          limit: selectedIds.length,
+          limit: selectedIds.isNotEmpty ? selectedIds.length : 1,
           sort: Sort(fieldId: model.idField.id, order: Order.asc),
         ),
       );

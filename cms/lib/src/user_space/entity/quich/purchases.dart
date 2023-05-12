@@ -7,6 +7,7 @@ import 'categories.dart';
 final Model quichPurchase = Model(
   name: 'Purchases',
   icon: 'flu_shopping_bag_filled',
+  sort: 3,
   fields: [
     [
       IdField(),

@@ -8,6 +8,7 @@ final Model quichBill = Model(
   name: 'Bills',
   id: 'bills',
   icon: 'flu_ticket_diagonal_regular',
+  sort: 0,
   fields: [
     [
       IdField(),

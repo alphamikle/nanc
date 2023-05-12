@@ -6,6 +6,7 @@ final Model mockData = Model(
   id: 'mock_data',
   name: 'Mock Data',
   icon: IconPackNames.flu_box_multiple_search_regular,
+  sort: 12,
   fields: [
     [
       IdField(),

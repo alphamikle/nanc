@@ -14,6 +14,8 @@ TextControllerMap _controllerMapFromJson(Json? json) => {};
 Json _controllerMapToJson(TextControllerMap controllerMap) => <String, dynamic>{};
 
 typedef ModelId = String;
+
+/// ? ModelId - it is the ID of the relationships model, such as "user_to_bool_rel" an etc.
 typedef ThirdTableData = Map<ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>>;
 
 @autoequal
@@ -38,7 +40,7 @@ class PageState extends BaseEntityPageState {
     bool? isDeleting,
     bool? isSaving,
     TextControllerMap? controllerMap,
-    ThirdTable? thirdTable,
+    Map<ModelId, ThirdTable>? thirdTable,
     ThirdTableData? thirdTableData,
   }) {
     return PageState(
@@ -48,26 +50,26 @@ class PageState extends BaseEntityPageState {
       isDeleting: isDeleting ?? false,
       isSaving: isSaving ?? false,
       controllerMap: controllerMap ?? {},
-      thirdTable: thirdTable ?? ThirdTable.empty(),
+      thirdTable: thirdTable ?? {},
       thirdTableData: const <ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>>{},
     );
   }
 
-  factory PageState.empty() => PageState(
-        data: const <String, dynamic>{},
-        initialData: const <String, dynamic>{},
-        thirdTableData: const <ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>>{},
+  factory PageState.empty() => const PageState(
+        data: <String, dynamic>{},
+        initialData: <String, dynamic>{},
+        thirdTableData: <ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>>{},
         isLoading: false,
         isDeleting: false,
         isSaving: false,
-        controllerMap: const {},
-        thirdTable: ThirdTable.empty(),
+        controllerMap: {},
+        thirdTable: {},
       );
 
   factory PageState.fromJson(dynamic json) => _$PageStateFromJson(castToJson(json));
 
   final ThirdTableData thirdTableData;
-  final ThirdTable thirdTable;
+  final Map<ModelId, ThirdTable> thirdTable;
 
   @override
   bool get isChanged {

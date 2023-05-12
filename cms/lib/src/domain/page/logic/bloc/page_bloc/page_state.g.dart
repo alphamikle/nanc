@@ -29,7 +29,7 @@ abstract class _$PageStateCWProxy {
 
   PageState controllerMap(Map<String, TextEditingController> controllerMap);
 
-  PageState thirdTable(ThirdTable thirdTable);
+  PageState thirdTable(Map<String, ThirdTable> thirdTable);
 
   PageState thirdTableData(
       Map<String, Map<String, List<String>>> thirdTableData);
@@ -47,7 +47,7 @@ abstract class _$PageStateCWProxy {
     bool? isDeleting,
     bool? isSaving,
     Map<String, TextEditingController>? controllerMap,
-    ThirdTable? thirdTable,
+    Map<String, ThirdTable>? thirdTable,
     Map<String, Map<String, List<String>>>? thirdTableData,
   });
 }
@@ -79,7 +79,8 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
       this(controllerMap: controllerMap);
 
   @override
-  PageState thirdTable(ThirdTable thirdTable) => this(thirdTable: thirdTable);
+  PageState thirdTable(Map<String, ThirdTable> thirdTable) =>
+      this(thirdTable: thirdTable);
 
   @override
   PageState thirdTableData(
@@ -136,7 +137,7 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
           thirdTable == const $CopyWithPlaceholder() || thirdTable == null
               ? _value.thirdTable
               // ignore: cast_nullable_to_non_nullable
-              : thirdTable as ThirdTable,
+              : thirdTable as Map<String, ThirdTable>,
       thirdTableData: thirdTableData == const $CopyWithPlaceholder() ||
               thirdTableData == null
           ? _value.thirdTableData
@@ -164,7 +165,9 @@ PageState _$PageStateFromJson(Map<String, dynamic> json) => PageState(
       isSaving: json['isSaving'] as bool,
       controllerMap: _controllerMapFromJson(
           json['controllerMap'] as Map<String, dynamic>?),
-      thirdTable: ThirdTable.fromJson(json['thirdTable']),
+      thirdTable: (json['thirdTable'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(k, ThirdTable.fromJson(e)),
+      ),
       thirdTableData: (json['thirdTableData'] as Map<String, dynamic>).map(
         (k, e) => MapEntry(
             k,
@@ -183,5 +186,5 @@ Map<String, dynamic> _$PageStateToJson(PageState instance) => <String, dynamic>{
       'isDeleting': instance.isDeleting,
       'controllerMap': _controllerMapToJson(instance.controllerMap),
       'thirdTableData': instance.thirdTableData,
-      'thirdTable': instance.thirdTable.toJson(),
+      'thirdTable': instance.thirdTable.map((k, e) => MapEntry(k, e.toJson())),
     };

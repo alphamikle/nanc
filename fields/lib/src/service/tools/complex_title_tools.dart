@@ -12,5 +12,5 @@ List<String> splitComplexTitle({required String query, required List<TitleField>
       preparedQuery = preparedQuery.replaceAll(titleField.strictValue, ' ');
     }
   }
-  return preparedQuery.split(' ');
+  return preparedQuery.split(' ').where((String query) => query.trim().isNotEmpty).toList();
 }

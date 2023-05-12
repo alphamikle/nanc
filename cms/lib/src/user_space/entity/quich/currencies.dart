@@ -5,6 +5,7 @@ final Model quichCurrency = Model(
   name: 'Currencies',
   id: 'currencies',
   icon: 'mdi_currency_usd',
+  sort: 2,
   fields: [
     [
       IdField(),
