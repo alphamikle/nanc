@@ -67,31 +67,33 @@ class WelcomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     final TextStyle? style = context.theme.textTheme.bodyLarge;
 
     return Scaffold(
-      body: Center(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              height: size.height * 0.75,
-              width: size.height * 0.75,
-              child: const RepaintBoundary(
+      body: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          const Expanded(
+            flex: 2,
+            child: RepaintBoundary(
+              child: Align(
+                alignment: Alignment.bottomLeft,
                 child: GrowingTree(),
               ),
             ),
-            Expanded(
-              child: Center(
+          ),
+          Expanded(
+            flex: 3,
+            child: Center(
+              child: RepaintBoundary(
                 child: ScenarioPlayer(
                   scenario: introScenario(context),
                   textStyle: style,
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

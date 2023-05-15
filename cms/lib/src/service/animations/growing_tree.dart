@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:animation_debugger/animation_debugger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rive/rive.dart';
@@ -26,6 +27,9 @@ class _GrowingTreeState extends State<GrowingTree> with SingleTickerProviderStat
 
   @override
   Animation<double> get animation => Tween<double>(begin: 0, end: 100).animate(super.animation);
+
+  @override
+  late final AnimationController animationController = AnimationDebugger.of(context).watch(super.animationController, label: 'TREE');
 
   bool get isPlaying => controller.isActive;
   bool initialized = false;
@@ -93,12 +97,18 @@ class _GrowingTreeState extends State<GrowingTree> with SingleTickerProviderStat
         fit: StackFit.expand,
         children: [
           Positioned(
-            left: -200,
-            bottom: -16,
-            height: 1000,
-            width: 1000,
-            child: Rive(
-              artboard: artBoard,
+            left: -50,
+            top: 0,
+            right: 0,
+            bottom: -10,
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Rive(
+                fit: BoxFit.cover,
+                useArtboardSize: true,
+                alignment: Alignment.bottomLeft,
+                artboard: artBoard,
+              ),
             ),
           ),
         ],

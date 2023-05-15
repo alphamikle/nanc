@@ -49,28 +49,25 @@ class _AppState extends State<App> {
 
   Widget adminBuilder(BuildContext context, Widget child) {
     final double width = context.query.size.width;
+    final double height = context.query.size.height;
     const double minWidth = 1024;
 
-    if (width < minWidth) {
-      return Material(
-        color: context.theme.colorScheme.surface,
-        child: Center(
-          child: KitText(
-            text: 'The screen width is too small - ${width.toInt()}px\nNanc supporting only ${minWidth.toInt()}px+ width for now',
-            textAlign: TextAlign.center,
-            style: context.theme.textTheme.headlineMedium,
-          ),
-        ),
-      );
+    final TransitionBuilder toastBuilder = BotToastInit();
+    Widget cmsApp = toastBuilder(context, child);
+    if (widget.config.adminWrapperBuilder != null) {
+      cmsApp = widget.config.adminWrapperBuilder!(context, rootKey, cmsApp);
     }
 
-    final TransitionBuilder toastBuilder = BotToastInit();
-    final Widget toastContainer = toastBuilder(context, child);
-    if (widget.config.adminWrapperBuilder == null) {
-      return toastContainer;
+    if (width < minWidth) {
+      final double multiplier = width / minWidth;
+
+      logg('Scale', multiplier);
+      return MediaQuery(
+        data: context.query.copyWith(size: Size(1024, height)),
+        child: cmsApp,
+      );
     }
-    final Widget wrapperContainer = widget.config.adminWrapperBuilder!(context, rootKey, toastContainer);
-    return wrapperContainer;
+    return cmsApp;
   }
 
   @override
@@ -101,31 +98,28 @@ class _AppState extends State<App> {
       initialData: false,
       builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
         if (snapshot.data ?? false) {
-          return RestorationScope(
-            restorationId: 'root',
-            child: MultiRepositoryProvider(
-              providers: initializer.repositoryProviders,
-              child: MultiBlocProvider(
-                providers: initializer.blocProviders,
-                child: Builder(
-                  builder: (BuildContext context) {
-                    return VRouter(
-                      debugShowCheckedModeBanner: false,
-                      navigatorKey: rootKey,
-                      routes: buildRoutes(context),
-                      onPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
-                      onSystemPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
-                      builder: AnimationDebugger.builderWrapper(adminBuilder),
-                      navigatorObservers: [
-                        BotToastNavigatorObserver(),
-                      ],
-                      theme: themeBuilder(context),
-                      darkTheme: themeBuilder(context, dark: true),
-                      themeMode: ThemeMode.light,
-                      buildTransition: (Animation<double> animation, Animation<double> animation2, Widget child) => child,
-                    );
-                  },
-                ),
+          return MultiRepositoryProvider(
+            providers: initializer.repositoryProviders,
+            child: MultiBlocProvider(
+              providers: initializer.blocProviders,
+              child: Builder(
+                builder: (BuildContext context) {
+                  return VRouter(
+                    debugShowCheckedModeBanner: false,
+                    navigatorKey: rootKey,
+                    routes: buildRoutes(context),
+                    onPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
+                    onSystemPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
+                    builder: AnimationDebugger.builderWrapper(adminBuilder),
+                    navigatorObservers: [
+                      BotToastNavigatorObserver(),
+                    ],
+                    theme: themeBuilder(context),
+                    darkTheme: themeBuilder(context, dark: true),
+                    themeMode: ThemeMode.light,
+                    buildTransition: (Animation<double> animation, Animation<double> animation2, Widget child) => child,
+                  );
+                },
               ),
             ),
           );
