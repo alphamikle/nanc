@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-import '../../../../service/config/config.dart';
 import 'field_card.dart';
 
 class FieldTypeSelectorModal extends StatelessWidget {
@@ -43,27 +42,37 @@ class FieldTypeSelectorModal extends StatelessWidget {
     return KitModal(
       header: const KitText(text: 'Select field type'),
       onClose: () => context.navigator.pop(null),
-      child: Padding(
-        padding: const EdgeInsets.only(left: kPaddingLarge, right: kPaddingLarge),
-        child: CustomScrollView(
-          slivers: [
-            SliverGrid(
-              delegate: SliverChildBuilderDelegate(
-                fieldCardBuilder,
-                childCount: _fields.length,
-              ),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: kPadding,
-                mainAxisSpacing: kPadding,
-                mainAxisExtent: FieldCard.height,
+      child: Column(
+        children: [
+          const KitPreloaderV2(isLoading: false),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: Gap.regular, right: Gap.regular),
+              child: CustomScrollView(
+                slivers: [
+                  const SliverToBoxAdapter(
+                    child: KitDivider(height: Gap.regular),
+                  ),
+                  SliverGrid(
+                    delegate: SliverChildBuilderDelegate(
+                      fieldCardBuilder,
+                      childCount: _fields.length,
+                    ),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: Gap.regular,
+                      mainAxisSpacing: Gap.regular,
+                      mainAxisExtent: FieldCard.height,
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: KitDivider.vertical(Gap.regular),
+                  ),
+                ],
               ),
             ),
-            SliverToBoxAdapter(
-              child: KitDivider.vertical(kPaddingLarge),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

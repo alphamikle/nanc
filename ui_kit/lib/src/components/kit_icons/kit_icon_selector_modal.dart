@@ -8,11 +8,11 @@ import '../../constants/gap.dart';
 import '../../theme/kit_borders.dart';
 import '../../theme/kit_colors.dart';
 import '../kit_centered_text.dart';
+import '../kit_column.dart';
 import '../kit_ink_well.dart';
 import '../kit_inputs/kit_text_field.dart';
 import '../kit_modal/kit_base_modal_bottom.dart';
 import '../kit_modal/kit_modal.dart';
-import '../kit_preloader.dart';
 import '../kit_preloader_v2.dart';
 import '../kit_text.dart';
 import '../kit_tooltip.dart';
@@ -134,15 +134,14 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
     return KitModal(
       onClose: () => context.navigator.pop(),
       header: const KitText(text: 'Select icon'),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      child: KitColumn(
         children: [
           Padding(
             padding: const EdgeInsets.only(
-              left: Gap.large,
-              top: Gap.large,
-              right: Gap.large,
-              bottom: Gap.large,
+              left: Gap.regular,
+              top: Gap.regular,
+              right: Gap.regular,
+              bottom: Gap.regular,
             ),
             child: Material(
               child: KitTextField(
@@ -156,8 +155,8 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(
-                left: Gap.large,
-                right: Gap.large,
+                left: Gap.regular,
+                right: Gap.regular,
               ), //
               child: AnimatedSwitcher(
                 duration: const Duration(milliseconds: 250),

@@ -6,5 +6,6 @@ export 'src/domain/logic/tags/renderers/property/mapper/properties_extractor.dar
 export 'src/domain/logic/tags/rich_renderer.dart';
 export 'src/domain/logic/tags/tag_description.dart';
 export 'src/domain/logic/tags/tag_renderer.dart';
+export 'src/domain/logic/tags/tags_collection.dart';
 export 'src/domain/ui/component/xml_widgets_sliver_list.dart';
 export 'src/domain/ui/component/xml_widgets_stack.dart';

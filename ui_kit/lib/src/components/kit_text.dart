@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class KitText extends StatelessWidget {
   const KitText({
     required this.text,
+    this.height = 1,
     this.style,
     this.overflow,
     this.maxLines,
@@ -13,6 +14,7 @@ class KitText extends StatelessWidget {
   });
 
   final String text;
+  final double height;
   final TextStyle? style;
   final TextOverflow? overflow;
   final int? maxLines;
@@ -22,7 +24,7 @@ class KitText extends StatelessWidget {
 
   TextStyle effectiveStyle(BuildContext context) {
     final DefaultTextStyle defaultTextStyle = DefaultTextStyle.of(context);
-    return (style ?? defaultTextStyle.style).copyWith(height: 1);
+    return (style ?? defaultTextStyle.style).copyWith(height: height);
   }
 
   @override

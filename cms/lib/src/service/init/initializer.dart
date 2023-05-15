@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
 import 'package:nanc_config/nanc_config.dart';
+import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 
 import '../../../cms.dart';
@@ -97,7 +98,7 @@ class Initializer {
 
     final DataRepository dataRepository = DataRepository(
       clickHandlers: config.clickHandlers,
-      renderers: config.customRenderers,
+      renderers: [...config.customRenderers, ...TagsCollection.renderers],
       imageLoadingBuilder: config.imageBuilderDelegate?.imageLoadingBuilder,
       imageErrorBuilder: config.imageBuilderDelegate?.imageErrorWidgetBuilder,
       imageFrameBuilder: config.imageBuilderDelegate?.imageFrameBuilder,

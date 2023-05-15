@@ -53,6 +53,7 @@ class _ScenarioPlayerState extends State<ScenarioPlayer> {
     if (episode.text != null) {
       child = KitText(
         text: episode.text!,
+        height: 1.5,
         style: episode.style ?? widget.textStyle,
       );
     } else if (episode.builder != null) {

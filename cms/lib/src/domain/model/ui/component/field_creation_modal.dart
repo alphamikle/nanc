@@ -45,6 +45,7 @@ class _FieldCreationModalState extends State<FieldCreationModal> {
       onClose: () => context.navigator.pop(null),
       child: KitColumn(
         children: [
+          const KitPreloaderV2(isLoading: false),
           Expanded(
             child: FieldsForm(
               creationMode: true,

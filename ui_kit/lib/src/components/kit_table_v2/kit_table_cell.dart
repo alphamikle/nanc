@@ -1,5 +1,6 @@
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';
@@ -74,6 +75,18 @@ class KitTableCell extends StatelessWidget {
                 color: colorFromHex(text) ?? Colors.transparent,
                 borderRadius: BorderRadius.circular(Gap.regular),
               ),
+            ),
+          ),
+          cell,
+        ],
+      );
+    } else if (field is IconField) {
+      cell = Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(right: Gap.regular),
+            child: Icon(
+              tryToGetIconByName(text),
             ),
           ),
           cell,
