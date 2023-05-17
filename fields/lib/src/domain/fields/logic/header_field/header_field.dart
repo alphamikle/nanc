@@ -24,7 +24,7 @@ class HeaderField extends Field {
     String? id,
     super.type = FieldType.headerField,
   })  : content = content ?? name,
-        super(id: id ?? '${toSnakeCase(name)}_header', showInList: false, editableField: false);
+        super(id: id ?? '${toSnakeCase(name)}_header', showInList: false, realField: false);
 
   factory HeaderField.empty() => HeaderField(id: '', name: '', content: '');
 

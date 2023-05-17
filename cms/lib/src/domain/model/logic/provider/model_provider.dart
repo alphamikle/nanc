@@ -5,15 +5,13 @@ import 'package:model/model.dart';
 import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
-import '../../../page/logic/provider/entity_page_provider.dart';
-
 class ModelProvider {
   ModelProvider({
     required this.pageProvider,
     required this.collectionProvider,
   });
 
-  final PageProvider pageProvider;
+  final IPageProvider pageProvider;
   final ICollectionProvider collectionProvider;
 
   Future<List<Model>> fetchModels() async {
@@ -58,7 +56,7 @@ class ModelProvider {
     final String modelId = oldModel.id;
     final Json modelJson = newModel.toJson();
 
-    /// ? We will not allow to change an id of the exist model
+    /// ? We will not allow to change an id of the existed model
     modelJson[newModel.idField.id] = modelId;
     final String generatedModelId = generateModelId(oldModel.id);
     final String secretModelId = await encrypt(generatedModelId);

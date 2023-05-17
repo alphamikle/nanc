@@ -16,7 +16,7 @@ extension _$FieldAutoequal on Field {
         isRequired,
         sort,
         width,
-        editableField,
+        realField,
         validator,
         type
       ];

@@ -149,4 +149,8 @@ extension FieldsIds on List<Field> {
   List<String> get ids {
     return map((Field field) => field.id).toList();
   }
+
+  List<String> get realIds {
+    return where((Field field) => field.realField).map((Field field) => field.id).toList();
+  }
 }

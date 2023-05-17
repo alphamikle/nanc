@@ -15,6 +15,7 @@ part 'query_value_field.dart';
 enum QueryFieldType {
   or('OR'),
   and('AND'),
+  // textSearch('Search'),
   equals('Equals'),
   notEquals('Not equals'),
   startsWith('Starts with'),
@@ -42,6 +43,7 @@ enum QueryFieldType {
 
   static List<QueryFieldType> get valueTypes {
     return [
+      // QueryFieldType.textSearch,
       QueryFieldType.equals,
       QueryFieldType.notEquals,
       QueryFieldType.startsWith,
@@ -74,6 +76,7 @@ enum QueryFieldType {
 
   static List<QueryFieldType> get onlyStringTypes {
     return [
+      // QueryFieldType.textSearch,
       QueryFieldType.startsWith,
       QueryFieldType.notStartsWith,
       QueryFieldType.endsWith,

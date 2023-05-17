@@ -6,8 +6,8 @@ part of 'query_field.dart';
 class QueryOrField extends Equatable implements QueryConditionField {
   const QueryOrField({
     this.fields = const [],
-    this.type = QueryFieldType.or,
-  });
+    QueryFieldType type = QueryFieldType.or,
+  }) : type = QueryFieldType.or;
 
   factory QueryOrField.fromJson(dynamic json) => _$QueryOrFieldFromJson(castToJson(json));
 

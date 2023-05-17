@@ -17,6 +17,8 @@ dependencies:
     path: ../model
   tools:
     path: ../tools
+  fields:
+    path: ../fields
   supabase_flutter: ^1.9.1
 
 dev_dependencies:

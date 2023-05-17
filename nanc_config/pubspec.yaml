@@ -15,8 +15,6 @@ dependencies:
     path: ../tools
   model:
     path: ../model
-  fields:
-    path: ../fields
   nanc_renderer:
     path: ../nanc_renderer
   fonts:

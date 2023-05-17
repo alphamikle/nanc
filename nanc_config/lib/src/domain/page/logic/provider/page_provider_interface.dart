@@ -1,7 +1,7 @@
-import 'package:fields/fields.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
+import '../../../fields/logic/third_table.dart';
 import 'page_api_interface.dart';
 
 abstract class IPageProvider {

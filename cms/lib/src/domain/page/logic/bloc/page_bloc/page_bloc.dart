@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../service/errors/errors.dart';
@@ -15,6 +16,7 @@ enum PageEvents {
   save,
 }
 
+typedef ModelId = String;
 typedef ParentEntityDataId = String;
 typedef ChildEntityDataId = String;
 
@@ -63,7 +65,7 @@ class PageBloc extends BasePageBloc<PageState> {
       final Json savedData = await pageProvider.saveEditedPage(
         entity: model,
         id: state.data[model.idField.id].toString(),
-        data: _updateCreatedAtOrUpdatedAtFields(model, _clearDataFromStructures(state.data)),
+        data: _updateCreatedAtOrUpdatedAtFields(model, _clearData(state.data, model)),
       );
       await _saveThirdTableData();
       await _upsertDynamicFieldStructures(
@@ -92,7 +94,7 @@ class PageBloc extends BasePageBloc<PageState> {
     try {
       final Json savedData = await pageProvider.createPage(
         entity: model,
-        data: _updateCreatedAtOrUpdatedAtFields(model, _clearDataFromStructures(state.data)),
+        data: _updateCreatedAtOrUpdatedAtFields(model, _clearData(state.data, model)),
       );
       await _saveThirdTableData();
       await _upsertDynamicFieldStructures(
@@ -205,13 +207,23 @@ class PageBloc extends BasePageBloc<PageState> {
     return false;
   }
 
-  Json _clearDataFromStructures(Json json) {
+  Json _clearData(Json json, Model model) {
     final Json clearData = <String, dynamic>{...json};
     final List<String> keys = clearData.keys.toList();
     for (final String key in keys) {
       if (isStructureField(key)) {
         clearData.remove(key);
       }
+    }
+    final Set<String> modelRealFieldsIds = model.flattenFields.realIds.toSet();
+    final Set<String> fieldsForDeletion = {};
+    for (final MapEntry(:String key) in clearData.entries) {
+      if (modelRealFieldsIds.contains(key) == false) {
+        fieldsForDeletion.add(key);
+      }
+    }
+    for (final String fieldId in fieldsForDeletion) {
+      clearData.remove(fieldId);
     }
     return clearData;
   }
@@ -230,7 +242,7 @@ class PageBloc extends BasePageBloc<PageState> {
     final Json data = await pageProvider.fetchPageData(
       model: effectiveModel,
       id: pageId,
-      subset: effectiveModel.flattenFields.where((Field field) => field.editableField).map((Field field) => field.id).toList(),
+      subset: effectiveModel.flattenFields.realIds,
     );
     return data;
   }

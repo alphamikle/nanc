@@ -18,6 +18,6 @@ QueryDto _$QueryDtoFromJson(Map<String, dynamic> json) => QueryDto(
     );
 
 Map<String, dynamic> _$QueryDtoToJson(QueryDto instance) => <String, dynamic>{
-      'singleValues': instance.singleValues,
-      'multipleValues': instance.multipleValues,
+      'singleValues': instance.singleValues.map((e) => e.toJson()).toList(),
+      'multipleValues': instance.multipleValues.map((e) => e.toJson()).toList(),
     };

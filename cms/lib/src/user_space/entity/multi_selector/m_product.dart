@@ -1,5 +1,6 @@
 import 'package:fields/fields.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 
 import 'm_category.dart';
 import 'm_product_to_m_category.dart';

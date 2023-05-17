@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../fields/logic/bool_field/bool_field.dart';
@@ -17,7 +18,6 @@ import '../fields/logic/icon_field/icon_field.dart';
 import '../fields/logic/id_field/id_field.dart';
 import '../fields/logic/models_selector_field/models_selector_field.dart';
 import '../fields/logic/multi_selector_field/multi_selector_field.dart';
-import '../fields/logic/multi_selector_field/third_table.dart';
 import '../fields/logic/number_field/number_field.dart';
 import '../fields/logic/query_filter_field/query_filter_field.dart';
 import '../fields/logic/query_filter_value_field/query_filter_value_field.dart';

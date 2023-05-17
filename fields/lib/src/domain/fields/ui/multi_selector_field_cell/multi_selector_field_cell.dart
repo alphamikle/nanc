@@ -11,7 +11,6 @@ import 'package:vrouter/vrouter.dart';
 
 import '../../logic/field/field.dart';
 import '../../logic/multi_selector_field/multi_selector_field.dart';
-import '../../logic/multi_selector_field/third_table.dart';
 import '../../logic/selector_field/title_fields.dart';
 import '../field_cell_mixin.dart';
 import '../selector_field_cell/selector_field_cell.dart';
@@ -45,7 +44,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
 
   ThirdTable get thirdTable => field.thirdTable;
   late final EventBus eventBus = context.read();
-  bool isPreloading = false;
+  bool isPreloading = true;
 
   @override
   PageBloc get pageBloc {
@@ -273,10 +272,13 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
                 AnimatedOpacity(
                   duration: const Duration(milliseconds: 250),
                   opacity: titleChips.isEmpty ? 0 : 1,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: titleChips.length,
-                    itemBuilder: titleChipBuilder,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 2),
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: titleChips.length,
+                      itemBuilder: titleChipBuilder,
+                    ),
                   ),
                 ),
               ],

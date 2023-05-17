@@ -18,32 +18,35 @@ class SupabaseCollectionApi implements ICollectionApi {
   final SupabaseApi _api;
   final bool caseSensitive;
 
-  SupabaseClient get _client => _api.client;
-
   @override
   Future<CollectionResponseDto> fetchPageList(Model model, List<String> subset, QueryField query, ParamsDto params) async {
-    final SupabaseQueryBuilder builder = _client.from(model.id);
-    final String effectiveSubset = subset.isEmpty ? '*' : subset.join(', ');
-    final int from = params.limit * (params.page - 1);
-    final int to = params.limit * params.page - 1;
-    final Sort sort = params.sort;
+    try {
+      final int from = params.limit * (params.page - 1);
+      final int to = params.limit * params.page - 1;
+      final Sort sort = params.sort;
+      final QueryField effectiveQuery = query is QueryValueField ? QueryOrField(fields: [query]) : query;
 
-    final PostgrestFilterBuilder<dynamic> selection = builder.select(effectiveSubset, const FetchOptions(count: CountOption.exact));
-    final String filter = _processQueryField(query);
-    if (filter.isNotEmpty) {
-      selection.appendSearchParams(_processFieldType(query.type, null, showValue: false), filter);
+      final PostgrestFilterBuilder<dynamic> selection = _api.getSelection(model: model, subset: subset);
+      final String filter = _processQueryField(effectiveQuery);
+      if (filter.isNotEmpty) {
+        selection.appendSearchParams(_processFieldType(effectiveQuery.type, null, showValue: false), filter);
+      }
+      final PostgrestResponse<dynamic> response = await selection.range(from, to).order(sort.fieldId, ascending: sort.order.isAsc);
+      final int count = response.count ?? 0;
+      final int totalPages = params.limit > 0 ? (count / params.limit).ceil() : 0;
+      final int page = max(min(params.page, totalPages), 0);
+      final List<Json> data = response.data is List<dynamic> ? (response.data as List<dynamic>).map(castToJson).toList() : [];
+
+      return CollectionResponseDto(
+        page: page,
+        totalPages: totalPages,
+        data: data,
+      );
+    } catch (error) {
+      // Handle error
+      logg.raw(error.toString());
+      rethrow;
     }
-    final PostgrestResponse<dynamic> response = await selection.range(from, to).order(sort.fieldId, ascending: sort.order.isAsc);
-    final int count = response.count ?? 0;
-    final int totalPages = params.limit > 0 ? (count / params.limit).ceil() : 0;
-    final int page = max(min(params.page, totalPages), 0);
-    final List<Json> data = response.data is List<dynamic> ? (response.data as List<dynamic>).map(castToJson).toList() : [];
-
-    return CollectionResponseDto(
-      page: page,
-      totalPages: totalPages,
-      data: data,
-    );
   }
 
   String _processQueryField(QueryField query, {int deep = 0}) {
@@ -74,15 +77,18 @@ class SupabaseCollectionApi implements ICollectionApi {
   }
 
   String _processFieldType(QueryFieldType type, Object? value, {bool showValue = true}) {
+    const String any = '%';
+
     final String condition = switch (type) {
+      // QueryFieldType.textSearch => 'eq${showValue ? '$_dl$value' : ''}',
       QueryFieldType.equals => 'eq${showValue ? '$_dl$value' : ''}',
       QueryFieldType.notEquals => 'neq${showValue ? '$_dl$value' : ''}',
-      QueryFieldType.startsWith => '${caseSensitive ? '' : 'i'}like${showValue ? '$_dl$value*' : ''}',
-      QueryFieldType.notStartsWith => 'not.${caseSensitive ? '' : 'i'}like${showValue ? '$_dl$value*' : ''}',
-      QueryFieldType.endsWith => '${caseSensitive ? '' : 'i'}like${showValue ? '$_dl*$value' : ''}',
-      QueryFieldType.notEndsWith => 'not.${caseSensitive ? '' : 'i'}like${showValue ? '$_dl*$value' : ''}',
-      QueryFieldType.contains => '${caseSensitive ? '' : 'i'}like${showValue ? '$_dl*$value*' : ''}',
-      QueryFieldType.notContains => '${caseSensitive ? '' : 'i'}like${showValue ? '$_dl*$value*' : ''}',
+      QueryFieldType.startsWith => '${caseSensitive ? '' : 'i'}like${showValue ? '$_dl$value$any' : ''}',
+      QueryFieldType.notStartsWith => 'not.${caseSensitive ? '' : 'i'}like${showValue ? '$_dl$value$any' : ''}',
+      QueryFieldType.endsWith => '${caseSensitive ? '' : 'i'}like${showValue ? '$_dl$any$value' : ''}',
+      QueryFieldType.notEndsWith => 'not.${caseSensitive ? '' : 'i'}like${showValue ? '$_dl$any$value' : ''}',
+      QueryFieldType.contains => '${caseSensitive ? '' : 'i'}like${showValue ? '$_dl$any$value$any' : ''}',
+      QueryFieldType.notContains => '${caseSensitive ? '' : 'i'}like${showValue ? '$_dl$any$value$any' : ''}',
       QueryFieldType.empty => 'eq${showValue ? '$_dl\'\'' : ''}',
       QueryFieldType.notEmpty => 'neq${showValue ? '$_dl\'\'' : ''}',
       QueryFieldType.less => 'lt${showValue ? '$_dl$value' : ''}',

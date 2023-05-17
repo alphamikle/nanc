@@ -3,8 +3,10 @@ import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import 'src/domain/admin_runner.dart';
-import 'src/user_space/api/mock_entity_page_api.dart';
+import 'src/user_space/entity/supabase/supa_color.dart';
 import 'src/user_space/entity/supabase/supa_user.dart';
+import 'src/user_space/entity/supabase/supa_user_to_favorite_colors.dart';
+import 'src/user_space/entity/supabase/supa_user_to_unfavorite_colors.dart';
 
 Future<void> main() async {
   final DbService dbService = createDbService();
@@ -16,12 +18,7 @@ Future<void> main() async {
   await adminRunner(
     CmsConfig(
       collectionApi: SupabaseCollectionApi(api: supabaseApi),
-      // collectionApi: MockEntityListApi(
-      //   dbService: dbService,
-      // ),
-      pageApi: MockEntityPageApi(
-        dbService: dbService,
-      ),
+      pageApi: SupabasePageApi(api: supabaseApi),
       networkConfig: NetworkConfig(
         paginationPageNumberParameterName: 'page',
         paginationLimitParameterName: 'limit',
@@ -33,6 +30,9 @@ Future<void> main() async {
       adminWrapperBuilder: null,
       predefinedModels: [
         supaUser,
+        supaColor,
+        supaUserToFavoriteColors,
+        supaUserToNonFavoriteColors,
       ],
       customRenderers: [],
       clickHandlers: [],

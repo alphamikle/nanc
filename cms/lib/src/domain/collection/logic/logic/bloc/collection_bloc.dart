@@ -147,11 +147,15 @@ class CollectionBloc extends Cubit<CollectionState> {
         valueFields.add(QueryValueField(type: queryBool ? QueryFieldType.isTrue : QueryFieldType.isFalse, fieldId: field.id));
       } else if (queryNumber != null && field.isNumeric) {
         valueFields.add(QueryValueField(type: QueryFieldType.equals, fieldId: field.id, value: queryNumber));
+      } else if (field is IdField) {
+        // TODO(alphamikle): Add errors handling
+        /// ? Do nothing
+        // valueFields.add(QueryValueField(type: QueryFieldType.equals, fieldId: field.id, value: query));
       } else if (field.isString) {
         valueFields.add(QueryValueField(type: QueryFieldType.contains, fieldId: field.id, value: query));
       }
     }
-    return QueryOrField(type: QueryFieldType.contains, fields: valueFields);
+    return QueryOrField(fields: valueFields);
   }
 }
 

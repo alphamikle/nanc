@@ -4,9 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
-import '../../../../../fields.dart';
+import '../../../type/field_types.dart';
+import '../enum_field/enum_field.dart';
+import '../enum_field/enum_value.dart';
+import '../field/field.dart';
+import '../field/field_description.dart';
+import '../field/field_props.dart';
+import '../id_field/id_field.dart';
+import '../models_selector_field/models_selector_field.dart';
+import '../selector_field/title_fields.dart';
+import '../string_field/string_field.dart';
+import '../structured_field/structured_field.dart';
 
 part 'multi_selector_field.g.dart';
 
@@ -28,7 +39,9 @@ class MultiSelectorField extends Field {
     super.validator,
     super.type = FieldType.multiSelectorField,
   })  : virtualField = virtualField ?? '\$${id ?? toSnakeCase(name)}',
-        super(id: id ?? toSnakeCase(name));
+
+        /// ? MultiSelector Field is not real, because it will not have a real field at the page data
+        super(id: id ?? toSnakeCase(name), realField: false);
 
   factory MultiSelectorField.empty() => MultiSelectorField(
         id: '',

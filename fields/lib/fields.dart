@@ -17,7 +17,6 @@ export 'src/domain/fields/logic/icon_field/icon_field.dart';
 export 'src/domain/fields/logic/id_field/id_field.dart';
 export 'src/domain/fields/logic/models_selector_field/models_selector_field.dart';
 export 'src/domain/fields/logic/multi_selector_field/multi_selector_field.dart';
-export 'src/domain/fields/logic/multi_selector_field/third_table.dart';
 export 'src/domain/fields/logic/number_field/number_field.dart';
 export 'src/domain/fields/logic/query_filter_field/query_filter_field.dart';
 export 'src/domain/fields/logic/query_filter_value_field/query_filter_value_field.dart';

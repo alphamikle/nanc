@@ -1,6 +1,7 @@
 import 'package:fields/fields.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
+import 'package:nanc_config/nanc_config.dart';
 
 import 'demo_multi_selector_to_user.dart';
 import 'demo_user.dart';
