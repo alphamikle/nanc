@@ -38,6 +38,8 @@ dependencies:
     path: ../fonts
   nanc_config:
     path: ../nanc_config
+  nanc_api_supabase:
+    path: ../nanc_api_supabase
   cupertino_icons: ^1.0.5
   device_frame: ^1.1.0
   markdown: ^6.0.1

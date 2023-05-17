@@ -1,12 +1,4 @@
-import 'package:autoequal/autoequal.dart';
-import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:tools/tools.dart';
-
-import 'query_field.dart';
-
-part 'query_value_field.g.dart';
+part of 'query_field.dart';
 
 @autoequal
 @CopyWith()

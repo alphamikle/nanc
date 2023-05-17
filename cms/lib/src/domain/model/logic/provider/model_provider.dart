@@ -20,13 +20,13 @@ class ModelProvider {
     final CollectionResponseDto result = await collectionProvider.fetchPageList(
       model: modelModel,
       subset: [fieldIdProperty, kModelField],
-      params: const ParamsDto(
+      params: ParamsDto(
         page: 1,
 
         /// ? We always want to download all the models
         limit: 49990,
         sort: Sort(
-          fieldId: fieldDefaultValueProperty,
+          fieldId: modelModel.idField.id,
           order: Order.asc,
         ),
       ),

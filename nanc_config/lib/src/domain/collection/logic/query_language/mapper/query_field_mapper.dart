@@ -1,10 +1,8 @@
+library query_language;
+
 import 'package:tools/tools.dart';
 
-import '../fields/query_and_field.dart';
-import '../fields/query_condition_field.dart';
 import '../fields/query_field.dart';
-import '../fields/query_or_field.dart';
-import '../fields/query_value_field.dart';
 
 Json? queryFieldToJson(QueryField? field) {
   if (field is QueryOrField) {

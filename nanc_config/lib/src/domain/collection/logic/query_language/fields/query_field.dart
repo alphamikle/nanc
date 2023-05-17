@@ -1,8 +1,16 @@
+import 'package:autoequal/autoequal.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../mapper/query_field_mapper.dart';
+
+part 'query_and_field.dart';
+part 'query_condition_field.dart';
 part 'query_field.g.dart';
+part 'query_or_field.dart';
+part 'query_value_field.dart';
 
 enum QueryFieldType {
   or('OR'),
@@ -93,7 +101,7 @@ enum QueryFieldType {
 }
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-abstract class QueryField extends Equatable {
+sealed class QueryField extends Equatable {
   factory QueryField() => throw UnimplementedError();
 
   static const String typeKey = 'type';

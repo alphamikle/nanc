@@ -1,14 +1,4 @@
-import 'package:autoequal/autoequal.dart';
-import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:tools/tools.dart';
-
-import '../mapper/query_field_mapper.dart';
-import 'query_condition_field.dart';
-import 'query_field.dart';
-
-part 'query_or_field.g.dart';
+part of 'query_field.dart';
 
 @autoequal
 @CopyWith()
@@ -33,4 +23,7 @@ class QueryOrField extends Equatable implements QueryConditionField {
 
   @override
   Json toJson() => _$QueryOrFieldToJson(this);
+
+  @override
+  bool get isEmpty => fields.isEmpty || fields.every((QueryField field) => field is QueryConditionField && field.isEmpty);
 }
