@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:analytics/analytics.dart';
 import 'package:animation_debugger/animation_debugger.dart';
 import 'package:bot_toast/bot_toast.dart';
+import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc_config/nanc_config.dart';
@@ -12,7 +13,7 @@ import 'package:vrouter/vrouter.dart';
 
 import '../../cms.dart';
 import '../service/errors/error_toaster.dart';
-import '../service/errors/error_wrapper.dart';
+import '../service/errors/human_exception.dart';
 import '../service/init/initializer.dart';
 
 class App extends StatefulWidget {
@@ -23,7 +24,7 @@ class App extends StatefulWidget {
   });
 
   final CmsConfig config;
-  final StreamController<ErrorWrapper> errorStreamController;
+  final StreamController<HumanException> errorStreamController;
 
   @override
   State<App> createState() => _AppState();
@@ -37,12 +38,12 @@ class _AppState extends State<App> {
     errorStreamController: widget.errorStreamController,
   );
   late final Future<bool> result = initializer.init();
-  late final StreamSubscription<ErrorWrapper> errorStreamSubscription;
+  late final StreamSubscription<HumanException> errorStreamSubscription;
 
-  void showError(ErrorWrapper errorWrapper) {
+  void showError(HumanException errorWrapper) {
     BotToast.showCustomNotification(
-      toastBuilder: (VoidCallback onClose) => ErrorToaster(errorWrapper: errorWrapper, onClose: onClose),
-      duration: const Duration(seconds: 30),
+      toastBuilder: (VoidCallback onClose) => ErrorToaster(exception: errorWrapper, onClose: onClose),
+      duration: const Duration(seconds: Env.isProduction ? 30 : Env.errorDuration),
       dismissDirections: [],
     );
   }

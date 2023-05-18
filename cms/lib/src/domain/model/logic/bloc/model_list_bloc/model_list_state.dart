@@ -13,6 +13,7 @@ class ModelListState extends Equatable {
     required this.collectionModels,
     required this.soloModels,
     required this.hiddenModels,
+    required this.isError,
     required this.isLoading,
   });
 
@@ -21,6 +22,7 @@ class ModelListState extends Equatable {
         collectionModels: [],
         soloModels: [],
         hiddenModels: [],
+        isError: false,
         isLoading: false,
       );
 
@@ -28,6 +30,7 @@ class ModelListState extends Equatable {
   final List<Model> collectionModels;
   final List<Model> soloModels;
   final List<Model> hiddenModels;
+  final bool isError;
   final bool isLoading;
 
   List<Model> get allModels => [

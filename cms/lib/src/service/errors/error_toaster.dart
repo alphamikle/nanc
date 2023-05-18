@@ -1,75 +1,23 @@
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-import 'error_wrapper.dart';
+import 'human_exception.dart';
 
 class ErrorToaster extends StatelessWidget {
   const ErrorToaster({
-    required this.errorWrapper,
+    required this.exception,
     required this.onClose,
     super.key,
   });
 
-  final ErrorWrapper errorWrapper;
+  final HumanException exception;
   final VoidCallback onClose;
-
-  String get errorText {
-    const List<Pattern> badWords = [
-      'Exception: ',
-    ];
-
-    String text = errorWrapper.error?.toString() ?? 'Unknown error';
-    if (Env.isProduction) {
-      for (final Pattern badWord in badWords) {
-        text = text.replaceFirst(badWord, '');
-      }
-    }
-    return text.trim();
-  }
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle style = TextStyle(
-      color: context.theme.colorScheme.onErrorContainer,
-    );
-
-    final Widget text = KitText(
-      text: errorText,
-      style: style,
-    );
-    final Widget closeButton = KitButton(
-      text: 'Close',
-      onPressed: onClose,
-      color: context.theme.colorScheme.error,
-    );
-
-    Widget body = Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(bottom: Gap.regular),
-          child: closeButton,
-        ),
-        text,
-        KitDivider.vertical(Gap.large),
-        KitText(
-          text: errorWrapper.stackTrace.toString(),
-          style: style,
-        ),
-      ],
-    );
-    if (Env.isProduction) {
-      body = Row(
-        children: [
-          Expanded(child: text),
-          closeButton,
-        ],
-      );
-    }
-
     return Padding(
       padding: const EdgeInsets.all(Gap.extra),
       child: DecoratedBox(
@@ -80,7 +28,46 @@ class ErrorToaster extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(Gap.large),
-          child: body,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minWidth: 350),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: Gap.regular),
+                      child: Icon(
+                        IconPack.flu_error_circle_filled,
+                        color: context.theme.colorScheme.error,
+                      ),
+                    ),
+                    KitText(text: 'An error has occurred', style: context.theme.textTheme.titleMedium),
+                  ],
+                ),
+                KitDivider.vertical(Gap.regular),
+                KitText(text: exception.humanMessage, style: context.theme.textTheme.titleSmall),
+                KitDivider.vertical(Gap.large),
+                if (exception.hasOriginalMessage) KitText(text: exception.originalMessage!, style: context.theme.textTheme.bodySmall),
+                if (Env.isProduction == false && Env.simpleErrors == false && exception.hasStackTrace) KitDivider.vertical(Gap.regular),
+                if (Env.isProduction == false && Env.simpleErrors == false && exception.hasStackTrace)
+                  KitText(
+                    text: exception.stackTrace.toString(),
+                    style: context.theme.textTheme.bodySmall,
+                  ),
+                Padding(
+                  padding: const EdgeInsets.only(top: Gap.large),
+                  child: KitButton(
+                    text: 'Close',
+                    onPressed: onClose,
+                    color: context.theme.colorScheme.error,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

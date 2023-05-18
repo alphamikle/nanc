@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../service/errors/errors.dart';
+import '../../../../../service/errors/human_exception.dart';
 import '../../provider/model_provider.dart';
 import 'model_list_state.dart';
 
@@ -16,10 +19,18 @@ class ModelListBloc extends Cubit<ModelListState> {
   Future<void> preloadModelsFromCode(List<Model> modelsFromCode) async => _sortAndSplitModels(modelsFromCode: modelsFromCode, dynamicModels: []);
 
   Future<void> loadDynamicModels(List<Model> modelsFromCode) async {
-    emit(state.copyWith.isLoading(true));
-    final List<Model> models = await modelProvider.fetchModels();
-    await _sortAndSplitModels(modelsFromCode: modelsFromCode, dynamicModels: models);
-    emit(state.copyWith.isLoading(false));
+    emit(state.copyWith(isLoading: true, isError: false));
+    try {
+      final List<Model> models = await modelProvider.fetchModels();
+      await _sortAndSplitModels(modelsFromCode: modelsFromCode, dynamicModels: models);
+    } catch (error) {
+      emit(state.copyWith(
+        isError: true,
+        isLoading: false,
+      ));
+      throw error.toHumanException('Dynamic models loading failed!');
+    }
+    emit(state.copyWith(isLoading: false));
   }
 
   Future<void> _sortAndSplitModels({required List<Model> modelsFromCode, required List<Model> dynamicModels}) async {

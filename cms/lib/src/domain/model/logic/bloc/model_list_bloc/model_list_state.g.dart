@@ -9,8 +9,14 @@ part of 'model_list_state.dart';
 extension _$ModelListStateAutoequal on ModelListState {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props =>
-      [preloadedModels, collectionModels, soloModels, hiddenModels, isLoading];
+  List<Object?> get _$props => [
+        preloadedModels,
+        collectionModels,
+        soloModels,
+        hiddenModels,
+        isError,
+        isLoading
+      ];
 }
 
 // **************************************************************************
@@ -26,6 +32,8 @@ abstract class _$ModelListStateCWProxy {
 
   ModelListState hiddenModels(List<Model> hiddenModels);
 
+  ModelListState isError(bool isError);
+
   ModelListState isLoading(bool isLoading);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ModelListState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
@@ -39,6 +47,7 @@ abstract class _$ModelListStateCWProxy {
     List<Model>? collectionModels,
     List<Model>? soloModels,
     List<Model>? hiddenModels,
+    bool? isError,
     bool? isLoading,
   });
 }
@@ -66,6 +75,9 @@ class _$ModelListStateCWProxyImpl implements _$ModelListStateCWProxy {
       this(hiddenModels: hiddenModels);
 
   @override
+  ModelListState isError(bool isError) => this(isError: isError);
+
+  @override
   ModelListState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
@@ -81,6 +93,7 @@ class _$ModelListStateCWProxyImpl implements _$ModelListStateCWProxy {
     Object? collectionModels = const $CopyWithPlaceholder(),
     Object? soloModels = const $CopyWithPlaceholder(),
     Object? hiddenModels = const $CopyWithPlaceholder(),
+    Object? isError = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
   }) {
     return ModelListState(
@@ -104,6 +117,10 @@ class _$ModelListStateCWProxyImpl implements _$ModelListStateCWProxy {
               ? _value.hiddenModels
               // ignore: cast_nullable_to_non_nullable
               : hiddenModels as List<Model>,
+      isError: isError == const $CopyWithPlaceholder() || isError == null
+          ? _value.isError
+          // ignore: cast_nullable_to_non_nullable
+          : isError as bool,
       isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
           ? _value.isLoading
           // ignore: cast_nullable_to_non_nullable

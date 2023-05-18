@@ -17,7 +17,7 @@ import '../../domain/model/logic/provider/model_provider.dart';
 import '../../domain/page/logic/provider/entity_page_provider.dart';
 import '../../domain/preview/logic/bloc/preview_bloc.dart';
 import '../../domain/tutorial/logic/bloc/tutorial_bloc.dart';
-import '../errors/error_wrapper.dart';
+import '../errors/human_exception.dart';
 import '../routing/routes_preloading_service.dart';
 import 'data_repository.dart';
 
@@ -29,7 +29,7 @@ class Initializer {
   });
 
   final CmsConfig config;
-  final StreamController<ErrorWrapper> errorStreamController;
+  final StreamController<HumanException> errorStreamController;
   final RootKey rootKey;
 
   final List<BlocProvider<dynamic>> blocProviders = [];

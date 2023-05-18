@@ -8,6 +8,8 @@ abstract class Env {
   static const bool isRealCMS = isDemo == false;
   static const bool isDemo = bool.fromEnvironment('IS_DEMO');
   static const bool isProduction = bool.fromEnvironment('IS_PRODUCTION') || kReleaseMode;
+  static const bool simpleErrors = bool.fromEnvironment('SIMPLE_ERRORS');
+  static const int errorDuration = int.fromEnvironment('ERROR_DURATION', defaultValue: 30);
   static const bool clearDb = bool.fromEnvironment('CLEAR_DB');
   static const String theAught = String.fromEnvironment('TWZ8Z55DNJUMFLZWB8C3');
   static const String analyticsKey = String.fromEnvironment('ANALYTICS_KEY');
