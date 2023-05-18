@@ -135,6 +135,7 @@ class Initializer {
         RepositoryProvider<RoutesPreloadingService>.value(value: routesPreloadingService),
         RepositoryProvider<DraftService>.value(value: draftService),
         RepositoryProvider<DataRepository>.value(value: dataRepository),
+        RepositoryProvider<StreamController<HumanException>>.value(value: errorStreamController),
       ]);
     return true;
   }

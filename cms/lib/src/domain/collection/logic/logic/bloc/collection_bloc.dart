@@ -8,6 +8,7 @@ import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../../cms.dart';
+import '../../../../../service/errors/human_exception.dart';
 import 'collection_state.dart';
 
 class CollectionBloc extends Cubit<CollectionState> {
@@ -95,29 +96,39 @@ class CollectionBloc extends Cubit<CollectionState> {
     int? limit,
   }) async {
     final Model model = modelCollectionBloc.findModelById(modelId);
+    emit(state.copyWith(isError: false));
 
-    final CollectionResponseDto dto = await pageListProvider.fetchPageList(
-      model: model,
-      subset: model.listFields.ids,
-      params: ParamsDto(
-        page: page,
-        limit: limit ?? NetworkConfig.paginationLimitParameterDefaultValue,
-        sort: state.sort ??
-            Sort(
-              fieldId: model.idField.id,
-              order: Order.asc,
-            ),
-      ),
-      query: state.query ?? state.globalSearchQuery,
-    );
-    emit(state.copyWith.isLoading(false));
-    await _uiDelay();
-    emit(state.copyWith(
-      dataRows: dto.data,
-      totalPages: dto.totalPages,
-      currentPage: dto.page,
-      notFoundAnything: dto.data.isEmpty,
-    ));
+    try {
+      final CollectionResponseDto dto = await pageListProvider.fetchPageList(
+        model: model,
+        subset: model.listFields.ids,
+        params: ParamsDto(
+          page: page,
+          limit: limit ?? NetworkConfig.paginationLimitParameterDefaultValue,
+          sort: state.sort ??
+              Sort(
+                fieldId: model.idField.id,
+                order: Order.asc,
+              ),
+        ),
+        query: state.query ?? state.globalSearchQuery,
+      );
+      emit(state.copyWith.isLoading(false));
+      await _uiDelay();
+      emit(state.copyWith(
+        dataRows: dto.data,
+        totalPages: dto.totalPages,
+        currentPage: dto.page,
+        notFoundAnything: dto.data.isEmpty,
+      ));
+    } catch (error) {
+      emit(state.copyWith(
+        isLoading: false,
+        isError: true,
+        notFoundAnything: false,
+      ));
+      throw error.toHumanException('Collection "${model.name}" loading failed!');
+    }
   }
 
   Future<void> _loadFilteredPages(QueryField? query) async {

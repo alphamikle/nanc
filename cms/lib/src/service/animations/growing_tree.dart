@@ -47,7 +47,7 @@ class _GrowingTreeState extends State<GrowingTree> with SingleTickerProviderStat
     final ByteData data = await rootBundle.load(prepareAssetPath('assets/animations/tree_demo_transparent_rive.riv'));
     final RiveFile file = RiveFile.import(data);
     artBoard = file.mainArtboard;
-    final controller = StateMachineController.fromArtboard(artBoard, 'State Machine 1');
+    final StateMachineController? controller = StateMachineController.fromArtboard(artBoard, 'State Machine 1');
     if (controller != null) {
       this.controller = controller;
       artBoard.addController(controller);

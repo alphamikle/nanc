@@ -17,6 +17,7 @@ class CollectionState extends Equatable {
     required this.currentPage,
     required this.totalPages,
     required this.isLoading,
+    required this.isError,
     required this.notFoundAnything,
     required this.query,
     required this.globalSearchQuery,
@@ -29,6 +30,7 @@ class CollectionState extends Equatable {
         currentPage: 0,
         totalPages: 0,
         isLoading: false,
+        isError: false,
         notFoundAnything: false,
         query: null,
         globalSearchQuery: null,
@@ -42,6 +44,7 @@ class CollectionState extends Equatable {
   final int currentPage;
   final int totalPages;
   final bool isLoading;
+  final bool isError;
   final bool notFoundAnything;
 
   @JsonKey(fromJson: queryFieldFromJson, toJson: queryFieldToJson)

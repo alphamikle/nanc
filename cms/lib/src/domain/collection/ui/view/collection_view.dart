@@ -8,6 +8,7 @@ import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../../../../service/errors/errors.dart';
+import '../../../../service/errors/ui_error.dart';
 import '../../../../service/routing/params_list.dart';
 import '../../../../service/routing/route_list.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
@@ -122,6 +123,8 @@ class _CollectionViewState extends State<CollectionView> {
                   w1: const KitCenteredText(text: 'Not found'),
                   c2: loadingWithNoData,
                   w2: const KitCenteredText(text: 'Loading'),
+                  c3: state.isError,
+                  w3: UiError(),
                   fallback: Material(
                     type: MaterialType.transparency,
                     child: KitTableV2(

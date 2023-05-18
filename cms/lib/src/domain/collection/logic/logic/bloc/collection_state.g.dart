@@ -15,6 +15,7 @@ extension _$CollectionStateAutoequal on CollectionState {
         currentPage,
         totalPages,
         isLoading,
+        isError,
         notFoundAnything,
         query,
         globalSearchQuery,
@@ -37,6 +38,8 @@ abstract class _$CollectionStateCWProxy {
 
   CollectionState isLoading(bool isLoading);
 
+  CollectionState isError(bool isError);
+
   CollectionState notFoundAnything(bool notFoundAnything);
 
   CollectionState query(QueryField? query);
@@ -57,6 +60,7 @@ abstract class _$CollectionStateCWProxy {
     int? currentPage,
     int? totalPages,
     bool? isLoading,
+    bool? isError,
     bool? notFoundAnything,
     QueryField? query,
     QueryField? globalSearchQuery,
@@ -88,6 +92,9 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
   CollectionState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
+  CollectionState isError(bool isError) => this(isError: isError);
+
+  @override
   CollectionState notFoundAnything(bool notFoundAnything) =>
       this(notFoundAnything: notFoundAnything);
 
@@ -115,6 +122,7 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
     Object? currentPage = const $CopyWithPlaceholder(),
     Object? totalPages = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
+    Object? isError = const $CopyWithPlaceholder(),
     Object? notFoundAnything = const $CopyWithPlaceholder(),
     Object? query = const $CopyWithPlaceholder(),
     Object? globalSearchQuery = const $CopyWithPlaceholder(),
@@ -143,6 +151,10 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
           ? _value.isLoading
           // ignore: cast_nullable_to_non_nullable
           : isLoading as bool,
+      isError: isError == const $CopyWithPlaceholder() || isError == null
+          ? _value.isError
+          // ignore: cast_nullable_to_non_nullable
+          : isError as bool,
       notFoundAnything: notFoundAnything == const $CopyWithPlaceholder() ||
               notFoundAnything == null
           ? _value.notFoundAnything
@@ -183,6 +195,7 @@ CollectionState _$CollectionStateFromJson(Map<String, dynamic> json) =>
       currentPage: json['currentPage'] as int,
       totalPages: json['totalPages'] as int,
       isLoading: json['isLoading'] as bool,
+      isError: json['isError'] as bool,
       notFoundAnything: json['notFoundAnything'] as bool,
       query: queryFieldFromJson(json['query']),
       globalSearchQuery: queryFieldFromJson(json['globalSearchQuery']),
@@ -198,6 +211,7 @@ Map<String, dynamic> _$CollectionStateToJson(CollectionState instance) =>
       'currentPage': instance.currentPage,
       'totalPages': instance.totalPages,
       'isLoading': instance.isLoading,
+      'isError': instance.isError,
       'notFoundAnything': instance.notFoundAnything,
       'query': queryFieldToJson(instance.query),
       'globalSearchQuery': queryFieldToJson(instance.globalSearchQuery),
