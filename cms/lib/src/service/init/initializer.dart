@@ -14,7 +14,7 @@ import '../../domain/general/logic/bloc/header/header_bloc.dart';
 import '../../domain/general/logic/bloc/side_menu/menu_bloc.dart';
 import '../../domain/model/logic/bloc/model_page_bloc/model_page_bloc.dart';
 import '../../domain/model/logic/provider/model_provider.dart';
-import '../../domain/page/logic/provider/entity_page_provider.dart';
+import '../../domain/page/logic/provider/page_provider.dart';
 import '../../domain/preview/logic/bloc/preview_bloc.dart';
 import '../../domain/tutorial/logic/bloc/tutorial_bloc.dart';
 import '../errors/human_exception.dart';

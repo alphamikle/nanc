@@ -21,6 +21,7 @@ class BaseEntityPageState extends Equatable {
     required this.isLoading,
     required this.isDeleting,
     required this.isSaving,
+    required this.isError,
     required this.controllerMap,
   });
 
@@ -30,6 +31,7 @@ class BaseEntityPageState extends Equatable {
         isLoading: false,
         isDeleting: false,
         isSaving: false,
+        isError: false,
         controllerMap: {},
       );
 
@@ -39,6 +41,7 @@ class BaseEntityPageState extends Equatable {
   final Json initialData;
   final bool isLoading;
   final bool isSaving;
+  final bool isError;
   final bool isDeleting;
 
   @JsonKey(fromJson: _controllerMapFromJson, toJson: _controllerMapToJson)

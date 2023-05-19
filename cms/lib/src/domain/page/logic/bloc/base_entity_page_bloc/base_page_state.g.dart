@@ -9,8 +9,15 @@ part of 'base_page_state.dart';
 extension _$BaseEntityPageStateAutoequal on BaseEntityPageState {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props =>
-      [data, initialData, isLoading, isSaving, isDeleting, controllerMap];
+  List<Object?> get _$props => [
+        data,
+        initialData,
+        isLoading,
+        isSaving,
+        isError,
+        isDeleting,
+        controllerMap
+      ];
 }
 
 // **************************************************************************
@@ -28,6 +35,8 @@ abstract class _$BaseEntityPageStateCWProxy {
 
   BaseEntityPageState isSaving(bool isSaving);
 
+  BaseEntityPageState isError(bool isError);
+
   BaseEntityPageState controllerMap(
       Map<String, TextEditingController> controllerMap);
 
@@ -43,6 +52,7 @@ abstract class _$BaseEntityPageStateCWProxy {
     bool? isLoading,
     bool? isDeleting,
     bool? isSaving,
+    bool? isError,
     Map<String, TextEditingController>? controllerMap,
   });
 }
@@ -71,6 +81,9 @@ class _$BaseEntityPageStateCWProxyImpl implements _$BaseEntityPageStateCWProxy {
   BaseEntityPageState isSaving(bool isSaving) => this(isSaving: isSaving);
 
   @override
+  BaseEntityPageState isError(bool isError) => this(isError: isError);
+
+  @override
   BaseEntityPageState controllerMap(
           Map<String, TextEditingController> controllerMap) =>
       this(controllerMap: controllerMap);
@@ -89,6 +102,7 @@ class _$BaseEntityPageStateCWProxyImpl implements _$BaseEntityPageStateCWProxy {
     Object? isLoading = const $CopyWithPlaceholder(),
     Object? isDeleting = const $CopyWithPlaceholder(),
     Object? isSaving = const $CopyWithPlaceholder(),
+    Object? isError = const $CopyWithPlaceholder(),
     Object? controllerMap = const $CopyWithPlaceholder(),
   }) {
     return BaseEntityPageState(
@@ -114,6 +128,10 @@ class _$BaseEntityPageStateCWProxyImpl implements _$BaseEntityPageStateCWProxy {
           ? _value.isSaving
           // ignore: cast_nullable_to_non_nullable
           : isSaving as bool,
+      isError: isError == const $CopyWithPlaceholder() || isError == null
+          ? _value.isError
+          // ignore: cast_nullable_to_non_nullable
+          : isError as bool,
       controllerMap:
           controllerMap == const $CopyWithPlaceholder() || controllerMap == null
               ? _value.controllerMap
@@ -141,6 +159,7 @@ BaseEntityPageState _$BaseEntityPageStateFromJson(Map<String, dynamic> json) =>
       isLoading: json['isLoading'] as bool,
       isDeleting: json['isDeleting'] as bool,
       isSaving: json['isSaving'] as bool,
+      isError: json['isError'] as bool,
       controllerMap: _controllerMapFromJson(
           json['controllerMap'] as Map<String, dynamic>?),
     );
@@ -152,6 +171,7 @@ Map<String, dynamic> _$BaseEntityPageStateToJson(
       'initialData': instance.initialData,
       'isLoading': instance.isLoading,
       'isSaving': instance.isSaving,
+      'isError': instance.isError,
       'isDeleting': instance.isDeleting,
       'controllerMap': _controllerMapToJson(instance.controllerMap),
     };

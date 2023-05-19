@@ -10,6 +10,7 @@ import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../../../../service/config/config.dart';
+import '../../../../service/errors/ui_error.dart';
 import '../../../../service/routing/params_list.dart';
 import '../../../../service/routing/route_list.dart';
 import '../../../../service/tools/model_finder.dart';
@@ -219,6 +220,8 @@ class _EntityPageViewState extends State<EntityPageView> {
               builder: (BuildContext context, BaseEntityPageState state) {
                 if (state.isLoading) {
                   return const KitCenteredText(text: 'Loading');
+                } else if (state.isError) {
+                  return const UiError();
                 }
 
                 return FieldsForm(

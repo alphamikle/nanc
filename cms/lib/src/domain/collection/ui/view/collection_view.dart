@@ -42,11 +42,11 @@ class _CollectionViewState extends State<CollectionView> {
   Model _findModel() {
     final String? modelId = context.vRouter.pathParameters[Params.modelId.name];
     if (modelId == null) {
-      throw notFoundModelIdError(modelId);
+      notFoundModelIdError(modelId);
     }
     final Model? model = context.read<ModelListBloc>().tryToFindModelById(modelId);
     if (model == null) {
-      return notFoundModelError(modelId);
+      notFoundModelError(modelId);
     }
     return model;
   }

@@ -36,6 +36,8 @@ class CollectionBloc extends Cubit<CollectionState> {
         query: null,
         globalSearchQuery: null,
         sort: null,
+        totalPages: 1,
+        currentPage: 1,
       ));
     }
     emit(state.copyWith(
@@ -43,10 +45,8 @@ class CollectionBloc extends Cubit<CollectionState> {
       notFoundAnything: false,
       modelId: modelId,
       dataRows: [],
-      totalPages: 1,
-      currentPage: 1,
     ));
-    await _loadData(modelId: modelId);
+    await _loadData(modelId: modelId, page: state.currentPage);
   }
 
   Future<void> paginate(int page) async {

@@ -75,7 +75,7 @@ class ModelListBloc extends Cubit<ModelListState> {
   Model findModelById(String modelId) {
     final Model? model = tryToFindModelById(modelId);
     if (model == null) {
-      throw notFoundModelError(modelId);
+      notFoundModelError(modelId);
     }
     return model;
   }

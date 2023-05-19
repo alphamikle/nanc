@@ -29,6 +29,8 @@ abstract class _$PageStateCWProxy {
 
   PageState controllerMap(Map<String, TextEditingController> controllerMap);
 
+  PageState isError(bool isError);
+
   PageState thirdTable(Map<String, ThirdTable> thirdTable);
 
   PageState thirdTableData(
@@ -47,6 +49,7 @@ abstract class _$PageStateCWProxy {
     bool? isDeleting,
     bool? isSaving,
     Map<String, TextEditingController>? controllerMap,
+    bool? isError,
     Map<String, ThirdTable>? thirdTable,
     Map<String, Map<String, List<String>>>? thirdTableData,
   });
@@ -79,6 +82,9 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
       this(controllerMap: controllerMap);
 
   @override
+  PageState isError(bool isError) => this(isError: isError);
+
+  @override
   PageState thirdTable(Map<String, ThirdTable> thirdTable) =>
       this(thirdTable: thirdTable);
 
@@ -102,6 +108,7 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
     Object? isDeleting = const $CopyWithPlaceholder(),
     Object? isSaving = const $CopyWithPlaceholder(),
     Object? controllerMap = const $CopyWithPlaceholder(),
+    Object? isError = const $CopyWithPlaceholder(),
     Object? thirdTable = const $CopyWithPlaceholder(),
     Object? thirdTableData = const $CopyWithPlaceholder(),
   }) {
@@ -133,6 +140,10 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
               ? _value.controllerMap
               // ignore: cast_nullable_to_non_nullable
               : controllerMap as Map<String, TextEditingController>,
+      isError: isError == const $CopyWithPlaceholder() || isError == null
+          ? _value.isError
+          // ignore: cast_nullable_to_non_nullable
+          : isError as bool,
       thirdTable:
           thirdTable == const $CopyWithPlaceholder() || thirdTable == null
               ? _value.thirdTable
@@ -165,6 +176,7 @@ PageState _$PageStateFromJson(Map<String, dynamic> json) => PageState(
       isSaving: json['isSaving'] as bool,
       controllerMap: _controllerMapFromJson(
           json['controllerMap'] as Map<String, dynamic>?),
+      isError: json['isError'] as bool,
       thirdTable: (json['thirdTable'] as Map<String, dynamic>).map(
         (k, e) => MapEntry(k, ThirdTable.fromJson(e)),
       ),
@@ -183,6 +195,7 @@ Map<String, dynamic> _$PageStateToJson(PageState instance) => <String, dynamic>{
       'initialData': instance.initialData,
       'isLoading': instance.isLoading,
       'isSaving': instance.isSaving,
+      'isError': instance.isError,
       'isDeleting': instance.isDeleting,
       'controllerMap': _controllerMapToJson(instance.controllerMap),
       'thirdTableData': instance.thirdTableData,

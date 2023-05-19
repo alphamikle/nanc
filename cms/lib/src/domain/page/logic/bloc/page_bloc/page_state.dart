@@ -29,6 +29,7 @@ class PageState extends BaseEntityPageState {
     required super.isDeleting,
     required super.isSaving,
     required super.controllerMap,
+    required super.isError,
     required this.thirdTable,
     required this.thirdTableData,
   });
@@ -39,6 +40,7 @@ class PageState extends BaseEntityPageState {
     bool? isLoading,
     bool? isDeleting,
     bool? isSaving,
+    bool? isError,
     TextControllerMap? controllerMap,
     Map<ModelId, ThirdTable>? thirdTable,
     ThirdTableData? thirdTableData,
@@ -49,6 +51,7 @@ class PageState extends BaseEntityPageState {
       isLoading: isLoading ?? false,
       isDeleting: isDeleting ?? false,
       isSaving: isSaving ?? false,
+      isError: isError ?? false,
       controllerMap: controllerMap ?? {},
       thirdTable: thirdTable ?? {},
       thirdTableData: const <ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>>{},
@@ -62,6 +65,7 @@ class PageState extends BaseEntityPageState {
         isLoading: false,
         isDeleting: false,
         isSaving: false,
+        isError: false,
         controllerMap: {},
         thirdTable: {},
       );

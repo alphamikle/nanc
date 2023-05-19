@@ -11,6 +11,8 @@ mixin RiveStateMachine<T extends StatefulWidget, I> on State<T> {
   late final Artboard artBoard;
   late final StateMachineController stateMachineController;
   bool initialized = false;
+  final Completer<bool> _initCompleter = Completer();
+  Future<bool> get initializedFuture => _initCompleter.future;
 
   String get filePath;
   String get stateMachine;
@@ -31,6 +33,7 @@ mixin RiveStateMachine<T extends StatefulWidget, I> on State<T> {
       stateMachineInput?.value = stateMachineInitialValue;
     }
     initialized = true;
+    _initCompleter.complete(true);
     safeSetState();
   }
 

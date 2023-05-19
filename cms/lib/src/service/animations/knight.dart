@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'package:tools/tools.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 import 'rive_state_machine_widget.dart';
 
@@ -15,14 +17,12 @@ class Knight extends StatefulWidget {
   State<Knight> createState() => _KnightState();
 }
 
-class _KnightState extends State<Knight> with AfterRender, RiveStateMachine<Knight, bool> {
-  Timer? switcherTimer;
-
+class _KnightState extends State<Knight> with AfterRender, RiveStateMachine<Knight, bool>, SingleTickerProviderStateMixin, AnimatedState {
   @override
   String get filePath => 'assets/animations/knight_rive.riv';
 
   @override
-  bool get stateMachineInitialValue => false;
+  bool get stateMachineInitialValue => DateTime.now().hour >= 20 || DateTime.now().hour <= 5;
 
   @override
   String get stateMachineInputName => 'Night';
@@ -30,23 +30,23 @@ class _KnightState extends State<Knight> with AfterRender, RiveStateMachine<Knig
   @override
   String get stateMachine => 'DayNightSwitch';
 
-  void dayNightSwitcher() {
-    safeSetState(() {
-      stateMachineInput?.value = !(stateMachineInput?.value ?? false);
-    });
-    switcherTimer = Timer(const Duration(seconds: _delay), dayNightSwitcher);
+  @override
+  Curve get animationCurve => Curves.easeInQuint;
+
+  @override
+  Duration get animationDuration => const Duration(milliseconds: 1100);
+
+  Future<void> visibilitySwitcher() async {
+    if (stateMachineInitialValue == false) {
+      return;
+    }
+    unawaited(forward());
   }
 
   @override
   void initState() {
     super.initState();
-    Future<void>.delayed(const Duration(seconds: _delay - 1), dayNightSwitcher);
-  }
-
-  @override
-  void dispose() {
-    switcherTimer?.cancel();
-    super.dispose();
+    unawaited(visibilitySwitcher());
   }
 
   @override
@@ -54,11 +54,31 @@ class _KnightState extends State<Knight> with AfterRender, RiveStateMachine<Knig
     if (initialized == false) {
       return const SizedBox.shrink();
     }
-    return Rive(
-      fit: BoxFit.cover,
-      useArtboardSize: true,
-      alignment: Alignment.bottomLeft,
-      artboard: artBoard,
+    return Stack(
+      children: [
+        Rive(
+          fit: BoxFit.cover,
+          useArtboardSize: true,
+          alignment: Alignment.bottomLeft,
+          artboard: artBoard,
+        ),
+        Positioned.fill(
+          child: AnimatedBuilder(
+            animation: animation,
+            builder: (BuildContext context, Widget? child) {
+              final double blurStrength = 50 * (1 - animation.value);
+
+              return BackdropFilter(
+                filter: ImageFilter.blur(sigmaY: blurStrength, sigmaX: blurStrength),
+                child: child,
+              );
+            },
+            child: Container(
+              color: Colors.transparent,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

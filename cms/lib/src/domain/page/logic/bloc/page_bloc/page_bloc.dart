@@ -7,8 +7,9 @@ import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../service/errors/errors.dart';
+import '../../../../../service/errors/human_exception.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
-import '../../provider/entity_page_provider.dart';
+import '../../provider/page_provider.dart';
 import '../base_entity_page_bloc/base_page_bloc.dart';
 import 'page_state.dart';
 
@@ -29,38 +30,43 @@ class PageBloc extends BasePageBloc<PageState> {
   }) : super(state: PageState.empty());
 
   final ModelListBloc modelCollectionBloc;
-  final PageProvider pageProvider;
+  final IPageProvider pageProvider;
   final EventBus eventBus;
 
   Future<void> loadPage(String modelId, String pageId) async {
-    this.modelId = modelId;
-    this.pageId = pageId;
-    emit(state.copyWith.isLoading(true));
-    await wait(duration: const Duration(milliseconds: 50));
-    final Model? model = modelCollectionBloc.tryToFindModelById(modelId);
-    if (model == null) {
-      notFoundModelError(modelId);
+    try {
+      this.modelId = modelId;
+      this.pageId = pageId;
+      emit(state.copyWith(isLoading: true, isError: false));
+      await wait(duration: const Duration(milliseconds: 50));
+      final Model? model = modelCollectionBloc.tryToFindModelById(modelId);
+      if (model == null) {
+        notFoundModelError(modelId);
+      }
+      final bool draftResult = await _preloadDraft(modelId);
+      if (draftResult) {
+        return;
+      }
+      final Json data = await loadPageData(model: model, pageId: pageId);
+      final Json dynamicStructure = await _loadDynamicStructure(model: model, pageId: pageId);
+      final TextControllerMap controllerMap = _mapPageDataToControllerMap(modelId, data);
+      data.addAll(dynamicStructure);
+      emit(state.copyWith(
+        data: data,
+        initialData: clone(data),
+        controllerMap: controllerMap,
+        thirdTableData: {},
+        thirdTable: {},
+        isLoading: false,
+      ));
+    } catch (error) {
+      emit(state.copyWith(isLoading: false, isError: true));
+      throw error.toHumanException('Page "$pageId" loading failed!');
     }
-    final bool draftResult = await _preloadDraft(modelId);
-    if (draftResult) {
-      return;
-    }
-    final Json data = await loadPageData(model: model, pageId: pageId);
-    final Json dynamicStructure = await _loadDynamicStructure(model: model, pageId: pageId);
-    final TextControllerMap controllerMap = _mapPageDataToControllerMap(modelId, data);
-    data.addAll(dynamicStructure);
-    emit(state.copyWith(
-      data: data,
-      initialData: clone(data),
-      controllerMap: controllerMap,
-      thirdTableData: {},
-      thirdTable: {},
-      isLoading: false,
-    ));
   }
 
   Future<void> save(Model model) async {
-    emit(state.copyWith.isSaving(true));
+    emit(state.copyWith(isSaving: true, isError: false));
     try {
       final Json savedData = await pageProvider.saveEditedPage(
         entity: model,
@@ -79,14 +85,13 @@ class PageBloc extends BasePageBloc<PageState> {
         initialData: clone(savedData),
         thirdTableData: {},
         controllerMap: _remapPageDataToControllerMap(model.id, savedData),
+        isSaving: false,
       ));
       eventBus.send(eventId: PageEvents.save, request: model);
     } catch (error) {
-      // Handle error
-      emit(state.copyWith.isSaving(false));
-      rethrow;
+      emit(state.copyWith(isSaving: false, isError: true));
+      throw error.toHumanException('Page saving failed!');
     }
-    emit(state.copyWith.isSaving(false));
   }
 
   Future<void> create(Model model) async {
@@ -201,6 +206,7 @@ class PageBloc extends BasePageBloc<PageState> {
       emit(draftState.copyWith(
         isLoading: false,
         controllerMap: controllerMap,
+        isError: false,
       ));
       return true;
     }
@@ -237,7 +243,7 @@ class PageBloc extends BasePageBloc<PageState> {
     await wait(duration: const Duration(milliseconds: 50));
     final Model? effectiveModel = model ?? modelCollectionBloc.tryToFindModelById(modelId!);
     if (effectiveModel == null) {
-      throw Exception('Error while loading model page data with id "$modelId"');
+      notFoundModelError(modelId ?? model!.id);
     }
     final Json data = await pageProvider.fetchPageData(
       model: effectiveModel,

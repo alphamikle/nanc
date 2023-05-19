@@ -53,7 +53,7 @@ class CollectionFilterBloc extends Cubit<CollectionFilterState> {
   void _setUpModel(String modelId) {
     final Model? model = modelCollectionBloc.tryToFindModelById(modelId);
     if (model == null) {
-      throw notFoundModelError(modelId);
+      notFoundModelError(modelId);
     }
     emit(state.copyWith(collectionModel: model));
   }
