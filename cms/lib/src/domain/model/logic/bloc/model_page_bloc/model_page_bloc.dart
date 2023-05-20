@@ -6,6 +6,7 @@ import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../../service/errors/errors.dart';
+import '../../../../../service/errors/human_exception.dart';
 import '../../../../general/logic/bloc/side_menu/menu_bloc.dart';
 import '../../provider/model_provider.dart';
 import '../model_list_bloc/model_list_bloc.dart';
@@ -46,28 +47,49 @@ class ModelPageBloc extends Cubit<ModelPageState> {
   }
 
   Future<void> save() async {
-    emit(state.copyWith(isSaving: true));
-    bool confirmed = false;
+    try {
+      emit(state.copyWith(isSaving: true));
+      bool confirmed = false;
 
-    if (state.editableModel.codeFirstEntity) {
-      confirmed = await confirmAction(
-        context: rootKey.currentContext!,
-        title: 'Potentially dangerous action',
-        subtitle:
-            'You are trying to change a pre-loaded model model. After this change the management of the model model will be done through the backend. Are you sure you want to continue?',
-      );
-    } else {
-      confirmed = true;
+      if (state.editableModel.codeFirstEntity) {
+        confirmed = await confirmAction(
+          context: rootKey.currentContext!,
+          title: 'Potentially dangerous action',
+          subtitle:
+              'You are trying to change a pre-loaded model model. After this change the management of the model model will be done through the backend. Are you sure you want to continue?',
+        );
+      } else {
+        confirmed = true;
+      }
+      if (confirmed) {
+        confirmed = await confirmAction(
+          context: rootKey.currentContext!,
+          title: 'Dangerous action!',
+          subtitle: 'You are trying to change the structure of the model model. This can have negative consequences. Are you sure you want to continue?',
+        );
+      }
+      if (confirmed) {
+        final Model newModel = await modelProvider.saveModel(oldModel: state.initialModel, newModel: state.editableModel);
+        await modelCollectionBloc.reloadDynamicModels();
+        await menuBloc.reInitItems();
+        emit(state.copyWith(
+          editableModel: newModel,
+          initialModel: newModel.deepClone(),
+          idWasChanged: false,
+        ));
+        _initControllerMap();
+      }
+      emit(state.copyWith(isSaving: false));
+    } catch (error) {
+      emit(state.copyWith(isSaving: false));
+      throw error.toHumanException('Model saving failed!');
     }
-    if (confirmed) {
-      confirmed = await confirmAction(
-        context: rootKey.currentContext!,
-        title: 'Dangerous action!',
-        subtitle: 'You are trying to change the structure of the model model. This can have negative consequences. Are you sure you want to continue?',
-      );
-    }
-    if (confirmed) {
-      final Model newModel = await modelProvider.saveModel(oldModel: state.initialModel, newModel: state.editableModel);
+  }
+
+  Future<void> create() async {
+    try {
+      emit(state.copyWith(isSaving: true));
+      final Model newModel = await modelProvider.createModel(state.editableModel);
       await modelCollectionBloc.reloadDynamicModels();
       await menuBloc.reInitItems();
       emit(state.copyWith(
@@ -76,22 +98,11 @@ class ModelPageBloc extends Cubit<ModelPageState> {
         idWasChanged: false,
       ));
       _initControllerMap();
+      emit(state.copyWith(isSaving: false));
+    } catch (error) {
+      emit(state.copyWith(isSaving: false));
+      throw error.toHumanException('Model creation failed!');
     }
-    emit(state.copyWith(isSaving: false));
-  }
-
-  Future<void> create() async {
-    emit(state.copyWith(isSaving: true));
-    final Model newModel = await modelProvider.createModel(state.editableModel);
-    await modelCollectionBloc.reloadDynamicModels();
-    await menuBloc.reInitItems();
-    emit(state.copyWith(
-      editableModel: newModel,
-      initialModel: newModel.deepClone(),
-      idWasChanged: false,
-    ));
-    _initControllerMap();
-    emit(state.copyWith(isSaving: false));
   }
 
   void moveField({

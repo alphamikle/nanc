@@ -95,7 +95,7 @@ class PageBloc extends BasePageBloc<PageState> {
   }
 
   Future<void> create(Model model) async {
-    emit(state.copyWith.isSaving(true));
+    emit(state.copyWith(isSaving: true, isError: false));
     try {
       final Json savedData = await pageProvider.createPage(
         entity: model,
@@ -112,13 +112,13 @@ class PageBloc extends BasePageBloc<PageState> {
         data: savedData,
         initialData: clone(savedData),
         thirdTableData: {},
+        isSaving: false,
       ));
       eventBus.send(eventId: PageEvents.save, request: model);
     } catch (error) {
-      emit(state.copyWith.isSaving(false));
-      rethrow;
+      emit(state.copyWith(isSaving: false, isError: true));
+      throw error.toHumanException('Page creation failed!');
     }
-    emit(state.copyWith.isSaving(false));
   }
 
   Future<void> _saveThirdTableData() async {
@@ -132,7 +132,7 @@ class PageBloc extends BasePageBloc<PageState> {
   }
 
   Future<void> delete(Model model) async {
-    emit(state.copyWith(isDeleting: true));
+    emit(state.copyWith(isDeleting: true, isError: false));
     try {
       await pageProvider.deletePage(model: model, pageId: state.data[model.idField.id].toString());
       await _deleteDraft();
@@ -140,8 +140,8 @@ class PageBloc extends BasePageBloc<PageState> {
       pageId = null;
       emit(state.copyWith(isDeleting: false));
     } catch (error) {
-      emit(state.copyWith(isDeleting: false));
-      rethrow;
+      emit(state.copyWith(isDeleting: false, isError: true));
+      throw error.toHumanException('Page deletion failed!');
     }
   }
 
@@ -200,17 +200,26 @@ class PageBloc extends BasePageBloc<PageState> {
   bool hasThirdTableData(ModelId entityId) => state.thirdTableData.containsKey(entityId);
 
   Future<bool> _preloadDraft(String modelId) async {
-    if (draftKey != null && await draftService.haveDraft(draftKey!)) {
-      final PageState draftState = PageState.fromJson(await draftService.getDraft(draftKey!));
-      final TextControllerMap controllerMap = _mapPageDataToControllerMap(modelId, draftState.data);
-      emit(draftState.copyWith(
+    try {
+      if (draftKey != null && await draftService.haveDraft(draftKey!)) {
+        final PageState draftState = PageState.fromJson(await draftService.getDraft(draftKey!));
+        final TextControllerMap controllerMap = _mapPageDataToControllerMap(modelId, draftState.data);
+        emit(draftState.copyWith(
+          isLoading: false,
+          controllerMap: controllerMap,
+          isError: false,
+        ));
+        return true;
+      }
+      return false;
+    } catch (error) {
+      await draftService.deleteDraft(draftKey!);
+      emit(state.copyWith(
         isLoading: false,
-        controllerMap: controllerMap,
         isError: false,
       ));
-      return true;
+      return false;
     }
-    return false;
   }
 
   Json _clearData(Json json, Model model) {
