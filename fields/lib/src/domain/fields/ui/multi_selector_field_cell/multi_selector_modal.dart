@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cms/cms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
@@ -32,6 +33,7 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
   final Set<String> selectedIds = {};
   final List<Json> foundRows = [];
   bool isLoading = false;
+  bool isError = false;
 
   Model get shortChildEntity {
     final List<Field> childFields = [];
@@ -45,42 +47,53 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
   }
 
   Future<void> finder({bool immediately = false}) async {
-    safeSetState(() => isLoading = true);
+    safeSetState(() {
+      isLoading = true;
+      isError = false;
+    });
     Debouncer.run(id: '${field.id}:finder', () async {
-      if (mounted) {
-        final ICollectionProvider provider = context.read();
-        final List<String> values = splitComplexTitle(query: searchController.text, titleFields: field.titleFields);
-        final List<QueryValueField> queryValues = [];
-        final List<String> titleFieldsIds = field.titleFields.toFieldsIds();
+      try {
+        if (mounted) {
+          final ICollectionProvider provider = context.read();
+          final List<String> values = splitComplexTitle(query: searchController.text, titleFields: field.titleFields);
+          final List<QueryValueField> queryValues = [];
+          final List<String> titleFieldsIds = field.titleFields.toFieldsIds();
 
-        for (final String titleFieldId in titleFieldsIds) {
-          for (final String value in values) {
-            queryValues.add(
-              QueryValueField(
-                fieldId: titleFieldId,
-                value: value,
-                type: QueryFieldType.contains,
-              ),
-            );
+          for (final String titleFieldId in titleFieldsIds) {
+            for (final String value in values) {
+              queryValues.add(
+                QueryValueField(
+                  fieldId: titleFieldId,
+                  value: value,
+                  type: QueryFieldType.contains,
+                ),
+              );
+            }
           }
-        }
 
-        final CollectionResponseDto result = await provider.fetchPageList(
-          model: field.model,
-          subset: [
-            field.model.idField.id,
-            ...field.titleFields.toFieldsIds(),
-          ],
-          query: QueryOrField(fields: queryValues),
-          params: ParamsDto(
-            page: 1,
-            limit: 50,
-            sort: Sort(fieldId: field.model.idField.id, order: Order.asc),
-          ),
-        );
-        foundRows.clear();
-        foundRows.addAll(result.data);
-        safeSetState(() => isLoading = false);
+          final CollectionResponseDto result = await provider.fetchPageList(
+            model: field.model,
+            subset: [
+              field.model.idField.id,
+              ...field.titleFields.toFieldsIds(),
+            ],
+            query: QueryOrField(fields: queryValues),
+            params: ParamsDto(
+              page: 1,
+              limit: 50,
+              sort: Sort(fieldId: field.model.idField.id, order: Order.asc),
+            ),
+          );
+          foundRows.clear();
+          foundRows.addAll(result.data);
+          safeSetState(() => isLoading = false);
+        }
+      } catch (error) {
+        safeSetState(() {
+          isLoading = false;
+          isError = true;
+        });
+        throw error.toHumanException('Filtered data loading error');
       }
     });
   }
@@ -177,26 +190,28 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
           Expanded(
             child: AnimatedSwitcher(
               duration: const Duration(milliseconds: 250),
-              child: Material(
-                child: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 250),
-                  child: isLoading && foundRows.isEmpty
-                      ? const KitCenteredText(text: 'Loading')
-                      : KitTableV2(
-                          model: shortChildEntity,
-                          dataRows: foundRows,
-                          totalPages: 0,
-                          currentPage: 0,
-                          paginationEnabled: false,
-                          columnSizes: shortChildEntity.flattenFields.map((Field field) => field.width).toList(),
-                          onRowPressed: (Json rowData) => toggleRow(rowData),
-                          rowBuilder: rowBuilder,
-                          cellBuilder: cellBuilder,
-                          onResize: (Map<int, double> widths) => read<SettingsBloc>().saveWidth(modelId: tableId, widths: widths),
-                          initialSizes: initialSizes,
-                        ),
-                ),
-              ),
+              child: isError
+                  ? const UiError()
+                  : Material(
+                      child: AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 250),
+                        child: isLoading && foundRows.isEmpty
+                            ? const KitCenteredText(text: 'Loading')
+                            : KitTableV2(
+                                model: shortChildEntity,
+                                dataRows: foundRows,
+                                totalPages: 0,
+                                currentPage: 0,
+                                paginationEnabled: false,
+                                columnSizes: shortChildEntity.flattenFields.map((Field field) => field.width).toList(),
+                                onRowPressed: (Json rowData) => toggleRow(rowData),
+                                rowBuilder: rowBuilder,
+                                cellBuilder: cellBuilder,
+                                onResize: (Map<int, double> widths) => read<SettingsBloc>().saveWidth(modelId: tableId, widths: widths),
+                                initialSizes: initialSizes,
+                              ),
+                      ),
+                    ),
             ),
           ),
           Padding(

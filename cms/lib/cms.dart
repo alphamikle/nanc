@@ -18,6 +18,8 @@ export 'src/domain/page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
 export 'src/domain/page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
 export 'src/domain/page/logic/bloc/page_bloc/page_bloc.dart';
 export 'src/service/errors/errors.dart';
+export 'src/service/errors/human_exception.dart';
+export 'src/service/errors/ui_error.dart';
 export 'src/service/notifications/message_notification.dart';
 export 'src/service/routing/params_list.dart';
 export 'src/service/routing/route_list.dart';

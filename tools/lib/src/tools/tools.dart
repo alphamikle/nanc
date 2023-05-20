@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
@@ -44,4 +45,10 @@ Future<T?> doSomethingWhen<T>({required Action<T> action, required Condition con
     maxTries--;
   }
   return null;
+}
+
+void randomError([String? text]) {
+  if (Random.secure().nextBool()) {
+    throw Exception(text ?? 'Random error 🎲');
+  }
 }

@@ -17,7 +17,7 @@ import 'size_adjuster.dart';
 import 'table_paginator.dart';
 
 const double _kMinColumnWidth = 220;
-const double _kRowHeight = 48;
+const double _kRowHeight = 52;
 
 typedef KitTableRowBuilder = Widget Function(BuildContext context, Json data, Widget child);
 typedef KitTableCellBuilder = Widget Function(BuildContext context, MapEntry<String, dynamic> cellData);
@@ -229,6 +229,7 @@ class _KitTableV2State extends State<KitTableV2> {
         contentPadding: widget.rowBuilder == null ? null : EdgeInsets.zero,
         onTap: () => widget.onRowPressed!(rowData),
         title: child,
+        dense: true,
       );
     }
     return SizedBox(

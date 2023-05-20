@@ -45,6 +45,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
   ThirdTable get thirdTable => field.thirdTable;
   late final EventBus eventBus = context.read();
   bool isPreloading = true;
+  bool isError = false;
 
   @override
   PageBloc get pageBloc {
@@ -147,52 +148,63 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
   }
 
   Future<void> preload() async {
-    final List<String> selectedIds = await getSelectedIds();
-    if (mounted) {
-      controller.text = kLoadingText;
-      safeSetState(() => isPreloading = true);
-      late final CollectionResponseDto childrenEntities;
-      if (selectedIds.isEmpty) {
-        childrenEntities = const CollectionResponseDto(page: 1, totalPages: 1, data: []);
-      } else {
-        childrenEntities = await context.read<ICollectionProvider>().fetchPageList(
-              model: model,
-              subset: [
-                model.idField.id,
-                ...titleFields.toFieldsIds(),
-              ],
-              query: QueryOrField(
-                fields: [
-                  ...selectedIds.map(
-                    (String id) => QueryValueField(
-                      fieldId: model.idField.id,
-                      type: QueryFieldType.equals,
-                      value: id,
-                    ),
-                  ),
-                ],
-              ),
-              params: ParamsDto(
-                page: 1,
-                limit: NetworkConfig.paginationLimitParameterDefaultValue,
-                sort: Sort(fieldId: model.idField.id, order: Order.asc),
-              ),
-            );
-      }
-      titleChips.clear();
-      for (final Json child in childrenEntities.data) {
-        final String rowTitle = titleFields.toTitleSegments(child).join();
-        titleChips.add(titleToChip(rowTitle));
-      }
-      if (titleChips.isNotEmpty) {
-        controller.text = 'Not empty';
-      } else {
-        controller.text = '';
-      }
+    try {
+      final List<String> selectedIds = await getSelectedIds();
       if (mounted) {
-        safeSetState(() => isPreloading = false);
+        controller.text = kLoadingText;
+        safeSetState(() {
+          isPreloading = true;
+          isError = false;
+        });
+        late final CollectionResponseDto childrenEntities;
+        if (selectedIds.isEmpty) {
+          childrenEntities = const CollectionResponseDto(page: 1, totalPages: 1, data: []);
+        } else {
+          childrenEntities = await context.read<ICollectionProvider>().fetchPageList(
+                model: model,
+                subset: [
+                  model.idField.id,
+                  ...titleFields.toFieldsIds(),
+                ],
+                query: QueryOrField(
+                  fields: [
+                    ...selectedIds.map(
+                      (String id) => QueryValueField(
+                        fieldId: model.idField.id,
+                        type: QueryFieldType.equals,
+                        value: id,
+                      ),
+                    ),
+                  ],
+                ),
+                params: ParamsDto(
+                  page: 1,
+                  limit: NetworkConfig.paginationLimitParameterDefaultValue,
+                  sort: Sort(fieldId: model.idField.id, order: Order.asc),
+                ),
+              );
+        }
+        titleChips.clear();
+        for (final Json child in childrenEntities.data) {
+          final String rowTitle = titleFields.toTitleSegments(child).join();
+          titleChips.add(titleToChip(rowTitle));
+        }
+        if (titleChips.isNotEmpty) {
+          controller.text = 'Not empty';
+        } else {
+          controller.text = '';
+        }
+        if (mounted) {
+          safeSetState(() => isPreloading = false);
+        }
+        unawaited(updateVirtualField());
       }
-      unawaited(updateVirtualField());
+    } catch (error) {
+      safeSetState(() {
+        isError = true;
+        isPreloading = false;
+      });
+      throw error.toHumanException('Related data loading failed!');
     }
   }
 
@@ -251,16 +263,17 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
             : null;
 
     return KitShimmerSwitcher(
-      showShimmer: isPreloading,
+      showShimmer: isPreloading || isError,
+      color: isError ? context.theme.colorScheme.error.withOpacity(0.5) : null,
       child: KitButtonFieldWrapper(
-        onPressed: selectFields,
+        onPressed: isError ? preload : selectFields,
         child: KitSegmentedField(
           validator: groupOfValidators([
             if (field.isRequired) isRequiredValidator,
           ]),
           focusStream: focusStream,
           helper: helper,
-          controller: controller,
+          controller: isError ? TextEditingController(text: 'Loading error...') : controller,
           children: [
             Stack(
               children: [
@@ -271,7 +284,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
                 ),
                 AnimatedOpacity(
                   duration: const Duration(milliseconds: 250),
-                  opacity: titleChips.isEmpty ? 0 : 1,
+                  opacity: titleChips.isEmpty || isError ? 0 : 1,
                   child: Padding(
                     padding: const EdgeInsets.only(right: 2),
                     child: ListView.builder(
