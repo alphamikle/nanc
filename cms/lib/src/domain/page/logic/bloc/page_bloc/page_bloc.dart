@@ -89,7 +89,7 @@ class PageBloc extends BasePageBloc<PageState> {
       ));
       eventBus.send(eventId: PageEvents.save, request: model);
     } catch (error) {
-      emit(state.copyWith(isSaving: false, isError: true));
+      emit(state.copyWith(isSaving: false));
       throw error.toHumanException('Page saving failed!');
     }
   }
@@ -116,7 +116,7 @@ class PageBloc extends BasePageBloc<PageState> {
       ));
       eventBus.send(eventId: PageEvents.save, request: model);
     } catch (error) {
-      emit(state.copyWith(isSaving: false, isError: true));
+      emit(state.copyWith(isSaving: false));
       throw error.toHumanException('Page creation failed!');
     }
   }
@@ -140,7 +140,7 @@ class PageBloc extends BasePageBloc<PageState> {
       pageId = null;
       emit(state.copyWith(isDeleting: false));
     } catch (error) {
-      emit(state.copyWith(isDeleting: false, isError: true));
+      emit(state.copyWith(isDeleting: false));
       throw error.toHumanException('Page deletion failed!');
     }
   }
