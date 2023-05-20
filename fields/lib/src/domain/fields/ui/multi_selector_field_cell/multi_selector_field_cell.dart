@@ -196,8 +196,8 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
         }
         if (mounted) {
           safeSetState(() => isPreloading = false);
+          unawaited(updateVirtualField());
         }
-        unawaited(updateVirtualField());
       }
     } catch (error) {
       safeSetState(() {
@@ -208,7 +208,11 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
     }
   }
 
-  Future<void> saveEventHandler(Model entity) => preload();
+  Future<void> saveEventHandler(Model entity) async {
+    if (mounted) {
+      await preload();
+    }
+  }
 
   @override
   Future<void> afterRender() async {
@@ -264,7 +268,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
 
     return KitShimmerSwitcher(
       showShimmer: isPreloading || isError,
-      color: isError ? context.theme.colorScheme.error.withOpacity(0.5) : null,
+      color: isError ? context.theme.colorScheme.error.o50 : null,
       child: KitButtonFieldWrapper(
         onPressed: isError ? preload : selectFields,
         child: KitSegmentedField(

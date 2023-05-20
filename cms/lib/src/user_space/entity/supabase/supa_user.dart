@@ -35,6 +35,8 @@ final Model supaUser = Model(
           childEntityIdName: 'color_id',
         ),
       ),
+    ],
+    [
       MultiSelectorField(
         name: 'Non Favorite Colors',
         model: supaColor,
@@ -48,6 +50,18 @@ final Model supaUser = Model(
           parentEntityIdName: 'user_id',
           childEntityIdName: 'color_id',
         ),
+      ),
+    ],
+    [
+      SelectorField(
+        name: 'Most Favorite Color',
+        id: 'most_favorite_color_id',
+        model: supaColor,
+        titleFields: const [
+          ExternalField.id('color_name'),
+          FieldsDivider.divider(': '),
+          ExternalField.id('color_value'),
+        ],
       ),
     ],
     [

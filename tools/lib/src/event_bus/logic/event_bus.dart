@@ -99,7 +99,7 @@ class EventBus {
         response = EventBusResponse<dynamic>(data: result);
       } catch (error) {
         response = EventBusResponse<dynamic>(error: error);
-        logg.rows('ERROR', error);
+        logg.rows('[ERROR]', error);
       }
 
       /// It's means that we used [send] method, instead of [run]

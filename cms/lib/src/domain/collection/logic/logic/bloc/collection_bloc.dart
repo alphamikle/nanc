@@ -8,7 +8,6 @@ import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../../cms.dart';
-import '../../../../../service/errors/human_exception.dart';
 import 'collection_state.dart';
 
 class CollectionBloc extends Cubit<CollectionState> {
@@ -158,8 +157,9 @@ class CollectionBloc extends Cubit<CollectionState> {
         valueFields.add(QueryValueField(type: queryBool ? QueryFieldType.isTrue : QueryFieldType.isFalse, fieldId: field.id));
       } else if (queryNumber != null && field.isNumeric) {
         valueFields.add(QueryValueField(type: QueryFieldType.equals, fieldId: field.id, value: queryNumber));
-      } else if (field is IdField) {
+      } else if (field is IdField || field is SelectorField) {
         // TODO(alphamikle): Add errors handling
+        // TODO(alphamikle): Add search by UUID and int ids (when int ids will be available)
         /// ? Do nothing
         // valueFields.add(QueryValueField(type: QueryFieldType.equals, fieldId: field.id, value: query));
       } else if (field.isString) {

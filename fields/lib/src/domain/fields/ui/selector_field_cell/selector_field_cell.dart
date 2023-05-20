@@ -32,45 +32,61 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
         model.idField.id,
         ...titleFields.toFieldsIds(),
       ].join();
+
   String get virtualField => widget.field.virtualField;
+
   List<TitleField> get titleFields => field.titleFields;
+
   Model get model => field.model;
   late final EventBus eventBus = read();
   bool isPreloading = false;
   bool isLoadingFullPageData = false;
+  bool isError = false;
 
   Future<List<Json>> finder(String searchQuery) async {
-    final ICollectionProvider entityListProvider = read();
-    final List<String> values = splitComplexTitle(query: searchQuery, titleFields: field.titleFields).where((String value) => value.trim().isNotEmpty).toList();
-    final List<QueryValueField> queryValues = [];
-    final List<String> titleFieldsIds = field.titleFields.toFieldsIds();
+    try {
+      final ICollectionProvider entityListProvider = read();
+      final List<String> values =
+          splitComplexTitle(query: searchQuery, titleFields: field.titleFields).where((String value) => value.trim().isNotEmpty).toList();
+      final List<QueryValueField> queryValues = [];
+      final List<String> titleFieldsIds = field.titleFields.toFieldsIds();
 
-    for (final String titleFieldId in titleFieldsIds) {
-      for (final String value in values) {
-        queryValues.add(
-          QueryValueField(
-            fieldId: titleFieldId,
-            value: value,
-            type: QueryFieldType.equals,
-          ),
-        );
+      for (final String titleFieldId in titleFieldsIds) {
+        for (final String value in values) {
+          queryValues.add(
+            QueryValueField(
+              fieldId: titleFieldId,
+              value: value,
+              type: QueryFieldType.equals,
+            ),
+          );
+        }
       }
-    }
 
-    final CollectionResponseDto result = await entityListProvider.fetchPageList(
-      model: model,
-      subset: [
-        model.idField.id,
-        ...titleFields.toFieldsIds(),
-      ],
-      query: QueryOrField(fields: queryValues),
-      params: ParamsDto(
-        page: 1,
-        limit: 50,
-        sort: Sort(fieldId: model.idField.id, order: Order.asc),
-      ),
-    );
-    return result.data;
+      final CollectionResponseDto result = await entityListProvider.fetchPageList(
+        model: model,
+        subset: [
+          model.idField.id,
+          ...titleFields.toFieldsIds(),
+        ],
+        query: QueryOrField(fields: queryValues),
+        params: ParamsDto(
+          page: 1,
+          limit: 50,
+          sort: Sort(fieldId: model.idField.id, order: Order.asc),
+        ),
+      );
+      if (isError) {
+        safeSetState(() => isError = false);
+      }
+      return result.data;
+    } catch (error) {
+      safeSetState(() {
+        isPreloading = false;
+        isError = true;
+      });
+      throw error.toHumanException('Related data loading failed!');
+    }
   }
 
   Future<void> updateValue(Json json) async {
@@ -98,31 +114,43 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
     );
   }
 
-  Future<void> saveEventHandler(Model entity) async => preload();
+  Future<void> saveEventHandler(Model entity) async {
+    if (mounted) {
+      await preload();
+    }
+  }
 
   Future<void> preload() async {
     safeSetState(() => isPreloading = true);
-    controller.text = kLoadingText;
-    final String? pageId = pageBloc.valueForKey(fieldId) as String?;
-    if (pageId == null) {
-      controller.clear();
-      safeSetState(() => isPreloading = false);
-      return;
+    try {
+      controller.text = kLoadingText;
+      final String? pageId = pageBloc.valueForKey(fieldId) as String?;
+      if (pageId == null) {
+        controller.clear();
+        safeSetState(() => isPreloading = false);
+        return;
+      }
+      final Json data = await read<IPageProvider>().fetchPageData(
+        model: model,
+        id: pageId,
+        subset: [
+          model.idField.id,
+          ...titleFields.toFieldsIds(),
+        ],
+      );
+      final String title = titleFields.toTitleSegments(data).join();
+      controller.text = title;
+      if (mounted) {
+        safeSetState(() => isPreloading = false);
+        unawaited(updateVirtualField(pageId));
+      }
+    } catch (error) {
+      safeSetState(() {
+        isPreloading = false;
+        isError = true;
+      });
+      throw error.toHumanException('Related data loading failed!');
     }
-    final Json data = await read<IPageProvider>().fetchPageData(
-      model: model,
-      id: pageId,
-      subset: [
-        model.idField.id,
-        ...titleFields.toFieldsIds(),
-      ],
-    );
-    final String title = titleFields.toTitleSegments(data).join();
-    controller.text = title;
-    if (mounted) {
-      safeSetState(() => isPreloading = false);
-    }
-    unawaited(updateVirtualField(pageId));
   }
 
   Future<void> updateVirtualField(String pageId) async {
@@ -148,7 +176,8 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
   @override
   Widget build(BuildContext context) {
     return KitShimmerSwitcher(
-      showShimmer: isPreloading,
+      showShimmer: isPreloading || isError,
+      color: isError ? context.theme.colorScheme.error.o50 : null,
       child: KitAutocompleteTextField(
         controller: controller,
         finder: finder,
