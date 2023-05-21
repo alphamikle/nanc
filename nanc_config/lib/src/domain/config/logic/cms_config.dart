@@ -7,6 +7,7 @@ class CmsConfig {
   const CmsConfig({
     required this.collectionApi,
     required this.pageApi,
+    required this.modelApi,
     required this.networkConfig,
     required this.imageBuilderDelegate,
     required this.adminWrapperBuilder,
@@ -18,6 +19,7 @@ class CmsConfig {
 
   final ICollectionApi collectionApi;
   final IPageApi pageApi;
+  final IModelApi modelApi;
   final NetworkConfig networkConfig;
   final ImageBuilderDelegate? imageBuilderDelegate;
   final AdminWrapperBuilder? adminWrapperBuilder;

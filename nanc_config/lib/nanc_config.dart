@@ -15,6 +15,7 @@ export 'src/domain/config/logic/cms_config.dart';
 export 'src/domain/config/logic/image_builder_delegate.dart';
 export 'src/domain/config/logic/network_config.dart';
 export 'src/domain/fields/logic/third_table.dart';
+export 'src/domain/model/logic/api/model_api_interface.dart';
 export 'src/domain/page/logic/provider/page_api_interface.dart';
 export 'src/domain/page/logic/provider/page_provider_interface.dart';
 export 'src/domain/settings/logic/bloc/settings_bloc.dart';

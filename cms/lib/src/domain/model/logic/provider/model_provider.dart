@@ -9,10 +9,12 @@ class ModelProvider {
   ModelProvider({
     required this.pageProvider,
     required this.collectionProvider,
+    required this.modelApi,
   });
 
   final IPageProvider pageProvider;
   final ICollectionProvider collectionProvider;
+  final IModelApi modelApi;
 
   Future<List<Model>> fetchModels() async {
     final CollectionResponseDto result = await collectionProvider.fetchPageList(
@@ -72,8 +74,9 @@ class ModelProvider {
     final String encryptedModelJson = result[kModelField] as String;
     final String decryptedModelId = await decrypt(encryptedModelId);
     final Json decryptedModelJson = castToJson(jsonDecode(await decrypt(encryptedModelJson, salt: decryptedModelId)));
+    await modelApi.createModelRelatedTable(newModel, newModel == oldModel ? null : oldModel);
     return Model.fromJson(decryptedModelJson);
   }
 
-  Future<Model> createModel(Model newEntity) async => saveModel(oldModel: newEntity, newModel: newEntity);
+  Future<Model> createModel(Model newModel) async => saveModel(oldModel: newModel, newModel: newModel);
 }

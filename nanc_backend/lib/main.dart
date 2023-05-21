@@ -14,6 +14,7 @@ import 'api/page_api_implementation.dart';
 import 'api/page_list_api_implementation.dart';
 import 'connection_manager/logic/connection_manager_bloc.dart';
 import 'connection_manager/ui/view/webrtc_connection_manager_overlay.dart';
+import 'mock_model_api.dart';
 import 'models/bullet.dart';
 import 'models/developer.dart';
 import 'models/feature.dart';
@@ -42,6 +43,7 @@ Future<void> main() async {
         dbService: dbService,
         connectionManagerBloc: connectionManagerBloc,
       ),
+      modelApi: MockModelApi(),
       networkConfig: NetworkConfig(
         paginationLimitParameterName: 'limit',
         paginationPageNumberParameterName: 'page',

@@ -19,6 +19,12 @@ Future<void> main() async {
     CmsConfig(
       collectionApi: SupabaseCollectionApi(api: supabaseApi),
       pageApi: SupabasePageApi(api: supabaseApi),
+      modelApi: SupabaseModelApi(
+        api: supabaseApi,
+        executorFunctionName: 'executor',
+        executorFunctionQueryArgumentName: 'query',
+        executorFunctionReturnableArgumentName: 'returnable',
+      ),
       networkConfig: NetworkConfig(
         paginationPageNumberParameterName: 'page',
         paginationLimitParameterName: 'limit',

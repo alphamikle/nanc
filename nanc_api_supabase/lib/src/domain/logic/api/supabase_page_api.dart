@@ -4,7 +4,8 @@ import 'package:nanc_config/nanc_config.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:tools/tools.dart';
 
-import '../../../nanc_api_supabase.dart';
+import 'supabase_api.dart';
+
 
 class SupabasePageApi implements IPageApi {
   SupabasePageApi({
