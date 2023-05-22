@@ -11,7 +11,7 @@ FormFieldValidator<String> groupOfValidators(List<FormFieldValidator<String>> va
   return (String? value) {
     for (final FormFieldValidator<String> validator in validators) {
       final String? errorText = validator(value);
-      if (errorText != null && errorText.trim() != '') {
+      if (errorText != null && errorText.isNotEmpty) {
         return errorText;
       }
     }

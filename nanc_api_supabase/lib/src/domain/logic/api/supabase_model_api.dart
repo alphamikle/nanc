@@ -8,68 +8,97 @@ import 'package:tools/tools.dart';
 
 import '../dto/column_info_dto.dart';
 import 'supabase_api.dart';
+import 'supabase_model_api_config.dart';
 
 const String kReturnableArgumentName = 'returnable';
 
 class SupabaseModelApi implements IModelApi {
   SupabaseModelApi({
     required SupabaseApi api,
-    required this.executorFunctionName,
-    required this.executorFunctionQueryArgumentName,
-    required this.executorFunctionReturnableArgumentName,
+    required this.config,
   }) : _api = api;
 
   final SupabaseApi _api;
-  final String executorFunctionName;
-  final String executorFunctionQueryArgumentName;
-  final String executorFunctionReturnableArgumentName;
+  final SupabaseModelApiConfig config;
+
+  String get _funcName => config.executorFunctionName;
+  String get _sqlQueryName => config.executorSqlArgumentName;
+  String get _returnableName => config.executorReturnableArgumentName;
+  bool get _deleteColumns => config.deleteUnnecessaryColumns;
+  bool get _notChangeTypes => config.changeDifferentTypes == false;
 
   @override
   Future<void> createModelRelatedTable(Model newModel, Model? oldModel) async {
     final String table = newModel.id;
-    final List<String> createColumns = [];
-    final List<String> alterColumns = [];
-    bool pkUsed = false;
+    final List<String> createCommands = [];
+    final List<String> alterCommands = [];
+    final List<String> constraintCommands = [];
+    bool isPkUsed = false;
 
     for (final Field field in newModel.flattenFields.realFields) {
       final String id = field.id;
-      final String fieldPk = primaryKey(newModel, field, pkUsed: pkUsed);
+      final String fieldPk = primaryKey(newModel, field, pkUsed: isPkUsed);
       final String type = fieldToSupabaseType(newModel, field);
       if (fieldPk.isNotEmpty) {
-        pkUsed = true;
+        // TODO(alphamikle): That means - for we can have only one PK
+        isPkUsed = true;
       }
       // TODO(alphamikle): Add references
-      createColumns.add('"$id" $type $fieldPk');
-      alterColumns.add('ADD COLUMN IF NOT EXISTS "$id" $type');
+      createCommands.add('"$id" $type $fieldPk');
+      alterCommands.add('''
+        IF NOT EXISTS (
+            SELECT 1
+            FROM information_schema.columns
+            WHERE table_name = '$table'
+            AND column_name = '$id'
+        ) THEN
+            ALTER TABLE "$table"
+            ADD COLUMN "$id" $type;
+            ${_notChangeTypes ? '-- ' : ''}ELSE
+                ${_notChangeTypes ? '-- ' : ''}ALTER TABLE "$table"
+                ${_notChangeTypes ? '-- ' : ''}ALTER COLUMN "$id" SET DATA TYPE $type USING "$id"::$type;
+        END IF;
+''');
+      if (field is SelectorField) {
+        final String constraintName = '${field.model.id}_${field.model.idField.id}_${field.id}_fkey';
+        constraintCommands.add('''
+    IF NOT EXISTS (
+        SELECT 1
+        FROM pg_constraint
+        WHERE conrelid = '$table'::regclass::oid
+          AND conname = '$constraintName'
+    ) THEN
+        ALTER TABLE "$table"
+        ADD CONSTRAINT "$constraintName" FOREIGN KEY ("$id") REFERENCES "${field.model.id}" (${field.model.idField.id}) ON DELETE SET NULL;
+    END IF;
+''');
+      }
     }
 
     final String sql = '''
 DO \$\$
 BEGIN
     IF NOT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = '$table') THEN
-        CREATE TABLE $table (
-            ${createColumns.join(',\n')}
+        -- Create new table
+        CREATE TABLE "$table" (
+            ${createCommands.join(',\n')}
         );
     ELSE
-        ALTER TABLE $table
-        ${alterColumns.join(',\n')}
-        ;
+        -- Altering existing table
+        ${alterCommands.join('\n')}
     END IF;
-    -- Добавление отсутствующих ограничений (если требуется)
-    -- ALTER TABLE $table
-    -- ADD CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users (id),
-    -- ADD CONSTRAINT fk_color FOREIGN KEY (color_id) REFERENCES colors (id)
-    -- ;
+    ${constraintCommands.isNotEmpty ? '-- Add / update constraints' : '-- Do nothing'}
+    ${constraintCommands.join('\n')}
 END \$\$;
 ''';
 
     try {
       await deleteOutdatedFields(newModel, newModel.flattenFields.realFields);
       await _api.client.rpc(
-        executorFunctionName,
+        _funcName,
         params: {
-          executorFunctionQueryArgumentName: sql,
-          executorFunctionReturnableArgumentName: false,
+          _sqlQueryName: sql,
+          _returnableName: false,
         },
       );
     } catch (error, stack) {
@@ -115,6 +144,9 @@ END \$\$;
   }
 
   Future<void> deleteOutdatedFields(Model model, List<Field> realFields) async {
+    if (_deleteColumns == false) {
+      return;
+    }
     final String requestQuery = '''
 SELECT jsonb_agg(jsonb_build_object(
     'column_name', column_name,
@@ -126,10 +158,10 @@ FROM information_schema.columns
 WHERE table_name = '${model.id}';
 ''';
     final String? response = await _api.client.rpc(
-      executorFunctionName,
+      _funcName,
       params: {
-        executorFunctionQueryArgumentName: requestQuery,
-        executorFunctionReturnableArgumentName: true,
+        _sqlQueryName: requestQuery,
+        _returnableName: true,
       },
     );
     if (response == null) {
@@ -148,12 +180,12 @@ WHERE table_name = '${model.id}';
       final String deleteQuery = '''
 ALTER TABLE ${model.id}
 ${deleteOldFieldCommands.join(',\n')}
-    ''';
+''';
       await _api.client.rpc(
-        executorFunctionName,
+        _funcName,
         params: {
-          executorFunctionQueryArgumentName: deleteQuery,
-          executorFunctionReturnableArgumentName: false,
+          _sqlQueryName: deleteQuery,
+          _returnableName: false,
         },
       );
     }

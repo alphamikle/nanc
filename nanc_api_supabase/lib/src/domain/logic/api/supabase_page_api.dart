@@ -6,7 +6,6 @@ import 'package:tools/tools.dart';
 
 import 'supabase_api.dart';
 
-
 class SupabasePageApi implements IPageApi {
   SupabasePageApi({
     required SupabaseApi api,
@@ -57,6 +56,13 @@ class SupabasePageApi implements IPageApi {
   @override
   Future<Json> upsertPage(Model model, String? id, Json pageData) async {
     final SupabaseQueryBuilder builder = _api.getBuilder(model);
+    final List<Field> realFields = model.flattenFields.realFields;
+    for (final Field field in realFields) {
+      /// ? Nanc remove null-values from the data-object, but Supabase require them to able to set them to null in the DB
+      if (pageData.containsKey(field.id) == false) {
+        pageData[field.id] = null;
+      }
+    }
     PostgrestFilterBuilder updater = builder.upsert(pageData);
     if (id != null) {
       updater = updater.eq(model.idField.id, id);

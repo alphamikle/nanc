@@ -21,9 +21,13 @@ Future<void> main() async {
       pageApi: SupabasePageApi(api: supabaseApi),
       modelApi: SupabaseModelApi(
         api: supabaseApi,
-        executorFunctionName: 'executor',
-        executorFunctionQueryArgumentName: 'query',
-        executorFunctionReturnableArgumentName: 'returnable',
+        config: const SupabaseModelApiConfig(
+          executorFunctionName: 'executor',
+          executorSqlArgumentName: 'query',
+          executorReturnableArgumentName: 'returnable',
+          changeDifferentTypes: true,
+          deleteUnnecessaryColumns: true,
+        ),
       ),
       networkConfig: NetworkConfig(
         paginationPageNumberParameterName: 'page',

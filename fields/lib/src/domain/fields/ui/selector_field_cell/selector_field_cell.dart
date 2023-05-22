@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cms/cms.dart';
 import 'package:flutter/material.dart';
+import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
@@ -40,14 +41,17 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
   Model get model => field.model;
   late final EventBus eventBus = read();
   bool isPreloading = false;
-  bool isLoadingFullPageData = false;
+  final StreamController<bool> isLoadingFullPageData = StreamController.broadcast();
   bool isError = false;
 
   Future<List<Json>> finder(String searchQuery) async {
+    isLoadingFullPageData.add(true);
     try {
       final ICollectionProvider entityListProvider = read();
-      final List<String> values =
-          splitComplexTitle(query: searchQuery, titleFields: field.titleFields).where((String value) => value.trim().isNotEmpty).toList();
+      final List<String> values = splitComplexTitle(
+        query: searchQuery,
+        titleFields: field.titleFields,
+      ).where((String value) => value.trim().isNotEmpty).toList();
       final List<QueryValueField> queryValues = [];
       final List<String> titleFieldsIds = field.titleFields.toFieldsIds();
 
@@ -57,7 +61,7 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
             QueryValueField(
               fieldId: titleFieldId,
               value: value,
-              type: QueryFieldType.equals,
+              type: QueryFieldType.contains,
             ),
           );
         }
@@ -73,14 +77,19 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
         params: ParamsDto(
           page: 1,
           limit: 50,
-          sort: Sort(fieldId: model.idField.id, order: Order.asc),
+          sort: Sort(
+            fieldId: model.idField.id,
+            order: Order.asc,
+          ),
         ),
       );
       if (isError) {
         safeSetState(() => isError = false);
       }
+      isLoadingFullPageData.add(false);
       return result.data;
     } catch (error) {
+      isLoadingFullPageData.add(false);
       safeSetState(() {
         isPreloading = false;
         isError = true;
@@ -154,10 +163,21 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
   }
 
   Future<void> updateVirtualField(String pageId) async {
-    safeSetState(() => isLoadingFullPageData = true);
-    final Json? data = await safeRead<PageBloc>()?.loadPageData(model: model, pageId: pageId);
-    safeRead<PageBloc>()?.updateValue(virtualField, data);
-    safeSetState(() => isLoadingFullPageData = false);
+    isLoadingFullPageData.add(true);
+    try {
+      final Json? data = await safeRead<PageBloc>()?.loadPageData(model: model, pageId: pageId);
+      safeRead<PageBloc>()?.updateValue(virtualField, data);
+      isLoadingFullPageData.add(false);
+    } catch (error) {
+      isLoadingFullPageData.add(false);
+      throw error.toHumanException('Virtual field data loading failed!');
+    }
+  }
+
+  Future<void> clearField() async {
+    controller.text = '';
+    safeRead<PageBloc>()?.updateValue(fieldId, null);
+    safeRead<PageBloc>()?.updateValue(virtualField, null);
   }
 
   @override
@@ -170,25 +190,58 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
   @override
   void dispose() {
     eventBus.unsubscribeFromEvent(consumer: eventBusId, eventId: PageEvents.save);
+    unawaited(isLoadingFullPageData.close());
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return KitShimmerSwitcher(
-      showShimmer: isPreloading || isError,
-      color: isError ? context.theme.colorScheme.error.o50 : null,
-      child: KitAutocompleteTextField(
-        controller: controller,
-        finder: finder,
-        placeholder: 'Write something to search...',
-        helper: helper,
-        onSelect: updateValue,
-        itemBuilder: itemBuilder,
-        isChanged: pageBloc.fieldWasChanged(fieldId),
-        isRequired: field.isRequired,
-        suffix: KitCirclePreloader(isLoading: isLoadingFullPageData),
-      ),
+    return Stack(
+      children: [
+        KitShimmerSwitcher(
+          showShimmer: isPreloading || isError,
+          color: isError ? context.theme.colorScheme.error.o50 : null,
+          child: KitAutocompleteTextField(
+            controller: controller,
+            finder: finder,
+            placeholder: 'Write something to search...',
+            helper: helper,
+            onSelect: updateValue,
+            itemBuilder: itemBuilder,
+            isChanged: pageBloc.fieldWasChanged(fieldId),
+            isRequired: field.isRequired,
+            suffix: StreamBuilder(
+              initialData: false,
+              stream: isLoadingFullPageData.stream,
+              builder: (BuildContext context, AsyncSnapshot<bool> snapshot) => KitCirclePreloader(
+                isLoading: snapshot.data ?? false,
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 5,
+          right: 4,
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 250),
+            child: StreamBuilder(
+              stream: isLoadingFullPageData.stream,
+              builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+                return snapshot.data ?? false || isPreloading
+                    ? const SizedBox.shrink()
+                    : KitTooltip(
+                        text: 'Clear field',
+                        child: IconButton(
+                          color: context.theme.colorScheme.primary,
+                          onPressed: clearField,
+                          icon: const Icon(IconPack.mdi_delete_sweep_outline),
+                        ),
+                      );
+              },
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

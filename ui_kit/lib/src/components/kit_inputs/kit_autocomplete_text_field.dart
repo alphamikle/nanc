@@ -139,7 +139,7 @@ class _KitAutocompleteTextFieldState<T extends Object> extends State<KitAutocomp
 
   Widget buildSuffix() {
     if (widget.suffix != null) {
-      return fieldPreloader(child: widget.suffix);
+      return widget.suffix!;
     }
     if (widget.suffixIcon != null) {
       return fieldPreloader(child: Icon(widget.suffixIcon));
@@ -157,7 +157,7 @@ class _KitAutocompleteTextFieldState<T extends Object> extends State<KitAutocomp
     return null;
   }
 
-  void _voidSelector(dynamic _) {}
+  void voidSelector(dynamic _) {}
 
   @override
   void dispose() {
@@ -172,7 +172,7 @@ class _KitAutocompleteTextFieldState<T extends Object> extends State<KitAutocomp
     return TypeAheadFormField<T>(
       suggestionsCallback: localFinder,
       itemBuilder: widget.itemBuilder ?? itemBuilderDefault,
-      onSuggestionSelected: widget.onSelect ?? _voidSelector,
+      onSuggestionSelected: widget.onSelect ?? voidSelector,
       textFieldConfiguration: TextFieldConfiguration(
         controller: widget.controller,
         decoration: (widget.inputDecoration ??

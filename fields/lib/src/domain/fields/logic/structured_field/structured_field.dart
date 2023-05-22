@@ -51,7 +51,7 @@ class StructuredField extends DynamicField {
       icon: IconPack.flu_code_block_regular,
       color: Color.fromRGBO(31, 60, 166, 1),
       title: 'Structured field',
-      description: 'A field for storing a list of values with a predefined structure',
+      description: 'A field for storing a list of objects (or single object) with a predefined structure',
     );
   }
 
