@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:config/config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:path_provider/path_provider.dart' as pp;
+
 import '../../../tools.dart';
 
 const String _kDynamicBoxId = 'DYNAMIC_BOX';
@@ -37,10 +37,6 @@ class DbService {
       await Hive.initFlutter();
       if (kIsWeb == false) {
         logg('Hive directory: file://${(await pp.getApplicationDocumentsDirectory()).path}');
-      }
-      if (Env.clearDb) {
-        logg('Clearing DB');
-        await Hive.deleteFromDisk();
       }
       _initializationState = _DbServiceInitializationState.initialized;
     } else if (_initializationState == _DbServiceInitializationState.initialization) {

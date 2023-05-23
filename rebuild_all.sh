@@ -14,6 +14,7 @@ bash build.sh ./model || exit
 bash build.sh ./nanc_backend || exit
 bash build.sh ./nanc_client || exit
 bash build.sh ./nanc_config || exit
+bash build.sh ./nanc_demo_cms || exit
 bash build.sh ./nanc_renderer || exit
 bash build.sh ./nanc_webrtc || exit
 bash build.sh ./storybook || exit

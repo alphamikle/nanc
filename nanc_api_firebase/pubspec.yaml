@@ -1,0 +1,39 @@
+name: nanc_api_firebase
+description: Firebase API Implementation for Nanc
+version: 1.0.0
+homepage: nope
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  nanc_config:
+    path: ../nanc_config
+  model:
+    path: ../model
+  tools:
+    path: ../tools
+  fields:
+    path: ../fields
+  equatable: ^2.0.5
+  json_annotation: ^4.8.0
+  copy_with_extension: ^5.0.0
+  autoequal: ^0.5.1
+  firebase_storage: ^11.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  lint:
+    path: ../lint
+  flutter_lints: ^2.0.1
+  json_serializable: ^6.6.1
+  copy_with_extension_gen: ^5.0.0
+  build_runner: ^2.3.3
+  autoequal_gen: ^0.5.1
+
+flutter:
