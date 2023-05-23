@@ -33,9 +33,12 @@ class SupabaseModelApi implements IModelApi {
     final List<String> createCommands = [];
     final List<String> alterCommands = [];
     final List<String> constraintCommands = [];
+    final List<String> thirdTableCommands = [];
     bool isPkUsed = false;
+    final List<Field> realFields = newModel.flattenFields.realFields;
+    final List<MultiSelectorField> multiSelectorFields = newModel.flattenFields.whereType<MultiSelectorField>().toList();
 
-    for (final Field field in newModel.flattenFields.realFields) {
+    for (final Field field in realFields) {
       final String id = field.id;
       final String fieldPk = primaryKey(newModel, field, pkUsed: isPkUsed);
       final String type = fieldToSupabaseType(newModel, field);
@@ -78,6 +81,45 @@ class SupabaseModelApi implements IModelApi {
       }
     }
 
+    for (final MultiSelectorField field in multiSelectorFields) {
+      final Model thirdTableModel = field.thirdTable.relationsEntity;
+      final String thirdTable = thirdTableModel.id;
+      final String parentId = field.thirdTable.parentEntityIdName;
+      final String childId = field.thirdTable.childEntityIdName;
+      final String parentConstraintName = '${newModel.id}_${newModel.idField.id}_${parentId}_fkey';
+      final String childConstraintName = '${field.model.id}_${field.model.idField.id}_${childId}_fkey';
+      final String onDeleteParentId =
+          thirdTableModel.fieldById(field.thirdTable.parentEntityIdName)?.isRequired ?? false ? 'ON DELETE RESTRICT' : 'ON DELETE SET NULL';
+      final String onDeleteChildId =
+          thirdTableModel.fieldById(field.thirdTable.childEntityIdName)?.isRequired ?? false ? 'ON DELETE RESTRICT' : 'ON DELETE SET NULL';
+
+      /// Handle of parent id field of the third table
+      thirdTableCommands.add('''
+    IF NOT EXISTS (
+        SELECT 1
+        FROM pg_constraint
+        WHERE conrelid = '$thirdTable'::regclass::oid
+          AND conname = '$parentId'
+    ) THEN
+        ALTER TABLE "$thirdTable"
+        ADD CONSTRAINT "$parentConstraintName" FOREIGN KEY ("$parentId") REFERENCES "${newModel.id}" (${newModel.idField.id}) $onDeleteParentId;
+    END IF;
+''');
+
+      /// Handle of child id field of the third table
+      thirdTableCommands.add('''
+    IF NOT EXISTS (
+        SELECT 1
+        FROM pg_constraint
+        WHERE conrelid = '$thirdTable'::regclass::oid
+          AND conname = '$childId'
+    ) THEN
+        ALTER TABLE "$thirdTable"
+        ADD CONSTRAINT "$childConstraintName" FOREIGN KEY ("$childId") REFERENCES "${field.model.id}" (${field.model.idField.id}) $onDeleteChildId;
+    END IF;
+''');
+    }
+
     final String sql = '''
 DO \$\$
 BEGIN
@@ -94,6 +136,9 @@ BEGIN
     END IF;
     ${constraintCommands.isNotEmpty ? '-- Add / update constraints' : '-- Do nothing'}
     ${constraintCommands.join('\n')}
+    
+    ${thirdTableCommands.isNotEmpty ? '-- Ruling third table' : '-- Do nothing'}
+    ${thirdTableCommands.join('\n')}
 END \$\$;
 ''';
 
