@@ -17,8 +17,8 @@ class FieldTypeSelectorModal extends StatelessWidget {
 
   List<Field> get _fields {
     final List<Field> fields = [];
-    for (int i = 0; i < FieldMapper.listOfFields.length; i++) {
-      final Field field = FieldMapper.listOfFields[i];
+    for (int i = 0; i < FieldMapper.customerFields.length; i++) {
+      final Field field = FieldMapper.customerFields[i];
       final bool isIncluded = include == null || include!.isEmpty || include!.contains(field.type);
       final bool isExcluded = exclude != null && exclude!.isNotEmpty && exclude!.contains(field.type);
       if (isIncluded && isExcluded == false) {

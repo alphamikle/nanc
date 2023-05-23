@@ -39,12 +39,13 @@ class SupabaseModelApi implements IModelApi {
       final String id = field.id;
       final String fieldPk = primaryKey(newModel, field, pkUsed: isPkUsed);
       final String type = fieldToSupabaseType(newModel, field);
+      final bool isNullable = field.isRequired == false;
       if (fieldPk.isNotEmpty) {
         // TODO(alphamikle): That means - for we can have only one PK
         isPkUsed = true;
       }
       // TODO(alphamikle): Add references
-      createCommands.add('"$id" $type $fieldPk');
+      createCommands.add('"$id" $type $fieldPk ${isNullable ? 'NULL' : 'NOT NULL'}');
       alterCommands.add('''
         IF NOT EXISTS (
             SELECT 1
@@ -53,13 +54,15 @@ class SupabaseModelApi implements IModelApi {
             AND column_name = '$id'
         ) THEN
             ALTER TABLE "$table"
-            ADD COLUMN "$id" $type;
+            ADD COLUMN "$id" $type ${isNullable ? 'NULL' : 'NOT NULL'};
             ${_notChangeTypes ? '-- ' : ''}ELSE
                 ${_notChangeTypes ? '-- ' : ''}ALTER TABLE "$table"
-                ${_notChangeTypes ? '-- ' : ''}ALTER COLUMN "$id" SET DATA TYPE $type USING "$id"::$type;
+                ${_notChangeTypes ? '-- ' : ''}ALTER COLUMN "$id" SET DATA TYPE $type USING "$id"::$type,
+                ${_notChangeTypes ? '-- ' : ''}ALTER COLUMN "$id" ${isNullable ? 'DROP NOT NULL' : 'SET NOT NULL'};
         END IF;
 ''');
       if (field is SelectorField) {
+        final String onDelete = field.isRequired ? 'ON DELETE RESTRICT' : 'ON DELETE SET NULL';
         final String constraintName = '${field.model.id}_${field.model.idField.id}_${field.id}_fkey';
         constraintCommands.add('''
     IF NOT EXISTS (
@@ -69,7 +72,7 @@ class SupabaseModelApi implements IModelApi {
           AND conname = '$constraintName'
     ) THEN
         ALTER TABLE "$table"
-        ADD CONSTRAINT "$constraintName" FOREIGN KEY ("$id") REFERENCES "${field.model.id}" (${field.model.idField.id}) ON DELETE SET NULL;
+        ADD CONSTRAINT "$constraintName" FOREIGN KEY ("$id") REFERENCES "${field.model.id}" (${field.model.idField.id}) $onDelete;
     END IF;
 ''');
       }
@@ -83,6 +86,8 @@ BEGIN
         CREATE TABLE "$table" (
             ${createCommands.join(',\n')}
         );
+        ALTER TABLE "$table"
+        ENABLE ROW LEVEL SECURITY;
     ELSE
         -- Altering existing table
         ${alterCommands.join('\n')}
@@ -111,7 +116,7 @@ END \$\$;
       BoolField() => 'bool',
       ColorField() => 'varchar(10)',
       // TODO(alphamikle): Refactor after splitting DateTime to Date / Time / DateTime fields
-      DateTimeField() => 'timestampz',
+      DateTimeField() => 'timestamptz',
       DynamicField() => 'jsonb',
       EnumField() => 'text',
       FontField() => 'varchar(256)',
@@ -123,7 +128,7 @@ END \$\$;
       NumberField() => 'float8',
       QueryFilterField() => 'text',
       QueryFilterValueField() => 'text',
-      ScreenField() => 'text',
+      ScreenField() => 'jsonb',
       // TODO(alphamikle): Assign type by the information from the related table (selectorField.model)
       SelectorField() => 'uuid',
       StringField() => 'text',

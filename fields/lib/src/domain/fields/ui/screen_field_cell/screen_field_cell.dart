@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:cms/cms.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,10 @@ class ScreenFieldCell extends FieldCellWidget<ScreenField> {
 
 class _ScreenFieldCellState extends State<ScreenFieldCell> with FieldCellHelper<ScreenField, ScreenFieldCell> {
   Future<void> preload() async {
-    final dynamic value = pageBloc.valueForKey(fieldId);
+    dynamic value = pageBloc.valueForKey(fieldId);
+    if (value is String) {
+      value = jsonDecode(value);
+    }
     late ScreenContentModel model;
     if (value != null) {
       model = ScreenContentModel.fromJson(value);

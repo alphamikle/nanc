@@ -44,10 +44,6 @@ class _StructureFieldCellState extends State<StructureFieldCell> with FieldCellH
       exclude: {
         FieldType.dynamicField,
         FieldType.screenField,
-        FieldType.structureField,
-        FieldType.queryFilterField,
-        FieldType.queryFilterValueField,
-        FieldType.modelsSelectorField,
       },
     );
     Field? field;

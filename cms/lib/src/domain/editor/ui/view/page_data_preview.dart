@@ -17,9 +17,10 @@ class PageDataPreview extends StatelessWidget {
   Widget build(BuildContext context) {
     return KitJsonPreview(
       data: data,
-      excludedKeys: [
+      excludedKeys: {
         field.id,
-      ],
+        RegExp(kStructureKey),
+      },
     );
   }
 }

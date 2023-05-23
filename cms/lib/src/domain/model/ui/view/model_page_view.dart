@@ -46,11 +46,7 @@ class _ModelPageViewState extends State<ModelPageView> {
   }
 
   Future<void> addField(BuildContext context, int rowIndex) async {
-    final FieldType? selectedField = await showFieldTypeSelectorModal(context, exclude: {
-      FieldType.queryFilterValueField,
-      FieldType.queryFilterField,
-      FieldType.modelsSelectorField,
-    });
+    final FieldType? selectedField = await showFieldTypeSelectorModal(context);
     if (selectedField != null && mounted) {
       final Field? createdField = await showFieldCreationModal(context, selectedField);
       if (createdField != null && mounted) {
@@ -176,6 +172,11 @@ class _ModelPageViewState extends State<ModelPageView> {
                   ),
                 ],
               );
+            },
+          ),
+          BlocBuilder<ModelPageBloc, ModelPageState>(
+            builder: (BuildContext context, ModelPageState state) {
+              return KitPreloaderV2(isLoading: state.isSaving);
             },
           ),
           Expanded(

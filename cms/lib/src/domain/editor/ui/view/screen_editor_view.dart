@@ -168,8 +168,8 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                         /// ? ICONS BUTTON
                         KitButton(
                           onPressed: () async => selectIcon(context: context, query: '', selectedIcon: null),
-                          child: Row(
-                            children: const [
+                          child: const Row(
+                            children: [
                               KitText(text: 'Icons'),
                               Padding(
                                 padding: EdgeInsets.only(left: kPaddingSmall),
@@ -192,8 +192,8 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                           middleColor: context.theme.colorScheme.surfaceVariant,
                           closedBuilder: (BuildContext context, VoidCallback action) => KitButton(
                             onPressed: action,
-                            child: Row(
-                              children: const [
+                            child: const Row(
+                              children: [
                                 KitText(text: 'Help'),
                                 Padding(
                                   padding: EdgeInsets.only(left: kPaddingSmall),

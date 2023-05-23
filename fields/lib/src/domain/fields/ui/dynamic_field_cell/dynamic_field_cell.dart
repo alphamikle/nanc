@@ -61,7 +61,9 @@ class _DynamicFieldCellState extends State<DynamicFieldCell> with FieldCellHelpe
   void toggleEditMode() => safeSetState(() => isEditMode = !isEditMode);
 
   Future<void> addItem() async {
-    final FieldType? fieldType = await showFieldTypeSelectorModal(context);
+    final FieldType? fieldType = await showFieldTypeSelectorModal(context, exclude: {
+      FieldType.screenField,
+    });
     Field? field;
     if (mounted && fieldType != null) {
       field = await showFieldCreationModal(context, fieldType);

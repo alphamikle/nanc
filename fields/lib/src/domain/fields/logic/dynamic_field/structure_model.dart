@@ -7,7 +7,7 @@ import 'package:tools/tools.dart';
 import '../id_field/id_field.dart';
 import '../string_field/string_field.dart';
 
-const String _kStructureKey = 'structure:2a650905-5bb1-402c-a64b-5ac6f410283a';
+const String kStructureKey = 'structure:2a650905-5bb1-402c-a64b-5ac6f410283a';
 
 const String kStructureIdField = 'id';
 const String kStructureField = 'structure';
@@ -19,7 +19,7 @@ dynamic filterJsonFromStructures(dynamic json) {
     final Json filteredJson = {};
     for (final MapEntry<dynamic, dynamic> entry in json.entries) {
       final String key = entry.key.toString();
-      if (key.contains(_kStructureKey) == false) {
+      if (key.contains(kStructureKey) == false) {
         filteredJson[key] = filterJsonFromStructures(entry.value);
       }
     }
@@ -53,8 +53,8 @@ Future<Json> generateStructureJson({
   };
 }
 
-String generateStructureFieldId(String fieldId) => '$fieldId:$_kStructureKey';
+String generateStructureFieldId(String fieldId) => '$fieldId:$kStructureKey';
 
 String generateStructurePageId(String structureFieldId, String modelId) => '$modelId:$structureFieldId';
 
-bool isStructureField(String fieldId) => fieldId.contains(_kStructureKey);
+bool isStructureField(String fieldId) => fieldId.contains(kStructureKey);

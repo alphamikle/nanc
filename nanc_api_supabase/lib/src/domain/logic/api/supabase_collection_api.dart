@@ -58,7 +58,6 @@ class SupabaseCollectionApi implements ICollectionApi {
     };
   }
 
-  /// https://code.supabase.co/rest/v1/users?select=id,name,lastname,age&and=(age.gt.20,age.lt.30)&offset=0&limit=100&order=id.asc.nullslast
   String _processOrField(QueryOrField query, {int deep = 0}) {
     return '${deep == 0 ? '' : 'or'}(${query.fields.map((QueryField field) => _processQueryField(field, deep: deep + 1)).join(',')})';
   }

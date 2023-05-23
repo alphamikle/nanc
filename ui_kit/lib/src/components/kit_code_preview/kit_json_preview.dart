@@ -11,11 +11,11 @@ import 'code_theme.dart';
 class KitJsonPreview extends StatefulWidget {
   const KitJsonPreview({
     required this.data,
-    this.excludedKeys = const [],
+    this.excludedKeys = const {},
     super.key,
   });
 
-  final List<String> excludedKeys;
+  final Set<Pattern> excludedKeys;
 
   /// ? [Map<String, dynamic>] or [List<Map<String, dynamic>>]
   final dynamic data;
@@ -49,8 +49,20 @@ class _KitJsonPreviewState extends State<KitJsonPreview> {
 
   Json filterJson(Json json) {
     final Json effectiveData = <String, dynamic>{...json};
-    for (final excludedKey in widget.excludedKeys) {
-      effectiveData.remove(excludedKey);
+    final Set<String> keysToDelete = {};
+    for (final Pattern excludedKey in widget.excludedKeys) {
+      if (excludedKey is String) {
+        keysToDelete.add(excludedKey);
+      } else if (excludedKey is RegExp) {
+        for (final String key in effectiveData.keys) {
+          if (excludedKey.hasMatch(key)) {
+            keysToDelete.add(key);
+          }
+        }
+      }
+    }
+    for (final String key in keysToDelete) {
+      effectiveData.remove(key);
     }
     return effectiveData;
   }

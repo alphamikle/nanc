@@ -366,7 +366,8 @@ abstract class FieldMapper {
     throw Exception('Unknown field type: $fieldType');
   }
 
-  static List<Field> get listOfFields {
+  // ! This fields is for public using
+  static List<Field> get customerFields {
     return [
       IdField.empty(),
       StringField.empty(),
@@ -383,12 +384,12 @@ abstract class FieldMapper {
       DynamicField.empty(),
       StructuredField.empty(),
       ScreenField.empty(),
-      ModelsSelectorField.empty(),
 
       /// ? THIS FIELD IS FOR PRIVATE USE ONLY
+      // ModelsSelectorField.empty(),
       // StructureField.empty(),
-      QueryFilterField.empty(),
-      QueryFilterValueField.empty(),
+      // QueryFilterField.empty(),
+      // QueryFilterValueField.empty(),
       // TODO(alphamikle): [FIELDS] Add new fields here
     ];
   }
