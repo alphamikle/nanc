@@ -4,8 +4,8 @@ publish_to: none
 version: 0.0.1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  sdk: '>=3.0.1 <4.0.0'
+  flutter: ">=3.10.1"
 
 dependencies:
   flutter:
@@ -42,37 +42,35 @@ dependencies:
     path: ../nanc_api_supabase
   cupertino_icons: ^1.0.5
   device_frame: ^1.1.0
-  markdown: ^6.0.1
+  markdown: ^7.1.0
   vrouter: ^1.2.1
-  bloc: ^8.1.0
-  flutter_bloc: ^8.1.1
-  bot_toast: ^4.0.3
+  bloc: ^8.1.2
+  flutter_bloc: ^8.1.3
   ulid: ^2.0.0
   flutter_highlight: ^0.7.0
   highlight: ^0.7.0
-  collection: ^1.17.0
+  collection: ^1.17.1 # no updates because of flutter
   mask_text_input_formatter: ^2.4.0
   animations: ^2.0.7
-  rive: ^0.10.1
-  lottie: ^2.2.0
-  flutter_markdown: ^0.6.13+1
-  copy_with_extension: ^5.0.0
-  json_annotation: ^4.8.0
+  rive: ^0.11.1
+  lottie: ^2.3.2
+  flutter_markdown: ^0.6.14
+  copy_with_extension: ^5.0.2
+  json_annotation: ^4.8.1
   equatable: ^2.0.5
   autoequal: ^0.5.1
+  elegant_notification: ^1.10.0
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
   lint:
     path: ../lint
   flutter_lints: ^2.0.1
-  json_serializable: ^6.6.1
-  copy_with_extension_gen: ^5.0.0
-  build_runner: ^2.3.3
+  json_serializable: ^6.7.0
+  copy_with_extension_gen: ^5.0.2
+  build_runner: ^2.4.4
   autoequal_gen: ^0.5.1
-  path: ^1.8.2
-  flutter_launcher_icons: ^0.11.0
+  path: ^1.8.3
+  flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true

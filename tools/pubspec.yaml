@@ -5,28 +5,28 @@ homepage: -_-
 publish_to: none
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  sdk: '>=3.0.1 <4.0.0'
+  flutter: ">=3.10.1"
 
 dependencies:
   flutter:
     sdk: flutter
   config:
     path: ../config
-  markdown: ^6.0.1
-  collection: ^1.17.0
+  markdown: ^7.1.0
+  collection: ^1.17.1 # no update because of flutter
   material_design_icons_flutter: ^6.0.7096
-  fluentui_system_icons: ^1.1.190
+  fluentui_system_icons: ^1.1.201
   flutter_boxicons: ^3.0.0
-  html: ^0.15.1
-  archive: ^3.3.6
+  html: ^0.15.3
+  archive: ^3.3.7
   ulid: ^2.0.0
-  basic_utils: ^5.4.2
+  basic_utils: ^5.5.4
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  package_info_plus: ^3.0.3
-  path_provider: ^2.0.12
-  url_launcher: ^6.1.8
+  package_info_plus: ^4.0.1
+  path_provider: ^2.0.15
+  url_launcher: ^6.1.11
   encrypt: ^5.0.1
   provider: ^6.0.5
 

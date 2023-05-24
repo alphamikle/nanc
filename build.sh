@@ -1,4 +1,5 @@
 lib=$1
+curPath="$(pwd)"
 cd "$lib" || exit
 
 function printStage() {
@@ -7,15 +8,8 @@ function printStage() {
     echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 }
 
-printStage "CLEANING"
-flutter clean || exit
-
-rm ./pubspec.lock || echo "No pubspec.lock found"
-rm -rf ./macos/Pods || echo "No Pods dir found"
-rm ./macos/Podfile.lock || echo "No Podfile.lock found"
-
-printStage "PUB GET"
-flutter pub get || exit
+printStage "REINSTALL DEPENDENCIES"
+bash "$curPath/get.sh" "$curPath/$1" || exit
 
 if grep -q "build_runner" "./pubspec.yaml"; then
   printStage "BUILD RUNNER"

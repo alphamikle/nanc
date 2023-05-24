@@ -144,7 +144,7 @@ class _KitIconInputState extends State<KitIconInput> with KitFocusStreamMixin {
                 inputDecoration: context.kitDecorations.noneDecoration(context).copyWith(hintText: widget.placeholder),
                 suggestionOffset: Gap.regular,
                 focusNode: focusNode,
-              ),
+              ).fixed,
             ),
           ],
         ),

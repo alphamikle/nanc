@@ -35,7 +35,7 @@ class FieldCard extends StatelessWidget {
         color: field.description(context).color.o075,
         borderRadius: radius,
         border: Border.all(
-          color: field.description(context).color.o35,
+          color: field.description(context).color.o35!,
         ),
       ),
       child: Stack(

@@ -39,7 +39,7 @@ class _WebRTCConnectionManagerModalState extends State<WebRTCConnectionManagerMo
 
   void notifyAboutConnectedClient() {
     if (mounted) {
-      showMessageNotification('''
+      showMessageNotification(context, '''
 Client successfully connected!
 Now, you can move to the Solo → Landing Page → Screen
 And play with the client app UI
@@ -201,7 +201,7 @@ And play with the client app UI
                                               : () async {
                                                   await copyTextToClipboard(state.freshRoomId);
                                                   if (mounted) {
-                                                    showMessageNotification('Connection data successfully copied');
+                                                    showMessageNotification(context, 'Connection data successfully copied');
                                                   }
                                                 },
                                           child: AnimatedSwitcher(

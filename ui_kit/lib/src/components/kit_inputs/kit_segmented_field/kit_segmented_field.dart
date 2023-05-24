@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'kit_segmented_field_ui.dart';
 
 class KitSegmentedField extends FormField<String> {
@@ -58,7 +59,7 @@ class _KitSegmentedFieldState extends FormFieldState<String> {
 extension FixFieldInTheSegment on Widget {
   Widget get fixed {
     return Padding(
-      padding: const EdgeInsets.only(top: 0.5),
+      padding: const EdgeInsets.only(top: 0.5, right: 1.5),
       child: this,
     );
   }

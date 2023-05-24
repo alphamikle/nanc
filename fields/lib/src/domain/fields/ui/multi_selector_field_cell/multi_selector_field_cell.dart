@@ -124,7 +124,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
   Future<void> selectFields() async {
     focusNode.requestFocus();
     if (parentModelId == null) {
-      showMessageNotification('To select related pages, generate an ID for the current page first.');
+      showMessageNotification(context, 'To select related pages, generate an ID for the current page first.');
       return;
     }
     final List<String> selectedIds = await getSelectedIds();

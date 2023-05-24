@@ -2,19 +2,20 @@ import 'dart:async';
 
 import 'package:analytics/analytics.dart';
 import 'package:animation_debugger/animation_debugger.dart';
-import 'package:bot_toast/bot_toast.dart';
 import 'package:config/config.dart';
+import 'package:elegant_notification/elegant_notification.dart';
+import 'package:elegant_notification/resources/arrays.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:icons/icons.dart';
 import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vrouter/vrouter.dart';
 
-import '../../cms.dart';
-import '../service/errors/error_toaster.dart';
 import '../service/errors/human_exception.dart';
 import '../service/init/initializer.dart';
+import '../service/routing/routes.dart';
 
 class App extends StatefulWidget {
   const App({
@@ -40,12 +41,34 @@ class _AppState extends State<App> {
   late final Future<bool> result = initializer.init();
   late final StreamSubscription<HumanException> errorStreamSubscription;
 
-  void showError(HumanException errorWrapper) {
-    BotToast.showCustomNotification(
-      toastBuilder: (VoidCallback onClose) => ErrorToaster(exception: errorWrapper, onClose: onClose),
-      duration: const Duration(seconds: Env.isProduction ? 30 : Env.errorDuration),
-      dismissDirections: [],
-    );
+  Future<void> showError(HumanException exception) async {
+    await doSomethingWhen(action: () {}, condition: () => rootKey.currentContext != null && mounted, interval: const Duration(milliseconds: 250), maxTries: 50);
+    if (rootKey.currentContext != null) {
+      if (mounted) {
+        final ElegantNotification notification = ElegantNotification.error(
+          description: KitText(text: exception.humanMessage),
+          animation: AnimationType.fromBottom,
+          width: 330,
+          iconSize: 30,
+          animationDuration: const Duration(milliseconds: 750),
+          notificationPosition: NotificationPosition.bottomLeft,
+          toastDuration: const Duration(seconds: Env.isProduction ? 30 : Env.errorDuration),
+          closeButton: (VoidCallback onClose) => Padding(
+            padding: const EdgeInsets.only(top: Gap.small, right: Gap.small),
+            child: Column(
+              children: [
+                IconButton(
+                  onPressed: onClose,
+                  color: context.theme.colorScheme.error,
+                  icon: const Icon(IconPack.mdi_close),
+                ),
+              ],
+            ),
+          ),
+        );
+        notification.show(rootKey.currentContext!);
+      }
+    }
   }
 
   Widget adminBuilder(BuildContext context, Widget child) {
@@ -53,8 +76,7 @@ class _AppState extends State<App> {
     final double height = context.query.size.height;
     const double minWidth = 1024;
 
-    final TransitionBuilder toastBuilder = BotToastInit();
-    Widget cmsApp = toastBuilder(context, child);
+    Widget cmsApp = child;
     if (widget.config.adminWrapperBuilder != null) {
       cmsApp = widget.config.adminWrapperBuilder!(context, rootKey, cmsApp);
     }
@@ -112,9 +134,6 @@ class _AppState extends State<App> {
                     onPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
                     onSystemPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
                     builder: AnimationDebugger.builderWrapper(adminBuilder),
-                    navigatorObservers: [
-                      BotToastNavigatorObserver(),
-                    ],
                     theme: themeBuilder(context),
                     darkTheme: themeBuilder(context, dark: true),
                     themeMode: ThemeMode.light,

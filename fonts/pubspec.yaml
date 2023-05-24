@@ -5,15 +5,15 @@ homepage: nope
 publish_to: none
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  sdk: '>=3.0.1 <4.0.0'
+  flutter: ">=3.10.1"
 
 dependencies:
   flutter:
     sdk: flutter
   tools:
     path: ../tools
-  google_fonts: ^4.0.3
+  google_fonts: ^4.0.4
 
 dev_dependencies:
   flutter_test:

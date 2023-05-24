@@ -5,8 +5,8 @@ homepage: nope
 publish_to: none
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  sdk: '>=3.0.1 <4.0.0'
+  flutter: ">=3.10.1"
 
 dependencies:
   flutter:
@@ -20,8 +20,8 @@ dependencies:
   fields:
     path: ../fields
   equatable: ^2.0.5
-  json_annotation: ^4.8.0
-  copy_with_extension: ^5.0.0
+  json_annotation: ^4.8.1
+  copy_with_extension: ^5.0.2
   autoequal: ^0.5.1
   firebase_core: ^2.13.0
   firebase_storage: ^11.2.1
@@ -32,9 +32,9 @@ dev_dependencies:
   lint:
     path: ../lint
   flutter_lints: ^2.0.1
-  json_serializable: ^6.6.1
-  copy_with_extension_gen: ^5.0.0
-  build_runner: ^2.3.3
+  json_serializable: ^6.7.0
+  copy_with_extension_gen: ^5.0.2
+  build_runner: ^2.4.4
   autoequal_gen: ^0.5.1
 
 flutter:

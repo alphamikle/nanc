@@ -6,8 +6,8 @@ verified publisher:
 homepage: client.nanc.io
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  sdk: '>=3.0.1 <4.0.0'
+  flutter: ">=3.10.1"
 
 dependencies:
   flutter:

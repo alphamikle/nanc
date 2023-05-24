@@ -4,8 +4,8 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  sdk: '>=3.0.1 <4.0.0'
+  flutter: ">=3.10.1"
 
 dependencies:
   flutter:
@@ -21,9 +21,6 @@ dependencies:
       ref: e5163b415a1338c2f316330bbc72f711e50716b4
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  
   flutter_lints: ^2.0.1
   lint:
     path: ../lint

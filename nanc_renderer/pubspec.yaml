@@ -5,8 +5,8 @@ homepage: nope
 publish_to: none
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  sdk: '>=3.0.1 <4.0.0'
+  flutter: ">=3.10.1"
 
 dependencies:
   flutter:
@@ -19,22 +19,20 @@ dependencies:
     path: ../fonts
   nanc_config:
     path: ../nanc_config
-  markdown: ^6.0.1
-  json_annotation: ^4.8.0
-  copy_with_extension: ^5.0.0
+  markdown: ^7.1.0
+  json_annotation: ^4.8.1
+  copy_with_extension: ^5.0.2
   cached_network_image: ^3.2.3
   flutter_blurhash: ^0.7.0
-  xml: ^6.2.2
+  xml: ^6.3.0
   flutter_highlight2: ^0.8.3
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
   flutter_lints: ^2.0.1
   lint:
     path: ../lint
-  json_serializable: ^6.6.1
-  copy_with_extension_gen: ^5.0.0
-  build_runner: ^2.3.3
+  json_serializable: ^6.7.0
+  copy_with_extension_gen: ^5.0.2
+  build_runner: ^2.4.4
 
 flutter:

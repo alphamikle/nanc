@@ -22,35 +22,53 @@ class KitColors extends ThemeExtension<KitColors> {
   ThemeExtension<KitColors> copyWith() => this;
 }
 
-extension KitColorsTransparencies on Color {
+extension KitColorsTransparencies on Color? {
   /// Equals to [Color.withOpacity] with (0.075)
-  Color get o075 {
-    return withOpacity(0.075);
+  Color? get o075 {
+    if (this == null) {
+      return null;
+    }
+    return this!.withOpacity(0.075);
   }
 
   /// Equals to [Color.withOpacity] with (0.15)
-  Color get o15 {
-    return withOpacity(0.15);
+  Color? get o15 {
+    if (this == null) {
+      return null;
+    }
+    return this!.withOpacity(0.15);
   }
 
   /// Equals to [Color.withOpacity] with (0.25)
-  Color get o25 {
-    return withOpacity(0.25);
+  Color? get o25 {
+    if (this == null) {
+      return null;
+    }
+    return this!.withOpacity(0.25);
   }
 
   /// Equals to [Color.withOpacity] with (0.35)
-  Color get o35 {
-    return withOpacity(0.35);
+  Color? get o35 {
+    if (this == null) {
+      return null;
+    }
+    return this!.withOpacity(0.35);
   }
 
   /// Equals to [Color.withOpacity] with (0.5)
-  Color get o50 {
-    return withOpacity(0.5);
+  Color? get o50 {
+    if (this == null) {
+      return null;
+    }
+    return this!.withOpacity(0.5);
   }
 
   /// Equals to [Color.withOpacity] with (0.75)
-  Color get o75 {
-    return withOpacity(0.75);
+  Color? get o75 {
+    if (this == null) {
+      return null;
+    }
+    return this!.withOpacity(0.75);
   }
 }
 

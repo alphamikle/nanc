@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
+
 import '../../theme/kit_borders.dart';
 import '../../theme/kit_colors.dart';
 
@@ -26,7 +27,7 @@ class KitIconContainer extends StatelessWidget {
           color: color.o15,
           borderRadius: context.kitBorders.middleRadius,
           border: Border.all(
-            color: color.o35,
+            color: color.o35!,
             width: 0.5,
           ),
         ),

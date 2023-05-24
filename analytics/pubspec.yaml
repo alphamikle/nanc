@@ -5,8 +5,8 @@ homepage: nope
 publish_to: none
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  sdk: '>=3.0.1 <4.0.0'
+  flutter: ">=3.10.1"
 
 dependencies:
   flutter:
@@ -15,7 +15,7 @@ dependencies:
     path: ../config
   tools:
     path: ../tools
-  amplitude_flutter: ^3.13.0
+  amplitude_flutter: ^3.14.0
   vrouter: ^1.2.1
 
 dev_dependencies:

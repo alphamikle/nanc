@@ -1,6 +1,7 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../constants/gap.dart';
 import 'kit_borders.dart';
 import 'kit_colors.dart';
@@ -9,7 +10,7 @@ import 'kit_input_decorations.dart';
 ThemeData themeBuilder(BuildContext context, {bool dark = false}) {
   final builder = dark ? FlexThemeData.dark : FlexThemeData.light;
 
-  return builder(
+  final ThemeData theme = builder(
     scheme: FlexScheme.brandBlue,
     surfaceMode: FlexSurfaceMode.level,
     blendLevel: 20,
@@ -36,5 +37,12 @@ ThemeData themeBuilder(BuildContext context, {bool dark = false}) {
       ),
       KitInputDecorations(),
     ],
+  );
+
+  return theme.copyWith(
+    inputDecorationTheme: theme.inputDecorationTheme.copyWith(
+      fillColor: theme.inputDecorationTheme.fillColor?.o50,
+      hoverColor: theme.inputDecorationTheme.hoverColor?.o50,
+    ),
   );
 }

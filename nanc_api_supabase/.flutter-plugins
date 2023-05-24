@@ -1,7 +1,7 @@
 # This is a generated file; do not edit or check into version control.
 amplitude_flutter=/Users/alfa/.pub-cache/hosted/pub.dev/amplitude_flutter-3.14.0/
 app_links=/Users/alfa/.pub-cache/hosted/pub.dev/app_links-3.4.2/
-file_picker=/Users/alfa/.pub-cache/hosted/pub.dev/file_picker-5.2.10/
+file_picker=/Users/alfa/.pub-cache/hosted/pub.dev/file_picker-5.3.1/
 flutter_keyboard_visibility=/Users/alfa/.pub-cache/hosted/pub.dev/flutter_keyboard_visibility-5.4.1/
 flutter_keyboard_visibility_linux=/Users/alfa/.pub-cache/hosted/pub.dev/flutter_keyboard_visibility_linux-1.0.0/
 flutter_keyboard_visibility_macos=/Users/alfa/.pub-cache/hosted/pub.dev/flutter_keyboard_visibility_macos-1.0.0/
@@ -9,14 +9,14 @@ flutter_keyboard_visibility_web=/Users/alfa/.pub-cache/hosted/pub.dev/flutter_ke
 flutter_keyboard_visibility_windows=/Users/alfa/.pub-cache/hosted/pub.dev/flutter_keyboard_visibility_windows-1.0.0/
 flutter_plugin_android_lifecycle=/Users/alfa/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.14/
 move_to_background=/Users/alfa/.pub-cache/hosted/pub.dev/move_to_background-1.0.2/
-package_info_plus=/Users/alfa/.pub-cache/hosted/pub.dev/package_info_plus-3.1.2/
+package_info_plus=/Users/alfa/.pub-cache/hosted/pub.dev/package_info_plus-4.0.1/
 path_provider=/Users/alfa/.pub-cache/hosted/pub.dev/path_provider-2.0.15/
 path_provider_android=/Users/alfa/.pub-cache/hosted/pub.dev/path_provider_android-2.0.27/
 path_provider_foundation=/Users/alfa/.pub-cache/hosted/pub.dev/path_provider_foundation-2.2.3/
 path_provider_linux=/Users/alfa/.pub-cache/hosted/pub.dev/path_provider_linux-2.1.10/
 path_provider_windows=/Users/alfa/.pub-cache/hosted/pub.dev/path_provider_windows-2.1.6/
-rive_common=/Users/alfa/.pub-cache/hosted/pub.dev/rive_common-0.0.5/
-share_plus=/Users/alfa/.pub-cache/hosted/pub.dev/share_plus-6.3.4/
+rive_common=/Users/alfa/.pub-cache/hosted/pub.dev/rive_common-0.0.7/
+share_plus=/Users/alfa/.pub-cache/hosted/pub.dev/share_plus-7.0.1/
 shared_preferences=/Users/alfa/.pub-cache/hosted/pub.dev/shared_preferences-2.1.1/
 shared_preferences_android=/Users/alfa/.pub-cache/hosted/pub.dev/shared_preferences_android-2.1.4/
 shared_preferences_foundation=/Users/alfa/.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.2.2/

@@ -5,8 +5,8 @@ homepage: none
 publish_to: none
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  sdk: '>=3.0.1 <4.0.0'
+  flutter: ">=3.10.1"
 
 dependencies:
   flutter:
@@ -14,20 +14,17 @@ dependencies:
   tools:
     path: ../tools
   material_design_icons_flutter: ^6.0.7096
-  fluentui_system_icons: ^1.1.190
+  fluentui_system_icons: ^1.1.201
   remixicon: ^1.0.0
   flutter_boxicons: ^3.0.0
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  
   flutter_lints: ^2.0.1
   lint:
     path: ../lint
-  path: ^1.8.2
-  basic_utils: ^5.4.2
-  args: ^2.3.2
+  path: ^1.8.3
+  basic_utils: ^5.5.4
+  args: ^2.4.1
 
 flutter:
   assets:
