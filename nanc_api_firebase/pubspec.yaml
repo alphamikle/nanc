@@ -23,6 +23,7 @@ dependencies:
   json_annotation: ^4.8.0
   copy_with_extension: ^5.0.0
   autoequal: ^0.5.1
+  firebase_core: ^2.13.0
   firebase_storage: ^11.2.1
 
 dev_dependencies:

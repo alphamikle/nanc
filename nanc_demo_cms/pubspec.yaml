@@ -24,6 +24,8 @@ dependencies:
     path: ../fields
   model:
     path: ../model
+  firebase_core: ^2.13.0
+  firebase_storage: ^11.2.1
 
 dev_dependencies:
   flutter_test:
