@@ -26,6 +26,7 @@ class HumanException implements Exception {
     } else {
       message = error.toString();
     }
+    message = message!.replaceFirst('Exception: ', '');
 
     return HumanException(
       humanMessage: humanMessage,
@@ -37,6 +38,8 @@ class HumanException implements Exception {
   final String humanMessage;
   final String? originalMessage;
   final StackTrace? stackTrace;
+
+  String get additionalInfo => '${hasOriginalMessage ? '$originalMessage' : ''}${hasStackTrace ? '${hasOriginalMessage ? '\n\n' : ''}$stackTrace' : ''}';
 
   bool get hasOriginalMessage => originalMessage != null && originalMessage!.trim().isNotEmpty;
   bool get hasStackTrace => stackTrace != null;

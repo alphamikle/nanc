@@ -19,7 +19,10 @@ class ModelProvider {
   Future<List<Model>> fetchModels() async {
     final CollectionResponseDto result = await collectionProvider.fetchPageList(
       model: modelModel,
-      subset: [fieldIdProperty, kModelField],
+      subset: [
+        fieldIdProperty,
+        kModelField,
+      ],
       params: ParamsDto(
         page: 1,
 

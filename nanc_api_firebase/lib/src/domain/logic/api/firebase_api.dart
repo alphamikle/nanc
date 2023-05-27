@@ -1,15 +1,17 @@
-import 'package:firebase_storage/firebase_storage.dart';
+import 'dart:convert';
+
+import 'package:googleapis/firestore/v1.dart';
+import 'package:googleapis_auth/auth_io.dart';
 
 class FirebaseApi {
-  FirebaseApi._(this._storage);
+  FirebaseApi._(this._api);
 
-  static Future<FirebaseApi> create({
-    required FirebaseStorage storage,
-  }) async {
-    return FirebaseApi._(storage);
+  static Future<FirebaseApi> create(String jsonKey) async {
+    final ServiceAccountCredentials serviceAccountCredentials = ServiceAccountCredentials.fromJson(jsonDecode(jsonKey));
+    final AutoRefreshingAuthClient client = await clientViaServiceAccount(serviceAccountCredentials, ['https://www.googleapis.com/auth/cloud-platform']);
+    final FirestoreApi firestoreApi = FirestoreApi(client);
+    return FirebaseApi._(firestoreApi);
   }
 
-  final FirebaseStorage _storage;
-
-  FirebaseStorage get storage => _storage;
+  final FirestoreApi _api;
 }

@@ -1,6 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cms/cms.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
 import 'package:nanc_config/nanc_config.dart';
@@ -43,10 +43,10 @@ Future<void> startCmsApp(DataProvider provider) async {
     );
   } else if (provider.isFirebase) {
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-    final FirebaseApi firebaseApi = await FirebaseApi.create(
-      storage: FirebaseStorage.instance,
+    final FirebaseApi firebaseApi = await FirebaseApi.create(store: FirebaseFirestore.instance);
+    collectionApi = FirebaseCollectionApi(
+      api: firebaseApi,
     );
-    collectionApi = FirebaseCollectionApi(api: firebaseApi);
     pageApi = FirebasePageApi();
     modelApi = FirebaseModelApi();
   }

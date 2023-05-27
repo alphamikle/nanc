@@ -46,7 +46,32 @@ class _AppState extends State<App> {
     if (rootKey.currentContext != null) {
       if (mounted) {
         final ElegantNotification notification = ElegantNotification.error(
-          description: KitText(text: exception.humanMessage),
+          description: Stack(
+            children: [
+              RichText(
+                text: TextSpan(
+                  children: [
+                    WidgetSpan(
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: Gap.small),
+                        child: KitTooltip(
+                          text: exception.additionalInfo,
+                          child: const Icon(
+                            IconPack.flu_chat_help_filled,
+                            size: 20,
+                          ),
+                        ),
+                      ),
+                    ),
+                    TextSpan(
+                      text: exception.humanMessage,
+                      style: context.theme.textTheme.titleMedium?.copyWith(height: 1.5, fontSize: 16),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
           animation: AnimationType.fromBottom,
           width: 330,
           iconSize: 30,

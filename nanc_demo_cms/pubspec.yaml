@@ -25,7 +25,7 @@ dependencies:
   model:
     path: ../model
   firebase_core: ^2.13.0
-  firebase_storage: ^11.2.1
+  cloud_firestore: ^4.7.1
 
 dev_dependencies:
   flutter_lints: ^2.0.1
