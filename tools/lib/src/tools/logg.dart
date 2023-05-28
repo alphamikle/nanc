@@ -5,6 +5,9 @@ import 'package:flutter/foundation.dart';
 
 import '../types/types.dart';
 
+const String _rowOpener = '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>';
+const String _rowCloser = '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<';
+
 // ignore: camel_case_types
 class logg {
   logg(
@@ -50,18 +53,28 @@ class logg {
 
   factory logg.wrap(Object? valueToPrint, {String? prefix}) {
     return logg('''
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+$_rowOpener
 ${prefix == null ? '' : '$prefix\n'}$valueToPrint
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$_rowCloser
 ''');
   }
 
   factory logg.rows(Object? v1, [Object? v2, Object? v3, Object? v4, Object? v5]) {
     return logg('''
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+$_rowOpener
 $v1${v2 == null ? '' : '\n$v2'}${v3 == null ? '' : '\n$v3'}${v4 == null ? '' : '\n$v4'}${v5 == null ? '' : '\n$v5'}
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$_rowCloser
 ''');
+  }
+
+  factory logg.error({Object? error, StackTrace? stackTrace, Object? additionalInfo}) {
+    final logger = logg.raw('ERROR');
+    logger('''
+$_rowOpener
+${error == null ? '' : '$error'}${stackTrace == null ? '' : '\n$stackTrace'}${additionalInfo == null ? '' : '\n$additionalInfo'}
+$_rowCloser
+''');
+    return logger;
   }
 
   void call(

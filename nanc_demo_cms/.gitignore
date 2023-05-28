@@ -18,6 +18,7 @@ migrate_working_dir/
 config.json
 firebase_options.dart
 firebase_app_id_file.json
+service_key.json
 Podfile*
 
 # The .vscode folder contains launch configuration and tasks you configure in
@@ -46,3 +47,4 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/nanc-firebase-api-firebase-adminsdk-c9p7r-5d4b571140.json

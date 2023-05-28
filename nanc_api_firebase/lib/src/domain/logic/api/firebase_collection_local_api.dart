@@ -3,17 +3,15 @@ import 'package:model/model.dart';
 import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
-import '../mapper/firestore_value_mapper.dart';
 import 'firebase_api.dart';
+import 'firebase_collection_api.dart';
 
-class FirebaseCollectionApi implements ICollectionApi {
-  FirebaseCollectionApi({
+class FirebaseCollectionLocalApi implements ICollectionApi {
+  FirebaseCollectionLocalApi({
     required FirebaseApi api,
   }) : _api = api;
 
   final FirebaseApi _api;
-
-  final Map<String, int> _documentsCount = {};
 
   @override
   Future<CollectionResponseDto> fetchPageList(Model model, List<String> subset, QueryField query, ParamsDto params) async {
@@ -37,29 +35,11 @@ class FirebaseCollectionApi implements ICollectionApi {
     structuredQuery.select = fs.Projection(fields: subset.map((String fieldId) => fs.FieldReference(fieldPath: fieldId)).toList());
     queryRequest.structuredQuery = structuredQuery;
     final fs.RunQueryResponse result = await _api.runQueryRequest(queryRequest);
-    final Iterable<fs.Document> documents = result.map((fs.RunQueryResponseElement element) => element.document).whereNotNull();
-    final List<Json> data = documents.map((fs.Document document) => fromFirestoreDocument(model, document)).toList();
-    final int cachedTotalPages = _documentsCount[model.id] ?? 1;
-    int currentPage = params.page;
-    int totalPages = currentPage + 1;
-    if (cachedTotalPages > totalPages) {
-      totalPages = cachedTotalPages;
-    }
-
-    if (data.isEmpty && currentPage > 1) {
-      currentPage--;
-      totalPages = currentPage + 1;
-    }
-    _documentsCount[model.id] = totalPages;
-
-    if (data.isEmpty && params.page > 1) {
-      return fetchPageList(model, subset, query, params.copyWith(page: currentPage));
-    }
-
+    logg(result);
     return CollectionResponseDto(
-      page: currentPage,
-      totalPages: totalPages,
-      data: data,
+      page: 1,
+      totalPages: 1,
+      data: [],
     );
   }
 
@@ -150,6 +130,91 @@ class FirebaseCollectionApi implements ICollectionApi {
     if (returnNull) {
       return null;
     }
-    return toFirestoreValue(value);
+
+    final fs.Value result = fs.Value();
+
+    /// ? NULL
+    if (value == null) {
+      result.nullValue = 'NULL_VALUE';
+      return result;
+    }
+
+    /// ? BOOLEAN
+    final bool? booleanValue = value is bool ? value : bool.tryParse(value);
+    if (booleanValue != null) {
+      result.booleanValue = booleanValue;
+      return result;
+    }
+
+    final num? numericValue = value is num ? value : num.tryParse(value);
+    final bool isNumeric = numericValue != null;
+
+    /// ? INTEGER
+    final int? intValue = isNumeric
+        ? numericValue.isInt
+            ? numericValue.toInt()
+            : null
+        : null;
+    final bool isInt = intValue != null;
+    if (isInt) {
+      result.integerValue = intValue.toString();
+      return result;
+    }
+
+    /// ? DOUBLE
+    final double? doubleValue = isNumeric
+        ? isInt
+            ? null
+            : numericValue.toDouble()
+        : null;
+    final bool isDouble = doubleValue != null;
+    if (isDouble) {
+      result.doubleValue = doubleValue;
+      return result;
+    }
+
+    /// ? TIMESTAMP
+    final DateTime? dateTime = value is DateTime
+        ? value
+        : value is String
+            ? DateTime.tryParse(value)
+            : null;
+    if (dateTime != null) {
+      result.timestampValue = dateTime.microsecondsSinceEpoch.toString();
+      return result;
+    }
+
+    /// ? ARRAY
+    if (value is List) {
+      final fs.ArrayValue arrayValue = fs.ArrayValue();
+      arrayValue.values = [];
+      for (final dynamic childValue in value) {
+        final fs.Value? processedChildValue = _processFieldValue(type, childValue);
+        if (processedChildValue != null) {
+          arrayValue.values!.add(processedChildValue);
+        }
+      }
+      result.arrayValue = arrayValue;
+      return result;
+    }
+
+    /// ? MAP
+    if (value is Map) {
+      final fs.MapValue mapValue = fs.MapValue();
+      mapValue.fields = {};
+
+      final Iterable<MapEntry> entries = value.entries;
+      for (final MapEntry(:dynamic key, :dynamic value) in entries) {
+        final fs.Value? processedChildValue = _processFieldValue(type, value);
+        if (processedChildValue != null) {
+          mapValue.fields![key.toString()] = processedChildValue;
+        }
+      }
+      result.mapValue = mapValue;
+      return result;
+    }
+
+    result.stringValue = value.toString();
+    return result;
   }
 }

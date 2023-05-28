@@ -18,7 +18,6 @@ Json? queryFieldToJson(QueryField? field) {
 QueryField? queryFieldFromJson(dynamic json) {
   final String? type = json[QueryField.typeKey];
   if (type == null) {
-    logg('[ERROR] Incorrect field json representation: $json');
     return null;
   }
   if (type == QueryFieldType.or.name) {

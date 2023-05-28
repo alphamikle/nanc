@@ -285,7 +285,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
                   placeholder: placeholder,
                   controller: TextEditingController(),
                   decoration: context.kitDecorations.noneDecoration(context).copyWith(hintText: placeholder),
-                ),
+                ).fixed,
                 AnimatedOpacity(
                   duration: const Duration(milliseconds: 250),
                   opacity: titleChips.isEmpty || isError ? 0 : 1,

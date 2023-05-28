@@ -26,4 +26,7 @@ class QueryOrField extends Equatable implements QueryConditionField {
 
   @override
   bool get isEmpty => fields.isEmpty || fields.every((QueryField field) => field is QueryConditionField && field.isEmpty);
+
+  @override
+  bool get isNotEmpty => isEmpty == false;
 }

@@ -38,6 +38,7 @@ class _KnightState extends State<Knight> with AfterRender, RiveStateMachine<Knig
 
   Future<void> visibilitySwitcher() async {
     if (stateMachineInitialValue == false) {
+      animationController.value = 1;
       return;
     }
     unawaited(forward());

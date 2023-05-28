@@ -58,9 +58,51 @@ class _KitSegmentedFieldState extends FormFieldState<String> {
 
 extension FixFieldInTheSegment on Widget {
   Widget get fixed {
-    return Padding(
-      padding: const EdgeInsets.only(top: 0.5, right: 1.5),
+    return _FixedChild(child: this);
+  }
+
+  Widget fix(EdgeInsets clipPadding) {
+    return _FixedChild(
+      clipPadding: clipPadding,
       child: this,
     );
+  }
+}
+
+class _FixedChild extends StatelessWidget {
+  const _FixedChild({
+    required this.child,
+    this.clipPadding = const EdgeInsets.only(left: 1.25, right: 1.15),
+    super.key,
+  });
+
+  final Widget child;
+  final EdgeInsets clipPadding;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRect(
+      clipper: _FieldClipper(clipPadding),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 0.5),
+        child: child,
+      ),
+    );
+  }
+}
+
+class _FieldClipper extends CustomClipper<Rect> {
+  _FieldClipper(this.clipPadding);
+
+  final EdgeInsets clipPadding;
+
+  @override
+  Rect getClip(Size size) {
+    return Rect.fromLTRB(clipPadding.left, clipPadding.top, size.width - clipPadding.right, size.height - clipPadding.bottom);
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Rect> oldClipper) {
+    return true;
   }
 }

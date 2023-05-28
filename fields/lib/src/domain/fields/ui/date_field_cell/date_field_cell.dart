@@ -95,7 +95,7 @@ class _DateFieldCellState extends State<DateFieldCell> with FieldCellHelper<Date
             DateMask(),
           ],
           focusNode: dateFocus,
-        ),
+        ).fix(const EdgeInsets.only(left: 1.25)),
         KitTextField(
           placeholder: timePlaceholder,
           controller: timeController,
@@ -104,7 +104,7 @@ class _DateFieldCellState extends State<DateFieldCell> with FieldCellHelper<Date
             TimeMask(),
           ],
           focusNode: timeFocus,
-        )
+        ).fix(const EdgeInsets.only(right: 1.25)),
       ],
     );
   }

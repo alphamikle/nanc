@@ -1,11 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cms/cms.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
 import 'package:nanc_config/nanc_config.dart';
 
-import '../../firebase_options.dart';
 import '../models/supabase/supa_color.dart';
 import '../models/supabase/supa_user.dart';
 import '../models/supabase/supa_user_to_favorite_colors.dart';
@@ -42,8 +39,7 @@ Future<void> startCmsApp(DataProvider provider) async {
       ),
     );
   } else if (provider.isFirebase) {
-    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-    final FirebaseApi firebaseApi = await FirebaseApi.create(store: FirebaseFirestore.instance);
+    final FirebaseApi firebaseApi = await FirebaseApi.create(const String.fromEnvironment('FIREBASE_JSON_BASE64_KEY'));
     collectionApi = FirebaseCollectionApi(
       api: firebaseApi,
     );

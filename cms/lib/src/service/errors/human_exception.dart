@@ -26,7 +26,7 @@ class HumanException implements Exception {
     } else {
       message = error.toString();
     }
-    message = message!.replaceFirst('Exception: ', '');
+    message = message?.replaceFirst('Exception: ', '');
 
     return HumanException(
       humanMessage: humanMessage,

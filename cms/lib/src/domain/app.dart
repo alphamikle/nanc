@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:analytics/analytics.dart';
 import 'package:animation_debugger/animation_debugger.dart';
-import 'package:config/config.dart';
 import 'package:elegant_notification/elegant_notification.dart';
 import 'package:elegant_notification/resources/arrays.dart';
 import 'package:flutter/material.dart';
@@ -41,55 +40,71 @@ class _AppState extends State<App> {
   late final Future<bool> result = initializer.init();
   late final StreamSubscription<HumanException> errorStreamSubscription;
 
+  String errorDetails(String originalError) {
+    return '''
+# Error details:
+$originalError
+''';
+  }
+
+  void openLink(String text, String? href, String title) {
+    logg.rows('IMPLEMENT ME', text, href, title);
+  }
+
   Future<void> showError(HumanException exception) async {
     await doSomethingWhen(action: () {}, condition: () => rootKey.currentContext != null && mounted, interval: const Duration(milliseconds: 250), maxTries: 50);
     if (rootKey.currentContext != null) {
       if (mounted) {
-        final ElegantNotification notification = ElegantNotification.error(
-          description: Stack(
-            children: [
-              RichText(
-                text: TextSpan(
-                  children: [
-                    WidgetSpan(
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: Gap.small),
-                        child: KitTooltip(
-                          text: exception.additionalInfo,
-                          child: const Icon(
-                            IconPack.flu_chat_help_filled,
-                            size: 20,
+        final ElegantNotification notification = ElegantNotification(
+          icon: const SizedBox.shrink(),
+          description: SizedBox(
+            width: 400,
+            height: 146,
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                Positioned.fill(
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: KitText(
+                      text: exception.humanMessage,
+                    ),
+                  ),
+                ),
+                Positioned.fill(
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: Gap.small, right: Gap.small),
+                      child: Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {},
+                            color: rootKey.currentContext!.theme.colorScheme.tertiary,
+                            icon: const Icon(IconPack.flu_chat_help_filled),
                           ),
-                        ),
+                          IconButton(
+                            onPressed: () {},
+                            color: rootKey.currentContext!.theme.colorScheme.error,
+                            icon: const Icon(IconPack.mdi_close),
+                          ),
+                        ],
                       ),
                     ),
-                    TextSpan(
-                      text: exception.humanMessage,
-                      style: context.theme.textTheme.titleMedium?.copyWith(height: 1.5, fontSize: 16),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          animation: AnimationType.fromBottom,
-          width: 330,
-          iconSize: 30,
-          animationDuration: const Duration(milliseconds: 750),
-          notificationPosition: NotificationPosition.bottomLeft,
-          toastDuration: const Duration(seconds: Env.isProduction ? 30 : Env.errorDuration),
-          closeButton: (VoidCallback onClose) => Padding(
-            padding: const EdgeInsets.only(top: Gap.small, right: Gap.small),
-            child: Column(
-              children: [
-                IconButton(
-                  onPressed: onClose,
-                  color: context.theme.colorScheme.error,
-                  icon: const Icon(IconPack.mdi_close),
-                ),
+                  ),
+                )
               ],
             ),
           ),
+          animation: AnimationType.fromBottom,
+          width: 400,
+          height: 150,
+          iconSize: 30,
+          animationDuration: const Duration(milliseconds: 750),
+          notificationPosition: NotificationPosition.bottomLeft,
+          toastDuration: const Duration(seconds: 120),
+          // toastDuration: const Duration(seconds: Env.isProduction ? 30 : Env.errorDuration),
+          displayCloseButton: false,
         );
         notification.show(rootKey.currentContext!);
       }

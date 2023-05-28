@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_config/nanc_config.dart';
+import 'package:tools/tools.dart';
 
+import '../service/errors/errors_catcher.dart';
 import '../service/errors/human_exception.dart';
 import 'app.dart';
 
@@ -12,9 +14,9 @@ const Set<String> _skippingErrors = {
 };
 
 Future<void> adminRunner(CmsConfig config) async {
-  /// ? This stream closes in the [FlutterAdmin] widget
+  /// ? This stream closes in the [App] widget
   /// ignore:close_sinks
-  final StreamController<HumanException> errorStreamController = StreamController.broadcast();
+  final StreamController<HumanException> errorStreamController = ErrorsCatcher.errorStreamController;
 
   FlutterError.onError = (FlutterErrorDetails details) {
     if (_skippingErrors.contains(details.library)) {
@@ -22,27 +24,27 @@ Future<void> adminRunner(CmsConfig config) async {
     }
     if (details.exception is HumanException) {
       errorStreamController.add(details.exception as HumanException);
-      debugPrintStack(stackTrace: (details.exception as HumanException).stackTrace, label: (details.exception as HumanException).humanMessage);
+      logg.error(error: (details.exception as HumanException).humanMessage, stackTrace: (details.exception as HumanException).stackTrace);
     } else {
       errorStreamController.add(HumanException(
         humanMessage: 'Layout Error',
         originalMessage: details.exception.toString(),
         stackTrace: details.stack,
       ));
-      debugPrintStack(stackTrace: details.stack, label: details.exception.toString());
+      logg.error(error: details.exception, stackTrace: details.stack);
     }
   };
-  PlatformDispatcher.instance.onError = (Object error, StackTrace stack) {
+  PlatformDispatcher.instance.onError = (Object error, StackTrace stackTrace) {
     if (error is HumanException) {
       errorStreamController.add(error);
-      debugPrintStack(stackTrace: error.stackTrace, label: error.humanMessage);
+      logg.error(error: error.humanMessage, stackTrace: error.stackTrace);
     } else {
       errorStreamController.add(HumanException(
         humanMessage: 'Logical Error',
         originalMessage: error.toString(),
-        stackTrace: stack,
+        stackTrace: stackTrace,
       ));
-      debugPrintStack(stackTrace: stack, label: error.toString());
+      logg.error(error: error, stackTrace: stackTrace);
     }
     return false;
   };

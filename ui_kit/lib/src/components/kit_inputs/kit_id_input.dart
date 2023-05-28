@@ -64,7 +64,7 @@ class _KitIdInputState extends State<KitIdInput> with KitFocusStreamMixin {
             onChanged: widget.onChanged,
             maxLines: 1,
             focusNode: focusNode,
-          ).fixed,
+          ).fix(const EdgeInsets.only(right: 1.25)),
         ),
       ],
     );

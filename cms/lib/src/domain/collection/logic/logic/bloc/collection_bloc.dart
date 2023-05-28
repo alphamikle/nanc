@@ -120,13 +120,13 @@ class CollectionBloc extends Cubit<CollectionState> {
         currentPage: dto.page,
         notFoundAnything: dto.data.isEmpty,
       ));
-    } catch (error) {
+    } catch (error, stackTrace) {
       emit(state.copyWith(
         isLoading: false,
         isError: true,
         notFoundAnything: false,
       ));
-      throw error.toHumanException('Collection "${model.name}" loading failed!');
+      throw [error, stackTrace].toHumanException('Collection "${model.name}" loading failed!');
     }
   }
 

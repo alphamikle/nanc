@@ -97,9 +97,10 @@ class EventBus {
           result = await result;
         }
         response = EventBusResponse<dynamic>(data: result);
-      } catch (error) {
+      } catch (error, stackTrace) {
         response = EventBusResponse<dynamic>(error: error);
-        logg.rows('[ERROR]', error);
+        logg.error(error: error, stackTrace: stackTrace);
+        rethrow;
       }
 
       /// It's means that we used [send] method, instead of [run]
@@ -109,7 +110,7 @@ class EventBus {
 
       if (!_responses.containsKey(request.eventHash)) {
         if (kDebugMode) {
-          print('[ERROR] Response completer for event ${request.eventId} with hash ${request.eventHash} not found');
+          logg.error(error: 'Response completer for event ${request.eventId} with hash ${request.eventHash} not found');
         }
         continue;
       }

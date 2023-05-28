@@ -10,4 +10,5 @@ sealed class QueryConditionField implements QueryField {
   List<QueryField> get fields;
 
   bool get isEmpty;
+  bool get isNotEmpty;
 }

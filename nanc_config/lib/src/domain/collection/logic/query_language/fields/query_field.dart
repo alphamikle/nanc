@@ -113,3 +113,9 @@ sealed class QueryField extends Equatable {
 
   Json toJson();
 }
+
+extension EmptyQueryField on QueryField {
+  bool get isConditionalAndEmpty {
+    return this is QueryConditionField && (this as QueryConditionField).isEmpty;
+  }
+}
