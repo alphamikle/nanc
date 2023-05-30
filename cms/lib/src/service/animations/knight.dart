@@ -3,7 +3,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import 'rive_state_machine_widget.dart';
@@ -17,7 +16,7 @@ class Knight extends StatefulWidget {
   State<Knight> createState() => _KnightState();
 }
 
-class _KnightState extends State<Knight> with AfterRender, RiveStateMachine<Knight, bool>, SingleTickerProviderStateMixin, AnimatedState {
+class _KnightState extends State<Knight> with RiveStateMachine<Knight, bool>, SingleTickerProviderStateMixin, AnimatedState {
   @override
   String get filePath => 'assets/animations/knight_rive.riv';
 

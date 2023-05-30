@@ -1,0 +1,22 @@
+name: local_notifications
+description: Notifications for Nanc
+version: 1.0.0
+homepage: none
+publish_to: none
+
+environment:
+  sdk: '>=3.0.1 <4.0.0'
+  flutter: ">=3.10.1"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  ui_kit:
+    path: ../ui_kit
+  tools:
+    path: ../tools
+
+dev_dependencies:
+  lint:
+    path: ../lint
+  flutter_lints: ^2.0.1

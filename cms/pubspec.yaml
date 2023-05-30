@@ -40,6 +40,8 @@ dependencies:
     path: ../nanc_config
   nanc_api_supabase:
     path: ../nanc_api_supabase
+  local_notifications:
+    path: ../local_notifications
   cupertino_icons: ^1.0.5
   device_frame: ^1.1.0
   markdown: ^7.1.0
@@ -59,7 +61,6 @@ dependencies:
   json_annotation: ^4.8.1
   equatable: ^2.0.5
   autoequal: ^0.5.1
-  elegant_notification: ^1.10.0
 
 dev_dependencies:
   lint:
