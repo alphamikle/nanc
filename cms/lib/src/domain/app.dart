@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:analytics/analytics.dart';
 import 'package:animation_debugger/animation_debugger.dart';
 import 'package:config/config.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
@@ -42,86 +43,99 @@ class _AppState extends State<App> {
   late final StreamSubscription<HumanException> errorStreamSubscription;
 
   void openLink(String text, String? href, String title) {
-    logg.rows('IMPLEMENT ME', text, href, title);
+    unawaited(launchUrl(Uri.parse(href ?? text)));
   }
 
   Future<void> showErrorInfo(String errorInfo) async {
-    LocalNotification(
-      width: context.query.size.width * 0.25,
-      height: context.query.size.height,
-      toastDuration: const Duration(minutes: 2),
-      animationDuration: const Duration(milliseconds: 600),
-      animation: AnimationType.fromLeft,
-      notificationPosition: NotificationPosition.centerLeft,
-      child: (_) => MarkdownBody(data: errorInfo),
-    ).show(rootKey.currentContext!);
+    LocalNotificator.show(
+      rootKey.currentContext!,
+      builder: (GlobalKey<LocalNotificationState> key, AsyncCallback onClose) => LocalNotification(
+        key: key,
+        onClose: onClose,
+        shadeBackground: true,
+        width: rootKey.currentContext!.query.size.width * 0.30,
+        height: rootKey.currentContext!.query.size.height,
+        toastDuration: const Duration(minutes: 2),
+        animationDuration: const Duration(milliseconds: 600),
+        animation: AnimationType.fromLeft,
+        notificationPosition: NotificationPosition.centerLeft,
+        child: (_) => Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(left: Gap.regular, top: Gap.extra, right: Gap.regular, bottom: Gap.regular),
+            child: MarkdownBody(
+              data: errorInfo,
+              onTapLink: openLink,
+              selectable: true,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   Future<void> showError(HumanException exception) async {
     await doSomethingWhen(action: () {}, condition: () => rootKey.currentContext != null && mounted, interval: const Duration(milliseconds: 250), maxTries: 50);
     if (rootKey.currentContext != null) {
       if (mounted) {
-        final LocalNotification notification = LocalNotification(
-          animation: AnimationType.fromBottom,
-          width: 400,
-          height: 150,
-          animationDuration: const Duration(milliseconds: 750),
-          notificationPosition: NotificationPosition.bottomLeft,
-          toastDuration: const Duration(seconds: Env.isProduction ? 30 : Env.errorDuration),
-          progressIndicatorColor: context.theme.colorScheme.error,
-          isCloseButtonVisible: false,
-          child: (VoidCallback onClose) => Stack(
-            fit: StackFit.expand,
-            children: [
-              Positioned(
-                left: 0,
-                top: 0,
-                bottom: 0,
-                width: Gap.small,
-                child: ColoredBox(color: context.theme.colorScheme.error),
-              ),
-              Positioned(
-                left: Gap.large + Gap.small,
-                top: Gap.large,
-                right: Gap.large,
-                bottom: Gap.regular,
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: KitText(
-                    text: exception.humanMessage,
+        LocalNotificator.show(
+          rootKey.currentContext!,
+          builder: (GlobalKey<LocalNotificationState> key, AsyncCallback onClose) => LocalNotification(
+            key: key,
+            onClose: onClose,
+            animation: AnimationType.fromBottom,
+            width: 400,
+            height: 150,
+            animationDuration: const Duration(milliseconds: 750),
+            notificationPosition: NotificationPosition.bottomLeft,
+            toastDuration: const Duration(seconds: Env.isProduction ? 30 : Env.errorDuration),
+            progressIndicatorColor: context.theme.colorScheme.error,
+            isCloseButtonVisible: false,
+            child: (VoidCallback onClose) => Stack(
+              fit: StackFit.expand,
+              children: [
+                Positioned(
+                  left: 0,
+                  top: 0,
+                  bottom: 0,
+                  width: Gap.small,
+                  child: ColoredBox(color: context.theme.colorScheme.error),
+                ),
+                Positioned(
+                  left: Gap.large + Gap.small,
+                  top: Gap.large,
+                  right: Gap.large,
+                  bottom: Gap.regular,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: KitText(
+                      text: exception.humanMessage,
+                    ),
                   ),
                 ),
-              ),
-              Positioned(
-                top: Gap.small,
-                right: Gap.small,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    if (exception.hasOriginalMessage || exception.hasStackTrace)
+                Positioned(
+                  top: Gap.small,
+                  right: Gap.small,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (exception.hasOriginalMessage || exception.hasStackTrace)
+                        IconButton(
+                          onPressed: () => showErrorInfo([exception.fullInfo(), exception.errorsStackInfo].where((String it) => it.isNotEmpty).join('\n')),
+                          color: rootKey.currentContext!.theme.colorScheme.tertiary,
+                          icon: const Icon(IconPack.flu_chat_help_filled),
+                        ),
                       IconButton(
-                        onPressed: () => showErrorInfo('''
-# Error details
-${exception.hasOriginalMessage ? '\n## Original error:' : ''}
-${exception.hasOriginalMessage ? exception.originalMessage.toString() : ''}
-${exception.hasStackTrace ? '\n## Stack trace:' : ''}
-${exception.hasStackTrace ? exception.stackTrace.toString() : ''}
-'''),
-                        color: rootKey.currentContext!.theme.colorScheme.tertiary,
-                        icon: const Icon(IconPack.flu_chat_help_filled),
+                        onPressed: onClose,
+                        color: rootKey.currentContext!.theme.colorScheme.error,
+                        icon: const Icon(IconPack.mdi_close),
                       ),
-                    IconButton(
-                      onPressed: onClose,
-                      color: rootKey.currentContext!.theme.colorScheme.error,
-                      icon: const Icon(IconPack.mdi_close),
-                    ),
-                  ],
-                ),
-              )
-            ],
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         );
-        notification.show(rootKey.currentContext!);
       }
     }
   }

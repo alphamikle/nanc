@@ -1,17 +1,18 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../service/enums.dart';
-import '../../service/extensions.dart';
 import 'notification_content.dart';
 import 'progress_bar.dart';
-import 'shadow_builder.dart';
 
-// ignore: must_be_immutable
 class LocalNotification extends StatefulWidget {
-  LocalNotification({
+  const LocalNotification({
     required this.child,
+    required this.onClose,
+    required GlobalKey<LocalNotificationState> key,
+    required this.animationDuration,
     this.shadowColor = Colors.grey,
     this.background = Colors.white,
     this.radius = 5.0,
@@ -23,51 +24,12 @@ class LocalNotification extends StatefulWidget {
     this.isCloseButtonVisible = true,
     this.notificationPosition = NotificationPosition.topRight,
     this.animation = AnimationType.fromRight,
-    this.animationDuration = const Duration(milliseconds: 250),
     this.autoDismiss = true,
     this.height,
     this.width,
     this.progressIndicatorBackground = Colors.grey,
-    super.key,
-  }) {
-    if (showProgressIndicator) {
-      assert(autoDismiss != false);
-    }
-
-    if (notificationPosition == NotificationPosition.centerRight) {
-      assert(
-        animation != AnimationType.fromLeft && animation != AnimationType.fromBottom && animation != AnimationType.fromTop,
-      );
-    } else if (notificationPosition == NotificationPosition.centerLeft) {
-      assert(
-        animation != AnimationType.fromRight && animation != AnimationType.fromBottom && animation != AnimationType.fromTop,
-      );
-    } else if (notificationPosition == NotificationPosition.topCenter) {
-      assert(
-        animation != AnimationType.fromBottom && animation != AnimationType.fromLeft && animation != AnimationType.fromRight,
-      );
-    } else if (notificationPosition == NotificationPosition.topRight) {
-      assert(
-        animation != AnimationType.fromLeft && animation != AnimationType.fromBottom,
-      );
-    } else if (notificationPosition == NotificationPosition.topLeft) {
-      assert(
-        animation != AnimationType.fromRight && animation != AnimationType.fromBottom,
-      );
-    } else if (notificationPosition == NotificationPosition.bottomCenter) {
-      assert(
-        animation != AnimationType.fromTop && animation != AnimationType.fromLeft && animation != AnimationType.fromRight,
-      );
-    } else if (notificationPosition == NotificationPosition.bottomRight) {
-      assert(
-        animation != AnimationType.fromLeft && animation != AnimationType.fromTop,
-      );
-    } else if (notificationPosition == NotificationPosition.bottomLeft) {
-      assert(
-        animation != AnimationType.fromRight && animation != AnimationType.fromTop,
-      );
-    }
-  }
+    this.shadeBackground = false,
+  }) : super(key: key);
 
   final CloseButtonBuilder child;
   final AnimationType animation;
@@ -86,42 +48,11 @@ class LocalNotification extends StatefulWidget {
   final double? width;
   final double? height;
   final Color progressIndicatorBackground;
-
-  OverlayEntry? overlayEntry;
-  late LocalNotificationState stateCache;
-
-  void show(BuildContext context) {
-    overlayEntry = _overlayEntryBuilder();
-    Overlay.maybeOf(context)?.insert(overlayEntry!);
-  }
-
-  void closeOverlay() {
-    overlayEntry?.remove();
-    overlayEntry = null;
-  }
-
-  OverlayEntry _overlayEntryBuilder() {
-    return OverlayEntry(
-      builder: (BuildContext context) {
-        return ShadowBuilder(
-          onClose: () => stateCache.close(),
-          child: AlertDialog(
-            alignment: notificationPosition.alignment,
-            backgroundColor: Colors.transparent,
-            contentPadding: EdgeInsets.zero,
-            elevation: 0,
-            content: this,
-          ),
-        );
-      },
-    );
-  }
+  final AsyncCallback onClose;
+  final bool shadeBackground;
 
   @override
-  LocalNotificationState createState() {
-    stateCache = LocalNotificationState();
-    return stateCache;
-  }
+  LocalNotificationState createState() => LocalNotificationState();
 }
 
 class LocalNotificationState extends State<LocalNotification> with SingleTickerProviderStateMixin {
@@ -137,7 +68,7 @@ class LocalNotificationState extends State<LocalNotification> with SingleTickerP
       slideController.reverse();
       slideController.addListener(() {
         if (slideController.isDismissed) {
-          widget.closeOverlay();
+          unawaited(widget.onClose());
         }
       });
     });
@@ -157,7 +88,7 @@ class LocalNotificationState extends State<LocalNotification> with SingleTickerP
       case AnimationType.fromLeft:
         offsetAnimation = Tween<Offset>(
           begin: const Offset(-2, 0),
-          end: const Offset(0, 0),
+          end: Offset.zero,
         ).animate(
           CurvedAnimation(
             parent: slideController,
@@ -168,7 +99,7 @@ class LocalNotificationState extends State<LocalNotification> with SingleTickerP
       case AnimationType.fromRight:
         offsetAnimation = Tween<Offset>(
           begin: const Offset(2, 0),
-          end: const Offset(0, 0),
+          end: Offset.zero,
         ).animate(
           CurvedAnimation(
             parent: slideController,
@@ -179,7 +110,7 @@ class LocalNotificationState extends State<LocalNotification> with SingleTickerP
       case AnimationType.fromTop:
         offsetAnimation = Tween<Offset>(
           begin: const Offset(0, -7),
-          end: const Offset(0, 0),
+          end: Offset.zero,
         ).animate(
           CurvedAnimation(
             parent: slideController,
@@ -190,7 +121,7 @@ class LocalNotificationState extends State<LocalNotification> with SingleTickerP
       case AnimationType.fromBottom:
         offsetAnimation = Tween<Offset>(
           begin: const Offset(0, 4),
-          end: const Offset(0, 0),
+          end: Offset.zero,
         ).animate(
           CurvedAnimation(
             parent: slideController,
@@ -201,26 +132,15 @@ class LocalNotificationState extends State<LocalNotification> with SingleTickerP
       default:
     }
 
-    /// ! To support Flutter < 3.0.0
-    /// This allows a value of type T or T?
-    /// to be treated as a value of type T?.
-    ///
-    /// We use this so that APIs that have become
-    /// non-nullable can still be used with `!` and `?`
-    /// to support older versions of the API as well.
-    T? ambiguate<T>(T? value) => value;
-
-    ambiguate(WidgetsBinding.instance)?.addPostFrameCallback(
-      (_) => slideController.forward(),
-    );
+    WidgetsBinding.instance.addPostFrameCallback((_) => slideController.forward());
   }
 
-  void close() {
+  Future<void> close() async {
     closeTimer.cancel();
-    unawaited(slideController.reverse().then((_) async {
-      await Future<void>.delayed(const Duration(milliseconds: 250));
-      widget.closeOverlay();
-    }));
+    await Future.wait([
+      slideController.reverse(),
+      widget.onClose(),
+    ]);
   }
 
   @override
@@ -237,7 +157,7 @@ class LocalNotificationState extends State<LocalNotification> with SingleTickerP
       child: ClipRRect(
         borderRadius: BorderRadius.circular(widget.radius),
         child: Container(
-          width: widget.width ?? MediaQuery.of(context).size.width * 0.7,
+          width: widget.width ?? MediaQuery.of(context).size.width * 0.75,
           height: widget.height ?? MediaQuery.of(context).size.height * 0.12,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(widget.radius),

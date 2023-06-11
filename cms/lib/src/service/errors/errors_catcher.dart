@@ -10,7 +10,11 @@ abstract class ErrorsCatcher {
   static final StreamController<HumanException> errorStreamController = StreamController.broadcast();
 
   static void catchZoneErrors(Object? error, StackTrace? stackTrace) {
-    errorStreamController.add([error, stackTrace].toHumanException(error.toString()));
+    if (error is HumanException) {
+      errorStreamController.add(error);
+    } else {
+      errorStreamController.add([error, stackTrace].toHumanException(error.toString()));
+    }
     logg.error(error: error, stackTrace: stackTrace);
   }
 }

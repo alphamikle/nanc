@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -8,29 +9,28 @@ class ShadowBuilder extends StatefulWidget {
   const ShadowBuilder({
     required this.child,
     required this.onClose,
+    required this.animationDuration,
     this.backgroundColor,
     super.key,
   });
 
   final Widget child;
-  final VoidCallback onClose;
+  final AsyncCallback onClose;
+  final Duration animationDuration;
   final Color? backgroundColor;
 
   @override
-  State<ShadowBuilder> createState() => _ShadowBuilderState();
+  State<ShadowBuilder> createState() => ShadowBuilderState();
 }
 
-class _ShadowBuilderState extends State<ShadowBuilder> with SingleTickerProviderStateMixin, AnimatedState, AfterRender {
+class ShadowBuilderState extends State<ShadowBuilder> with SingleTickerProviderStateMixin, AnimatedState, AfterRender {
   @override
   Curve get animationCurve => Curves.ease;
 
   @override
-  Duration get animationDuration => const Duration(milliseconds: 400);
+  Duration get animationDuration => widget.animationDuration;
 
-  Future<void> close() async {
-    await animateBack();
-    widget.onClose();
-  }
+  Future<void> close() async => animateBack();
 
   @override
   Future<void> afterRender() async => forward();
@@ -51,7 +51,7 @@ class _ShadowBuilderState extends State<ShadowBuilder> with SingleTickerProvider
           KitInkWell(
             noReaction: true,
             borderRadius: BorderRadius.circular(0),
-            onPressed: close,
+            onPressed: widget.onClose,
           ),
           widget.child,
         ],
