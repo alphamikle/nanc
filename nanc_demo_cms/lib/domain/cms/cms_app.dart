@@ -10,10 +10,12 @@ import '../models/supabase/supa_user_to_unfavorite_colors.dart';
 
 enum DataProvider {
   supabase,
-  firebase;
+  firebase,
+  firebaseLocal;
 
   bool get isSupabase => this == DataProvider.supabase;
-  bool get isFirebase => this == DataProvider.firebase;
+  bool get isFirebase => this == DataProvider.firebase || this == DataProvider.firebaseLocal;
+  bool get isFirebaseLocal => this == DataProvider.firebaseLocal;
 }
 
 Future<void> startCmsApp(DataProvider provider) async {
@@ -40,10 +42,10 @@ Future<void> startCmsApp(DataProvider provider) async {
     );
   } else if (provider.isFirebase) {
     final FirebaseApi firebaseApi = await FirebaseApi.create(const String.fromEnvironment('FIREBASE_JSON_BASE64_KEY'));
-    collectionApi = FirebaseCollectionApi(
-      api: firebaseApi,
-    );
-    pageApi = FirebasePageApi();
+    final IFirebaseCollectionApi firebaseCollectionApi =
+        provider.isFirebaseLocal ? FirebaseLocalCollectionApi(api: firebaseApi) : FirebaseCollectionApi(api: firebaseApi);
+    collectionApi = firebaseCollectionApi;
+    pageApi = FirebasePageApi(api: firebaseApi, firebaseCollectionApi: firebaseCollectionApi);
     modelApi = FirebaseModelApi();
   }
 

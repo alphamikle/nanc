@@ -4,7 +4,7 @@ import 'package:tools/tools.dart';
 
 final RegExp _documentIdRegExp = RegExp(r'.*/(?<id>.*)$');
 
-Value toFirestoreValue(dynamic value) {
+Value toFirestoreValue(dynamic value, {bool dateAsMs = false}) {
   final Value result = Value();
 
   /// ? NULL
@@ -62,7 +62,11 @@ Value toFirestoreValue(dynamic value) {
           ? DateTime.tryParse(value)
           : null;
   if (dateTime != null) {
-    result.timestampValue = dateTime.microsecondsSinceEpoch.toString();
+    if (dateAsMs) {
+      result.timestampValue = dateTime.microsecondsSinceEpoch.toString();
+    } else {
+      result.timestampValue = dateTime.toUtc().toIso8601String();
+    }
     return result;
   }
 
@@ -102,7 +106,8 @@ T? fromFirestoreValue<T>(Value value) {
   } else if (value.doubleValue != null) {
     return value.doubleValue! as T;
   } else if (value.timestampValue != null) {
-    return DateTime.fromMicrosecondsSinceEpoch(int.parse(value.timestampValue!)) as T;
+    final DateTime? dateFromIso = DateTime.tryParse(value.timestampValue!);
+    return (dateFromIso ?? DateTime.fromMicrosecondsSinceEpoch(int.parse(value.timestampValue!))).toIso8601String() as T;
   } else if (value.booleanValue != null) {
     return value.booleanValue! as T;
   } else if (value.stringValue != null) {
@@ -120,7 +125,7 @@ T? fromFirestoreValue<T>(Value value) {
   return null;
 }
 
-Json fromFirestoreDocument(Model model, Document document) {
+Json documentToJson(Model model, Document document) {
   final fields = document.fields;
   if (fields == null) {
     return {};
@@ -128,7 +133,7 @@ Json fromFirestoreDocument(Model model, Document document) {
   final Json json = {};
   final Iterable<MapEntry<String, Value>> entries = fields.entries;
   for (final MapEntry(:String key, :Value value) in entries) {
-    json[key] = fromFirestoreValue(value);
+    json[key] = fromFirestoreValue<dynamic>(value);
   }
   final RegExpMatch? match = _documentIdRegExp.firstMatch(document.name ?? '');
   final String? documentId = match?.namedGroup('id');
@@ -137,6 +142,18 @@ Json fromFirestoreDocument(Model model, Document document) {
     json[primaryIdFieldName] = documentId;
   }
   return json;
+}
+
+Document jsonToDocument({required Json json, required String? path, bool dateAsMs = false}) {
+  final Map<String, Value> documentFields = {};
+  for (final MapEntry(:key, :value) in json.entries) {
+    documentFields[key.toString()] = toFirestoreValue(value, dateAsMs: dateAsMs);
+  }
+
+  return Document(
+    name: path,
+    fields: documentFields,
+  );
 }
 
 extension _IsInt on num {

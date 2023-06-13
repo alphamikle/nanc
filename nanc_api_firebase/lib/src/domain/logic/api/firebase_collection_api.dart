@@ -5,8 +5,9 @@ import 'package:tools/tools.dart';
 
 import '../mapper/firestore_value_mapper.dart';
 import 'firebase_api.dart';
+import 'firebase_collection_api_interface.dart';
 
-class FirebaseCollectionApi implements ICollectionApi {
+class FirebaseCollectionApi implements IFirebaseCollectionApi {
   FirebaseCollectionApi({
     required FirebaseApi api,
   }) : _api = api;
@@ -38,7 +39,7 @@ class FirebaseCollectionApi implements ICollectionApi {
     queryRequest.structuredQuery = structuredQuery;
     final fs.RunQueryResponse result = await _api.runQueryRequest(queryRequest);
     final Iterable<fs.Document> documents = result.map((fs.RunQueryResponseElement element) => element.document).whereNotNull();
-    final List<Json> data = documents.map((fs.Document document) => fromFirestoreDocument(model, document)).toList();
+    final List<Json> data = documents.map((fs.Document document) => documentToJson(model, document)).toList();
     final int cachedTotalPages = _documentsCount[model.id] ?? 1;
     int currentPage = params.page;
     int totalPages = currentPage + 1;

@@ -88,9 +88,9 @@ class PageBloc extends BasePageBloc<PageState> {
         isSaving: false,
       ));
       eventBus.send(eventId: PageEvents.save, request: model);
-    } catch (error) {
+    } catch (error, stackTrace) {
       emit(state.copyWith(isSaving: false));
-      throw error.toHumanException('Page saving failed!');
+      throw [error, stackTrace].toHumanException('Page saving failed!');
     }
   }
 

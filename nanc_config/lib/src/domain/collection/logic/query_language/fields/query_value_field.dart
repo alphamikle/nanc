@@ -8,7 +8,8 @@ class QueryValueField extends Equatable implements QueryField {
     this.fieldId = '',
     this.value,
     this.type = QueryFieldType.unknown,
-  });
+  })  : assert(type != QueryFieldType.unknown),
+        assert(value is String || value is bool || value is int || value is double || value == null);
 
   factory QueryValueField.fromJson(dynamic json) => _$QueryValueFieldFromJson(castToJson(json));
 
