@@ -6,10 +6,14 @@ import 'package:fields/fields.dart';
 import 'package:file_syncer/file_syncer.dart';
 import 'package:flutter/material.dart';
 import 'package:highlight/languages/xml.dart';
+import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 
+import '../../../../general/logic/model/menu_element.dart';
 import 'editor_event.dart';
 import 'editor_state.dart';
+
+final RegExp _prettyCodeRegExp = RegExp(r'> \s{1,3}');
 
 class EditorBloc extends Cubit<EditorState> {
   EditorBloc({
@@ -75,6 +79,20 @@ class EditorBloc extends Cubit<EditorState> {
     emit(
       state.copyWith(
         markdownContent: controller.text,
+      ),
+    );
+  }
+
+  void selectTag(MenuElement tagElement, TagRenderer tagRenderer) {
+    emit(state.copyWith(
+      activeElement: tagElement,
+      activeTagRenderer: tagRenderer,
+    ));
+    final String example = tagRenderer.example.replaceAll(_prettyCodeRegExp, '>\n').trim();
+    initFromModel(
+      ScreenContentModel(
+        content: example,
+        contentType: ScreenContentType.scrollable,
       ),
     );
   }

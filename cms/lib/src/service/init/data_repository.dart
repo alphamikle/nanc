@@ -6,6 +6,7 @@ class DataRepository {
   const DataRepository({
     required this.clickHandlers,
     required this.renderers,
+    required this.supportedFilters,
     required this.imageLoadingBuilder,
     required this.imageErrorBuilder,
     required this.imageFrameBuilder,
@@ -13,6 +14,7 @@ class DataRepository {
 
   final List<ClickHandler> clickHandlers;
   final List<TagRenderer> renderers;
+  final Set<QueryFieldType> supportedFilters;
   final ImageLoadingBuilder? imageLoadingBuilder;
   final ImageErrorWidgetBuilder? imageErrorBuilder;
   final ImageFrameBuilder? imageFrameBuilder;

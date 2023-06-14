@@ -8,7 +8,6 @@ import '../../../../../cms.dart';
 import '../../../../service/config/config.dart';
 import '../../../general/ui/view/general_view_v2.dart';
 import '../../../preview/ui/component/page_preview_with_frame.dart';
-import '../../logic/bloc/manual/manual_state.dart';
 import '../component/manual_menu.dart';
 import '../component/page_editor.dart';
 import '../component/tag_renderer_description.dart';
@@ -28,21 +27,18 @@ class _TagsManualViewState extends State<TagsManualView> {
   Widget tagDescription() {
     return BlocBuilder<EditorBloc, EditorState>(
       builder: (BuildContext context, EditorState state) {
-        if (state is ManualState) {
-          return Padding(
-            padding: const EdgeInsets.only(
-              top: Gap.regular,
-              bottom: Gap.regular,
-              left: Gap.large,
-            ),
-            child: TagRendererDescription(
-              tagName: state.activeTagRenderer.tag,
-              withChildren: true,
-              description: state.activeTagRenderer.description,
-            ),
-          );
-        }
-        return const SizedBox.shrink();
+        return Padding(
+          padding: const EdgeInsets.only(
+            top: Gap.regular,
+            bottom: Gap.regular,
+            left: Gap.large,
+          ),
+          child: TagRendererDescription(
+            tagName: state.activeTagRenderer.tag,
+            withChildren: true,
+            description: state.activeTagRenderer.description,
+          ),
+        );
       },
     );
   }

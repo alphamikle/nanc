@@ -9,8 +9,6 @@ import '../../../../service/init/data_repository.dart';
 import '../../../general/logic/model/menu_element.dart';
 import '../../logic/bloc/editor/editor_bloc.dart';
 import '../../logic/bloc/editor/editor_state.dart';
-import '../../logic/bloc/manual/manual_bloc.dart';
-import '../../logic/bloc/manual/manual_state.dart';
 
 class ManualMenu extends StatelessWidget {
   const ManualMenu({
@@ -20,10 +18,9 @@ class ManualMenu extends StatelessWidget {
   Widget menuItemBuilder(BuildContext context, int index, TagRenderer renderer) {
     return BlocBuilder<EditorBloc, EditorState>(
       builder: (BuildContext context, EditorState state) {
-        final ManualBloc manualBloc = context.read<EditorBloc>() as ManualBloc;
-        final ManualState manualState = state as ManualState;
+        final EditorBloc manualBloc = context.read<EditorBloc>();
         final MenuElement element = MenuElement(title: capitalize(renderer.tag), url: renderer.tag);
-        final bool isActive = element == manualState.activeElement;
+        final bool isActive = element == state.activeElement;
 
         return Padding(
           padding: EdgeInsets.only(top: index == 0 ? kPadding : 0, bottom: kPadding),
@@ -38,15 +35,24 @@ class ManualMenu extends StatelessWidget {
     );
   }
 
+  List<TagRenderer> tagRenderers(BuildContext context) {
+    final DataRepository dataRepository = context.read();
+    return dataRepository.renderers.where((TagRenderer renderer) => renderer.tag.startsWith('prop:') == false).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final DataRepository dataRepository = context.read();
+    final List<TagRenderer> renderers = tagRenderers(context);
 
     return Material(
       type: MaterialType.transparency,
       child: ListView.builder(
-        itemBuilder: (context, index) => menuItemBuilder(context, index, dataRepository.renderers[index]),
-        itemCount: dataRepository.renderers.length,
+        itemBuilder: (BuildContext context, int index) => menuItemBuilder(
+          context,
+          index,
+          renderers[index],
+        ),
+        itemCount: renderers.length,
       ),
     );
   }

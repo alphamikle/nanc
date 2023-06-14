@@ -99,9 +99,9 @@ class ModelPageBloc extends Cubit<ModelPageState> {
       ));
       _initControllerMap();
       emit(state.copyWith(isSaving: false));
-    } catch (error) {
+    } catch (error, stackTrace) {
       emit(state.copyWith(isSaving: false));
-      throw error.toHumanException('Model creation failed!');
+      throw [error, stackTrace].toHumanException('Model creation failed!');
     }
   }
 

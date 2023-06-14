@@ -45,6 +45,9 @@ class PageListApiImplementation extends MockApi implements ICollectionApi {
       data: chunk,
     );
   }
+
+  @override
+  Set<QueryFieldType> get supportedFilters => QueryFieldType.values.toSet();
 }
 
 List<Json> _searchEngine(List<Json> data, QueryField query) {

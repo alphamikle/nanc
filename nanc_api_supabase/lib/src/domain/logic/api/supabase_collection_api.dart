@@ -19,6 +19,9 @@ class SupabaseCollectionApi implements ICollectionApi {
   final bool caseSensitive;
 
   @override
+  Set<QueryFieldType> get supportedFilters => QueryFieldType.values.toSet();
+
+  @override
   Future<CollectionResponseDto> fetchPageList(Model model, List<String> subset, QueryField query, ParamsDto params) async {
     final int from = params.limit * (params.page - 1);
     final int to = params.limit * params.page - 1;

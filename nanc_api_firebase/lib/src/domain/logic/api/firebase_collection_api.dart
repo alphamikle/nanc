@@ -17,6 +17,22 @@ class FirebaseCollectionApi implements IFirebaseCollectionApi {
   final Map<String, int> _documentsCount = {};
 
   @override
+  Set<QueryFieldType> get supportedFilters => {
+        QueryFieldType.equals,
+        QueryFieldType.notEquals,
+        QueryFieldType.empty,
+        QueryFieldType.notEmpty,
+        QueryFieldType.less,
+        QueryFieldType.lessOrEquals,
+        QueryFieldType.greater,
+        QueryFieldType.greaterOrEquals,
+        QueryFieldType.isTrue,
+        QueryFieldType.isFalse,
+        QueryFieldType.isNull,
+        QueryFieldType.isNotNull,
+      };
+
+  @override
   Future<CollectionResponseDto> fetchPageList(Model model, List<String> subset, QueryField query, ParamsDto params) async {
     final fs.RunQueryRequest queryRequest = fs.RunQueryRequest();
     final fs.StructuredQuery structuredQuery = fs.StructuredQuery();

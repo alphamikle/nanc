@@ -24,6 +24,7 @@ int i = 0;
 class _QueryFilterValueFieldCellState extends State<QueryFilterValueFieldCell> with FieldCellHelper<QueryFilterValueField, QueryFilterValueFieldCell> {
   late final LocalPageBloc localPageBloc = LocalPageBloc(draftService: context.read(), onDataChanged: onDataChanged);
   late final CollectionFilterBloc collectionFilterBloc = context.read();
+  late final Set<QueryFieldType> supportedFilters = context.read<DataRepository>().supportedFilters;
 
   Json get data => localPageBloc.state.data;
 
@@ -64,25 +65,27 @@ class _QueryFilterValueFieldCellState extends State<QueryFilterValueFieldCell> w
   }
 
   List<EnumValue> get conditionTypes {
+    final Set<QueryFieldType> sf = supportedFilters;
+
     return [
-      if (isStringField || isNumericField || isDateTimeField) QueryFieldType.equals.toEnum(),
-      if (isStringField || isNumericField || isDateTimeField) QueryFieldType.notEquals.toEnum(),
-      if (isStringField || isDateTimeField) QueryFieldType.startsWith.toEnum(),
-      if (isStringField || isDateTimeField) QueryFieldType.notStartsWith.toEnum(),
-      if (isStringField || isDateTimeField) QueryFieldType.endsWith.toEnum(),
-      if (isStringField || isDateTimeField) QueryFieldType.notEndsWith.toEnum(),
-      if (isStringField || isDateTimeField) QueryFieldType.contains.toEnum(),
-      if (isStringField || isDateTimeField) QueryFieldType.notContains.toEnum(),
-      if (isStringField || isDateTimeField) QueryFieldType.empty.toEnum(),
-      if (isStringField || isDateTimeField) QueryFieldType.notEmpty.toEnum(),
-      if (isNumericField || isDateTimeField) QueryFieldType.less.toEnum(),
-      if (isNumericField || isDateTimeField) QueryFieldType.lessOrEquals.toEnum(),
-      if (isNumericField || isDateTimeField) QueryFieldType.greater.toEnum(),
-      if (isNumericField || isDateTimeField) QueryFieldType.greaterOrEquals.toEnum(),
-      if (isBoolField) QueryFieldType.isTrue.toEnum(),
-      if (isBoolField) QueryFieldType.isFalse.toEnum(),
-      QueryFieldType.isNull.toEnum(),
-      QueryFieldType.isNotNull.toEnum(),
+      if (sf.withEquals && (isStringField || isNumericField || isDateTimeField)) QueryFieldType.equals.toEnum(),
+      if (sf.withNotEquals && (isStringField || isNumericField || isDateTimeField)) QueryFieldType.notEquals.toEnum(),
+      if (sf.withStartsWith && (isStringField || isDateTimeField)) QueryFieldType.startsWith.toEnum(),
+      if (sf.withNotStartsWith && (isStringField || isDateTimeField)) QueryFieldType.notStartsWith.toEnum(),
+      if (sf.withEndsWith && (isStringField || isDateTimeField)) QueryFieldType.endsWith.toEnum(),
+      if (sf.withNotEndsWith && (isStringField || isDateTimeField)) QueryFieldType.notEndsWith.toEnum(),
+      if (sf.withContains && (isStringField || isDateTimeField)) QueryFieldType.contains.toEnum(),
+      if (sf.withNotContains && (isStringField || isDateTimeField)) QueryFieldType.notContains.toEnum(),
+      if (sf.withEmpty && (isStringField || isDateTimeField)) QueryFieldType.empty.toEnum(),
+      if (sf.withNotEmpty && (isStringField || isDateTimeField)) QueryFieldType.notEmpty.toEnum(),
+      if (sf.withLess && (isNumericField || isDateTimeField)) QueryFieldType.less.toEnum(),
+      if (sf.withLessOrEquals && (isNumericField || isDateTimeField)) QueryFieldType.lessOrEquals.toEnum(),
+      if (sf.withGreater && (isNumericField || isDateTimeField)) QueryFieldType.greater.toEnum(),
+      if (sf.withGreaterOrEquals && (isNumericField || isDateTimeField)) QueryFieldType.greaterOrEquals.toEnum(),
+      if (sf.withIsTrue && isBoolField) QueryFieldType.isTrue.toEnum(),
+      if (sf.withIsFalse && isBoolField) QueryFieldType.isFalse.toEnum(),
+      if (sf.withIsNull) QueryFieldType.isNull.toEnum(),
+      if (sf.withIsNotNull) QueryFieldType.isNotNull.toEnum(),
     ];
   }
 
@@ -329,4 +332,27 @@ extension ExtendedQueryFieldType on QueryFieldType {
   bool get isCommonType {
     return QueryFieldType.commonTypes.contains(this);
   }
+}
+
+extension ExtendedSupportedFilters on Iterable<QueryFieldType> {
+  bool get withOr => contains(QueryFieldType.or);
+  bool get withAnd => contains(QueryFieldType.and);
+  bool get withEquals => contains(QueryFieldType.equals);
+  bool get withNotEquals => contains(QueryFieldType.notEquals);
+  bool get withStartsWith => contains(QueryFieldType.startsWith);
+  bool get withNotStartsWith => contains(QueryFieldType.notStartsWith);
+  bool get withEndsWith => contains(QueryFieldType.endsWith);
+  bool get withNotEndsWith => contains(QueryFieldType.notEndsWith);
+  bool get withContains => contains(QueryFieldType.contains);
+  bool get withNotContains => contains(QueryFieldType.notContains);
+  bool get withEmpty => contains(QueryFieldType.empty);
+  bool get withNotEmpty => contains(QueryFieldType.notEmpty);
+  bool get withLess => contains(QueryFieldType.less);
+  bool get withLessOrEquals => contains(QueryFieldType.lessOrEquals);
+  bool get withGreater => contains(QueryFieldType.greater);
+  bool get withGreaterOrEquals => contains(QueryFieldType.greaterOrEquals);
+  bool get withIsTrue => contains(QueryFieldType.isTrue);
+  bool get withIsFalse => contains(QueryFieldType.isFalse);
+  bool get withIsNull => contains(QueryFieldType.isNull);
+  bool get withIsNotNull => contains(QueryFieldType.isNotNull);
 }

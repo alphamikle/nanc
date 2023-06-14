@@ -10,12 +10,12 @@ Future<String> decrypt(String value, {String? salt}) async => decryptSync(value,
 
 String encryptSync(String value, {String? salt}) {
   final String realSalt = _salt(salt);
-  return _createCrypto(_salt(salt)).encrypt(value, iv: IV.fromUtf8(realSalt.substring(0, _kIV))).base64;
+  return _createCrypto(_salt(salt)).encrypt(value, iv: IV.fromUtf8(realSalt.substring(0, _kIV))).base16;
 }
 
 String decryptSync(String value, {String? salt}) {
   final String realSalt = _salt(salt);
-  return _createCrypto(_salt(salt)).decrypt64(value, iv: IV.fromUtf8(realSalt.substring(0, _kIV)));
+  return _createCrypto(_salt(salt)).decrypt16(value, iv: IV.fromUtf8(realSalt.substring(0, _kIV)));
 }
 
 Encrypter _createCrypto(String salt) => Encrypter(Salsa20(Key.fromUtf8(salt)));

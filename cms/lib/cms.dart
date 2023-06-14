@@ -21,6 +21,7 @@ export 'src/service/errors/errors.dart';
 export 'src/service/errors/errors_catcher.dart';
 export 'src/service/errors/human_exception.dart';
 export 'src/service/errors/ui_error.dart';
+export 'src/service/init/data_repository.dart';
 export 'src/service/notifications/message_notification.dart';
 export 'src/service/routing/params_list.dart';
 export 'src/service/routing/route_list.dart';

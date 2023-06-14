@@ -15,7 +15,6 @@ import '../../../preview/logic/bloc/preview_bloc.dart';
 import '../../../preview/ui/component/page_preview_with_frame.dart';
 import '../../logic/bloc/editor/editor_bloc.dart';
 import '../../logic/bloc/editor/editor_state.dart';
-import '../../logic/bloc/manual/manual_bloc.dart';
 import '../component/page_editor.dart';
 import 'page_data_preview.dart';
 import 'tags_manual_view.dart';
@@ -34,7 +33,7 @@ class ScreenEditor extends FieldCellWidget<ScreenField> {
 class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<ScreenField, ScreenEditor> {
   late final StreamSubscription<EditorState> subscription;
   final EventBus localEventBus = EventBus();
-  late final ManualBloc manualBloc = ManualBloc(eventBus: localEventBus);
+  late final EditorBloc manualBloc = EditorBloc(eventBus: localEventBus);
   late final PreviewBloc previewBloc = PreviewBloc(eventBus: localEventBus);
   final GlobalKey<KitScreenPreloaderState> preloaderKey = GlobalKey();
   late final EditorBloc editorBloc = context.read();

@@ -24,6 +24,9 @@ class FirebaseLocalCollectionApi implements IFirebaseCollectionApi {
   final Map<String, DateTime> _cacheTimestamp = {};
 
   @override
+  Set<QueryFieldType> get supportedFilters => QueryFieldType.values.toSet();
+
+  @override
   Future<CollectionResponseDto> fetchPageList(Model model, List<String> subset, QueryField query, ParamsDto params) async {
     final List<Json> result = [];
     late final fs.RunQueryResponse collection;

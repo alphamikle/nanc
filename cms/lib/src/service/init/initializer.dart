@@ -112,6 +112,7 @@ class Initializer {
       imageLoadingBuilder: config.imageBuilderDelegate?.imageLoadingBuilder,
       imageErrorBuilder: config.imageBuilderDelegate?.imageErrorWidgetBuilder,
       imageFrameBuilder: config.imageBuilderDelegate?.imageFrameBuilder,
+      supportedFilters: config.collectionApi.supportedFilters,
     );
 
     blocProviders

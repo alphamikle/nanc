@@ -9,8 +9,14 @@ part of 'editor_state.dart';
 extension _$EditorStateAutoequal on EditorState {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props =>
-      [isLoading, markdownContent, contentType, isSyncedWithFile];
+  List<Object?> get _$props => [
+        isLoading,
+        markdownContent,
+        contentType,
+        isSyncedWithFile,
+        activeElement,
+        activeTagRenderer
+      ];
 }
 
 // **************************************************************************
@@ -26,6 +32,10 @@ abstract class _$EditorStateCWProxy {
 
   EditorState isSyncedWithFile(bool isSyncedWithFile);
 
+  EditorState activeElement(MenuElement activeElement);
+
+  EditorState activeTagRenderer(TagRenderer activeTagRenderer);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `EditorState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -37,6 +47,8 @@ abstract class _$EditorStateCWProxy {
     String? markdownContent,
     ScreenContentType? contentType,
     bool? isSyncedWithFile,
+    MenuElement? activeElement,
+    TagRenderer? activeTagRenderer,
   });
 }
 
@@ -62,6 +74,14 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
       this(isSyncedWithFile: isSyncedWithFile);
 
   @override
+  EditorState activeElement(MenuElement activeElement) =>
+      this(activeElement: activeElement);
+
+  @override
+  EditorState activeTagRenderer(TagRenderer activeTagRenderer) =>
+      this(activeTagRenderer: activeTagRenderer);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `EditorState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -74,6 +94,8 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
     Object? markdownContent = const $CopyWithPlaceholder(),
     Object? contentType = const $CopyWithPlaceholder(),
     Object? isSyncedWithFile = const $CopyWithPlaceholder(),
+    Object? activeElement = const $CopyWithPlaceholder(),
+    Object? activeTagRenderer = const $CopyWithPlaceholder(),
   }) {
     return EditorState(
       isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
@@ -95,6 +117,16 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
           ? _value.isSyncedWithFile
           // ignore: cast_nullable_to_non_nullable
           : isSyncedWithFile as bool,
+      activeElement:
+          activeElement == const $CopyWithPlaceholder() || activeElement == null
+              ? _value.activeElement
+              // ignore: cast_nullable_to_non_nullable
+              : activeElement as MenuElement,
+      activeTagRenderer: activeTagRenderer == const $CopyWithPlaceholder() ||
+              activeTagRenderer == null
+          ? _value.activeTagRenderer
+          // ignore: cast_nullable_to_non_nullable
+          : activeTagRenderer as TagRenderer,
     );
   }
 }
@@ -114,6 +146,8 @@ EditorState _$EditorStateFromJson(Map<String, dynamic> json) => EditorState(
       markdownContent: json['markdownContent'] as String,
       contentType: $enumDecode(_$ScreenContentTypeEnumMap, json['contentType']),
       isSyncedWithFile: json['isSyncedWithFile'] as bool,
+      activeElement: MenuElement.fromJson(json['activeElement']),
+      activeTagRenderer: _rendererFrom(json['activeTagRenderer']),
     );
 
 Map<String, dynamic> _$EditorStateToJson(EditorState instance) =>
@@ -122,6 +156,8 @@ Map<String, dynamic> _$EditorStateToJson(EditorState instance) =>
       'markdownContent': instance.markdownContent,
       'contentType': _$ScreenContentTypeEnumMap[instance.contentType]!,
       'isSyncedWithFile': instance.isSyncedWithFile,
+      'activeElement': instance.activeElement.toJson(),
+      'activeTagRenderer': _rendererTo(instance.activeTagRenderer),
     };
 
 const _$ScreenContentTypeEnumMap = {

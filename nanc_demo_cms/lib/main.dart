@@ -8,6 +8,6 @@ import 'domain/cms/cms_app.dart';
 Future<void> main() async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await startCmsApp(DataProvider.firebaseLocal);
+    await startCmsApp(DataProvider.firebase);
   }, ErrorsCatcher.catchZoneErrors);
 }
