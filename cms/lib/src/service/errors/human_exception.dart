@@ -1,3 +1,5 @@
+import 'package:stack_trace/stack_trace.dart';
+
 typedef Extractor = dynamic Function(dynamic object);
 
 class HumanException implements Exception {
@@ -49,6 +51,8 @@ class HumanException implements Exception {
   final StackTrace? stackTrace;
   final List<HumanException> errorsStack;
 
+  Trace? get trace => stackTrace == null ? null : Trace.from(stackTrace!);
+
   String fullInfo([int? number]) {
     if (errorsStack.isNotEmpty) {
       number = 1;
@@ -59,11 +63,11 @@ class HumanException implements Exception {
 ${hasOriginalMessage ? '\n## Original error:' : ''}
 ${hasOriginalMessage ? originalMessage.toString() : ''}
 ${hasStackTrace ? '\n## Stack trace:' : ''}
-${hasStackTrace ? stackTrace.toString() : ''}
+${hasStackTrace ? trace.toString() : ''}
 ''';
   }
 
-  String get additionalInfo => '${hasOriginalMessage ? '$originalMessage' : ''}${hasStackTrace ? '${hasOriginalMessage ? '\n\n' : ''}$stackTrace' : ''}';
+  String get additionalInfo => '${hasOriginalMessage ? '$originalMessage' : ''}${hasStackTrace ? '${hasOriginalMessage ? '\n\n' : ''}$trace' : ''}';
   String get errorsStackInfo {
     if (errorsStack.isEmpty) {
       return '';
@@ -79,7 +83,7 @@ ${hasStackTrace ? stackTrace.toString() : ''}
   }
 
   bool get hasOriginalMessage => originalMessage != null && originalMessage!.trim().isNotEmpty;
-  bool get hasStackTrace => stackTrace != null;
+  bool get hasStackTrace => trace != null;
 
   Set<HumanException> _collectEmbeddedErrors(Set<HumanException> collector) {
     for (final HumanException exception in errorsStack) {

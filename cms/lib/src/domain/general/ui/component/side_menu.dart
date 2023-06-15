@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
+import 'package:go_router/go_router.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
-import 'package:vrouter/vrouter.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
@@ -32,7 +32,7 @@ class SideMenu extends StatelessWidget {
       child: KitMenuItem(
         text: element.title,
         icon: tryToGetIconByName(entity?.icon ?? '') ?? IconPack.flu_circle_small_regular,
-        onPressed: () => context.vRouter.to(element.url),
+        onPressed: () => context.go(element.url),
         isActive: isActive,
       ),
     );

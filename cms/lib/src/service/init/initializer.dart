@@ -2,30 +2,23 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nanc_config/nanc_config.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 
+import '../../../cms.dart';
 import '../../domain/collection/logic/logic/bloc/collection_bloc.dart';
-import '../../domain/collection/logic/logic/bloc/collection_filter_bloc.dart';
 import '../../domain/collection/logic/logic/provider/collection_provider.dart';
 import '../../domain/draft/logic/draft_service.dart';
-import '../../domain/editor/logic/bloc/editor/editor_bloc.dart';
-import '../../domain/field/logic/bloc/local_page_bloc/local_page_bloc.dart';
 import '../../domain/general/logic/bloc/header/header_bloc.dart';
 import '../../domain/general/logic/bloc/side_menu/menu_bloc.dart';
-import '../../domain/model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../domain/model/logic/bloc/model_page_bloc/model_page_bloc.dart';
 import '../../domain/model/logic/provider/model_provider.dart';
-import '../../domain/page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../domain/page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
-import '../../domain/page/logic/bloc/page_bloc/page_bloc.dart';
 import '../../domain/page/logic/provider/page_provider.dart';
 import '../../domain/preview/logic/bloc/preview_bloc.dart';
 import '../../domain/tutorial/logic/bloc/tutorial_bloc.dart';
-import '../errors/human_exception.dart';
 import '../routing/routes_preloading_service.dart';
-import 'data_repository.dart';
 
 class Initializer {
   Initializer({
@@ -40,6 +33,7 @@ class Initializer {
 
   final List<BlocProvider<dynamic>> blocProviders = [];
   final List<RepositoryProvider<dynamic>> repositoryProviders = [];
+  late final GoRouter router;
 
   Future<bool> init() async {
     /// ? FONTS
@@ -98,6 +92,7 @@ class Initializer {
       pageBloc: pageBloc,
       rootKey: rootKey,
     );
+    router = buildRouter(routesPreloadingService, rootKey);
     final SettingsBloc settingsBloc = SettingsBloc(dbService: dbService);
 
     /// ? PRE-INITIALIZATION

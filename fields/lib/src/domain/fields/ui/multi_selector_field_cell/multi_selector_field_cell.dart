@@ -7,7 +7,6 @@ import 'package:model/model.dart';
 import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
-import 'package:vrouter/vrouter.dart';
 
 import '../../logic/field/field.dart';
 import '../../logic/multi_selector_field/multi_selector_field.dart';
@@ -56,7 +55,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
   }
 
   String? get parentModelId {
-    final String? modelId = context.vRouter.pathParameters[Params.modelId.name];
+    final String? modelId = context.location.pathParameters[Params.modelId.name];
     if (modelId == null) {
       notFoundModelIdError();
     }

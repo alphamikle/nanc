@@ -3,16 +3,17 @@ import 'dart:async';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
-import 'package:vrouter/vrouter.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../../service/errors/ui_error.dart';
 import '../../../../service/routing/params_list.dart';
 import '../../../../service/routing/route_list.dart';
+import '../../../../service/routing/uri_extension.dart';
 import '../../../../service/tools/model_finder.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../../model/ui/component/fields_form.dart';
@@ -56,36 +57,35 @@ class _EntityPageViewState extends State<EntityPageView> {
         if (mounted) {
           final Model entity = findEntity(context);
           if (soloEntity) {
-            context.vRouter.to(Routes.pageOfSoloModel(entity.id), isReplacement: true);
+            context.go(Routes.pageOfSoloModel(entity.id));
           } else {
-            context.vRouter.to(
+            context.go(
               Routes.pageOfCollectionModel(entity.id, context.read<BasePageBloc>().valueForKey(entity.idField.id).toString()),
-              isReplacement: true,
             );
           }
         }
       } else {
         await pageBloc.save(entity);
         if (mounted) {
-          context.vRouter.to(context.vRouter.url, isReplacement: true);
+          context.go(context.location.fullPath);
         }
       }
     }
   }
 
   Future<void> confirmAndDelete(Model model) async {
-    final InitializedVRouterSailor vRouter = context.vRouter;
-    final String? modelId = vRouter.pathParameters[Params.modelId.name];
+    final String? modelId = context.location.pathParameters[Params.modelId.name];
     final bool confirmed = await confirmAction(context: context, title: 'Do you really want to delete this page?');
     if (confirmed) {
       await pageBloc.delete(model);
       if (model.isCollection) {
-        vRouter.historyBack();
+        throw UnimplementedError();
+        // vRouter.historyBack();
       } else {
         if (modelId != null) {
-          vRouter.to(Routes.soloModelGateway(modelId), isReplacement: true);
+          context.go(Routes.soloModelGateway(modelId));
         } else {
-          vRouter.to(Routes.solo(), isReplacement: true);
+          context.go(Routes.solo());
         }
       }
       formKey.currentState?.reset();
@@ -93,19 +93,18 @@ class _EntityPageViewState extends State<EntityPageView> {
   }
 
   Future<void> confirmAndReset(Model model) async {
-    final InitializedVRouterSailor vRouter = context.vRouter;
     final bool confirmed = await confirmAction(context: context, title: 'Do you want to reset all not saved changes of this page?');
     if (confirmed) {
-      final String currentRoute = vRouter.url;
+      final String currentRoute = context.location.fullPath;
       await pageBloc.reset(model);
-      vRouter.to(currentRoute, isReplacement: true);
+      context.go(currentRoute);
       formKey = GlobalKey();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final String? entityId = context.vRouter.pathParameters[Params.modelId.name];
+    final String? entityId = context.location.pathParameters[Params.modelId.name];
     if (entityId == null) {
       return const KitNotFoundModelId();
     }
@@ -126,7 +125,8 @@ class _EntityPageViewState extends State<EntityPageView> {
                       padding: const EdgeInsets.only(right: kPaddingLarge),
                       child: KitIconButton(
                         icon: IconPack.flu_chevron_left_filled,
-                        onPressed: () => context.vRouter.historyBack(),
+                        onPressed: () => throw UnimplementedError(),
+                        // onPressed: () => context.vRouter.historyBack(),
                       ),
                     ),
                   const Spacer(),

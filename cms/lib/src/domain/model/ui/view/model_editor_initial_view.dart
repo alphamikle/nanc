@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
-import 'package:vrouter/vrouter.dart';
 
 import '../../../../service/animations/robot_cleaner.dart';
 import '../../../../service/routing/route_list.dart';
@@ -20,7 +20,7 @@ class ModelEditorInitialView extends StatelessWidget {
             Align(
               child: KitBigButton(
                 text: 'Create new model',
-                onPressed: () => context.vRouter.to(Routes.createModel()),
+                onPressed: () => context.go(Routes.createModel()),
               ),
             ),
           ],

@@ -1,18 +1,18 @@
-import 'package:vrouter/vrouter.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../analytics.dart';
 
-typedef VRouterNavigationEventObserver = Future<void> Function(VRedirector vRedirector);
+typedef VRouterNavigationEventObserver = Future<void> Function(GoRouterState vRedirector);
 
 VRouterNavigationEventObserver analyticsObserver(String eventName) {
-  return (VRedirector vRedirector) async {
+  return (GoRouterState state) async {
     Analytics.sendEvent(
       eventName,
       data: <String, dynamic>{
-        'to_url': vRedirector.toUrl,
-        'from_url': vRedirector.fromUrl,
-        'path_parameters': vRedirector.newVRouterData?.pathParameters,
-        'query_parameters': vRedirector.newVRouterData?.queryParameters,
+        'to_url': state.fullPath,
+        'from_url': 'unknown',
+        'path_parameters': state.pathParameters,
+        'query_parameters': state.queryParameters,
       },
     );
   };

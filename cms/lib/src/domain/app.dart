@@ -12,11 +12,9 @@ import 'package:local_notifications/local_notifications.dart';
 import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
-import 'package:vrouter/vrouter.dart';
 
 import '../service/errors/human_exception.dart';
 import '../service/init/initializer.dart';
-import '../service/routing/routes.dart';
 
 class App extends StatefulWidget {
   const App({
@@ -53,7 +51,7 @@ class _AppState extends State<App> {
         key: key,
         onClose: onClose,
         shadeBackground: true,
-        width: rootKey.currentContext!.query.size.width * 0.30,
+        width: rootKey.currentContext!.query.size.width * 0.50,
         height: rootKey.currentContext!.query.size.height,
         toastDuration: const Duration(minutes: 2),
         animationDuration: const Duration(milliseconds: 600),
@@ -62,10 +60,12 @@ class _AppState extends State<App> {
         child: (_) => Expanded(
           child: Padding(
             padding: const EdgeInsets.only(left: Gap.regular, top: Gap.extra, right: Gap.regular, bottom: Gap.regular),
-            child: MarkdownBody(
-              data: errorInfo,
-              onTapLink: openLink,
-              selectable: true,
+            child: SingleChildScrollView(
+              child: MarkdownBody(
+                data: errorInfo,
+                onTapLink: openLink,
+                selectable: true,
+              ),
             ),
           ),
         ),
@@ -140,12 +140,12 @@ class _AppState extends State<App> {
     }
   }
 
-  Widget adminBuilder(BuildContext context, Widget child) {
+  Widget adminBuilder(BuildContext context, Widget? child) {
     final double width = context.query.size.width;
     final double height = context.query.size.height;
     const double minWidth = 1024;
 
-    Widget cmsApp = child;
+    Widget cmsApp = child!;
     if (widget.config.adminWrapperBuilder != null) {
       cmsApp = widget.config.adminWrapperBuilder!(context, rootKey, cmsApp);
     }
@@ -196,17 +196,13 @@ class _AppState extends State<App> {
               providers: initializer.blocProviders,
               child: Builder(
                 builder: (BuildContext context) {
-                  return VRouter(
+                  return MaterialApp.router(
                     debugShowCheckedModeBanner: false,
-                    navigatorKey: rootKey,
-                    routes: buildRoutes(context),
-                    onPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
-                    onSystemPop: (VRedirector vRedirector) async => vRedirector.stopRedirection(),
+                    routerConfig: initializer.router,
                     builder: AnimationDebugger.builderWrapper(adminBuilder),
                     theme: themeBuilder(context),
                     darkTheme: themeBuilder(context, dark: true),
                     themeMode: ThemeMode.light,
-                    buildTransition: (Animation<double> animation, Animation<double> animation2, Widget child) => child,
                   );
                 },
               ),

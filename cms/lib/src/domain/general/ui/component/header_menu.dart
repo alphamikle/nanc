@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
-import 'package:vrouter/vrouter.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../tutorial/content/tutorial_content.dart';
@@ -39,7 +39,7 @@ class _HeaderMenuState extends State<HeaderMenu> {
     final GlobalKey? showcaseKey = context.read<TutorialBloc>().keyForHeaderMenuItem(element.title);
     final Widget menuItem = KitTextIndicatedButton(
       text: element.title,
-      onPressed: () => element.title == iconsMenuItemTitle ? unawaited(showIconsSelector()) : context.vRouter.to(element.url),
+      onPressed: () => element.title == iconsMenuItemTitle ? unawaited(showIconsSelector()) : context.go(element.url),
       isActive: headerBloc.state.activeElement == element,
     );
 

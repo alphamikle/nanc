@@ -1,7 +1,8 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tools/tools.dart';
-import 'package:vrouter/vrouter.dart';
 
 import '../../domain/collection/logic/logic/bloc/collection_bloc.dart';
 import '../../domain/general/logic/bloc/header/header_bloc.dart';
@@ -33,86 +34,82 @@ class RoutesPreloadingService {
 
   bool get isAttached => rootKey.currentContext != null;
 
-  Future<void> selectMenuItems(VRedirector vRedirector) async => _selectHeaderMenuElement(vRedirector);
+  Future<void> selectMenuItems(GoRouterState tate) async => _selectHeaderMenuElement(tate);
 
-  Future<void> preloadCollectionDataList(VRedirector vRedirector) async {
-    _selectSideMenuElement(vRedirector);
-    unawaited(collectionBloc.loadCollection(vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? ''));
+  Future<void> preloadCollectionDataList(GoRouterState state) async {
+    _selectSideMenuElement(state);
+    unawaited(collectionBloc.loadCollection(state.pathParameters[Params.modelId.name] ?? ''));
   }
 
-  Future<void> preloadCollectionPage(VRedirector vRedirector) async {
-    final String entityId = vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? '';
-    final String pageId = vRedirector.newVRouterData?.pathParameters[Params.pageId.name] ?? '';
+  Future<void> preloadCollectionPage(GoRouterState state) async {
+    final String entityId = state.pathParameters[Params.modelId.name] ?? '';
+    final String pageId = state.pathParameters[Params.pageId.name] ?? '';
     unawaited(pageBloc.loadPage(entityId, pageId));
   }
 
-  Future<void> resolveSoloPageState(VRedirector vRedirector) async {
-    final String entityId = vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? '';
-    _selectSideMenuElement(vRedirector);
+  Future<void> resolveSoloPageState(GoRouterState state, GlobalKey<NavigatorState> key) async {
+    final String entityId = state.pathParameters[Params.modelId.name] ?? '';
+    _selectSideMenuElement(state);
     final bool isPageExist = await pageBloc.isPageExist(entityId, entityId);
     if (isPageExist) {
-      vRedirector.to(Routes.pageOfSoloModel(entityId), isReplacement: true);
+      key.currentContext!.go(Routes.pageOfSoloModel(entityId));
     } else {
-      vRedirector.to(Routes.createPageOfSoloModel(entityId), isReplacement: true);
+      key.currentContext!.go(Routes.createPageOfSoloModel(entityId));
     }
   }
 
-  Future<void> preloadSoloPage(VRedirector vRedirector) async {
-    final String modelId = vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? '';
+  Future<void> preloadSoloPage(GoRouterState state) async {
+    final String modelId = state.pathParameters[Params.modelId.name] ?? '';
     unawaited(pageBloc.loadPage(modelId, modelId));
   }
 
-  Future<void> prepareSoloPageForCreation(VRedirector vRedirector) async {
-    final String modelId = vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? '';
+  Future<void> prepareSoloPageForCreation(GoRouterState state) async {
+    final String modelId = state.pathParameters[Params.modelId.name] ?? '';
     unawaited(pageBloc.prepareForCreation(modelId));
   }
 
-  Future<void> prepareCollectionPageForCreation(VRedirector vRedirector) async {
-    final String modelId = vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? '';
+  Future<void> prepareCollectionPageForCreation(GoRouterState state) async {
+    final String modelId = state.pathParameters[Params.modelId.name] ?? '';
     unawaited(pageBloc.prepareForCreation(modelId));
   }
 
-  Future<void> preloadModel(VRedirector vRedirector) async {
-    _selectHeaderMenuElement(vRedirector);
-    _selectSideMenuElement(vRedirector);
-    final String entityId = vRedirector.newVRouterData?.pathParameters[Params.modelId.name] ?? '';
+  Future<void> preloadModel(GoRouterState state) async {
+    _selectHeaderMenuElement(state);
+    _selectSideMenuElement(state);
+    final String entityId = state.pathParameters[Params.modelId.name] ?? '';
     unawaited(modelPageBloc.loadModel(entityId));
   }
 
-  Future<void> prepareModelForCreation(VRedirector vRedirector) async {
-    final QueryParameters? query = vRedirector.newVRouterData?.queryParameters;
+  Future<void> prepareModelForCreation(GoRouterState state) async {
+    final QueryParameters query = state.queryParameters;
     bool isSoloCreation = false;
-    if (query?['solo'] == '${true}') {
+    if (query['solo'] == '${true}') {
       isSoloCreation = true;
     }
     unawaited(modelPageBloc.prepareForModelCreation(isSoloCreation: isSoloCreation));
   }
 
-  void _selectHeaderMenuElement(VRedirector vRedirector) {
-    if (vRedirector.newVRouterData != null && vRedirector.toUrl != null) {
-      final String route = Routes.findRouteByUrlAndParams(vRedirector.toUrl!, vRedirector.newVRouterData!.pathParameters);
-      unawaited(doSomethingWhen(
-        condition: () => isAttached,
-        interval: kInterval,
-        action: () {
-          logg('Select header menu element: "$route"');
-          headerBloc.selectItem(route);
-          unawaited(menuBloc.initItems(route));
-        },
-      ));
-    }
+  void _selectHeaderMenuElement(GoRouterState state) {
+    final String route = Routes.findRouteByUrlAndParams(state.fullPath!, state.pathParameters);
+    unawaited(doSomethingWhen(
+      condition: () => isAttached,
+      interval: kInterval,
+      action: () {
+        logg('Select header menu element: "$route"');
+        headerBloc.selectItem(route);
+        unawaited(menuBloc.initItems(route));
+      },
+    ));
   }
 
-  void _selectSideMenuElement(VRedirector vRedirector) {
-    if (vRedirector.toUrl != null) {
-      unawaited(doSomethingWhen(
-        condition: () => isAttached,
-        interval: kInterval,
-        action: () {
-          logg('Select side menu element: "${vRedirector.toUrl!}"');
-          menuBloc.selectItem(vRedirector.toUrl!);
-        },
-      ));
-    }
+  void _selectSideMenuElement(GoRouterState state) {
+    unawaited(doSomethingWhen(
+      condition: () => isAttached,
+      interval: kInterval,
+      action: () {
+        logg('Select side menu element: "${state.location}"');
+        menuBloc.selectItem(state.location);
+      },
+    ));
   }
 }

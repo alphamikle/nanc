@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
-import 'package:vrouter/vrouter.dart';
 
 import '../../../../service/routing/route_list.dart';
+import '../../../../service/routing/uri_extension.dart';
 import '../../logic/bloc/header/menu_state.dart';
 import '../../logic/bloc/side_menu/menu_bloc.dart';
 import '../component/header_menu.dart';
@@ -63,8 +63,8 @@ class _GeneralViewV2State extends State<GeneralViewV2> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     const int maxUrlLength = 50;
-    String currentUrl = context.vRouter.url;
-    final String currentRoute = Routes.findRouteByUrlAndParams(context.vRouter.url, context.vRouter.pathParameters);
+    String currentUrl = context.location.fullPath;
+    final String currentRoute = Routes.findRouteByUrlAndParams(context.location.fullPath, context.location.pathParameters);
 
     if (currentUrl.length > maxUrlLength) {
       currentUrl = currentUrl.substring(0, maxUrlLength);

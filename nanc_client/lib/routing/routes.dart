@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:analytics/analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vrouter/vrouter.dart';
@@ -19,8 +18,8 @@ List<VRouteElement> generateRoutes(BuildContext context) {
 
   return [
     VGuard(
-      beforeEnter: analyticsObserver('BEFORE_ENTER'),
-      beforeUpdate: analyticsObserver('BEFORE_UPDATE'),
+      // beforeEnter: analyticsObserver('BEFORE_ENTER'),
+      // beforeUpdate: analyticsObserver('BEFORE_UPDATE'),
       stackedRoutes: [
         VGuard(
           beforeEnter: initPage(pageBloc),

@@ -1,9 +1,9 @@
 import 'package:cms/cms.dart' show Routes;
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
-import 'package:vrouter/vrouter.dart';
 
 import '../../constants/gap.dart';
 import 'kit_table_cell.dart';
@@ -42,7 +42,7 @@ class KitTable extends StatelessWidget {
             ),
         ],
       ),
-      onTap: () => context.vRouter.to(Routes.pageOfCollectionModel(entity.id, (json['id'] ?? '').toString())),
+      onTap: () => context.go(Routes.pageOfCollectionModel(entity.id, (json['id'] ?? '').toString())),
     );
     if (index == entities.length - 1) {
       return Padding(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
-import 'package:vrouter/vrouter.dart';
 
 import '../../../../../cms.dart';
 import '../../../../service/animations/robot_cleaner.dart';
@@ -20,7 +20,7 @@ class EmptyCollectionView extends StatelessWidget {
             Align(
               child: KitBigButton(
                 text: 'Create collection model',
-                onPressed: () => context.vRouter.to(Routes.createModel()),
+                onPressed: () => context.go(Routes.createModel()),
               ),
             ),
           ],

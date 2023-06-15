@@ -1,7 +1,7 @@
-import 'package:analytics/analytics.dart';
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vrouter/vrouter.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../domain/collection/ui/view/collection_view.dart';
 import '../../domain/collection/ui/view/empty_collection_view.dart';
@@ -22,182 +22,114 @@ typedef ElementProducer<T> = T Function();
 
 T builder<T>(ElementProducer<T> producer) => producer();
 
-List<VRouteElement> buildRoutes(BuildContext context) {
-  final RoutesPreloadingService preloadingService = context.read();
-
-  return [
-    VRouteRedirector(path: Routes.root, redirectTo: Routes.welcome),
-    VGuard(
-      beforeEnter: analyticsObserver('BEFORE_ENTER'),
-      beforeUpdate: analyticsObserver('BEFORE_UPDATE'),
-      stackedRoutes: [
-        VNester(
-          path: Routes.root,
-          widgetBuilder: (Widget child) => GeneralViewV2(child: child),
-          nestedRoutes: [
-            /// ? /welcome
-            VWidget(
-              path: Routes.welcome,
-              widget: const WelcomeView(),
-            ),
-
-            /// ? /collection
-            VGuard(
-              beforeEnter: preloadingService.selectMenuItems,
-              beforeUpdate: preloadingService.selectMenuItems,
-              stackedRoutes: [
-                VWidget(
-                  path: Routes.collection(),
-                  widget: const EmptyCollectionView(),
-                ),
-              ],
-            ),
-
-            /// ? /solo
-            VGuard(
-              beforeEnter: preloadingService.selectMenuItems,
-              beforeUpdate: preloadingService.selectMenuItems,
-              stackedRoutes: [
-                VWidget(
-                  path: Routes.solo(),
-                  widget: const SoloEmptyView(),
-                ),
-              ],
-            ),
-
-            /// ? /solo/:modelId/gateway
-            VGuard(
-              beforeEnter: preloadingService.resolveSoloPageState,
-              beforeUpdate: preloadingService.resolveSoloPageState,
-              stackedRoutes: [
-                VWidget(
-                  path: Routes.soloModelGateway(Params.modelId.forPath),
-                  widget: const EntityPageView(creationMode: true, soloEntity: true),
-                ),
-              ],
-            ),
-
-            /// ? /solo/:modelId
-            VGuard(
-              beforeEnter: preloadingService.preloadSoloPage,
-              beforeUpdate: preloadingService.preloadSoloPage,
-              stackedRoutes: [
-                VWidget(
-                  path: Routes.pageOfSoloModel(Params.modelId.forPath),
-                  widget: const EntityPageView(creationMode: false, soloEntity: true),
-                ),
-              ],
-            ),
-
-            /// ? /solo/:modelId/create
-            VGuard(
-              beforeEnter: preloadingService.prepareSoloPageForCreation,
-              beforeUpdate: preloadingService.prepareSoloPageForCreation,
-              stackedRoutes: [
-                VWidget(
-                  path: Routes.createPageOfSoloModel(Params.modelId.forPath),
-                  widget: const EntityPageView(creationMode: true, soloEntity: true),
-                ),
-              ],
-            ),
-
-            /// ? /collection/:modelId
-            VGuard(
-              beforeEnter: preloadingService.preloadCollectionDataList,
-              beforeUpdate: preloadingService.preloadCollectionDataList,
-              stackedRoutes: [
-                VWidget(
-                  path: Routes.collectionOf(Params.modelId.forPath),
-                  widget: const CollectionView(),
-                ),
-              ],
-            ),
-
-            /// ? /collection/:modelId/:pageId
-            VGuard(
-              beforeEnter: preloadingService.preloadCollectionPage,
-              beforeUpdate: preloadingService.preloadCollectionPage,
-              stackedRoutes: [
-                VWidget(
-                  path: Routes.pageOfCollectionModel(Params.modelId.forPath, Params.pageId.forPath),
-                  widget: const EntityPageView(creationMode: false, soloEntity: false),
-                ),
-              ],
-            ),
-
-            /// ? /editor
-            VGuard(
-              beforeEnter: preloadingService.selectMenuItems,
-              stackedRoutes: [
-                VWidget(
-                  path: Routes.editor(),
-                  widget: const ModelEditorInitialView(),
-                ),
-              ],
-            ),
-
-            /// ? /editor/page/:modelId
-            VGuard(
-              beforeEnter: preloadingService.prepareCollectionPageForCreation,
-              beforeUpdate: preloadingService.prepareCollectionPageForCreation,
-              stackedRoutes: [
-                VWidget(
-                  path: Routes.createModelPage(Params.modelId.forPath),
-                  widget: const EntityPageView(creationMode: true, soloEntity: false),
-                ),
-              ],
-            ),
-
-            /// ? /editor/model
-            VGuard(
-              beforeEnter: preloadingService.prepareModelForCreation,
-              beforeUpdate: preloadingService.prepareModelForCreation,
-              stackedRoutes: [
-                VWidget(
-                  path: Routes.createModel(),
-                  widget: const ModelPageView(creationMode: true),
-                ),
-              ],
-            ),
-
-            /// ? /editor/model/:modelId
-            VGuard(
-              beforeEnter: preloadingService.preloadModel,
-              beforeUpdate: preloadingService.preloadModel,
-              stackedRoutes: [
-                VWidget(
-                  path: Routes.editModel(Params.modelId.forPath),
-                  widget: const ModelPageView(creationMode: false),
-                ),
-              ],
-            ),
-
-            /// ? /roles
-            VGuard(
-              beforeEnter: preloadingService.selectMenuItems,
-              beforeUpdate: preloadingService.selectMenuItems,
-              stackedRoutes: [
-                VWidget(
-                  path: Routes.roles(),
-                  widget: const RolesView(),
-                ),
-              ],
-            ),
-
-            /// ? /settings
-            VGuard(
-              beforeEnter: preloadingService.selectMenuItems,
-              beforeUpdate: preloadingService.selectMenuItems,
-              stackedRoutes: [
-                VWidget(
-                  path: Routes.settings(),
-                  widget: const RolesView(),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ],
-    ),
-  ];
+GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<NavigatorState> navigatorKey) {
+  return GoRouter(
+    navigatorKey: navigatorKey,
+    routes: [
+      GoRoute(
+        path: Routes.root,
+        redirect: (BuildContext context, GoRouterState state) => Routes.welcome,
+      ),
+      ShellRoute(
+        builder: (BuildContext context, GoRouterState state, Widget child) => GeneralViewV2(child: child),
+        routes: [
+          GoRoute(
+            path: Routes.welcome,
+            pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(child: WelcomeView()),
+          ),
+          GoRoute(
+            path: Routes.collection(),
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              unawaited(preloadingService.selectMenuItems(state));
+              return const NoTransitionPage(child: EmptyCollectionView());
+            },
+          ),
+          GoRoute(
+            path: Routes.solo(),
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              unawaited(preloadingService.selectMenuItems(state));
+              return const NoTransitionPage(child: SoloEmptyView());
+            },
+          ),
+          GoRoute(
+            path: Routes.soloModelGateway(Params.modelId.forPath),
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              unawaited(preloadingService.resolveSoloPageState(state, navigatorKey));
+              return const NoTransitionPage(child: EntityPageView(creationMode: true, soloEntity: true));
+            },
+          ),
+          GoRoute(
+            path: Routes.pageOfSoloModel(Params.modelId.forPath),
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              unawaited(preloadingService.preloadSoloPage(state));
+              return const NoTransitionPage(child: EntityPageView(creationMode: false, soloEntity: true));
+            },
+          ),
+          GoRoute(
+            path: Routes.createPageOfSoloModel(Params.modelId.forPath),
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              unawaited(preloadingService.prepareSoloPageForCreation(state));
+              return const NoTransitionPage(child: EntityPageView(creationMode: true, soloEntity: true));
+            },
+          ),
+          GoRoute(
+            path: Routes.collectionOf(Params.modelId.forPath),
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              unawaited(preloadingService.preloadCollectionDataList(state));
+              return const NoTransitionPage(child: CollectionView());
+            },
+          ),
+          GoRoute(
+            path: Routes.pageOfCollectionModel(Params.modelId.forPath, Params.pageId.forPath),
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              unawaited(preloadingService.preloadCollectionPage(state));
+              return const NoTransitionPage(child: EntityPageView(creationMode: false, soloEntity: false));
+            },
+          ),
+          GoRoute(
+            path: Routes.editor(),
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              unawaited(preloadingService.selectMenuItems(state));
+              return const NoTransitionPage(child: ModelEditorInitialView());
+            },
+          ),
+          GoRoute(
+            path: Routes.createModelPage(Params.modelId.forPath),
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              unawaited(preloadingService.prepareCollectionPageForCreation(state));
+              return const NoTransitionPage(child: EntityPageView(creationMode: true, soloEntity: false));
+            },
+          ),
+          GoRoute(
+            path: Routes.createModel(),
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              unawaited(preloadingService.prepareModelForCreation(state));
+              return const NoTransitionPage(child: ModelPageView(creationMode: true));
+            },
+          ),
+          GoRoute(
+            path: Routes.editModel(Params.modelId.forPath),
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              unawaited(preloadingService.preloadModel(state));
+              return const NoTransitionPage(child: ModelPageView(creationMode: false));
+            },
+          ),
+          GoRoute(
+            path: Routes.roles(),
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              unawaited(preloadingService.selectMenuItems(state));
+              return const NoTransitionPage(child: RolesView());
+            },
+          ),
+          GoRoute(
+            path: Routes.settings(),
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              unawaited(preloadingService.selectMenuItems(state));
+              return const NoTransitionPage(child: RolesView());
+            },
+          ),
+        ],
+      ),
+    ],
+  );
 }
