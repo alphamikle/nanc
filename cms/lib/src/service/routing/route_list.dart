@@ -54,25 +54,25 @@ abstract class Routes {
   static List<String> get collectionRoutes {
     return [
       collection(),
-      collectionOf(Params.modelId.forPath),
-      pageOfCollectionModel(Params.modelId.forPath, Params.pageId.forPath),
+      collectionOf(Params.modelId.param),
+      pageOfCollectionModel(Params.modelId.param, Params.pageId.param),
     ];
   }
 
   static List<String> get soloRoutes {
     return [
       solo(),
-      soloModelGateway(Params.modelId.forPath),
-      pageOfSoloModel(Params.modelId.forPath),
-      createPageOfSoloModel(Params.modelId.forPath),
+      soloModelGateway(Params.modelId.param),
+      pageOfSoloModel(Params.modelId.param),
+      createPageOfSoloModel(Params.modelId.param),
     ];
   }
 
   static List<String> get editorRoutes {
     return [
       editor(),
-      createModelPage(Params.modelId.forPath),
-      editModel(Params.modelId.forPath),
+      createModelPage(Params.modelId.param),
+      editModel(Params.modelId.param),
       createModel(),
     ];
   }

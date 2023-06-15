@@ -52,35 +52,35 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             },
           ),
           GoRoute(
-            path: Routes.soloModelGateway(Params.modelId.forPath),
+            path: Routes.soloModelGateway(Params.modelId.param),
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.resolveSoloPageState(state, navigatorKey));
               return const NoTransitionPage(child: EntityPageView(creationMode: true, soloEntity: true));
             },
           ),
           GoRoute(
-            path: Routes.pageOfSoloModel(Params.modelId.forPath),
+            path: Routes.pageOfSoloModel(Params.modelId.param),
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.preloadSoloPage(state));
               return const NoTransitionPage(child: EntityPageView(creationMode: false, soloEntity: true));
             },
           ),
           GoRoute(
-            path: Routes.createPageOfSoloModel(Params.modelId.forPath),
+            path: Routes.createPageOfSoloModel(Params.modelId.param),
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.prepareSoloPageForCreation(state));
               return const NoTransitionPage(child: EntityPageView(creationMode: true, soloEntity: true));
             },
           ),
           GoRoute(
-            path: Routes.collectionOf(Params.modelId.forPath),
+            path: Routes.collectionOf(Params.modelId.param),
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.preloadCollectionDataList(state));
               return const NoTransitionPage(child: CollectionView());
             },
           ),
           GoRoute(
-            path: Routes.pageOfCollectionModel(Params.modelId.forPath, Params.pageId.forPath),
+            path: Routes.pageOfCollectionModel(Params.modelId.param, Params.pageId.param),
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.preloadCollectionPage(state));
               return const NoTransitionPage(child: EntityPageView(creationMode: false, soloEntity: false));
@@ -94,7 +94,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             },
           ),
           GoRoute(
-            path: Routes.createModelPage(Params.modelId.forPath),
+            path: Routes.createModelPage(Params.modelId.param),
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.prepareCollectionPageForCreation(state));
               return const NoTransitionPage(child: EntityPageView(creationMode: true, soloEntity: false));
@@ -108,7 +108,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             },
           ),
           GoRoute(
-            path: Routes.editModel(Params.modelId.forPath),
+            path: Routes.editModel(Params.modelId.param),
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.preloadModel(state));
               return const NoTransitionPage(child: ModelPageView(creationMode: false));

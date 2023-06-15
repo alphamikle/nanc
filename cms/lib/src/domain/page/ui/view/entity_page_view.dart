@@ -13,7 +13,6 @@ import '../../../../service/config/config.dart';
 import '../../../../service/errors/ui_error.dart';
 import '../../../../service/routing/params_list.dart';
 import '../../../../service/routing/route_list.dart';
-import '../../../../service/routing/uri_extension.dart';
 import '../../../../service/tools/model_finder.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../../model/ui/component/fields_form.dart';
@@ -67,7 +66,7 @@ class _EntityPageViewState extends State<EntityPageView> {
       } else {
         await pageBloc.save(entity);
         if (mounted) {
-          context.go(context.location.fullPath);
+          context.go(context.location.uri.toString());
         }
       }
     }
@@ -94,11 +93,13 @@ class _EntityPageViewState extends State<EntityPageView> {
 
   Future<void> confirmAndReset(Model model) async {
     final bool confirmed = await confirmAction(context: context, title: 'Do you want to reset all not saved changes of this page?');
-    if (confirmed) {
-      final String currentRoute = context.location.fullPath;
+    if (mounted && confirmed) {
+      final String currentRoute = context.location.uri.toString();
       await pageBloc.reset(model);
-      context.go(currentRoute);
-      formKey = GlobalKey();
+      if (mounted) {
+        context.go(currentRoute);
+        formKey = GlobalKey();
+      }
     }
   }
 
@@ -125,8 +126,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                       padding: const EdgeInsets.only(right: kPaddingLarge),
                       child: KitIconButton(
                         icon: IconPack.flu_chevron_left_filled,
-                        onPressed: () => throw UnimplementedError(),
-                        // onPressed: () => context.vRouter.historyBack(),
+                        onPressed: () => context.navigator.pop(),
                       ),
                     ),
                   const Spacer(),

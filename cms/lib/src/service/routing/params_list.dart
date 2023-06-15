@@ -8,5 +8,5 @@ class Param {
 
   final String name;
 
-  String get forPath => ':$name';
+  String get param => ':$name';
 }

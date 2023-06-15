@@ -90,7 +90,7 @@ class RoutesPreloadingService {
   }
 
   void _selectHeaderMenuElement(GoRouterState state) {
-    final String route = Routes.findRouteByUrlAndParams(state.fullPath!, state.pathParameters);
+    final String route = Routes.findRouteByUrlAndParams(state.location, state.pathParameters);
     unawaited(doSomethingWhen(
       condition: () => isAttached,
       interval: kInterval,

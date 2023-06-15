@@ -11,7 +11,6 @@ import '../../../../service/errors/errors.dart';
 import '../../../../service/errors/ui_error.dart';
 import '../../../../service/routing/params_list.dart';
 import '../../../../service/routing/route_list.dart';
-import '../../../../service/routing/uri_extension.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../logic/logic/bloc/collection_bloc.dart';
 import '../../logic/logic/bloc/collection_filter_bloc.dart';
