@@ -4,6 +4,8 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../../../../service/routing/endpoints.dart';
+
 part 'menu_element.g.dart';
 
 typedef RouteChecker = bool Function(String route);

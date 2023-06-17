@@ -42,56 +42,58 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: kPadding, top: kPadding),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: kPadding),
-                  child: KitText(
-                    text: 'NANC',
-                    style: context.theme.textTheme.headlineSmall?.copyWith(
-                      fontFamily: GoogleFonts.rubikMoonrocks().fontFamily,
-                      fontSize: 36,
+    return RepaintBoundary(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: kPadding, top: kPadding),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: kPadding),
+                    child: KitText(
+                      text: 'NANC',
+                      style: context.theme.textTheme.headlineSmall?.copyWith(
+                        fontFamily: GoogleFonts.rubikMoonrocks().fontFamily,
+                        fontSize: 36,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.fade,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.fade,
                   ),
                 ),
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.only(top: kPaddingLarge),
-            child: BlocBuilder<MenuBloc, MenuState>(
-              builder: (BuildContext context, MenuState state) {
-                return AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 250),
-                  child: state.isLoading
-                      ? const KitPreloader()
-                      : state.elements.isEmpty
-                          ? const SizedBox()
-                          : Material(
-                              type: MaterialType.transparency,
-                              child: ListView.builder(
-                                key: ValueKey(state.elements),
-                                itemBuilder: menuItemBuilder,
-                                itemCount: state.elements.length,
-                              ),
-                            ),
-                );
-              },
+              ],
             ),
           ),
-        ),
-      ],
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(top: kPaddingLarge),
+              child: BlocBuilder<MenuBloc, MenuState>(
+                builder: (BuildContext context, MenuState state) {
+                  return AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 250),
+                    child: state.isLoading
+                        ? const KitPreloader()
+                        : state.elements.isEmpty
+                            ? const SizedBox()
+                            : Material(
+                                type: MaterialType.transparency,
+                                child: ListView.builder(
+                                  key: ValueKey(state.elements),
+                                  itemBuilder: menuItemBuilder,
+                                  itemCount: state.elements.length,
+                                ),
+                              ),
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -7,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-import '../../../../service/routing/route_list.dart';
 import '../../logic/bloc/header/menu_state.dart';
 import '../../logic/bloc/side_menu/menu_bloc.dart';
 import '../component/header_menu.dart';
@@ -63,7 +62,7 @@ class _GeneralViewV2State extends State<GeneralViewV2> with SingleTickerProvider
   Widget build(BuildContext context) {
     const int maxUrlLength = 50;
     String currentUrl = context.location.uri.toString();
-    final String currentRoute = Routes.findRouteByUrlAndParams(context.location.uri.toString(), context.location.pathParameters);
+    final String currentRoute = context.location.fullPath;
 
     if (currentUrl.length > maxUrlLength) {
       currentUrl = currentUrl.substring(0, maxUrlLength);

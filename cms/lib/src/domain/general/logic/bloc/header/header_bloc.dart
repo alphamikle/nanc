@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:collection/collection.dart';
 import 'package:config/config.dart';
 
-import '../../../../../service/routing/route_list.dart';
+import '../../../../../service/routing/endpoints.dart';
 import '../../model/menu_element.dart';
 import 'menu_state.dart';
 
@@ -17,12 +17,13 @@ class HeaderBloc extends Cubit<MenuState> {
   HeaderBloc() : super(MenuState.empty());
 
   void selectItem(String route) {
+    final Endpoint endpoint = Endpoint.fromPath(route);
     final MenuElement? menuElement = state.elements.firstWhereOrNull((MenuElement item) {
-      final bool routeMatched = item.url == route;
-      if (routeMatched) {
-        return true;
+      final bool exactEndpoint = Endpoint.fromPath(item.url) == endpoint;
+      if (exactEndpoint) {
+        return exactEndpoint;
       }
-      return item.aliases.contains(route);
+      return item.aliases.any((String alias) => alias == endpoint.pattern);
     });
 
     emit(state.copyWith(
@@ -36,12 +37,12 @@ class HeaderBloc extends Cubit<MenuState> {
     ));
     final Set<MenuElement> items = {...state.elements};
     items.addAll([
-      MenuElement(title: collectionMenuItemTitle, url: Routes.collection(), aliases: Routes.collectionRoutes),
-      MenuElement(title: soloMenuItemTitle, url: Routes.solo(), aliases: Routes.soloRoutes),
-      MenuElement(title: editorMenuItemTitle, url: Routes.editor(), aliases: Routes.editorRoutes),
-      MenuElement(title: rolesMenuItemTitle, url: Routes.roles()),
-      MenuElement(title: settingsMenuItemTitle, url: Routes.settings()),
-      if (Env.isProduction == false) MenuElement(title: iconsMenuItemTitle, url: Routes.icons()),
+      MenuElement(title: collectionMenuItemTitle, url: Endpoints.collection.segment(), aliases: Endpoint.collectionEndpoints.aliases),
+      MenuElement(title: soloMenuItemTitle, url: Endpoints.solo.segment(), aliases: Endpoint.soloEndpoints.aliases),
+      MenuElement(title: editorMenuItemTitle, url: Endpoints.editor.segment(), aliases: Endpoint.editorEndpoints.aliases),
+      MenuElement(title: rolesMenuItemTitle, url: Endpoints.roles.segment()),
+      MenuElement(title: settingsMenuItemTitle, url: Endpoints.settings.segment()),
+      if (Env.isProduction == false) MenuElement(title: iconsMenuItemTitle, url: Endpoints.icons.segment()),
     ]);
     emit(state.copyWith(
       elements: items.toList(),

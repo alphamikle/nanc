@@ -9,6 +9,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/errors/errors.dart';
 import '../../../../service/errors/ui_error.dart';
+import '../../../../service/routing/endpoints.dart';
 import '../../../../service/routing/params_list.dart';
 import '../../../../service/routing/route_list.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
@@ -72,7 +73,12 @@ class _CollectionViewState extends State<CollectionView> {
               KitViewHeader(
                 children: [
                   KitButton(
-                    onPressed: () => context.go(Routes.createModelPage(modelId)),
+                    onPressed: () => context.goNamed(
+                      Endpoints.collection.model.pageCreation.name,
+                      pathParameters: {
+                        Params.modelId.name: modelId,
+                      },
+                    ),
                     child: const Row(
                       children: [
                         Icon(IconPack.flu_form_new_filled),

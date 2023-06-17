@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/animations/robot_cleaner.dart';
-import '../../../../service/routing/route_list.dart';
+import '../../../../service/routing/endpoints.dart';
 
 class ModelEditorInitialView extends StatelessWidget {
   const ModelEditorInitialView({
@@ -20,7 +20,7 @@ class ModelEditorInitialView extends StatelessWidget {
             Align(
               child: KitBigButton(
                 text: 'Create new model',
-                onPressed: () => context.go(Routes.createModel()),
+                onPressed: () => context.go(Endpoints.editor.modelCreation.segment()),
               ),
             ),
           ],

@@ -9,8 +9,8 @@ import '../../domain/general/logic/bloc/header/header_bloc.dart';
 import '../../domain/general/logic/bloc/side_menu/menu_bloc.dart';
 import '../../domain/model/logic/bloc/model_page_bloc/model_page_bloc.dart';
 import '../../domain/page/logic/bloc/page_bloc/page_bloc.dart';
+import 'endpoints.dart';
 import 'params_list.dart';
-import 'route_list.dart';
 import 'uri_extension.dart';
 
 const Duration kInterval = Duration(milliseconds: 500);
@@ -48,13 +48,13 @@ class RoutesPreloadingService {
   }
 
   Future<void> resolveSoloPageState(GoRouterState state, GlobalKey<NavigatorState> key) async {
-    final String entityId = state.pathParameters[Params.modelId.name] ?? '';
+    final String modelId = state.pathParameters[Params.modelId.name] ?? '';
     _selectSideMenuElement(state);
-    final bool isPageExist = await pageBloc.isPageExist(entityId, entityId);
+    final bool isPageExist = await pageBloc.isPageExist(modelId, modelId);
     if (isPageExist) {
-      key.currentContext!.go(Routes.pageOfSoloModel(entityId));
+      key.currentContext!.go(Endpoints.solo.page.segment(modelId: modelId));
     } else {
-      key.currentContext!.go(Routes.createPageOfSoloModel(entityId));
+      key.currentContext!.go(Endpoints.solo.pageCreation.segment(modelId: modelId));
     }
   }
 
@@ -90,7 +90,7 @@ class RoutesPreloadingService {
   }
 
   void _selectHeaderMenuElement(GoRouterState state) {
-    final String route = Routes.findRouteByUrlAndParams(state.location, state.pathParameters);
+    final String route = state.location;
     unawaited(doSomethingWhen(
       condition: () => isAttached,
       interval: kInterval,

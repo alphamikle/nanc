@@ -1,4 +1,3 @@
-import 'params_list.dart';
 import 'uri_extension.dart';
 
 abstract class Routes {
@@ -37,64 +36,5 @@ abstract class Routes {
       return path;
     }
     return Uri(path: path, queryParameters: query).toString();
-  }
-
-  static List<String> get _allRoutes {
-    return [
-      root,
-      welcome,
-      ...collectionRoutes,
-      ...soloRoutes,
-      ...editorRoutes,
-      roles(),
-      settings(),
-    ];
-  }
-
-  static List<String> get collectionRoutes {
-    return [
-      collection(),
-      collectionOf(Params.modelId.param),
-      pageOfCollectionModel(Params.modelId.param, Params.pageId.param),
-    ];
-  }
-
-  static List<String> get soloRoutes {
-    return [
-      solo(),
-      soloModelGateway(Params.modelId.param),
-      pageOfSoloModel(Params.modelId.param),
-      createPageOfSoloModel(Params.modelId.param),
-    ];
-  }
-
-  static List<String> get editorRoutes {
-    return [
-      editor(),
-      createModelPage(Params.modelId.param),
-      editModel(Params.modelId.param),
-      createModel(),
-    ];
-  }
-
-  static bool isCollectionRoute(String route) => collectionRoutes.contains(route);
-
-  static bool isSoloRoute(String route) => soloRoutes.contains(route);
-
-  static bool isEditorRoute(String route) => editorRoutes.contains(route);
-
-  static String findRouteByUrlAndParams(String url, Map<String, String> pathParameters) {
-    for (final String route in _allRoutes) {
-      String tempRoute = route;
-      for (final MapEntry<String, String> paramEntry in pathParameters.entries) {
-        final String paramKey = ':${paramEntry.key}';
-        final String paramValue = paramEntry.value;
-        tempRoute = tempRoute.replaceAll(paramKey, paramValue);
-      }
-      if (tempRoute == url) {
-        return route;
-      }
-    }
-    return root;
   }
 }

@@ -7,7 +7,7 @@ import '../../domain/model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../errors/errors.dart';
 import '../routing/params_list.dart';
 
-Model findEntity(BuildContext context) {
+Model findModel(BuildContext context) {
   final GoRouter router = GoRouter.of(context);
 
   final String? entityId = router.routerDelegate.currentConfiguration.pathParameters[Params.modelId.name];

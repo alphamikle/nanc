@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/animations/robot_cleaner.dart';
-import '../../../../service/routing/route_list.dart';
+import '../../../../service/routing/endpoints.dart';
 
 class SoloEmptyView extends StatelessWidget {
   const SoloEmptyView({
@@ -20,7 +20,10 @@ class SoloEmptyView extends StatelessWidget {
             Align(
               child: KitBigButton(
                 text: 'Create solo model',
-                onPressed: () => context.go(Routes.createModel(query: {'solo': '${true}'})),
+                onPressed: () => context.goNamed(
+                  Endpoints.editor.modelCreation.name,
+                  queryParameters: {'solo': '${true}'},
+                ),
               ),
             ),
           ],

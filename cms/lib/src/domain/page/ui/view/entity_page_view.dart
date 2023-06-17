@@ -11,8 +11,8 @@ import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../../service/errors/ui_error.dart';
+import '../../../../service/routing/endpoints.dart';
 import '../../../../service/routing/params_list.dart';
-import '../../../../service/routing/route_list.dart';
 import '../../../../service/tools/model_finder.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../../model/ui/component/fields_form.dart';
@@ -54,12 +54,16 @@ class _EntityPageViewState extends State<EntityPageView> {
       if (creationMode) {
         await pageBloc.create(entity);
         if (mounted) {
-          final Model entity = findEntity(context);
+          final Model model = findModel(context);
           if (soloEntity) {
-            context.go(Routes.pageOfSoloModel(entity.id));
+            context.go(Endpoints.solo.page.segment(modelId: model.id));
           } else {
-            context.go(
-              Routes.pageOfCollectionModel(entity.id, context.read<BasePageBloc>().valueForKey(entity.idField.id).toString()),
+            context.goNamed(
+              Endpoints.collection.model.page.name,
+              pathParameters: {
+                Params.modelId.name: model.id,
+                Params.pageId.name: context.read<BasePageBloc>().valueForKey(model.idField.id).toString(),
+              },
             );
           }
         }
@@ -78,13 +82,12 @@ class _EntityPageViewState extends State<EntityPageView> {
     if (confirmed) {
       await pageBloc.delete(model);
       if (model.isCollection) {
-        throw UnimplementedError();
-        // vRouter.historyBack();
+        context.navigator.pop();
       } else {
         if (modelId != null) {
-          context.go(Routes.soloModelGateway(modelId));
+          context.goNamed(Endpoints.solo.gateway.name, pathParameters: {Params.modelId.name: modelId});
         } else {
-          context.go(Routes.solo());
+          context.goNamed(Endpoints.solo.name);
         }
       }
       formKey.currentState?.reset();

@@ -94,6 +94,7 @@ class Initializer {
     );
     router = buildRouter(routesPreloadingService, rootKey);
     final SettingsBloc settingsBloc = SettingsBloc(dbService: dbService);
+    menuBloc.initRouter(router);
 
     /// ? PRE-INITIALIZATION
     await modelCollectionBloc.preloadModelsFromCode(config.predefinedModels);
