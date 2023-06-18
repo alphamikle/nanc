@@ -47,14 +47,14 @@ class RoutesPreloadingService {
     unawaited(pageBloc.loadPage(entityId, pageId));
   }
 
-  Future<void> resolveSoloPageState(GoRouterState state, GlobalKey<NavigatorState> key) async {
+  Future<String> resolveSoloPageState(GoRouterState state, GlobalKey<NavigatorState> key) async {
     final String modelId = state.pathParameters[Params.modelId.name] ?? '';
     _selectSideMenuElement(state);
     final bool isPageExist = await pageBloc.isPageExist(modelId, modelId);
     if (isPageExist) {
-      key.currentContext!.go(Endpoints.solo.page.segment(modelId: modelId));
+      return Endpoints.solo.page.segment(modelId: modelId);
     } else {
-      key.currentContext!.go(Endpoints.solo.pageCreation.segment(modelId: modelId));
+      return Endpoints.solo.pageCreation.segment(modelId: modelId);
     }
   }
 

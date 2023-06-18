@@ -21,6 +21,10 @@ typedef ElementProducer<T> = T Function();
 
 T builder<T>(ElementProducer<T> producer) => producer();
 
+Page<dynamic> defaultTransitionBuilder({required Widget child}) => NoTransitionPage(
+      child: child,
+    );
+
 GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<NavigatorState> navigatorKey) {
   return GoRouter(
     debugLogDiagnostics: true,
@@ -39,7 +43,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
           GoRoute(
             path: Endpoints.welcome.segment(),
             name: Endpoints.welcome.name,
-            pageBuilder: (BuildContext context, GoRouterState state) => const NoTransitionPage(child: WelcomeView()),
+            pageBuilder: (BuildContext context, GoRouterState state) => defaultTransitionBuilder(child: const WelcomeView()),
           ),
 
           /// ? "/collection"
@@ -48,7 +52,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             name: Endpoints.collection.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.selectMenuItems(state));
-              return const NoTransitionPage(child: EmptyCollectionView());
+              return defaultTransitionBuilder(child: const EmptyCollectionView());
             },
           ),
 
@@ -58,7 +62,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             name: Endpoints.collection.model.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.preloadCollectionDataList(state));
-              return const NoTransitionPage(child: CollectionView());
+              return defaultTransitionBuilder(child: const CollectionView());
             },
             routes: [
               /// ? "/collection/:modelId/create"
@@ -67,7 +71,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
                 name: Endpoints.collection.model.pageCreation.name,
                 pageBuilder: (BuildContext context, GoRouterState state) {
                   unawaited(preloadingService.prepareCollectionPageForCreation(state));
-                  return const NoTransitionPage(child: EntityPageView(creationMode: true, soloEntity: false));
+                  return defaultTransitionBuilder(child: const EntityPageView(creationMode: true, soloEntity: false));
                 },
               ),
 
@@ -77,7 +81,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
                 name: Endpoints.collection.model.page.name,
                 pageBuilder: (BuildContext context, GoRouterState state) {
                   unawaited(preloadingService.preloadCollectionPage(state));
-                  return const NoTransitionPage(child: EntityPageView(creationMode: false, soloEntity: false));
+                  return defaultTransitionBuilder(child: const EntityPageView(creationMode: false, soloEntity: false));
                 },
               ),
             ],
@@ -89,7 +93,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             name: Endpoints.solo.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.selectMenuItems(state));
-              return const NoTransitionPage(child: SoloEmptyView());
+              return defaultTransitionBuilder(child: const SoloEmptyView());
             },
           ),
 
@@ -97,9 +101,8 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
           GoRoute(
             path: Endpoints.solo.gateway.segment(),
             name: Endpoints.solo.gateway.name,
-            pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.resolveSoloPageState(state, navigatorKey));
-              return const NoTransitionPage(child: EntityPageView(creationMode: true, soloEntity: true));
+            redirect: (BuildContext context, GoRouterState state) async {
+              return preloadingService.resolveSoloPageState(state, navigatorKey);
             },
           ),
 
@@ -109,7 +112,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             name: Endpoints.solo.page.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.preloadSoloPage(state));
-              return const NoTransitionPage(child: EntityPageView(creationMode: false, soloEntity: true));
+              return defaultTransitionBuilder(child: const EntityPageView(creationMode: false, soloEntity: true));
             },
           ),
 
@@ -119,7 +122,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             name: Endpoints.solo.pageCreation.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.prepareSoloPageForCreation(state));
-              return const NoTransitionPage(child: EntityPageView(creationMode: true, soloEntity: true));
+              return defaultTransitionBuilder(child: const EntityPageView(creationMode: true, soloEntity: true));
             },
           ),
 
@@ -129,7 +132,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             name: Endpoints.editor.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.selectMenuItems(state));
-              return const NoTransitionPage(child: ModelEditorInitialView());
+              return defaultTransitionBuilder(child: const ModelEditorInitialView());
             },
           ),
 
@@ -139,7 +142,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             name: Endpoints.editor.modelCreation.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.prepareModelForCreation(state));
-              return const NoTransitionPage(child: ModelPageView(creationMode: true));
+              return defaultTransitionBuilder(child: const ModelPageView(creationMode: true));
             },
           ),
 
@@ -149,7 +152,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             name: Endpoints.editor.modelEditing.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.preloadModel(state));
-              return const NoTransitionPage(child: ModelPageView(creationMode: false));
+              return defaultTransitionBuilder(child: const ModelPageView(creationMode: false));
             },
           ),
 
@@ -159,7 +162,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             name: Endpoints.roles.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.selectMenuItems(state));
-              return const NoTransitionPage(child: RolesView());
+              return defaultTransitionBuilder(child: const RolesView());
             },
           ),
 
@@ -169,7 +172,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             name: Endpoints.settings.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.selectMenuItems(state));
-              return const NoTransitionPage(child: RolesView());
+              return defaultTransitionBuilder(child: const RolesView());
             },
           ),
         ],

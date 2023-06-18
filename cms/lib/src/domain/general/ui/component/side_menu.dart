@@ -24,21 +24,19 @@ class SideMenu extends StatelessWidget {
       return const SizedBox.shrink();
     }
     final MenuElement element = menuBloc.state.elements[index];
-    final Model? entity = context.read<ModelListBloc>().state.allModels.firstWhereOrNull((Model entity) => entity.name == element.title);
+    final Model? model = context.read<ModelListBloc>().state.allModels.firstWhereOrNull((Model entity) => entity.name == element.title);
     final bool isActive = menuBloc.state.activeElement == element;
 
     return Padding(
       padding: EdgeInsets.only(top: index == 0 ? kPadding : 0, bottom: kPadding),
       child: KitMenuItem(
         text: element.title,
-        icon: tryToGetIconByName(entity?.icon ?? '') ?? IconPack.flu_circle_small_regular,
+        icon: tryToGetIconByName(model?.icon ?? '') ?? IconPack.flu_circle_small_regular,
         onPressed: () => context.go(element.url),
         isActive: isActive,
       ),
     );
   }
-
-  //
 
   @override
   Widget build(BuildContext context) {

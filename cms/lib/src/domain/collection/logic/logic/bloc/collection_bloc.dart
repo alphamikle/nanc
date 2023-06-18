@@ -29,22 +29,26 @@ class CollectionBloc extends Cubit<CollectionState> {
   Future<void> loadCollection(String modelId) async {
     eventBus.send(eventId: CollectionFilterEvents.collectionLoad, request: modelId);
     final bool isTheSameCollection = state.modelId == modelId;
-    if (isTheSameCollection == false) {
+    if (isTheSameCollection) {
+      emit(state.copyWith(
+        isLoading: true,
+        notFoundAnything: false,
+        dataRows: [],
+      ));
+    } else {
       globalSearchController.clear();
       emit(state.copyWith(
+        isLoading: true,
+        notFoundAnything: false,
+        modelId: modelId,
         query: null,
         globalSearchQuery: null,
         sort: null,
         totalPages: 1,
         currentPage: 1,
+        dataRows: [],
       ));
     }
-    emit(state.copyWith(
-      isLoading: true,
-      notFoundAnything: false,
-      modelId: modelId,
-      dataRows: [],
-    ));
     await _loadData(modelId: modelId, page: state.currentPage);
   }
 
@@ -170,4 +174,4 @@ class CollectionBloc extends Cubit<CollectionState> {
   }
 }
 
-Future<void> _uiDelay() async => wait(duration: const Duration(milliseconds: 100));
+Future<void> _uiDelay([Duration delay = const Duration(milliseconds: 100)]) async => wait(duration: delay);

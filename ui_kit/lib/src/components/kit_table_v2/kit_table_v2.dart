@@ -49,6 +49,7 @@ class KitTableV2 extends StatefulWidget {
     this.selectedSort,
     this.onResize,
     this.initialSizes,
+    this.perPage = 50,
     super.key,
   })  : assert(onRowPressed != null || onCellPressed != null),
         assert(onRowPressed == null || onCellPressed == null);
@@ -63,6 +64,7 @@ class KitTableV2 extends StatefulWidget {
   final Sort? selectedSort;
   final ScrollController? scrollController;
   final Map<int, double>? initialSizes;
+  final int perPage;
 
   final KitTableRowBuilder? rowBuilder;
   final KitTableCellBuilder? cellBuilder;
@@ -113,7 +115,6 @@ class _KitTableV2State extends State<KitTableV2> {
   Widget _headerCellBuilder(BuildContext context, int index, double columnWidth) {
     final Field field = widget.model.listFields[index];
     final bool isCurrentSorted = widget.selectedSort?.fieldId == field.id;
-    // final bool isCurrentSortedAsc = isCurrentSorted && widget.selectedSort?.order == Order.asc;
     final bool isCurrentSortedDesc = isCurrentSorted && widget.selectedSort?.order == Order.desc;
 
     return SizedBox(
@@ -369,12 +370,13 @@ class _KitTableV2State extends State<KitTableV2> {
                     ),
                   ),
                 ),
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) => _rowBuilder(context, index),
-                  childCount: widget.dataRows.length,
+              if (widget.dataRows.isNotEmpty)
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) => _rowBuilder(context, index),
+                    childCount: widget.dataRows.length,
+                  ),
                 ),
-              ),
             ],
           ),
         ),
@@ -386,18 +388,18 @@ class _KitTableV2State extends State<KitTableV2> {
                 right: Gap.large,
                 bottom: snapshot.data ?? Gap.large,
                 child: StreamBuilder<bool>(
-                    stream: paginatorPinnedStatusController.stream,
-                    builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-                      return TablePaginator(
-                        currentPage: currentPage,
-                        pinned: snapshot.data ?? false,
-                        onPin: togglePin,
-                        // TODO(alphamikle): Set this from the user settings
-                        perPage: 50,
-                        totalPages: totalPages,
-                        onPagination: paginationHandler,
-                      );
-                    }),
+                  stream: paginatorPinnedStatusController.stream,
+                  builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+                    return TablePaginator(
+                      currentPage: currentPage,
+                      pinned: snapshot.data ?? false,
+                      onPin: togglePin,
+                      perPage: widget.perPage,
+                      totalPages: totalPages,
+                      onPagination: paginationHandler,
+                    );
+                  },
+                ),
               );
             },
           ),

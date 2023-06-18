@@ -66,8 +66,6 @@ class _CollectionViewState extends State<CollectionView> {
     return KitViewSubContainer(
       child: BlocBuilder<CollectionBloc, CollectionState>(
         builder: (BuildContext context, CollectionState state) {
-          final bool loadingWithNoData = state.isLoading && state.dataRows.isEmpty && state.notFoundAnything == false;
-
           return KitColumn(
             children: [
               KitViewHeader(
@@ -124,28 +122,32 @@ class _CollectionViewState extends State<CollectionView> {
               ),
               KitPreloaderV2(isLoading: state.isLoading),
               Expanded(
-                child: KitShowIf(
-                  c1: state.notFoundAnything,
-                  w1: const KitCenteredText(text: 'Not found'),
-                  c2: loadingWithNoData,
-                  w2: const KitCenteredText(text: 'Loading'),
-                  c3: state.isError,
-                  w3: const UiError(),
-                  fallback: Material(
-                    type: MaterialType.transparency,
-                    child: KitTableV2(
-                      model: model,
-                      selectedSort: state.sort,
-                      dataRows: state.dataRows,
-                      currentPage: state.currentPage,
-                      totalPages: state.totalPages,
-                      onPagination: read<CollectionBloc>().paginate,
-                      onRowPressed: (Json rowData) => openRow(model, rowData),
-                      onSort: read<CollectionBloc>().sort,
-                      onResize: (Map<int, double> widths) => read<SettingsBloc>().saveWidth(modelId: modelId, widths: widths),
-                      initialSizes: initialSizes,
-                    ),
-                  ),
+                child: Builder(
+                  builder: (BuildContext context) {
+                    if (state.isLoading || model.id != state.modelId) {
+                      return const KitCenteredText(text: 'Loading');
+                    } else if (state.notFoundAnything) {
+                      return const KitCenteredText(text: 'Not found');
+                    } else if (state.isError) {
+                      return const UiError();
+                    }
+                    return Material(
+                      type: MaterialType.transparency,
+                      child: KitTableV2(
+                        model: model,
+                        selectedSort: state.sort,
+                        dataRows: state.dataRows,
+                        currentPage: state.currentPage,
+                        totalPages: state.totalPages,
+                        onPagination: read<CollectionBloc>().paginate,
+                        onRowPressed: (Json rowData) => openRow(model, rowData),
+                        onSort: read<CollectionBloc>().sort,
+                        onResize: (Map<int, double> widths) => read<SettingsBloc>().saveWidth(modelId: modelId, widths: widths),
+                        initialSizes: initialSizes,
+                        perPage: NetworkConfig.paginationLimitParameterDefaultValue,
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
