@@ -74,7 +74,6 @@ class RoutesPreloadingService {
   }
 
   Future<void> preloadModel(GoRouterState state) async {
-    _selectHeaderMenuElement(state);
     _selectSideMenuElement(state);
     final String entityId = state.pathParameters[Params.modelId.name] ?? '';
     unawaited(modelPageBloc.loadModel(entityId));
