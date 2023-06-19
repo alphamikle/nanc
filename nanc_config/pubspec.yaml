@@ -1,6 +1,6 @@
 name: nanc_config
 description: Set of config interfaces and APIs for Nanc
-version: 1.0.0
+version: 0.0.1
 homepage: nope
 publish_to: none
 

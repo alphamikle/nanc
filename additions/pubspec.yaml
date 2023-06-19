@@ -1,6 +1,6 @@
 name: additions
 description: Additional things for NANC-CMS and NANC-Based apps
-version: 0.1.0
+version: 0.0.1
 publish_to: none
 
 environment:

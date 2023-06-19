@@ -33,6 +33,6 @@ fi
 # Iterate over directories and perform replacement
 for d in */ ; do
     if [ -f "${d}pubspec.yaml" ]; then
-        sed -i "s/version: [0-9]\+\.[0-9]\+\.[0-9]\{1,3\}/version: $VERSION/g" "${d}pubspec.yaml"
+        sed -i.yaml "s/^version: .*/version: $VERSION/" "${d}pubspec.yaml"
     fi
 done

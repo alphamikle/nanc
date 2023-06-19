@@ -1,7 +1,7 @@
 name: file_syncer
 description: Package for syncing code editor with the file system
 publish_to: none
-version: 1.0.0+1
+version: 0.0.1
 
 environment:
   sdk: '>=3.0.1 <4.0.0'
