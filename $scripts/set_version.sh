@@ -33,6 +33,7 @@ fi
 # Iterate over directories and perform replacement
 for d in */ ; do
     if [ -f "${d}pubspec.yaml" ]; then
-        sed -i.yaml "s/^version: .*/version: $VERSION/" "${d}pubspec.yaml"
+        sed -i.bak "s/^version: .*/version: $VERSION/" "${d}pubspec.yaml"
+        rm "${d}pubspec.yaml.bak" # remove the backup file
     fi
 done

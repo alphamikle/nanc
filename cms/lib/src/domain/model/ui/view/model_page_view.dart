@@ -154,136 +154,146 @@ class _ModelPageViewState extends State<ModelPageView> {
   Widget build(BuildContext context) {
     final ModelPageBloc bloc = context.read();
 
-    return KitViewSubContainer(
-      child: KitColumn(
-        children: [
-          BlocBuilder<ModelPageBloc, ModelPageState>(
-            builder: (BuildContext context, ModelPageState state) {
-              return KitViewHeader(
-                children: [
-                  KitText(
-                    text: state.hasAnyChanges ? 'Model was changed...' : 'Model was not changed...',
-                  ),
-                  const Spacer(),
-                  KitButton(
-                    isLoading: state.isSaving,
-                    text: 'Save',
-                    onPressed: state.hasAnyChanges ? upsert : null,
-                  ),
-                ],
-              );
-            },
-          ),
-          BlocBuilder<ModelPageBloc, ModelPageState>(
-            builder: (BuildContext context, ModelPageState state) {
-              return KitPreloaderV2(isLoading: state.isSaving);
-            },
-          ),
-          Expanded(
-            child: BlocBuilder<ModelPageBloc, ModelPageState>(
-              builder: (BuildContext context, ModelPageState state) {
-                return Form(
-                  key: formKey,
-                  child: CustomScrollView(
-                    slivers: [
-                      SliverPadding(
-                        padding: const EdgeInsets.only(
-                          left: kPadding,
-                          top: kPadding,
-                          right: kPadding,
-                        ),
-                        sliver: SliverList(
-                          delegate: SliverChildListDelegate(
-                            /// ? FIELDS OF ENTITY ITSELF
-                            [
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: KitTextField(
-                                      controller: bloc.findTextEditingControllerForField('name'),
-                                      helper: 'Model name (required)',
-                                      placeholder: 'Type model name...',
-                                      onChanged: (String value) => bloc.updateModelProperty('name', value),
-                                      isRequired: true,
-                                      maxLines: 1,
-                                    ),
-                                  ),
-                                  KitDivider.horizontal(kPadding),
-                                  Expanded(
-                                    child: KitIdInput(
-                                      controller: bloc.findTextEditingControllerForField(Model.idPropertyName),
-                                      helper: 'Model ID (required)',
-                                      placeholder: 'Type model ID here...',
-                                      tooltip: 'Generate new model id',
-                                      onChanged: (String value) => bloc.updateModelProperty(Model.idPropertyName, value),
-                                      isRequired: true,
-                                    ),
-                                  ),
-                                  KitDivider.horizontal(kPadding),
-                                  Expanded(
-                                    child: KitIconInput(
-                                      controller: bloc.findTextEditingControllerForField('icon'),
-                                      helper: 'Model icon',
-                                      onChanged: (String value) => bloc.updateModelProperty('icon', value),
-                                      placeholder: 'Choose an model icon...',
-                                    ),
-                                  ),
-                                ],
+    return BlocBuilder<ModelPageBloc, ModelPageState>(
+      buildWhen: (ModelPageState previous, ModelPageState current) => previous.modelWasSet != current.modelWasSet,
+      builder: (BuildContext context, ModelPageState state) {
+        return AnimatedSwitcher(
+          duration: const Duration(milliseconds: 250),
+          child: state.modelWasSet
+              ? KitViewSubContainer(
+                  child: KitColumn(
+                    children: [
+                      BlocBuilder<ModelPageBloc, ModelPageState>(
+                        builder: (BuildContext context, ModelPageState state) {
+                          return KitViewHeader(
+                            children: [
+                              KitText(
+                                text: state.hasAnyChanges ? 'Model was changed...' : 'Model was not changed...',
                               ),
-                              KitDivider.vertical(kPaddingLarge),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: KitBooleanInput(
-                                      helper: 'Is Model a collection?',
-                                      value: bloc.state.editableModel.isCollection,
-                                      onSelect: (bool value) => bloc.updateModelProperty('isCollection', value),
-                                    ),
-                                  ),
-                                  KitDivider.horizontal(kPadding),
-                                  Expanded(
-                                    child: KitBooleanInput(
-                                      helper: 'Is it needed to show Model at the side menu?',
-                                      value: bloc.state.editableModel.showInMenu,
-                                      onSelect: (bool value) => bloc.updateModelProperty('showInMenu', value),
-                                    ),
-                                  ),
-                                  KitDivider.horizontal(kPadding),
-                                  Expanded(
-                                    child: KitNumberField(
-                                      helper: 'Model sorting index at the side menu',
-                                      controller: bloc.findTextEditingControllerForField('sort'),
-                                      placeholder: 'Put model sort index here...',
-                                      onChanged: (num? value) => bloc.updateModelProperty('sort', (value ?? 0).toInt()),
-                                    ),
-                                  ),
-                                ],
+                              const Spacer(),
+                              KitButton(
+                                isLoading: state.isSaving,
+                                text: 'Save',
+                                onPressed: state.hasAnyChanges ? upsert : null,
                               ),
-                              KitDivider.vertical(kPaddingLarge),
                             ],
-                          ),
-                        ),
+                          );
+                        },
                       ),
-                      SliverPadding(
-                        padding: const EdgeInsets.only(
-                          top: Gap.large,
-                          right: Gap.regular,
-                        ),
-                        sliver: SliverList(
-                          delegate: SliverChildBuilderDelegate(
-                            buildFieldsRow,
-                            childCount: state.editableModel.fields.length,
-                          ),
-                        ),
+                      BlocBuilder<ModelPageBloc, ModelPageState>(
+                        builder: (BuildContext context, ModelPageState state) {
+                          return KitPreloaderV2(isLoading: state.isSaving);
+                        },
                       ),
+                      Expanded(
+                        child: BlocBuilder<ModelPageBloc, ModelPageState>(
+                          builder: (BuildContext context, ModelPageState state) {
+                            return Form(
+                              key: formKey,
+                              child: CustomScrollView(
+                                slivers: [
+                                  SliverPadding(
+                                    padding: const EdgeInsets.only(
+                                      left: kPadding,
+                                      top: kPadding,
+                                      right: kPadding,
+                                    ),
+                                    sliver: SliverList(
+                                      delegate: SliverChildListDelegate(
+                                        /// ? FIELDS OF MODEL ITSELF
+                                        [
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: KitTextField(
+                                                  controller: bloc.findTextEditingControllerForField('name'),
+                                                  helper: 'Model name (required)',
+                                                  placeholder: 'Type model name...',
+                                                  onChanged: (String value) => bloc.updateModelProperty('name', value),
+                                                  isRequired: true,
+                                                  maxLines: 1,
+                                                ),
+                                              ),
+                                              KitDivider.horizontal(kPadding),
+                                              Expanded(
+                                                child: KitIdInput(
+                                                  controller: bloc.findTextEditingControllerForField(Model.idPropertyName),
+                                                  helper: 'Model ID (required)',
+                                                  placeholder: 'Type model ID here...',
+                                                  tooltip: 'Generate new model id',
+                                                  onChanged: (String value) => bloc.updateModelProperty(Model.idPropertyName, value),
+                                                  isRequired: true,
+                                                ),
+                                              ),
+                                              KitDivider.horizontal(kPadding),
+                                              Expanded(
+                                                child: KitIconInput(
+                                                  controller: bloc.findTextEditingControllerForField('icon'),
+                                                  helper: 'Model icon',
+                                                  onChanged: (String value) => bloc.updateModelProperty('icon', value),
+                                                  placeholder: 'Choose an model icon...',
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          KitDivider.vertical(kPaddingLarge),
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: KitBooleanInput(
+                                                  helper: 'Is Model a collection?',
+                                                  value: bloc.state.editableModel.isCollection,
+                                                  onSelect: (bool value) => bloc.updateModelProperty('isCollection', value),
+                                                ),
+                                              ),
+                                              KitDivider.horizontal(kPadding),
+                                              Expanded(
+                                                child: KitBooleanInput(
+                                                  helper: 'Is it needed to show Model at the side menu?',
+                                                  value: bloc.state.editableModel.showInMenu,
+                                                  onSelect: (bool value) => bloc.updateModelProperty('showInMenu', value),
+                                                ),
+                                              ),
+                                              KitDivider.horizontal(kPadding),
+                                              Expanded(
+                                                child: KitNumberField(
+                                                  helper: 'Model sorting index at the side menu',
+                                                  controller: bloc.findTextEditingControllerForField('sort'),
+                                                  placeholder: 'Put model sort index here...',
+                                                  onChanged: (num? value) => bloc.updateModelProperty('sort', (value ?? 0).toInt()),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          KitDivider.vertical(kPaddingLarge),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  SliverPadding(
+                                    padding: const EdgeInsets.only(
+                                      top: Gap.large,
+                                      right: Gap.regular,
+                                    ),
+                                    sliver: SliverList(
+                                      delegate: SliverChildBuilderDelegate(
+                                        buildFieldsRow,
+                                        childCount: state.editableModel.fields.length,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      )
                     ],
                   ),
-                );
-              },
-            ),
-          )
-        ],
-      ),
+                )
+              : const KitCenteredText(text: 'Loading...'),
+        );
+      },
     );
   }
 }

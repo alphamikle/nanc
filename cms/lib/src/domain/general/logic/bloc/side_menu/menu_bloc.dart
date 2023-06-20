@@ -69,6 +69,11 @@ class MenuBloc extends Cubit<MenuState> {
     ));
   }
 
+  Future<void> initItemsChecked(String headerSegmentUrl) async {
+    await modelListBloc.waitUntilLoading();
+    await initItems(headerSegmentUrl);
+  }
+
   Future<void> reInitItems() async {
     if (state.activeHeaderSegment.isNotEmpty) {
       final MenuElement activeElement = state.activeElement;
@@ -77,17 +82,37 @@ class MenuBloc extends Cubit<MenuState> {
     }
   }
 
-  void selectItem(String menuItemUrl) {
-    final Endpoint? endpoint = Endpoint.tryFromPath(menuItemUrl);
+  void selectItem(String selectedItemUrl) {
+    final Endpoint? endpoint = Endpoint.tryFromPath(selectedItemUrl);
     final MenuElement? menuElement = endpoint == null
         ? null
         : state.elements.firstWhereOrNull((MenuElement item) {
-            return item.url == menuItemUrl || menuItemUrl.contains(item.url);
+            final Endpoint? itemEndpoint = Endpoint.tryFromPath(item.url);
+            if (itemEndpoint is SoloPageGateway && endpoint is SoloPageEndpoint) {
+              final String gatewayLikeUrl = '$selectedItemUrl/gateway';
+              if (item.url == gatewayLikeUrl) {
+                return true;
+              }
+            } else if (itemEndpoint is SoloPageGateway && endpoint is SoloPageCreationEndpoint) {
+              final String gatewayLikeUrl = selectedItemUrl.replaceFirst('/create', '/gateway');
+              if (item.url == gatewayLikeUrl) {
+                return true;
+              }
+            }
+            return item.url == selectedItemUrl || selectedItemUrl.contains(item.url);
           });
 
     emit(state.copyWith(
       activeElement: menuElement ?? MenuElement.empty(),
     ));
+  }
+
+  bool selectItemIfNoSelected(String menuItemUrl) {
+    if (state.activeElement == MenuElement.empty()) {
+      selectItem(menuItemUrl);
+      return true;
+    }
+    return false;
   }
 
   void initRouter(GoRouter router) {

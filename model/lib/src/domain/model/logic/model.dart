@@ -49,7 +49,7 @@ class Model extends Equatable {
     dynamicFields = dynamicFieldsTemp;
   }
 
-  factory Model.emptySolo() => Model(
+  factory Model.initialSolo() => Model(
         name: '',
         icon: '',
         fields: [
@@ -61,6 +61,16 @@ class Model extends Equatable {
       );
 
   factory Model.empty() => Model(
+        name: '',
+        icon: '',
+        fields: [
+          [
+            IdField(id: '', name: ''),
+          ]
+        ],
+      );
+
+  factory Model.initialCollection() => Model(
         name: '',
         icon: '',
         fields: [

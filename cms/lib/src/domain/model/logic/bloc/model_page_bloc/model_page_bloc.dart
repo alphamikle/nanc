@@ -28,8 +28,8 @@ class ModelPageBloc extends Cubit<ModelPageState> {
   Future<void> prepareForModelCreation({bool isSoloCreation = false}) async {
     emit(state.copyWith(
       idWasChanged: false,
-      editableModel: isSoloCreation ? Model.emptySolo() : Model.empty(),
-      initialModel: isSoloCreation ? Model.emptySolo() : Model.empty(),
+      editableModel: isSoloCreation ? Model.initialSolo() : Model.initialCollection(),
+      initialModel: isSoloCreation ? Model.initialSolo() : Model.initialCollection(),
     ));
     _initControllerMap();
   }
@@ -160,7 +160,13 @@ class ModelPageBloc extends Cubit<ModelPageState> {
     ));
   }
 
-  TextEditingController findTextEditingControllerForField(String fieldName) => state.controllerMap[fieldName]!;
+  TextEditingController findTextEditingControllerForField(String fieldName) {
+    final TextEditingController? controller = state.controllerMap[fieldName];
+    if (controller == null) {
+      _initControllerMap();
+    }
+    return state.controllerMap[fieldName]!;
+  }
 
   void updateModelProperty(String name, dynamic value) {
     final Model model = state.editableModel;
@@ -203,7 +209,7 @@ class ModelPageBloc extends Cubit<ModelPageState> {
         showInMenu: cast<bool>(value),
       )));
     } else {
-      throw UnimplementedError('Field $name of model not implementer in model model editor');
+      throw UnimplementedError('Field $name of model is not implemented in model editor');
     }
   }
 

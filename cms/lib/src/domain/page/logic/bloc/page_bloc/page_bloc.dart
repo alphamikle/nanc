@@ -39,7 +39,7 @@ class PageBloc extends BasePageBloc<PageState> {
       this.pageId = pageId;
       emit(state.copyWith(isLoading: true, isError: false));
       await wait(duration: const Duration(milliseconds: 50));
-      final Model? model = modelCollectionBloc.tryToFindModelById(modelId);
+      final Model? model = await modelCollectionBloc.tryToFindModelByIdChecked(modelId);
       if (model == null) {
         notFoundModelError(modelId);
       }
@@ -59,9 +59,9 @@ class PageBloc extends BasePageBloc<PageState> {
         thirdTable: {},
         isLoading: false,
       ));
-    } catch (error) {
+    } catch (error, stackError) {
       emit(state.copyWith(isLoading: false, isError: true));
-      throw error.toHumanException('Page "$pageId" loading failed!');
+      throw [error, stackError].toHumanException('Page "$pageId" loading failed!');
     }
   }
 

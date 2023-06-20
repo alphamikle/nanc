@@ -34,9 +34,10 @@ class RoutesPreloadingService {
 
   bool get isAttached => rootKey.currentContext != null;
 
-  Future<void> selectMenuItems(GoRouterState tate) async => _selectHeaderMenuElement(tate);
+  Future<void> selectHeaderMenuItem(GoRouterState state) async => _selectHeaderMenuElement(state);
 
   Future<void> preloadCollectionDataList(GoRouterState state) async {
+    await _selectHeaderMenuElementIfNoSelected(state);
     _selectSideMenuElement(state);
     unawaited(collectionBloc.loadCollection(state.pathParameters[Params.modelId.name] ?? ''));
   }
@@ -49,6 +50,7 @@ class RoutesPreloadingService {
 
   Future<String> resolveSoloPageState(GoRouterState state, GlobalKey<NavigatorState> key) async {
     final String modelId = state.pathParameters[Params.modelId.name] ?? '';
+    await _selectHeaderMenuElementIfNoSelected(state);
     _selectSideMenuElement(state);
     final bool isPageExist = await pageBloc.isPageExist(modelId, modelId);
     if (isPageExist) {
@@ -60,12 +62,19 @@ class RoutesPreloadingService {
 
   Future<void> preloadSoloPage(GoRouterState state) async {
     final String modelId = state.pathParameters[Params.modelId.name] ?? '';
-    unawaited(pageBloc.loadPage(modelId, modelId));
+    final bool headerElementWasSelected = await _selectHeaderMenuElementIfNoSelected(state);
+    if (headerElementWasSelected) {
+      await _selectSideMenuElementIfNoSelected(state);
+      logg.rows('Side element was selected');
+    }
+    await pageBloc.loadPage(modelId, modelId);
   }
 
   Future<void> prepareSoloPageForCreation(GoRouterState state) async {
     final String modelId = state.pathParameters[Params.modelId.name] ?? '';
-    unawaited(pageBloc.prepareForCreation(modelId));
+    await _selectHeaderMenuElementIfNoSelected(state);
+    await _selectSideMenuElementIfNoSelected(state);
+    await pageBloc.prepareForCreation(modelId);
   }
 
   Future<void> prepareCollectionPageForCreation(GoRouterState state) async {
@@ -74,6 +83,7 @@ class RoutesPreloadingService {
   }
 
   Future<void> preloadModel(GoRouterState state) async {
+    await _selectHeaderMenuElementIfNoSelected(state);
     _selectSideMenuElement(state);
     final String entityId = state.pathParameters[Params.modelId.name] ?? '';
     unawaited(modelPageBloc.loadModel(entityId));
@@ -101,6 +111,23 @@ class RoutesPreloadingService {
     ));
   }
 
+  Future<bool> _selectHeaderMenuElementIfNoSelected(GoRouterState state) async {
+    final String route = state.location;
+    final bool? result = await doSomethingWhen(
+      condition: () => isAttached,
+      interval: kInterval,
+      action: () async {
+        if (headerBloc.selectItemIfNoSelected(route)) {
+          logg('Select header menu element if no selected: "$route"');
+          await menuBloc.initItemsChecked(route);
+          return true;
+        }
+        return false;
+      },
+    );
+    return result ?? false;
+  }
+
   void _selectSideMenuElement(GoRouterState state) {
     unawaited(doSomethingWhen(
       condition: () => isAttached,
@@ -110,5 +137,20 @@ class RoutesPreloadingService {
         menuBloc.selectItem(state.location);
       },
     ));
+  }
+
+  Future<bool> _selectSideMenuElementIfNoSelected(GoRouterState state) async {
+    final bool? result = await doSomethingWhen(
+      condition: () => isAttached,
+      interval: kInterval,
+      action: () async {
+        if (menuBloc.selectItemIfNoSelected(state.location)) {
+          logg('Select side menu element if no selected: "${state.location}"');
+          return true;
+        }
+        return false;
+      },
+    );
+    return result ?? false;
   }
 }

@@ -361,7 +361,13 @@ abstract class Endpoints {
 
 extension EndpointRouteToPattern on Endpoint {
   String get pattern {
-    return route.replaceAll(RegExp(r'(?<param>:[^/]+)'), r'[^/]+');
+    final Iterable<RegExpMatch> matches = RegExp(r':(?<param>[^/]+)').allMatches(route);
+    String tempRoute = route;
+    for (final RegExpMatch match in matches) {
+      final String paramName = match.namedGroup('param')!;
+      tempRoute = tempRoute.replaceFirst(':$paramName', '(?<$paramName>[^/]+)');
+    }
+    return tempRoute;
   }
 
   bool get isCollectionEndpoint {

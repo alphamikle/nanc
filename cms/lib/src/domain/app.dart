@@ -203,6 +203,7 @@ class _AppState extends State<App> {
                     theme: themeBuilder(context),
                     darkTheme: themeBuilder(context, dark: true),
                     themeMode: ThemeMode.light,
+                    title: 'Nanc',
                   );
                 },
               ),

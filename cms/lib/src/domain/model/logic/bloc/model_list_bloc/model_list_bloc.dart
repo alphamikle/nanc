@@ -79,4 +79,13 @@ class ModelListBloc extends Cubit<ModelListState> {
     }
     return model;
   }
+
+  Future<Model?> tryToFindModelByIdChecked(String modelId) async {
+    await waitUntilLoading();
+    return tryToFindModelById(modelId);
+  }
+
+  Future<void> waitUntilLoading() async {
+    await doSomethingWhen(action: () {}, condition: () => state.isLoading == false, interval: const Duration(milliseconds: 100));
+  }
 }

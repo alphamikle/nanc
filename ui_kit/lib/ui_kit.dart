@@ -5,6 +5,7 @@ export 'package:animations/animations.dart';
 export 'src/animation/animated_state.dart';
 export 'src/animation/kit_auto_animated_transition.dart';
 export 'src/animation/kit_wave_transition.dart';
+export 'src/animation/kit_white_wall_transition.dart';
 export 'src/components/kit_buttons/kit_big_button.dart';
 export 'src/components/kit_buttons/kit_button.dart';
 export 'src/components/kit_buttons/kit_icon_button.dart';

@@ -9,16 +9,11 @@ import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../../../../cms.dart';
 import '../../../../service/config/config.dart';
-import '../../../../service/errors/ui_error.dart';
 import '../../../../service/routing/endpoints.dart';
-import '../../../../service/routing/params_list.dart';
 import '../../../../service/tools/model_finder.dart';
-import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../../model/ui/component/fields_form.dart';
-import '../../logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../logic/bloc/base_entity_page_bloc/base_page_state.dart';
-import '../../logic/bloc/page_bloc/page_bloc.dart';
 
 class EntityPageView extends StatefulWidget {
   const EntityPageView({
@@ -108,136 +103,146 @@ class _EntityPageViewState extends State<EntityPageView> {
 
   @override
   Widget build(BuildContext context) {
-    final String? entityId = context.location.pathParameters[Params.modelId.name];
-    if (entityId == null) {
+    final String? modelId = context.location.pathParameters[Params.modelId.name];
+    if (modelId == null) {
       return const KitNotFoundModelId();
     }
-    final Model? model = context.read<ModelListBloc>().tryToFindModelById(entityId);
-    if (model == null) {
-      return KitNotFoundModelById(modelId: entityId);
-    }
 
-    return KitViewSubContainer(
-      child: KitColumn(
-        children: [
-          BlocBuilder<BasePageBloc, BaseEntityPageState>(
-            builder: (BuildContext context, BaseEntityPageState state) {
-              return KitViewHeader(
-                children: [
-                  if (soloEntity == false)
-                    Padding(
-                      padding: const EdgeInsets.only(right: kPaddingLarge),
-                      child: KitIconButton(
-                        icon: IconPack.flu_chevron_left_filled,
-                        onPressed: () => context.navigator.pop(),
+    return BlocBuilder<ModelListBloc, ModelListState>(
+      buildWhen: (previous, current) => previous.isLoading != current.isLoading,
+      builder: (BuildContext context, ModelListState listState) {
+        if (listState.isLoading) {
+          return const KitCenteredText(text: 'Loading');
+        }
+
+        final Model? model = context.read<ModelListBloc>().tryToFindModelById(modelId);
+        if (model == null) {
+          return KitNotFoundModelById(modelId: modelId);
+        }
+
+        return KitViewSubContainer(
+          child: KitColumn(
+            children: [
+              BlocBuilder<BasePageBloc, BaseEntityPageState>(
+                builder: (BuildContext context, BaseEntityPageState state) {
+                  return KitViewHeader(
+                    children: [
+                      if (soloEntity == false)
+                        Padding(
+                          padding: const EdgeInsets.only(right: kPaddingLarge),
+                          child: KitIconButton(
+                            icon: IconPack.flu_chevron_left_filled,
+                            onPressed: () => context.navigator.pop(),
+                          ),
+                        ),
+                      const Spacer(),
+                      if (creationMode == false)
+                        Padding(
+                          padding: const EdgeInsets.only(right: Gap.regular),
+                          child: KitButton(
+                            onPressed: () async => confirmAndDelete(model),
+                            color: context.theme.colorScheme.error,
+                            child: AnimatedSwitcher(
+                              duration: const Duration(milliseconds: 250),
+                              child: state.isDeleting
+                                  ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error))
+                                  : const Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Icon(IconPack.mdi_delete_empty),
+                                        KitDivider(width: Gap.regular),
+                                        KitText(text: 'Delete'),
+                                      ],
+                                    ),
+                            ),
+                          ),
+                        ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: Gap.regular),
+                        child: KitButton(
+                          onPressed: () async => showJsonPreviewModal(
+                            context: context,
+                            title: 'Page data',
+                            structure: filterJsonFromStructures(pageBloc.state.data),
+                          ),
+                          color: context.kitColors.successColor,
+                          child: const Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(IconPack.mdi_code_json),
+                              KitDivider(width: Gap.regular),
+                              KitText(text: 'Structure'),
+                            ],
+                          ),
+                        ),
                       ),
-                    ),
-                  const Spacer(),
-                  if (creationMode == false)
-                    Padding(
-                      padding: const EdgeInsets.only(right: Gap.regular),
-                      child: KitButton(
-                        onPressed: () async => confirmAndDelete(model),
-                        color: context.theme.colorScheme.error,
+                      Padding(
+                        padding: const EdgeInsets.only(right: Gap.regular),
+                        child: KitButton(
+                          onPressed: state.isChanged ? () async => confirmAndReset(model) : null,
+                          color: context.theme.colorScheme.error,
+                          child: AnimatedSwitcher(
+                            duration: const Duration(milliseconds: 250),
+                            child: state.isDeleting
+                                ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error))
+                                : const Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(IconPack.mdi_notification_clear_all),
+                                      KitDivider(width: Gap.regular),
+                                      KitText(text: 'Reset'),
+                                    ],
+                                  ),
+                          ),
+                        ),
+                      ),
+                      KitButton(
+                        onPressed: state.isChanged ? () async => validateAndSave(model) : null,
                         child: AnimatedSwitcher(
                           duration: const Duration(milliseconds: 250),
-                          child: state.isDeleting
-                              ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error))
+                          child: state.isSaving
+                              ? const SizedBox(width: 35, child: KitPreloader())
                               : const Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Icon(IconPack.mdi_delete_empty),
+                                    Icon(IconPack.flu_save_filled),
                                     KitDivider(width: Gap.regular),
-                                    KitText(text: 'Delete'),
+                                    KitText(text: 'Save'),
                                   ],
                                 ),
                         ),
                       ),
-                    ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: Gap.regular),
-                    child: KitButton(
-                      onPressed: () async => showJsonPreviewModal(
-                        context: context,
-                        title: 'Page data',
-                        structure: filterJsonFromStructures(pageBloc.state.data),
-                      ),
-                      color: context.kitColors.successColor,
-                      child: const Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(IconPack.mdi_code_json),
-                          KitDivider(width: Gap.regular),
-                          KitText(text: 'Structure'),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: Gap.regular),
-                    child: KitButton(
-                      onPressed: state.isChanged ? () async => confirmAndReset(model) : null,
-                      color: context.theme.colorScheme.error,
-                      child: AnimatedSwitcher(
-                        duration: const Duration(milliseconds: 250),
-                        child: state.isDeleting
-                            ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error))
-                            : const Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(IconPack.mdi_notification_clear_all),
-                                  KitDivider(width: Gap.regular),
-                                  KitText(text: 'Reset'),
-                                ],
-                              ),
-                      ),
-                    ),
-                  ),
-                  KitButton(
-                    onPressed: state.isChanged ? () async => validateAndSave(model) : null,
-                    child: AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 250),
-                      child: state.isSaving
-                          ? const SizedBox(width: 35, child: KitPreloader())
-                          : const Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(IconPack.flu_save_filled),
-                                KitDivider(width: Gap.regular),
-                                KitText(text: 'Save'),
-                              ],
-                            ),
-                    ),
-                  ),
-                ],
-              );
-            },
-          ),
-          BlocBuilder<BasePageBloc, BaseEntityPageState>(
-            builder: (BuildContext context, BaseEntityPageState state) {
-              return KitPreloaderV2(isLoading: state.isLoading);
-            },
-          ),
-          Expanded(
-            child: BlocBuilder<BasePageBloc, BaseEntityPageState>(
-              builder: (BuildContext context, BaseEntityPageState state) {
-                if (state.isLoading) {
-                  return const KitCenteredText(text: 'Loading');
-                } else if (state.isError) {
-                  return const UiError();
-                }
+                    ],
+                  );
+                },
+              ),
+              BlocBuilder<BasePageBloc, BaseEntityPageState>(
+                builder: (BuildContext context, BaseEntityPageState state) {
+                  return KitPreloaderV2(isLoading: state.isLoading);
+                },
+              ),
+              Expanded(
+                child: BlocBuilder<BasePageBloc, BaseEntityPageState>(
+                  builder: (BuildContext context, BaseEntityPageState state) {
+                    if (state.isLoading) {
+                      return const KitCenteredText(text: 'Loading');
+                    } else if (state.isError) {
+                      return const UiError();
+                    }
 
-                return FieldsForm(
-                  formKey: formKey,
-                  model: model,
-                  creationMode: creationMode,
-                  withBottomPadding: true,
-                );
-              },
-            ),
+                    return FieldsForm(
+                      formKey: formKey,
+                      model: model,
+                      creationMode: creationMode,
+                      withBottomPadding: true,
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

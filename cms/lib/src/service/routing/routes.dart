@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:tools/tools.dart';
 
 import '../../domain/collection/ui/view/collection_view.dart';
 import '../../domain/collection/ui/view/empty_collection_view.dart';
@@ -21,14 +22,13 @@ typedef ElementProducer<T> = T Function();
 
 T builder<T>(ElementProducer<T> producer) => producer();
 
-Page<dynamic> defaultTransitionBuilder({required Widget child}) => NoTransitionPage(
-      child: child,
-    );
+Page<dynamic> defaultTransitionBuilder({required Widget child}) => NoTransitionPage(child: child);
 
-GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<NavigatorState> navigatorKey) {
+GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey) {
   return GoRouter(
     debugLogDiagnostics: true,
-    navigatorKey: navigatorKey,
+    navigatorKey: rootKey,
+    initialLocation: '/solo/intro_screen',
     routes: [
       /// ? "/"
       GoRoute(
@@ -51,7 +51,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             path: Endpoints.collection.segment(),
             name: Endpoints.collection.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.selectMenuItems(state));
+              unawaited(preloadingService.selectHeaderMenuItem(state));
               return defaultTransitionBuilder(child: const EmptyCollectionView());
             },
           ),
@@ -92,7 +92,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             path: Endpoints.solo.segment(),
             name: Endpoints.solo.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.selectMenuItems(state));
+              unawaited(preloadingService.selectHeaderMenuItem(state));
               return defaultTransitionBuilder(child: const SoloEmptyView());
             },
           ),
@@ -102,7 +102,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             path: Endpoints.solo.gateway.segment(),
             name: Endpoints.solo.gateway.name,
             redirect: (BuildContext context, GoRouterState state) async {
-              return preloadingService.resolveSoloPageState(state, navigatorKey);
+              return preloadingService.resolveSoloPageState(state, rootKey);
             },
           ),
 
@@ -131,7 +131,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             path: Endpoints.editor.segment(),
             name: Endpoints.editor.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.selectMenuItems(state));
+              unawaited(preloadingService.selectHeaderMenuItem(state));
               return defaultTransitionBuilder(child: const ModelEditorInitialView());
             },
           ),
@@ -161,7 +161,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             path: Endpoints.roles.segment(),
             name: Endpoints.roles.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.selectMenuItems(state));
+              unawaited(preloadingService.selectHeaderMenuItem(state));
               return defaultTransitionBuilder(child: const RolesView());
             },
           ),
@@ -171,7 +171,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, GlobalKey<Naviga
             path: Endpoints.settings.segment(),
             name: Endpoints.settings.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.selectMenuItems(state));
+              unawaited(preloadingService.selectHeaderMenuItem(state));
               return defaultTransitionBuilder(child: const RolesView());
             },
           ),

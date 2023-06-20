@@ -33,6 +33,7 @@ class ModelPageState extends Equatable {
   final bool isSaving;
 
   bool get hasAnyChanges => editableModel != initialModel;
+  bool get modelWasSet => editableModel != Model.empty();
 
   @override
   List<Object?> get props => _$props;

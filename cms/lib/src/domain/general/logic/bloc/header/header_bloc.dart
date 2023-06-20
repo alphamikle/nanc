@@ -31,6 +31,14 @@ class HeaderBloc extends Cubit<MenuState> {
     ));
   }
 
+  bool selectItemIfNoSelected(String route) {
+    if (state.activeElement == MenuElement.empty()) {
+      selectItem(route);
+      return true;
+    }
+    return false;
+  }
+
   Future<void> initItems() async {
     emit(state.copyWith(
       isLoading: true,
