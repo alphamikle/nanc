@@ -28,7 +28,7 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
   return GoRouter(
     debugLogDiagnostics: true,
     navigatorKey: rootKey,
-    initialLocation: '/solo/intro_screen',
+    // initialLocation: '/solo/intro_screen',
     routes: [
       /// ? "/"
       GoRoute(

@@ -18,12 +18,21 @@ enum Zone {
   final int square;
 }
 
+enum WaveMode {
+  show,
+  hide;
+
+  bool get isShow => this == WaveMode.show;
+  bool get isHide => this == WaveMode.hide;
+}
+
 class KitWaveTransition extends StatelessWidget {
   const KitWaveTransition({
     required this.child,
     required this.animation,
     this.startingPoint = FractionalOffset.center,
     this.fallbackSize = 500,
+    this.mode = WaveMode.show,
     super.key,
   });
 
@@ -31,6 +40,7 @@ class KitWaveTransition extends StatelessWidget {
   final FractionalOffset startingPoint;
   final Animation<double> animation;
   final double fallbackSize;
+  final WaveMode mode;
 
   double get startX => startingPoint.dx;
   double get startY => startingPoint.dy;
@@ -153,6 +163,7 @@ class KitWaveTransition extends StatelessWidget {
             return _WaveAnimation(
               startingPoint: startingPoint,
               value: value,
+              mode: mode,
               child: child!,
             );
           },
@@ -168,11 +179,13 @@ class _WaveAnimation extends StatelessWidget {
     required this.startingPoint,
     required this.value,
     required this.child,
+    required this.mode,
   });
 
   final FractionalOffset startingPoint;
   final double value;
   final Widget child;
+  final WaveMode mode;
 
   @override
   Widget build(BuildContext context) {
@@ -180,12 +193,19 @@ class _WaveAnimation extends StatelessWidget {
       // blendMode: BlendMode.modulate,
       shaderCallback: (Rect rect) {
         return RadialGradient(
-          colors: const [
-            Colors.white,
-            Colors.white,
-            Colors.transparent,
-            Colors.transparent,
-          ],
+          colors: mode.isShow
+              ? const [
+                  Colors.white,
+                  Colors.white,
+                  Colors.transparent,
+                  Colors.transparent,
+                ]
+              : const [
+                  Colors.transparent,
+                  Colors.transparent,
+                  Colors.white,
+                  Colors.white,
+                ],
           stops: const [
             0.0,
             0.5,

@@ -25,9 +25,9 @@ class MenuBloc extends Cubit<MenuState> {
 
     if (endpoint.isCollectionEndpoint) {
       logg('Endpoint "$headerSegmentUrl" is CollectionSection');
-      final List<Model> entities = [...modelListBloc.state.collectionModels];
-      entities.sort(_entitySortingPredicate);
-      elements.addAll(entities.map(
+      final List<Model> models = [...modelListBloc.state.collectionModels];
+      models.sort(_entitySortingPredicate);
+      elements.addAll(models.map(
         (Model model) => MenuElement(
           title: model.name,
           url: Endpoints.collection.model.segment(modelId: model.id),
@@ -35,9 +35,9 @@ class MenuBloc extends Cubit<MenuState> {
       ));
     } else if (endpoint.isSoloEndpoint) {
       logg('Endpoint "$headerSegmentUrl" is SoloSection');
-      final List<Model> entities = [...modelListBloc.state.soloModels];
-      entities.sort(_entitySortingPredicate);
-      elements.addAll(entities.map(
+      final List<Model> models = [...modelListBloc.state.soloModels];
+      models.sort(_entitySortingPredicate);
+      elements.addAll(models.map(
         (Model model) => MenuElement(
           title: model.name,
           url: Endpoints.solo.page.segment(modelId: model.id),
@@ -45,13 +45,13 @@ class MenuBloc extends Cubit<MenuState> {
       ));
     } else if (endpoint.isEditorEndpoint) {
       logg('Endpoint "$headerSegmentUrl" is EditorSection');
-      List<Model> entities = [...modelListBloc.state.allModels];
+      List<Model> models = [...modelListBloc.state.allModels];
       if (Env.isProduction) {
-        entities = entities.where((Model model) => model.id != modelModel.id && model.id != structureModel.id).toList();
+        models = models.where((Model model) => model.id != modelModel.id && model.id != structureModel.id).toList();
       }
-      entities.sort(_entitySortingPredicate);
+      models.sort(_entitySortingPredicate);
       elements.addAll(
-        entities.map(
+        models.map(
           (Model model) => MenuElement(
             title: model.name,
             url: Endpoints.editor.modelEditing.segment(modelId: model.id),

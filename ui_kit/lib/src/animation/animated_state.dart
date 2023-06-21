@@ -6,6 +6,7 @@ mixin AnimatedState<T extends StatefulWidget> on SingleTickerProviderStateMixin<
     duration: animationDuration,
     reverseDuration: reverseDuration,
     debugLabel: runtimeType.toString(),
+    value: initialValue,
   );
   late final Animation<double> animation = CurvedAnimation(parent: animationController, curve: animationCurve);
 
@@ -15,6 +16,7 @@ mixin AnimatedState<T extends StatefulWidget> on SingleTickerProviderStateMixin<
 
   double get value => animation.value;
   double get invertedValue => animation.invertedValue;
+  double get initialValue => 0;
 
   Future<void> forward({double? from}) async => animationController.forward(from: from);
 

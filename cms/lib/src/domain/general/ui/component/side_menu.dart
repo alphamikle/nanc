@@ -13,17 +13,61 @@ import '../../logic/bloc/header/menu_state.dart';
 import '../../logic/bloc/side_menu/menu_bloc.dart';
 import '../../logic/model/menu_element.dart';
 
-class SideMenu extends StatelessWidget {
+/*
+Отображаем текущее меню как старое
+Загружаем данные нового
+ */
+
+class SideMenu extends StatefulWidget {
   const SideMenu({
     super.key,
   });
 
-  Widget menuItemBuilder(BuildContext context, int index) {
-    final MenuBloc menuBloc = context.read();
-    if (menuBloc.state.elements.isEmpty) {
+  @override
+  State<SideMenu> createState() => _SideMenuState();
+}
+
+class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin, AnimatedState {
+  final List<MenuElement> previousElements = [];
+  final List<MenuElement> currentElements = [];
+
+  bool isPreviousVisible = false;
+  bool isCurrentVisible = true;
+
+  @override
+  double initialValue = 1;
+
+  @override
+  Curve get animationCurve => Curves.easeIn;
+
+  @override
+  Duration get animationDuration => const Duration(milliseconds: 300);
+
+  Future<void> _changeMenuElements(MenuState state) async {
+    if (previousElements.isEmpty && currentElements.isEmpty) {
+      animationController.value = 1;
+      currentElements.addAll(state.elements);
+      safeSetState();
+      return;
+    }
+    previousElements.clear();
+    previousElements.addAll(currentElements);
+    currentElements.clear();
+    currentElements.addAll(state.elements);
+    isPreviousVisible = true;
+    safeSetState();
+    await forward(from: 0);
+    isPreviousVisible = false;
+    safeSetState();
+  }
+
+  Widget menuItemBuilder(BuildContext context, int index, {bool previous = false}) {
+    final List<MenuElement> source = previous ? previousElements : currentElements;
+    if (source.isEmpty) {
       return const SizedBox.shrink();
     }
-    final MenuElement element = menuBloc.state.elements[index];
+    final MenuElement element = source[index];
+    final MenuBloc menuBloc = context.read();
     final Model? model = context.read<ModelListBloc>().state.allModels.firstWhereOrNull((Model entity) => entity.name == element.title);
     final bool isActive = menuBloc.state.activeElement == element;
 
@@ -69,24 +113,44 @@ class SideMenu extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(top: kPaddingLarge),
-              child: BlocBuilder<MenuBloc, MenuState>(
-                builder: (BuildContext context, MenuState state) {
-                  return AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 250),
-                    child: state.isLoading
-                        ? const KitPreloader()
-                        : state.elements.isEmpty
-                            ? const SizedBox()
-                            : Material(
-                                type: MaterialType.transparency,
-                                child: ListView.builder(
-                                  key: ValueKey(state.elements),
-                                  itemBuilder: menuItemBuilder,
-                                  itemCount: state.elements.length,
-                                ),
-                              ),
-                  );
-                },
+              child: BlocListener<MenuBloc, MenuState>(
+                listenWhen: (MenuState previous, MenuState current) => previous.elements != current.elements,
+                listener: (BuildContext context, MenuState state) async => _changeMenuElements(state),
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    if (isPreviousVisible)
+                      ColoredBox(
+                        color: context.theme.colorScheme.surfaceVariant,
+                        child: Material(
+                          type: MaterialType.transparency,
+                          child: ListView.builder(
+                            itemBuilder: (BuildContext context, int index) => menuItemBuilder(context, index, previous: true),
+                            itemCount: previousElements.length,
+                          ),
+                        ),
+                      ),
+                    if (isCurrentVisible)
+                      AnimatedBuilder(
+                        animation: animation,
+                        builder: (BuildContext context, Widget? child) => KitWaveTransition(
+                          animation: animation,
+                          startingPoint: FractionalOffset.topLeft,
+                          child: child!,
+                        ),
+                        child: ColoredBox(
+                          color: context.theme.colorScheme.surfaceVariant,
+                          child: Material(
+                            type: MaterialType.transparency,
+                            child: ListView.builder(
+                              itemBuilder: (BuildContext context, int index) => menuItemBuilder(context, index),
+                              itemCount: currentElements.length,
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
               ),
             ),
           ),
