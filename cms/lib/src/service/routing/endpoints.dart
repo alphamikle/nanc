@@ -16,9 +16,7 @@ final List<Endpoint> _endpoints = [
   SettingsEndpoint(),
   IconsEndpoint(),
   CollectionOfModelEndpoint(),
-  SoloPageGateway(),
   SoloPageEndpoint(),
-  SoloPageCreationEndpoint(),
   PageCreationEndpoint(),
   PageOfCollectionEndpoint(),
   ModelEditingEndpoint(),
@@ -34,9 +32,7 @@ Set<Endpoint> get _collectionEndpoints => {
 
 Set<Endpoint> get _soloEndpoints => {
       SoloEndpoint(),
-      SoloPageGateway(),
       SoloPageEndpoint(),
-      SoloPageCreationEndpoint(),
     };
 
 Set<Endpoint> get _editorEndpoints => {
@@ -141,9 +137,7 @@ class SoloEndpoint extends Endpoint {
   @override
   String get route => segment();
 
-  SoloPageGateway get gateway => SoloPageGateway();
   SoloPageEndpoint get page => SoloPageEndpoint();
-  SoloPageCreationEndpoint get pageCreation => SoloPageCreationEndpoint();
 
   @override
   List<Object?> get props => _$props;
@@ -232,22 +226,6 @@ class CollectionOfModelEndpoint extends Endpoint {
 }
 
 @autoequal
-class SoloPageGateway extends Endpoint {
-  @override
-  final String name = 'solo-gateway';
-
-  /// ? /solo/:modelId/gateway
-  @override
-  String segment({String? modelId}) => '/solo/${modelId ?? Params.modelId.param}/gateway';
-
-  @override
-  String get route => '/solo/${Params.modelId.param}/gateway';
-
-  @override
-  List<Object?> get props => _$props;
-}
-
-@autoequal
 class SoloPageEndpoint extends Endpoint {
   @override
   final String name = 'solo-page';
@@ -258,22 +236,6 @@ class SoloPageEndpoint extends Endpoint {
 
   @override
   String get route => '/solo/${Params.modelId.param}';
-
-  @override
-  List<Object?> get props => _$props;
-}
-
-@autoequal
-class SoloPageCreationEndpoint extends Endpoint {
-  @override
-  final String name = 'create-solo-page';
-
-  /// ? /solo/:modelId/create
-  @override
-  String segment({String? modelId}) => '/solo/${modelId ?? Params.modelId.param}/create';
-
-  @override
-  String get route => '/solo/${Params.modelId.param}/create';
 
   @override
   List<Object?> get props => _$props;

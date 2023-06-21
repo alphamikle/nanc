@@ -40,7 +40,7 @@ class MenuBloc extends Cubit<MenuState> {
       elements.addAll(entities.map(
         (Model model) => MenuElement(
           title: model.name,
-          url: Endpoints.solo.gateway.segment(modelId: model.id),
+          url: Endpoints.solo.page.segment(modelId: model.id),
         ),
       ));
     } else if (endpoint.isEditorEndpoint) {
@@ -86,21 +86,9 @@ class MenuBloc extends Cubit<MenuState> {
     final Endpoint? endpoint = Endpoint.tryFromPath(selectedItemUrl);
     final MenuElement? menuElement = endpoint == null
         ? null
-        : state.elements.firstWhereOrNull((MenuElement item) {
-            final Endpoint? itemEndpoint = Endpoint.tryFromPath(item.url);
-            if (itemEndpoint is SoloPageGateway && endpoint is SoloPageEndpoint) {
-              final String gatewayLikeUrl = '$selectedItemUrl/gateway';
-              if (item.url == gatewayLikeUrl) {
-                return true;
-              }
-            } else if (itemEndpoint is SoloPageGateway && endpoint is SoloPageCreationEndpoint) {
-              final String gatewayLikeUrl = selectedItemUrl.replaceFirst('/create', '/gateway');
-              if (item.url == gatewayLikeUrl) {
-                return true;
-              }
-            }
-            return item.url == selectedItemUrl || selectedItemUrl.contains(item.url);
-          });
+        : state.elements.firstWhereOrNull(
+            (MenuElement item) => item.url == selectedItemUrl || selectedItemUrl.contains(item.url),
+          );
 
     emit(state.copyWith(
       activeElement: menuElement ?? MenuElement.empty(),

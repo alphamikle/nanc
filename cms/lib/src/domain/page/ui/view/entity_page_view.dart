@@ -80,7 +80,7 @@ class _EntityPageViewState extends State<EntityPageView> {
         context.navigator.pop();
       } else {
         if (modelId != null) {
-          context.goNamed(Endpoints.solo.gateway.name, pathParameters: {Params.modelId.name: modelId});
+          context.goNamed(Endpoints.solo.page.name, pathParameters: {Params.modelId.name: modelId});
         } else {
           context.goNamed(Endpoints.solo.name);
         }

@@ -97,15 +97,6 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
             },
           ),
 
-          /// ? "/solo/:modelId/gateway"
-          GoRoute(
-            path: Endpoints.solo.gateway.segment(),
-            name: Endpoints.solo.gateway.name,
-            redirect: (BuildContext context, GoRouterState state) async {
-              return preloadingService.resolveSoloPageState(state, rootKey);
-            },
-          ),
-
           /// ? "/solo/:modelId
           GoRoute(
             path: Endpoints.solo.page.segment(),
@@ -113,16 +104,6 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.preloadSoloPage(state));
               return defaultTransitionBuilder(child: const EntityPageView(creationMode: false, soloEntity: true));
-            },
-          ),
-
-          /// ? "/solo/:modelId/create"
-          GoRoute(
-            path: Endpoints.solo.pageCreation.segment(),
-            name: Endpoints.solo.pageCreation.name,
-            pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.prepareSoloPageForCreation(state));
-              return defaultTransitionBuilder(child: const EntityPageView(creationMode: true, soloEntity: true));
             },
           ),
 

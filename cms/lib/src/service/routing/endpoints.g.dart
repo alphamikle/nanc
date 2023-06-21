@@ -60,19 +60,7 @@ extension _$CollectionOfModelEndpointAutoequal on CollectionOfModelEndpoint {
   List<Object?> get _$props => [name];
 }
 
-extension _$SoloPageGatewayAutoequal on SoloPageGateway {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [name];
-}
-
 extension _$SoloPageEndpointAutoequal on SoloPageEndpoint {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [name];
-}
-
-extension _$SoloPageCreationEndpointAutoequal on SoloPageCreationEndpoint {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [name];
