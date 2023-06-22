@@ -54,6 +54,7 @@ export 'src/components/kit_modal/kit_base_modal_bottom.dart';
 export 'src/components/kit_modal/kit_modal.dart';
 export 'src/components/kit_preloader.dart';
 export 'src/components/kit_preloader_v2.dart';
+export 'src/components/kit_preloader_v3.dart';
 export 'src/components/kit_screen_preloader.dart';
 export 'src/components/kit_shimmer.dart';
 export 'src/components/kit_shimmer_switcher.dart';

@@ -62,7 +62,7 @@ class _CollectionViewState extends State<CollectionView> {
                 child: Builder(
                   builder: (BuildContext context) {
                     if (state.isLoading || model.id != state.modelId) {
-                      return const KitCenteredText(text: 'Loading');
+                      return const KitPreloaderV3.center();
                     } else if (state.notFoundAnything) {
                       return const KitCenteredText(text: 'Not found');
                     } else if (state.isError) {
@@ -86,7 +86,7 @@ class _CollectionViewState extends State<CollectionView> {
                         ),
                       );
                     }
-                    return const KitCenteredText(text: 'Loading');
+                    return const KitPreloaderV3.center();
                   },
                 ),
               ),

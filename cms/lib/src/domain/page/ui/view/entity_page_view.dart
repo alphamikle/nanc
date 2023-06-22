@@ -225,7 +225,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                 child: BlocBuilder<BasePageBloc, BaseEntityPageState>(
                   builder: (BuildContext context, BaseEntityPageState state) {
                     if (state.isLoading) {
-                      return const KitCenteredText(text: 'Loading');
+                      return const KitPreloaderV3.center();
                     } else if (state.isError) {
                       return const UiError();
                     }

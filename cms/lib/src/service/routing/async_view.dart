@@ -26,7 +26,7 @@ class AsyncView extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           return child;
         }
-        return loader ?? const KitCenteredText(text: 'Loading');
+        return loader ?? const KitPreloaderV3.center();
       },
     );
   }
