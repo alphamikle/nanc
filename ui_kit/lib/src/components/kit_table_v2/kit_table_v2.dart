@@ -251,11 +251,17 @@ class _KitTableV2State extends State<KitTableV2> {
       });
       unawaited(
         widget.onPagination!(currentPage).then(
-          (_) => tableScrollController.animateTo(
-            0,
-            duration: const Duration(milliseconds: 250),
-            curve: Curves.easeInOut,
-          ),
+          (_) async {
+            if (tableScrollController.hasClients == false) {
+              return;
+            }
+
+            return tableScrollController.animateTo(
+              0,
+              duration: const Duration(milliseconds: 250),
+              curve: Curves.easeInOut,
+            );
+          },
         ),
       );
     }

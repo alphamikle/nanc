@@ -26,7 +26,12 @@ class CollectionBloc extends Cubit<CollectionState> {
   final EventBus eventBus;
   final TextEditingController globalSearchController = TextEditingController();
 
+  void clear() => emit(CollectionState.empty());
+
   Future<void> loadCollection(String modelId) async {
+    if (state.modelId == modelId) {
+      return;
+    }
     eventBus.send(eventId: CollectionFilterEvents.collectionLoad, request: modelId);
     final bool isTheSameCollection = state.modelId == modelId;
     if (isTheSameCollection) {

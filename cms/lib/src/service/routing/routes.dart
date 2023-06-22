@@ -13,6 +13,7 @@ import '../../domain/page/ui/view/entity_page_view.dart';
 import '../../domain/page/ui/view/solo_empty_view.dart';
 import '../../domain/roles/ui/view/roles_view.dart';
 import '../../domain/welcome/ui/view/welcome_view.dart';
+import 'async_view.dart';
 import 'endpoints.dart';
 import 'routes_preloading_service.dart';
 
@@ -51,8 +52,12 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
             path: Endpoints.collection.segment(),
             name: Endpoints.collection.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.selectHeaderMenuItem(state));
-              return defaultTransitionBuilder(child: const EmptyCollectionView());
+              return defaultTransitionBuilder(
+                child: AsyncView(
+                  callback: () async => preloadingService.selectHeaderMenuItem(state),
+                  child: const EmptyCollectionView(),
+                ),
+              );
             },
           ),
 
@@ -61,8 +66,12 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
             path: Endpoints.collection.model.segment(),
             name: Endpoints.collection.model.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.preloadCollectionDataList(state));
-              return defaultTransitionBuilder(child: const CollectionView());
+              return defaultTransitionBuilder(
+                child: AsyncView(
+                  callback: () async => preloadingService.preloadCollectionDataList(state),
+                  child: const CollectionView(),
+                ),
+              );
             },
             routes: [
               /// ? "/collection/:modelId/create"
@@ -70,8 +79,12 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
                 path: Endpoints.collection.model.pageCreation.segment(),
                 name: Endpoints.collection.model.pageCreation.name,
                 pageBuilder: (BuildContext context, GoRouterState state) {
-                  unawaited(preloadingService.prepareCollectionPageForCreation(state));
-                  return defaultTransitionBuilder(child: const EntityPageView(creationMode: true, soloEntity: false));
+                  return defaultTransitionBuilder(
+                    child: AsyncView(
+                      callback: () async => preloadingService.prepareCollectionPageForCreation(state),
+                      child: const EntityPageView(creationMode: true, soloEntity: false),
+                    ),
+                  );
                 },
               ),
 
@@ -80,8 +93,12 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
                 path: Endpoints.collection.model.page.segment(),
                 name: Endpoints.collection.model.page.name,
                 pageBuilder: (BuildContext context, GoRouterState state) {
-                  unawaited(preloadingService.preloadCollectionPage(state));
-                  return defaultTransitionBuilder(child: const EntityPageView(creationMode: false, soloEntity: false));
+                  return defaultTransitionBuilder(
+                    child: AsyncView(
+                      callback: () async => preloadingService.preloadCollectionPage(state),
+                      child: const EntityPageView(creationMode: false, soloEntity: false),
+                    ),
+                  );
                 },
               ),
             ],
@@ -92,8 +109,12 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
             path: Endpoints.solo.segment(),
             name: Endpoints.solo.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.selectHeaderMenuItem(state));
-              return defaultTransitionBuilder(child: const SoloEmptyView());
+              return defaultTransitionBuilder(
+                child: AsyncView(
+                  callback: () async => preloadingService.selectHeaderMenuItem(state),
+                  child: const SoloEmptyView(),
+                ),
+              );
             },
           ),
 
@@ -102,8 +123,12 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
             path: Endpoints.solo.page.segment(),
             name: Endpoints.solo.page.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.preloadSoloPage(state));
-              return defaultTransitionBuilder(child: const EntityPageView(creationMode: false, soloEntity: true));
+              return defaultTransitionBuilder(
+                child: AsyncView(
+                  callback: () async => preloadingService.preloadSoloPage(state),
+                  child: const EntityPageView(creationMode: false, soloEntity: true),
+                ),
+              );
             },
           ),
 
@@ -112,8 +137,12 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
             path: Endpoints.editor.segment(),
             name: Endpoints.editor.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.selectHeaderMenuItem(state));
-              return defaultTransitionBuilder(child: const ModelEditorInitialView());
+              return defaultTransitionBuilder(
+                child: AsyncView(
+                  callback: () async => preloadingService.selectHeaderMenuItem(state),
+                  child: const ModelEditorInitialView(),
+                ),
+              );
             },
           ),
 
@@ -122,8 +151,12 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
             path: Endpoints.editor.modelCreation.segment(),
             name: Endpoints.editor.modelCreation.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.prepareModelForCreation(state));
-              return defaultTransitionBuilder(child: const ModelPageView(creationMode: true));
+              return defaultTransitionBuilder(
+                child: AsyncView(
+                  callback: () async => preloadingService.prepareModelForCreation(state),
+                  child: const ModelPageView(creationMode: true),
+                ),
+              );
             },
           ),
 
@@ -132,8 +165,12 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
             path: Endpoints.editor.modelEditing.segment(),
             name: Endpoints.editor.modelEditing.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.preloadModel(state));
-              return defaultTransitionBuilder(child: const ModelPageView(creationMode: false));
+              return defaultTransitionBuilder(
+                child: AsyncView(
+                  callback: () async => preloadingService.preloadModel(state),
+                  child: const ModelPageView(creationMode: false),
+                ),
+              );
             },
           ),
 
@@ -142,8 +179,12 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
             path: Endpoints.roles.segment(),
             name: Endpoints.roles.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
-              unawaited(preloadingService.selectHeaderMenuItem(state));
-              return defaultTransitionBuilder(child: const RolesView());
+              return defaultTransitionBuilder(
+                child: AsyncView(
+                  callback: () async => preloadingService.selectHeaderMenuItem(state),
+                  child: const RolesView(),
+                ),
+              );
             },
           ),
 
@@ -153,7 +194,12 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
             name: Endpoints.settings.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               unawaited(preloadingService.selectHeaderMenuItem(state));
-              return defaultTransitionBuilder(child: const RolesView());
+              return defaultTransitionBuilder(
+                child: AsyncView(
+                  callback: () async => preloadingService.selectHeaderMenuItem(state),
+                  child: const RolesView(),
+                ),
+              );
             },
           ),
         ],

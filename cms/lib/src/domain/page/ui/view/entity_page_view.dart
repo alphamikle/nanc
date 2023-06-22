@@ -132,7 +132,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                           padding: const EdgeInsets.only(right: kPaddingLarge),
                           child: KitIconButton(
                             icon: IconPack.flu_chevron_left_filled,
-                            onPressed: () => context.navigator.pop(),
+                            onPressed: () => context.navigator.pop(256),
                           ),
                         ),
                       const Spacer(),

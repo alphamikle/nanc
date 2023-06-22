@@ -7,16 +7,12 @@ import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../../../../cms.dart';
 import '../../../../service/config/config.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../logic/bloc/header/menu_state.dart';
 import '../../logic/bloc/side_menu/menu_bloc.dart';
 import '../../logic/model/menu_element.dart';
-
-/*
-Отображаем текущее меню как старое
-Загружаем данные нового
- */
 
 class SideMenu extends StatefulWidget {
   const SideMenu({
@@ -67,17 +63,18 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
       return const SizedBox.shrink();
     }
     final MenuElement element = source[index];
-    final MenuBloc menuBloc = context.read();
     final Model? model = context.read<ModelListBloc>().state.allModels.firstWhereOrNull((Model entity) => entity.name == element.title);
-    final bool isActive = menuBloc.state.activeElement == element;
 
     return Padding(
-      padding: EdgeInsets.only(top: index == 0 ? kPadding : 0, bottom: kPadding),
-      child: KitMenuItem(
-        text: element.title,
-        icon: tryToGetIconByName(model?.icon ?? '') ?? IconPack.flu_circle_small_regular,
-        onPressed: () => context.go(element.url),
-        isActive: isActive,
+      padding: EdgeInsets.only(top: index == 0 ? Gap.regular : 0, bottom: Gap.regular),
+      child: BlocBuilder<MenuBloc, MenuState>(
+        buildWhen: (MenuState previous, MenuState current) => previous.activeElement != current.activeElement,
+        builder: (BuildContext context, MenuState state) => KitMenuItem(
+          text: element.title,
+          icon: tryToGetIconByName(model?.icon ?? '') ?? IconPack.flu_circle_small_regular,
+          onPressed: () => context.go(element.url),
+          isActive: state.activeElement == element,
+        ),
       ),
     );
   }

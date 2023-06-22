@@ -37,26 +37,14 @@ class RoutesPreloadingService {
   Future<void> preloadCollectionDataList(GoRouterState state) async {
     await _selectHeaderMenuElementIfNoSelected(state);
     _selectSideMenuElement(state);
-    unawaited(collectionBloc.loadCollection(state.pathParameters[Params.modelId.name] ?? ''));
+    await collectionBloc.loadCollection(state.pathParameters[Params.modelId.name] ?? '');
   }
 
   Future<void> preloadCollectionPage(GoRouterState state) async {
     final String entityId = state.pathParameters[Params.modelId.name] ?? '';
     final String pageId = state.pathParameters[Params.pageId.name] ?? '';
-    unawaited(pageBloc.loadPage(entityId, pageId));
+    await pageBloc.loadPage(entityId, pageId);
   }
-
-  // Future<String> resolveSoloPageState(GoRouterState state, GlobalKey<NavigatorState> key) async {
-  //   final String modelId = state.pathParameters[Params.modelId.name] ?? '';
-  //   await _selectHeaderMenuElementIfNoSelected(state);
-  //   _selectSideMenuElement(state);
-  //   final bool isPageExist = await pageBloc.isPageExist(modelId, modelId);
-  //   if (isPageExist) {
-  //     return Endpoints.solo.page.segment(modelId: modelId);
-  //   } else {
-  //     return Endpoints.solo.pageCreation.segment(modelId: modelId);
-  //   }
-  // }
 
   Future<void> preloadSoloPage(GoRouterState state) async {
     final String modelId = state.pathParameters[Params.modelId.name] ?? '';
