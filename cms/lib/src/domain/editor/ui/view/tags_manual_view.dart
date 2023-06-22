@@ -45,6 +45,8 @@ class _TagsManualViewState extends State<TagsManualView> {
 
   @override
   Widget build(BuildContext context) {
+    const double headerHeight = kHeaderHeight - 10;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -53,7 +55,7 @@ class _TagsManualViewState extends State<TagsManualView> {
             left: 0,
             top: 0,
             right: 0,
-            height: kHeaderHeight,
+            height: headerHeight,
             child: ColoredBox(
               color: context.theme.colorScheme.surfaceVariant,
               child: Padding(
@@ -90,7 +92,7 @@ class _TagsManualViewState extends State<TagsManualView> {
           /// ? SIDE MENU
           Positioned(
             left: 0,
-            top: kHeaderHeight,
+            top: headerHeight,
             bottom: 0,
             width: kMenuWidth,
             child: ColoredBox(
@@ -102,7 +104,7 @@ class _TagsManualViewState extends State<TagsManualView> {
           /// ? LIVE EDITOR OR TAG DESCRIPTION WITH PREVIEW
           Positioned(
             left: kMenuWidth,
-            top: kHeaderHeight,
+            top: headerHeight,
             right: 0,
             bottom: 0,
             child: KitViewContainer(

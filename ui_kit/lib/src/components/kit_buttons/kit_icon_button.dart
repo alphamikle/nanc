@@ -15,7 +15,18 @@ class KitIconButton extends StatelessWidget {
     this.rounder = 4,
     this.padding = const EdgeInsets.all(4),
     super.key,
-  });
+  }) : square = false;
+
+  const KitIconButton.square({
+    required this.icon,
+    this.onPressed,
+    this.color,
+    this.iconColor,
+    this.iconSize = 30,
+    this.rounder = 4,
+    this.padding = const EdgeInsets.all(4),
+    super.key,
+  }) : square = true;
 
   final IconData icon;
   final VoidCallback? onPressed;
@@ -24,14 +35,14 @@ class KitIconButton extends StatelessWidget {
   final double iconSize;
   final double rounder;
   final EdgeInsets padding;
+  final bool square;
 
   @override
   Widget build(BuildContext context) {
     final BorderRadius radius = BorderRadius.all(Radius.circular(max(rounder, iconSize / 2 - rounder)));
     final Color backgroundColor = color ?? context.theme.colorScheme.primaryContainer;
     final Color iconColor = this.iconColor ?? context.theme.colorScheme.onPrimary;
-
-    return Stack(
+    final Widget widget = Stack(
       children: [
         DecoratedBox(
           decoration: BoxDecoration(
@@ -57,5 +68,12 @@ class KitIconButton extends StatelessWidget {
         ),
       ],
     );
+    if (square) {
+      return AspectRatio(
+        aspectRatio: 1,
+        child: widget,
+      );
+    }
+    return widget;
   }
 }
