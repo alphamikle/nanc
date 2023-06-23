@@ -1,0 +1,21 @@
+# Nanc: Fields
+
+A field is one of the most important components of Nanc. Each field is responsible for storing a single value in the overall structure of your data object. However, the value of a field can be as simple as a string or number, or as complex as typed arrays, objects, or entire screens of a mobile application written in Flutter.
+
+Below is a list of fields that you can use in Nanc at this time:
+
+### Boolean field
+
+Responsible for setting some kind of boolean flag. It can take on a default value if no value is specified.
+
+### Color field
+
+Controls the color. You have a convenient color-picker for color selection and transparency control, or you can manually define it in hex format.
+
+### DateTime field
+
+Stores the time and date and can also manipulate fields like `created_at` and `updated_at` by automatically updating the corresponding values in your data object when you do something to it with Nanc.
+
+### Dynamic field
+
+The field that is easiest to characterize as "typed JSON". You can add any other field to this field (including the Dynamic field itself), with all the features of each of the added fields, as well as control the sorting of the field data.
