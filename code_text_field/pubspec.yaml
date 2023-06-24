@@ -1,11 +1,13 @@
 name: code_text_field
 description: A customizable code field supporting syntax highlighting, bi-directionnal scrolling and code modifiers
-version: 0.0.1
 publish_to: none
+repository: https://github.com/alphamikle/nanc
+homepage: https://nanc.io
+version: 0.0.1
 
 environment:
-  sdk: '>=3.0.1 <4.0.0'
-  flutter: ">=3.10.1"
+  sdk: '>=3.0.5 <4.0.0'
+  flutter: ">=3.10.5"
 
 dependencies:
   flutter:

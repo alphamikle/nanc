@@ -1,12 +1,13 @@
 name: nanc_config
 description: Set of config interfaces and APIs for Nanc
-version: 0.0.1
-homepage: nope
 publish_to: none
+repository: https://github.com/alphamikle/nanc
+homepage: https://nanc.io
+version: 0.0.1
 
 environment:
-  sdk: '>=3.0.1 <4.0.0'
-  flutter: ">=3.10.1"
+  sdk: '>=3.0.5 <4.0.0'
+  flutter: ">=3.10.5"
 
 dependencies:
   flutter:

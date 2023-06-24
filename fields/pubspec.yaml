@@ -1,12 +1,13 @@
 name: fields
-description: A new Flutter package project.
-version: 0.0.1
-homepage: nope
+description: The field is an arterial Nanc. The fields are responsible for how you will edit the data, what data you will edit, and where you will edit the data.
 publish_to: none
+repository: https://github.com/alphamikle/nanc
+homepage: https://nanc.io
+version: 0.0.1
 
 environment:
-  sdk: '>=3.0.1 <4.0.0'
-  flutter: ">=3.10.1"
+  sdk: '>=3.0.5 <4.0.0'
+  flutter: ">=3.10.5"
 
 dependencies:
   flutter:

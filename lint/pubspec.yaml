@@ -1,8 +1,9 @@
 name: lint
 description: A set of rules for the monorepo
-version: 0.0.1
-homepage: nope
 publish_to: none
+repository: https://github.com/alphamikle/nanc
+homepage: https://nanc.io
+version: 0.0.1
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

@@ -1,9 +1,9 @@
-import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../../../service/config/constants.dart';
 import '../../../../service/tools/assets_loader.dart';
 import '../component/multi_colored_text.dart';
 
@@ -11,8 +11,6 @@ class RolesView extends StatelessWidget {
   const RolesView({
     super.key,
   });
-
-  // TODO(alphamikle): Сделать генератор двухцветного текста
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +31,7 @@ class RolesView extends StatelessWidget {
               style: const TextStyle(
                 fontFamily: 'BluePrintNonCommercial',
                 fontSize: 36,
-                package: Env.isPackageMode ? 'cms' : null,
+                package: kPackageName,
               ),
             ),
           ],

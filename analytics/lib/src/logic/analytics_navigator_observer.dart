@@ -10,7 +10,6 @@ VRouterNavigationEventObserver analyticsObserver(String eventName) {
       eventName,
       data: <String, dynamic>{
         'to_url': state.location,
-        'from_url': 'unknown',
         'path_parameters': state.pathParameters,
         'query_parameters': state.queryParameters,
       },
