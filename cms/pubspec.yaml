@@ -30,8 +30,6 @@ dependencies:
     path: ../file_syncer
   icons:
     path: ../icons
-  additions:
-    path: ../additions
   analytics:
     path: ../analytics
   fonts:

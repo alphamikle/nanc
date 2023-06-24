@@ -1,6 +1,0 @@
-name: Nanc
-description: A next-generation CMS, capable of synergy with any data source and giving you the most powerful Backend-Driven-UI framework for your Flutter applications.
-logo: "/assets/logo.png"
-logoDark: "/assets/logo.png"
-variables:
-  version: 0.0.1
