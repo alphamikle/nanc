@@ -1,5 +1,5 @@
+import 'package:config/config.dart';
 import 'package:flutter/material.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 
 class DataRepository {

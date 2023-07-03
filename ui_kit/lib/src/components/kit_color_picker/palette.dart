@@ -104,8 +104,8 @@ class TrackPainter extends CustomPainter {
     final Rect rect = Offset.zero & size;
     if (trackType == TrackType.alpha) {
       final Size chessSize = Size(size.height / 2, size.height / 2);
-      Paint chessPaintB = Paint()..color = const Color(0xffcccccc);
-      Paint chessPaintW = Paint()..color = Colors.white;
+      final Paint chessPaintB = Paint()..color = const Color(0xffcccccc);
+      final Paint chessPaintW = Paint()..color = Colors.white;
       List.generate((size.height / chessSize.height).round(), (int y) {
         List.generate((size.width / chessSize.width).round(), (int x) {
           canvas.drawRect(
@@ -243,8 +243,8 @@ class ColorPickerSlider extends StatelessWidget {
   bool get isMonochrome => hsvColor.saturation == 0.0;
 
   void slideEvent(RenderBox getBox, BoxConstraints box, Offset globalPosition) {
-    double localDx = getBox.globalToLocal(globalPosition).dx - 15.0;
-    double progress = localDx.clamp(0.0, box.maxWidth - 30.0) / (box.maxWidth - 30.0);
+    final double localDx = getBox.globalToLocal(globalPosition).dx - 15.0;
+    final double progress = localDx.clamp(0.0, box.maxWidth - 30.0) / (box.maxWidth - 30.0);
     switch (trackType) {
       case TrackType.hue:
         // 360 is the same as zero

@@ -73,7 +73,6 @@ class _FixedChild extends StatelessWidget {
   const _FixedChild({
     required this.child,
     this.clipPadding = const EdgeInsets.only(left: 1.25, right: 1.15),
-    super.key,
   });
 
   final Widget child;

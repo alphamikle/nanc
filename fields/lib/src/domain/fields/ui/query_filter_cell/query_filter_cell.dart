@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:cms/cms.dart';
+import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -308,8 +308,8 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
                       builder: (BuildContext context, VoidCallback onPressed) {
                         return KitButton(
                           onPressed: onPressed,
-                          child: Row(
-                            children: const [
+                          child: const Row(
+                            children: [
                               Icon(IconPack.flu_add_circle_regular),
                               KitDivider(width: Gap.regular),
                               KitText(text: 'Add item'),
@@ -321,8 +321,8 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
                         return [
                           PopupMenuItem(
                             onTap: addCondition,
-                            child: Row(
-                              children: const [
+                            child: const Row(
+                              children: [
                                 Padding(
                                   padding: EdgeInsets.only(right: Gap.regular),
                                   child: Icon(IconPack.mdi_call_split),
@@ -333,8 +333,8 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
                           ),
                           PopupMenuItem(
                             onTap: addValue,
-                            child: Row(
-                              children: const [
+                            child: const Row(
+                              children: [
                                 Padding(
                                   padding: EdgeInsets.only(right: Gap.regular),
                                   child: Icon(IconPack.mdi_link_box_variant),

@@ -146,7 +146,6 @@ class _WaveAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShaderMask(
-      blendMode: BlendMode.modulate,
       shaderCallback: (Rect rect) {
         return RadialGradient(
           colors: const [

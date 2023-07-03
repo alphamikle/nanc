@@ -180,6 +180,32 @@ extension $CollectionStateCopyWith on CollectionState {
   /// Returns a callable class that can be used as follows: `instanceOfCollectionState.copyWith(...)` or like so:`instanceOfCollectionState.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$CollectionStateCWProxy get copyWith => _$CollectionStateCWProxyImpl(this);
+
+  /// Copies the object with the specific fields set to `null`. If you pass `false` as a parameter, nothing will be done and it will be ignored. Don't do it. Prefer `copyWith(field: null)` or `CollectionState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  ///
+  /// Usage
+  /// ```dart
+  /// CollectionState(...).copyWithNull(firstField: true, secondField: true)
+  /// ````
+  CollectionState copyWithNull({
+    bool query = false,
+    bool globalSearchQuery = false,
+    bool sort = false,
+  }) {
+    return CollectionState(
+      dataRows: dataRows,
+      modelId: modelId,
+      currentPage: currentPage,
+      totalPages: totalPages,
+      isLoading: isLoading,
+      isError: isError,
+      notFoundAnything: notFoundAnything,
+      query: query == true ? null : this.query,
+      globalSearchQuery:
+          globalSearchQuery == true ? null : this.globalSearchQuery,
+      sort: sort == true ? null : this.sort,
+    );
+  }
 }
 
 // **************************************************************************

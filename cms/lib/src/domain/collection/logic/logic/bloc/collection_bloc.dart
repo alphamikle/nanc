@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:config/config.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../../cms.dart';
@@ -46,12 +46,14 @@ class CollectionBloc extends Cubit<CollectionState> {
         isLoading: true,
         notFoundAnything: false,
         modelId: modelId,
-        query: null,
-        globalSearchQuery: null,
-        sort: null,
         totalPages: 1,
         currentPage: 1,
         dataRows: [],
+      ));
+      emit(state.copyWithNull(
+        query: true,
+        globalSearchQuery: true,
+        sort: true,
       ));
     }
     await _loadData(modelId: modelId, page: state.currentPage);

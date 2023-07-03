@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:config/config.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:model/model.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';

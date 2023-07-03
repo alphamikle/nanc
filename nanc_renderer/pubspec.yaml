@@ -18,8 +18,8 @@ dependencies:
     path: ../icons
   fonts:
     path: ../fonts
-  nanc_config:
-    path: ../nanc_config
+  config:
+    path: ../config
   markdown: ^7.1.0
   json_annotation: ^4.8.1
   copy_with_extension: ^5.0.2

@@ -27,7 +27,7 @@ dependencies:
   config:
     path: ../config
   animation_debugger:
-    path: ../../../3_open_source_projects/animation_debugger
+    path: ../../../../3_open_source_projects/animation_debugger
   file_syncer:
     path: ../file_syncer
   icons:
@@ -36,8 +36,6 @@ dependencies:
     path: ../analytics
   fonts:
     path: ../fonts
-  nanc_config:
-    path: ../nanc_config
   nanc_api_supabase:
     path: ../nanc_api_supabase
   local_notifications:

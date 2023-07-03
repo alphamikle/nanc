@@ -1,6 +1,6 @@
+import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../fields/logic/bool_field/bool_field.dart';

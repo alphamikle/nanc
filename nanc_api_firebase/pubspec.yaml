@@ -12,8 +12,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc_config:
-    path: ../nanc_config
+  config:
+    path: ../config
   model:
     path: ../model
   tools:

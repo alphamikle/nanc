@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:config/config.dart';
 import 'package:model/model.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../service/errors/errors.dart';
@@ -46,7 +46,7 @@ class CollectionFilterBloc extends Cubit<CollectionFilterState> {
 
   void reset() {
     filterStructureBloc.clear();
-    emit(state.copyWith(query: null, backup: null));
+    emit(state.copyWith());
     apply();
   }
 

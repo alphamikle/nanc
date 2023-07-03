@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:cms/cms.dart';
+import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 

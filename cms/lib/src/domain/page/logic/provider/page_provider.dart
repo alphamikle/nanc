@@ -1,5 +1,5 @@
+import 'package:config/config.dart';
 import 'package:model/model.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 class PageProvider implements IPageProvider {

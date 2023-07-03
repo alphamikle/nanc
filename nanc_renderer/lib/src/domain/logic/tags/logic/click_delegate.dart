@@ -1,7 +1,7 @@
 import 'dart:async';
 
+import 'package:config/config.dart';
 import 'package:flutter/material.dart';
-import 'package:nanc_config/nanc_config.dart';
 
 class ClickDelegate extends InheritedWidget {
   const ClickDelegate({

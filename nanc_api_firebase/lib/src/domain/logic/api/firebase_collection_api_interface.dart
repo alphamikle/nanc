@@ -1,3 +1,3 @@
-import 'package:nanc_config/nanc_config.dart';
+import 'package:config/config.dart';
 
 abstract interface class IFirebaseCollectionApi implements ICollectionApi {}

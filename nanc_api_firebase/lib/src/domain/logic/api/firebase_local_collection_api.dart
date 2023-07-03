@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:config/config.dart';
 import 'package:googleapis/firestore/v1.dart' as fs;
 import 'package:model/model.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../mapper/firestore_value_mapper.dart';

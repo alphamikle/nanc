@@ -1,8 +1,8 @@
 import 'dart:async';
 
+import 'package:config/config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../service/errors/errors_catcher.dart';

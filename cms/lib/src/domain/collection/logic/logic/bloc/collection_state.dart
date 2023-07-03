@@ -1,14 +1,14 @@
 import 'package:autoequal/autoequal.dart';
+import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 part 'collection_state.g.dart';
 
 @autoequal
-@CopyWith()
+@CopyWith(copyWithNull: true)
 @JsonSerializable()
 class CollectionState extends Equatable {
   const CollectionState({

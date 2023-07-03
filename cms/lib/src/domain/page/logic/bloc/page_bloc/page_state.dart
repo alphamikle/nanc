@@ -1,8 +1,8 @@
 import 'package:autoequal/autoequal.dart';
+import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:tools/tools.dart';
 
 import '../base_entity_page_bloc/base_page_state.dart';
