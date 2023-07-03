@@ -4,7 +4,7 @@ import 'package:tools/tools.dart';
 
 abstract class LocalApi {
   @protected
-  DbService get dbService;
+  final DbService dbService = createDbService();
 
   @protected
   Future<List<Json>> fetchFullList(Model entity) async {

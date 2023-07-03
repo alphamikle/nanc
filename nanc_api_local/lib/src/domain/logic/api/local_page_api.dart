@@ -8,13 +8,6 @@ import '../../../service/db_extension.dart';
 import '../../../service/tools.dart';
 
 class LocalPageApi extends LocalApi implements IPageApi {
-  LocalPageApi({
-    required this.dbService,
-  });
-
-  @override
-  final DbService dbService;
-
   @override
   Future<Json> fetchPageData(Model entity, String id, List<String> subset) async {
     try {

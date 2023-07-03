@@ -8,13 +8,6 @@ import '../../../service/db_extension.dart';
 import '../../../service/tools.dart';
 
 class LocalCollectionApi extends LocalApi implements ICollectionApi {
-  LocalCollectionApi({
-    required this.dbService,
-  });
-
-  @override
-  DbService dbService;
-
   @override
   Future<CollectionResponseDto> fetchPageList(Model entity, List<String> subset, QueryField query, ParamsDto params) async {
     await networkDelay();
