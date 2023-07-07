@@ -246,7 +246,6 @@ class ModelPageBloc extends Cubit<ModelPageState> {
   }
 
   void updateModelProperty(String name, dynamic value) {
-    logg.rows('Update model property', name, value);
     final Model model = state.editableModel;
 
     if (name == Model.idPropertyName) {

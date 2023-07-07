@@ -7,15 +7,13 @@ import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../../../../cms.dart';
 import '../../../../service/config/config.dart';
 import '../../../../service/routing/endpoints.dart';
 import '../../logic/bloc/model_page_bloc/model_page_bloc.dart';
 import '../../logic/bloc/model_page_bloc/model_page_state.dart';
 import '../component/add_field_button.dart';
 import '../component/field_card_functional_wrapper.dart';
-import '../component/field_creation_modal.dart';
-import '../component/field_editor_modal.dart';
-import '../component/field_type_selector_modal.dart';
 
 class ModelPageView extends StatefulWidget {
   const ModelPageView({
@@ -163,6 +161,26 @@ class _ModelPageViewState extends State<ModelPageView> {
     }
   }
 
+  String? idFieldValidator(String? id) {
+    final ModelPageBloc modelPageBloc = context.read();
+    if (id == null || id.isEmpty || modelPageBloc.state.initialModel.id == id) {
+      return null;
+    }
+    final List<Model> allModels = context.read<ModelListBloc>().state.allModels;
+    final Map<ModelId, Model> modelsByIds = {};
+    final Map<ModelId, int> counts = {};
+    for (final Model model in allModels) {
+      counts[model.id] = (counts[model.id] ?? 0) + 1;
+      modelsByIds[model.id] = model;
+    }
+    counts[id] = (counts[id] ?? 0) + 1;
+    if (counts[id] != null && counts[id]! > 1) {
+      return 'This id already taken by ${modelsByIds.containsKey(id) ? '"${modelsByIds[id]!.name}" Model' : 'another Model'}';
+    }
+
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     final ModelPageBloc bloc = context.read();
@@ -269,6 +287,7 @@ class _ModelPageViewState extends State<ModelPageView> {
                                                   placeholder: 'Type model ID here...',
                                                   tooltip: 'Generate new model id',
                                                   onChanged: (String value) => bloc.updateModelProperty(Model.idPropertyName, value),
+                                                  validator: idFieldValidator,
                                                   isRequired: true,
                                                 ),
                                               ),

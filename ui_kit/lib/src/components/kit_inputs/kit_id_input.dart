@@ -17,6 +17,7 @@ class KitIdInput extends StatefulWidget {
     required this.onChanged,
     this.isChanged = false,
     this.isRequired = false,
+    this.validator,
     super.key,
   });
 
@@ -27,6 +28,7 @@ class KitIdInput extends StatefulWidget {
   final TextEditingController controller;
   final ValueChanged<String> onChanged;
   final bool isRequired;
+  final FormFieldValidator<String?>? validator;
 
   @override
   State<KitIdInput> createState() => _KitIdInputState();
@@ -46,6 +48,7 @@ class _KitIdInputState extends State<KitIdInput> with KitFocusStreamMixin {
       helper: widget.helper,
       validator: groupOfValidators([
         if (widget.isRequired) isRequiredValidator,
+        if (widget.validator != null) widget.validator!,
       ]),
       isChanged: widget.isChanged,
       autoExpanded: false,
