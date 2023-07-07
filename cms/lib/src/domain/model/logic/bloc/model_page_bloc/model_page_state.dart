@@ -16,6 +16,7 @@ class ModelPageState extends Equatable {
     required this.controllerMap,
     required this.idWasChanged,
     required this.isSaving,
+    required this.isDeleting,
   });
 
   factory ModelPageState.empty() => ModelPageState(
@@ -24,6 +25,7 @@ class ModelPageState extends Equatable {
         controllerMap: const <String, TextEditingController>{},
         idWasChanged: false,
         isSaving: false,
+        isDeleting: false,
       );
 
   final Model editableModel;
@@ -31,6 +33,7 @@ class ModelPageState extends Equatable {
   final TextControllerMap controllerMap;
   final bool idWasChanged;
   final bool isSaving;
+  final bool isDeleting;
 
   bool get hasAnyChanges => editableModel != initialModel;
   bool get modelWasSet => editableModel != Model.empty();

@@ -9,8 +9,14 @@ part of 'model_page_state.dart';
 extension _$ModelPageStateAutoequal on ModelPageState {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props =>
-      [editableModel, initialModel, controllerMap, idWasChanged, isSaving];
+  List<Object?> get _$props => [
+        editableModel,
+        initialModel,
+        controllerMap,
+        idWasChanged,
+        isSaving,
+        isDeleting
+      ];
 }
 
 // **************************************************************************
@@ -29,6 +35,8 @@ abstract class _$ModelPageStateCWProxy {
 
   ModelPageState isSaving(bool isSaving);
 
+  ModelPageState isDeleting(bool isDeleting);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ModelPageState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -41,6 +49,7 @@ abstract class _$ModelPageStateCWProxy {
     Map<String, TextEditingController>? controllerMap,
     bool? idWasChanged,
     bool? isSaving,
+    bool? isDeleting,
   });
 }
 
@@ -71,6 +80,9 @@ class _$ModelPageStateCWProxyImpl implements _$ModelPageStateCWProxy {
   ModelPageState isSaving(bool isSaving) => this(isSaving: isSaving);
 
   @override
+  ModelPageState isDeleting(bool isDeleting) => this(isDeleting: isDeleting);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ModelPageState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -84,6 +96,7 @@ class _$ModelPageStateCWProxyImpl implements _$ModelPageStateCWProxy {
     Object? controllerMap = const $CopyWithPlaceholder(),
     Object? idWasChanged = const $CopyWithPlaceholder(),
     Object? isSaving = const $CopyWithPlaceholder(),
+    Object? isDeleting = const $CopyWithPlaceholder(),
   }) {
     return ModelPageState(
       editableModel:
@@ -110,6 +123,11 @@ class _$ModelPageStateCWProxyImpl implements _$ModelPageStateCWProxy {
           ? _value.isSaving
           // ignore: cast_nullable_to_non_nullable
           : isSaving as bool,
+      isDeleting:
+          isDeleting == const $CopyWithPlaceholder() || isDeleting == null
+              ? _value.isDeleting
+              // ignore: cast_nullable_to_non_nullable
+              : isDeleting as bool,
     );
   }
 }

@@ -240,4 +240,7 @@ ${deleteOldFieldCommands.join(',\n')}
       );
     }
   }
+
+  @override
+  Future<void> deleteModel(Model model) async {}
 }

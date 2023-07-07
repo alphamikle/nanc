@@ -57,13 +57,13 @@ class ModelProvider {
   Future<Model> saveModel({
     required Model oldModel,
     required Model newModel,
+    bool needToDeleteOldModel = false,
   }) async {
-    final String modelId = oldModel.id;
+    if (needToDeleteOldModel) {
+      await deleteModel(oldModel);
+    }
     final Json modelJson = newModel.toJson();
-
-    /// ? We will not allow to change an id of the existed model
-    modelJson[newModel.idField.id] = modelId;
-    final String generatedModelId = generateModelId(oldModel.id);
+    final String generatedModelId = generateModelId(newModel.id);
     final String secretModelId = await encrypt(generatedModelId);
     final Json result = await pageProvider.saveEditedPage(
       entity: modelModel,
@@ -81,5 +81,15 @@ class ModelProvider {
     return Model.fromJson(decryptedModelJson);
   }
 
+  Future<void> deleteModel(Model model) async {
+    final String secretModelId = await _generateSecretModelId(model.id);
+    await modelApi.deleteModel(model);
+    await pageProvider.deletePage(model: modelModel, pageId: secretModelId);
+  }
+
   Future<Model> createModel(Model newModel) async => saveModel(oldModel: newModel, newModel: newModel);
+
+  Future<String> _generateSecretModelId(ModelId modelId) async {
+    return encrypt(generateModelId(modelId));
+  }
 }

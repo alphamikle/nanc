@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:fields/fields.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -11,6 +11,16 @@ import '../../../../general/logic/bloc/side_menu/menu_bloc.dart';
 import '../../provider/model_provider.dart';
 import '../model_list_bloc/model_list_bloc.dart';
 import 'model_page_state.dart';
+
+enum DifferentIdsDecision {
+  deleteOld,
+  leaveOld,
+  cancel;
+
+  bool get needToDelete => this == DifferentIdsDecision.deleteOld;
+  bool get needToLeave => this == DifferentIdsDecision.leaveOld;
+  bool get needToCancel => this == DifferentIdsDecision.cancel;
+}
 
 class ModelPageBloc extends Cubit<ModelPageState> {
   ModelPageBloc({
@@ -56,7 +66,7 @@ class ModelPageBloc extends Cubit<ModelPageState> {
           context: rootKey.currentContext!,
           title: 'Potentially dangerous action',
           subtitle:
-              'You are trying to change a pre-loaded model model. After this change the management of the model model will be done through the backend. Are you sure you want to continue?',
+              'You are trying to change a pre-loaded Model. After this change the management of the Model will possible only through Nanc UI. Are you sure you want to continue?',
         );
       } else {
         confirmed = true;
@@ -64,12 +74,36 @@ class ModelPageBloc extends Cubit<ModelPageState> {
       if (confirmed) {
         confirmed = await confirmAction(
           context: rootKey.currentContext!,
-          title: 'Dangerous action!',
-          subtitle: 'You are trying to change the structure of the model model. This can have negative consequences. Are you sure you want to continue?',
+          title: 'Dangerous action',
+          subtitle: 'You are trying to change the structure of the Model. This can have negative consequences. Are you sure you want to continue?',
         );
       }
+      bool needToDeleteOldModel = false;
+      if (confirmed && state.initialModel.id != state.editableModel.id) {
+        final DifferentIdsDecision decision = await selectAction(
+          context: rootKey.currentContext!,
+          title: 'Need action',
+          subtitle: 'You changed the Model ID. This will create a new Model, with all the additional changes you made to the old Model. What you want to do?',
+          values: [
+            SelectValue(value: DifferentIdsDecision.cancel, title: 'Cancel', color: rootKey.currentContext!.theme.colorScheme.primary),
+            SelectValue(value: DifferentIdsDecision.leaveOld, title: 'Leave old model', color: rootKey.currentContext!.theme.colorScheme.secondary),
+            if (state.initialModel.codeFirstEntity == false && state.initialModel.isHybrid == false)
+              SelectValue(value: DifferentIdsDecision.deleteOld, title: 'Delete old model', color: rootKey.currentContext!.theme.colorScheme.tertiary),
+          ],
+        );
+        if (decision.needToCancel) {
+          emit(state.copyWith(isSaving: false));
+          return;
+        }
+        if (decision.needToDelete) {
+          needToDeleteOldModel = true;
+        }
+      }
       if (confirmed) {
-        final Model newModel = await modelProvider.saveModel(oldModel: state.initialModel, newModel: state.editableModel);
+        Model newModel = await modelProvider.saveModel(oldModel: state.initialModel, newModel: state.editableModel, needToDeleteOldModel: needToDeleteOldModel);
+        if (state.initialModel.codeFirstEntity) {
+          newModel = newModel.copyWith(isHybrid: true);
+        }
         await modelCollectionBloc.reloadDynamicModels();
         await menuBloc.reInitItems();
         emit(state.copyWith(
@@ -103,6 +137,49 @@ class ModelPageBloc extends Cubit<ModelPageState> {
       emit(state.copyWith(isSaving: false));
       throw [error, stackTrace].toHumanException('Model creation failed!');
     }
+  }
+
+  Future<bool> delete() async {
+    final bool isHybridModel = state.initialModel.isHybrid;
+    bool confirmed = await confirmAction(
+      context: rootKey.currentContext!,
+      title: 'Very dangerous action',
+      subtitle:
+          'You are about to ${isHybridModel ? 'reset' : 'delete'} a model. This is a very dangerous action that can lead to data corruption as well as other irreversible consequences. Are you sure you want to do this?',
+    );
+    if (confirmed) {
+      confirmed = await confirmAction(
+        context: rootKey.currentContext!,
+        title: 'It is really very dangerous action',
+        subtitle: 'Is that really what you want?',
+      );
+    }
+    if (confirmed) {
+      emit(state.copyWith(isDeleting: true));
+      try {
+        await modelProvider.deleteModel(state.initialModel);
+        await modelCollectionBloc.reloadDynamicModels();
+        await menuBloc.reInitItems();
+        emit(state.copyWith(
+          editableModel: Model.empty(),
+          idWasChanged: false,
+          isSaving: false,
+          initialModel: Model.empty(),
+          isDeleting: false,
+        ));
+      } catch (error, stackTrace) {
+        emit(state.copyWith(
+          editableModel: Model.empty(),
+          idWasChanged: false,
+          isSaving: false,
+          initialModel: Model.empty(),
+          isDeleting: false,
+        ));
+        throw [error, stackTrace].toHumanException('Error on deleting model ${state.initialModel.name}');
+      }
+      return true;
+    }
+    return false;
   }
 
   void moveField({
@@ -169,6 +246,7 @@ class ModelPageBloc extends Cubit<ModelPageState> {
   }
 
   void updateModelProperty(String name, dynamic value) {
+    logg.rows('Update model property', name, value);
     final Model model = state.editableModel;
 
     if (name == Model.idPropertyName) {

@@ -27,7 +27,7 @@ class PagePreview extends StatelessWidget {
               if (isScrollable) {
                 return XmlWidgetsSliverList(
                   scrollController: context.read<PreviewBloc>().scrollController,
-                  markdownContent: previewState.markdownContent,
+                  xmlContent: previewState.markdownContent,
                   pageData: pageState.data,
                   renderers: dataRepository.renderers,
                   imageLoadingBuilder: dataRepository.imageLoadingBuilder,
@@ -36,8 +36,7 @@ class PagePreview extends StatelessWidget {
                 );
               }
               return XmlWidgetsStack(
-                scrollController: context.read<PreviewBloc>().scrollController,
-                markdownContent: previewState.markdownContent,
+                xmlContent: previewState.markdownContent,
                 pageData: pageState.data,
                 renderers: dataRepository.renderers,
                 imageLoadingBuilder: dataRepository.imageLoadingBuilder,

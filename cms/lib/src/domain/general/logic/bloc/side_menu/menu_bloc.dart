@@ -84,11 +84,7 @@ class MenuBloc extends Cubit<MenuState> {
 
   void selectItem(String selectedItemUrl) {
     final Endpoint? endpoint = Endpoint.tryFromPath(selectedItemUrl);
-    final MenuElement? menuElement = endpoint == null
-        ? null
-        : state.elements.firstWhereOrNull(
-            (MenuElement item) => item.url == selectedItemUrl || selectedItemUrl.contains(item.url),
-          );
+    final MenuElement? menuElement = endpoint == null ? null : state.elements.firstWhereOrNull((MenuElement item) => item.url == selectedItemUrl);
 
     emit(state.copyWith(
       activeElement: menuElement ?? MenuElement.empty(),
@@ -108,4 +104,13 @@ class MenuBloc extends Cubit<MenuState> {
   }
 }
 
-int _entitySortingPredicate(Model first, Model second) => first.sort.compareTo(second.sort);
+int _entitySortingPredicate(Model first, Model second) {
+  int equality = first.sort.compareTo(second.sort);
+  if (equality == 0) {
+    equality = first.name.compareTo(second.name);
+  }
+  if (equality == 0) {
+    equality = first.id.compareTo(second.id);
+  }
+  return equality;
+}

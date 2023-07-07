@@ -25,6 +25,7 @@ class Model extends Equatable {
     this.showInMenu = true,
     String? id,
     this.codeFirstEntity = true,
+    this.isHybrid = false,
   }) : id = id ?? toSnakeCase(name) {
     /// ? FLATTEN FIELDS
     flattenFields = fields.fold(<Field>[], (List<Field> previousValue, List<Field> element) => previousValue..addAll(element));
@@ -105,16 +106,19 @@ class Model extends Equatable {
   @JsonKey(fromJson: _codeFirstFlagFromJson, toJson: _codeFirstFlagToJson, defaultValue: false)
   final bool codeFirstEntity;
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  final bool isHybrid;
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
   late final List<Field> flattenFields;
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   late final List<Field> listFields;
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   late final IdField idField;
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   late final List<String> dynamicFields;
 
   Field? fieldById(String fieldId) {

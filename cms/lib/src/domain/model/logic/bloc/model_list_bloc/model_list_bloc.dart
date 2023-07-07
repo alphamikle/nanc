@@ -35,13 +35,15 @@ class ModelListBloc extends Cubit<ModelListState> {
 
   Future<void> _sortAndSplitModels({required List<Model> modelsFromCode, required List<Model> dynamicModels}) async {
     final Set<String> dynamicModelsIds = {};
-    for (final Model entity in dynamicModels) {
-      dynamicModelsIds.add(entity.id);
-    }
+    final Set<String> codeFirstModelsIds = modelsFromCode.map((Model model) => model.id).toSet();
+    final List<Model> dynamicOrHybridModels = dynamicModels.map((Model model) {
+      dynamicModelsIds.add(model.id);
+      return codeFirstModelsIds.contains(model.id) ? model.copyWith(isHybrid: true) : model;
+    }).toList();
 
     final List<Model> filteredPreloadedModels = modelsFromCode.where((Model entity) => dynamicModelsIds.contains(entity.id) == false).toList();
     await wait();
-    final List<Model> allModels = [...filteredPreloadedModels, ...dynamicModels];
+    final List<Model> allModels = [...filteredPreloadedModels, ...dynamicOrHybridModels];
     await wait();
     final List<Model> hiddenModels = allModels.where((Model entity) => entity.showInMenu == false).toList();
     await wait();
@@ -58,7 +60,7 @@ class ModelListBloc extends Cubit<ModelListState> {
     await wait();
 
     emit(state.copyWith(
-      preloadedModels: filteredPreloadedModels,
+      preloadedModels: modelsFromCode,
       collectionModels: collectionModels,
       soloModels: soloModels,
       hiddenModels: hiddenModels,

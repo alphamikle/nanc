@@ -11,11 +11,9 @@ import '../../logic/widget_generator/xml_widget_generator.dart';
 
 class XmlWidgetsStack extends StatelessWidget {
   const XmlWidgetsStack({
-    required this.markdownContent,
+    required this.xmlContent,
     required this.renderers,
     required this.pageData,
-    this.preloader,
-    this.scrollController,
     this.widgetsFilter,
     this.imageLoadingBuilder,
     this.imageErrorBuilder,
@@ -23,10 +21,8 @@ class XmlWidgetsStack extends StatelessWidget {
     super.key,
   });
 
-  final String markdownContent;
+  final String xmlContent;
   final List<TagRenderer> renderers;
-  final ScrollController? scrollController;
-  final Widget? preloader;
   final Map<String, dynamic> pageData;
   final WidgetsFilter? widgetsFilter;
   final ImageLoadingBuilder? imageLoadingBuilder;
@@ -38,7 +34,7 @@ class XmlWidgetsStack extends StatelessWidget {
   XmlWidgetGenerator createGenerator(BuildContext context) {
     return XmlWidgetGenerator(
       context: context,
-      data: markdownContent,
+      data: xmlContent,
       richRenderer: richRenderer,
       widgetsFilter: widgetsFilter,
     );

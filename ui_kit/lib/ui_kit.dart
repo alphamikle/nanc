@@ -52,6 +52,7 @@ export 'src/components/kit_modal/confirm_modal.dart';
 export 'src/components/kit_modal/kit_base_modal.dart';
 export 'src/components/kit_modal/kit_base_modal_bottom.dart';
 export 'src/components/kit_modal/kit_modal.dart';
+export 'src/components/kit_modal/select_modal.dart';
 export 'src/components/kit_preloader.dart';
 export 'src/components/kit_preloader_v2.dart';
 export 'src/components/kit_preloader_v3.dart';

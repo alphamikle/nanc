@@ -28,14 +28,14 @@ class KitButton extends StatelessWidget {
       duration: const Duration(milliseconds: 250),
       opacity: color == null || isEnabled ? 1 : 0.3,
       child: OutlinedButton(
-        onPressed: onPressed,
+        onPressed: isLoading ? null : onPressed,
         style: color == null
             ? null
             : ButtonStyle(
-                overlayColor: MaterialStatePropertyAll(color!.withOpacity(0.05)),
+                overlayColor: MaterialStatePropertyAll(color!.withOpacity(0.1)),
                 foregroundColor: MaterialStatePropertyAll(color!),
-                side: MaterialStatePropertyAll(BorderSide(color: color!.withOpacity(0.75))),
-                backgroundColor: MaterialStatePropertyAll(color!.withOpacity(0.05)),
+                side: MaterialStatePropertyAll(BorderSide(color: color!.withOpacity(0.8))),
+                backgroundColor: MaterialStatePropertyAll(color!.withOpacity(0.075)),
               ),
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 250),

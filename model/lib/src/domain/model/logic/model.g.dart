@@ -18,6 +18,7 @@ extension _$ModelAutoequal on Model {
         showInMenu,
         fields,
         codeFirstEntity,
+        isHybrid,
         flattenFields,
         listFields,
         idField,
@@ -46,6 +47,8 @@ abstract class _$ModelCWProxy {
 
   Model codeFirstEntity(bool codeFirstEntity);
 
+  Model isHybrid(bool isHybrid);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Model(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -61,6 +64,7 @@ abstract class _$ModelCWProxy {
     bool? showInMenu,
     String? id,
     bool? codeFirstEntity,
+    bool? isHybrid,
   });
 }
 
@@ -96,6 +100,9 @@ class _$ModelCWProxyImpl implements _$ModelCWProxy {
       this(codeFirstEntity: codeFirstEntity);
 
   @override
+  Model isHybrid(bool isHybrid) => this(isHybrid: isHybrid);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Model(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -112,6 +119,7 @@ class _$ModelCWProxyImpl implements _$ModelCWProxy {
     Object? showInMenu = const $CopyWithPlaceholder(),
     Object? id = const $CopyWithPlaceholder(),
     Object? codeFirstEntity = const $CopyWithPlaceholder(),
+    Object? isHybrid = const $CopyWithPlaceholder(),
   }) {
     return Model(
       name: name == const $CopyWithPlaceholder() || name == null
@@ -149,6 +157,10 @@ class _$ModelCWProxyImpl implements _$ModelCWProxy {
           ? _value.codeFirstEntity
           // ignore: cast_nullable_to_non_nullable
           : codeFirstEntity as bool,
+      isHybrid: isHybrid == const $CopyWithPlaceholder() || isHybrid == null
+          ? _value.isHybrid
+          // ignore: cast_nullable_to_non_nullable
+          : isHybrid as bool,
     );
   }
 }

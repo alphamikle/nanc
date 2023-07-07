@@ -1,10 +1,14 @@
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/src/router.dart';
+import 'package:icons/icons.dart';
 import 'package:model/model.dart';
+import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
+import '../../../../service/routing/endpoints.dart';
 import '../../logic/bloc/model_page_bloc/model_page_bloc.dart';
 import '../../logic/bloc/model_page_bloc/model_page_state.dart';
 import '../component/add_field_button.dart';
@@ -150,6 +154,15 @@ class _ModelPageViewState extends State<ModelPageView> {
     }
   }
 
+  Future<void> delete() async {
+    final GoRouter router = context.router;
+    final ModelPageBloc bloc = context.read();
+    final bool wasDeleted = await bloc.delete();
+    if (wasDeleted) {
+      router.goNamed(Endpoints.editor.name);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final ModelPageBloc bloc = context.read();
@@ -171,10 +184,44 @@ class _ModelPageViewState extends State<ModelPageView> {
                                 text: state.hasAnyChanges ? 'Model was changed...' : 'Model was not changed...',
                               ),
                               const Spacer(),
+                              if (state.initialModel.codeFirstEntity == false)
+                                Padding(
+                                  padding: const EdgeInsets.only(right: Gap.regular),
+                                  child: KitButton(
+                                    onPressed: delete,
+                                    color: context.theme.colorScheme.error,
+                                    child: AnimatedSwitcher(
+                                      duration: const Duration(milliseconds: 250),
+                                      child: state.isDeleting
+                                          ? SizedBox(width: 35, child: KitPreloader(color: context.theme.colorScheme.error))
+                                          : Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Icon(state.initialModel.isHybrid ? IconPack.mdi_restore : IconPack.mdi_delete_empty),
+                                                const KitDivider(width: Gap.regular),
+                                                KitText(text: state.initialModel.isHybrid ? 'Reset' : 'Delete'),
+                                              ],
+                                            ),
+                                    ),
+                                  ),
+                                ),
                               KitButton(
-                                isLoading: state.isSaving,
+                                isLoading: state.isSaving || state.isDeleting,
                                 text: 'Save',
                                 onPressed: state.hasAnyChanges ? upsert : null,
+                                child: AnimatedSwitcher(
+                                  duration: const Duration(milliseconds: 250),
+                                  child: state.isSaving
+                                      ? const SizedBox(width: 35, child: KitPreloader())
+                                      : const Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Icon(IconPack.flu_save_filled),
+                                            KitDivider(width: Gap.regular),
+                                            KitText(text: 'Save'),
+                                          ],
+                                        ),
+                                ),
                               ),
                             ],
                           );

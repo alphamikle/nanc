@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../logic/tags/logic/for_storage.dart';
 import '../../logic/tags/logic/image_builder_delegate.dart';
 import '../../logic/tags/logic/local_data.dart';
@@ -12,10 +13,9 @@ typedef WidgetsFilter = void Function(Widget widget, List<Widget> output);
 
 class XmlWidgetsSliverList extends StatelessWidget {
   const XmlWidgetsSliverList({
-    required this.markdownContent,
+    required this.xmlContent,
     required this.renderers,
     required this.pageData,
-    this.preloader,
     this.scrollController,
     this.widgetsFilter,
     this.imageLoadingBuilder,
@@ -24,10 +24,9 @@ class XmlWidgetsSliverList extends StatelessWidget {
     super.key,
   });
 
-  final String markdownContent;
+  final String xmlContent;
   final List<TagRenderer> renderers;
   final ScrollController? scrollController;
-  final Widget? preloader;
   final Map<String, dynamic> pageData;
   final WidgetsFilter? widgetsFilter;
   final ImageLoadingBuilder? imageLoadingBuilder;
@@ -39,7 +38,7 @@ class XmlWidgetsSliverList extends StatelessWidget {
   XmlWidgetGenerator createGenerator(BuildContext context) {
     return XmlWidgetGenerator(
       context: context,
-      data: markdownContent,
+      data: xmlContent,
       richRenderer: richRenderer,
       widgetsFilter: widgetsFilter,
     );
