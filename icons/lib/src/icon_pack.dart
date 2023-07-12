@@ -4,6 +4,9 @@
 import 'package:flutter/material.dart';
 
 abstract class IconPack {
+
+  static IconData fromName(String name) => iconPackMap[name]!;
+  static IconData? fromNameOrNull(String name) => iconPackMap[name];
   static const flu_access_time_filled = IconData(61697, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_access_time_regular = IconData(61697, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_accessibility_checkmark_filled = IconData(57348, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -19,6 +22,8 @@ abstract class IconPack {
   static const flu_add_subtract_circle_filled = IconData(57356, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_add_subtract_circle_regular = IconData(57356, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_airplane_filled = IconData(61712, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_airplane_landing_filled = IconData(57583, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_airplane_landing_regular = IconData(57583, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_airplane_regular = IconData(61712, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_airplane_take_off_filled = IconData(61715, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_airplane_take_off_regular = IconData(61715, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -48,6 +53,12 @@ abstract class IconPack {
   static const flu_align_left_regular = IconData(57396, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_align_right_filled = IconData(57402, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_align_right_regular = IconData(57402, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_align_space_evenly_horizontal_filled = IconData(57584, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_align_space_evenly_horizontal_regular = IconData(57584, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_align_space_evenly_vertical_filled = IconData(983477, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_align_space_evenly_vertical_regular = IconData(983477, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_align_straighten_filled = IconData(983479, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_align_straighten_regular = IconData(983479, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_align_top_filled = IconData(57419, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_align_top_regular = IconData(57419, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_animal_cat_filled = IconData(61735, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -93,6 +104,8 @@ abstract class IconPack {
   static const flu_arrow_autofit_height_dotted_filled = IconData(57465, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_autofit_height_dotted_regular = IconData(57465, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_autofit_height_filled = IconData(63717, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_autofit_height_in_filled = IconData(983310, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_autofit_height_in_regular = IconData(983311, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_autofit_height_regular = IconData(63693, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_autofit_up_filled = IconData(57467, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_autofit_up_regular = IconData(57467, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -122,6 +135,8 @@ abstract class IconPack {
   static const flu_arrow_circle_up_left_filled = IconData(57512, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_circle_up_left_regular = IconData(57512, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_circle_up_regular = IconData(57507, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_circle_up_right_filled = IconData(983246, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_circle_up_right_regular = IconData(983247, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_clockwise_dashes_filled = IconData(57519, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_clockwise_dashes_regular = IconData(57519, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_clockwise_filled = IconData(61758, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -152,6 +167,12 @@ abstract class IconPack {
   static const flu_arrow_export_rtl_regular = IconData(57546, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_export_up_filled = IconData(57548, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_export_up_regular = IconData(57548, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_flow_diagonal_up_right_filled = IconData(983482, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_flow_diagonal_up_right_regular = IconData(983482, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_flow_up_right_filled = IconData(983486, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_flow_up_right_rectangle_multiple_filled = IconData(983489, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_flow_up_right_rectangle_multiple_regular = IconData(983489, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_flow_up_right_regular = IconData(983486, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_forward_down_lightning_filled = IconData(57555, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_forward_down_lightning_regular = IconData(57555, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_forward_down_person_filled = IconData(57557, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -182,6 +203,8 @@ abstract class IconPack {
   static const flu_arrow_move_regular = IconData(61801, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_next_filled = IconData(61803, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_next_regular = IconData(61803, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_outline_down_left_filled = IconData(983551, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_outline_down_left_regular = IconData(983551, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_outline_up_right_filled = IconData(57567, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_outline_up_right_regular = IconData(57567, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_paragraph_filled = IconData(61119, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -210,10 +233,10 @@ abstract class IconPack {
   static const flu_arrow_rotate_clockwise_regular = IconData(61830, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_rotate_counterclockwise_filled = IconData(61832, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_rotate_counterclockwise_regular = IconData(61832, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
-  static const flu_arrow_routing_filled = IconData(57582, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
-  static const flu_arrow_routing_rectangle_multiple_filled = IconData(57584, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
-  static const flu_arrow_routing_rectangle_multiple_regular = IconData(57584, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
-  static const flu_arrow_routing_regular = IconData(57582, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_routing_filled = IconData(983527, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_routing_rectangle_multiple_filled = IconData(983529, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_routing_rectangle_multiple_regular = IconData(983529, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_routing_regular = IconData(983527, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_shuffle_filled = IconData(61239, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_shuffle_off_filled = IconData(61245, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_shuffle_off_regular = IconData(61245, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -230,6 +253,10 @@ abstract class IconPack {
   static const flu_arrow_split_regular = IconData(57589, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_square_down_filled = IconData(57591, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_square_down_regular = IconData(57591, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_square_up_right_filled = IconData(983491, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_square_up_right_regular = IconData(983491, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_step_in_diagonal_down_left_filled = IconData(983557, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_step_in_diagonal_down_left_regular = IconData(983557, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_step_in_filled = IconData(57597, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_step_in_left_filled = IconData(57602, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_step_in_left_regular = IconData(57602, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -258,6 +285,8 @@ abstract class IconPack {
   static const flu_arrow_trending_regular = IconData(61848, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_trending_settings_filled = IconData(57631, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_trending_settings_regular = IconData(57631, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_trending_sparkle_filled = IconData(62886, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_trending_sparkle_regular = IconData(62875, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_trending_text_filled = IconData(57633, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_trending_text_regular = IconData(57633, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_trending_wrench_filled = IconData(57635, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -274,6 +303,8 @@ abstract class IconPack {
   static const flu_arrow_up_regular = IconData(61852, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_up_right_filled = IconData(61859, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_up_right_regular = IconData(61859, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_up_square_settings_filled = IconData(983559, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_arrow_up_square_settings_regular = IconData(983559, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_upload_filled = IconData(61861, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_arrow_upload_regular = IconData(61861, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_arrows_bidirectional_filled = IconData(61862, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -344,6 +375,12 @@ abstract class IconPack {
   static const flu_bed_regular = IconData(61914, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_bin_full_filled = IconData(57693, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_bin_full_regular = IconData(57681, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_bin_recycle_filled = IconData(983493, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_bin_recycle_full_filled = IconData(983495, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_bin_recycle_full_regular = IconData(983495, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_bin_recycle_regular = IconData(983493, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_binder_triangle_filled = IconData(983249, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_binder_triangle_regular = IconData(983250, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_bluetooth_connected_filled = IconData(61920, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_bluetooth_connected_regular = IconData(61920, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_bluetooth_disabled_filled = IconData(61921, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -448,6 +485,10 @@ abstract class IconPack {
   static const flu_bot_add_regular = IconData(61946, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_bot_filled = IconData(61945, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_bot_regular = IconData(61945, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_bot_sparkle_filled = IconData(63152, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_bot_sparkle_regular = IconData(63142, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_bow_tie_filled = IconData(983252, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_bow_tie_regular = IconData(983253, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_bowl_chopsticks_filled = IconData(61932, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_bowl_chopsticks_regular = IconData(61932, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_bowl_salad_filled = IconData(61161, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -501,7 +542,11 @@ abstract class IconPack {
   static const flu_briefcase_medical_regular = IconData(57838, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_briefcase_off_filled = IconData(57862, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_briefcase_off_regular = IconData(57842, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_briefcase_person_filled = IconData(983560, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_briefcase_person_regular = IconData(983560, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_briefcase_regular = IconData(61949, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_briefcase_search_filled = IconData(983497, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_briefcase_search_regular = IconData(983497, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_brightness_high_filled = IconData(57868, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_brightness_high_regular = IconData(57848, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_brightness_low_filled = IconData(57874, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -518,6 +563,8 @@ abstract class IconPack {
   static const flu_building_bank_regular = IconData(57870, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_building_bank_toolbox_filled = IconData(63572, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_building_bank_toolbox_regular = IconData(63548, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_building_cloud_filled = IconData(983561, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_building_cloud_regular = IconData(983561, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_building_desktop_filled = IconData(61251, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_building_desktop_regular = IconData(61251, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_building_factory_filled = IconData(57900, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -662,6 +709,8 @@ abstract class IconPack {
   static const flu_camera_sparkles_regular = IconData(61479, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_camera_switch_filled = IconData(62042, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_camera_switch_regular = IconData(62042, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_card_ui_filled = IconData(983402, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_card_ui_regular = IconData(983402, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_caret_down_filled = IconData(62050, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_caret_down_regular = IconData(62050, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_caret_down_right_filled = IconData(58042, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -736,12 +785,16 @@ abstract class IconPack {
   static const flu_chat_help_filled = IconData(62090, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_chat_help_regular = IconData(62090, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_chat_multiple_filled = IconData(63723, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_chat_multiple_heart_filled = IconData(63464, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_chat_multiple_heart_regular = IconData(63439, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_chat_multiple_regular = IconData(63699, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_chat_off_filled = IconData(62091, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_chat_off_regular = IconData(62091, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_chat_regular = IconData(62087, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_chat_settings_filled = IconData(61993, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_chat_settings_regular = IconData(61993, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_chat_sparkle_filled = IconData(63469, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_chat_sparkle_regular = IconData(63444, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_chat_video_filled = IconData(58118, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_chat_video_regular = IconData(58098, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_chat_warning_filled = IconData(62092, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -784,6 +837,8 @@ abstract class IconPack {
   static const flu_chevron_circle_up_regular = IconData(58149, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_chevron_down_filled = IconData(62116, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_chevron_down_regular = IconData(62116, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_chevron_down_up_filled = IconData(983405, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_chevron_down_up_regular = IconData(983405, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_chevron_left_filled = IconData(62123, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_chevron_left_regular = IconData(62123, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_chevron_right_filled = IconData(62129, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -871,6 +926,8 @@ abstract class IconPack {
   static const flu_clock_dismiss_filled = IconData(58248, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_clock_dismiss_regular = IconData(58227, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_clock_filled = IconData(62174, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_clock_lock_filled = IconData(63574, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_clock_lock_regular = IconData(63549, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_clock_pause_filled = IconData(58250, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_clock_pause_regular = IconData(58229, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_clock_regular = IconData(62174, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -888,6 +945,8 @@ abstract class IconPack {
   static const flu_cloud_arrow_down_regular = IconData(58254, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_cloud_arrow_up_filled = IconData(58281, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_cloud_arrow_up_regular = IconData(58260, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_cloud_bidirectional_filled = IconData(983565, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_cloud_bidirectional_regular = IconData(983565, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_cloud_checkmark_filled = IconData(58287, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_cloud_checkmark_regular = IconData(58266, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_cloud_dismiss_filled = IconData(58293, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -910,8 +969,12 @@ abstract class IconPack {
   static const flu_cloud_sync_regular = IconData(58287, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_cloud_words_filled = IconData(58314, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_cloud_words_regular = IconData(58293, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_clover_filled = IconData(983041, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_clover_regular = IconData(63721, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_code_block_filled = IconData(61372, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_code_block_regular = IconData(61372, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_code_circle_filled = IconData(983315, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_code_circle_regular = IconData(983316, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_code_filled = IconData(62192, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_code_regular = IconData(62192, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_collections_add_filled = IconData(62196, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -954,6 +1017,8 @@ abstract class IconPack {
   static const flu_comment_filled = IconData(62208, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_comment_lightning_filled = IconData(62305, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_comment_lightning_regular = IconData(62305, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_comment_link_filled = IconData(983047, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_comment_link_regular = IconData(983043, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_comment_mention_filled = IconData(62213, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_comment_mention_regular = IconData(62213, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_comment_multiple_checkmark_filled = IconData(58371, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1009,6 +1074,8 @@ abstract class IconPack {
   static const flu_copy_arrow_right_regular = IconData(58403, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_copy_filled = IconData(62252, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_copy_regular = IconData(62252, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_copy_select_filled = IconData(983051, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_copy_select_regular = IconData(983047, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_couch_filled = IconData(58419, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_couch_regular = IconData(58407, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_credit_card_clock_filled = IconData(61127, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1023,6 +1090,12 @@ abstract class IconPack {
   static const flu_crop_interim_off_regular = IconData(62259, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_crop_interim_regular = IconData(62258, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_crop_regular = IconData(62257, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_crop_sparkle_filled = IconData(983408, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_crop_sparkle_regular = IconData(983408, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_crown_filled = IconData(983567, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_crown_regular = IconData(983567, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_crown_subtract_filled = IconData(983568, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_crown_subtract_regular = IconData(983568, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_cube_filled = IconData(62262, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_cube_multiple_filled = IconData(58431, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_cube_multiple_regular = IconData(58419, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -1109,6 +1182,10 @@ abstract class IconPack {
   static const flu_dentist_regular = IconData(62292, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_design_ideas_filled = IconData(62295, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_design_ideas_regular = IconData(62295, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_desk_filled = IconData(983500, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_desk_regular = IconData(983500, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_desktop_arrow_down_filled = IconData(983320, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_desktop_arrow_down_regular = IconData(983321, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_desktop_arrow_right_filled = IconData(58518, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_desktop_arrow_right_regular = IconData(58506, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_desktop_checkmark_filled = IconData(61287, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1137,6 +1214,8 @@ abstract class IconPack {
   static const flu_desktop_sync_regular = IconData(58537, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_desktop_toolbox_filled = IconData(58551, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_desktop_toolbox_regular = IconData(58539, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_desktop_tower_filled = IconData(983322, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_desktop_tower_regular = IconData(983323, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_developer_board_filled = IconData(62300, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_developer_board_regular = IconData(62300, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_developer_board_search_filled = IconData(58556, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1177,16 +1256,26 @@ abstract class IconPack {
   static const flu_dock_row_regular = IconData(62326, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_doctor_filled = IconData(62327, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_doctor_regular = IconData(62327, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_document_100_filled = IconData(983057, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_100_regular = IconData(983053, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_add_filled = IconData(58600, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_add_regular = IconData(58588, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_arrow_left_filled = IconData(58607, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_arrow_left_regular = IconData(58595, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_arrow_right_filled = IconData(58611, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_arrow_right_regular = IconData(58599, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_document_border_filled = IconData(983059, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_border_print_filled = IconData(983062, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_border_print_regular = IconData(983058, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_document_border_regular = IconData(983055, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_briefcase_filled = IconData(62333, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_briefcase_regular = IconData(62333, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_document_bullet_list_arrow_left_filled = IconData(983067, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_bullet_list_arrow_left_regular = IconData(983063, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_bullet_list_clock_filled = IconData(58614, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_bullet_list_clock_regular = IconData(58602, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_document_bullet_list_cube_filled = IconData(983070, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_bullet_list_cube_regular = IconData(983066, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_bullet_list_filled = IconData(62466, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_bullet_list_multiple_filled = IconData(58616, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_bullet_list_multiple_regular = IconData(58604, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -1204,6 +1293,8 @@ abstract class IconPack {
   static const flu_document_css_filled = IconData(58626, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_css_regular = IconData(58614, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_data_filled = IconData(58628, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_data_link_filled = IconData(983073, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_data_link_regular = IconData(983069, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_data_regular = IconData(58616, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_database_filled = IconData(61492, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_database_regular = IconData(61492, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -1216,8 +1307,12 @@ abstract class IconPack {
   static const flu_document_error_filled = IconData(62348, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_error_regular = IconData(62348, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_filled = IconData(62329, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_fit_filled = IconData(983077, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_fit_regular = IconData(983073, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_flowchart_filled = IconData(58631, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_flowchart_regular = IconData(58619, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_document_folder_filled = IconData(983080, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_folder_regular = IconData(983076, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_footer_dismiss_filled = IconData(58635, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_footer_dismiss_regular = IconData(58623, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_footer_filled = IconData(62349, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1241,6 +1336,8 @@ abstract class IconPack {
   static const flu_document_landscape_filled = IconData(62356, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_landscape_regular = IconData(62356, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_landscape_split_filled = IconData(58653, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_landscape_split_hint_filled = IconData(60635, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_landscape_split_hint_regular = IconData(60637, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_landscape_split_regular = IconData(58641, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_link_filled = IconData(62468, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_link_regular = IconData(62469, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -1256,8 +1353,18 @@ abstract class IconPack {
   static const flu_document_multiple_prohibited_filled = IconData(58673, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_multiple_prohibited_regular = IconData(58661, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_multiple_regular = IconData(58657, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_document_one_page_add_filled = IconData(983084, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_one_page_add_regular = IconData(983080, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_document_one_page_columns_filled = IconData(983086, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_one_page_columns_regular = IconData(983082, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_one_page_filled = IconData(62362, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_one_page_link_filled = IconData(983089, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_one_page_link_regular = IconData(983085, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_document_one_page_multiple_filled = IconData(983420, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_one_page_multiple_regular = IconData(983420, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_one_page_regular = IconData(62362, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_document_one_page_sparkle_filled = IconData(983256, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_one_page_sparkle_regular = IconData(983257, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_page_bottom_center_filled = IconData(62365, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_page_bottom_center_regular = IconData(62365, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_page_bottom_left_filled = IconData(62367, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1280,6 +1387,8 @@ abstract class IconPack {
   static const flu_document_percent_regular = IconData(58666, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_pill_filled = IconData(58681, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_pill_regular = IconData(58669, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_document_print_filled = IconData(983091, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_document_print_regular = IconData(983087, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_prohibited_filled = IconData(58683, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_document_prohibited_regular = IconData(58671, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_document_question_mark_filled = IconData(58686, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1419,10 +1528,14 @@ abstract class IconPack {
   static const flu_dual_screen_vibrate_regular = IconData(62424, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_dumbbell_filled = IconData(58813, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_dumbbell_regular = IconData(58800, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_dust_filled = IconData(983326, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_dust_regular = IconData(983327, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_earth_filled = IconData(62426, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_earth_leaf_filled = IconData(61173, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_earth_leaf_regular = IconData(61173, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_earth_regular = IconData(62427, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_edit_arrow_back_filled = IconData(983328, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_edit_arrow_back_regular = IconData(983329, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_edit_filled = IconData(62429, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_edit_off_filled = IconData(58821, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_edit_off_regular = IconData(58808, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -1442,6 +1555,8 @@ abstract class IconPack {
   static const flu_emoji_filled = IconData(62432, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_emoji_hand_filled = IconData(58844, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_emoji_hand_regular = IconData(58831, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_emoji_hint_filled = IconData(983331, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_emoji_hint_regular = IconData(983332, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_emoji_laugh_filled = IconData(62437, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_emoji_laugh_regular = IconData(62438, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_emoji_meh_filled = IconData(62439, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1506,7 +1621,11 @@ abstract class IconPack {
   static const flu_feed_filled = IconData(61177, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_feed_regular = IconData(61177, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_filmstrip_filled = IconData(61180, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_filmstrip_play_filled = IconData(983102, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_filmstrip_play_regular = IconData(983098, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_filmstrip_regular = IconData(61180, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_filmstrip_split_filled = IconData(983427, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_filmstrip_split_regular = IconData(983427, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_filter_dismiss_filled = IconData(58907, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_filter_dismiss_regular = IconData(58894, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_filter_filled = IconData(62470, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1521,10 +1640,15 @@ abstract class IconPack {
   static const flu_fireplace_regular = IconData(61421, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_fixed_width_filled = IconData(58913, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_fixed_width_regular = IconData(58900, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_flag_clock_filled = IconData(983107, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_flag_clock_regular = IconData(983103, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_flag_filled = IconData(62475, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_flag_off_filled = IconData(62478, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_flag_off_regular = IconData(62479, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_flag_pride_filled = IconData(62483, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_flag_pride_intersex_inclusive_progress_filled = IconData(983572, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_flag_pride_philadelphia_filled = IconData(983578, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_flag_pride_progress_filled = IconData(983584, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_flag_regular = IconData(62476, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_flash_auto_filled = IconData(62486, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_flash_auto_regular = IconData(62482, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -1546,6 +1670,8 @@ abstract class IconPack {
   static const flu_flip_horizontal_regular = IconData(58925, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_flip_vertical_filled = IconData(58944, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_flip_vertical_regular = IconData(58931, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_flow_filled = IconData(983504, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_flow_regular = IconData(983504, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_flowchart_circle_filled = IconData(58952, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_flowchart_circle_regular = IconData(58939, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_flowchart_filled = IconData(58950, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1563,6 +1689,8 @@ abstract class IconPack {
   static const flu_folder_arrow_up_filled = IconData(58975, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_folder_arrow_up_regular = IconData(58962, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_folder_filled = IconData(62493, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_folder_lightning_filled = IconData(983534, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_folder_lightning_regular = IconData(983534, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_folder_link_filled = IconData(62506, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_folder_link_regular = IconData(62502, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_folder_mail_filled = IconData(58981, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1626,6 +1754,8 @@ abstract class IconPack {
   static const flu_fps_60_regular = IconData(59007, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_fps_960_filled = IconData(62546, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_fps_960_regular = IconData(62542, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_frame_filled = IconData(983261, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_frame_regular = IconData(983262, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_full_screen_maximize_filled = IconData(59026, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_full_screen_maximize_regular = IconData(59013, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_full_screen_minimize_filled = IconData(59029, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1657,6 +1787,8 @@ abstract class IconPack {
   static const flu_gift_card_multiple_regular = IconData(59043, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_gift_card_regular = IconData(59036, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_gift_filled = IconData(62554, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_gift_open_filled = IconData(983434, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_gift_open_regular = IconData(983434, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_gift_regular = IconData(62550, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_glance_filled = IconData(62555, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_glance_horizontal_filled = IconData(59061, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1724,6 +1856,8 @@ abstract class IconPack {
   static const flu_handshake_regular = IconData(62576, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_hat_graduation_filled = IconData(59124, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_hat_graduation_regular = IconData(59111, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_hat_graduation_sparkle_filled = IconData(983596, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_hat_graduation_sparkle_regular = IconData(983577, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_hd_filled = IconData(59127, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_hd_regular = IconData(59114, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_hdr_filled = IconData(62581, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1764,6 +1898,8 @@ abstract class IconPack {
   static const flu_home_database_filled = IconData(61141, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_home_database_regular = IconData(61141, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_home_filled = IconData(62600, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_home_heart_filled = IconData(983511, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_home_heart_regular = IconData(983511, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_home_more_filled = IconData(61143, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_home_more_regular = IconData(61143, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_home_person_filled = IconData(59173, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1791,6 +1927,10 @@ abstract class IconPack {
   static const flu_image_arrow_counterclockwise_regular = IconData(59167, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_image_arrow_forward_filled = IconData(59182, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_image_arrow_forward_regular = IconData(59169, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_image_border_filled = IconData(983117, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_image_border_regular = IconData(983113, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_image_circle_filled = IconData(983123, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_image_circle_regular = IconData(983119, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_image_copy_filled = IconData(62615, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_image_copy_regular = IconData(62608, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_image_edit_filled = IconData(62619, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1811,6 +1951,10 @@ abstract class IconPack {
   static const flu_image_search_regular = IconData(62618, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_image_shadow_filled = IconData(59199, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_image_shadow_regular = IconData(59186, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_image_sparkle_filled = IconData(983538, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_image_sparkle_regular = IconData(983538, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_image_table_filled = IconData(983129, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_image_table_regular = IconData(983125, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_immersive_reader_filled = IconData(62627, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_immersive_reader_regular = IconData(62620, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_important_filled = IconData(62631, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1834,6 +1978,8 @@ abstract class IconPack {
   static const flu_ios_arrow_ltr_regular = IconData(59195, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_ios_arrow_rtl_filled = IconData(59210, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_ios_arrow_rtl_regular = IconData(59196, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_iot_alert_filled = IconData(983138, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_iot_alert_regular = IconData(983134, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_iot_filled = IconData(59212, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_iot_regular = IconData(59198, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_javascript_filled = IconData(62655, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1864,7 +2010,11 @@ abstract class IconPack {
   static const flu_keyboard_shift_uppercase_regular = IconData(62656, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_keyboard_tab_filled = IconData(62667, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_keyboard_tab_regular = IconData(62657, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_kiosk_filled = IconData(983598, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_kiosk_regular = IconData(983579, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_laptop_filled = IconData(62670, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_laptop_multiple_filled = IconData(983599, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_laptop_multiple_regular = IconData(983580, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_laptop_regular = IconData(62660, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_lasso_filled = IconData(62675, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_lasso_regular = IconData(62665, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -1898,12 +2048,18 @@ abstract class IconPack {
   static const flu_line_regular = IconData(59238, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_line_style_filled = IconData(59261, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_line_style_regular = IconData(59247, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_line_thickness_filled = IconData(983142, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_line_thickness_regular = IconData(983138, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_link_add_filled = IconData(983600, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_link_add_regular = IconData(983581, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_link_dismiss_filled = IconData(59266, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_link_dismiss_regular = IconData(59252, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_link_edit_filled = IconData(62708, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_link_edit_regular = IconData(62698, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_link_filled = IconData(62703, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_link_regular = IconData(62693, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_link_settings_filled = IconData(983601, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_link_settings_regular = IconData(983582, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_link_square_filled = IconData(62710, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_link_square_regular = IconData(62700, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_list_filled = IconData(62712, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1916,6 +2072,8 @@ abstract class IconPack {
   static const flu_local_language_regular = IconData(62708, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_location_add_filled = IconData(59277, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_location_add_regular = IconData(59263, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_location_arrow_filled = IconData(983146, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_location_arrow_regular = IconData(983142, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_location_dismiss_filled = IconData(59285, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_location_dismiss_regular = IconData(59271, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_location_filled = IconData(62723, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -1925,6 +2083,8 @@ abstract class IconPack {
   static const flu_location_off_regular = IconData(59274, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_location_regular = IconData(62713, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_lock_closed_filled = IconData(59294, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_lock_closed_key_filled = IconData(983264, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_lock_closed_key_regular = IconData(983265, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_lock_closed_regular = IconData(59280, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_lock_multiple_filled = IconData(59297, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_lock_multiple_regular = IconData(59283, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -1942,10 +2102,14 @@ abstract class IconPack {
   static const flu_mail_alert_regular = IconData(62763, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_mail_all_read_filled = IconData(59314, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_mail_all_read_regular = IconData(59300, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_mail_arrow_double_back_filled = IconData(983153, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_mail_arrow_double_back_regular = IconData(983149, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_mail_arrow_up_filled = IconData(62805, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_mail_arrow_up_regular = IconData(62795, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_mail_attach_filled = IconData(59324, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_mail_attach_regular = IconData(59310, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_mail_checkmark_filled = IconData(983154, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_mail_checkmark_regular = IconData(983150, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_mail_clock_filled = IconData(62812, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_mail_clock_regular = IconData(62802, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_mail_copy_filled = IconData(62748, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2044,6 +2208,8 @@ abstract class IconPack {
   static const flu_midi_regular = IconData(62794, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_mobile_optimized_filled = IconData(62807, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_mobile_optimized_regular = IconData(62797, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_mold_filled = IconData(983342, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_mold_regular = IconData(983343, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_molecule_filled = IconData(63076, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_molecule_regular = IconData(63066, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_money_calculator_filled = IconData(59431, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2056,12 +2222,20 @@ abstract class IconPack {
   static const flu_money_off_filled = IconData(59437, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_money_off_regular = IconData(59423, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_money_regular = IconData(62800, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_money_settings_filled = IconData(983518, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_money_settings_regular = IconData(983518, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_more_circle_filled = IconData(61682, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_more_circle_regular = IconData(61682, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_more_horizontal_filled = IconData(59443, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_more_horizontal_regular = IconData(59429, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_more_vertical_filled = IconData(62817, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_more_vertical_regular = IconData(62807, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_mountain_location_bottom_filled = IconData(983266, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_mountain_location_bottom_regular = IconData(983267, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_mountain_location_top_filled = IconData(983269, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_mountain_location_top_regular = IconData(983270, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_mountain_trail_filled = IconData(983272, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_mountain_trail_regular = IconData(983273, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_movies_and_tv_filled = IconData(62820, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_movies_and_tv_regular = IconData(62810, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_multiplier_1_2x_filled = IconData(59452, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2132,14 +2306,14 @@ abstract class IconPack {
   static const flu_notepad_regular = IconData(62839, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_number_circle_1_filled = IconData(59540, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_number_circle_1_regular = IconData(59526, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
-  static const flu_number_circle_2_filled = IconData(61307, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
-  static const flu_number_circle_2_regular = IconData(61307, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
-  static const flu_number_circle_3_filled = IconData(61313, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
-  static const flu_number_circle_3_regular = IconData(61313, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
-  static const flu_number_circle_4_filled = IconData(61319, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
-  static const flu_number_circle_4_regular = IconData(61319, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
-  static const flu_number_circle_5_filled = IconData(61325, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
-  static const flu_number_circle_5_regular = IconData(61325, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_number_circle_2_filled = IconData(983651, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_number_circle_2_regular = IconData(983632, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_number_circle_3_filled = IconData(983657, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_number_circle_3_regular = IconData(983638, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_number_circle_4_filled = IconData(983663, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_number_circle_4_regular = IconData(983644, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_number_circle_5_filled = IconData(983669, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_number_circle_5_regular = IconData(983650, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_number_row_filled = IconData(62853, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_number_row_regular = IconData(62843, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_number_symbol_dismiss_filled = IconData(59545, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2192,9 +2366,21 @@ abstract class IconPack {
   static const flu_panel_left_expand_regular = IconData(59578, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_panel_left_filled = IconData(59583, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_panel_left_focus_right_filled = IconData(59596, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_panel_left_header_add_filled = IconData(983167, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_panel_left_header_add_regular = IconData(983163, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_panel_left_header_filled = IconData(983161, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_panel_left_header_key_filled = IconData(983173, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_panel_left_header_key_regular = IconData(983169, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_panel_left_header_regular = IconData(983157, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_panel_left_key_filled = IconData(61439, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_panel_left_key_regular = IconData(61439, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_panel_left_regular = IconData(59569, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_panel_left_text_add_filled = IconData(983457, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_panel_left_text_add_regular = IconData(983457, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_panel_left_text_dismiss_filled = IconData(983463, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_panel_left_text_dismiss_regular = IconData(983463, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_panel_left_text_filled = IconData(983451, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_panel_left_text_regular = IconData(983451, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_panel_right_contract_filled = IconData(59605, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_panel_right_contract_regular = IconData(59587, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_panel_right_cursor_filled = IconData(61502, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2213,22 +2399,30 @@ abstract class IconPack {
   static const flu_pause_regular = IconData(62882, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_payment_filled = IconData(62895, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_payment_regular = IconData(62885, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_pen_dismiss_filled = IconData(983276, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_pen_dismiss_regular = IconData(983277, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_pen_filled = IconData(59626, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_pen_off_filled = IconData(59632, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_pen_off_regular = IconData(59614, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_pen_prohibited_filled = IconData(59638, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_pen_prohibited_regular = IconData(59620, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_pen_regular = IconData(59608, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_pen_sparkle_filled = IconData(983612, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_pen_sparkle_regular = IconData(983593, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_people_add_filled = IconData(62903, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_people_add_regular = IconData(62893, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_people_audience_filled = IconData(62904, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_people_audience_regular = IconData(62894, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_people_call_filled = IconData(983174, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_people_call_regular = IconData(983170, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_people_checkmark_filled = IconData(59654, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_people_checkmark_regular = IconData(59636, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_people_community_add_filled = IconData(62909, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_people_community_add_regular = IconData(62899, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_people_community_filled = IconData(62907, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_people_community_regular = IconData(62897, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_people_edit_filled = IconData(983520, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_people_edit_regular = IconData(983520, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_people_error_filled = IconData(59660, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_people_error_regular = IconData(59642, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_people_filled = IconData(62899, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2292,6 +2486,8 @@ abstract class IconPack {
   static const flu_person_filled = IconData(62920, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_person_heart_filled = IconData(59715, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_person_heart_regular = IconData(59697, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_person_info_filled = IconData(983540, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_person_info_regular = IconData(983540, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_person_lightbulb_filled = IconData(59719, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_person_lightbulb_regular = IconData(59701, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_person_link_filled = IconData(61340, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2304,6 +2500,8 @@ abstract class IconPack {
   static const flu_person_money_regular = IconData(59709, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_person_note_filled = IconData(59729, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_person_note_regular = IconData(59711, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_person_phone_filled = IconData(983616, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_person_phone_regular = IconData(983597, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_person_pill_filled = IconData(59731, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_person_pill_regular = IconData(59713, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_person_prohibited_filled = IconData(59733, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2311,12 +2509,16 @@ abstract class IconPack {
   static const flu_person_question_mark_filled = IconData(62945, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_person_question_mark_regular = IconData(62935, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_person_regular = IconData(62910, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_person_search_filled = IconData(61310, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_person_search_regular = IconData(61310, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_person_square_filled = IconData(61508, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_person_square_regular = IconData(61508, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_person_star_filled = IconData(61197, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_person_star_regular = IconData(61197, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_person_starburst_filled = IconData(61510, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_person_starburst_regular = IconData(61510, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_person_subtract_filled = IconData(983617, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_person_subtract_regular = IconData(983598, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_person_support_filled = IconData(62948, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_person_support_regular = IconData(62938, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_person_swap_filled = IconData(62951, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2333,12 +2535,16 @@ abstract class IconPack {
   static const flu_phone_add_regular = IconData(59733, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_phone_arrow_right_filled = IconData(59753, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_phone_arrow_right_regular = IconData(59735, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_phone_briefcase_filled = IconData(983618, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_phone_briefcase_regular = IconData(983599, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_phone_chat_filled = IconData(61349, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_phone_chat_regular = IconData(61349, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_phone_desktop_filled = IconData(62960, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_phone_desktop_regular = IconData(62950, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_phone_dismiss_filled = IconData(59757, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_phone_dismiss_regular = IconData(59739, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_phone_edit_filled = IconData(983281, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_phone_edit_regular = IconData(983282, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_phone_filled = IconData(62955, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_phone_key_filled = IconData(59761, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_phone_key_regular = IconData(59743, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -2348,10 +2554,16 @@ abstract class IconPack {
   static const flu_phone_link_setup_regular = IconData(62956, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_phone_lock_filled = IconData(59766, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_phone_lock_regular = IconData(59748, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_phone_multiple_filled = IconData(983619, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_phone_multiple_regular = IconData(983600, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_phone_multiple_settings_filled = IconData(983620, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_phone_multiple_settings_regular = IconData(983601, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_phone_page_header_filled = IconData(62969, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_phone_page_header_regular = IconData(62959, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_phone_pagination_filled = IconData(62970, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_phone_pagination_regular = IconData(62960, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_phone_person_filled = IconData(983621, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_phone_person_regular = IconData(983602, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_phone_regular = IconData(62945, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_phone_screen_time_filled = IconData(62971, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_phone_screen_time_regular = IconData(62961, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -2365,6 +2577,8 @@ abstract class IconPack {
   static const flu_phone_speaker_regular = IconData(59762, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_phone_status_bar_filled = IconData(62973, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_phone_status_bar_regular = IconData(62963, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_phone_subtract_filled = IconData(983622, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_phone_subtract_regular = IconData(983603, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_phone_tablet_filled = IconData(62975, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_phone_tablet_regular = IconData(62965, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_phone_update_checkmark_filled = IconData(59784, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2395,17 +2609,27 @@ abstract class IconPack {
   static const flu_pipeline_regular = IconData(61149, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_pivot_filled = IconData(59808, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_pivot_regular = IconData(59790, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_plant_grass_filled = IconData(983350, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_plant_grass_regular = IconData(983351, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_plant_ragweed_filled = IconData(983353, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_plant_ragweed_regular = IconData(983354, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_play_circle_filled = IconData(62994, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_play_circle_hint_filled = IconData(983184, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_play_circle_hint_regular = IconData(983180, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_play_circle_regular = IconData(62984, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_play_filled = IconData(62992, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_play_regular = IconData(62982, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_plug_connected_filled = IconData(59820, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_plug_connected_regular = IconData(59802, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_plug_connected_settings_filled = IconData(983624, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_plug_connected_settings_regular = IconData(983605, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_plug_disconnected_filled = IconData(62996, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_plug_disconnected_regular = IconData(62986, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_point_scan_filled = IconData(62998, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_point_scan_regular = IconData(62988, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_poll_filled = IconData(62999, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_poll_horizontal_filled = IconData(983187, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_poll_horizontal_regular = IconData(983183, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_poll_regular = IconData(62989, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_port_hdmi_filled = IconData(59827, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_port_hdmi_regular = IconData(59809, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -2434,6 +2658,7 @@ abstract class IconPack {
   static const flu_presence_available_filled = IconData(59848, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_presence_available_regular = IconData(59833, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_presence_away_filled = IconData(59850, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_presence_away_regular = IconData(983188, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_presence_blocked_regular = IconData(59835, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_presence_busy_filled = IconData(59852, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_presence_dnd_filled = IconData(59854, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2465,6 +2690,8 @@ abstract class IconPack {
   static const flu_projection_screen_dismiss_regular = IconData(59866, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_projection_screen_filled = IconData(59870, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_projection_screen_regular = IconData(59862, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_projection_screen_text_filled = IconData(983188, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_projection_screen_text_regular = IconData(983189, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_protocol_handler_filled = IconData(63038, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_protocol_handler_regular = IconData(63028, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_pulse_filled = IconData(59877, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2524,6 +2751,8 @@ abstract class IconPack {
   static const flu_record_stop_filled = IconData(63347, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_record_stop_regular = IconData(63323, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_rectangle_landscape_filled = IconData(59922, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_rectangle_landscape_hint_copy_filled = IconData(983627, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_rectangle_landscape_hint_copy_regular = IconData(983608, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_rectangle_landscape_regular = IconData(59914, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_rename_filled = IconData(63092, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_rename_regular = IconData(63082, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -2619,6 +2848,8 @@ abstract class IconPack {
   static const flu_screen_search_regular = IconData(60026, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_screenshot_filled = IconData(63128, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_screenshot_regular = IconData(63118, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_script_filled = IconData(983629, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_script_regular = IconData(983610, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_search_filled = IconData(63130, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_search_info_filled = IconData(63132, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_search_info_regular = IconData(63123, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -2639,6 +2870,8 @@ abstract class IconPack {
   static const flu_select_object_skew_edit_regular = IconData(60045, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_select_object_skew_filled = IconData(60050, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_select_object_skew_regular = IconData(60041, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_send_beaker_filled = IconData(983284, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_send_beaker_regular = IconData(983285, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_send_clock_filled = IconData(60056, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_send_clock_regular = IconData(60047, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_send_copy_filled = IconData(63142, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2648,11 +2881,15 @@ abstract class IconPack {
   static const flu_serial_port_filled = IconData(63148, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_serial_port_regular = IconData(63139, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_server_filled = IconData(63364, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_server_link_filled = IconData(983631, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_server_link_regular = IconData(983612, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_server_regular = IconData(63340, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_service_bell_filled = IconData(63149, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_service_bell_regular = IconData(63140, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_settings_chat_filled = IconData(60064, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_settings_chat_regular = IconData(60055, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_settings_cog_multiple_filled = IconData(983356, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_settings_cog_multiple_regular = IconData(983357, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_settings_filled = IconData(63155, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_settings_regular = IconData(63146, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_shape_exclude_filled = IconData(60067, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2763,12 +3000,16 @@ abstract class IconPack {
   static const flu_skip_forward_30_regular = IconData(60166, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_skip_forward_tab_filled = IconData(60180, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_skip_forward_tab_regular = IconData(60171, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_slash_forward_filled = IconData(983198, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_slash_forward_regular = IconData(983199, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_sleep_filled = IconData(63214, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_sleep_regular = IconData(63205, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_slide_add_filled = IconData(63215, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_slide_add_regular = IconData(63206, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_slide_arrow_right_filled = IconData(60188, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_slide_arrow_right_regular = IconData(60179, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_slide_content_filled = IconData(983357, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_slide_content_regular = IconData(983358, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_slide_eraser_filled = IconData(60191, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_slide_eraser_regular = IconData(60182, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_slide_grid_filled = IconData(60193, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2787,6 +3028,8 @@ abstract class IconPack {
   static const flu_slide_multiple_regular = IconData(60189, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_slide_multiple_search_filled = IconData(63372, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_slide_multiple_search_regular = IconData(63348, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_slide_record_filled = IconData(983360, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_slide_record_regular = IconData(983361, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_slide_search_filled = IconData(60202, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_slide_search_regular = IconData(60193, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_slide_settings_filled = IconData(60205, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2799,6 +3042,8 @@ abstract class IconPack {
   static const flu_slide_text_person_filled = IconData(62044, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_slide_text_person_regular = IconData(62044, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_slide_text_regular = IconData(63212, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_slide_text_sparkle_filled = IconData(983290, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_slide_text_sparkle_regular = IconData(983291, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_slide_transition_filled = IconData(60213, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_slide_transition_regular = IconData(60204, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_smartwatch_dot_filled = IconData(63391, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2811,6 +3056,8 @@ abstract class IconPack {
   static const flu_sound_source_regular = IconData(63222, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_sound_wave_circle_filled = IconData(60217, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_sound_wave_circle_regular = IconData(60208, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_space_3d_filled = IconData(983201, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_space_3d_regular = IconData(983202, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_spacebar_filled = IconData(63233, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_spacebar_regular = IconData(63224, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_sparkle_circle_filled = IconData(61356, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2863,18 +3110,26 @@ abstract class IconPack {
   static const flu_square_multiple_filled = IconData(63396, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_square_multiple_regular = IconData(63372, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_square_regular = IconData(60278, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_stack_add_filled = IconData(983364, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_stack_add_regular = IconData(983365, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_stack_arrow_forward_filled = IconData(60324, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_stack_arrow_forward_regular = IconData(60315, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_stack_filled = IconData(63422, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_stack_regular = IconData(63398, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_stack_star_filled = IconData(60327, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_stack_star_regular = IconData(60318, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_stack_vertical_filled = IconData(983295, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_stack_vertical_regular = IconData(983296, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_star_add_filled = IconData(63261, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_star_add_regular = IconData(63252, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_star_arrow_back_filled = IconData(983212, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_star_arrow_back_regular = IconData(983213, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_star_arrow_right_end_filled = IconData(60331, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_star_arrow_right_end_regular = IconData(60322, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_star_arrow_right_start_filled = IconData(63263, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_star_arrow_right_start_regular = IconData(63254, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_star_checkmark_filled = IconData(983367, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_star_checkmark_regular = IconData(983368, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_star_dismiss_filled = IconData(60335, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_star_dismiss_regular = IconData(60326, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_star_edit_filled = IconData(60338, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2956,6 +3211,8 @@ abstract class IconPack {
   static const flu_tab_desktop_filled = IconData(60388, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_tab_desktop_image_filled = IconData(63335, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_tab_desktop_image_regular = IconData(63311, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_tab_desktop_link_filled = IconData(983637, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_tab_desktop_link_regular = IconData(983618, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_tab_desktop_multiple_bottom_filled = IconData(60393, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_tab_desktop_multiple_bottom_regular = IconData(60399, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_tab_desktop_regular = IconData(60394, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -2971,6 +3228,8 @@ abstract class IconPack {
   static const flu_tab_shield_dismiss_regular = IconData(60403, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_table_add_filled = IconData(63351, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_table_add_regular = IconData(63327, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_table_arrow_up_filled = IconData(983640, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_table_arrow_up_regular = IconData(983621, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_table_bottom_row_filled = IconData(60407, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_table_bottom_row_regular = IconData(60413, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_table_cell_edit_filled = IconData(60413, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -2979,6 +3238,8 @@ abstract class IconPack {
   static const flu_table_cells_merge_regular = IconData(63329, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_table_cells_split_filled = IconData(63355, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_table_cells_split_regular = IconData(63331, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_table_column_top_bottom_filled = IconData(983297, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_table_column_top_bottom_regular = IconData(983298, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_table_delete_column_filled = IconData(60423, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_table_delete_column_regular = IconData(60429, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_table_delete_row_filled = IconData(60427, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -3012,6 +3273,14 @@ abstract class IconPack {
   static const flu_table_move_left_regular = IconData(63345, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_table_move_right_filled = IconData(63370, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_table_move_right_regular = IconData(63346, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_table_offset_add_filled = IconData(983301, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_table_offset_add_regular = IconData(983302, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_table_offset_filled = IconData(983299, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_table_offset_less_than_or_equal_to_filled = IconData(983303, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_table_offset_less_than_or_equal_to_regular = IconData(983304, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_table_offset_regular = IconData(983300, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_table_offset_settings_filled = IconData(983305, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_table_offset_settings_regular = IconData(983306, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_table_regular = IconData(63326, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_table_resize_column_filled = IconData(60480, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_table_resize_column_regular = IconData(60486, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -3021,7 +3290,13 @@ abstract class IconPack {
   static const flu_table_settings_regular = IconData(63351, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_table_simple_checkmark_filled = IconData(61585, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_table_simple_checkmark_regular = IconData(61585, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_table_simple_exclude_filled = IconData(983375, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_table_simple_exclude_regular = IconData(983376, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_table_simple_filled = IconData(60492, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_table_simple_include_filled = IconData(983381, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_table_simple_include_regular = IconData(983382, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_table_simple_multiple_filled = IconData(983214, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_table_simple_multiple_regular = IconData(983215, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_table_simple_regular = IconData(60498, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_table_stack_above_filled = IconData(60498, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_table_stack_above_regular = IconData(60504, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -3034,6 +3309,8 @@ abstract class IconPack {
   static const flu_table_switch_filled = IconData(63376, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_table_switch_regular = IconData(63352, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_tablet_filled = IconData(63378, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_tablet_laptop_filled = IconData(983641, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_tablet_laptop_regular = IconData(983622, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_tablet_regular = IconData(63354, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_tablet_speaker_filled = IconData(60520, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_tablet_speaker_regular = IconData(60526, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -3109,6 +3386,8 @@ abstract class IconPack {
   static const flu_text_align_distributed_vertical_filled = IconData(60602, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_align_distributed_vertical_regular = IconData(60604, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_align_justify_filled = IconData(63414, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_align_justify_low_90_filled = IconData(61314, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_align_justify_low_90_regular = IconData(61314, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_align_justify_low_filled = IconData(60604, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_align_justify_low_regular = IconData(60606, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_align_justify_low_rotate_270_filled = IconData(61153, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -3138,18 +3417,20 @@ abstract class IconPack {
   static const flu_text_box_settings_regular = IconData(60628, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_bullet_list_add_filled = IconData(63424, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_bullet_list_add_regular = IconData(63400, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_bullet_list_ltr_90_filled = IconData(61316, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_bullet_list_ltr_90_regular = IconData(61316, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_bullet_list_ltr_filled = IconData(60632, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_bullet_list_ltr_regular = IconData(60634, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
-  static const flu_text_bullet_list_rotate_270_filled = IconData(60634, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
-  static const flu_text_bullet_list_rotate_270_regular = IconData(60636, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
-  static const flu_text_bullet_list_rotate_90_filled = IconData(60636, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
-  static const flu_text_bullet_list_rotate_90_regular = IconData(60638, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_bullet_list_ltr_rotate_270_filled = IconData(61317, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_bullet_list_ltr_rotate_270_regular = IconData(61317, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_bullet_list_rtl_filled = IconData(60639, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_bullet_list_rtl_regular = IconData(60641, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_bullet_list_square_edit_filled = IconData(63442, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_bullet_list_square_edit_regular = IconData(63418, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_bullet_list_square_filled = IconData(63425, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_bullet_list_square_regular = IconData(63401, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_bullet_list_square_sparkle_filled = IconData(983473, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_bullet_list_square_sparkle_regular = IconData(983473, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_bullet_list_square_warning_filled = IconData(63428, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_bullet_list_square_warning_regular = IconData(63404, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_bullet_list_tree_filled = IconData(63431, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -3173,6 +3454,8 @@ abstract class IconPack {
   static const flu_text_column_one_narrow_filled = IconData(60664, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_column_one_narrow_regular = IconData(60663, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_column_one_regular = IconData(63426, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_column_one_semi_narrow_filled = IconData(983217, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_column_one_semi_narrow_regular = IconData(983218, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_column_one_wide_filled = IconData(60666, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_column_one_wide_lightning_filled = IconData(60668, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_column_one_wide_lightning_regular = IconData(60667, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -3190,7 +3473,11 @@ abstract class IconPack {
   static const flu_text_density_filled = IconData(60673, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_density_regular = IconData(60672, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_description_filled = IconData(63460, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_description_ltr_filled = IconData(61320, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_description_ltr_regular = IconData(61320, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_description_regular = IconData(63436, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_description_rtl_filled = IconData(61322, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_description_rtl_regular = IconData(61322, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_direction_horizontal_left_filled = IconData(60676, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_direction_horizontal_left_regular = IconData(60675, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_direction_horizontal_ltr_filled = IconData(61362, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -3201,6 +3488,10 @@ abstract class IconPack {
   static const flu_text_direction_horizontal_rtl_regular = IconData(61364, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_direction_rotate_270_right_filled = IconData(60680, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_direction_rotate_270_right_regular = IconData(60679, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_direction_rotate_315_right_filled = IconData(983546, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_direction_rotate_315_right_regular = IconData(983546, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_direction_rotate_45_right_filled = IconData(983548, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_direction_rotate_45_right_regular = IconData(983548, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_direction_rotate_90_left_filled = IconData(60682, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_direction_rotate_90_left_regular = IconData(60681, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_direction_rotate_90_ltr_filled = IconData(61366, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -3249,22 +3540,38 @@ abstract class IconPack {
   static const flu_text_header_2_regular = IconData(60704, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_header_3_filled = IconData(60706, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_header_3_regular = IconData(60705, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_decrease_ltr_90_filled = IconData(61324, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_decrease_ltr_90_regular = IconData(61324, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_decrease_ltr_filled = IconData(60709, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_decrease_ltr_regular = IconData(60708, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_decrease_ltr_rotate_270_filled = IconData(61326, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_decrease_ltr_rotate_270_regular = IconData(61326, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_decrease_rotate_270_filled = IconData(60711, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_decrease_rotate_270_regular = IconData(60710, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_decrease_rotate_90_filled = IconData(60713, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_decrease_rotate_90_regular = IconData(60712, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_decrease_rtl_90_filled = IconData(61328, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_decrease_rtl_90_regular = IconData(61328, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_decrease_rtl_filled = IconData(60716, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_decrease_rtl_regular = IconData(60715, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_decrease_rtl_rotate_270_filled = IconData(61360, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_decrease_rtl_rotate_270_regular = IconData(61360, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_increase_ltr_90_filled = IconData(61393, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_increase_ltr_90_regular = IconData(61393, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_increase_ltr_filled = IconData(60719, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_increase_ltr_regular = IconData(60718, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_increase_ltr_rotate_270_filled = IconData(61429, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_increase_ltr_rotate_270_regular = IconData(61429, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_increase_rotate_270_filled = IconData(60721, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_increase_rotate_270_regular = IconData(60720, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_increase_rotate_90_filled = IconData(60723, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_increase_rotate_90_regular = IconData(60722, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_increase_rtl_90_filled = IconData(61481, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_increase_rtl_90_regular = IconData(61481, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_increase_rtl_filled = IconData(60726, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_indent_increase_rtl_regular = IconData(60725, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_increase_rtl_rotate_270_filled = IconData(62488, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_indent_increase_rtl_rotate_270_regular = IconData(62460, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_italic_filled = IconData(63501, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_italic_regular = IconData(63477, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_line_spacing_filled = IconData(63503, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -3273,14 +3580,22 @@ abstract class IconPack {
   static const flu_text_more_regular = IconData(60728, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_number_format_filled = IconData(63505, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_number_format_regular = IconData(63480, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_number_list_ltr_90_filled = IconData(62650, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_number_list_ltr_90_regular = IconData(62485, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_number_list_ltr_filled = IconData(63507, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_number_list_ltr_regular = IconData(63482, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_number_list_ltr_rotate_270_filled = IconData(62742, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_number_list_ltr_rotate_270_regular = IconData(62731, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_number_list_rotate_270_filled = IconData(60732, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_number_list_rotate_270_regular = IconData(60732, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_number_list_rotate_90_filled = IconData(60734, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_number_list_rotate_90_regular = IconData(60734, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_number_list_rtl_90_filled = IconData(62798, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_number_list_rtl_90_regular = IconData(62787, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_number_list_rtl_filled = IconData(63508, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_number_list_rtl_regular = IconData(63483, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_number_list_rtl_rotate_270_filled = IconData(62800, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_number_list_rtl_rotate_270_regular = IconData(62789, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_paragraph_direction_filled = IconData(60741, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_paragraph_direction_regular = IconData(60741, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_paragraph_filled = IconData(60739, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -3292,7 +3607,11 @@ abstract class IconPack {
   static const flu_text_position_line_filled = IconData(60752, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_position_line_regular = IconData(60752, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_position_square_filled = IconData(60754, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_position_square_left_filled = IconData(983221, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_position_square_left_regular = IconData(983222, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_position_square_regular = IconData(60754, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_position_square_right_filled = IconData(983224, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_position_square_right_regular = IconData(983225, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_position_through_filled = IconData(60756, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_position_through_regular = IconData(60756, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_position_tight_filled = IconData(60758, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -3315,6 +3634,8 @@ abstract class IconPack {
   static const flu_text_superscript_regular = IconData(63497, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_t_filled = IconData(60772, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_t_regular = IconData(60772, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_text_underline_character_u_filled = IconData(983227, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_text_underline_character_u_regular = IconData(983228, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_underline_double_filled = IconData(61591, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_text_underline_double_regular = IconData(61591, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_text_underline_filled = IconData(63524, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -3345,10 +3666,14 @@ abstract class IconPack {
   static const flu_textbox_regular = IconData(63504, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_textbox_rotate_90_filled = IconData(60790, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_textbox_rotate_90_regular = IconData(60790, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_textbox_settings_filled = IconData(62858, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_textbox_settings_regular = IconData(62847, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_thinking_filled = IconData(63541, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_thinking_regular = IconData(63516, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_thumb_dislike_filled = IconData(63543, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_thumb_dislike_regular = IconData(63518, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_thumb_like_dislike_filled = IconData(983644, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_thumb_like_dislike_regular = IconData(983625, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_thumb_like_filled = IconData(63545, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_thumb_like_regular = IconData(63520, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_ticket_diagonal_filled = IconData(60797, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -3383,7 +3708,11 @@ abstract class IconPack {
   static const flu_tooltip_quote_regular = IconData(60826, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_top_speed_filled = IconData(63562, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_top_speed_regular = IconData(63537, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_translate_auto_filled = IconData(983476, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_translate_auto_regular = IconData(983476, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_translate_filled = IconData(63564, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_translate_off_filled = IconData(983230, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_translate_off_regular = IconData(983231, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_translate_regular = IconData(63540, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_transmission_filled = IconData(60829, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_transmission_regular = IconData(60829, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -3391,6 +3720,8 @@ abstract class IconPack {
   static const flu_tray_item_add_regular = IconData(60831, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_tray_item_remove_filled = IconData(60833, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_tray_item_remove_regular = IconData(60833, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_tree_deciduous_filled = IconData(983387, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_tree_deciduous_regular = IconData(983388, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_trophy_filled = IconData(63567, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_trophy_lock_filled = IconData(61230, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_trophy_lock_regular = IconData(61230, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -3417,6 +3748,8 @@ abstract class IconPack {
   static const flu_vehicle_bus_regular = IconData(63557, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_vehicle_cab_filled = IconData(63582, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_vehicle_cab_regular = IconData(63558, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
+  static const flu_vehicle_cable_car_filled = IconData(983307, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_vehicle_cable_car_regular = IconData(983308, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_vehicle_car_collision_filled = IconData(60892, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_vehicle_car_collision_regular = IconData(60892, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_vehicle_car_filled = IconData(63585, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
@@ -3446,6 +3779,8 @@ abstract class IconPack {
   static const flu_video_add_filled = IconData(60918, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_video_add_regular = IconData(60918, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_video_background_effect_filled = IconData(63591, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_video_background_effect_horizontal_filled = IconData(983237, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
+  static const flu_video_background_effect_horizontal_regular = IconData(983238, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_video_background_effect_regular = IconData(63567, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
   static const flu_video_chat_filled = IconData(60922, fontFamily: 'FluentSystemIcons-Filled', fontPackage: 'fluentui_system_icons');
   static const flu_video_chat_regular = IconData(60922, fontFamily: 'FluentSystemIcons-Regular', fontPackage: 'fluentui_system_icons');
@@ -3728,6 +4063,8 @@ abstract class IconPack {
   static const mdi_account_switch_outline = IconData(0xf04cb, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_account_sync = IconData(0xf191b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_account_sync_outline = IconData(0xf191c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_account_tag = IconData(0xf1c1b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_account_tag_outline = IconData(0xf1c1c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_account_tie = IconData(0xf0ce3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_account_tie_hat = IconData(0xf1898, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_account_tie_hat_outline = IconData(0xf1899, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -4260,8 +4597,10 @@ abstract class IconPack {
   static const mdi_audio_video = IconData(0xf093d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_audio_video_off = IconData(0xf11b6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_augmented_reality = IconData(0xf0850, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_aurora = IconData(0xf1bb9, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_auto_download = IconData(0xf137e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_auto_fix = IconData(0xf0068, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_auto_mode = IconData(0xf1c20, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_auto_upload = IconData(0xf0069, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_autorenew = IconData(0xf006a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_autorenew_off = IconData(0xf19e7, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -4338,6 +4677,8 @@ abstract class IconPack {
   static const mdi_bandage = IconData(0xf0daf, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_bank = IconData(0xf0070, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_bank_check = IconData(0xf1655, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_bank_circle = IconData(0xf1c03, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_bank_circle_outline = IconData(0xf1c04, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_bank_minus = IconData(0xf0db0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_bank_off = IconData(0xf1656, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_bank_off_outline = IconData(0xf1657, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -4359,6 +4700,7 @@ abstract class IconPack {
   static const mdi_baseball_bat = IconData(0xf0853, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_baseball_diamond = IconData(0xf15ec, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_baseball_diamond_outline = IconData(0xf15ed, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_baseball_outline = IconData(0xf1c5a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_bash = IconData(0xf1183, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_basket = IconData(0xf0076, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_basket_check = IconData(0xf18e5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -4525,6 +4867,8 @@ abstract class IconPack {
   static const mdi_bell_ring_outline = IconData(0xf009f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_bell_sleep = IconData(0xf00a0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_bell_sleep_outline = IconData(0xf0a93, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_bench = IconData(0xf1c21, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_bench_back = IconData(0xf1c22, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_beta = IconData(0xf00a1, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_betamax = IconData(0xf09cb, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_biathlon = IconData(0xf0e14, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -4535,6 +4879,9 @@ abstract class IconPack {
   static const mdi_bicycle_penny_farthing = IconData(0xf15e9, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_bike = IconData(0xf00a3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_bike_fast = IconData(0xf111f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_bike_pedal = IconData(0xf1c23, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_bike_pedal_clipless = IconData(0xf1c24, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_bike_pedal_mountain = IconData(0xf1c25, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_billboard = IconData(0xf1010, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_billiards = IconData(0xf0b61, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_billiards_rack = IconData(0xf0b62, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -4891,6 +5238,7 @@ abstract class IconPack {
   static const mdi_calendar_search = IconData(0xf094c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_calendar_search_outline = IconData(0xf1b6e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_calendar_star = IconData(0xf09d3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_calendar_star_four_points = IconData(0xf1c1f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_calendar_star_outline = IconData(0xf1b53, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_calendar_start = IconData(0xf166d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_calendar_start_outline = IconData(0xf1b6f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -4929,6 +5277,8 @@ abstract class IconPack {
   static const mdi_camera_image = IconData(0xf08cc, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_camera_iris = IconData(0xf0104, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_camera_lock = IconData(0xf1a14, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_camera_lock_open = IconData(0xf1c0d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_camera_lock_open_outline = IconData(0xf1c0e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_camera_lock_outline = IconData(0xf1a15, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_camera_marker = IconData(0xf19a7, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_camera_marker_outline = IconData(0xf19a8, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -5116,6 +5466,7 @@ abstract class IconPack {
   static const mdi_cash_marker = IconData(0xf0db8, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cash_minus = IconData(0xf1260, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cash_multiple = IconData(0xf0116, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cash_off = IconData(0xf1c79, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cash_plus = IconData(0xf1261, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cash_refund = IconData(0xf0a9c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cash_register = IconData(0xf0cf4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -5193,6 +5544,7 @@ abstract class IconPack {
   static const mdi_chart_multiline = IconData(0xf08d4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_chart_multiple = IconData(0xf1213, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_chart_pie = IconData(0xf012b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_chart_pie_outline = IconData(0xf1bdf, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_chart_ppf = IconData(0xf1380, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_chart_sankey = IconData(0xf11df, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_chart_sankey_variant = IconData(0xf11e0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -5233,6 +5585,8 @@ abstract class IconPack {
   static const mdi_check_underline_circle = IconData(0xf0e20, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_check_underline_circle_outline = IconData(0xf0e21, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_checkbook = IconData(0xf0a9d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_checkbook_arrow_left = IconData(0xf1c1d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_checkbook_arrow_right = IconData(0xf1c1e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_checkbox_blank = IconData(0xf012e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_checkbox_blank_badge = IconData(0xf1176, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_checkbox_blank_badge_outline = IconData(0xf0117, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -5245,6 +5599,8 @@ abstract class IconPack {
   static const mdi_checkbox_intermediate_variant = IconData(0xf1b54, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_checkbox_marked = IconData(0xf0132, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_checkbox_marked_circle = IconData(0xf0133, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_checkbox_marked_circle_auto_outline = IconData(0xf1c26, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_checkbox_marked_circle_minus_outline = IconData(0xf1c27, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_checkbox_marked_circle_outline = IconData(0xf0134, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_checkbox_marked_circle_plus_outline = IconData(0xf1927, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_checkbox_marked_outline = IconData(0xf0135, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -5340,6 +5696,7 @@ abstract class IconPack {
   static const mdi_circle_small = IconData(0xf09df, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_circular_saw = IconData(0xf0e22, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_city = IconData(0xf0146, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_city_switch = IconData(0xf1c28, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_city_variant = IconData(0xf0a36, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_city_variant_outline = IconData(0xf0a37, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_clipboard = IconData(0xf0147, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -5420,6 +5777,8 @@ abstract class IconPack {
   static const mdi_clock_plus_outline = IconData(0xf1862, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_clock_remove = IconData(0xf1865, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_clock_remove_outline = IconData(0xf1866, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_clock_star_four_points = IconData(0xf1c29, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_clock_star_four_points_outline = IconData(0xf1c2a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_clock_start = IconData(0xf0155, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_clock_time_eight = IconData(0xf1446, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_clock_time_eight_outline = IconData(0xf1452, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -5464,22 +5823,53 @@ abstract class IconPack {
   static const mdi_closed_caption_outline = IconData(0xf0dbd, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud = IconData(0xf015f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_alert = IconData(0xf09e0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_alert_outline = IconData(0xf1be0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_arrow_down = IconData(0xf1be1, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_arrow_down_outline = IconData(0xf1be2, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_arrow_left = IconData(0xf1be3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_arrow_left_outline = IconData(0xf1be4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_arrow_right = IconData(0xf1be5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_arrow_right_outline = IconData(0xf1be6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_arrow_up = IconData(0xf1be7, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_arrow_up_outline = IconData(0xf1be8, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_braces = IconData(0xf07b5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
-  static const mdi_cloud_check = IconData(0xf0160, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
-  static const mdi_cloud_check_outline = IconData(0xf12cc, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_cancel = IconData(0xf1be9, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_cancel_outline = IconData(0xf1bea, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_check = IconData(0xf1beb, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_check_outline = IconData(0xf1bec, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_check_variant = IconData(0xf0160, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_check_variant_outline = IconData(0xf12cc, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_circle = IconData(0xf0161, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_circle_outline = IconData(0xf1bed, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_clock = IconData(0xf1bee, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_clock_outline = IconData(0xf1bef, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_cog = IconData(0xf1bf0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_cog_outline = IconData(0xf1bf1, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_download = IconData(0xf0162, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_download_outline = IconData(0xf0b7d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_lock = IconData(0xf11f1, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_lock_open = IconData(0xf1bf2, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_lock_open_outline = IconData(0xf1bf3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_lock_outline = IconData(0xf11f2, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_minus = IconData(0xf1bf4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_minus_outline = IconData(0xf1bf5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_off = IconData(0xf1bf6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_off_outline = IconData(0xf0164, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_outline = IconData(0xf0163, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_percent = IconData(0xf1a35, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_percent_outline = IconData(0xf1a36, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_plus = IconData(0xf1bf7, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_plus_outline = IconData(0xf1bf8, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_print = IconData(0xf0165, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_print_outline = IconData(0xf0166, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_question = IconData(0xf0a39, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
-  static const mdi_cloud_refresh = IconData(0xf052a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_question_outline = IconData(0xf1bf9, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_refresh = IconData(0xf1bfa, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_refresh_outline = IconData(0xf1bfb, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_refresh_variant = IconData(0xf052a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_refresh_variant_outline = IconData(0xf1bfc, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_remove = IconData(0xf1bfd, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_cloud_remove_outline = IconData(0xf1bfe, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_search = IconData(0xf0956, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_search_outline = IconData(0xf0957, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_cloud_sync = IconData(0xf063f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -5489,6 +5879,7 @@ abstract class IconPack {
   static const mdi_cloud_upload_outline = IconData(0xf0b7e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_clouds = IconData(0xf1b95, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_clover = IconData(0xf0816, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_clover_outline = IconData(0xf1c62, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_coach_lamp = IconData(0xf1020, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_coach_lamp_variant = IconData(0xf1a37, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_coat_rack = IconData(0xf109e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -5695,6 +6086,7 @@ abstract class IconPack {
   static const mdi_cradle_outline = IconData(0xf1991, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_crane = IconData(0xf0862, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_creation = IconData(0xf0674, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_creation_outline = IconData(0xf1c2b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_creative_commons = IconData(0xf0d6b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_credit_card = IconData(0xf0fef, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_credit_card_check = IconData(0xf13d0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -5797,6 +6189,7 @@ abstract class IconPack {
   static const mdi_currency_rub = IconData(0xf01b1, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_currency_rupee = IconData(0xf1976, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_currency_sign = IconData(0xf07be, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_currency_thb = IconData(0xf1c05, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_currency_try = IconData(0xf01b2, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_currency_twd = IconData(0xf07bf, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_currency_uah = IconData(0xf1b9b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -6006,6 +6399,7 @@ abstract class IconPack {
   static const mdi_domain_off = IconData(0xf0d6f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_domain_plus = IconData(0xf10ad, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_domain_remove = IconData(0xf10ae, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_domain_switch = IconData(0xf1c2c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_dome_light = IconData(0xf141e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_domino_mask = IconData(0xf1023, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_donkey = IconData(0xf07c2, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -6121,6 +6515,7 @@ abstract class IconPack {
   static const mdi_email_edit_outline = IconData(0xf0ee4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_email_fast = IconData(0xf186f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_email_fast_outline = IconData(0xf1870, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_email_heart_outline = IconData(0xf1c5b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_email_lock = IconData(0xf01f1, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_email_lock_outline = IconData(0xf1b61, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_email_mark_as_unread = IconData(0xf0b92, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -6132,6 +6527,7 @@ abstract class IconPack {
   static const mdi_email_off = IconData(0xf13e3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_email_off_outline = IconData(0xf13e4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_email_open = IconData(0xf01ef, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_email_open_heart_outline = IconData(0xf1c5c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_email_open_multiple = IconData(0xf0ee9, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_email_open_multiple_outline = IconData(0xf0eea, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_email_open_outline = IconData(0xf05ef, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -6236,6 +6632,10 @@ abstract class IconPack {
   static const mdi_eye_check_outline = IconData(0xf0d05, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_eye_circle = IconData(0xf0b94, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_eye_circle_outline = IconData(0xf0b95, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_eye_lock = IconData(0xf1c06, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_eye_lock_open = IconData(0xf1c07, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_eye_lock_open_outline = IconData(0xf1c08, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_eye_lock_outline = IconData(0xf1c09, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_eye_minus = IconData(0xf1026, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_eye_minus_outline = IconData(0xf1027, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_eye_off = IconData(0xf0209, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -6344,6 +6744,8 @@ abstract class IconPack {
   static const mdi_file_document = IconData(0xf0219, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_document_alert = IconData(0xf1a97, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_document_alert_outline = IconData(0xf1a98, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_file_document_arrow_right = IconData(0xf1c0f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_file_document_arrow_right_outline = IconData(0xf1c10, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_document_check = IconData(0xf1a99, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_document_check_outline = IconData(0xf1a9a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_document_edit = IconData(0xf0dc8, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -6355,6 +6757,8 @@ abstract class IconPack {
   static const mdi_file_document_outline = IconData(0xf09ee, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_document_plus = IconData(0xf1a9d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_document_plus_outline = IconData(0xf1a9e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_file_document_refresh = IconData(0xf1c7a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_file_document_refresh_outline = IconData(0xf1c7b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_document_remove = IconData(0xf1a9f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_document_remove_outline = IconData(0xf1aa0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_download = IconData(0xf0965, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -6440,6 +6844,8 @@ abstract class IconPack {
   static const mdi_file_settings_outline = IconData(0xf107a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_sign = IconData(0xf19c3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_star = IconData(0xf103a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_file_star_four_points = IconData(0xf1c2d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_file_star_four_points_outline = IconData(0xf1c2e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_star_outline = IconData(0xf103b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_swap = IconData(0xf0fb4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_file_swap_outline = IconData(0xf0fb5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -6739,6 +7145,7 @@ abstract class IconPack {
   static const mdi_football_australian = IconData(0xf025e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_football_helmet = IconData(0xf025f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_forest = IconData(0xf1897, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_forest_outline = IconData(0xf1c63, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_forklift = IconData(0xf07c9, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_form_dropdown = IconData(0xf1400, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_form_select = IconData(0xf1401, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -7217,6 +7624,9 @@ abstract class IconPack {
   static const mdi_helicopter = IconData(0xf0ac2, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_help = IconData(0xf02d6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_help_box = IconData(0xf078b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_help_box_multiple = IconData(0xf1c0a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_help_box_multiple_outline = IconData(0xf1c0b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_help_box_outline = IconData(0xf1c0c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_help_circle = IconData(0xf02d7, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_help_circle_outline = IconData(0xf0625, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_help_network = IconData(0xf06f5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -7291,6 +7701,8 @@ abstract class IconPack {
   static const mdi_home_off = IconData(0xf1a46, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_home_off_outline = IconData(0xf1a47, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_home_outline = IconData(0xf06a1, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_home_percent = IconData(0xf1c7c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_home_percent_outline = IconData(0xf1c7d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_home_plus = IconData(0xf0975, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_home_plus_outline = IconData(0xf13d6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_home_remove = IconData(0xf1247, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -7300,6 +7712,10 @@ abstract class IconPack {
   static const mdi_home_search_outline = IconData(0xf13b1, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_home_silo = IconData(0xf1ba0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_home_silo_outline = IconData(0xf1ba1, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_home_sound_in = IconData(0xf1c2f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_home_sound_in_outline = IconData(0xf1c30, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_home_sound_out = IconData(0xf1c31, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_home_sound_out_outline = IconData(0xf1c32, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_home_switch = IconData(0xf1794, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_home_switch_outline = IconData(0xf1795, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_home_thermometer = IconData(0xf0f54, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -7393,8 +7809,10 @@ abstract class IconPack {
   static const mdi_image_filter_center_focus_strong_outline = IconData(0xf0f00, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_image_filter_center_focus_weak = IconData(0xf02f2, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_image_filter_drama = IconData(0xf02f3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_image_filter_drama_outline = IconData(0xf1bff, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_image_filter_frames = IconData(0xf02f4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_image_filter_hdr = IconData(0xf02f5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_image_filter_hdr_outline = IconData(0xf1c64, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_image_filter_none = IconData(0xf02f6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_image_filter_tilt_shift = IconData(0xf02f7, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_image_filter_vintage = IconData(0xf02f8, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -7445,10 +7863,22 @@ abstract class IconPack {
   static const mdi_induction = IconData(0xf184c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_infinity = IconData(0xf06e4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_information = IconData(0xf02fc, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_information_box = IconData(0xf1c65, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_information_box_outline = IconData(0xf1c66, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_information_off = IconData(0xf178c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_information_off_outline = IconData(0xf178d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_information_outline = IconData(0xf02fd, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_information_slab_box = IconData(0xf1c67, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_information_slab_box_outline = IconData(0xf1c68, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_information_slab_circle = IconData(0xf1c69, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_information_slab_circle_outline = IconData(0xf1c6a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_information_slab_symbol = IconData(0xf1c6b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_information_symbol = IconData(0xf1c6c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_information_variant = IconData(0xf064e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_information_variant_box = IconData(0xf1c6d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_information_variant_box_outline = IconData(0xf1c6e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_information_variant_circle = IconData(0xf1c6f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_information_variant_circle_outline = IconData(0xf1c70, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_instagram = IconData(0xf02fe, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_instrument_triangle = IconData(0xf104e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_integrated_circuit_chip = IconData(0xf1913, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -7507,6 +7937,7 @@ abstract class IconPack {
   static const mdi_keyboard_backspace = IconData(0xf030d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_keyboard_caps = IconData(0xf030e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_keyboard_close = IconData(0xf030f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_keyboard_close_outline = IconData(0xf1c00, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_keyboard_esc = IconData(0xf12b7, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_keyboard_f_1 = IconData(0xf12ab, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_keyboard_f_1_0 = IconData(0xf12b4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -7568,6 +7999,7 @@ abstract class IconPack {
   static const mdi_land_plots = IconData(0xf1ab3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_land_plots_circle = IconData(0xf1ab4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_land_plots_circle_variant = IconData(0xf1ab5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_land_plots_marker = IconData(0xf1c5d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_land_rows_horizontal = IconData(0xf1ab6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_land_rows_vertical = IconData(0xf1ab7, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_landslide = IconData(0xf1a48, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -7749,6 +8181,12 @@ abstract class IconPack {
   static const mdi_lock_open_variant_outline = IconData(0xf0fc7, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_lock_outline = IconData(0xf0341, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_lock_pattern = IconData(0xf06ea, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_lock_percent = IconData(0xf1c12, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_lock_percent_open = IconData(0xf1c13, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_lock_percent_open_outline = IconData(0xf1c14, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_lock_percent_open_variant = IconData(0xf1c15, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_lock_percent_open_variant_outline = IconData(0xf1c16, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_lock_percent_outline = IconData(0xf1c17, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_lock_plus = IconData(0xf05fb, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_lock_plus_outline = IconData(0xf16b2, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_lock_question = IconData(0xf08ef, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -8044,6 +8482,7 @@ abstract class IconPack {
   static const mdi_monitor_speaker = IconData(0xf0f5f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_monitor_speaker_off = IconData(0xf0f60, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_monitor_star = IconData(0xf0ddc, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_monitor_vertical = IconData(0xf1c33, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_moon_first_quarter = IconData(0xf0f61, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_moon_full = IconData(0xf0f62, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_moon_last_quarter = IconData(0xf0f63, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -8190,7 +8629,9 @@ abstract class IconPack {
   static const mdi_nas = IconData(0xf08f3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_nativescript = IconData(0xf0880, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_nature = IconData(0xf038e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_nature_outline = IconData(0xf1c71, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_nature_people = IconData(0xf038f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_nature_people_outline = IconData(0xf1c72, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_navigation = IconData(0xf0390, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_navigation_outline = IconData(0xf1607, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_navigation_variant = IconData(0xf18f0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -8381,7 +8822,13 @@ abstract class IconPack {
   static const mdi_octagon = IconData(0xf03c3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_octagon_outline = IconData(0xf03c4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_octagram = IconData(0xf06f9, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_octagram_edit = IconData(0xf1c34, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_octagram_edit_outline = IconData(0xf1c35, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_octagram_minus = IconData(0xf1c36, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_octagram_minus_outline = IconData(0xf1c37, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_octagram_outline = IconData(0xf0775, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_octagram_plus = IconData(0xf1c38, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_octagram_plus_outline = IconData(0xf1c39, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_octahedron = IconData(0xf1950, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_octahedron_off = IconData(0xf1951, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_odnoklassniki = IconData(0xf03c5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -8558,6 +9005,7 @@ abstract class IconPack {
   static const mdi_pencil_remove = IconData(0xf0ded, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_pencil_remove_outline = IconData(0xf0dee, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_pencil_ruler = IconData(0xf1353, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_pencil_ruler_outline = IconData(0xf1c11, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_penguin = IconData(0xf0ec0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_pentagon = IconData(0xf0701, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_pentagon_outline = IconData(0xf0700, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -8658,6 +9106,8 @@ abstract class IconPack {
   static const mdi_pine_tree = IconData(0xf0405, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_pine_tree_box = IconData(0xf0406, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_pine_tree_fire = IconData(0xf141a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_pine_tree_variant = IconData(0xf1c73, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_pine_tree_variant_outline = IconData(0xf1c74, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_pinterest = IconData(0xf0407, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_pinwheel = IconData(0xf0ad5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_pinwheel_outline = IconData(0xf0ad6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -8675,6 +9125,7 @@ abstract class IconPack {
   static const mdi_plane_train = IconData(0xf1b00, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_play = IconData(0xf040a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_play_box = IconData(0xf127a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_play_box_edit_outline = IconData(0xf1c3a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_play_box_lock = IconData(0xf1a16, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_play_box_lock_open = IconData(0xf1a17, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_play_box_lock_open_outline = IconData(0xf1a18, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -8756,6 +9207,8 @@ abstract class IconPack {
   static const mdi_power_off = IconData(0xf0902, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_power_on = IconData(0xf0903, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_power_plug = IconData(0xf06a5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_power_plug_battery = IconData(0xf1c3b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_power_plug_battery_outline = IconData(0xf1c3c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_power_plug_off = IconData(0xf06a6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_power_plug_off_outline = IconData(0xf1424, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_power_plug_outline = IconData(0xf1425, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -8795,6 +9248,41 @@ abstract class IconPack {
   static const mdi_printer_off_outline = IconData(0xf1785, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_printer_outline = IconData(0xf1786, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_printer_pos = IconData(0xf1057, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_alert = IconData(0xf1bbc, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_alert_outline = IconData(0xf1bbd, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_cancel = IconData(0xf1bbe, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_cancel_outline = IconData(0xf1bbf, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_check = IconData(0xf1bc0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_check_outline = IconData(0xf1bc1, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_cog = IconData(0xf1bc2, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_cog_outline = IconData(0xf1bc3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_edit = IconData(0xf1bc4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_edit_outline = IconData(0xf1bc5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_minus = IconData(0xf1bc6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_minus_outline = IconData(0xf1bc7, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_network = IconData(0xf1bc8, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_network_outline = IconData(0xf1bc9, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_off = IconData(0xf1bca, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_off_outline = IconData(0xf1bcb, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_outline = IconData(0xf1bcc, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_pause = IconData(0xf1bcd, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_pause_outline = IconData(0xf1bce, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_play = IconData(0xf1bcf, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_play_outline = IconData(0xf1bd0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_plus = IconData(0xf1bd1, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_plus_outline = IconData(0xf1bd2, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_refresh = IconData(0xf1bd3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_refresh_outline = IconData(0xf1bd4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_remove = IconData(0xf1bd5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_remove_outline = IconData(0xf1bd6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_star = IconData(0xf1bd7, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_star_outline = IconData(0xf1bd8, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_stop = IconData(0xf1bd9, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_stop_outline = IconData(0xf1bda, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_sync = IconData(0xf1bdb, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_sync_outline = IconData(0xf1bdc, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_wrench = IconData(0xf1bdd, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_printer_pos_wrench_outline = IconData(0xf1bde, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_printer_search = IconData(0xf1457, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_printer_settings = IconData(0xf0707, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_printer_wireless = IconData(0xf0a0b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -8810,6 +9298,7 @@ abstract class IconPack {
   static const mdi_progress_pencil = IconData(0xf1787, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_progress_question = IconData(0xf1522, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_progress_star = IconData(0xf1788, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_progress_star_four_points = IconData(0xf1c3d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_progress_upload = IconData(0xf0998, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_progress_wrench = IconData(0xf0cbd, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_projector = IconData(0xf042e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -8884,6 +9373,7 @@ abstract class IconPack {
   static const mdi_radioactive_circle_outline = IconData(0xf185e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_radioactive_off = IconData(0xf0ec1, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_radiobox_blank = IconData(0xf043d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_radiobox_indeterminate_variant = IconData(0xf1c5e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_radiobox_marked = IconData(0xf043e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_radiology_box = IconData(0xf14c5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_radiology_box_outline = IconData(0xf14c6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -8906,10 +9396,22 @@ abstract class IconPack {
   static const mdi_react = IconData(0xf0708, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_read = IconData(0xf0447, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_receipt = IconData(0xf0824, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_clock = IconData(0xf1c3e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_clock_outline = IconData(0xf1c3f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_receipt_outline = IconData(0xf04f7, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_send = IconData(0xf1c40, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_send_outline = IconData(0xf1c41, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_receipt_text = IconData(0xf0449, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_text_arrow_left = IconData(0xf1c42, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_text_arrow_left_outline = IconData(0xf1c43, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_text_arrow_right = IconData(0xf1c44, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_text_arrow_right_outline = IconData(0xf1c45, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_receipt_text_check = IconData(0xf1a63, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_receipt_text_check_outline = IconData(0xf1a64, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_text_clock = IconData(0xf1c46, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_text_clock_outline = IconData(0xf1c47, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_text_edit = IconData(0xf1c48, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_text_edit_outline = IconData(0xf1c49, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_receipt_text_minus = IconData(0xf1a65, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_receipt_text_minus_outline = IconData(0xf1a66, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_receipt_text_outline = IconData(0xf19dc, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -8917,6 +9419,8 @@ abstract class IconPack {
   static const mdi_receipt_text_plus_outline = IconData(0xf1a68, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_receipt_text_remove = IconData(0xf1a69, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_receipt_text_remove_outline = IconData(0xf1a6a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_text_send = IconData(0xf1c4a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_receipt_text_send_outline = IconData(0xf1c4b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_record = IconData(0xf044a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_record_circle = IconData(0xf0ec2, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_record_circle_outline = IconData(0xf0ec3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -8983,7 +9487,10 @@ abstract class IconPack {
   static const mdi_remote_off = IconData(0xf0ec4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_remote_tv = IconData(0xf0ec5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_remote_tv_off = IconData(0xf0ec6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_rename = IconData(0xf1c18, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_rename_box = IconData(0xf0455, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_rename_box_outline = IconData(0xf1c19, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_rename_outline = IconData(0xf1c1a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_reorder_horizontal = IconData(0xf0688, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_reorder_vertical = IconData(0xf0689, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_repeat = IconData(0xf0456, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -9052,8 +9559,10 @@ abstract class IconPack {
   static const mdi_robot_outline = IconData(0xf167a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_robot_vacuum = IconData(0xf070d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_robot_vacuum_alert = IconData(0xf1b5d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_robot_vacuum_off = IconData(0xf1c01, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_robot_vacuum_variant = IconData(0xf0908, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_robot_vacuum_variant_alert = IconData(0xf1b5e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_robot_vacuum_variant_off = IconData(0xf1c02, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_rocket = IconData(0xf0463, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_rocket_launch = IconData(0xf14de, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_rocket_launch_outline = IconData(0xf14df, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -9109,6 +9618,7 @@ abstract class IconPack {
   static const mdi_run_fast = IconData(0xf046e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_rv_truck = IconData(0xf11d4, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_sack = IconData(0xf0d2e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_sack_outline = IconData(0xf1c4c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_sack_percent = IconData(0xf0d2f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_safe = IconData(0xf0a6a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_safe_square = IconData(0xf127c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -9227,6 +9737,10 @@ abstract class IconPack {
   static const mdi_send_lock = IconData(0xf07ed, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_send_lock_outline = IconData(0xf1166, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_send_outline = IconData(0xf1165, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_send_variant = IconData(0xf1c4d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_send_variant_clock = IconData(0xf1c7e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_send_variant_clock_outline = IconData(0xf1c7f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_send_variant_outline = IconData(0xf1c4e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_serial_port = IconData(0xf065c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_server = IconData(0xf048b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_server_minus = IconData(0xf048c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -9256,6 +9770,7 @@ abstract class IconPack {
   static const mdi_shape_outline = IconData(0xf0832, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_shape_oval_plus = IconData(0xf11fa, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_shape_plus = IconData(0xf0495, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_shape_plus_outline = IconData(0xf1c4f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_shape_polygon_plus = IconData(0xf065e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_shape_rectangle_plus = IconData(0xf065f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_shape_square_plus = IconData(0xf0660, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -9574,6 +10089,7 @@ abstract class IconPack {
   static const mdi_sphere = IconData(0xf1954, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_sphere_off = IconData(0xf1955, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_spider = IconData(0xf11ea, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_spider_outline = IconData(0xf1c75, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_spider_thread = IconData(0xf11eb, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_spider_web = IconData(0xf0bca, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_spirit_level = IconData(0xf14f1, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -9590,6 +10106,7 @@ abstract class IconPack {
   static const mdi_sprout_outline = IconData(0xf0e67, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_square = IconData(0xf0764, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_square_circle = IconData(0xf1500, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_square_circle_outline = IconData(0xf1c50, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_square_edit_outline = IconData(0xf090c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_square_medium = IconData(0xf0a13, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_square_medium_outline = IconData(0xf0a14, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -9634,7 +10151,12 @@ abstract class IconPack {
   static const mdi_star_david = IconData(0xf097a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_star_face = IconData(0xf09a5, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_star_four_points = IconData(0xf0ae2, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_star_four_points_box = IconData(0xf1c51, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_star_four_points_box_outline = IconData(0xf1c52, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_star_four_points_circle = IconData(0xf1c53, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_star_four_points_circle_outline = IconData(0xf1c54, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_star_four_points_outline = IconData(0xf0ae3, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_star_four_points_small = IconData(0xf1c55, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_star_half = IconData(0xf0246, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_star_half_full = IconData(0xf04d0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_star_minus = IconData(0xf1564, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -9865,6 +10387,7 @@ abstract class IconPack {
   static const mdi_tag_faces = IconData(0xf04fa, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tag_heart = IconData(0xf068b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tag_heart_outline = IconData(0xf0bcf, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_tag_hidden = IconData(0xf1c76, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tag_minus = IconData(0xf0910, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tag_minus_outline = IconData(0xf121f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tag_multiple = IconData(0xf04fb, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -9922,6 +10445,7 @@ abstract class IconPack {
   static const mdi_temple_hindu_outline = IconData(0xf1b09, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tennis = IconData(0xf0da0, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tennis_ball = IconData(0xf0507, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_tennis_ball_outline = IconData(0xf1c5f, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tent = IconData(0xf0508, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_terraform = IconData(0xf1062, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_terrain = IconData(0xf0509, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -9976,6 +10500,7 @@ abstract class IconPack {
   static const mdi_thermostat_auto = IconData(0xf1b17, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_thermostat_box = IconData(0xf0891, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_thermostat_box_auto = IconData(0xf1b18, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_thermostat_cog = IconData(0xf1c80, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_thought_bubble = IconData(0xf07f6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_thought_bubble_outline = IconData(0xf07f7, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_thumb_down = IconData(0xf0511, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -10091,6 +10616,8 @@ abstract class IconPack {
   static const mdi_tooltip_outline = IconData(0xf0526, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tooltip_plus = IconData(0xf0bd6, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tooltip_plus_outline = IconData(0xf0527, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_tooltip_question = IconData(0xf1bba, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_tooltip_question_outline = IconData(0xf1bbb, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tooltip_remove = IconData(0xf1560, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tooltip_remove_outline = IconData(0xf1561, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tooltip_text = IconData(0xf0528, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -10103,6 +10630,7 @@ abstract class IconPack {
   static const mdi_torch = IconData(0xf1606, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tortoise = IconData(0xf0d3b, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_toslink = IconData(0xf12b8, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_touch_text_outline = IconData(0xf1c60, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tournament = IconData(0xf09ae, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tow_truck = IconData(0xf083c, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tower_beach = IconData(0xf0681, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -10190,6 +10718,7 @@ abstract class IconPack {
   static const mdi_tray_plus = IconData(0xf1298, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tray_remove = IconData(0xf1299, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_treasure_chest = IconData(0xf0726, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_treasure_chest_outline = IconData(0xf1c77, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tree = IconData(0xf0531, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_tree_outline = IconData(0xf0e69, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_trello = IconData(0xf0532, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -10197,6 +10726,8 @@ abstract class IconPack {
   static const mdi_trending_neutral = IconData(0xf0534, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_trending_up = IconData(0xf0535, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_triangle = IconData(0xf0536, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_triangle_down = IconData(0xf1c56, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_triangle_down_outline = IconData(0xf1c57, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_triangle_outline = IconData(0xf0537, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_triangle_small_down = IconData(0xf1a09, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_triangle_small_up = IconData(0xf1a0a, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -10401,6 +10932,7 @@ abstract class IconPack {
   static const mdi_view_gallery = IconData(0xf1888, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_view_gallery_outline = IconData(0xf1889, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_view_grid = IconData(0xf0570, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_view_grid_compact = IconData(0xf1c61, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_view_grid_outline = IconData(0xf11d9, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_view_grid_plus = IconData(0xf0f8d, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_view_grid_plus_outline = IconData(0xf11da, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -10463,6 +10995,8 @@ abstract class IconPack {
   static const mdi_wall_sconce_round_variant = IconData(0xf091e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_wall_sconce_round_variant_outline = IconData(0xf17cd, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_wallet = IconData(0xf0584, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_wallet_bifold = IconData(0xf1c58, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_wallet_bifold_outline = IconData(0xf1c59, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_wallet_giftcard = IconData(0xf0585, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_wallet_membership = IconData(0xf0586, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_wallet_outline = IconData(0xf0bdd, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -10535,6 +11069,7 @@ abstract class IconPack {
   static const mdi_weather_hail = IconData(0xf0592, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_weather_hazy = IconData(0xf0f30, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_weather_hurricane = IconData(0xf0898, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
+  static const mdi_weather_hurricane_outline = IconData(0xf1c78, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_weather_lightning = IconData(0xf0593, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_weather_lightning_rainy = IconData(0xf067e, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
   static const mdi_weather_night = IconData(0xf0594, fontFamily: 'Material Design Icons', fontPackage: 'material_design_icons_flutter');
@@ -12992,6 +13527,8 @@ abstract class IconPackNames {
   static const flu_add_subtract_circle_filled = 'flu_add_subtract_circle_filled';
   static const flu_add_subtract_circle_regular = 'flu_add_subtract_circle_regular';
   static const flu_airplane_filled = 'flu_airplane_filled';
+  static const flu_airplane_landing_filled = 'flu_airplane_landing_filled';
+  static const flu_airplane_landing_regular = 'flu_airplane_landing_regular';
   static const flu_airplane_regular = 'flu_airplane_regular';
   static const flu_airplane_take_off_filled = 'flu_airplane_take_off_filled';
   static const flu_airplane_take_off_regular = 'flu_airplane_take_off_regular';
@@ -13021,6 +13558,12 @@ abstract class IconPackNames {
   static const flu_align_left_regular = 'flu_align_left_regular';
   static const flu_align_right_filled = 'flu_align_right_filled';
   static const flu_align_right_regular = 'flu_align_right_regular';
+  static const flu_align_space_evenly_horizontal_filled = 'flu_align_space_evenly_horizontal_filled';
+  static const flu_align_space_evenly_horizontal_regular = 'flu_align_space_evenly_horizontal_regular';
+  static const flu_align_space_evenly_vertical_filled = 'flu_align_space_evenly_vertical_filled';
+  static const flu_align_space_evenly_vertical_regular = 'flu_align_space_evenly_vertical_regular';
+  static const flu_align_straighten_filled = 'flu_align_straighten_filled';
+  static const flu_align_straighten_regular = 'flu_align_straighten_regular';
   static const flu_align_top_filled = 'flu_align_top_filled';
   static const flu_align_top_regular = 'flu_align_top_regular';
   static const flu_animal_cat_filled = 'flu_animal_cat_filled';
@@ -13066,6 +13609,8 @@ abstract class IconPackNames {
   static const flu_arrow_autofit_height_dotted_filled = 'flu_arrow_autofit_height_dotted_filled';
   static const flu_arrow_autofit_height_dotted_regular = 'flu_arrow_autofit_height_dotted_regular';
   static const flu_arrow_autofit_height_filled = 'flu_arrow_autofit_height_filled';
+  static const flu_arrow_autofit_height_in_filled = 'flu_arrow_autofit_height_in_filled';
+  static const flu_arrow_autofit_height_in_regular = 'flu_arrow_autofit_height_in_regular';
   static const flu_arrow_autofit_height_regular = 'flu_arrow_autofit_height_regular';
   static const flu_arrow_autofit_up_filled = 'flu_arrow_autofit_up_filled';
   static const flu_arrow_autofit_up_regular = 'flu_arrow_autofit_up_regular';
@@ -13095,6 +13640,8 @@ abstract class IconPackNames {
   static const flu_arrow_circle_up_left_filled = 'flu_arrow_circle_up_left_filled';
   static const flu_arrow_circle_up_left_regular = 'flu_arrow_circle_up_left_regular';
   static const flu_arrow_circle_up_regular = 'flu_arrow_circle_up_regular';
+  static const flu_arrow_circle_up_right_filled = 'flu_arrow_circle_up_right_filled';
+  static const flu_arrow_circle_up_right_regular = 'flu_arrow_circle_up_right_regular';
   static const flu_arrow_clockwise_dashes_filled = 'flu_arrow_clockwise_dashes_filled';
   static const flu_arrow_clockwise_dashes_regular = 'flu_arrow_clockwise_dashes_regular';
   static const flu_arrow_clockwise_filled = 'flu_arrow_clockwise_filled';
@@ -13125,6 +13672,12 @@ abstract class IconPackNames {
   static const flu_arrow_export_rtl_regular = 'flu_arrow_export_rtl_regular';
   static const flu_arrow_export_up_filled = 'flu_arrow_export_up_filled';
   static const flu_arrow_export_up_regular = 'flu_arrow_export_up_regular';
+  static const flu_arrow_flow_diagonal_up_right_filled = 'flu_arrow_flow_diagonal_up_right_filled';
+  static const flu_arrow_flow_diagonal_up_right_regular = 'flu_arrow_flow_diagonal_up_right_regular';
+  static const flu_arrow_flow_up_right_filled = 'flu_arrow_flow_up_right_filled';
+  static const flu_arrow_flow_up_right_rectangle_multiple_filled = 'flu_arrow_flow_up_right_rectangle_multiple_filled';
+  static const flu_arrow_flow_up_right_rectangle_multiple_regular = 'flu_arrow_flow_up_right_rectangle_multiple_regular';
+  static const flu_arrow_flow_up_right_regular = 'flu_arrow_flow_up_right_regular';
   static const flu_arrow_forward_down_lightning_filled = 'flu_arrow_forward_down_lightning_filled';
   static const flu_arrow_forward_down_lightning_regular = 'flu_arrow_forward_down_lightning_regular';
   static const flu_arrow_forward_down_person_filled = 'flu_arrow_forward_down_person_filled';
@@ -13155,6 +13708,8 @@ abstract class IconPackNames {
   static const flu_arrow_move_regular = 'flu_arrow_move_regular';
   static const flu_arrow_next_filled = 'flu_arrow_next_filled';
   static const flu_arrow_next_regular = 'flu_arrow_next_regular';
+  static const flu_arrow_outline_down_left_filled = 'flu_arrow_outline_down_left_filled';
+  static const flu_arrow_outline_down_left_regular = 'flu_arrow_outline_down_left_regular';
   static const flu_arrow_outline_up_right_filled = 'flu_arrow_outline_up_right_filled';
   static const flu_arrow_outline_up_right_regular = 'flu_arrow_outline_up_right_regular';
   static const flu_arrow_paragraph_filled = 'flu_arrow_paragraph_filled';
@@ -13203,6 +13758,10 @@ abstract class IconPackNames {
   static const flu_arrow_split_regular = 'flu_arrow_split_regular';
   static const flu_arrow_square_down_filled = 'flu_arrow_square_down_filled';
   static const flu_arrow_square_down_regular = 'flu_arrow_square_down_regular';
+  static const flu_arrow_square_up_right_filled = 'flu_arrow_square_up_right_filled';
+  static const flu_arrow_square_up_right_regular = 'flu_arrow_square_up_right_regular';
+  static const flu_arrow_step_in_diagonal_down_left_filled = 'flu_arrow_step_in_diagonal_down_left_filled';
+  static const flu_arrow_step_in_diagonal_down_left_regular = 'flu_arrow_step_in_diagonal_down_left_regular';
   static const flu_arrow_step_in_filled = 'flu_arrow_step_in_filled';
   static const flu_arrow_step_in_left_filled = 'flu_arrow_step_in_left_filled';
   static const flu_arrow_step_in_left_regular = 'flu_arrow_step_in_left_regular';
@@ -13231,6 +13790,8 @@ abstract class IconPackNames {
   static const flu_arrow_trending_regular = 'flu_arrow_trending_regular';
   static const flu_arrow_trending_settings_filled = 'flu_arrow_trending_settings_filled';
   static const flu_arrow_trending_settings_regular = 'flu_arrow_trending_settings_regular';
+  static const flu_arrow_trending_sparkle_filled = 'flu_arrow_trending_sparkle_filled';
+  static const flu_arrow_trending_sparkle_regular = 'flu_arrow_trending_sparkle_regular';
   static const flu_arrow_trending_text_filled = 'flu_arrow_trending_text_filled';
   static const flu_arrow_trending_text_regular = 'flu_arrow_trending_text_regular';
   static const flu_arrow_trending_wrench_filled = 'flu_arrow_trending_wrench_filled';
@@ -13247,6 +13808,8 @@ abstract class IconPackNames {
   static const flu_arrow_up_regular = 'flu_arrow_up_regular';
   static const flu_arrow_up_right_filled = 'flu_arrow_up_right_filled';
   static const flu_arrow_up_right_regular = 'flu_arrow_up_right_regular';
+  static const flu_arrow_up_square_settings_filled = 'flu_arrow_up_square_settings_filled';
+  static const flu_arrow_up_square_settings_regular = 'flu_arrow_up_square_settings_regular';
   static const flu_arrow_upload_filled = 'flu_arrow_upload_filled';
   static const flu_arrow_upload_regular = 'flu_arrow_upload_regular';
   static const flu_arrows_bidirectional_filled = 'flu_arrows_bidirectional_filled';
@@ -13317,6 +13880,12 @@ abstract class IconPackNames {
   static const flu_bed_regular = 'flu_bed_regular';
   static const flu_bin_full_filled = 'flu_bin_full_filled';
   static const flu_bin_full_regular = 'flu_bin_full_regular';
+  static const flu_bin_recycle_filled = 'flu_bin_recycle_filled';
+  static const flu_bin_recycle_full_filled = 'flu_bin_recycle_full_filled';
+  static const flu_bin_recycle_full_regular = 'flu_bin_recycle_full_regular';
+  static const flu_bin_recycle_regular = 'flu_bin_recycle_regular';
+  static const flu_binder_triangle_filled = 'flu_binder_triangle_filled';
+  static const flu_binder_triangle_regular = 'flu_binder_triangle_regular';
   static const flu_bluetooth_connected_filled = 'flu_bluetooth_connected_filled';
   static const flu_bluetooth_connected_regular = 'flu_bluetooth_connected_regular';
   static const flu_bluetooth_disabled_filled = 'flu_bluetooth_disabled_filled';
@@ -13421,6 +13990,10 @@ abstract class IconPackNames {
   static const flu_bot_add_regular = 'flu_bot_add_regular';
   static const flu_bot_filled = 'flu_bot_filled';
   static const flu_bot_regular = 'flu_bot_regular';
+  static const flu_bot_sparkle_filled = 'flu_bot_sparkle_filled';
+  static const flu_bot_sparkle_regular = 'flu_bot_sparkle_regular';
+  static const flu_bow_tie_filled = 'flu_bow_tie_filled';
+  static const flu_bow_tie_regular = 'flu_bow_tie_regular';
   static const flu_bowl_chopsticks_filled = 'flu_bowl_chopsticks_filled';
   static const flu_bowl_chopsticks_regular = 'flu_bowl_chopsticks_regular';
   static const flu_bowl_salad_filled = 'flu_bowl_salad_filled';
@@ -13474,7 +14047,11 @@ abstract class IconPackNames {
   static const flu_briefcase_medical_regular = 'flu_briefcase_medical_regular';
   static const flu_briefcase_off_filled = 'flu_briefcase_off_filled';
   static const flu_briefcase_off_regular = 'flu_briefcase_off_regular';
+  static const flu_briefcase_person_filled = 'flu_briefcase_person_filled';
+  static const flu_briefcase_person_regular = 'flu_briefcase_person_regular';
   static const flu_briefcase_regular = 'flu_briefcase_regular';
+  static const flu_briefcase_search_filled = 'flu_briefcase_search_filled';
+  static const flu_briefcase_search_regular = 'flu_briefcase_search_regular';
   static const flu_brightness_high_filled = 'flu_brightness_high_filled';
   static const flu_brightness_high_regular = 'flu_brightness_high_regular';
   static const flu_brightness_low_filled = 'flu_brightness_low_filled';
@@ -13491,6 +14068,8 @@ abstract class IconPackNames {
   static const flu_building_bank_regular = 'flu_building_bank_regular';
   static const flu_building_bank_toolbox_filled = 'flu_building_bank_toolbox_filled';
   static const flu_building_bank_toolbox_regular = 'flu_building_bank_toolbox_regular';
+  static const flu_building_cloud_filled = 'flu_building_cloud_filled';
+  static const flu_building_cloud_regular = 'flu_building_cloud_regular';
   static const flu_building_desktop_filled = 'flu_building_desktop_filled';
   static const flu_building_desktop_regular = 'flu_building_desktop_regular';
   static const flu_building_factory_filled = 'flu_building_factory_filled';
@@ -13635,6 +14214,8 @@ abstract class IconPackNames {
   static const flu_camera_sparkles_regular = 'flu_camera_sparkles_regular';
   static const flu_camera_switch_filled = 'flu_camera_switch_filled';
   static const flu_camera_switch_regular = 'flu_camera_switch_regular';
+  static const flu_card_ui_filled = 'flu_card_ui_filled';
+  static const flu_card_ui_regular = 'flu_card_ui_regular';
   static const flu_caret_down_filled = 'flu_caret_down_filled';
   static const flu_caret_down_regular = 'flu_caret_down_regular';
   static const flu_caret_down_right_filled = 'flu_caret_down_right_filled';
@@ -13709,12 +14290,16 @@ abstract class IconPackNames {
   static const flu_chat_help_filled = 'flu_chat_help_filled';
   static const flu_chat_help_regular = 'flu_chat_help_regular';
   static const flu_chat_multiple_filled = 'flu_chat_multiple_filled';
+  static const flu_chat_multiple_heart_filled = 'flu_chat_multiple_heart_filled';
+  static const flu_chat_multiple_heart_regular = 'flu_chat_multiple_heart_regular';
   static const flu_chat_multiple_regular = 'flu_chat_multiple_regular';
   static const flu_chat_off_filled = 'flu_chat_off_filled';
   static const flu_chat_off_regular = 'flu_chat_off_regular';
   static const flu_chat_regular = 'flu_chat_regular';
   static const flu_chat_settings_filled = 'flu_chat_settings_filled';
   static const flu_chat_settings_regular = 'flu_chat_settings_regular';
+  static const flu_chat_sparkle_filled = 'flu_chat_sparkle_filled';
+  static const flu_chat_sparkle_regular = 'flu_chat_sparkle_regular';
   static const flu_chat_video_filled = 'flu_chat_video_filled';
   static const flu_chat_video_regular = 'flu_chat_video_regular';
   static const flu_chat_warning_filled = 'flu_chat_warning_filled';
@@ -13757,6 +14342,8 @@ abstract class IconPackNames {
   static const flu_chevron_circle_up_regular = 'flu_chevron_circle_up_regular';
   static const flu_chevron_down_filled = 'flu_chevron_down_filled';
   static const flu_chevron_down_regular = 'flu_chevron_down_regular';
+  static const flu_chevron_down_up_filled = 'flu_chevron_down_up_filled';
+  static const flu_chevron_down_up_regular = 'flu_chevron_down_up_regular';
   static const flu_chevron_left_filled = 'flu_chevron_left_filled';
   static const flu_chevron_left_regular = 'flu_chevron_left_regular';
   static const flu_chevron_right_filled = 'flu_chevron_right_filled';
@@ -13844,6 +14431,8 @@ abstract class IconPackNames {
   static const flu_clock_dismiss_filled = 'flu_clock_dismiss_filled';
   static const flu_clock_dismiss_regular = 'flu_clock_dismiss_regular';
   static const flu_clock_filled = 'flu_clock_filled';
+  static const flu_clock_lock_filled = 'flu_clock_lock_filled';
+  static const flu_clock_lock_regular = 'flu_clock_lock_regular';
   static const flu_clock_pause_filled = 'flu_clock_pause_filled';
   static const flu_clock_pause_regular = 'flu_clock_pause_regular';
   static const flu_clock_regular = 'flu_clock_regular';
@@ -13861,6 +14450,8 @@ abstract class IconPackNames {
   static const flu_cloud_arrow_down_regular = 'flu_cloud_arrow_down_regular';
   static const flu_cloud_arrow_up_filled = 'flu_cloud_arrow_up_filled';
   static const flu_cloud_arrow_up_regular = 'flu_cloud_arrow_up_regular';
+  static const flu_cloud_bidirectional_filled = 'flu_cloud_bidirectional_filled';
+  static const flu_cloud_bidirectional_regular = 'flu_cloud_bidirectional_regular';
   static const flu_cloud_checkmark_filled = 'flu_cloud_checkmark_filled';
   static const flu_cloud_checkmark_regular = 'flu_cloud_checkmark_regular';
   static const flu_cloud_dismiss_filled = 'flu_cloud_dismiss_filled';
@@ -13883,8 +14474,12 @@ abstract class IconPackNames {
   static const flu_cloud_sync_regular = 'flu_cloud_sync_regular';
   static const flu_cloud_words_filled = 'flu_cloud_words_filled';
   static const flu_cloud_words_regular = 'flu_cloud_words_regular';
+  static const flu_clover_filled = 'flu_clover_filled';
+  static const flu_clover_regular = 'flu_clover_regular';
   static const flu_code_block_filled = 'flu_code_block_filled';
   static const flu_code_block_regular = 'flu_code_block_regular';
+  static const flu_code_circle_filled = 'flu_code_circle_filled';
+  static const flu_code_circle_regular = 'flu_code_circle_regular';
   static const flu_code_filled = 'flu_code_filled';
   static const flu_code_regular = 'flu_code_regular';
   static const flu_collections_add_filled = 'flu_collections_add_filled';
@@ -13927,6 +14522,8 @@ abstract class IconPackNames {
   static const flu_comment_filled = 'flu_comment_filled';
   static const flu_comment_lightning_filled = 'flu_comment_lightning_filled';
   static const flu_comment_lightning_regular = 'flu_comment_lightning_regular';
+  static const flu_comment_link_filled = 'flu_comment_link_filled';
+  static const flu_comment_link_regular = 'flu_comment_link_regular';
   static const flu_comment_mention_filled = 'flu_comment_mention_filled';
   static const flu_comment_mention_regular = 'flu_comment_mention_regular';
   static const flu_comment_multiple_checkmark_filled = 'flu_comment_multiple_checkmark_filled';
@@ -13982,6 +14579,8 @@ abstract class IconPackNames {
   static const flu_copy_arrow_right_regular = 'flu_copy_arrow_right_regular';
   static const flu_copy_filled = 'flu_copy_filled';
   static const flu_copy_regular = 'flu_copy_regular';
+  static const flu_copy_select_filled = 'flu_copy_select_filled';
+  static const flu_copy_select_regular = 'flu_copy_select_regular';
   static const flu_couch_filled = 'flu_couch_filled';
   static const flu_couch_regular = 'flu_couch_regular';
   static const flu_credit_card_clock_filled = 'flu_credit_card_clock_filled';
@@ -13996,6 +14595,12 @@ abstract class IconPackNames {
   static const flu_crop_interim_off_regular = 'flu_crop_interim_off_regular';
   static const flu_crop_interim_regular = 'flu_crop_interim_regular';
   static const flu_crop_regular = 'flu_crop_regular';
+  static const flu_crop_sparkle_filled = 'flu_crop_sparkle_filled';
+  static const flu_crop_sparkle_regular = 'flu_crop_sparkle_regular';
+  static const flu_crown_filled = 'flu_crown_filled';
+  static const flu_crown_regular = 'flu_crown_regular';
+  static const flu_crown_subtract_filled = 'flu_crown_subtract_filled';
+  static const flu_crown_subtract_regular = 'flu_crown_subtract_regular';
   static const flu_cube_filled = 'flu_cube_filled';
   static const flu_cube_multiple_filled = 'flu_cube_multiple_filled';
   static const flu_cube_multiple_regular = 'flu_cube_multiple_regular';
@@ -14082,6 +14687,10 @@ abstract class IconPackNames {
   static const flu_dentist_regular = 'flu_dentist_regular';
   static const flu_design_ideas_filled = 'flu_design_ideas_filled';
   static const flu_design_ideas_regular = 'flu_design_ideas_regular';
+  static const flu_desk_filled = 'flu_desk_filled';
+  static const flu_desk_regular = 'flu_desk_regular';
+  static const flu_desktop_arrow_down_filled = 'flu_desktop_arrow_down_filled';
+  static const flu_desktop_arrow_down_regular = 'flu_desktop_arrow_down_regular';
   static const flu_desktop_arrow_right_filled = 'flu_desktop_arrow_right_filled';
   static const flu_desktop_arrow_right_regular = 'flu_desktop_arrow_right_regular';
   static const flu_desktop_checkmark_filled = 'flu_desktop_checkmark_filled';
@@ -14110,6 +14719,8 @@ abstract class IconPackNames {
   static const flu_desktop_sync_regular = 'flu_desktop_sync_regular';
   static const flu_desktop_toolbox_filled = 'flu_desktop_toolbox_filled';
   static const flu_desktop_toolbox_regular = 'flu_desktop_toolbox_regular';
+  static const flu_desktop_tower_filled = 'flu_desktop_tower_filled';
+  static const flu_desktop_tower_regular = 'flu_desktop_tower_regular';
   static const flu_developer_board_filled = 'flu_developer_board_filled';
   static const flu_developer_board_regular = 'flu_developer_board_regular';
   static const flu_developer_board_search_filled = 'flu_developer_board_search_filled';
@@ -14150,16 +14761,26 @@ abstract class IconPackNames {
   static const flu_dock_row_regular = 'flu_dock_row_regular';
   static const flu_doctor_filled = 'flu_doctor_filled';
   static const flu_doctor_regular = 'flu_doctor_regular';
+  static const flu_document_100_filled = 'flu_document_100_filled';
+  static const flu_document_100_regular = 'flu_document_100_regular';
   static const flu_document_add_filled = 'flu_document_add_filled';
   static const flu_document_add_regular = 'flu_document_add_regular';
   static const flu_document_arrow_left_filled = 'flu_document_arrow_left_filled';
   static const flu_document_arrow_left_regular = 'flu_document_arrow_left_regular';
   static const flu_document_arrow_right_filled = 'flu_document_arrow_right_filled';
   static const flu_document_arrow_right_regular = 'flu_document_arrow_right_regular';
+  static const flu_document_border_filled = 'flu_document_border_filled';
+  static const flu_document_border_print_filled = 'flu_document_border_print_filled';
+  static const flu_document_border_print_regular = 'flu_document_border_print_regular';
+  static const flu_document_border_regular = 'flu_document_border_regular';
   static const flu_document_briefcase_filled = 'flu_document_briefcase_filled';
   static const flu_document_briefcase_regular = 'flu_document_briefcase_regular';
+  static const flu_document_bullet_list_arrow_left_filled = 'flu_document_bullet_list_arrow_left_filled';
+  static const flu_document_bullet_list_arrow_left_regular = 'flu_document_bullet_list_arrow_left_regular';
   static const flu_document_bullet_list_clock_filled = 'flu_document_bullet_list_clock_filled';
   static const flu_document_bullet_list_clock_regular = 'flu_document_bullet_list_clock_regular';
+  static const flu_document_bullet_list_cube_filled = 'flu_document_bullet_list_cube_filled';
+  static const flu_document_bullet_list_cube_regular = 'flu_document_bullet_list_cube_regular';
   static const flu_document_bullet_list_filled = 'flu_document_bullet_list_filled';
   static const flu_document_bullet_list_multiple_filled = 'flu_document_bullet_list_multiple_filled';
   static const flu_document_bullet_list_multiple_regular = 'flu_document_bullet_list_multiple_regular';
@@ -14177,6 +14798,8 @@ abstract class IconPackNames {
   static const flu_document_css_filled = 'flu_document_css_filled';
   static const flu_document_css_regular = 'flu_document_css_regular';
   static const flu_document_data_filled = 'flu_document_data_filled';
+  static const flu_document_data_link_filled = 'flu_document_data_link_filled';
+  static const flu_document_data_link_regular = 'flu_document_data_link_regular';
   static const flu_document_data_regular = 'flu_document_data_regular';
   static const flu_document_database_filled = 'flu_document_database_filled';
   static const flu_document_database_regular = 'flu_document_database_regular';
@@ -14189,8 +14812,12 @@ abstract class IconPackNames {
   static const flu_document_error_filled = 'flu_document_error_filled';
   static const flu_document_error_regular = 'flu_document_error_regular';
   static const flu_document_filled = 'flu_document_filled';
+  static const flu_document_fit_filled = 'flu_document_fit_filled';
+  static const flu_document_fit_regular = 'flu_document_fit_regular';
   static const flu_document_flowchart_filled = 'flu_document_flowchart_filled';
   static const flu_document_flowchart_regular = 'flu_document_flowchart_regular';
+  static const flu_document_folder_filled = 'flu_document_folder_filled';
+  static const flu_document_folder_regular = 'flu_document_folder_regular';
   static const flu_document_footer_dismiss_filled = 'flu_document_footer_dismiss_filled';
   static const flu_document_footer_dismiss_regular = 'flu_document_footer_dismiss_regular';
   static const flu_document_footer_filled = 'flu_document_footer_filled';
@@ -14214,6 +14841,8 @@ abstract class IconPackNames {
   static const flu_document_landscape_filled = 'flu_document_landscape_filled';
   static const flu_document_landscape_regular = 'flu_document_landscape_regular';
   static const flu_document_landscape_split_filled = 'flu_document_landscape_split_filled';
+  static const flu_document_landscape_split_hint_filled = 'flu_document_landscape_split_hint_filled';
+  static const flu_document_landscape_split_hint_regular = 'flu_document_landscape_split_hint_regular';
   static const flu_document_landscape_split_regular = 'flu_document_landscape_split_regular';
   static const flu_document_link_filled = 'flu_document_link_filled';
   static const flu_document_link_regular = 'flu_document_link_regular';
@@ -14229,8 +14858,18 @@ abstract class IconPackNames {
   static const flu_document_multiple_prohibited_filled = 'flu_document_multiple_prohibited_filled';
   static const flu_document_multiple_prohibited_regular = 'flu_document_multiple_prohibited_regular';
   static const flu_document_multiple_regular = 'flu_document_multiple_regular';
+  static const flu_document_one_page_add_filled = 'flu_document_one_page_add_filled';
+  static const flu_document_one_page_add_regular = 'flu_document_one_page_add_regular';
+  static const flu_document_one_page_columns_filled = 'flu_document_one_page_columns_filled';
+  static const flu_document_one_page_columns_regular = 'flu_document_one_page_columns_regular';
   static const flu_document_one_page_filled = 'flu_document_one_page_filled';
+  static const flu_document_one_page_link_filled = 'flu_document_one_page_link_filled';
+  static const flu_document_one_page_link_regular = 'flu_document_one_page_link_regular';
+  static const flu_document_one_page_multiple_filled = 'flu_document_one_page_multiple_filled';
+  static const flu_document_one_page_multiple_regular = 'flu_document_one_page_multiple_regular';
   static const flu_document_one_page_regular = 'flu_document_one_page_regular';
+  static const flu_document_one_page_sparkle_filled = 'flu_document_one_page_sparkle_filled';
+  static const flu_document_one_page_sparkle_regular = 'flu_document_one_page_sparkle_regular';
   static const flu_document_page_bottom_center_filled = 'flu_document_page_bottom_center_filled';
   static const flu_document_page_bottom_center_regular = 'flu_document_page_bottom_center_regular';
   static const flu_document_page_bottom_left_filled = 'flu_document_page_bottom_left_filled';
@@ -14253,6 +14892,8 @@ abstract class IconPackNames {
   static const flu_document_percent_regular = 'flu_document_percent_regular';
   static const flu_document_pill_filled = 'flu_document_pill_filled';
   static const flu_document_pill_regular = 'flu_document_pill_regular';
+  static const flu_document_print_filled = 'flu_document_print_filled';
+  static const flu_document_print_regular = 'flu_document_print_regular';
   static const flu_document_prohibited_filled = 'flu_document_prohibited_filled';
   static const flu_document_prohibited_regular = 'flu_document_prohibited_regular';
   static const flu_document_question_mark_filled = 'flu_document_question_mark_filled';
@@ -14392,10 +15033,14 @@ abstract class IconPackNames {
   static const flu_dual_screen_vibrate_regular = 'flu_dual_screen_vibrate_regular';
   static const flu_dumbbell_filled = 'flu_dumbbell_filled';
   static const flu_dumbbell_regular = 'flu_dumbbell_regular';
+  static const flu_dust_filled = 'flu_dust_filled';
+  static const flu_dust_regular = 'flu_dust_regular';
   static const flu_earth_filled = 'flu_earth_filled';
   static const flu_earth_leaf_filled = 'flu_earth_leaf_filled';
   static const flu_earth_leaf_regular = 'flu_earth_leaf_regular';
   static const flu_earth_regular = 'flu_earth_regular';
+  static const flu_edit_arrow_back_filled = 'flu_edit_arrow_back_filled';
+  static const flu_edit_arrow_back_regular = 'flu_edit_arrow_back_regular';
   static const flu_edit_filled = 'flu_edit_filled';
   static const flu_edit_off_filled = 'flu_edit_off_filled';
   static const flu_edit_off_regular = 'flu_edit_off_regular';
@@ -14415,6 +15060,8 @@ abstract class IconPackNames {
   static const flu_emoji_filled = 'flu_emoji_filled';
   static const flu_emoji_hand_filled = 'flu_emoji_hand_filled';
   static const flu_emoji_hand_regular = 'flu_emoji_hand_regular';
+  static const flu_emoji_hint_filled = 'flu_emoji_hint_filled';
+  static const flu_emoji_hint_regular = 'flu_emoji_hint_regular';
   static const flu_emoji_laugh_filled = 'flu_emoji_laugh_filled';
   static const flu_emoji_laugh_regular = 'flu_emoji_laugh_regular';
   static const flu_emoji_meh_filled = 'flu_emoji_meh_filled';
@@ -14479,7 +15126,11 @@ abstract class IconPackNames {
   static const flu_feed_filled = 'flu_feed_filled';
   static const flu_feed_regular = 'flu_feed_regular';
   static const flu_filmstrip_filled = 'flu_filmstrip_filled';
+  static const flu_filmstrip_play_filled = 'flu_filmstrip_play_filled';
+  static const flu_filmstrip_play_regular = 'flu_filmstrip_play_regular';
   static const flu_filmstrip_regular = 'flu_filmstrip_regular';
+  static const flu_filmstrip_split_filled = 'flu_filmstrip_split_filled';
+  static const flu_filmstrip_split_regular = 'flu_filmstrip_split_regular';
   static const flu_filter_dismiss_filled = 'flu_filter_dismiss_filled';
   static const flu_filter_dismiss_regular = 'flu_filter_dismiss_regular';
   static const flu_filter_filled = 'flu_filter_filled';
@@ -14494,10 +15145,15 @@ abstract class IconPackNames {
   static const flu_fireplace_regular = 'flu_fireplace_regular';
   static const flu_fixed_width_filled = 'flu_fixed_width_filled';
   static const flu_fixed_width_regular = 'flu_fixed_width_regular';
+  static const flu_flag_clock_filled = 'flu_flag_clock_filled';
+  static const flu_flag_clock_regular = 'flu_flag_clock_regular';
   static const flu_flag_filled = 'flu_flag_filled';
   static const flu_flag_off_filled = 'flu_flag_off_filled';
   static const flu_flag_off_regular = 'flu_flag_off_regular';
   static const flu_flag_pride_filled = 'flu_flag_pride_filled';
+  static const flu_flag_pride_intersex_inclusive_progress_filled = 'flu_flag_pride_intersex_inclusive_progress_filled';
+  static const flu_flag_pride_philadelphia_filled = 'flu_flag_pride_philadelphia_filled';
+  static const flu_flag_pride_progress_filled = 'flu_flag_pride_progress_filled';
   static const flu_flag_regular = 'flu_flag_regular';
   static const flu_flash_auto_filled = 'flu_flash_auto_filled';
   static const flu_flash_auto_regular = 'flu_flash_auto_regular';
@@ -14519,6 +15175,8 @@ abstract class IconPackNames {
   static const flu_flip_horizontal_regular = 'flu_flip_horizontal_regular';
   static const flu_flip_vertical_filled = 'flu_flip_vertical_filled';
   static const flu_flip_vertical_regular = 'flu_flip_vertical_regular';
+  static const flu_flow_filled = 'flu_flow_filled';
+  static const flu_flow_regular = 'flu_flow_regular';
   static const flu_flowchart_circle_filled = 'flu_flowchart_circle_filled';
   static const flu_flowchart_circle_regular = 'flu_flowchart_circle_regular';
   static const flu_flowchart_filled = 'flu_flowchart_filled';
@@ -14536,6 +15194,8 @@ abstract class IconPackNames {
   static const flu_folder_arrow_up_filled = 'flu_folder_arrow_up_filled';
   static const flu_folder_arrow_up_regular = 'flu_folder_arrow_up_regular';
   static const flu_folder_filled = 'flu_folder_filled';
+  static const flu_folder_lightning_filled = 'flu_folder_lightning_filled';
+  static const flu_folder_lightning_regular = 'flu_folder_lightning_regular';
   static const flu_folder_link_filled = 'flu_folder_link_filled';
   static const flu_folder_link_regular = 'flu_folder_link_regular';
   static const flu_folder_mail_filled = 'flu_folder_mail_filled';
@@ -14599,6 +15259,8 @@ abstract class IconPackNames {
   static const flu_fps_60_regular = 'flu_fps_60_regular';
   static const flu_fps_960_filled = 'flu_fps_960_filled';
   static const flu_fps_960_regular = 'flu_fps_960_regular';
+  static const flu_frame_filled = 'flu_frame_filled';
+  static const flu_frame_regular = 'flu_frame_regular';
   static const flu_full_screen_maximize_filled = 'flu_full_screen_maximize_filled';
   static const flu_full_screen_maximize_regular = 'flu_full_screen_maximize_regular';
   static const flu_full_screen_minimize_filled = 'flu_full_screen_minimize_filled';
@@ -14630,6 +15292,8 @@ abstract class IconPackNames {
   static const flu_gift_card_multiple_regular = 'flu_gift_card_multiple_regular';
   static const flu_gift_card_regular = 'flu_gift_card_regular';
   static const flu_gift_filled = 'flu_gift_filled';
+  static const flu_gift_open_filled = 'flu_gift_open_filled';
+  static const flu_gift_open_regular = 'flu_gift_open_regular';
   static const flu_gift_regular = 'flu_gift_regular';
   static const flu_glance_filled = 'flu_glance_filled';
   static const flu_glance_horizontal_filled = 'flu_glance_horizontal_filled';
@@ -14697,6 +15361,8 @@ abstract class IconPackNames {
   static const flu_handshake_regular = 'flu_handshake_regular';
   static const flu_hat_graduation_filled = 'flu_hat_graduation_filled';
   static const flu_hat_graduation_regular = 'flu_hat_graduation_regular';
+  static const flu_hat_graduation_sparkle_filled = 'flu_hat_graduation_sparkle_filled';
+  static const flu_hat_graduation_sparkle_regular = 'flu_hat_graduation_sparkle_regular';
   static const flu_hd_filled = 'flu_hd_filled';
   static const flu_hd_regular = 'flu_hd_regular';
   static const flu_hdr_filled = 'flu_hdr_filled';
@@ -14737,6 +15403,8 @@ abstract class IconPackNames {
   static const flu_home_database_filled = 'flu_home_database_filled';
   static const flu_home_database_regular = 'flu_home_database_regular';
   static const flu_home_filled = 'flu_home_filled';
+  static const flu_home_heart_filled = 'flu_home_heart_filled';
+  static const flu_home_heart_regular = 'flu_home_heart_regular';
   static const flu_home_more_filled = 'flu_home_more_filled';
   static const flu_home_more_regular = 'flu_home_more_regular';
   static const flu_home_person_filled = 'flu_home_person_filled';
@@ -14764,6 +15432,10 @@ abstract class IconPackNames {
   static const flu_image_arrow_counterclockwise_regular = 'flu_image_arrow_counterclockwise_regular';
   static const flu_image_arrow_forward_filled = 'flu_image_arrow_forward_filled';
   static const flu_image_arrow_forward_regular = 'flu_image_arrow_forward_regular';
+  static const flu_image_border_filled = 'flu_image_border_filled';
+  static const flu_image_border_regular = 'flu_image_border_regular';
+  static const flu_image_circle_filled = 'flu_image_circle_filled';
+  static const flu_image_circle_regular = 'flu_image_circle_regular';
   static const flu_image_copy_filled = 'flu_image_copy_filled';
   static const flu_image_copy_regular = 'flu_image_copy_regular';
   static const flu_image_edit_filled = 'flu_image_edit_filled';
@@ -14784,6 +15456,10 @@ abstract class IconPackNames {
   static const flu_image_search_regular = 'flu_image_search_regular';
   static const flu_image_shadow_filled = 'flu_image_shadow_filled';
   static const flu_image_shadow_regular = 'flu_image_shadow_regular';
+  static const flu_image_sparkle_filled = 'flu_image_sparkle_filled';
+  static const flu_image_sparkle_regular = 'flu_image_sparkle_regular';
+  static const flu_image_table_filled = 'flu_image_table_filled';
+  static const flu_image_table_regular = 'flu_image_table_regular';
   static const flu_immersive_reader_filled = 'flu_immersive_reader_filled';
   static const flu_immersive_reader_regular = 'flu_immersive_reader_regular';
   static const flu_important_filled = 'flu_important_filled';
@@ -14807,6 +15483,8 @@ abstract class IconPackNames {
   static const flu_ios_arrow_ltr_regular = 'flu_ios_arrow_ltr_regular';
   static const flu_ios_arrow_rtl_filled = 'flu_ios_arrow_rtl_filled';
   static const flu_ios_arrow_rtl_regular = 'flu_ios_arrow_rtl_regular';
+  static const flu_iot_alert_filled = 'flu_iot_alert_filled';
+  static const flu_iot_alert_regular = 'flu_iot_alert_regular';
   static const flu_iot_filled = 'flu_iot_filled';
   static const flu_iot_regular = 'flu_iot_regular';
   static const flu_javascript_filled = 'flu_javascript_filled';
@@ -14837,7 +15515,11 @@ abstract class IconPackNames {
   static const flu_keyboard_shift_uppercase_regular = 'flu_keyboard_shift_uppercase_regular';
   static const flu_keyboard_tab_filled = 'flu_keyboard_tab_filled';
   static const flu_keyboard_tab_regular = 'flu_keyboard_tab_regular';
+  static const flu_kiosk_filled = 'flu_kiosk_filled';
+  static const flu_kiosk_regular = 'flu_kiosk_regular';
   static const flu_laptop_filled = 'flu_laptop_filled';
+  static const flu_laptop_multiple_filled = 'flu_laptop_multiple_filled';
+  static const flu_laptop_multiple_regular = 'flu_laptop_multiple_regular';
   static const flu_laptop_regular = 'flu_laptop_regular';
   static const flu_lasso_filled = 'flu_lasso_filled';
   static const flu_lasso_regular = 'flu_lasso_regular';
@@ -14871,12 +15553,18 @@ abstract class IconPackNames {
   static const flu_line_regular = 'flu_line_regular';
   static const flu_line_style_filled = 'flu_line_style_filled';
   static const flu_line_style_regular = 'flu_line_style_regular';
+  static const flu_line_thickness_filled = 'flu_line_thickness_filled';
+  static const flu_line_thickness_regular = 'flu_line_thickness_regular';
+  static const flu_link_add_filled = 'flu_link_add_filled';
+  static const flu_link_add_regular = 'flu_link_add_regular';
   static const flu_link_dismiss_filled = 'flu_link_dismiss_filled';
   static const flu_link_dismiss_regular = 'flu_link_dismiss_regular';
   static const flu_link_edit_filled = 'flu_link_edit_filled';
   static const flu_link_edit_regular = 'flu_link_edit_regular';
   static const flu_link_filled = 'flu_link_filled';
   static const flu_link_regular = 'flu_link_regular';
+  static const flu_link_settings_filled = 'flu_link_settings_filled';
+  static const flu_link_settings_regular = 'flu_link_settings_regular';
   static const flu_link_square_filled = 'flu_link_square_filled';
   static const flu_link_square_regular = 'flu_link_square_regular';
   static const flu_list_filled = 'flu_list_filled';
@@ -14889,6 +15577,8 @@ abstract class IconPackNames {
   static const flu_local_language_regular = 'flu_local_language_regular';
   static const flu_location_add_filled = 'flu_location_add_filled';
   static const flu_location_add_regular = 'flu_location_add_regular';
+  static const flu_location_arrow_filled = 'flu_location_arrow_filled';
+  static const flu_location_arrow_regular = 'flu_location_arrow_regular';
   static const flu_location_dismiss_filled = 'flu_location_dismiss_filled';
   static const flu_location_dismiss_regular = 'flu_location_dismiss_regular';
   static const flu_location_filled = 'flu_location_filled';
@@ -14898,6 +15588,8 @@ abstract class IconPackNames {
   static const flu_location_off_regular = 'flu_location_off_regular';
   static const flu_location_regular = 'flu_location_regular';
   static const flu_lock_closed_filled = 'flu_lock_closed_filled';
+  static const flu_lock_closed_key_filled = 'flu_lock_closed_key_filled';
+  static const flu_lock_closed_key_regular = 'flu_lock_closed_key_regular';
   static const flu_lock_closed_regular = 'flu_lock_closed_regular';
   static const flu_lock_multiple_filled = 'flu_lock_multiple_filled';
   static const flu_lock_multiple_regular = 'flu_lock_multiple_regular';
@@ -14915,10 +15607,14 @@ abstract class IconPackNames {
   static const flu_mail_alert_regular = 'flu_mail_alert_regular';
   static const flu_mail_all_read_filled = 'flu_mail_all_read_filled';
   static const flu_mail_all_read_regular = 'flu_mail_all_read_regular';
+  static const flu_mail_arrow_double_back_filled = 'flu_mail_arrow_double_back_filled';
+  static const flu_mail_arrow_double_back_regular = 'flu_mail_arrow_double_back_regular';
   static const flu_mail_arrow_up_filled = 'flu_mail_arrow_up_filled';
   static const flu_mail_arrow_up_regular = 'flu_mail_arrow_up_regular';
   static const flu_mail_attach_filled = 'flu_mail_attach_filled';
   static const flu_mail_attach_regular = 'flu_mail_attach_regular';
+  static const flu_mail_checkmark_filled = 'flu_mail_checkmark_filled';
+  static const flu_mail_checkmark_regular = 'flu_mail_checkmark_regular';
   static const flu_mail_clock_filled = 'flu_mail_clock_filled';
   static const flu_mail_clock_regular = 'flu_mail_clock_regular';
   static const flu_mail_copy_filled = 'flu_mail_copy_filled';
@@ -15017,6 +15713,8 @@ abstract class IconPackNames {
   static const flu_midi_regular = 'flu_midi_regular';
   static const flu_mobile_optimized_filled = 'flu_mobile_optimized_filled';
   static const flu_mobile_optimized_regular = 'flu_mobile_optimized_regular';
+  static const flu_mold_filled = 'flu_mold_filled';
+  static const flu_mold_regular = 'flu_mold_regular';
   static const flu_molecule_filled = 'flu_molecule_filled';
   static const flu_molecule_regular = 'flu_molecule_regular';
   static const flu_money_calculator_filled = 'flu_money_calculator_filled';
@@ -15029,12 +15727,20 @@ abstract class IconPackNames {
   static const flu_money_off_filled = 'flu_money_off_filled';
   static const flu_money_off_regular = 'flu_money_off_regular';
   static const flu_money_regular = 'flu_money_regular';
+  static const flu_money_settings_filled = 'flu_money_settings_filled';
+  static const flu_money_settings_regular = 'flu_money_settings_regular';
   static const flu_more_circle_filled = 'flu_more_circle_filled';
   static const flu_more_circle_regular = 'flu_more_circle_regular';
   static const flu_more_horizontal_filled = 'flu_more_horizontal_filled';
   static const flu_more_horizontal_regular = 'flu_more_horizontal_regular';
   static const flu_more_vertical_filled = 'flu_more_vertical_filled';
   static const flu_more_vertical_regular = 'flu_more_vertical_regular';
+  static const flu_mountain_location_bottom_filled = 'flu_mountain_location_bottom_filled';
+  static const flu_mountain_location_bottom_regular = 'flu_mountain_location_bottom_regular';
+  static const flu_mountain_location_top_filled = 'flu_mountain_location_top_filled';
+  static const flu_mountain_location_top_regular = 'flu_mountain_location_top_regular';
+  static const flu_mountain_trail_filled = 'flu_mountain_trail_filled';
+  static const flu_mountain_trail_regular = 'flu_mountain_trail_regular';
   static const flu_movies_and_tv_filled = 'flu_movies_and_tv_filled';
   static const flu_movies_and_tv_regular = 'flu_movies_and_tv_regular';
   static const flu_multiplier_1_2x_filled = 'flu_multiplier_1_2x_filled';
@@ -15165,9 +15871,21 @@ abstract class IconPackNames {
   static const flu_panel_left_expand_regular = 'flu_panel_left_expand_regular';
   static const flu_panel_left_filled = 'flu_panel_left_filled';
   static const flu_panel_left_focus_right_filled = 'flu_panel_left_focus_right_filled';
+  static const flu_panel_left_header_add_filled = 'flu_panel_left_header_add_filled';
+  static const flu_panel_left_header_add_regular = 'flu_panel_left_header_add_regular';
+  static const flu_panel_left_header_filled = 'flu_panel_left_header_filled';
+  static const flu_panel_left_header_key_filled = 'flu_panel_left_header_key_filled';
+  static const flu_panel_left_header_key_regular = 'flu_panel_left_header_key_regular';
+  static const flu_panel_left_header_regular = 'flu_panel_left_header_regular';
   static const flu_panel_left_key_filled = 'flu_panel_left_key_filled';
   static const flu_panel_left_key_regular = 'flu_panel_left_key_regular';
   static const flu_panel_left_regular = 'flu_panel_left_regular';
+  static const flu_panel_left_text_add_filled = 'flu_panel_left_text_add_filled';
+  static const flu_panel_left_text_add_regular = 'flu_panel_left_text_add_regular';
+  static const flu_panel_left_text_dismiss_filled = 'flu_panel_left_text_dismiss_filled';
+  static const flu_panel_left_text_dismiss_regular = 'flu_panel_left_text_dismiss_regular';
+  static const flu_panel_left_text_filled = 'flu_panel_left_text_filled';
+  static const flu_panel_left_text_regular = 'flu_panel_left_text_regular';
   static const flu_panel_right_contract_filled = 'flu_panel_right_contract_filled';
   static const flu_panel_right_contract_regular = 'flu_panel_right_contract_regular';
   static const flu_panel_right_cursor_filled = 'flu_panel_right_cursor_filled';
@@ -15186,22 +15904,30 @@ abstract class IconPackNames {
   static const flu_pause_regular = 'flu_pause_regular';
   static const flu_payment_filled = 'flu_payment_filled';
   static const flu_payment_regular = 'flu_payment_regular';
+  static const flu_pen_dismiss_filled = 'flu_pen_dismiss_filled';
+  static const flu_pen_dismiss_regular = 'flu_pen_dismiss_regular';
   static const flu_pen_filled = 'flu_pen_filled';
   static const flu_pen_off_filled = 'flu_pen_off_filled';
   static const flu_pen_off_regular = 'flu_pen_off_regular';
   static const flu_pen_prohibited_filled = 'flu_pen_prohibited_filled';
   static const flu_pen_prohibited_regular = 'flu_pen_prohibited_regular';
   static const flu_pen_regular = 'flu_pen_regular';
+  static const flu_pen_sparkle_filled = 'flu_pen_sparkle_filled';
+  static const flu_pen_sparkle_regular = 'flu_pen_sparkle_regular';
   static const flu_people_add_filled = 'flu_people_add_filled';
   static const flu_people_add_regular = 'flu_people_add_regular';
   static const flu_people_audience_filled = 'flu_people_audience_filled';
   static const flu_people_audience_regular = 'flu_people_audience_regular';
+  static const flu_people_call_filled = 'flu_people_call_filled';
+  static const flu_people_call_regular = 'flu_people_call_regular';
   static const flu_people_checkmark_filled = 'flu_people_checkmark_filled';
   static const flu_people_checkmark_regular = 'flu_people_checkmark_regular';
   static const flu_people_community_add_filled = 'flu_people_community_add_filled';
   static const flu_people_community_add_regular = 'flu_people_community_add_regular';
   static const flu_people_community_filled = 'flu_people_community_filled';
   static const flu_people_community_regular = 'flu_people_community_regular';
+  static const flu_people_edit_filled = 'flu_people_edit_filled';
+  static const flu_people_edit_regular = 'flu_people_edit_regular';
   static const flu_people_error_filled = 'flu_people_error_filled';
   static const flu_people_error_regular = 'flu_people_error_regular';
   static const flu_people_filled = 'flu_people_filled';
@@ -15265,6 +15991,8 @@ abstract class IconPackNames {
   static const flu_person_filled = 'flu_person_filled';
   static const flu_person_heart_filled = 'flu_person_heart_filled';
   static const flu_person_heart_regular = 'flu_person_heart_regular';
+  static const flu_person_info_filled = 'flu_person_info_filled';
+  static const flu_person_info_regular = 'flu_person_info_regular';
   static const flu_person_lightbulb_filled = 'flu_person_lightbulb_filled';
   static const flu_person_lightbulb_regular = 'flu_person_lightbulb_regular';
   static const flu_person_link_filled = 'flu_person_link_filled';
@@ -15277,6 +16005,8 @@ abstract class IconPackNames {
   static const flu_person_money_regular = 'flu_person_money_regular';
   static const flu_person_note_filled = 'flu_person_note_filled';
   static const flu_person_note_regular = 'flu_person_note_regular';
+  static const flu_person_phone_filled = 'flu_person_phone_filled';
+  static const flu_person_phone_regular = 'flu_person_phone_regular';
   static const flu_person_pill_filled = 'flu_person_pill_filled';
   static const flu_person_pill_regular = 'flu_person_pill_regular';
   static const flu_person_prohibited_filled = 'flu_person_prohibited_filled';
@@ -15284,12 +16014,16 @@ abstract class IconPackNames {
   static const flu_person_question_mark_filled = 'flu_person_question_mark_filled';
   static const flu_person_question_mark_regular = 'flu_person_question_mark_regular';
   static const flu_person_regular = 'flu_person_regular';
+  static const flu_person_search_filled = 'flu_person_search_filled';
+  static const flu_person_search_regular = 'flu_person_search_regular';
   static const flu_person_square_filled = 'flu_person_square_filled';
   static const flu_person_square_regular = 'flu_person_square_regular';
   static const flu_person_star_filled = 'flu_person_star_filled';
   static const flu_person_star_regular = 'flu_person_star_regular';
   static const flu_person_starburst_filled = 'flu_person_starburst_filled';
   static const flu_person_starburst_regular = 'flu_person_starburst_regular';
+  static const flu_person_subtract_filled = 'flu_person_subtract_filled';
+  static const flu_person_subtract_regular = 'flu_person_subtract_regular';
   static const flu_person_support_filled = 'flu_person_support_filled';
   static const flu_person_support_regular = 'flu_person_support_regular';
   static const flu_person_swap_filled = 'flu_person_swap_filled';
@@ -15306,12 +16040,16 @@ abstract class IconPackNames {
   static const flu_phone_add_regular = 'flu_phone_add_regular';
   static const flu_phone_arrow_right_filled = 'flu_phone_arrow_right_filled';
   static const flu_phone_arrow_right_regular = 'flu_phone_arrow_right_regular';
+  static const flu_phone_briefcase_filled = 'flu_phone_briefcase_filled';
+  static const flu_phone_briefcase_regular = 'flu_phone_briefcase_regular';
   static const flu_phone_chat_filled = 'flu_phone_chat_filled';
   static const flu_phone_chat_regular = 'flu_phone_chat_regular';
   static const flu_phone_desktop_filled = 'flu_phone_desktop_filled';
   static const flu_phone_desktop_regular = 'flu_phone_desktop_regular';
   static const flu_phone_dismiss_filled = 'flu_phone_dismiss_filled';
   static const flu_phone_dismiss_regular = 'flu_phone_dismiss_regular';
+  static const flu_phone_edit_filled = 'flu_phone_edit_filled';
+  static const flu_phone_edit_regular = 'flu_phone_edit_regular';
   static const flu_phone_filled = 'flu_phone_filled';
   static const flu_phone_key_filled = 'flu_phone_key_filled';
   static const flu_phone_key_regular = 'flu_phone_key_regular';
@@ -15321,10 +16059,16 @@ abstract class IconPackNames {
   static const flu_phone_link_setup_regular = 'flu_phone_link_setup_regular';
   static const flu_phone_lock_filled = 'flu_phone_lock_filled';
   static const flu_phone_lock_regular = 'flu_phone_lock_regular';
+  static const flu_phone_multiple_filled = 'flu_phone_multiple_filled';
+  static const flu_phone_multiple_regular = 'flu_phone_multiple_regular';
+  static const flu_phone_multiple_settings_filled = 'flu_phone_multiple_settings_filled';
+  static const flu_phone_multiple_settings_regular = 'flu_phone_multiple_settings_regular';
   static const flu_phone_page_header_filled = 'flu_phone_page_header_filled';
   static const flu_phone_page_header_regular = 'flu_phone_page_header_regular';
   static const flu_phone_pagination_filled = 'flu_phone_pagination_filled';
   static const flu_phone_pagination_regular = 'flu_phone_pagination_regular';
+  static const flu_phone_person_filled = 'flu_phone_person_filled';
+  static const flu_phone_person_regular = 'flu_phone_person_regular';
   static const flu_phone_regular = 'flu_phone_regular';
   static const flu_phone_screen_time_filled = 'flu_phone_screen_time_filled';
   static const flu_phone_screen_time_regular = 'flu_phone_screen_time_regular';
@@ -15338,6 +16082,8 @@ abstract class IconPackNames {
   static const flu_phone_speaker_regular = 'flu_phone_speaker_regular';
   static const flu_phone_status_bar_filled = 'flu_phone_status_bar_filled';
   static const flu_phone_status_bar_regular = 'flu_phone_status_bar_regular';
+  static const flu_phone_subtract_filled = 'flu_phone_subtract_filled';
+  static const flu_phone_subtract_regular = 'flu_phone_subtract_regular';
   static const flu_phone_tablet_filled = 'flu_phone_tablet_filled';
   static const flu_phone_tablet_regular = 'flu_phone_tablet_regular';
   static const flu_phone_update_checkmark_filled = 'flu_phone_update_checkmark_filled';
@@ -15368,17 +16114,27 @@ abstract class IconPackNames {
   static const flu_pipeline_regular = 'flu_pipeline_regular';
   static const flu_pivot_filled = 'flu_pivot_filled';
   static const flu_pivot_regular = 'flu_pivot_regular';
+  static const flu_plant_grass_filled = 'flu_plant_grass_filled';
+  static const flu_plant_grass_regular = 'flu_plant_grass_regular';
+  static const flu_plant_ragweed_filled = 'flu_plant_ragweed_filled';
+  static const flu_plant_ragweed_regular = 'flu_plant_ragweed_regular';
   static const flu_play_circle_filled = 'flu_play_circle_filled';
+  static const flu_play_circle_hint_filled = 'flu_play_circle_hint_filled';
+  static const flu_play_circle_hint_regular = 'flu_play_circle_hint_regular';
   static const flu_play_circle_regular = 'flu_play_circle_regular';
   static const flu_play_filled = 'flu_play_filled';
   static const flu_play_regular = 'flu_play_regular';
   static const flu_plug_connected_filled = 'flu_plug_connected_filled';
   static const flu_plug_connected_regular = 'flu_plug_connected_regular';
+  static const flu_plug_connected_settings_filled = 'flu_plug_connected_settings_filled';
+  static const flu_plug_connected_settings_regular = 'flu_plug_connected_settings_regular';
   static const flu_plug_disconnected_filled = 'flu_plug_disconnected_filled';
   static const flu_plug_disconnected_regular = 'flu_plug_disconnected_regular';
   static const flu_point_scan_filled = 'flu_point_scan_filled';
   static const flu_point_scan_regular = 'flu_point_scan_regular';
   static const flu_poll_filled = 'flu_poll_filled';
+  static const flu_poll_horizontal_filled = 'flu_poll_horizontal_filled';
+  static const flu_poll_horizontal_regular = 'flu_poll_horizontal_regular';
   static const flu_poll_regular = 'flu_poll_regular';
   static const flu_port_hdmi_filled = 'flu_port_hdmi_filled';
   static const flu_port_hdmi_regular = 'flu_port_hdmi_regular';
@@ -15407,6 +16163,7 @@ abstract class IconPackNames {
   static const flu_presence_available_filled = 'flu_presence_available_filled';
   static const flu_presence_available_regular = 'flu_presence_available_regular';
   static const flu_presence_away_filled = 'flu_presence_away_filled';
+  static const flu_presence_away_regular = 'flu_presence_away_regular';
   static const flu_presence_blocked_regular = 'flu_presence_blocked_regular';
   static const flu_presence_busy_filled = 'flu_presence_busy_filled';
   static const flu_presence_dnd_filled = 'flu_presence_dnd_filled';
@@ -15438,6 +16195,8 @@ abstract class IconPackNames {
   static const flu_projection_screen_dismiss_regular = 'flu_projection_screen_dismiss_regular';
   static const flu_projection_screen_filled = 'flu_projection_screen_filled';
   static const flu_projection_screen_regular = 'flu_projection_screen_regular';
+  static const flu_projection_screen_text_filled = 'flu_projection_screen_text_filled';
+  static const flu_projection_screen_text_regular = 'flu_projection_screen_text_regular';
   static const flu_protocol_handler_filled = 'flu_protocol_handler_filled';
   static const flu_protocol_handler_regular = 'flu_protocol_handler_regular';
   static const flu_pulse_filled = 'flu_pulse_filled';
@@ -15497,6 +16256,8 @@ abstract class IconPackNames {
   static const flu_record_stop_filled = 'flu_record_stop_filled';
   static const flu_record_stop_regular = 'flu_record_stop_regular';
   static const flu_rectangle_landscape_filled = 'flu_rectangle_landscape_filled';
+  static const flu_rectangle_landscape_hint_copy_filled = 'flu_rectangle_landscape_hint_copy_filled';
+  static const flu_rectangle_landscape_hint_copy_regular = 'flu_rectangle_landscape_hint_copy_regular';
   static const flu_rectangle_landscape_regular = 'flu_rectangle_landscape_regular';
   static const flu_rename_filled = 'flu_rename_filled';
   static const flu_rename_regular = 'flu_rename_regular';
@@ -15592,6 +16353,8 @@ abstract class IconPackNames {
   static const flu_screen_search_regular = 'flu_screen_search_regular';
   static const flu_screenshot_filled = 'flu_screenshot_filled';
   static const flu_screenshot_regular = 'flu_screenshot_regular';
+  static const flu_script_filled = 'flu_script_filled';
+  static const flu_script_regular = 'flu_script_regular';
   static const flu_search_filled = 'flu_search_filled';
   static const flu_search_info_filled = 'flu_search_info_filled';
   static const flu_search_info_regular = 'flu_search_info_regular';
@@ -15612,6 +16375,8 @@ abstract class IconPackNames {
   static const flu_select_object_skew_edit_regular = 'flu_select_object_skew_edit_regular';
   static const flu_select_object_skew_filled = 'flu_select_object_skew_filled';
   static const flu_select_object_skew_regular = 'flu_select_object_skew_regular';
+  static const flu_send_beaker_filled = 'flu_send_beaker_filled';
+  static const flu_send_beaker_regular = 'flu_send_beaker_regular';
   static const flu_send_clock_filled = 'flu_send_clock_filled';
   static const flu_send_clock_regular = 'flu_send_clock_regular';
   static const flu_send_copy_filled = 'flu_send_copy_filled';
@@ -15621,11 +16386,15 @@ abstract class IconPackNames {
   static const flu_serial_port_filled = 'flu_serial_port_filled';
   static const flu_serial_port_regular = 'flu_serial_port_regular';
   static const flu_server_filled = 'flu_server_filled';
+  static const flu_server_link_filled = 'flu_server_link_filled';
+  static const flu_server_link_regular = 'flu_server_link_regular';
   static const flu_server_regular = 'flu_server_regular';
   static const flu_service_bell_filled = 'flu_service_bell_filled';
   static const flu_service_bell_regular = 'flu_service_bell_regular';
   static const flu_settings_chat_filled = 'flu_settings_chat_filled';
   static const flu_settings_chat_regular = 'flu_settings_chat_regular';
+  static const flu_settings_cog_multiple_filled = 'flu_settings_cog_multiple_filled';
+  static const flu_settings_cog_multiple_regular = 'flu_settings_cog_multiple_regular';
   static const flu_settings_filled = 'flu_settings_filled';
   static const flu_settings_regular = 'flu_settings_regular';
   static const flu_shape_exclude_filled = 'flu_shape_exclude_filled';
@@ -15736,12 +16505,16 @@ abstract class IconPackNames {
   static const flu_skip_forward_30_regular = 'flu_skip_forward_30_regular';
   static const flu_skip_forward_tab_filled = 'flu_skip_forward_tab_filled';
   static const flu_skip_forward_tab_regular = 'flu_skip_forward_tab_regular';
+  static const flu_slash_forward_filled = 'flu_slash_forward_filled';
+  static const flu_slash_forward_regular = 'flu_slash_forward_regular';
   static const flu_sleep_filled = 'flu_sleep_filled';
   static const flu_sleep_regular = 'flu_sleep_regular';
   static const flu_slide_add_filled = 'flu_slide_add_filled';
   static const flu_slide_add_regular = 'flu_slide_add_regular';
   static const flu_slide_arrow_right_filled = 'flu_slide_arrow_right_filled';
   static const flu_slide_arrow_right_regular = 'flu_slide_arrow_right_regular';
+  static const flu_slide_content_filled = 'flu_slide_content_filled';
+  static const flu_slide_content_regular = 'flu_slide_content_regular';
   static const flu_slide_eraser_filled = 'flu_slide_eraser_filled';
   static const flu_slide_eraser_regular = 'flu_slide_eraser_regular';
   static const flu_slide_grid_filled = 'flu_slide_grid_filled';
@@ -15760,6 +16533,8 @@ abstract class IconPackNames {
   static const flu_slide_multiple_regular = 'flu_slide_multiple_regular';
   static const flu_slide_multiple_search_filled = 'flu_slide_multiple_search_filled';
   static const flu_slide_multiple_search_regular = 'flu_slide_multiple_search_regular';
+  static const flu_slide_record_filled = 'flu_slide_record_filled';
+  static const flu_slide_record_regular = 'flu_slide_record_regular';
   static const flu_slide_search_filled = 'flu_slide_search_filled';
   static const flu_slide_search_regular = 'flu_slide_search_regular';
   static const flu_slide_settings_filled = 'flu_slide_settings_filled';
@@ -15772,6 +16547,8 @@ abstract class IconPackNames {
   static const flu_slide_text_person_filled = 'flu_slide_text_person_filled';
   static const flu_slide_text_person_regular = 'flu_slide_text_person_regular';
   static const flu_slide_text_regular = 'flu_slide_text_regular';
+  static const flu_slide_text_sparkle_filled = 'flu_slide_text_sparkle_filled';
+  static const flu_slide_text_sparkle_regular = 'flu_slide_text_sparkle_regular';
   static const flu_slide_transition_filled = 'flu_slide_transition_filled';
   static const flu_slide_transition_regular = 'flu_slide_transition_regular';
   static const flu_smartwatch_dot_filled = 'flu_smartwatch_dot_filled';
@@ -15784,6 +16561,8 @@ abstract class IconPackNames {
   static const flu_sound_source_regular = 'flu_sound_source_regular';
   static const flu_sound_wave_circle_filled = 'flu_sound_wave_circle_filled';
   static const flu_sound_wave_circle_regular = 'flu_sound_wave_circle_regular';
+  static const flu_space_3d_filled = 'flu_space_3d_filled';
+  static const flu_space_3d_regular = 'flu_space_3d_regular';
   static const flu_spacebar_filled = 'flu_spacebar_filled';
   static const flu_spacebar_regular = 'flu_spacebar_regular';
   static const flu_sparkle_circle_filled = 'flu_sparkle_circle_filled';
@@ -15836,18 +16615,26 @@ abstract class IconPackNames {
   static const flu_square_multiple_filled = 'flu_square_multiple_filled';
   static const flu_square_multiple_regular = 'flu_square_multiple_regular';
   static const flu_square_regular = 'flu_square_regular';
+  static const flu_stack_add_filled = 'flu_stack_add_filled';
+  static const flu_stack_add_regular = 'flu_stack_add_regular';
   static const flu_stack_arrow_forward_filled = 'flu_stack_arrow_forward_filled';
   static const flu_stack_arrow_forward_regular = 'flu_stack_arrow_forward_regular';
   static const flu_stack_filled = 'flu_stack_filled';
   static const flu_stack_regular = 'flu_stack_regular';
   static const flu_stack_star_filled = 'flu_stack_star_filled';
   static const flu_stack_star_regular = 'flu_stack_star_regular';
+  static const flu_stack_vertical_filled = 'flu_stack_vertical_filled';
+  static const flu_stack_vertical_regular = 'flu_stack_vertical_regular';
   static const flu_star_add_filled = 'flu_star_add_filled';
   static const flu_star_add_regular = 'flu_star_add_regular';
+  static const flu_star_arrow_back_filled = 'flu_star_arrow_back_filled';
+  static const flu_star_arrow_back_regular = 'flu_star_arrow_back_regular';
   static const flu_star_arrow_right_end_filled = 'flu_star_arrow_right_end_filled';
   static const flu_star_arrow_right_end_regular = 'flu_star_arrow_right_end_regular';
   static const flu_star_arrow_right_start_filled = 'flu_star_arrow_right_start_filled';
   static const flu_star_arrow_right_start_regular = 'flu_star_arrow_right_start_regular';
+  static const flu_star_checkmark_filled = 'flu_star_checkmark_filled';
+  static const flu_star_checkmark_regular = 'flu_star_checkmark_regular';
   static const flu_star_dismiss_filled = 'flu_star_dismiss_filled';
   static const flu_star_dismiss_regular = 'flu_star_dismiss_regular';
   static const flu_star_edit_filled = 'flu_star_edit_filled';
@@ -15929,6 +16716,8 @@ abstract class IconPackNames {
   static const flu_tab_desktop_filled = 'flu_tab_desktop_filled';
   static const flu_tab_desktop_image_filled = 'flu_tab_desktop_image_filled';
   static const flu_tab_desktop_image_regular = 'flu_tab_desktop_image_regular';
+  static const flu_tab_desktop_link_filled = 'flu_tab_desktop_link_filled';
+  static const flu_tab_desktop_link_regular = 'flu_tab_desktop_link_regular';
   static const flu_tab_desktop_multiple_bottom_filled = 'flu_tab_desktop_multiple_bottom_filled';
   static const flu_tab_desktop_multiple_bottom_regular = 'flu_tab_desktop_multiple_bottom_regular';
   static const flu_tab_desktop_regular = 'flu_tab_desktop_regular';
@@ -15944,6 +16733,8 @@ abstract class IconPackNames {
   static const flu_tab_shield_dismiss_regular = 'flu_tab_shield_dismiss_regular';
   static const flu_table_add_filled = 'flu_table_add_filled';
   static const flu_table_add_regular = 'flu_table_add_regular';
+  static const flu_table_arrow_up_filled = 'flu_table_arrow_up_filled';
+  static const flu_table_arrow_up_regular = 'flu_table_arrow_up_regular';
   static const flu_table_bottom_row_filled = 'flu_table_bottom_row_filled';
   static const flu_table_bottom_row_regular = 'flu_table_bottom_row_regular';
   static const flu_table_cell_edit_filled = 'flu_table_cell_edit_filled';
@@ -15952,6 +16743,8 @@ abstract class IconPackNames {
   static const flu_table_cells_merge_regular = 'flu_table_cells_merge_regular';
   static const flu_table_cells_split_filled = 'flu_table_cells_split_filled';
   static const flu_table_cells_split_regular = 'flu_table_cells_split_regular';
+  static const flu_table_column_top_bottom_filled = 'flu_table_column_top_bottom_filled';
+  static const flu_table_column_top_bottom_regular = 'flu_table_column_top_bottom_regular';
   static const flu_table_delete_column_filled = 'flu_table_delete_column_filled';
   static const flu_table_delete_column_regular = 'flu_table_delete_column_regular';
   static const flu_table_delete_row_filled = 'flu_table_delete_row_filled';
@@ -15985,6 +16778,14 @@ abstract class IconPackNames {
   static const flu_table_move_left_regular = 'flu_table_move_left_regular';
   static const flu_table_move_right_filled = 'flu_table_move_right_filled';
   static const flu_table_move_right_regular = 'flu_table_move_right_regular';
+  static const flu_table_offset_add_filled = 'flu_table_offset_add_filled';
+  static const flu_table_offset_add_regular = 'flu_table_offset_add_regular';
+  static const flu_table_offset_filled = 'flu_table_offset_filled';
+  static const flu_table_offset_less_than_or_equal_to_filled = 'flu_table_offset_less_than_or_equal_to_filled';
+  static const flu_table_offset_less_than_or_equal_to_regular = 'flu_table_offset_less_than_or_equal_to_regular';
+  static const flu_table_offset_regular = 'flu_table_offset_regular';
+  static const flu_table_offset_settings_filled = 'flu_table_offset_settings_filled';
+  static const flu_table_offset_settings_regular = 'flu_table_offset_settings_regular';
   static const flu_table_regular = 'flu_table_regular';
   static const flu_table_resize_column_filled = 'flu_table_resize_column_filled';
   static const flu_table_resize_column_regular = 'flu_table_resize_column_regular';
@@ -15994,7 +16795,13 @@ abstract class IconPackNames {
   static const flu_table_settings_regular = 'flu_table_settings_regular';
   static const flu_table_simple_checkmark_filled = 'flu_table_simple_checkmark_filled';
   static const flu_table_simple_checkmark_regular = 'flu_table_simple_checkmark_regular';
+  static const flu_table_simple_exclude_filled = 'flu_table_simple_exclude_filled';
+  static const flu_table_simple_exclude_regular = 'flu_table_simple_exclude_regular';
   static const flu_table_simple_filled = 'flu_table_simple_filled';
+  static const flu_table_simple_include_filled = 'flu_table_simple_include_filled';
+  static const flu_table_simple_include_regular = 'flu_table_simple_include_regular';
+  static const flu_table_simple_multiple_filled = 'flu_table_simple_multiple_filled';
+  static const flu_table_simple_multiple_regular = 'flu_table_simple_multiple_regular';
   static const flu_table_simple_regular = 'flu_table_simple_regular';
   static const flu_table_stack_above_filled = 'flu_table_stack_above_filled';
   static const flu_table_stack_above_regular = 'flu_table_stack_above_regular';
@@ -16007,6 +16814,8 @@ abstract class IconPackNames {
   static const flu_table_switch_filled = 'flu_table_switch_filled';
   static const flu_table_switch_regular = 'flu_table_switch_regular';
   static const flu_tablet_filled = 'flu_tablet_filled';
+  static const flu_tablet_laptop_filled = 'flu_tablet_laptop_filled';
+  static const flu_tablet_laptop_regular = 'flu_tablet_laptop_regular';
   static const flu_tablet_regular = 'flu_tablet_regular';
   static const flu_tablet_speaker_filled = 'flu_tablet_speaker_filled';
   static const flu_tablet_speaker_regular = 'flu_tablet_speaker_regular';
@@ -16082,6 +16891,8 @@ abstract class IconPackNames {
   static const flu_text_align_distributed_vertical_filled = 'flu_text_align_distributed_vertical_filled';
   static const flu_text_align_distributed_vertical_regular = 'flu_text_align_distributed_vertical_regular';
   static const flu_text_align_justify_filled = 'flu_text_align_justify_filled';
+  static const flu_text_align_justify_low_90_filled = 'flu_text_align_justify_low_90_filled';
+  static const flu_text_align_justify_low_90_regular = 'flu_text_align_justify_low_90_regular';
   static const flu_text_align_justify_low_filled = 'flu_text_align_justify_low_filled';
   static const flu_text_align_justify_low_regular = 'flu_text_align_justify_low_regular';
   static const flu_text_align_justify_low_rotate_270_filled = 'flu_text_align_justify_low_rotate_270_filled';
@@ -16111,18 +16922,20 @@ abstract class IconPackNames {
   static const flu_text_box_settings_regular = 'flu_text_box_settings_regular';
   static const flu_text_bullet_list_add_filled = 'flu_text_bullet_list_add_filled';
   static const flu_text_bullet_list_add_regular = 'flu_text_bullet_list_add_regular';
+  static const flu_text_bullet_list_ltr_90_filled = 'flu_text_bullet_list_ltr_90_filled';
+  static const flu_text_bullet_list_ltr_90_regular = 'flu_text_bullet_list_ltr_90_regular';
   static const flu_text_bullet_list_ltr_filled = 'flu_text_bullet_list_ltr_filled';
   static const flu_text_bullet_list_ltr_regular = 'flu_text_bullet_list_ltr_regular';
-  static const flu_text_bullet_list_rotate_270_filled = 'flu_text_bullet_list_rotate_270_filled';
-  static const flu_text_bullet_list_rotate_270_regular = 'flu_text_bullet_list_rotate_270_regular';
-  static const flu_text_bullet_list_rotate_90_filled = 'flu_text_bullet_list_rotate_90_filled';
-  static const flu_text_bullet_list_rotate_90_regular = 'flu_text_bullet_list_rotate_90_regular';
+  static const flu_text_bullet_list_ltr_rotate_270_filled = 'flu_text_bullet_list_ltr_rotate_270_filled';
+  static const flu_text_bullet_list_ltr_rotate_270_regular = 'flu_text_bullet_list_ltr_rotate_270_regular';
   static const flu_text_bullet_list_rtl_filled = 'flu_text_bullet_list_rtl_filled';
   static const flu_text_bullet_list_rtl_regular = 'flu_text_bullet_list_rtl_regular';
   static const flu_text_bullet_list_square_edit_filled = 'flu_text_bullet_list_square_edit_filled';
   static const flu_text_bullet_list_square_edit_regular = 'flu_text_bullet_list_square_edit_regular';
   static const flu_text_bullet_list_square_filled = 'flu_text_bullet_list_square_filled';
   static const flu_text_bullet_list_square_regular = 'flu_text_bullet_list_square_regular';
+  static const flu_text_bullet_list_square_sparkle_filled = 'flu_text_bullet_list_square_sparkle_filled';
+  static const flu_text_bullet_list_square_sparkle_regular = 'flu_text_bullet_list_square_sparkle_regular';
   static const flu_text_bullet_list_square_warning_filled = 'flu_text_bullet_list_square_warning_filled';
   static const flu_text_bullet_list_square_warning_regular = 'flu_text_bullet_list_square_warning_regular';
   static const flu_text_bullet_list_tree_filled = 'flu_text_bullet_list_tree_filled';
@@ -16146,6 +16959,8 @@ abstract class IconPackNames {
   static const flu_text_column_one_narrow_filled = 'flu_text_column_one_narrow_filled';
   static const flu_text_column_one_narrow_regular = 'flu_text_column_one_narrow_regular';
   static const flu_text_column_one_regular = 'flu_text_column_one_regular';
+  static const flu_text_column_one_semi_narrow_filled = 'flu_text_column_one_semi_narrow_filled';
+  static const flu_text_column_one_semi_narrow_regular = 'flu_text_column_one_semi_narrow_regular';
   static const flu_text_column_one_wide_filled = 'flu_text_column_one_wide_filled';
   static const flu_text_column_one_wide_lightning_filled = 'flu_text_column_one_wide_lightning_filled';
   static const flu_text_column_one_wide_lightning_regular = 'flu_text_column_one_wide_lightning_regular';
@@ -16163,7 +16978,11 @@ abstract class IconPackNames {
   static const flu_text_density_filled = 'flu_text_density_filled';
   static const flu_text_density_regular = 'flu_text_density_regular';
   static const flu_text_description_filled = 'flu_text_description_filled';
+  static const flu_text_description_ltr_filled = 'flu_text_description_ltr_filled';
+  static const flu_text_description_ltr_regular = 'flu_text_description_ltr_regular';
   static const flu_text_description_regular = 'flu_text_description_regular';
+  static const flu_text_description_rtl_filled = 'flu_text_description_rtl_filled';
+  static const flu_text_description_rtl_regular = 'flu_text_description_rtl_regular';
   static const flu_text_direction_horizontal_left_filled = 'flu_text_direction_horizontal_left_filled';
   static const flu_text_direction_horizontal_left_regular = 'flu_text_direction_horizontal_left_regular';
   static const flu_text_direction_horizontal_ltr_filled = 'flu_text_direction_horizontal_ltr_filled';
@@ -16174,6 +16993,10 @@ abstract class IconPackNames {
   static const flu_text_direction_horizontal_rtl_regular = 'flu_text_direction_horizontal_rtl_regular';
   static const flu_text_direction_rotate_270_right_filled = 'flu_text_direction_rotate_270_right_filled';
   static const flu_text_direction_rotate_270_right_regular = 'flu_text_direction_rotate_270_right_regular';
+  static const flu_text_direction_rotate_315_right_filled = 'flu_text_direction_rotate_315_right_filled';
+  static const flu_text_direction_rotate_315_right_regular = 'flu_text_direction_rotate_315_right_regular';
+  static const flu_text_direction_rotate_45_right_filled = 'flu_text_direction_rotate_45_right_filled';
+  static const flu_text_direction_rotate_45_right_regular = 'flu_text_direction_rotate_45_right_regular';
   static const flu_text_direction_rotate_90_left_filled = 'flu_text_direction_rotate_90_left_filled';
   static const flu_text_direction_rotate_90_left_regular = 'flu_text_direction_rotate_90_left_regular';
   static const flu_text_direction_rotate_90_ltr_filled = 'flu_text_direction_rotate_90_ltr_filled';
@@ -16222,22 +17045,38 @@ abstract class IconPackNames {
   static const flu_text_header_2_regular = 'flu_text_header_2_regular';
   static const flu_text_header_3_filled = 'flu_text_header_3_filled';
   static const flu_text_header_3_regular = 'flu_text_header_3_regular';
+  static const flu_text_indent_decrease_ltr_90_filled = 'flu_text_indent_decrease_ltr_90_filled';
+  static const flu_text_indent_decrease_ltr_90_regular = 'flu_text_indent_decrease_ltr_90_regular';
   static const flu_text_indent_decrease_ltr_filled = 'flu_text_indent_decrease_ltr_filled';
   static const flu_text_indent_decrease_ltr_regular = 'flu_text_indent_decrease_ltr_regular';
+  static const flu_text_indent_decrease_ltr_rotate_270_filled = 'flu_text_indent_decrease_ltr_rotate_270_filled';
+  static const flu_text_indent_decrease_ltr_rotate_270_regular = 'flu_text_indent_decrease_ltr_rotate_270_regular';
   static const flu_text_indent_decrease_rotate_270_filled = 'flu_text_indent_decrease_rotate_270_filled';
   static const flu_text_indent_decrease_rotate_270_regular = 'flu_text_indent_decrease_rotate_270_regular';
   static const flu_text_indent_decrease_rotate_90_filled = 'flu_text_indent_decrease_rotate_90_filled';
   static const flu_text_indent_decrease_rotate_90_regular = 'flu_text_indent_decrease_rotate_90_regular';
+  static const flu_text_indent_decrease_rtl_90_filled = 'flu_text_indent_decrease_rtl_90_filled';
+  static const flu_text_indent_decrease_rtl_90_regular = 'flu_text_indent_decrease_rtl_90_regular';
   static const flu_text_indent_decrease_rtl_filled = 'flu_text_indent_decrease_rtl_filled';
   static const flu_text_indent_decrease_rtl_regular = 'flu_text_indent_decrease_rtl_regular';
+  static const flu_text_indent_decrease_rtl_rotate_270_filled = 'flu_text_indent_decrease_rtl_rotate_270_filled';
+  static const flu_text_indent_decrease_rtl_rotate_270_regular = 'flu_text_indent_decrease_rtl_rotate_270_regular';
+  static const flu_text_indent_increase_ltr_90_filled = 'flu_text_indent_increase_ltr_90_filled';
+  static const flu_text_indent_increase_ltr_90_regular = 'flu_text_indent_increase_ltr_90_regular';
   static const flu_text_indent_increase_ltr_filled = 'flu_text_indent_increase_ltr_filled';
   static const flu_text_indent_increase_ltr_regular = 'flu_text_indent_increase_ltr_regular';
+  static const flu_text_indent_increase_ltr_rotate_270_filled = 'flu_text_indent_increase_ltr_rotate_270_filled';
+  static const flu_text_indent_increase_ltr_rotate_270_regular = 'flu_text_indent_increase_ltr_rotate_270_regular';
   static const flu_text_indent_increase_rotate_270_filled = 'flu_text_indent_increase_rotate_270_filled';
   static const flu_text_indent_increase_rotate_270_regular = 'flu_text_indent_increase_rotate_270_regular';
   static const flu_text_indent_increase_rotate_90_filled = 'flu_text_indent_increase_rotate_90_filled';
   static const flu_text_indent_increase_rotate_90_regular = 'flu_text_indent_increase_rotate_90_regular';
+  static const flu_text_indent_increase_rtl_90_filled = 'flu_text_indent_increase_rtl_90_filled';
+  static const flu_text_indent_increase_rtl_90_regular = 'flu_text_indent_increase_rtl_90_regular';
   static const flu_text_indent_increase_rtl_filled = 'flu_text_indent_increase_rtl_filled';
   static const flu_text_indent_increase_rtl_regular = 'flu_text_indent_increase_rtl_regular';
+  static const flu_text_indent_increase_rtl_rotate_270_filled = 'flu_text_indent_increase_rtl_rotate_270_filled';
+  static const flu_text_indent_increase_rtl_rotate_270_regular = 'flu_text_indent_increase_rtl_rotate_270_regular';
   static const flu_text_italic_filled = 'flu_text_italic_filled';
   static const flu_text_italic_regular = 'flu_text_italic_regular';
   static const flu_text_line_spacing_filled = 'flu_text_line_spacing_filled';
@@ -16246,14 +17085,22 @@ abstract class IconPackNames {
   static const flu_text_more_regular = 'flu_text_more_regular';
   static const flu_text_number_format_filled = 'flu_text_number_format_filled';
   static const flu_text_number_format_regular = 'flu_text_number_format_regular';
+  static const flu_text_number_list_ltr_90_filled = 'flu_text_number_list_ltr_90_filled';
+  static const flu_text_number_list_ltr_90_regular = 'flu_text_number_list_ltr_90_regular';
   static const flu_text_number_list_ltr_filled = 'flu_text_number_list_ltr_filled';
   static const flu_text_number_list_ltr_regular = 'flu_text_number_list_ltr_regular';
+  static const flu_text_number_list_ltr_rotate_270_filled = 'flu_text_number_list_ltr_rotate_270_filled';
+  static const flu_text_number_list_ltr_rotate_270_regular = 'flu_text_number_list_ltr_rotate_270_regular';
   static const flu_text_number_list_rotate_270_filled = 'flu_text_number_list_rotate_270_filled';
   static const flu_text_number_list_rotate_270_regular = 'flu_text_number_list_rotate_270_regular';
   static const flu_text_number_list_rotate_90_filled = 'flu_text_number_list_rotate_90_filled';
   static const flu_text_number_list_rotate_90_regular = 'flu_text_number_list_rotate_90_regular';
+  static const flu_text_number_list_rtl_90_filled = 'flu_text_number_list_rtl_90_filled';
+  static const flu_text_number_list_rtl_90_regular = 'flu_text_number_list_rtl_90_regular';
   static const flu_text_number_list_rtl_filled = 'flu_text_number_list_rtl_filled';
   static const flu_text_number_list_rtl_regular = 'flu_text_number_list_rtl_regular';
+  static const flu_text_number_list_rtl_rotate_270_filled = 'flu_text_number_list_rtl_rotate_270_filled';
+  static const flu_text_number_list_rtl_rotate_270_regular = 'flu_text_number_list_rtl_rotate_270_regular';
   static const flu_text_paragraph_direction_filled = 'flu_text_paragraph_direction_filled';
   static const flu_text_paragraph_direction_regular = 'flu_text_paragraph_direction_regular';
   static const flu_text_paragraph_filled = 'flu_text_paragraph_filled';
@@ -16265,7 +17112,11 @@ abstract class IconPackNames {
   static const flu_text_position_line_filled = 'flu_text_position_line_filled';
   static const flu_text_position_line_regular = 'flu_text_position_line_regular';
   static const flu_text_position_square_filled = 'flu_text_position_square_filled';
+  static const flu_text_position_square_left_filled = 'flu_text_position_square_left_filled';
+  static const flu_text_position_square_left_regular = 'flu_text_position_square_left_regular';
   static const flu_text_position_square_regular = 'flu_text_position_square_regular';
+  static const flu_text_position_square_right_filled = 'flu_text_position_square_right_filled';
+  static const flu_text_position_square_right_regular = 'flu_text_position_square_right_regular';
   static const flu_text_position_through_filled = 'flu_text_position_through_filled';
   static const flu_text_position_through_regular = 'flu_text_position_through_regular';
   static const flu_text_position_tight_filled = 'flu_text_position_tight_filled';
@@ -16288,6 +17139,8 @@ abstract class IconPackNames {
   static const flu_text_superscript_regular = 'flu_text_superscript_regular';
   static const flu_text_t_filled = 'flu_text_t_filled';
   static const flu_text_t_regular = 'flu_text_t_regular';
+  static const flu_text_underline_character_u_filled = 'flu_text_underline_character_u_filled';
+  static const flu_text_underline_character_u_regular = 'flu_text_underline_character_u_regular';
   static const flu_text_underline_double_filled = 'flu_text_underline_double_filled';
   static const flu_text_underline_double_regular = 'flu_text_underline_double_regular';
   static const flu_text_underline_filled = 'flu_text_underline_filled';
@@ -16318,10 +17171,14 @@ abstract class IconPackNames {
   static const flu_textbox_regular = 'flu_textbox_regular';
   static const flu_textbox_rotate_90_filled = 'flu_textbox_rotate_90_filled';
   static const flu_textbox_rotate_90_regular = 'flu_textbox_rotate_90_regular';
+  static const flu_textbox_settings_filled = 'flu_textbox_settings_filled';
+  static const flu_textbox_settings_regular = 'flu_textbox_settings_regular';
   static const flu_thinking_filled = 'flu_thinking_filled';
   static const flu_thinking_regular = 'flu_thinking_regular';
   static const flu_thumb_dislike_filled = 'flu_thumb_dislike_filled';
   static const flu_thumb_dislike_regular = 'flu_thumb_dislike_regular';
+  static const flu_thumb_like_dislike_filled = 'flu_thumb_like_dislike_filled';
+  static const flu_thumb_like_dislike_regular = 'flu_thumb_like_dislike_regular';
   static const flu_thumb_like_filled = 'flu_thumb_like_filled';
   static const flu_thumb_like_regular = 'flu_thumb_like_regular';
   static const flu_ticket_diagonal_filled = 'flu_ticket_diagonal_filled';
@@ -16356,7 +17213,11 @@ abstract class IconPackNames {
   static const flu_tooltip_quote_regular = 'flu_tooltip_quote_regular';
   static const flu_top_speed_filled = 'flu_top_speed_filled';
   static const flu_top_speed_regular = 'flu_top_speed_regular';
+  static const flu_translate_auto_filled = 'flu_translate_auto_filled';
+  static const flu_translate_auto_regular = 'flu_translate_auto_regular';
   static const flu_translate_filled = 'flu_translate_filled';
+  static const flu_translate_off_filled = 'flu_translate_off_filled';
+  static const flu_translate_off_regular = 'flu_translate_off_regular';
   static const flu_translate_regular = 'flu_translate_regular';
   static const flu_transmission_filled = 'flu_transmission_filled';
   static const flu_transmission_regular = 'flu_transmission_regular';
@@ -16364,6 +17225,8 @@ abstract class IconPackNames {
   static const flu_tray_item_add_regular = 'flu_tray_item_add_regular';
   static const flu_tray_item_remove_filled = 'flu_tray_item_remove_filled';
   static const flu_tray_item_remove_regular = 'flu_tray_item_remove_regular';
+  static const flu_tree_deciduous_filled = 'flu_tree_deciduous_filled';
+  static const flu_tree_deciduous_regular = 'flu_tree_deciduous_regular';
   static const flu_trophy_filled = 'flu_trophy_filled';
   static const flu_trophy_lock_filled = 'flu_trophy_lock_filled';
   static const flu_trophy_lock_regular = 'flu_trophy_lock_regular';
@@ -16390,6 +17253,8 @@ abstract class IconPackNames {
   static const flu_vehicle_bus_regular = 'flu_vehicle_bus_regular';
   static const flu_vehicle_cab_filled = 'flu_vehicle_cab_filled';
   static const flu_vehicle_cab_regular = 'flu_vehicle_cab_regular';
+  static const flu_vehicle_cable_car_filled = 'flu_vehicle_cable_car_filled';
+  static const flu_vehicle_cable_car_regular = 'flu_vehicle_cable_car_regular';
   static const flu_vehicle_car_collision_filled = 'flu_vehicle_car_collision_filled';
   static const flu_vehicle_car_collision_regular = 'flu_vehicle_car_collision_regular';
   static const flu_vehicle_car_filled = 'flu_vehicle_car_filled';
@@ -16419,6 +17284,8 @@ abstract class IconPackNames {
   static const flu_video_add_filled = 'flu_video_add_filled';
   static const flu_video_add_regular = 'flu_video_add_regular';
   static const flu_video_background_effect_filled = 'flu_video_background_effect_filled';
+  static const flu_video_background_effect_horizontal_filled = 'flu_video_background_effect_horizontal_filled';
+  static const flu_video_background_effect_horizontal_regular = 'flu_video_background_effect_horizontal_regular';
   static const flu_video_background_effect_regular = 'flu_video_background_effect_regular';
   static const flu_video_chat_filled = 'flu_video_chat_filled';
   static const flu_video_chat_regular = 'flu_video_chat_regular';
@@ -16701,6 +17568,8 @@ abstract class IconPackNames {
   static const mdi_account_switch_outline = 'mdi_account_switch_outline';
   static const mdi_account_sync = 'mdi_account_sync';
   static const mdi_account_sync_outline = 'mdi_account_sync_outline';
+  static const mdi_account_tag = 'mdi_account_tag';
+  static const mdi_account_tag_outline = 'mdi_account_tag_outline';
   static const mdi_account_tie = 'mdi_account_tie';
   static const mdi_account_tie_hat = 'mdi_account_tie_hat';
   static const mdi_account_tie_hat_outline = 'mdi_account_tie_hat_outline';
@@ -17233,8 +18102,10 @@ abstract class IconPackNames {
   static const mdi_audio_video = 'mdi_audio_video';
   static const mdi_audio_video_off = 'mdi_audio_video_off';
   static const mdi_augmented_reality = 'mdi_augmented_reality';
+  static const mdi_aurora = 'mdi_aurora';
   static const mdi_auto_download = 'mdi_auto_download';
   static const mdi_auto_fix = 'mdi_auto_fix';
+  static const mdi_auto_mode = 'mdi_auto_mode';
   static const mdi_auto_upload = 'mdi_auto_upload';
   static const mdi_autorenew = 'mdi_autorenew';
   static const mdi_autorenew_off = 'mdi_autorenew_off';
@@ -17311,6 +18182,8 @@ abstract class IconPackNames {
   static const mdi_bandage = 'mdi_bandage';
   static const mdi_bank = 'mdi_bank';
   static const mdi_bank_check = 'mdi_bank_check';
+  static const mdi_bank_circle = 'mdi_bank_circle';
+  static const mdi_bank_circle_outline = 'mdi_bank_circle_outline';
   static const mdi_bank_minus = 'mdi_bank_minus';
   static const mdi_bank_off = 'mdi_bank_off';
   static const mdi_bank_off_outline = 'mdi_bank_off_outline';
@@ -17332,6 +18205,7 @@ abstract class IconPackNames {
   static const mdi_baseball_bat = 'mdi_baseball_bat';
   static const mdi_baseball_diamond = 'mdi_baseball_diamond';
   static const mdi_baseball_diamond_outline = 'mdi_baseball_diamond_outline';
+  static const mdi_baseball_outline = 'mdi_baseball_outline';
   static const mdi_bash = 'mdi_bash';
   static const mdi_basket = 'mdi_basket';
   static const mdi_basket_check = 'mdi_basket_check';
@@ -17498,6 +18372,8 @@ abstract class IconPackNames {
   static const mdi_bell_ring_outline = 'mdi_bell_ring_outline';
   static const mdi_bell_sleep = 'mdi_bell_sleep';
   static const mdi_bell_sleep_outline = 'mdi_bell_sleep_outline';
+  static const mdi_bench = 'mdi_bench';
+  static const mdi_bench_back = 'mdi_bench_back';
   static const mdi_beta = 'mdi_beta';
   static const mdi_betamax = 'mdi_betamax';
   static const mdi_biathlon = 'mdi_biathlon';
@@ -17508,6 +18384,9 @@ abstract class IconPackNames {
   static const mdi_bicycle_penny_farthing = 'mdi_bicycle_penny_farthing';
   static const mdi_bike = 'mdi_bike';
   static const mdi_bike_fast = 'mdi_bike_fast';
+  static const mdi_bike_pedal = 'mdi_bike_pedal';
+  static const mdi_bike_pedal_clipless = 'mdi_bike_pedal_clipless';
+  static const mdi_bike_pedal_mountain = 'mdi_bike_pedal_mountain';
   static const mdi_billboard = 'mdi_billboard';
   static const mdi_billiards = 'mdi_billiards';
   static const mdi_billiards_rack = 'mdi_billiards_rack';
@@ -17864,6 +18743,7 @@ abstract class IconPackNames {
   static const mdi_calendar_search = 'mdi_calendar_search';
   static const mdi_calendar_search_outline = 'mdi_calendar_search_outline';
   static const mdi_calendar_star = 'mdi_calendar_star';
+  static const mdi_calendar_star_four_points = 'mdi_calendar_star_four_points';
   static const mdi_calendar_star_outline = 'mdi_calendar_star_outline';
   static const mdi_calendar_start = 'mdi_calendar_start';
   static const mdi_calendar_start_outline = 'mdi_calendar_start_outline';
@@ -17902,6 +18782,8 @@ abstract class IconPackNames {
   static const mdi_camera_image = 'mdi_camera_image';
   static const mdi_camera_iris = 'mdi_camera_iris';
   static const mdi_camera_lock = 'mdi_camera_lock';
+  static const mdi_camera_lock_open = 'mdi_camera_lock_open';
+  static const mdi_camera_lock_open_outline = 'mdi_camera_lock_open_outline';
   static const mdi_camera_lock_outline = 'mdi_camera_lock_outline';
   static const mdi_camera_marker = 'mdi_camera_marker';
   static const mdi_camera_marker_outline = 'mdi_camera_marker_outline';
@@ -18089,6 +18971,7 @@ abstract class IconPackNames {
   static const mdi_cash_marker = 'mdi_cash_marker';
   static const mdi_cash_minus = 'mdi_cash_minus';
   static const mdi_cash_multiple = 'mdi_cash_multiple';
+  static const mdi_cash_off = 'mdi_cash_off';
   static const mdi_cash_plus = 'mdi_cash_plus';
   static const mdi_cash_refund = 'mdi_cash_refund';
   static const mdi_cash_register = 'mdi_cash_register';
@@ -18166,6 +19049,7 @@ abstract class IconPackNames {
   static const mdi_chart_multiline = 'mdi_chart_multiline';
   static const mdi_chart_multiple = 'mdi_chart_multiple';
   static const mdi_chart_pie = 'mdi_chart_pie';
+  static const mdi_chart_pie_outline = 'mdi_chart_pie_outline';
   static const mdi_chart_ppf = 'mdi_chart_ppf';
   static const mdi_chart_sankey = 'mdi_chart_sankey';
   static const mdi_chart_sankey_variant = 'mdi_chart_sankey_variant';
@@ -18206,6 +19090,8 @@ abstract class IconPackNames {
   static const mdi_check_underline_circle = 'mdi_check_underline_circle';
   static const mdi_check_underline_circle_outline = 'mdi_check_underline_circle_outline';
   static const mdi_checkbook = 'mdi_checkbook';
+  static const mdi_checkbook_arrow_left = 'mdi_checkbook_arrow_left';
+  static const mdi_checkbook_arrow_right = 'mdi_checkbook_arrow_right';
   static const mdi_checkbox_blank = 'mdi_checkbox_blank';
   static const mdi_checkbox_blank_badge = 'mdi_checkbox_blank_badge';
   static const mdi_checkbox_blank_badge_outline = 'mdi_checkbox_blank_badge_outline';
@@ -18218,6 +19104,8 @@ abstract class IconPackNames {
   static const mdi_checkbox_intermediate_variant = 'mdi_checkbox_intermediate_variant';
   static const mdi_checkbox_marked = 'mdi_checkbox_marked';
   static const mdi_checkbox_marked_circle = 'mdi_checkbox_marked_circle';
+  static const mdi_checkbox_marked_circle_auto_outline = 'mdi_checkbox_marked_circle_auto_outline';
+  static const mdi_checkbox_marked_circle_minus_outline = 'mdi_checkbox_marked_circle_minus_outline';
   static const mdi_checkbox_marked_circle_outline = 'mdi_checkbox_marked_circle_outline';
   static const mdi_checkbox_marked_circle_plus_outline = 'mdi_checkbox_marked_circle_plus_outline';
   static const mdi_checkbox_marked_outline = 'mdi_checkbox_marked_outline';
@@ -18313,6 +19201,7 @@ abstract class IconPackNames {
   static const mdi_circle_small = 'mdi_circle_small';
   static const mdi_circular_saw = 'mdi_circular_saw';
   static const mdi_city = 'mdi_city';
+  static const mdi_city_switch = 'mdi_city_switch';
   static const mdi_city_variant = 'mdi_city_variant';
   static const mdi_city_variant_outline = 'mdi_city_variant_outline';
   static const mdi_clipboard = 'mdi_clipboard';
@@ -18393,6 +19282,8 @@ abstract class IconPackNames {
   static const mdi_clock_plus_outline = 'mdi_clock_plus_outline';
   static const mdi_clock_remove = 'mdi_clock_remove';
   static const mdi_clock_remove_outline = 'mdi_clock_remove_outline';
+  static const mdi_clock_star_four_points = 'mdi_clock_star_four_points';
+  static const mdi_clock_star_four_points_outline = 'mdi_clock_star_four_points_outline';
   static const mdi_clock_start = 'mdi_clock_start';
   static const mdi_clock_time_eight = 'mdi_clock_time_eight';
   static const mdi_clock_time_eight_outline = 'mdi_clock_time_eight_outline';
@@ -18437,22 +19328,53 @@ abstract class IconPackNames {
   static const mdi_closed_caption_outline = 'mdi_closed_caption_outline';
   static const mdi_cloud = 'mdi_cloud';
   static const mdi_cloud_alert = 'mdi_cloud_alert';
+  static const mdi_cloud_alert_outline = 'mdi_cloud_alert_outline';
+  static const mdi_cloud_arrow_down = 'mdi_cloud_arrow_down';
+  static const mdi_cloud_arrow_down_outline = 'mdi_cloud_arrow_down_outline';
+  static const mdi_cloud_arrow_left = 'mdi_cloud_arrow_left';
+  static const mdi_cloud_arrow_left_outline = 'mdi_cloud_arrow_left_outline';
+  static const mdi_cloud_arrow_right = 'mdi_cloud_arrow_right';
+  static const mdi_cloud_arrow_right_outline = 'mdi_cloud_arrow_right_outline';
+  static const mdi_cloud_arrow_up = 'mdi_cloud_arrow_up';
+  static const mdi_cloud_arrow_up_outline = 'mdi_cloud_arrow_up_outline';
   static const mdi_cloud_braces = 'mdi_cloud_braces';
+  static const mdi_cloud_cancel = 'mdi_cloud_cancel';
+  static const mdi_cloud_cancel_outline = 'mdi_cloud_cancel_outline';
   static const mdi_cloud_check = 'mdi_cloud_check';
   static const mdi_cloud_check_outline = 'mdi_cloud_check_outline';
+  static const mdi_cloud_check_variant = 'mdi_cloud_check_variant';
+  static const mdi_cloud_check_variant_outline = 'mdi_cloud_check_variant_outline';
   static const mdi_cloud_circle = 'mdi_cloud_circle';
+  static const mdi_cloud_circle_outline = 'mdi_cloud_circle_outline';
+  static const mdi_cloud_clock = 'mdi_cloud_clock';
+  static const mdi_cloud_clock_outline = 'mdi_cloud_clock_outline';
+  static const mdi_cloud_cog = 'mdi_cloud_cog';
+  static const mdi_cloud_cog_outline = 'mdi_cloud_cog_outline';
   static const mdi_cloud_download = 'mdi_cloud_download';
   static const mdi_cloud_download_outline = 'mdi_cloud_download_outline';
   static const mdi_cloud_lock = 'mdi_cloud_lock';
+  static const mdi_cloud_lock_open = 'mdi_cloud_lock_open';
+  static const mdi_cloud_lock_open_outline = 'mdi_cloud_lock_open_outline';
   static const mdi_cloud_lock_outline = 'mdi_cloud_lock_outline';
+  static const mdi_cloud_minus = 'mdi_cloud_minus';
+  static const mdi_cloud_minus_outline = 'mdi_cloud_minus_outline';
+  static const mdi_cloud_off = 'mdi_cloud_off';
   static const mdi_cloud_off_outline = 'mdi_cloud_off_outline';
   static const mdi_cloud_outline = 'mdi_cloud_outline';
   static const mdi_cloud_percent = 'mdi_cloud_percent';
   static const mdi_cloud_percent_outline = 'mdi_cloud_percent_outline';
+  static const mdi_cloud_plus = 'mdi_cloud_plus';
+  static const mdi_cloud_plus_outline = 'mdi_cloud_plus_outline';
   static const mdi_cloud_print = 'mdi_cloud_print';
   static const mdi_cloud_print_outline = 'mdi_cloud_print_outline';
   static const mdi_cloud_question = 'mdi_cloud_question';
+  static const mdi_cloud_question_outline = 'mdi_cloud_question_outline';
   static const mdi_cloud_refresh = 'mdi_cloud_refresh';
+  static const mdi_cloud_refresh_outline = 'mdi_cloud_refresh_outline';
+  static const mdi_cloud_refresh_variant = 'mdi_cloud_refresh_variant';
+  static const mdi_cloud_refresh_variant_outline = 'mdi_cloud_refresh_variant_outline';
+  static const mdi_cloud_remove = 'mdi_cloud_remove';
+  static const mdi_cloud_remove_outline = 'mdi_cloud_remove_outline';
   static const mdi_cloud_search = 'mdi_cloud_search';
   static const mdi_cloud_search_outline = 'mdi_cloud_search_outline';
   static const mdi_cloud_sync = 'mdi_cloud_sync';
@@ -18462,6 +19384,7 @@ abstract class IconPackNames {
   static const mdi_cloud_upload_outline = 'mdi_cloud_upload_outline';
   static const mdi_clouds = 'mdi_clouds';
   static const mdi_clover = 'mdi_clover';
+  static const mdi_clover_outline = 'mdi_clover_outline';
   static const mdi_coach_lamp = 'mdi_coach_lamp';
   static const mdi_coach_lamp_variant = 'mdi_coach_lamp_variant';
   static const mdi_coat_rack = 'mdi_coat_rack';
@@ -18668,6 +19591,7 @@ abstract class IconPackNames {
   static const mdi_cradle_outline = 'mdi_cradle_outline';
   static const mdi_crane = 'mdi_crane';
   static const mdi_creation = 'mdi_creation';
+  static const mdi_creation_outline = 'mdi_creation_outline';
   static const mdi_creative_commons = 'mdi_creative_commons';
   static const mdi_credit_card = 'mdi_credit_card';
   static const mdi_credit_card_check = 'mdi_credit_card_check';
@@ -18770,6 +19694,7 @@ abstract class IconPackNames {
   static const mdi_currency_rub = 'mdi_currency_rub';
   static const mdi_currency_rupee = 'mdi_currency_rupee';
   static const mdi_currency_sign = 'mdi_currency_sign';
+  static const mdi_currency_thb = 'mdi_currency_thb';
   static const mdi_currency_try = 'mdi_currency_try';
   static const mdi_currency_twd = 'mdi_currency_twd';
   static const mdi_currency_uah = 'mdi_currency_uah';
@@ -18979,6 +19904,7 @@ abstract class IconPackNames {
   static const mdi_domain_off = 'mdi_domain_off';
   static const mdi_domain_plus = 'mdi_domain_plus';
   static const mdi_domain_remove = 'mdi_domain_remove';
+  static const mdi_domain_switch = 'mdi_domain_switch';
   static const mdi_dome_light = 'mdi_dome_light';
   static const mdi_domino_mask = 'mdi_domino_mask';
   static const mdi_donkey = 'mdi_donkey';
@@ -19094,6 +20020,7 @@ abstract class IconPackNames {
   static const mdi_email_edit_outline = 'mdi_email_edit_outline';
   static const mdi_email_fast = 'mdi_email_fast';
   static const mdi_email_fast_outline = 'mdi_email_fast_outline';
+  static const mdi_email_heart_outline = 'mdi_email_heart_outline';
   static const mdi_email_lock = 'mdi_email_lock';
   static const mdi_email_lock_outline = 'mdi_email_lock_outline';
   static const mdi_email_mark_as_unread = 'mdi_email_mark_as_unread';
@@ -19105,6 +20032,7 @@ abstract class IconPackNames {
   static const mdi_email_off = 'mdi_email_off';
   static const mdi_email_off_outline = 'mdi_email_off_outline';
   static const mdi_email_open = 'mdi_email_open';
+  static const mdi_email_open_heart_outline = 'mdi_email_open_heart_outline';
   static const mdi_email_open_multiple = 'mdi_email_open_multiple';
   static const mdi_email_open_multiple_outline = 'mdi_email_open_multiple_outline';
   static const mdi_email_open_outline = 'mdi_email_open_outline';
@@ -19209,6 +20137,10 @@ abstract class IconPackNames {
   static const mdi_eye_check_outline = 'mdi_eye_check_outline';
   static const mdi_eye_circle = 'mdi_eye_circle';
   static const mdi_eye_circle_outline = 'mdi_eye_circle_outline';
+  static const mdi_eye_lock = 'mdi_eye_lock';
+  static const mdi_eye_lock_open = 'mdi_eye_lock_open';
+  static const mdi_eye_lock_open_outline = 'mdi_eye_lock_open_outline';
+  static const mdi_eye_lock_outline = 'mdi_eye_lock_outline';
   static const mdi_eye_minus = 'mdi_eye_minus';
   static const mdi_eye_minus_outline = 'mdi_eye_minus_outline';
   static const mdi_eye_off = 'mdi_eye_off';
@@ -19317,6 +20249,8 @@ abstract class IconPackNames {
   static const mdi_file_document = 'mdi_file_document';
   static const mdi_file_document_alert = 'mdi_file_document_alert';
   static const mdi_file_document_alert_outline = 'mdi_file_document_alert_outline';
+  static const mdi_file_document_arrow_right = 'mdi_file_document_arrow_right';
+  static const mdi_file_document_arrow_right_outline = 'mdi_file_document_arrow_right_outline';
   static const mdi_file_document_check = 'mdi_file_document_check';
   static const mdi_file_document_check_outline = 'mdi_file_document_check_outline';
   static const mdi_file_document_edit = 'mdi_file_document_edit';
@@ -19328,6 +20262,8 @@ abstract class IconPackNames {
   static const mdi_file_document_outline = 'mdi_file_document_outline';
   static const mdi_file_document_plus = 'mdi_file_document_plus';
   static const mdi_file_document_plus_outline = 'mdi_file_document_plus_outline';
+  static const mdi_file_document_refresh = 'mdi_file_document_refresh';
+  static const mdi_file_document_refresh_outline = 'mdi_file_document_refresh_outline';
   static const mdi_file_document_remove = 'mdi_file_document_remove';
   static const mdi_file_document_remove_outline = 'mdi_file_document_remove_outline';
   static const mdi_file_download = 'mdi_file_download';
@@ -19413,6 +20349,8 @@ abstract class IconPackNames {
   static const mdi_file_settings_outline = 'mdi_file_settings_outline';
   static const mdi_file_sign = 'mdi_file_sign';
   static const mdi_file_star = 'mdi_file_star';
+  static const mdi_file_star_four_points = 'mdi_file_star_four_points';
+  static const mdi_file_star_four_points_outline = 'mdi_file_star_four_points_outline';
   static const mdi_file_star_outline = 'mdi_file_star_outline';
   static const mdi_file_swap = 'mdi_file_swap';
   static const mdi_file_swap_outline = 'mdi_file_swap_outline';
@@ -19712,6 +20650,7 @@ abstract class IconPackNames {
   static const mdi_football_australian = 'mdi_football_australian';
   static const mdi_football_helmet = 'mdi_football_helmet';
   static const mdi_forest = 'mdi_forest';
+  static const mdi_forest_outline = 'mdi_forest_outline';
   static const mdi_forklift = 'mdi_forklift';
   static const mdi_form_dropdown = 'mdi_form_dropdown';
   static const mdi_form_select = 'mdi_form_select';
@@ -20190,6 +21129,9 @@ abstract class IconPackNames {
   static const mdi_helicopter = 'mdi_helicopter';
   static const mdi_help = 'mdi_help';
   static const mdi_help_box = 'mdi_help_box';
+  static const mdi_help_box_multiple = 'mdi_help_box_multiple';
+  static const mdi_help_box_multiple_outline = 'mdi_help_box_multiple_outline';
+  static const mdi_help_box_outline = 'mdi_help_box_outline';
   static const mdi_help_circle = 'mdi_help_circle';
   static const mdi_help_circle_outline = 'mdi_help_circle_outline';
   static const mdi_help_network = 'mdi_help_network';
@@ -20264,6 +21206,8 @@ abstract class IconPackNames {
   static const mdi_home_off = 'mdi_home_off';
   static const mdi_home_off_outline = 'mdi_home_off_outline';
   static const mdi_home_outline = 'mdi_home_outline';
+  static const mdi_home_percent = 'mdi_home_percent';
+  static const mdi_home_percent_outline = 'mdi_home_percent_outline';
   static const mdi_home_plus = 'mdi_home_plus';
   static const mdi_home_plus_outline = 'mdi_home_plus_outline';
   static const mdi_home_remove = 'mdi_home_remove';
@@ -20273,6 +21217,10 @@ abstract class IconPackNames {
   static const mdi_home_search_outline = 'mdi_home_search_outline';
   static const mdi_home_silo = 'mdi_home_silo';
   static const mdi_home_silo_outline = 'mdi_home_silo_outline';
+  static const mdi_home_sound_in = 'mdi_home_sound_in';
+  static const mdi_home_sound_in_outline = 'mdi_home_sound_in_outline';
+  static const mdi_home_sound_out = 'mdi_home_sound_out';
+  static const mdi_home_sound_out_outline = 'mdi_home_sound_out_outline';
   static const mdi_home_switch = 'mdi_home_switch';
   static const mdi_home_switch_outline = 'mdi_home_switch_outline';
   static const mdi_home_thermometer = 'mdi_home_thermometer';
@@ -20366,8 +21314,10 @@ abstract class IconPackNames {
   static const mdi_image_filter_center_focus_strong_outline = 'mdi_image_filter_center_focus_strong_outline';
   static const mdi_image_filter_center_focus_weak = 'mdi_image_filter_center_focus_weak';
   static const mdi_image_filter_drama = 'mdi_image_filter_drama';
+  static const mdi_image_filter_drama_outline = 'mdi_image_filter_drama_outline';
   static const mdi_image_filter_frames = 'mdi_image_filter_frames';
   static const mdi_image_filter_hdr = 'mdi_image_filter_hdr';
+  static const mdi_image_filter_hdr_outline = 'mdi_image_filter_hdr_outline';
   static const mdi_image_filter_none = 'mdi_image_filter_none';
   static const mdi_image_filter_tilt_shift = 'mdi_image_filter_tilt_shift';
   static const mdi_image_filter_vintage = 'mdi_image_filter_vintage';
@@ -20418,10 +21368,22 @@ abstract class IconPackNames {
   static const mdi_induction = 'mdi_induction';
   static const mdi_infinity = 'mdi_infinity';
   static const mdi_information = 'mdi_information';
+  static const mdi_information_box = 'mdi_information_box';
+  static const mdi_information_box_outline = 'mdi_information_box_outline';
   static const mdi_information_off = 'mdi_information_off';
   static const mdi_information_off_outline = 'mdi_information_off_outline';
   static const mdi_information_outline = 'mdi_information_outline';
+  static const mdi_information_slab_box = 'mdi_information_slab_box';
+  static const mdi_information_slab_box_outline = 'mdi_information_slab_box_outline';
+  static const mdi_information_slab_circle = 'mdi_information_slab_circle';
+  static const mdi_information_slab_circle_outline = 'mdi_information_slab_circle_outline';
+  static const mdi_information_slab_symbol = 'mdi_information_slab_symbol';
+  static const mdi_information_symbol = 'mdi_information_symbol';
   static const mdi_information_variant = 'mdi_information_variant';
+  static const mdi_information_variant_box = 'mdi_information_variant_box';
+  static const mdi_information_variant_box_outline = 'mdi_information_variant_box_outline';
+  static const mdi_information_variant_circle = 'mdi_information_variant_circle';
+  static const mdi_information_variant_circle_outline = 'mdi_information_variant_circle_outline';
   static const mdi_instagram = 'mdi_instagram';
   static const mdi_instrument_triangle = 'mdi_instrument_triangle';
   static const mdi_integrated_circuit_chip = 'mdi_integrated_circuit_chip';
@@ -20480,6 +21442,7 @@ abstract class IconPackNames {
   static const mdi_keyboard_backspace = 'mdi_keyboard_backspace';
   static const mdi_keyboard_caps = 'mdi_keyboard_caps';
   static const mdi_keyboard_close = 'mdi_keyboard_close';
+  static const mdi_keyboard_close_outline = 'mdi_keyboard_close_outline';
   static const mdi_keyboard_esc = 'mdi_keyboard_esc';
   static const mdi_keyboard_f_1 = 'mdi_keyboard_f_1';
   static const mdi_keyboard_f_1_0 = 'mdi_keyboard_f_1_0';
@@ -20541,6 +21504,7 @@ abstract class IconPackNames {
   static const mdi_land_plots = 'mdi_land_plots';
   static const mdi_land_plots_circle = 'mdi_land_plots_circle';
   static const mdi_land_plots_circle_variant = 'mdi_land_plots_circle_variant';
+  static const mdi_land_plots_marker = 'mdi_land_plots_marker';
   static const mdi_land_rows_horizontal = 'mdi_land_rows_horizontal';
   static const mdi_land_rows_vertical = 'mdi_land_rows_vertical';
   static const mdi_landslide = 'mdi_landslide';
@@ -20722,6 +21686,12 @@ abstract class IconPackNames {
   static const mdi_lock_open_variant_outline = 'mdi_lock_open_variant_outline';
   static const mdi_lock_outline = 'mdi_lock_outline';
   static const mdi_lock_pattern = 'mdi_lock_pattern';
+  static const mdi_lock_percent = 'mdi_lock_percent';
+  static const mdi_lock_percent_open = 'mdi_lock_percent_open';
+  static const mdi_lock_percent_open_outline = 'mdi_lock_percent_open_outline';
+  static const mdi_lock_percent_open_variant = 'mdi_lock_percent_open_variant';
+  static const mdi_lock_percent_open_variant_outline = 'mdi_lock_percent_open_variant_outline';
+  static const mdi_lock_percent_outline = 'mdi_lock_percent_outline';
   static const mdi_lock_plus = 'mdi_lock_plus';
   static const mdi_lock_plus_outline = 'mdi_lock_plus_outline';
   static const mdi_lock_question = 'mdi_lock_question';
@@ -21017,6 +21987,7 @@ abstract class IconPackNames {
   static const mdi_monitor_speaker = 'mdi_monitor_speaker';
   static const mdi_monitor_speaker_off = 'mdi_monitor_speaker_off';
   static const mdi_monitor_star = 'mdi_monitor_star';
+  static const mdi_monitor_vertical = 'mdi_monitor_vertical';
   static const mdi_moon_first_quarter = 'mdi_moon_first_quarter';
   static const mdi_moon_full = 'mdi_moon_full';
   static const mdi_moon_last_quarter = 'mdi_moon_last_quarter';
@@ -21163,7 +22134,9 @@ abstract class IconPackNames {
   static const mdi_nas = 'mdi_nas';
   static const mdi_nativescript = 'mdi_nativescript';
   static const mdi_nature = 'mdi_nature';
+  static const mdi_nature_outline = 'mdi_nature_outline';
   static const mdi_nature_people = 'mdi_nature_people';
+  static const mdi_nature_people_outline = 'mdi_nature_people_outline';
   static const mdi_navigation = 'mdi_navigation';
   static const mdi_navigation_outline = 'mdi_navigation_outline';
   static const mdi_navigation_variant = 'mdi_navigation_variant';
@@ -21354,7 +22327,13 @@ abstract class IconPackNames {
   static const mdi_octagon = 'mdi_octagon';
   static const mdi_octagon_outline = 'mdi_octagon_outline';
   static const mdi_octagram = 'mdi_octagram';
+  static const mdi_octagram_edit = 'mdi_octagram_edit';
+  static const mdi_octagram_edit_outline = 'mdi_octagram_edit_outline';
+  static const mdi_octagram_minus = 'mdi_octagram_minus';
+  static const mdi_octagram_minus_outline = 'mdi_octagram_minus_outline';
   static const mdi_octagram_outline = 'mdi_octagram_outline';
+  static const mdi_octagram_plus = 'mdi_octagram_plus';
+  static const mdi_octagram_plus_outline = 'mdi_octagram_plus_outline';
   static const mdi_octahedron = 'mdi_octahedron';
   static const mdi_octahedron_off = 'mdi_octahedron_off';
   static const mdi_odnoklassniki = 'mdi_odnoklassniki';
@@ -21531,6 +22510,7 @@ abstract class IconPackNames {
   static const mdi_pencil_remove = 'mdi_pencil_remove';
   static const mdi_pencil_remove_outline = 'mdi_pencil_remove_outline';
   static const mdi_pencil_ruler = 'mdi_pencil_ruler';
+  static const mdi_pencil_ruler_outline = 'mdi_pencil_ruler_outline';
   static const mdi_penguin = 'mdi_penguin';
   static const mdi_pentagon = 'mdi_pentagon';
   static const mdi_pentagon_outline = 'mdi_pentagon_outline';
@@ -21631,6 +22611,8 @@ abstract class IconPackNames {
   static const mdi_pine_tree = 'mdi_pine_tree';
   static const mdi_pine_tree_box = 'mdi_pine_tree_box';
   static const mdi_pine_tree_fire = 'mdi_pine_tree_fire';
+  static const mdi_pine_tree_variant = 'mdi_pine_tree_variant';
+  static const mdi_pine_tree_variant_outline = 'mdi_pine_tree_variant_outline';
   static const mdi_pinterest = 'mdi_pinterest';
   static const mdi_pinwheel = 'mdi_pinwheel';
   static const mdi_pinwheel_outline = 'mdi_pinwheel_outline';
@@ -21648,6 +22630,7 @@ abstract class IconPackNames {
   static const mdi_plane_train = 'mdi_plane_train';
   static const mdi_play = 'mdi_play';
   static const mdi_play_box = 'mdi_play_box';
+  static const mdi_play_box_edit_outline = 'mdi_play_box_edit_outline';
   static const mdi_play_box_lock = 'mdi_play_box_lock';
   static const mdi_play_box_lock_open = 'mdi_play_box_lock_open';
   static const mdi_play_box_lock_open_outline = 'mdi_play_box_lock_open_outline';
@@ -21729,6 +22712,8 @@ abstract class IconPackNames {
   static const mdi_power_off = 'mdi_power_off';
   static const mdi_power_on = 'mdi_power_on';
   static const mdi_power_plug = 'mdi_power_plug';
+  static const mdi_power_plug_battery = 'mdi_power_plug_battery';
+  static const mdi_power_plug_battery_outline = 'mdi_power_plug_battery_outline';
   static const mdi_power_plug_off = 'mdi_power_plug_off';
   static const mdi_power_plug_off_outline = 'mdi_power_plug_off_outline';
   static const mdi_power_plug_outline = 'mdi_power_plug_outline';
@@ -21768,6 +22753,41 @@ abstract class IconPackNames {
   static const mdi_printer_off_outline = 'mdi_printer_off_outline';
   static const mdi_printer_outline = 'mdi_printer_outline';
   static const mdi_printer_pos = 'mdi_printer_pos';
+  static const mdi_printer_pos_alert = 'mdi_printer_pos_alert';
+  static const mdi_printer_pos_alert_outline = 'mdi_printer_pos_alert_outline';
+  static const mdi_printer_pos_cancel = 'mdi_printer_pos_cancel';
+  static const mdi_printer_pos_cancel_outline = 'mdi_printer_pos_cancel_outline';
+  static const mdi_printer_pos_check = 'mdi_printer_pos_check';
+  static const mdi_printer_pos_check_outline = 'mdi_printer_pos_check_outline';
+  static const mdi_printer_pos_cog = 'mdi_printer_pos_cog';
+  static const mdi_printer_pos_cog_outline = 'mdi_printer_pos_cog_outline';
+  static const mdi_printer_pos_edit = 'mdi_printer_pos_edit';
+  static const mdi_printer_pos_edit_outline = 'mdi_printer_pos_edit_outline';
+  static const mdi_printer_pos_minus = 'mdi_printer_pos_minus';
+  static const mdi_printer_pos_minus_outline = 'mdi_printer_pos_minus_outline';
+  static const mdi_printer_pos_network = 'mdi_printer_pos_network';
+  static const mdi_printer_pos_network_outline = 'mdi_printer_pos_network_outline';
+  static const mdi_printer_pos_off = 'mdi_printer_pos_off';
+  static const mdi_printer_pos_off_outline = 'mdi_printer_pos_off_outline';
+  static const mdi_printer_pos_outline = 'mdi_printer_pos_outline';
+  static const mdi_printer_pos_pause = 'mdi_printer_pos_pause';
+  static const mdi_printer_pos_pause_outline = 'mdi_printer_pos_pause_outline';
+  static const mdi_printer_pos_play = 'mdi_printer_pos_play';
+  static const mdi_printer_pos_play_outline = 'mdi_printer_pos_play_outline';
+  static const mdi_printer_pos_plus = 'mdi_printer_pos_plus';
+  static const mdi_printer_pos_plus_outline = 'mdi_printer_pos_plus_outline';
+  static const mdi_printer_pos_refresh = 'mdi_printer_pos_refresh';
+  static const mdi_printer_pos_refresh_outline = 'mdi_printer_pos_refresh_outline';
+  static const mdi_printer_pos_remove = 'mdi_printer_pos_remove';
+  static const mdi_printer_pos_remove_outline = 'mdi_printer_pos_remove_outline';
+  static const mdi_printer_pos_star = 'mdi_printer_pos_star';
+  static const mdi_printer_pos_star_outline = 'mdi_printer_pos_star_outline';
+  static const mdi_printer_pos_stop = 'mdi_printer_pos_stop';
+  static const mdi_printer_pos_stop_outline = 'mdi_printer_pos_stop_outline';
+  static const mdi_printer_pos_sync = 'mdi_printer_pos_sync';
+  static const mdi_printer_pos_sync_outline = 'mdi_printer_pos_sync_outline';
+  static const mdi_printer_pos_wrench = 'mdi_printer_pos_wrench';
+  static const mdi_printer_pos_wrench_outline = 'mdi_printer_pos_wrench_outline';
   static const mdi_printer_search = 'mdi_printer_search';
   static const mdi_printer_settings = 'mdi_printer_settings';
   static const mdi_printer_wireless = 'mdi_printer_wireless';
@@ -21783,6 +22803,7 @@ abstract class IconPackNames {
   static const mdi_progress_pencil = 'mdi_progress_pencil';
   static const mdi_progress_question = 'mdi_progress_question';
   static const mdi_progress_star = 'mdi_progress_star';
+  static const mdi_progress_star_four_points = 'mdi_progress_star_four_points';
   static const mdi_progress_upload = 'mdi_progress_upload';
   static const mdi_progress_wrench = 'mdi_progress_wrench';
   static const mdi_projector = 'mdi_projector';
@@ -21857,6 +22878,7 @@ abstract class IconPackNames {
   static const mdi_radioactive_circle_outline = 'mdi_radioactive_circle_outline';
   static const mdi_radioactive_off = 'mdi_radioactive_off';
   static const mdi_radiobox_blank = 'mdi_radiobox_blank';
+  static const mdi_radiobox_indeterminate_variant = 'mdi_radiobox_indeterminate_variant';
   static const mdi_radiobox_marked = 'mdi_radiobox_marked';
   static const mdi_radiology_box = 'mdi_radiology_box';
   static const mdi_radiology_box_outline = 'mdi_radiology_box_outline';
@@ -21879,10 +22901,22 @@ abstract class IconPackNames {
   static const mdi_react = 'mdi_react';
   static const mdi_read = 'mdi_read';
   static const mdi_receipt = 'mdi_receipt';
+  static const mdi_receipt_clock = 'mdi_receipt_clock';
+  static const mdi_receipt_clock_outline = 'mdi_receipt_clock_outline';
   static const mdi_receipt_outline = 'mdi_receipt_outline';
+  static const mdi_receipt_send = 'mdi_receipt_send';
+  static const mdi_receipt_send_outline = 'mdi_receipt_send_outline';
   static const mdi_receipt_text = 'mdi_receipt_text';
+  static const mdi_receipt_text_arrow_left = 'mdi_receipt_text_arrow_left';
+  static const mdi_receipt_text_arrow_left_outline = 'mdi_receipt_text_arrow_left_outline';
+  static const mdi_receipt_text_arrow_right = 'mdi_receipt_text_arrow_right';
+  static const mdi_receipt_text_arrow_right_outline = 'mdi_receipt_text_arrow_right_outline';
   static const mdi_receipt_text_check = 'mdi_receipt_text_check';
   static const mdi_receipt_text_check_outline = 'mdi_receipt_text_check_outline';
+  static const mdi_receipt_text_clock = 'mdi_receipt_text_clock';
+  static const mdi_receipt_text_clock_outline = 'mdi_receipt_text_clock_outline';
+  static const mdi_receipt_text_edit = 'mdi_receipt_text_edit';
+  static const mdi_receipt_text_edit_outline = 'mdi_receipt_text_edit_outline';
   static const mdi_receipt_text_minus = 'mdi_receipt_text_minus';
   static const mdi_receipt_text_minus_outline = 'mdi_receipt_text_minus_outline';
   static const mdi_receipt_text_outline = 'mdi_receipt_text_outline';
@@ -21890,6 +22924,8 @@ abstract class IconPackNames {
   static const mdi_receipt_text_plus_outline = 'mdi_receipt_text_plus_outline';
   static const mdi_receipt_text_remove = 'mdi_receipt_text_remove';
   static const mdi_receipt_text_remove_outline = 'mdi_receipt_text_remove_outline';
+  static const mdi_receipt_text_send = 'mdi_receipt_text_send';
+  static const mdi_receipt_text_send_outline = 'mdi_receipt_text_send_outline';
   static const mdi_record = 'mdi_record';
   static const mdi_record_circle = 'mdi_record_circle';
   static const mdi_record_circle_outline = 'mdi_record_circle_outline';
@@ -21956,7 +22992,10 @@ abstract class IconPackNames {
   static const mdi_remote_off = 'mdi_remote_off';
   static const mdi_remote_tv = 'mdi_remote_tv';
   static const mdi_remote_tv_off = 'mdi_remote_tv_off';
+  static const mdi_rename = 'mdi_rename';
   static const mdi_rename_box = 'mdi_rename_box';
+  static const mdi_rename_box_outline = 'mdi_rename_box_outline';
+  static const mdi_rename_outline = 'mdi_rename_outline';
   static const mdi_reorder_horizontal = 'mdi_reorder_horizontal';
   static const mdi_reorder_vertical = 'mdi_reorder_vertical';
   static const mdi_repeat = 'mdi_repeat';
@@ -22025,8 +23064,10 @@ abstract class IconPackNames {
   static const mdi_robot_outline = 'mdi_robot_outline';
   static const mdi_robot_vacuum = 'mdi_robot_vacuum';
   static const mdi_robot_vacuum_alert = 'mdi_robot_vacuum_alert';
+  static const mdi_robot_vacuum_off = 'mdi_robot_vacuum_off';
   static const mdi_robot_vacuum_variant = 'mdi_robot_vacuum_variant';
   static const mdi_robot_vacuum_variant_alert = 'mdi_robot_vacuum_variant_alert';
+  static const mdi_robot_vacuum_variant_off = 'mdi_robot_vacuum_variant_off';
   static const mdi_rocket = 'mdi_rocket';
   static const mdi_rocket_launch = 'mdi_rocket_launch';
   static const mdi_rocket_launch_outline = 'mdi_rocket_launch_outline';
@@ -22082,6 +23123,7 @@ abstract class IconPackNames {
   static const mdi_run_fast = 'mdi_run_fast';
   static const mdi_rv_truck = 'mdi_rv_truck';
   static const mdi_sack = 'mdi_sack';
+  static const mdi_sack_outline = 'mdi_sack_outline';
   static const mdi_sack_percent = 'mdi_sack_percent';
   static const mdi_safe = 'mdi_safe';
   static const mdi_safe_square = 'mdi_safe_square';
@@ -22200,6 +23242,10 @@ abstract class IconPackNames {
   static const mdi_send_lock = 'mdi_send_lock';
   static const mdi_send_lock_outline = 'mdi_send_lock_outline';
   static const mdi_send_outline = 'mdi_send_outline';
+  static const mdi_send_variant = 'mdi_send_variant';
+  static const mdi_send_variant_clock = 'mdi_send_variant_clock';
+  static const mdi_send_variant_clock_outline = 'mdi_send_variant_clock_outline';
+  static const mdi_send_variant_outline = 'mdi_send_variant_outline';
   static const mdi_serial_port = 'mdi_serial_port';
   static const mdi_server = 'mdi_server';
   static const mdi_server_minus = 'mdi_server_minus';
@@ -22229,6 +23275,7 @@ abstract class IconPackNames {
   static const mdi_shape_outline = 'mdi_shape_outline';
   static const mdi_shape_oval_plus = 'mdi_shape_oval_plus';
   static const mdi_shape_plus = 'mdi_shape_plus';
+  static const mdi_shape_plus_outline = 'mdi_shape_plus_outline';
   static const mdi_shape_polygon_plus = 'mdi_shape_polygon_plus';
   static const mdi_shape_rectangle_plus = 'mdi_shape_rectangle_plus';
   static const mdi_shape_square_plus = 'mdi_shape_square_plus';
@@ -22547,6 +23594,7 @@ abstract class IconPackNames {
   static const mdi_sphere = 'mdi_sphere';
   static const mdi_sphere_off = 'mdi_sphere_off';
   static const mdi_spider = 'mdi_spider';
+  static const mdi_spider_outline = 'mdi_spider_outline';
   static const mdi_spider_thread = 'mdi_spider_thread';
   static const mdi_spider_web = 'mdi_spider_web';
   static const mdi_spirit_level = 'mdi_spirit_level';
@@ -22563,6 +23611,7 @@ abstract class IconPackNames {
   static const mdi_sprout_outline = 'mdi_sprout_outline';
   static const mdi_square = 'mdi_square';
   static const mdi_square_circle = 'mdi_square_circle';
+  static const mdi_square_circle_outline = 'mdi_square_circle_outline';
   static const mdi_square_edit_outline = 'mdi_square_edit_outline';
   static const mdi_square_medium = 'mdi_square_medium';
   static const mdi_square_medium_outline = 'mdi_square_medium_outline';
@@ -22607,7 +23656,12 @@ abstract class IconPackNames {
   static const mdi_star_david = 'mdi_star_david';
   static const mdi_star_face = 'mdi_star_face';
   static const mdi_star_four_points = 'mdi_star_four_points';
+  static const mdi_star_four_points_box = 'mdi_star_four_points_box';
+  static const mdi_star_four_points_box_outline = 'mdi_star_four_points_box_outline';
+  static const mdi_star_four_points_circle = 'mdi_star_four_points_circle';
+  static const mdi_star_four_points_circle_outline = 'mdi_star_four_points_circle_outline';
   static const mdi_star_four_points_outline = 'mdi_star_four_points_outline';
+  static const mdi_star_four_points_small = 'mdi_star_four_points_small';
   static const mdi_star_half = 'mdi_star_half';
   static const mdi_star_half_full = 'mdi_star_half_full';
   static const mdi_star_minus = 'mdi_star_minus';
@@ -22838,6 +23892,7 @@ abstract class IconPackNames {
   static const mdi_tag_faces = 'mdi_tag_faces';
   static const mdi_tag_heart = 'mdi_tag_heart';
   static const mdi_tag_heart_outline = 'mdi_tag_heart_outline';
+  static const mdi_tag_hidden = 'mdi_tag_hidden';
   static const mdi_tag_minus = 'mdi_tag_minus';
   static const mdi_tag_minus_outline = 'mdi_tag_minus_outline';
   static const mdi_tag_multiple = 'mdi_tag_multiple';
@@ -22895,6 +23950,7 @@ abstract class IconPackNames {
   static const mdi_temple_hindu_outline = 'mdi_temple_hindu_outline';
   static const mdi_tennis = 'mdi_tennis';
   static const mdi_tennis_ball = 'mdi_tennis_ball';
+  static const mdi_tennis_ball_outline = 'mdi_tennis_ball_outline';
   static const mdi_tent = 'mdi_tent';
   static const mdi_terraform = 'mdi_terraform';
   static const mdi_terrain = 'mdi_terrain';
@@ -22949,6 +24005,7 @@ abstract class IconPackNames {
   static const mdi_thermostat_auto = 'mdi_thermostat_auto';
   static const mdi_thermostat_box = 'mdi_thermostat_box';
   static const mdi_thermostat_box_auto = 'mdi_thermostat_box_auto';
+  static const mdi_thermostat_cog = 'mdi_thermostat_cog';
   static const mdi_thought_bubble = 'mdi_thought_bubble';
   static const mdi_thought_bubble_outline = 'mdi_thought_bubble_outline';
   static const mdi_thumb_down = 'mdi_thumb_down';
@@ -23064,6 +24121,8 @@ abstract class IconPackNames {
   static const mdi_tooltip_outline = 'mdi_tooltip_outline';
   static const mdi_tooltip_plus = 'mdi_tooltip_plus';
   static const mdi_tooltip_plus_outline = 'mdi_tooltip_plus_outline';
+  static const mdi_tooltip_question = 'mdi_tooltip_question';
+  static const mdi_tooltip_question_outline = 'mdi_tooltip_question_outline';
   static const mdi_tooltip_remove = 'mdi_tooltip_remove';
   static const mdi_tooltip_remove_outline = 'mdi_tooltip_remove_outline';
   static const mdi_tooltip_text = 'mdi_tooltip_text';
@@ -23076,6 +24135,7 @@ abstract class IconPackNames {
   static const mdi_torch = 'mdi_torch';
   static const mdi_tortoise = 'mdi_tortoise';
   static const mdi_toslink = 'mdi_toslink';
+  static const mdi_touch_text_outline = 'mdi_touch_text_outline';
   static const mdi_tournament = 'mdi_tournament';
   static const mdi_tow_truck = 'mdi_tow_truck';
   static const mdi_tower_beach = 'mdi_tower_beach';
@@ -23163,6 +24223,7 @@ abstract class IconPackNames {
   static const mdi_tray_plus = 'mdi_tray_plus';
   static const mdi_tray_remove = 'mdi_tray_remove';
   static const mdi_treasure_chest = 'mdi_treasure_chest';
+  static const mdi_treasure_chest_outline = 'mdi_treasure_chest_outline';
   static const mdi_tree = 'mdi_tree';
   static const mdi_tree_outline = 'mdi_tree_outline';
   static const mdi_trello = 'mdi_trello';
@@ -23170,6 +24231,8 @@ abstract class IconPackNames {
   static const mdi_trending_neutral = 'mdi_trending_neutral';
   static const mdi_trending_up = 'mdi_trending_up';
   static const mdi_triangle = 'mdi_triangle';
+  static const mdi_triangle_down = 'mdi_triangle_down';
+  static const mdi_triangle_down_outline = 'mdi_triangle_down_outline';
   static const mdi_triangle_outline = 'mdi_triangle_outline';
   static const mdi_triangle_small_down = 'mdi_triangle_small_down';
   static const mdi_triangle_small_up = 'mdi_triangle_small_up';
@@ -23374,6 +24437,7 @@ abstract class IconPackNames {
   static const mdi_view_gallery = 'mdi_view_gallery';
   static const mdi_view_gallery_outline = 'mdi_view_gallery_outline';
   static const mdi_view_grid = 'mdi_view_grid';
+  static const mdi_view_grid_compact = 'mdi_view_grid_compact';
   static const mdi_view_grid_outline = 'mdi_view_grid_outline';
   static const mdi_view_grid_plus = 'mdi_view_grid_plus';
   static const mdi_view_grid_plus_outline = 'mdi_view_grid_plus_outline';
@@ -23436,6 +24500,8 @@ abstract class IconPackNames {
   static const mdi_wall_sconce_round_variant = 'mdi_wall_sconce_round_variant';
   static const mdi_wall_sconce_round_variant_outline = 'mdi_wall_sconce_round_variant_outline';
   static const mdi_wallet = 'mdi_wallet';
+  static const mdi_wallet_bifold = 'mdi_wallet_bifold';
+  static const mdi_wallet_bifold_outline = 'mdi_wallet_bifold_outline';
   static const mdi_wallet_giftcard = 'mdi_wallet_giftcard';
   static const mdi_wallet_membership = 'mdi_wallet_membership';
   static const mdi_wallet_outline = 'mdi_wallet_outline';
@@ -23508,6 +24574,7 @@ abstract class IconPackNames {
   static const mdi_weather_hail = 'mdi_weather_hail';
   static const mdi_weather_hazy = 'mdi_weather_hazy';
   static const mdi_weather_hurricane = 'mdi_weather_hurricane';
+  static const mdi_weather_hurricane_outline = 'mdi_weather_hurricane_outline';
   static const mdi_weather_lightning = 'mdi_weather_lightning';
   static const mdi_weather_lightning_rainy = 'mdi_weather_lightning_rainy';
   static const mdi_weather_night = 'mdi_weather_night';
@@ -25965,6 +27032,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_add_subtract_circle_filled': IconPack.flu_add_subtract_circle_filled,
   'flu_add_subtract_circle_regular': IconPack.flu_add_subtract_circle_regular,
   'flu_airplane_filled': IconPack.flu_airplane_filled,
+  'flu_airplane_landing_filled': IconPack.flu_airplane_landing_filled,
+  'flu_airplane_landing_regular': IconPack.flu_airplane_landing_regular,
   'flu_airplane_regular': IconPack.flu_airplane_regular,
   'flu_airplane_take_off_filled': IconPack.flu_airplane_take_off_filled,
   'flu_airplane_take_off_regular': IconPack.flu_airplane_take_off_regular,
@@ -25994,6 +27063,12 @@ const Map<String, IconData> iconPackMap = {
   'flu_align_left_regular': IconPack.flu_align_left_regular,
   'flu_align_right_filled': IconPack.flu_align_right_filled,
   'flu_align_right_regular': IconPack.flu_align_right_regular,
+  'flu_align_space_evenly_horizontal_filled': IconPack.flu_align_space_evenly_horizontal_filled,
+  'flu_align_space_evenly_horizontal_regular': IconPack.flu_align_space_evenly_horizontal_regular,
+  'flu_align_space_evenly_vertical_filled': IconPack.flu_align_space_evenly_vertical_filled,
+  'flu_align_space_evenly_vertical_regular': IconPack.flu_align_space_evenly_vertical_regular,
+  'flu_align_straighten_filled': IconPack.flu_align_straighten_filled,
+  'flu_align_straighten_regular': IconPack.flu_align_straighten_regular,
   'flu_align_top_filled': IconPack.flu_align_top_filled,
   'flu_align_top_regular': IconPack.flu_align_top_regular,
   'flu_animal_cat_filled': IconPack.flu_animal_cat_filled,
@@ -26039,6 +27114,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_arrow_autofit_height_dotted_filled': IconPack.flu_arrow_autofit_height_dotted_filled,
   'flu_arrow_autofit_height_dotted_regular': IconPack.flu_arrow_autofit_height_dotted_regular,
   'flu_arrow_autofit_height_filled': IconPack.flu_arrow_autofit_height_filled,
+  'flu_arrow_autofit_height_in_filled': IconPack.flu_arrow_autofit_height_in_filled,
+  'flu_arrow_autofit_height_in_regular': IconPack.flu_arrow_autofit_height_in_regular,
   'flu_arrow_autofit_height_regular': IconPack.flu_arrow_autofit_height_regular,
   'flu_arrow_autofit_up_filled': IconPack.flu_arrow_autofit_up_filled,
   'flu_arrow_autofit_up_regular': IconPack.flu_arrow_autofit_up_regular,
@@ -26068,6 +27145,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_arrow_circle_up_left_filled': IconPack.flu_arrow_circle_up_left_filled,
   'flu_arrow_circle_up_left_regular': IconPack.flu_arrow_circle_up_left_regular,
   'flu_arrow_circle_up_regular': IconPack.flu_arrow_circle_up_regular,
+  'flu_arrow_circle_up_right_filled': IconPack.flu_arrow_circle_up_right_filled,
+  'flu_arrow_circle_up_right_regular': IconPack.flu_arrow_circle_up_right_regular,
   'flu_arrow_clockwise_dashes_filled': IconPack.flu_arrow_clockwise_dashes_filled,
   'flu_arrow_clockwise_dashes_regular': IconPack.flu_arrow_clockwise_dashes_regular,
   'flu_arrow_clockwise_filled': IconPack.flu_arrow_clockwise_filled,
@@ -26098,6 +27177,12 @@ const Map<String, IconData> iconPackMap = {
   'flu_arrow_export_rtl_regular': IconPack.flu_arrow_export_rtl_regular,
   'flu_arrow_export_up_filled': IconPack.flu_arrow_export_up_filled,
   'flu_arrow_export_up_regular': IconPack.flu_arrow_export_up_regular,
+  'flu_arrow_flow_diagonal_up_right_filled': IconPack.flu_arrow_flow_diagonal_up_right_filled,
+  'flu_arrow_flow_diagonal_up_right_regular': IconPack.flu_arrow_flow_diagonal_up_right_regular,
+  'flu_arrow_flow_up_right_filled': IconPack.flu_arrow_flow_up_right_filled,
+  'flu_arrow_flow_up_right_rectangle_multiple_filled': IconPack.flu_arrow_flow_up_right_rectangle_multiple_filled,
+  'flu_arrow_flow_up_right_rectangle_multiple_regular': IconPack.flu_arrow_flow_up_right_rectangle_multiple_regular,
+  'flu_arrow_flow_up_right_regular': IconPack.flu_arrow_flow_up_right_regular,
   'flu_arrow_forward_down_lightning_filled': IconPack.flu_arrow_forward_down_lightning_filled,
   'flu_arrow_forward_down_lightning_regular': IconPack.flu_arrow_forward_down_lightning_regular,
   'flu_arrow_forward_down_person_filled': IconPack.flu_arrow_forward_down_person_filled,
@@ -26128,6 +27213,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_arrow_move_regular': IconPack.flu_arrow_move_regular,
   'flu_arrow_next_filled': IconPack.flu_arrow_next_filled,
   'flu_arrow_next_regular': IconPack.flu_arrow_next_regular,
+  'flu_arrow_outline_down_left_filled': IconPack.flu_arrow_outline_down_left_filled,
+  'flu_arrow_outline_down_left_regular': IconPack.flu_arrow_outline_down_left_regular,
   'flu_arrow_outline_up_right_filled': IconPack.flu_arrow_outline_up_right_filled,
   'flu_arrow_outline_up_right_regular': IconPack.flu_arrow_outline_up_right_regular,
   'flu_arrow_paragraph_filled': IconPack.flu_arrow_paragraph_filled,
@@ -26176,6 +27263,10 @@ const Map<String, IconData> iconPackMap = {
   'flu_arrow_split_regular': IconPack.flu_arrow_split_regular,
   'flu_arrow_square_down_filled': IconPack.flu_arrow_square_down_filled,
   'flu_arrow_square_down_regular': IconPack.flu_arrow_square_down_regular,
+  'flu_arrow_square_up_right_filled': IconPack.flu_arrow_square_up_right_filled,
+  'flu_arrow_square_up_right_regular': IconPack.flu_arrow_square_up_right_regular,
+  'flu_arrow_step_in_diagonal_down_left_filled': IconPack.flu_arrow_step_in_diagonal_down_left_filled,
+  'flu_arrow_step_in_diagonal_down_left_regular': IconPack.flu_arrow_step_in_diagonal_down_left_regular,
   'flu_arrow_step_in_filled': IconPack.flu_arrow_step_in_filled,
   'flu_arrow_step_in_left_filled': IconPack.flu_arrow_step_in_left_filled,
   'flu_arrow_step_in_left_regular': IconPack.flu_arrow_step_in_left_regular,
@@ -26204,6 +27295,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_arrow_trending_regular': IconPack.flu_arrow_trending_regular,
   'flu_arrow_trending_settings_filled': IconPack.flu_arrow_trending_settings_filled,
   'flu_arrow_trending_settings_regular': IconPack.flu_arrow_trending_settings_regular,
+  'flu_arrow_trending_sparkle_filled': IconPack.flu_arrow_trending_sparkle_filled,
+  'flu_arrow_trending_sparkle_regular': IconPack.flu_arrow_trending_sparkle_regular,
   'flu_arrow_trending_text_filled': IconPack.flu_arrow_trending_text_filled,
   'flu_arrow_trending_text_regular': IconPack.flu_arrow_trending_text_regular,
   'flu_arrow_trending_wrench_filled': IconPack.flu_arrow_trending_wrench_filled,
@@ -26220,6 +27313,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_arrow_up_regular': IconPack.flu_arrow_up_regular,
   'flu_arrow_up_right_filled': IconPack.flu_arrow_up_right_filled,
   'flu_arrow_up_right_regular': IconPack.flu_arrow_up_right_regular,
+  'flu_arrow_up_square_settings_filled': IconPack.flu_arrow_up_square_settings_filled,
+  'flu_arrow_up_square_settings_regular': IconPack.flu_arrow_up_square_settings_regular,
   'flu_arrow_upload_filled': IconPack.flu_arrow_upload_filled,
   'flu_arrow_upload_regular': IconPack.flu_arrow_upload_regular,
   'flu_arrows_bidirectional_filled': IconPack.flu_arrows_bidirectional_filled,
@@ -26290,6 +27385,12 @@ const Map<String, IconData> iconPackMap = {
   'flu_bed_regular': IconPack.flu_bed_regular,
   'flu_bin_full_filled': IconPack.flu_bin_full_filled,
   'flu_bin_full_regular': IconPack.flu_bin_full_regular,
+  'flu_bin_recycle_filled': IconPack.flu_bin_recycle_filled,
+  'flu_bin_recycle_full_filled': IconPack.flu_bin_recycle_full_filled,
+  'flu_bin_recycle_full_regular': IconPack.flu_bin_recycle_full_regular,
+  'flu_bin_recycle_regular': IconPack.flu_bin_recycle_regular,
+  'flu_binder_triangle_filled': IconPack.flu_binder_triangle_filled,
+  'flu_binder_triangle_regular': IconPack.flu_binder_triangle_regular,
   'flu_bluetooth_connected_filled': IconPack.flu_bluetooth_connected_filled,
   'flu_bluetooth_connected_regular': IconPack.flu_bluetooth_connected_regular,
   'flu_bluetooth_disabled_filled': IconPack.flu_bluetooth_disabled_filled,
@@ -26394,6 +27495,10 @@ const Map<String, IconData> iconPackMap = {
   'flu_bot_add_regular': IconPack.flu_bot_add_regular,
   'flu_bot_filled': IconPack.flu_bot_filled,
   'flu_bot_regular': IconPack.flu_bot_regular,
+  'flu_bot_sparkle_filled': IconPack.flu_bot_sparkle_filled,
+  'flu_bot_sparkle_regular': IconPack.flu_bot_sparkle_regular,
+  'flu_bow_tie_filled': IconPack.flu_bow_tie_filled,
+  'flu_bow_tie_regular': IconPack.flu_bow_tie_regular,
   'flu_bowl_chopsticks_filled': IconPack.flu_bowl_chopsticks_filled,
   'flu_bowl_chopsticks_regular': IconPack.flu_bowl_chopsticks_regular,
   'flu_bowl_salad_filled': IconPack.flu_bowl_salad_filled,
@@ -26447,7 +27552,11 @@ const Map<String, IconData> iconPackMap = {
   'flu_briefcase_medical_regular': IconPack.flu_briefcase_medical_regular,
   'flu_briefcase_off_filled': IconPack.flu_briefcase_off_filled,
   'flu_briefcase_off_regular': IconPack.flu_briefcase_off_regular,
+  'flu_briefcase_person_filled': IconPack.flu_briefcase_person_filled,
+  'flu_briefcase_person_regular': IconPack.flu_briefcase_person_regular,
   'flu_briefcase_regular': IconPack.flu_briefcase_regular,
+  'flu_briefcase_search_filled': IconPack.flu_briefcase_search_filled,
+  'flu_briefcase_search_regular': IconPack.flu_briefcase_search_regular,
   'flu_brightness_high_filled': IconPack.flu_brightness_high_filled,
   'flu_brightness_high_regular': IconPack.flu_brightness_high_regular,
   'flu_brightness_low_filled': IconPack.flu_brightness_low_filled,
@@ -26464,6 +27573,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_building_bank_regular': IconPack.flu_building_bank_regular,
   'flu_building_bank_toolbox_filled': IconPack.flu_building_bank_toolbox_filled,
   'flu_building_bank_toolbox_regular': IconPack.flu_building_bank_toolbox_regular,
+  'flu_building_cloud_filled': IconPack.flu_building_cloud_filled,
+  'flu_building_cloud_regular': IconPack.flu_building_cloud_regular,
   'flu_building_desktop_filled': IconPack.flu_building_desktop_filled,
   'flu_building_desktop_regular': IconPack.flu_building_desktop_regular,
   'flu_building_factory_filled': IconPack.flu_building_factory_filled,
@@ -26608,6 +27719,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_camera_sparkles_regular': IconPack.flu_camera_sparkles_regular,
   'flu_camera_switch_filled': IconPack.flu_camera_switch_filled,
   'flu_camera_switch_regular': IconPack.flu_camera_switch_regular,
+  'flu_card_ui_filled': IconPack.flu_card_ui_filled,
+  'flu_card_ui_regular': IconPack.flu_card_ui_regular,
   'flu_caret_down_filled': IconPack.flu_caret_down_filled,
   'flu_caret_down_regular': IconPack.flu_caret_down_regular,
   'flu_caret_down_right_filled': IconPack.flu_caret_down_right_filled,
@@ -26682,12 +27795,16 @@ const Map<String, IconData> iconPackMap = {
   'flu_chat_help_filled': IconPack.flu_chat_help_filled,
   'flu_chat_help_regular': IconPack.flu_chat_help_regular,
   'flu_chat_multiple_filled': IconPack.flu_chat_multiple_filled,
+  'flu_chat_multiple_heart_filled': IconPack.flu_chat_multiple_heart_filled,
+  'flu_chat_multiple_heart_regular': IconPack.flu_chat_multiple_heart_regular,
   'flu_chat_multiple_regular': IconPack.flu_chat_multiple_regular,
   'flu_chat_off_filled': IconPack.flu_chat_off_filled,
   'flu_chat_off_regular': IconPack.flu_chat_off_regular,
   'flu_chat_regular': IconPack.flu_chat_regular,
   'flu_chat_settings_filled': IconPack.flu_chat_settings_filled,
   'flu_chat_settings_regular': IconPack.flu_chat_settings_regular,
+  'flu_chat_sparkle_filled': IconPack.flu_chat_sparkle_filled,
+  'flu_chat_sparkle_regular': IconPack.flu_chat_sparkle_regular,
   'flu_chat_video_filled': IconPack.flu_chat_video_filled,
   'flu_chat_video_regular': IconPack.flu_chat_video_regular,
   'flu_chat_warning_filled': IconPack.flu_chat_warning_filled,
@@ -26730,6 +27847,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_chevron_circle_up_regular': IconPack.flu_chevron_circle_up_regular,
   'flu_chevron_down_filled': IconPack.flu_chevron_down_filled,
   'flu_chevron_down_regular': IconPack.flu_chevron_down_regular,
+  'flu_chevron_down_up_filled': IconPack.flu_chevron_down_up_filled,
+  'flu_chevron_down_up_regular': IconPack.flu_chevron_down_up_regular,
   'flu_chevron_left_filled': IconPack.flu_chevron_left_filled,
   'flu_chevron_left_regular': IconPack.flu_chevron_left_regular,
   'flu_chevron_right_filled': IconPack.flu_chevron_right_filled,
@@ -26817,6 +27936,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_clock_dismiss_filled': IconPack.flu_clock_dismiss_filled,
   'flu_clock_dismiss_regular': IconPack.flu_clock_dismiss_regular,
   'flu_clock_filled': IconPack.flu_clock_filled,
+  'flu_clock_lock_filled': IconPack.flu_clock_lock_filled,
+  'flu_clock_lock_regular': IconPack.flu_clock_lock_regular,
   'flu_clock_pause_filled': IconPack.flu_clock_pause_filled,
   'flu_clock_pause_regular': IconPack.flu_clock_pause_regular,
   'flu_clock_regular': IconPack.flu_clock_regular,
@@ -26834,6 +27955,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_cloud_arrow_down_regular': IconPack.flu_cloud_arrow_down_regular,
   'flu_cloud_arrow_up_filled': IconPack.flu_cloud_arrow_up_filled,
   'flu_cloud_arrow_up_regular': IconPack.flu_cloud_arrow_up_regular,
+  'flu_cloud_bidirectional_filled': IconPack.flu_cloud_bidirectional_filled,
+  'flu_cloud_bidirectional_regular': IconPack.flu_cloud_bidirectional_regular,
   'flu_cloud_checkmark_filled': IconPack.flu_cloud_checkmark_filled,
   'flu_cloud_checkmark_regular': IconPack.flu_cloud_checkmark_regular,
   'flu_cloud_dismiss_filled': IconPack.flu_cloud_dismiss_filled,
@@ -26856,8 +27979,12 @@ const Map<String, IconData> iconPackMap = {
   'flu_cloud_sync_regular': IconPack.flu_cloud_sync_regular,
   'flu_cloud_words_filled': IconPack.flu_cloud_words_filled,
   'flu_cloud_words_regular': IconPack.flu_cloud_words_regular,
+  'flu_clover_filled': IconPack.flu_clover_filled,
+  'flu_clover_regular': IconPack.flu_clover_regular,
   'flu_code_block_filled': IconPack.flu_code_block_filled,
   'flu_code_block_regular': IconPack.flu_code_block_regular,
+  'flu_code_circle_filled': IconPack.flu_code_circle_filled,
+  'flu_code_circle_regular': IconPack.flu_code_circle_regular,
   'flu_code_filled': IconPack.flu_code_filled,
   'flu_code_regular': IconPack.flu_code_regular,
   'flu_collections_add_filled': IconPack.flu_collections_add_filled,
@@ -26900,6 +28027,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_comment_filled': IconPack.flu_comment_filled,
   'flu_comment_lightning_filled': IconPack.flu_comment_lightning_filled,
   'flu_comment_lightning_regular': IconPack.flu_comment_lightning_regular,
+  'flu_comment_link_filled': IconPack.flu_comment_link_filled,
+  'flu_comment_link_regular': IconPack.flu_comment_link_regular,
   'flu_comment_mention_filled': IconPack.flu_comment_mention_filled,
   'flu_comment_mention_regular': IconPack.flu_comment_mention_regular,
   'flu_comment_multiple_checkmark_filled': IconPack.flu_comment_multiple_checkmark_filled,
@@ -26955,6 +28084,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_copy_arrow_right_regular': IconPack.flu_copy_arrow_right_regular,
   'flu_copy_filled': IconPack.flu_copy_filled,
   'flu_copy_regular': IconPack.flu_copy_regular,
+  'flu_copy_select_filled': IconPack.flu_copy_select_filled,
+  'flu_copy_select_regular': IconPack.flu_copy_select_regular,
   'flu_couch_filled': IconPack.flu_couch_filled,
   'flu_couch_regular': IconPack.flu_couch_regular,
   'flu_credit_card_clock_filled': IconPack.flu_credit_card_clock_filled,
@@ -26969,6 +28100,12 @@ const Map<String, IconData> iconPackMap = {
   'flu_crop_interim_off_regular': IconPack.flu_crop_interim_off_regular,
   'flu_crop_interim_regular': IconPack.flu_crop_interim_regular,
   'flu_crop_regular': IconPack.flu_crop_regular,
+  'flu_crop_sparkle_filled': IconPack.flu_crop_sparkle_filled,
+  'flu_crop_sparkle_regular': IconPack.flu_crop_sparkle_regular,
+  'flu_crown_filled': IconPack.flu_crown_filled,
+  'flu_crown_regular': IconPack.flu_crown_regular,
+  'flu_crown_subtract_filled': IconPack.flu_crown_subtract_filled,
+  'flu_crown_subtract_regular': IconPack.flu_crown_subtract_regular,
   'flu_cube_filled': IconPack.flu_cube_filled,
   'flu_cube_multiple_filled': IconPack.flu_cube_multiple_filled,
   'flu_cube_multiple_regular': IconPack.flu_cube_multiple_regular,
@@ -27055,6 +28192,10 @@ const Map<String, IconData> iconPackMap = {
   'flu_dentist_regular': IconPack.flu_dentist_regular,
   'flu_design_ideas_filled': IconPack.flu_design_ideas_filled,
   'flu_design_ideas_regular': IconPack.flu_design_ideas_regular,
+  'flu_desk_filled': IconPack.flu_desk_filled,
+  'flu_desk_regular': IconPack.flu_desk_regular,
+  'flu_desktop_arrow_down_filled': IconPack.flu_desktop_arrow_down_filled,
+  'flu_desktop_arrow_down_regular': IconPack.flu_desktop_arrow_down_regular,
   'flu_desktop_arrow_right_filled': IconPack.flu_desktop_arrow_right_filled,
   'flu_desktop_arrow_right_regular': IconPack.flu_desktop_arrow_right_regular,
   'flu_desktop_checkmark_filled': IconPack.flu_desktop_checkmark_filled,
@@ -27083,6 +28224,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_desktop_sync_regular': IconPack.flu_desktop_sync_regular,
   'flu_desktop_toolbox_filled': IconPack.flu_desktop_toolbox_filled,
   'flu_desktop_toolbox_regular': IconPack.flu_desktop_toolbox_regular,
+  'flu_desktop_tower_filled': IconPack.flu_desktop_tower_filled,
+  'flu_desktop_tower_regular': IconPack.flu_desktop_tower_regular,
   'flu_developer_board_filled': IconPack.flu_developer_board_filled,
   'flu_developer_board_regular': IconPack.flu_developer_board_regular,
   'flu_developer_board_search_filled': IconPack.flu_developer_board_search_filled,
@@ -27123,16 +28266,26 @@ const Map<String, IconData> iconPackMap = {
   'flu_dock_row_regular': IconPack.flu_dock_row_regular,
   'flu_doctor_filled': IconPack.flu_doctor_filled,
   'flu_doctor_regular': IconPack.flu_doctor_regular,
+  'flu_document_100_filled': IconPack.flu_document_100_filled,
+  'flu_document_100_regular': IconPack.flu_document_100_regular,
   'flu_document_add_filled': IconPack.flu_document_add_filled,
   'flu_document_add_regular': IconPack.flu_document_add_regular,
   'flu_document_arrow_left_filled': IconPack.flu_document_arrow_left_filled,
   'flu_document_arrow_left_regular': IconPack.flu_document_arrow_left_regular,
   'flu_document_arrow_right_filled': IconPack.flu_document_arrow_right_filled,
   'flu_document_arrow_right_regular': IconPack.flu_document_arrow_right_regular,
+  'flu_document_border_filled': IconPack.flu_document_border_filled,
+  'flu_document_border_print_filled': IconPack.flu_document_border_print_filled,
+  'flu_document_border_print_regular': IconPack.flu_document_border_print_regular,
+  'flu_document_border_regular': IconPack.flu_document_border_regular,
   'flu_document_briefcase_filled': IconPack.flu_document_briefcase_filled,
   'flu_document_briefcase_regular': IconPack.flu_document_briefcase_regular,
+  'flu_document_bullet_list_arrow_left_filled': IconPack.flu_document_bullet_list_arrow_left_filled,
+  'flu_document_bullet_list_arrow_left_regular': IconPack.flu_document_bullet_list_arrow_left_regular,
   'flu_document_bullet_list_clock_filled': IconPack.flu_document_bullet_list_clock_filled,
   'flu_document_bullet_list_clock_regular': IconPack.flu_document_bullet_list_clock_regular,
+  'flu_document_bullet_list_cube_filled': IconPack.flu_document_bullet_list_cube_filled,
+  'flu_document_bullet_list_cube_regular': IconPack.flu_document_bullet_list_cube_regular,
   'flu_document_bullet_list_filled': IconPack.flu_document_bullet_list_filled,
   'flu_document_bullet_list_multiple_filled': IconPack.flu_document_bullet_list_multiple_filled,
   'flu_document_bullet_list_multiple_regular': IconPack.flu_document_bullet_list_multiple_regular,
@@ -27150,6 +28303,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_document_css_filled': IconPack.flu_document_css_filled,
   'flu_document_css_regular': IconPack.flu_document_css_regular,
   'flu_document_data_filled': IconPack.flu_document_data_filled,
+  'flu_document_data_link_filled': IconPack.flu_document_data_link_filled,
+  'flu_document_data_link_regular': IconPack.flu_document_data_link_regular,
   'flu_document_data_regular': IconPack.flu_document_data_regular,
   'flu_document_database_filled': IconPack.flu_document_database_filled,
   'flu_document_database_regular': IconPack.flu_document_database_regular,
@@ -27162,8 +28317,12 @@ const Map<String, IconData> iconPackMap = {
   'flu_document_error_filled': IconPack.flu_document_error_filled,
   'flu_document_error_regular': IconPack.flu_document_error_regular,
   'flu_document_filled': IconPack.flu_document_filled,
+  'flu_document_fit_filled': IconPack.flu_document_fit_filled,
+  'flu_document_fit_regular': IconPack.flu_document_fit_regular,
   'flu_document_flowchart_filled': IconPack.flu_document_flowchart_filled,
   'flu_document_flowchart_regular': IconPack.flu_document_flowchart_regular,
+  'flu_document_folder_filled': IconPack.flu_document_folder_filled,
+  'flu_document_folder_regular': IconPack.flu_document_folder_regular,
   'flu_document_footer_dismiss_filled': IconPack.flu_document_footer_dismiss_filled,
   'flu_document_footer_dismiss_regular': IconPack.flu_document_footer_dismiss_regular,
   'flu_document_footer_filled': IconPack.flu_document_footer_filled,
@@ -27187,6 +28346,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_document_landscape_filled': IconPack.flu_document_landscape_filled,
   'flu_document_landscape_regular': IconPack.flu_document_landscape_regular,
   'flu_document_landscape_split_filled': IconPack.flu_document_landscape_split_filled,
+  'flu_document_landscape_split_hint_filled': IconPack.flu_document_landscape_split_hint_filled,
+  'flu_document_landscape_split_hint_regular': IconPack.flu_document_landscape_split_hint_regular,
   'flu_document_landscape_split_regular': IconPack.flu_document_landscape_split_regular,
   'flu_document_link_filled': IconPack.flu_document_link_filled,
   'flu_document_link_regular': IconPack.flu_document_link_regular,
@@ -27202,8 +28363,18 @@ const Map<String, IconData> iconPackMap = {
   'flu_document_multiple_prohibited_filled': IconPack.flu_document_multiple_prohibited_filled,
   'flu_document_multiple_prohibited_regular': IconPack.flu_document_multiple_prohibited_regular,
   'flu_document_multiple_regular': IconPack.flu_document_multiple_regular,
+  'flu_document_one_page_add_filled': IconPack.flu_document_one_page_add_filled,
+  'flu_document_one_page_add_regular': IconPack.flu_document_one_page_add_regular,
+  'flu_document_one_page_columns_filled': IconPack.flu_document_one_page_columns_filled,
+  'flu_document_one_page_columns_regular': IconPack.flu_document_one_page_columns_regular,
   'flu_document_one_page_filled': IconPack.flu_document_one_page_filled,
+  'flu_document_one_page_link_filled': IconPack.flu_document_one_page_link_filled,
+  'flu_document_one_page_link_regular': IconPack.flu_document_one_page_link_regular,
+  'flu_document_one_page_multiple_filled': IconPack.flu_document_one_page_multiple_filled,
+  'flu_document_one_page_multiple_regular': IconPack.flu_document_one_page_multiple_regular,
   'flu_document_one_page_regular': IconPack.flu_document_one_page_regular,
+  'flu_document_one_page_sparkle_filled': IconPack.flu_document_one_page_sparkle_filled,
+  'flu_document_one_page_sparkle_regular': IconPack.flu_document_one_page_sparkle_regular,
   'flu_document_page_bottom_center_filled': IconPack.flu_document_page_bottom_center_filled,
   'flu_document_page_bottom_center_regular': IconPack.flu_document_page_bottom_center_regular,
   'flu_document_page_bottom_left_filled': IconPack.flu_document_page_bottom_left_filled,
@@ -27226,6 +28397,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_document_percent_regular': IconPack.flu_document_percent_regular,
   'flu_document_pill_filled': IconPack.flu_document_pill_filled,
   'flu_document_pill_regular': IconPack.flu_document_pill_regular,
+  'flu_document_print_filled': IconPack.flu_document_print_filled,
+  'flu_document_print_regular': IconPack.flu_document_print_regular,
   'flu_document_prohibited_filled': IconPack.flu_document_prohibited_filled,
   'flu_document_prohibited_regular': IconPack.flu_document_prohibited_regular,
   'flu_document_question_mark_filled': IconPack.flu_document_question_mark_filled,
@@ -27365,10 +28538,14 @@ const Map<String, IconData> iconPackMap = {
   'flu_dual_screen_vibrate_regular': IconPack.flu_dual_screen_vibrate_regular,
   'flu_dumbbell_filled': IconPack.flu_dumbbell_filled,
   'flu_dumbbell_regular': IconPack.flu_dumbbell_regular,
+  'flu_dust_filled': IconPack.flu_dust_filled,
+  'flu_dust_regular': IconPack.flu_dust_regular,
   'flu_earth_filled': IconPack.flu_earth_filled,
   'flu_earth_leaf_filled': IconPack.flu_earth_leaf_filled,
   'flu_earth_leaf_regular': IconPack.flu_earth_leaf_regular,
   'flu_earth_regular': IconPack.flu_earth_regular,
+  'flu_edit_arrow_back_filled': IconPack.flu_edit_arrow_back_filled,
+  'flu_edit_arrow_back_regular': IconPack.flu_edit_arrow_back_regular,
   'flu_edit_filled': IconPack.flu_edit_filled,
   'flu_edit_off_filled': IconPack.flu_edit_off_filled,
   'flu_edit_off_regular': IconPack.flu_edit_off_regular,
@@ -27388,6 +28565,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_emoji_filled': IconPack.flu_emoji_filled,
   'flu_emoji_hand_filled': IconPack.flu_emoji_hand_filled,
   'flu_emoji_hand_regular': IconPack.flu_emoji_hand_regular,
+  'flu_emoji_hint_filled': IconPack.flu_emoji_hint_filled,
+  'flu_emoji_hint_regular': IconPack.flu_emoji_hint_regular,
   'flu_emoji_laugh_filled': IconPack.flu_emoji_laugh_filled,
   'flu_emoji_laugh_regular': IconPack.flu_emoji_laugh_regular,
   'flu_emoji_meh_filled': IconPack.flu_emoji_meh_filled,
@@ -27452,7 +28631,11 @@ const Map<String, IconData> iconPackMap = {
   'flu_feed_filled': IconPack.flu_feed_filled,
   'flu_feed_regular': IconPack.flu_feed_regular,
   'flu_filmstrip_filled': IconPack.flu_filmstrip_filled,
+  'flu_filmstrip_play_filled': IconPack.flu_filmstrip_play_filled,
+  'flu_filmstrip_play_regular': IconPack.flu_filmstrip_play_regular,
   'flu_filmstrip_regular': IconPack.flu_filmstrip_regular,
+  'flu_filmstrip_split_filled': IconPack.flu_filmstrip_split_filled,
+  'flu_filmstrip_split_regular': IconPack.flu_filmstrip_split_regular,
   'flu_filter_dismiss_filled': IconPack.flu_filter_dismiss_filled,
   'flu_filter_dismiss_regular': IconPack.flu_filter_dismiss_regular,
   'flu_filter_filled': IconPack.flu_filter_filled,
@@ -27467,10 +28650,15 @@ const Map<String, IconData> iconPackMap = {
   'flu_fireplace_regular': IconPack.flu_fireplace_regular,
   'flu_fixed_width_filled': IconPack.flu_fixed_width_filled,
   'flu_fixed_width_regular': IconPack.flu_fixed_width_regular,
+  'flu_flag_clock_filled': IconPack.flu_flag_clock_filled,
+  'flu_flag_clock_regular': IconPack.flu_flag_clock_regular,
   'flu_flag_filled': IconPack.flu_flag_filled,
   'flu_flag_off_filled': IconPack.flu_flag_off_filled,
   'flu_flag_off_regular': IconPack.flu_flag_off_regular,
   'flu_flag_pride_filled': IconPack.flu_flag_pride_filled,
+  'flu_flag_pride_intersex_inclusive_progress_filled': IconPack.flu_flag_pride_intersex_inclusive_progress_filled,
+  'flu_flag_pride_philadelphia_filled': IconPack.flu_flag_pride_philadelphia_filled,
+  'flu_flag_pride_progress_filled': IconPack.flu_flag_pride_progress_filled,
   'flu_flag_regular': IconPack.flu_flag_regular,
   'flu_flash_auto_filled': IconPack.flu_flash_auto_filled,
   'flu_flash_auto_regular': IconPack.flu_flash_auto_regular,
@@ -27492,6 +28680,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_flip_horizontal_regular': IconPack.flu_flip_horizontal_regular,
   'flu_flip_vertical_filled': IconPack.flu_flip_vertical_filled,
   'flu_flip_vertical_regular': IconPack.flu_flip_vertical_regular,
+  'flu_flow_filled': IconPack.flu_flow_filled,
+  'flu_flow_regular': IconPack.flu_flow_regular,
   'flu_flowchart_circle_filled': IconPack.flu_flowchart_circle_filled,
   'flu_flowchart_circle_regular': IconPack.flu_flowchart_circle_regular,
   'flu_flowchart_filled': IconPack.flu_flowchart_filled,
@@ -27509,6 +28699,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_folder_arrow_up_filled': IconPack.flu_folder_arrow_up_filled,
   'flu_folder_arrow_up_regular': IconPack.flu_folder_arrow_up_regular,
   'flu_folder_filled': IconPack.flu_folder_filled,
+  'flu_folder_lightning_filled': IconPack.flu_folder_lightning_filled,
+  'flu_folder_lightning_regular': IconPack.flu_folder_lightning_regular,
   'flu_folder_link_filled': IconPack.flu_folder_link_filled,
   'flu_folder_link_regular': IconPack.flu_folder_link_regular,
   'flu_folder_mail_filled': IconPack.flu_folder_mail_filled,
@@ -27572,6 +28764,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_fps_60_regular': IconPack.flu_fps_60_regular,
   'flu_fps_960_filled': IconPack.flu_fps_960_filled,
   'flu_fps_960_regular': IconPack.flu_fps_960_regular,
+  'flu_frame_filled': IconPack.flu_frame_filled,
+  'flu_frame_regular': IconPack.flu_frame_regular,
   'flu_full_screen_maximize_filled': IconPack.flu_full_screen_maximize_filled,
   'flu_full_screen_maximize_regular': IconPack.flu_full_screen_maximize_regular,
   'flu_full_screen_minimize_filled': IconPack.flu_full_screen_minimize_filled,
@@ -27603,6 +28797,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_gift_card_multiple_regular': IconPack.flu_gift_card_multiple_regular,
   'flu_gift_card_regular': IconPack.flu_gift_card_regular,
   'flu_gift_filled': IconPack.flu_gift_filled,
+  'flu_gift_open_filled': IconPack.flu_gift_open_filled,
+  'flu_gift_open_regular': IconPack.flu_gift_open_regular,
   'flu_gift_regular': IconPack.flu_gift_regular,
   'flu_glance_filled': IconPack.flu_glance_filled,
   'flu_glance_horizontal_filled': IconPack.flu_glance_horizontal_filled,
@@ -27670,6 +28866,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_handshake_regular': IconPack.flu_handshake_regular,
   'flu_hat_graduation_filled': IconPack.flu_hat_graduation_filled,
   'flu_hat_graduation_regular': IconPack.flu_hat_graduation_regular,
+  'flu_hat_graduation_sparkle_filled': IconPack.flu_hat_graduation_sparkle_filled,
+  'flu_hat_graduation_sparkle_regular': IconPack.flu_hat_graduation_sparkle_regular,
   'flu_hd_filled': IconPack.flu_hd_filled,
   'flu_hd_regular': IconPack.flu_hd_regular,
   'flu_hdr_filled': IconPack.flu_hdr_filled,
@@ -27710,6 +28908,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_home_database_filled': IconPack.flu_home_database_filled,
   'flu_home_database_regular': IconPack.flu_home_database_regular,
   'flu_home_filled': IconPack.flu_home_filled,
+  'flu_home_heart_filled': IconPack.flu_home_heart_filled,
+  'flu_home_heart_regular': IconPack.flu_home_heart_regular,
   'flu_home_more_filled': IconPack.flu_home_more_filled,
   'flu_home_more_regular': IconPack.flu_home_more_regular,
   'flu_home_person_filled': IconPack.flu_home_person_filled,
@@ -27737,6 +28937,10 @@ const Map<String, IconData> iconPackMap = {
   'flu_image_arrow_counterclockwise_regular': IconPack.flu_image_arrow_counterclockwise_regular,
   'flu_image_arrow_forward_filled': IconPack.flu_image_arrow_forward_filled,
   'flu_image_arrow_forward_regular': IconPack.flu_image_arrow_forward_regular,
+  'flu_image_border_filled': IconPack.flu_image_border_filled,
+  'flu_image_border_regular': IconPack.flu_image_border_regular,
+  'flu_image_circle_filled': IconPack.flu_image_circle_filled,
+  'flu_image_circle_regular': IconPack.flu_image_circle_regular,
   'flu_image_copy_filled': IconPack.flu_image_copy_filled,
   'flu_image_copy_regular': IconPack.flu_image_copy_regular,
   'flu_image_edit_filled': IconPack.flu_image_edit_filled,
@@ -27757,6 +28961,10 @@ const Map<String, IconData> iconPackMap = {
   'flu_image_search_regular': IconPack.flu_image_search_regular,
   'flu_image_shadow_filled': IconPack.flu_image_shadow_filled,
   'flu_image_shadow_regular': IconPack.flu_image_shadow_regular,
+  'flu_image_sparkle_filled': IconPack.flu_image_sparkle_filled,
+  'flu_image_sparkle_regular': IconPack.flu_image_sparkle_regular,
+  'flu_image_table_filled': IconPack.flu_image_table_filled,
+  'flu_image_table_regular': IconPack.flu_image_table_regular,
   'flu_immersive_reader_filled': IconPack.flu_immersive_reader_filled,
   'flu_immersive_reader_regular': IconPack.flu_immersive_reader_regular,
   'flu_important_filled': IconPack.flu_important_filled,
@@ -27780,6 +28988,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_ios_arrow_ltr_regular': IconPack.flu_ios_arrow_ltr_regular,
   'flu_ios_arrow_rtl_filled': IconPack.flu_ios_arrow_rtl_filled,
   'flu_ios_arrow_rtl_regular': IconPack.flu_ios_arrow_rtl_regular,
+  'flu_iot_alert_filled': IconPack.flu_iot_alert_filled,
+  'flu_iot_alert_regular': IconPack.flu_iot_alert_regular,
   'flu_iot_filled': IconPack.flu_iot_filled,
   'flu_iot_regular': IconPack.flu_iot_regular,
   'flu_javascript_filled': IconPack.flu_javascript_filled,
@@ -27810,7 +29020,11 @@ const Map<String, IconData> iconPackMap = {
   'flu_keyboard_shift_uppercase_regular': IconPack.flu_keyboard_shift_uppercase_regular,
   'flu_keyboard_tab_filled': IconPack.flu_keyboard_tab_filled,
   'flu_keyboard_tab_regular': IconPack.flu_keyboard_tab_regular,
+  'flu_kiosk_filled': IconPack.flu_kiosk_filled,
+  'flu_kiosk_regular': IconPack.flu_kiosk_regular,
   'flu_laptop_filled': IconPack.flu_laptop_filled,
+  'flu_laptop_multiple_filled': IconPack.flu_laptop_multiple_filled,
+  'flu_laptop_multiple_regular': IconPack.flu_laptop_multiple_regular,
   'flu_laptop_regular': IconPack.flu_laptop_regular,
   'flu_lasso_filled': IconPack.flu_lasso_filled,
   'flu_lasso_regular': IconPack.flu_lasso_regular,
@@ -27844,12 +29058,18 @@ const Map<String, IconData> iconPackMap = {
   'flu_line_regular': IconPack.flu_line_regular,
   'flu_line_style_filled': IconPack.flu_line_style_filled,
   'flu_line_style_regular': IconPack.flu_line_style_regular,
+  'flu_line_thickness_filled': IconPack.flu_line_thickness_filled,
+  'flu_line_thickness_regular': IconPack.flu_line_thickness_regular,
+  'flu_link_add_filled': IconPack.flu_link_add_filled,
+  'flu_link_add_regular': IconPack.flu_link_add_regular,
   'flu_link_dismiss_filled': IconPack.flu_link_dismiss_filled,
   'flu_link_dismiss_regular': IconPack.flu_link_dismiss_regular,
   'flu_link_edit_filled': IconPack.flu_link_edit_filled,
   'flu_link_edit_regular': IconPack.flu_link_edit_regular,
   'flu_link_filled': IconPack.flu_link_filled,
   'flu_link_regular': IconPack.flu_link_regular,
+  'flu_link_settings_filled': IconPack.flu_link_settings_filled,
+  'flu_link_settings_regular': IconPack.flu_link_settings_regular,
   'flu_link_square_filled': IconPack.flu_link_square_filled,
   'flu_link_square_regular': IconPack.flu_link_square_regular,
   'flu_list_filled': IconPack.flu_list_filled,
@@ -27862,6 +29082,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_local_language_regular': IconPack.flu_local_language_regular,
   'flu_location_add_filled': IconPack.flu_location_add_filled,
   'flu_location_add_regular': IconPack.flu_location_add_regular,
+  'flu_location_arrow_filled': IconPack.flu_location_arrow_filled,
+  'flu_location_arrow_regular': IconPack.flu_location_arrow_regular,
   'flu_location_dismiss_filled': IconPack.flu_location_dismiss_filled,
   'flu_location_dismiss_regular': IconPack.flu_location_dismiss_regular,
   'flu_location_filled': IconPack.flu_location_filled,
@@ -27871,6 +29093,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_location_off_regular': IconPack.flu_location_off_regular,
   'flu_location_regular': IconPack.flu_location_regular,
   'flu_lock_closed_filled': IconPack.flu_lock_closed_filled,
+  'flu_lock_closed_key_filled': IconPack.flu_lock_closed_key_filled,
+  'flu_lock_closed_key_regular': IconPack.flu_lock_closed_key_regular,
   'flu_lock_closed_regular': IconPack.flu_lock_closed_regular,
   'flu_lock_multiple_filled': IconPack.flu_lock_multiple_filled,
   'flu_lock_multiple_regular': IconPack.flu_lock_multiple_regular,
@@ -27888,10 +29112,14 @@ const Map<String, IconData> iconPackMap = {
   'flu_mail_alert_regular': IconPack.flu_mail_alert_regular,
   'flu_mail_all_read_filled': IconPack.flu_mail_all_read_filled,
   'flu_mail_all_read_regular': IconPack.flu_mail_all_read_regular,
+  'flu_mail_arrow_double_back_filled': IconPack.flu_mail_arrow_double_back_filled,
+  'flu_mail_arrow_double_back_regular': IconPack.flu_mail_arrow_double_back_regular,
   'flu_mail_arrow_up_filled': IconPack.flu_mail_arrow_up_filled,
   'flu_mail_arrow_up_regular': IconPack.flu_mail_arrow_up_regular,
   'flu_mail_attach_filled': IconPack.flu_mail_attach_filled,
   'flu_mail_attach_regular': IconPack.flu_mail_attach_regular,
+  'flu_mail_checkmark_filled': IconPack.flu_mail_checkmark_filled,
+  'flu_mail_checkmark_regular': IconPack.flu_mail_checkmark_regular,
   'flu_mail_clock_filled': IconPack.flu_mail_clock_filled,
   'flu_mail_clock_regular': IconPack.flu_mail_clock_regular,
   'flu_mail_copy_filled': IconPack.flu_mail_copy_filled,
@@ -27990,6 +29218,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_midi_regular': IconPack.flu_midi_regular,
   'flu_mobile_optimized_filled': IconPack.flu_mobile_optimized_filled,
   'flu_mobile_optimized_regular': IconPack.flu_mobile_optimized_regular,
+  'flu_mold_filled': IconPack.flu_mold_filled,
+  'flu_mold_regular': IconPack.flu_mold_regular,
   'flu_molecule_filled': IconPack.flu_molecule_filled,
   'flu_molecule_regular': IconPack.flu_molecule_regular,
   'flu_money_calculator_filled': IconPack.flu_money_calculator_filled,
@@ -28002,12 +29232,20 @@ const Map<String, IconData> iconPackMap = {
   'flu_money_off_filled': IconPack.flu_money_off_filled,
   'flu_money_off_regular': IconPack.flu_money_off_regular,
   'flu_money_regular': IconPack.flu_money_regular,
+  'flu_money_settings_filled': IconPack.flu_money_settings_filled,
+  'flu_money_settings_regular': IconPack.flu_money_settings_regular,
   'flu_more_circle_filled': IconPack.flu_more_circle_filled,
   'flu_more_circle_regular': IconPack.flu_more_circle_regular,
   'flu_more_horizontal_filled': IconPack.flu_more_horizontal_filled,
   'flu_more_horizontal_regular': IconPack.flu_more_horizontal_regular,
   'flu_more_vertical_filled': IconPack.flu_more_vertical_filled,
   'flu_more_vertical_regular': IconPack.flu_more_vertical_regular,
+  'flu_mountain_location_bottom_filled': IconPack.flu_mountain_location_bottom_filled,
+  'flu_mountain_location_bottom_regular': IconPack.flu_mountain_location_bottom_regular,
+  'flu_mountain_location_top_filled': IconPack.flu_mountain_location_top_filled,
+  'flu_mountain_location_top_regular': IconPack.flu_mountain_location_top_regular,
+  'flu_mountain_trail_filled': IconPack.flu_mountain_trail_filled,
+  'flu_mountain_trail_regular': IconPack.flu_mountain_trail_regular,
   'flu_movies_and_tv_filled': IconPack.flu_movies_and_tv_filled,
   'flu_movies_and_tv_regular': IconPack.flu_movies_and_tv_regular,
   'flu_multiplier_1_2x_filled': IconPack.flu_multiplier_1_2x_filled,
@@ -28138,9 +29376,21 @@ const Map<String, IconData> iconPackMap = {
   'flu_panel_left_expand_regular': IconPack.flu_panel_left_expand_regular,
   'flu_panel_left_filled': IconPack.flu_panel_left_filled,
   'flu_panel_left_focus_right_filled': IconPack.flu_panel_left_focus_right_filled,
+  'flu_panel_left_header_add_filled': IconPack.flu_panel_left_header_add_filled,
+  'flu_panel_left_header_add_regular': IconPack.flu_panel_left_header_add_regular,
+  'flu_panel_left_header_filled': IconPack.flu_panel_left_header_filled,
+  'flu_panel_left_header_key_filled': IconPack.flu_panel_left_header_key_filled,
+  'flu_panel_left_header_key_regular': IconPack.flu_panel_left_header_key_regular,
+  'flu_panel_left_header_regular': IconPack.flu_panel_left_header_regular,
   'flu_panel_left_key_filled': IconPack.flu_panel_left_key_filled,
   'flu_panel_left_key_regular': IconPack.flu_panel_left_key_regular,
   'flu_panel_left_regular': IconPack.flu_panel_left_regular,
+  'flu_panel_left_text_add_filled': IconPack.flu_panel_left_text_add_filled,
+  'flu_panel_left_text_add_regular': IconPack.flu_panel_left_text_add_regular,
+  'flu_panel_left_text_dismiss_filled': IconPack.flu_panel_left_text_dismiss_filled,
+  'flu_panel_left_text_dismiss_regular': IconPack.flu_panel_left_text_dismiss_regular,
+  'flu_panel_left_text_filled': IconPack.flu_panel_left_text_filled,
+  'flu_panel_left_text_regular': IconPack.flu_panel_left_text_regular,
   'flu_panel_right_contract_filled': IconPack.flu_panel_right_contract_filled,
   'flu_panel_right_contract_regular': IconPack.flu_panel_right_contract_regular,
   'flu_panel_right_cursor_filled': IconPack.flu_panel_right_cursor_filled,
@@ -28159,22 +29409,30 @@ const Map<String, IconData> iconPackMap = {
   'flu_pause_regular': IconPack.flu_pause_regular,
   'flu_payment_filled': IconPack.flu_payment_filled,
   'flu_payment_regular': IconPack.flu_payment_regular,
+  'flu_pen_dismiss_filled': IconPack.flu_pen_dismiss_filled,
+  'flu_pen_dismiss_regular': IconPack.flu_pen_dismiss_regular,
   'flu_pen_filled': IconPack.flu_pen_filled,
   'flu_pen_off_filled': IconPack.flu_pen_off_filled,
   'flu_pen_off_regular': IconPack.flu_pen_off_regular,
   'flu_pen_prohibited_filled': IconPack.flu_pen_prohibited_filled,
   'flu_pen_prohibited_regular': IconPack.flu_pen_prohibited_regular,
   'flu_pen_regular': IconPack.flu_pen_regular,
+  'flu_pen_sparkle_filled': IconPack.flu_pen_sparkle_filled,
+  'flu_pen_sparkle_regular': IconPack.flu_pen_sparkle_regular,
   'flu_people_add_filled': IconPack.flu_people_add_filled,
   'flu_people_add_regular': IconPack.flu_people_add_regular,
   'flu_people_audience_filled': IconPack.flu_people_audience_filled,
   'flu_people_audience_regular': IconPack.flu_people_audience_regular,
+  'flu_people_call_filled': IconPack.flu_people_call_filled,
+  'flu_people_call_regular': IconPack.flu_people_call_regular,
   'flu_people_checkmark_filled': IconPack.flu_people_checkmark_filled,
   'flu_people_checkmark_regular': IconPack.flu_people_checkmark_regular,
   'flu_people_community_add_filled': IconPack.flu_people_community_add_filled,
   'flu_people_community_add_regular': IconPack.flu_people_community_add_regular,
   'flu_people_community_filled': IconPack.flu_people_community_filled,
   'flu_people_community_regular': IconPack.flu_people_community_regular,
+  'flu_people_edit_filled': IconPack.flu_people_edit_filled,
+  'flu_people_edit_regular': IconPack.flu_people_edit_regular,
   'flu_people_error_filled': IconPack.flu_people_error_filled,
   'flu_people_error_regular': IconPack.flu_people_error_regular,
   'flu_people_filled': IconPack.flu_people_filled,
@@ -28238,6 +29496,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_person_filled': IconPack.flu_person_filled,
   'flu_person_heart_filled': IconPack.flu_person_heart_filled,
   'flu_person_heart_regular': IconPack.flu_person_heart_regular,
+  'flu_person_info_filled': IconPack.flu_person_info_filled,
+  'flu_person_info_regular': IconPack.flu_person_info_regular,
   'flu_person_lightbulb_filled': IconPack.flu_person_lightbulb_filled,
   'flu_person_lightbulb_regular': IconPack.flu_person_lightbulb_regular,
   'flu_person_link_filled': IconPack.flu_person_link_filled,
@@ -28250,6 +29510,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_person_money_regular': IconPack.flu_person_money_regular,
   'flu_person_note_filled': IconPack.flu_person_note_filled,
   'flu_person_note_regular': IconPack.flu_person_note_regular,
+  'flu_person_phone_filled': IconPack.flu_person_phone_filled,
+  'flu_person_phone_regular': IconPack.flu_person_phone_regular,
   'flu_person_pill_filled': IconPack.flu_person_pill_filled,
   'flu_person_pill_regular': IconPack.flu_person_pill_regular,
   'flu_person_prohibited_filled': IconPack.flu_person_prohibited_filled,
@@ -28257,12 +29519,16 @@ const Map<String, IconData> iconPackMap = {
   'flu_person_question_mark_filled': IconPack.flu_person_question_mark_filled,
   'flu_person_question_mark_regular': IconPack.flu_person_question_mark_regular,
   'flu_person_regular': IconPack.flu_person_regular,
+  'flu_person_search_filled': IconPack.flu_person_search_filled,
+  'flu_person_search_regular': IconPack.flu_person_search_regular,
   'flu_person_square_filled': IconPack.flu_person_square_filled,
   'flu_person_square_regular': IconPack.flu_person_square_regular,
   'flu_person_star_filled': IconPack.flu_person_star_filled,
   'flu_person_star_regular': IconPack.flu_person_star_regular,
   'flu_person_starburst_filled': IconPack.flu_person_starburst_filled,
   'flu_person_starburst_regular': IconPack.flu_person_starburst_regular,
+  'flu_person_subtract_filled': IconPack.flu_person_subtract_filled,
+  'flu_person_subtract_regular': IconPack.flu_person_subtract_regular,
   'flu_person_support_filled': IconPack.flu_person_support_filled,
   'flu_person_support_regular': IconPack.flu_person_support_regular,
   'flu_person_swap_filled': IconPack.flu_person_swap_filled,
@@ -28279,12 +29545,16 @@ const Map<String, IconData> iconPackMap = {
   'flu_phone_add_regular': IconPack.flu_phone_add_regular,
   'flu_phone_arrow_right_filled': IconPack.flu_phone_arrow_right_filled,
   'flu_phone_arrow_right_regular': IconPack.flu_phone_arrow_right_regular,
+  'flu_phone_briefcase_filled': IconPack.flu_phone_briefcase_filled,
+  'flu_phone_briefcase_regular': IconPack.flu_phone_briefcase_regular,
   'flu_phone_chat_filled': IconPack.flu_phone_chat_filled,
   'flu_phone_chat_regular': IconPack.flu_phone_chat_regular,
   'flu_phone_desktop_filled': IconPack.flu_phone_desktop_filled,
   'flu_phone_desktop_regular': IconPack.flu_phone_desktop_regular,
   'flu_phone_dismiss_filled': IconPack.flu_phone_dismiss_filled,
   'flu_phone_dismiss_regular': IconPack.flu_phone_dismiss_regular,
+  'flu_phone_edit_filled': IconPack.flu_phone_edit_filled,
+  'flu_phone_edit_regular': IconPack.flu_phone_edit_regular,
   'flu_phone_filled': IconPack.flu_phone_filled,
   'flu_phone_key_filled': IconPack.flu_phone_key_filled,
   'flu_phone_key_regular': IconPack.flu_phone_key_regular,
@@ -28294,10 +29564,16 @@ const Map<String, IconData> iconPackMap = {
   'flu_phone_link_setup_regular': IconPack.flu_phone_link_setup_regular,
   'flu_phone_lock_filled': IconPack.flu_phone_lock_filled,
   'flu_phone_lock_regular': IconPack.flu_phone_lock_regular,
+  'flu_phone_multiple_filled': IconPack.flu_phone_multiple_filled,
+  'flu_phone_multiple_regular': IconPack.flu_phone_multiple_regular,
+  'flu_phone_multiple_settings_filled': IconPack.flu_phone_multiple_settings_filled,
+  'flu_phone_multiple_settings_regular': IconPack.flu_phone_multiple_settings_regular,
   'flu_phone_page_header_filled': IconPack.flu_phone_page_header_filled,
   'flu_phone_page_header_regular': IconPack.flu_phone_page_header_regular,
   'flu_phone_pagination_filled': IconPack.flu_phone_pagination_filled,
   'flu_phone_pagination_regular': IconPack.flu_phone_pagination_regular,
+  'flu_phone_person_filled': IconPack.flu_phone_person_filled,
+  'flu_phone_person_regular': IconPack.flu_phone_person_regular,
   'flu_phone_regular': IconPack.flu_phone_regular,
   'flu_phone_screen_time_filled': IconPack.flu_phone_screen_time_filled,
   'flu_phone_screen_time_regular': IconPack.flu_phone_screen_time_regular,
@@ -28311,6 +29587,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_phone_speaker_regular': IconPack.flu_phone_speaker_regular,
   'flu_phone_status_bar_filled': IconPack.flu_phone_status_bar_filled,
   'flu_phone_status_bar_regular': IconPack.flu_phone_status_bar_regular,
+  'flu_phone_subtract_filled': IconPack.flu_phone_subtract_filled,
+  'flu_phone_subtract_regular': IconPack.flu_phone_subtract_regular,
   'flu_phone_tablet_filled': IconPack.flu_phone_tablet_filled,
   'flu_phone_tablet_regular': IconPack.flu_phone_tablet_regular,
   'flu_phone_update_checkmark_filled': IconPack.flu_phone_update_checkmark_filled,
@@ -28341,17 +29619,27 @@ const Map<String, IconData> iconPackMap = {
   'flu_pipeline_regular': IconPack.flu_pipeline_regular,
   'flu_pivot_filled': IconPack.flu_pivot_filled,
   'flu_pivot_regular': IconPack.flu_pivot_regular,
+  'flu_plant_grass_filled': IconPack.flu_plant_grass_filled,
+  'flu_plant_grass_regular': IconPack.flu_plant_grass_regular,
+  'flu_plant_ragweed_filled': IconPack.flu_plant_ragweed_filled,
+  'flu_plant_ragweed_regular': IconPack.flu_plant_ragweed_regular,
   'flu_play_circle_filled': IconPack.flu_play_circle_filled,
+  'flu_play_circle_hint_filled': IconPack.flu_play_circle_hint_filled,
+  'flu_play_circle_hint_regular': IconPack.flu_play_circle_hint_regular,
   'flu_play_circle_regular': IconPack.flu_play_circle_regular,
   'flu_play_filled': IconPack.flu_play_filled,
   'flu_play_regular': IconPack.flu_play_regular,
   'flu_plug_connected_filled': IconPack.flu_plug_connected_filled,
   'flu_plug_connected_regular': IconPack.flu_plug_connected_regular,
+  'flu_plug_connected_settings_filled': IconPack.flu_plug_connected_settings_filled,
+  'flu_plug_connected_settings_regular': IconPack.flu_plug_connected_settings_regular,
   'flu_plug_disconnected_filled': IconPack.flu_plug_disconnected_filled,
   'flu_plug_disconnected_regular': IconPack.flu_plug_disconnected_regular,
   'flu_point_scan_filled': IconPack.flu_point_scan_filled,
   'flu_point_scan_regular': IconPack.flu_point_scan_regular,
   'flu_poll_filled': IconPack.flu_poll_filled,
+  'flu_poll_horizontal_filled': IconPack.flu_poll_horizontal_filled,
+  'flu_poll_horizontal_regular': IconPack.flu_poll_horizontal_regular,
   'flu_poll_regular': IconPack.flu_poll_regular,
   'flu_port_hdmi_filled': IconPack.flu_port_hdmi_filled,
   'flu_port_hdmi_regular': IconPack.flu_port_hdmi_regular,
@@ -28380,6 +29668,7 @@ const Map<String, IconData> iconPackMap = {
   'flu_presence_available_filled': IconPack.flu_presence_available_filled,
   'flu_presence_available_regular': IconPack.flu_presence_available_regular,
   'flu_presence_away_filled': IconPack.flu_presence_away_filled,
+  'flu_presence_away_regular': IconPack.flu_presence_away_regular,
   'flu_presence_blocked_regular': IconPack.flu_presence_blocked_regular,
   'flu_presence_busy_filled': IconPack.flu_presence_busy_filled,
   'flu_presence_dnd_filled': IconPack.flu_presence_dnd_filled,
@@ -28411,6 +29700,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_projection_screen_dismiss_regular': IconPack.flu_projection_screen_dismiss_regular,
   'flu_projection_screen_filled': IconPack.flu_projection_screen_filled,
   'flu_projection_screen_regular': IconPack.flu_projection_screen_regular,
+  'flu_projection_screen_text_filled': IconPack.flu_projection_screen_text_filled,
+  'flu_projection_screen_text_regular': IconPack.flu_projection_screen_text_regular,
   'flu_protocol_handler_filled': IconPack.flu_protocol_handler_filled,
   'flu_protocol_handler_regular': IconPack.flu_protocol_handler_regular,
   'flu_pulse_filled': IconPack.flu_pulse_filled,
@@ -28470,6 +29761,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_record_stop_filled': IconPack.flu_record_stop_filled,
   'flu_record_stop_regular': IconPack.flu_record_stop_regular,
   'flu_rectangle_landscape_filled': IconPack.flu_rectangle_landscape_filled,
+  'flu_rectangle_landscape_hint_copy_filled': IconPack.flu_rectangle_landscape_hint_copy_filled,
+  'flu_rectangle_landscape_hint_copy_regular': IconPack.flu_rectangle_landscape_hint_copy_regular,
   'flu_rectangle_landscape_regular': IconPack.flu_rectangle_landscape_regular,
   'flu_rename_filled': IconPack.flu_rename_filled,
   'flu_rename_regular': IconPack.flu_rename_regular,
@@ -28565,6 +29858,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_screen_search_regular': IconPack.flu_screen_search_regular,
   'flu_screenshot_filled': IconPack.flu_screenshot_filled,
   'flu_screenshot_regular': IconPack.flu_screenshot_regular,
+  'flu_script_filled': IconPack.flu_script_filled,
+  'flu_script_regular': IconPack.flu_script_regular,
   'flu_search_filled': IconPack.flu_search_filled,
   'flu_search_info_filled': IconPack.flu_search_info_filled,
   'flu_search_info_regular': IconPack.flu_search_info_regular,
@@ -28585,6 +29880,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_select_object_skew_edit_regular': IconPack.flu_select_object_skew_edit_regular,
   'flu_select_object_skew_filled': IconPack.flu_select_object_skew_filled,
   'flu_select_object_skew_regular': IconPack.flu_select_object_skew_regular,
+  'flu_send_beaker_filled': IconPack.flu_send_beaker_filled,
+  'flu_send_beaker_regular': IconPack.flu_send_beaker_regular,
   'flu_send_clock_filled': IconPack.flu_send_clock_filled,
   'flu_send_clock_regular': IconPack.flu_send_clock_regular,
   'flu_send_copy_filled': IconPack.flu_send_copy_filled,
@@ -28594,11 +29891,15 @@ const Map<String, IconData> iconPackMap = {
   'flu_serial_port_filled': IconPack.flu_serial_port_filled,
   'flu_serial_port_regular': IconPack.flu_serial_port_regular,
   'flu_server_filled': IconPack.flu_server_filled,
+  'flu_server_link_filled': IconPack.flu_server_link_filled,
+  'flu_server_link_regular': IconPack.flu_server_link_regular,
   'flu_server_regular': IconPack.flu_server_regular,
   'flu_service_bell_filled': IconPack.flu_service_bell_filled,
   'flu_service_bell_regular': IconPack.flu_service_bell_regular,
   'flu_settings_chat_filled': IconPack.flu_settings_chat_filled,
   'flu_settings_chat_regular': IconPack.flu_settings_chat_regular,
+  'flu_settings_cog_multiple_filled': IconPack.flu_settings_cog_multiple_filled,
+  'flu_settings_cog_multiple_regular': IconPack.flu_settings_cog_multiple_regular,
   'flu_settings_filled': IconPack.flu_settings_filled,
   'flu_settings_regular': IconPack.flu_settings_regular,
   'flu_shape_exclude_filled': IconPack.flu_shape_exclude_filled,
@@ -28709,12 +30010,16 @@ const Map<String, IconData> iconPackMap = {
   'flu_skip_forward_30_regular': IconPack.flu_skip_forward_30_regular,
   'flu_skip_forward_tab_filled': IconPack.flu_skip_forward_tab_filled,
   'flu_skip_forward_tab_regular': IconPack.flu_skip_forward_tab_regular,
+  'flu_slash_forward_filled': IconPack.flu_slash_forward_filled,
+  'flu_slash_forward_regular': IconPack.flu_slash_forward_regular,
   'flu_sleep_filled': IconPack.flu_sleep_filled,
   'flu_sleep_regular': IconPack.flu_sleep_regular,
   'flu_slide_add_filled': IconPack.flu_slide_add_filled,
   'flu_slide_add_regular': IconPack.flu_slide_add_regular,
   'flu_slide_arrow_right_filled': IconPack.flu_slide_arrow_right_filled,
   'flu_slide_arrow_right_regular': IconPack.flu_slide_arrow_right_regular,
+  'flu_slide_content_filled': IconPack.flu_slide_content_filled,
+  'flu_slide_content_regular': IconPack.flu_slide_content_regular,
   'flu_slide_eraser_filled': IconPack.flu_slide_eraser_filled,
   'flu_slide_eraser_regular': IconPack.flu_slide_eraser_regular,
   'flu_slide_grid_filled': IconPack.flu_slide_grid_filled,
@@ -28733,6 +30038,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_slide_multiple_regular': IconPack.flu_slide_multiple_regular,
   'flu_slide_multiple_search_filled': IconPack.flu_slide_multiple_search_filled,
   'flu_slide_multiple_search_regular': IconPack.flu_slide_multiple_search_regular,
+  'flu_slide_record_filled': IconPack.flu_slide_record_filled,
+  'flu_slide_record_regular': IconPack.flu_slide_record_regular,
   'flu_slide_search_filled': IconPack.flu_slide_search_filled,
   'flu_slide_search_regular': IconPack.flu_slide_search_regular,
   'flu_slide_settings_filled': IconPack.flu_slide_settings_filled,
@@ -28745,6 +30052,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_slide_text_person_filled': IconPack.flu_slide_text_person_filled,
   'flu_slide_text_person_regular': IconPack.flu_slide_text_person_regular,
   'flu_slide_text_regular': IconPack.flu_slide_text_regular,
+  'flu_slide_text_sparkle_filled': IconPack.flu_slide_text_sparkle_filled,
+  'flu_slide_text_sparkle_regular': IconPack.flu_slide_text_sparkle_regular,
   'flu_slide_transition_filled': IconPack.flu_slide_transition_filled,
   'flu_slide_transition_regular': IconPack.flu_slide_transition_regular,
   'flu_smartwatch_dot_filled': IconPack.flu_smartwatch_dot_filled,
@@ -28757,6 +30066,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_sound_source_regular': IconPack.flu_sound_source_regular,
   'flu_sound_wave_circle_filled': IconPack.flu_sound_wave_circle_filled,
   'flu_sound_wave_circle_regular': IconPack.flu_sound_wave_circle_regular,
+  'flu_space_3d_filled': IconPack.flu_space_3d_filled,
+  'flu_space_3d_regular': IconPack.flu_space_3d_regular,
   'flu_spacebar_filled': IconPack.flu_spacebar_filled,
   'flu_spacebar_regular': IconPack.flu_spacebar_regular,
   'flu_sparkle_circle_filled': IconPack.flu_sparkle_circle_filled,
@@ -28809,18 +30120,26 @@ const Map<String, IconData> iconPackMap = {
   'flu_square_multiple_filled': IconPack.flu_square_multiple_filled,
   'flu_square_multiple_regular': IconPack.flu_square_multiple_regular,
   'flu_square_regular': IconPack.flu_square_regular,
+  'flu_stack_add_filled': IconPack.flu_stack_add_filled,
+  'flu_stack_add_regular': IconPack.flu_stack_add_regular,
   'flu_stack_arrow_forward_filled': IconPack.flu_stack_arrow_forward_filled,
   'flu_stack_arrow_forward_regular': IconPack.flu_stack_arrow_forward_regular,
   'flu_stack_filled': IconPack.flu_stack_filled,
   'flu_stack_regular': IconPack.flu_stack_regular,
   'flu_stack_star_filled': IconPack.flu_stack_star_filled,
   'flu_stack_star_regular': IconPack.flu_stack_star_regular,
+  'flu_stack_vertical_filled': IconPack.flu_stack_vertical_filled,
+  'flu_stack_vertical_regular': IconPack.flu_stack_vertical_regular,
   'flu_star_add_filled': IconPack.flu_star_add_filled,
   'flu_star_add_regular': IconPack.flu_star_add_regular,
+  'flu_star_arrow_back_filled': IconPack.flu_star_arrow_back_filled,
+  'flu_star_arrow_back_regular': IconPack.flu_star_arrow_back_regular,
   'flu_star_arrow_right_end_filled': IconPack.flu_star_arrow_right_end_filled,
   'flu_star_arrow_right_end_regular': IconPack.flu_star_arrow_right_end_regular,
   'flu_star_arrow_right_start_filled': IconPack.flu_star_arrow_right_start_filled,
   'flu_star_arrow_right_start_regular': IconPack.flu_star_arrow_right_start_regular,
+  'flu_star_checkmark_filled': IconPack.flu_star_checkmark_filled,
+  'flu_star_checkmark_regular': IconPack.flu_star_checkmark_regular,
   'flu_star_dismiss_filled': IconPack.flu_star_dismiss_filled,
   'flu_star_dismiss_regular': IconPack.flu_star_dismiss_regular,
   'flu_star_edit_filled': IconPack.flu_star_edit_filled,
@@ -28902,6 +30221,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_tab_desktop_filled': IconPack.flu_tab_desktop_filled,
   'flu_tab_desktop_image_filled': IconPack.flu_tab_desktop_image_filled,
   'flu_tab_desktop_image_regular': IconPack.flu_tab_desktop_image_regular,
+  'flu_tab_desktop_link_filled': IconPack.flu_tab_desktop_link_filled,
+  'flu_tab_desktop_link_regular': IconPack.flu_tab_desktop_link_regular,
   'flu_tab_desktop_multiple_bottom_filled': IconPack.flu_tab_desktop_multiple_bottom_filled,
   'flu_tab_desktop_multiple_bottom_regular': IconPack.flu_tab_desktop_multiple_bottom_regular,
   'flu_tab_desktop_regular': IconPack.flu_tab_desktop_regular,
@@ -28917,6 +30238,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_tab_shield_dismiss_regular': IconPack.flu_tab_shield_dismiss_regular,
   'flu_table_add_filled': IconPack.flu_table_add_filled,
   'flu_table_add_regular': IconPack.flu_table_add_regular,
+  'flu_table_arrow_up_filled': IconPack.flu_table_arrow_up_filled,
+  'flu_table_arrow_up_regular': IconPack.flu_table_arrow_up_regular,
   'flu_table_bottom_row_filled': IconPack.flu_table_bottom_row_filled,
   'flu_table_bottom_row_regular': IconPack.flu_table_bottom_row_regular,
   'flu_table_cell_edit_filled': IconPack.flu_table_cell_edit_filled,
@@ -28925,6 +30248,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_table_cells_merge_regular': IconPack.flu_table_cells_merge_regular,
   'flu_table_cells_split_filled': IconPack.flu_table_cells_split_filled,
   'flu_table_cells_split_regular': IconPack.flu_table_cells_split_regular,
+  'flu_table_column_top_bottom_filled': IconPack.flu_table_column_top_bottom_filled,
+  'flu_table_column_top_bottom_regular': IconPack.flu_table_column_top_bottom_regular,
   'flu_table_delete_column_filled': IconPack.flu_table_delete_column_filled,
   'flu_table_delete_column_regular': IconPack.flu_table_delete_column_regular,
   'flu_table_delete_row_filled': IconPack.flu_table_delete_row_filled,
@@ -28958,6 +30283,14 @@ const Map<String, IconData> iconPackMap = {
   'flu_table_move_left_regular': IconPack.flu_table_move_left_regular,
   'flu_table_move_right_filled': IconPack.flu_table_move_right_filled,
   'flu_table_move_right_regular': IconPack.flu_table_move_right_regular,
+  'flu_table_offset_add_filled': IconPack.flu_table_offset_add_filled,
+  'flu_table_offset_add_regular': IconPack.flu_table_offset_add_regular,
+  'flu_table_offset_filled': IconPack.flu_table_offset_filled,
+  'flu_table_offset_less_than_or_equal_to_filled': IconPack.flu_table_offset_less_than_or_equal_to_filled,
+  'flu_table_offset_less_than_or_equal_to_regular': IconPack.flu_table_offset_less_than_or_equal_to_regular,
+  'flu_table_offset_regular': IconPack.flu_table_offset_regular,
+  'flu_table_offset_settings_filled': IconPack.flu_table_offset_settings_filled,
+  'flu_table_offset_settings_regular': IconPack.flu_table_offset_settings_regular,
   'flu_table_regular': IconPack.flu_table_regular,
   'flu_table_resize_column_filled': IconPack.flu_table_resize_column_filled,
   'flu_table_resize_column_regular': IconPack.flu_table_resize_column_regular,
@@ -28967,7 +30300,13 @@ const Map<String, IconData> iconPackMap = {
   'flu_table_settings_regular': IconPack.flu_table_settings_regular,
   'flu_table_simple_checkmark_filled': IconPack.flu_table_simple_checkmark_filled,
   'flu_table_simple_checkmark_regular': IconPack.flu_table_simple_checkmark_regular,
+  'flu_table_simple_exclude_filled': IconPack.flu_table_simple_exclude_filled,
+  'flu_table_simple_exclude_regular': IconPack.flu_table_simple_exclude_regular,
   'flu_table_simple_filled': IconPack.flu_table_simple_filled,
+  'flu_table_simple_include_filled': IconPack.flu_table_simple_include_filled,
+  'flu_table_simple_include_regular': IconPack.flu_table_simple_include_regular,
+  'flu_table_simple_multiple_filled': IconPack.flu_table_simple_multiple_filled,
+  'flu_table_simple_multiple_regular': IconPack.flu_table_simple_multiple_regular,
   'flu_table_simple_regular': IconPack.flu_table_simple_regular,
   'flu_table_stack_above_filled': IconPack.flu_table_stack_above_filled,
   'flu_table_stack_above_regular': IconPack.flu_table_stack_above_regular,
@@ -28980,6 +30319,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_table_switch_filled': IconPack.flu_table_switch_filled,
   'flu_table_switch_regular': IconPack.flu_table_switch_regular,
   'flu_tablet_filled': IconPack.flu_tablet_filled,
+  'flu_tablet_laptop_filled': IconPack.flu_tablet_laptop_filled,
+  'flu_tablet_laptop_regular': IconPack.flu_tablet_laptop_regular,
   'flu_tablet_regular': IconPack.flu_tablet_regular,
   'flu_tablet_speaker_filled': IconPack.flu_tablet_speaker_filled,
   'flu_tablet_speaker_regular': IconPack.flu_tablet_speaker_regular,
@@ -29055,6 +30396,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_text_align_distributed_vertical_filled': IconPack.flu_text_align_distributed_vertical_filled,
   'flu_text_align_distributed_vertical_regular': IconPack.flu_text_align_distributed_vertical_regular,
   'flu_text_align_justify_filled': IconPack.flu_text_align_justify_filled,
+  'flu_text_align_justify_low_90_filled': IconPack.flu_text_align_justify_low_90_filled,
+  'flu_text_align_justify_low_90_regular': IconPack.flu_text_align_justify_low_90_regular,
   'flu_text_align_justify_low_filled': IconPack.flu_text_align_justify_low_filled,
   'flu_text_align_justify_low_regular': IconPack.flu_text_align_justify_low_regular,
   'flu_text_align_justify_low_rotate_270_filled': IconPack.flu_text_align_justify_low_rotate_270_filled,
@@ -29084,18 +30427,20 @@ const Map<String, IconData> iconPackMap = {
   'flu_text_box_settings_regular': IconPack.flu_text_box_settings_regular,
   'flu_text_bullet_list_add_filled': IconPack.flu_text_bullet_list_add_filled,
   'flu_text_bullet_list_add_regular': IconPack.flu_text_bullet_list_add_regular,
+  'flu_text_bullet_list_ltr_90_filled': IconPack.flu_text_bullet_list_ltr_90_filled,
+  'flu_text_bullet_list_ltr_90_regular': IconPack.flu_text_bullet_list_ltr_90_regular,
   'flu_text_bullet_list_ltr_filled': IconPack.flu_text_bullet_list_ltr_filled,
   'flu_text_bullet_list_ltr_regular': IconPack.flu_text_bullet_list_ltr_regular,
-  'flu_text_bullet_list_rotate_270_filled': IconPack.flu_text_bullet_list_rotate_270_filled,
-  'flu_text_bullet_list_rotate_270_regular': IconPack.flu_text_bullet_list_rotate_270_regular,
-  'flu_text_bullet_list_rotate_90_filled': IconPack.flu_text_bullet_list_rotate_90_filled,
-  'flu_text_bullet_list_rotate_90_regular': IconPack.flu_text_bullet_list_rotate_90_regular,
+  'flu_text_bullet_list_ltr_rotate_270_filled': IconPack.flu_text_bullet_list_ltr_rotate_270_filled,
+  'flu_text_bullet_list_ltr_rotate_270_regular': IconPack.flu_text_bullet_list_ltr_rotate_270_regular,
   'flu_text_bullet_list_rtl_filled': IconPack.flu_text_bullet_list_rtl_filled,
   'flu_text_bullet_list_rtl_regular': IconPack.flu_text_bullet_list_rtl_regular,
   'flu_text_bullet_list_square_edit_filled': IconPack.flu_text_bullet_list_square_edit_filled,
   'flu_text_bullet_list_square_edit_regular': IconPack.flu_text_bullet_list_square_edit_regular,
   'flu_text_bullet_list_square_filled': IconPack.flu_text_bullet_list_square_filled,
   'flu_text_bullet_list_square_regular': IconPack.flu_text_bullet_list_square_regular,
+  'flu_text_bullet_list_square_sparkle_filled': IconPack.flu_text_bullet_list_square_sparkle_filled,
+  'flu_text_bullet_list_square_sparkle_regular': IconPack.flu_text_bullet_list_square_sparkle_regular,
   'flu_text_bullet_list_square_warning_filled': IconPack.flu_text_bullet_list_square_warning_filled,
   'flu_text_bullet_list_square_warning_regular': IconPack.flu_text_bullet_list_square_warning_regular,
   'flu_text_bullet_list_tree_filled': IconPack.flu_text_bullet_list_tree_filled,
@@ -29119,6 +30464,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_text_column_one_narrow_filled': IconPack.flu_text_column_one_narrow_filled,
   'flu_text_column_one_narrow_regular': IconPack.flu_text_column_one_narrow_regular,
   'flu_text_column_one_regular': IconPack.flu_text_column_one_regular,
+  'flu_text_column_one_semi_narrow_filled': IconPack.flu_text_column_one_semi_narrow_filled,
+  'flu_text_column_one_semi_narrow_regular': IconPack.flu_text_column_one_semi_narrow_regular,
   'flu_text_column_one_wide_filled': IconPack.flu_text_column_one_wide_filled,
   'flu_text_column_one_wide_lightning_filled': IconPack.flu_text_column_one_wide_lightning_filled,
   'flu_text_column_one_wide_lightning_regular': IconPack.flu_text_column_one_wide_lightning_regular,
@@ -29136,7 +30483,11 @@ const Map<String, IconData> iconPackMap = {
   'flu_text_density_filled': IconPack.flu_text_density_filled,
   'flu_text_density_regular': IconPack.flu_text_density_regular,
   'flu_text_description_filled': IconPack.flu_text_description_filled,
+  'flu_text_description_ltr_filled': IconPack.flu_text_description_ltr_filled,
+  'flu_text_description_ltr_regular': IconPack.flu_text_description_ltr_regular,
   'flu_text_description_regular': IconPack.flu_text_description_regular,
+  'flu_text_description_rtl_filled': IconPack.flu_text_description_rtl_filled,
+  'flu_text_description_rtl_regular': IconPack.flu_text_description_rtl_regular,
   'flu_text_direction_horizontal_left_filled': IconPack.flu_text_direction_horizontal_left_filled,
   'flu_text_direction_horizontal_left_regular': IconPack.flu_text_direction_horizontal_left_regular,
   'flu_text_direction_horizontal_ltr_filled': IconPack.flu_text_direction_horizontal_ltr_filled,
@@ -29147,6 +30498,10 @@ const Map<String, IconData> iconPackMap = {
   'flu_text_direction_horizontal_rtl_regular': IconPack.flu_text_direction_horizontal_rtl_regular,
   'flu_text_direction_rotate_270_right_filled': IconPack.flu_text_direction_rotate_270_right_filled,
   'flu_text_direction_rotate_270_right_regular': IconPack.flu_text_direction_rotate_270_right_regular,
+  'flu_text_direction_rotate_315_right_filled': IconPack.flu_text_direction_rotate_315_right_filled,
+  'flu_text_direction_rotate_315_right_regular': IconPack.flu_text_direction_rotate_315_right_regular,
+  'flu_text_direction_rotate_45_right_filled': IconPack.flu_text_direction_rotate_45_right_filled,
+  'flu_text_direction_rotate_45_right_regular': IconPack.flu_text_direction_rotate_45_right_regular,
   'flu_text_direction_rotate_90_left_filled': IconPack.flu_text_direction_rotate_90_left_filled,
   'flu_text_direction_rotate_90_left_regular': IconPack.flu_text_direction_rotate_90_left_regular,
   'flu_text_direction_rotate_90_ltr_filled': IconPack.flu_text_direction_rotate_90_ltr_filled,
@@ -29195,22 +30550,38 @@ const Map<String, IconData> iconPackMap = {
   'flu_text_header_2_regular': IconPack.flu_text_header_2_regular,
   'flu_text_header_3_filled': IconPack.flu_text_header_3_filled,
   'flu_text_header_3_regular': IconPack.flu_text_header_3_regular,
+  'flu_text_indent_decrease_ltr_90_filled': IconPack.flu_text_indent_decrease_ltr_90_filled,
+  'flu_text_indent_decrease_ltr_90_regular': IconPack.flu_text_indent_decrease_ltr_90_regular,
   'flu_text_indent_decrease_ltr_filled': IconPack.flu_text_indent_decrease_ltr_filled,
   'flu_text_indent_decrease_ltr_regular': IconPack.flu_text_indent_decrease_ltr_regular,
+  'flu_text_indent_decrease_ltr_rotate_270_filled': IconPack.flu_text_indent_decrease_ltr_rotate_270_filled,
+  'flu_text_indent_decrease_ltr_rotate_270_regular': IconPack.flu_text_indent_decrease_ltr_rotate_270_regular,
   'flu_text_indent_decrease_rotate_270_filled': IconPack.flu_text_indent_decrease_rotate_270_filled,
   'flu_text_indent_decrease_rotate_270_regular': IconPack.flu_text_indent_decrease_rotate_270_regular,
   'flu_text_indent_decrease_rotate_90_filled': IconPack.flu_text_indent_decrease_rotate_90_filled,
   'flu_text_indent_decrease_rotate_90_regular': IconPack.flu_text_indent_decrease_rotate_90_regular,
+  'flu_text_indent_decrease_rtl_90_filled': IconPack.flu_text_indent_decrease_rtl_90_filled,
+  'flu_text_indent_decrease_rtl_90_regular': IconPack.flu_text_indent_decrease_rtl_90_regular,
   'flu_text_indent_decrease_rtl_filled': IconPack.flu_text_indent_decrease_rtl_filled,
   'flu_text_indent_decrease_rtl_regular': IconPack.flu_text_indent_decrease_rtl_regular,
+  'flu_text_indent_decrease_rtl_rotate_270_filled': IconPack.flu_text_indent_decrease_rtl_rotate_270_filled,
+  'flu_text_indent_decrease_rtl_rotate_270_regular': IconPack.flu_text_indent_decrease_rtl_rotate_270_regular,
+  'flu_text_indent_increase_ltr_90_filled': IconPack.flu_text_indent_increase_ltr_90_filled,
+  'flu_text_indent_increase_ltr_90_regular': IconPack.flu_text_indent_increase_ltr_90_regular,
   'flu_text_indent_increase_ltr_filled': IconPack.flu_text_indent_increase_ltr_filled,
   'flu_text_indent_increase_ltr_regular': IconPack.flu_text_indent_increase_ltr_regular,
+  'flu_text_indent_increase_ltr_rotate_270_filled': IconPack.flu_text_indent_increase_ltr_rotate_270_filled,
+  'flu_text_indent_increase_ltr_rotate_270_regular': IconPack.flu_text_indent_increase_ltr_rotate_270_regular,
   'flu_text_indent_increase_rotate_270_filled': IconPack.flu_text_indent_increase_rotate_270_filled,
   'flu_text_indent_increase_rotate_270_regular': IconPack.flu_text_indent_increase_rotate_270_regular,
   'flu_text_indent_increase_rotate_90_filled': IconPack.flu_text_indent_increase_rotate_90_filled,
   'flu_text_indent_increase_rotate_90_regular': IconPack.flu_text_indent_increase_rotate_90_regular,
+  'flu_text_indent_increase_rtl_90_filled': IconPack.flu_text_indent_increase_rtl_90_filled,
+  'flu_text_indent_increase_rtl_90_regular': IconPack.flu_text_indent_increase_rtl_90_regular,
   'flu_text_indent_increase_rtl_filled': IconPack.flu_text_indent_increase_rtl_filled,
   'flu_text_indent_increase_rtl_regular': IconPack.flu_text_indent_increase_rtl_regular,
+  'flu_text_indent_increase_rtl_rotate_270_filled': IconPack.flu_text_indent_increase_rtl_rotate_270_filled,
+  'flu_text_indent_increase_rtl_rotate_270_regular': IconPack.flu_text_indent_increase_rtl_rotate_270_regular,
   'flu_text_italic_filled': IconPack.flu_text_italic_filled,
   'flu_text_italic_regular': IconPack.flu_text_italic_regular,
   'flu_text_line_spacing_filled': IconPack.flu_text_line_spacing_filled,
@@ -29219,14 +30590,22 @@ const Map<String, IconData> iconPackMap = {
   'flu_text_more_regular': IconPack.flu_text_more_regular,
   'flu_text_number_format_filled': IconPack.flu_text_number_format_filled,
   'flu_text_number_format_regular': IconPack.flu_text_number_format_regular,
+  'flu_text_number_list_ltr_90_filled': IconPack.flu_text_number_list_ltr_90_filled,
+  'flu_text_number_list_ltr_90_regular': IconPack.flu_text_number_list_ltr_90_regular,
   'flu_text_number_list_ltr_filled': IconPack.flu_text_number_list_ltr_filled,
   'flu_text_number_list_ltr_regular': IconPack.flu_text_number_list_ltr_regular,
+  'flu_text_number_list_ltr_rotate_270_filled': IconPack.flu_text_number_list_ltr_rotate_270_filled,
+  'flu_text_number_list_ltr_rotate_270_regular': IconPack.flu_text_number_list_ltr_rotate_270_regular,
   'flu_text_number_list_rotate_270_filled': IconPack.flu_text_number_list_rotate_270_filled,
   'flu_text_number_list_rotate_270_regular': IconPack.flu_text_number_list_rotate_270_regular,
   'flu_text_number_list_rotate_90_filled': IconPack.flu_text_number_list_rotate_90_filled,
   'flu_text_number_list_rotate_90_regular': IconPack.flu_text_number_list_rotate_90_regular,
+  'flu_text_number_list_rtl_90_filled': IconPack.flu_text_number_list_rtl_90_filled,
+  'flu_text_number_list_rtl_90_regular': IconPack.flu_text_number_list_rtl_90_regular,
   'flu_text_number_list_rtl_filled': IconPack.flu_text_number_list_rtl_filled,
   'flu_text_number_list_rtl_regular': IconPack.flu_text_number_list_rtl_regular,
+  'flu_text_number_list_rtl_rotate_270_filled': IconPack.flu_text_number_list_rtl_rotate_270_filled,
+  'flu_text_number_list_rtl_rotate_270_regular': IconPack.flu_text_number_list_rtl_rotate_270_regular,
   'flu_text_paragraph_direction_filled': IconPack.flu_text_paragraph_direction_filled,
   'flu_text_paragraph_direction_regular': IconPack.flu_text_paragraph_direction_regular,
   'flu_text_paragraph_filled': IconPack.flu_text_paragraph_filled,
@@ -29238,7 +30617,11 @@ const Map<String, IconData> iconPackMap = {
   'flu_text_position_line_filled': IconPack.flu_text_position_line_filled,
   'flu_text_position_line_regular': IconPack.flu_text_position_line_regular,
   'flu_text_position_square_filled': IconPack.flu_text_position_square_filled,
+  'flu_text_position_square_left_filled': IconPack.flu_text_position_square_left_filled,
+  'flu_text_position_square_left_regular': IconPack.flu_text_position_square_left_regular,
   'flu_text_position_square_regular': IconPack.flu_text_position_square_regular,
+  'flu_text_position_square_right_filled': IconPack.flu_text_position_square_right_filled,
+  'flu_text_position_square_right_regular': IconPack.flu_text_position_square_right_regular,
   'flu_text_position_through_filled': IconPack.flu_text_position_through_filled,
   'flu_text_position_through_regular': IconPack.flu_text_position_through_regular,
   'flu_text_position_tight_filled': IconPack.flu_text_position_tight_filled,
@@ -29261,6 +30644,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_text_superscript_regular': IconPack.flu_text_superscript_regular,
   'flu_text_t_filled': IconPack.flu_text_t_filled,
   'flu_text_t_regular': IconPack.flu_text_t_regular,
+  'flu_text_underline_character_u_filled': IconPack.flu_text_underline_character_u_filled,
+  'flu_text_underline_character_u_regular': IconPack.flu_text_underline_character_u_regular,
   'flu_text_underline_double_filled': IconPack.flu_text_underline_double_filled,
   'flu_text_underline_double_regular': IconPack.flu_text_underline_double_regular,
   'flu_text_underline_filled': IconPack.flu_text_underline_filled,
@@ -29291,10 +30676,14 @@ const Map<String, IconData> iconPackMap = {
   'flu_textbox_regular': IconPack.flu_textbox_regular,
   'flu_textbox_rotate_90_filled': IconPack.flu_textbox_rotate_90_filled,
   'flu_textbox_rotate_90_regular': IconPack.flu_textbox_rotate_90_regular,
+  'flu_textbox_settings_filled': IconPack.flu_textbox_settings_filled,
+  'flu_textbox_settings_regular': IconPack.flu_textbox_settings_regular,
   'flu_thinking_filled': IconPack.flu_thinking_filled,
   'flu_thinking_regular': IconPack.flu_thinking_regular,
   'flu_thumb_dislike_filled': IconPack.flu_thumb_dislike_filled,
   'flu_thumb_dislike_regular': IconPack.flu_thumb_dislike_regular,
+  'flu_thumb_like_dislike_filled': IconPack.flu_thumb_like_dislike_filled,
+  'flu_thumb_like_dislike_regular': IconPack.flu_thumb_like_dislike_regular,
   'flu_thumb_like_filled': IconPack.flu_thumb_like_filled,
   'flu_thumb_like_regular': IconPack.flu_thumb_like_regular,
   'flu_ticket_diagonal_filled': IconPack.flu_ticket_diagonal_filled,
@@ -29329,7 +30718,11 @@ const Map<String, IconData> iconPackMap = {
   'flu_tooltip_quote_regular': IconPack.flu_tooltip_quote_regular,
   'flu_top_speed_filled': IconPack.flu_top_speed_filled,
   'flu_top_speed_regular': IconPack.flu_top_speed_regular,
+  'flu_translate_auto_filled': IconPack.flu_translate_auto_filled,
+  'flu_translate_auto_regular': IconPack.flu_translate_auto_regular,
   'flu_translate_filled': IconPack.flu_translate_filled,
+  'flu_translate_off_filled': IconPack.flu_translate_off_filled,
+  'flu_translate_off_regular': IconPack.flu_translate_off_regular,
   'flu_translate_regular': IconPack.flu_translate_regular,
   'flu_transmission_filled': IconPack.flu_transmission_filled,
   'flu_transmission_regular': IconPack.flu_transmission_regular,
@@ -29337,6 +30730,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_tray_item_add_regular': IconPack.flu_tray_item_add_regular,
   'flu_tray_item_remove_filled': IconPack.flu_tray_item_remove_filled,
   'flu_tray_item_remove_regular': IconPack.flu_tray_item_remove_regular,
+  'flu_tree_deciduous_filled': IconPack.flu_tree_deciduous_filled,
+  'flu_tree_deciduous_regular': IconPack.flu_tree_deciduous_regular,
   'flu_trophy_filled': IconPack.flu_trophy_filled,
   'flu_trophy_lock_filled': IconPack.flu_trophy_lock_filled,
   'flu_trophy_lock_regular': IconPack.flu_trophy_lock_regular,
@@ -29363,6 +30758,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_vehicle_bus_regular': IconPack.flu_vehicle_bus_regular,
   'flu_vehicle_cab_filled': IconPack.flu_vehicle_cab_filled,
   'flu_vehicle_cab_regular': IconPack.flu_vehicle_cab_regular,
+  'flu_vehicle_cable_car_filled': IconPack.flu_vehicle_cable_car_filled,
+  'flu_vehicle_cable_car_regular': IconPack.flu_vehicle_cable_car_regular,
   'flu_vehicle_car_collision_filled': IconPack.flu_vehicle_car_collision_filled,
   'flu_vehicle_car_collision_regular': IconPack.flu_vehicle_car_collision_regular,
   'flu_vehicle_car_filled': IconPack.flu_vehicle_car_filled,
@@ -29392,6 +30789,8 @@ const Map<String, IconData> iconPackMap = {
   'flu_video_add_filled': IconPack.flu_video_add_filled,
   'flu_video_add_regular': IconPack.flu_video_add_regular,
   'flu_video_background_effect_filled': IconPack.flu_video_background_effect_filled,
+  'flu_video_background_effect_horizontal_filled': IconPack.flu_video_background_effect_horizontal_filled,
+  'flu_video_background_effect_horizontal_regular': IconPack.flu_video_background_effect_horizontal_regular,
   'flu_video_background_effect_regular': IconPack.flu_video_background_effect_regular,
   'flu_video_chat_filled': IconPack.flu_video_chat_filled,
   'flu_video_chat_regular': IconPack.flu_video_chat_regular,
@@ -29674,6 +31073,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_account_switch_outline': IconPack.mdi_account_switch_outline,
   'mdi_account_sync': IconPack.mdi_account_sync,
   'mdi_account_sync_outline': IconPack.mdi_account_sync_outline,
+  'mdi_account_tag': IconPack.mdi_account_tag,
+  'mdi_account_tag_outline': IconPack.mdi_account_tag_outline,
   'mdi_account_tie': IconPack.mdi_account_tie,
   'mdi_account_tie_hat': IconPack.mdi_account_tie_hat,
   'mdi_account_tie_hat_outline': IconPack.mdi_account_tie_hat_outline,
@@ -30206,8 +31607,10 @@ const Map<String, IconData> iconPackMap = {
   'mdi_audio_video': IconPack.mdi_audio_video,
   'mdi_audio_video_off': IconPack.mdi_audio_video_off,
   'mdi_augmented_reality': IconPack.mdi_augmented_reality,
+  'mdi_aurora': IconPack.mdi_aurora,
   'mdi_auto_download': IconPack.mdi_auto_download,
   'mdi_auto_fix': IconPack.mdi_auto_fix,
+  'mdi_auto_mode': IconPack.mdi_auto_mode,
   'mdi_auto_upload': IconPack.mdi_auto_upload,
   'mdi_autorenew': IconPack.mdi_autorenew,
   'mdi_autorenew_off': IconPack.mdi_autorenew_off,
@@ -30284,6 +31687,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_bandage': IconPack.mdi_bandage,
   'mdi_bank': IconPack.mdi_bank,
   'mdi_bank_check': IconPack.mdi_bank_check,
+  'mdi_bank_circle': IconPack.mdi_bank_circle,
+  'mdi_bank_circle_outline': IconPack.mdi_bank_circle_outline,
   'mdi_bank_minus': IconPack.mdi_bank_minus,
   'mdi_bank_off': IconPack.mdi_bank_off,
   'mdi_bank_off_outline': IconPack.mdi_bank_off_outline,
@@ -30305,6 +31710,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_baseball_bat': IconPack.mdi_baseball_bat,
   'mdi_baseball_diamond': IconPack.mdi_baseball_diamond,
   'mdi_baseball_diamond_outline': IconPack.mdi_baseball_diamond_outline,
+  'mdi_baseball_outline': IconPack.mdi_baseball_outline,
   'mdi_bash': IconPack.mdi_bash,
   'mdi_basket': IconPack.mdi_basket,
   'mdi_basket_check': IconPack.mdi_basket_check,
@@ -30471,6 +31877,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_bell_ring_outline': IconPack.mdi_bell_ring_outline,
   'mdi_bell_sleep': IconPack.mdi_bell_sleep,
   'mdi_bell_sleep_outline': IconPack.mdi_bell_sleep_outline,
+  'mdi_bench': IconPack.mdi_bench,
+  'mdi_bench_back': IconPack.mdi_bench_back,
   'mdi_beta': IconPack.mdi_beta,
   'mdi_betamax': IconPack.mdi_betamax,
   'mdi_biathlon': IconPack.mdi_biathlon,
@@ -30481,6 +31889,9 @@ const Map<String, IconData> iconPackMap = {
   'mdi_bicycle_penny_farthing': IconPack.mdi_bicycle_penny_farthing,
   'mdi_bike': IconPack.mdi_bike,
   'mdi_bike_fast': IconPack.mdi_bike_fast,
+  'mdi_bike_pedal': IconPack.mdi_bike_pedal,
+  'mdi_bike_pedal_clipless': IconPack.mdi_bike_pedal_clipless,
+  'mdi_bike_pedal_mountain': IconPack.mdi_bike_pedal_mountain,
   'mdi_billboard': IconPack.mdi_billboard,
   'mdi_billiards': IconPack.mdi_billiards,
   'mdi_billiards_rack': IconPack.mdi_billiards_rack,
@@ -30837,6 +32248,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_calendar_search': IconPack.mdi_calendar_search,
   'mdi_calendar_search_outline': IconPack.mdi_calendar_search_outline,
   'mdi_calendar_star': IconPack.mdi_calendar_star,
+  'mdi_calendar_star_four_points': IconPack.mdi_calendar_star_four_points,
   'mdi_calendar_star_outline': IconPack.mdi_calendar_star_outline,
   'mdi_calendar_start': IconPack.mdi_calendar_start,
   'mdi_calendar_start_outline': IconPack.mdi_calendar_start_outline,
@@ -30875,6 +32287,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_camera_image': IconPack.mdi_camera_image,
   'mdi_camera_iris': IconPack.mdi_camera_iris,
   'mdi_camera_lock': IconPack.mdi_camera_lock,
+  'mdi_camera_lock_open': IconPack.mdi_camera_lock_open,
+  'mdi_camera_lock_open_outline': IconPack.mdi_camera_lock_open_outline,
   'mdi_camera_lock_outline': IconPack.mdi_camera_lock_outline,
   'mdi_camera_marker': IconPack.mdi_camera_marker,
   'mdi_camera_marker_outline': IconPack.mdi_camera_marker_outline,
@@ -31062,6 +32476,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_cash_marker': IconPack.mdi_cash_marker,
   'mdi_cash_minus': IconPack.mdi_cash_minus,
   'mdi_cash_multiple': IconPack.mdi_cash_multiple,
+  'mdi_cash_off': IconPack.mdi_cash_off,
   'mdi_cash_plus': IconPack.mdi_cash_plus,
   'mdi_cash_refund': IconPack.mdi_cash_refund,
   'mdi_cash_register': IconPack.mdi_cash_register,
@@ -31139,6 +32554,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_chart_multiline': IconPack.mdi_chart_multiline,
   'mdi_chart_multiple': IconPack.mdi_chart_multiple,
   'mdi_chart_pie': IconPack.mdi_chart_pie,
+  'mdi_chart_pie_outline': IconPack.mdi_chart_pie_outline,
   'mdi_chart_ppf': IconPack.mdi_chart_ppf,
   'mdi_chart_sankey': IconPack.mdi_chart_sankey,
   'mdi_chart_sankey_variant': IconPack.mdi_chart_sankey_variant,
@@ -31179,6 +32595,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_check_underline_circle': IconPack.mdi_check_underline_circle,
   'mdi_check_underline_circle_outline': IconPack.mdi_check_underline_circle_outline,
   'mdi_checkbook': IconPack.mdi_checkbook,
+  'mdi_checkbook_arrow_left': IconPack.mdi_checkbook_arrow_left,
+  'mdi_checkbook_arrow_right': IconPack.mdi_checkbook_arrow_right,
   'mdi_checkbox_blank': IconPack.mdi_checkbox_blank,
   'mdi_checkbox_blank_badge': IconPack.mdi_checkbox_blank_badge,
   'mdi_checkbox_blank_badge_outline': IconPack.mdi_checkbox_blank_badge_outline,
@@ -31191,6 +32609,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_checkbox_intermediate_variant': IconPack.mdi_checkbox_intermediate_variant,
   'mdi_checkbox_marked': IconPack.mdi_checkbox_marked,
   'mdi_checkbox_marked_circle': IconPack.mdi_checkbox_marked_circle,
+  'mdi_checkbox_marked_circle_auto_outline': IconPack.mdi_checkbox_marked_circle_auto_outline,
+  'mdi_checkbox_marked_circle_minus_outline': IconPack.mdi_checkbox_marked_circle_minus_outline,
   'mdi_checkbox_marked_circle_outline': IconPack.mdi_checkbox_marked_circle_outline,
   'mdi_checkbox_marked_circle_plus_outline': IconPack.mdi_checkbox_marked_circle_plus_outline,
   'mdi_checkbox_marked_outline': IconPack.mdi_checkbox_marked_outline,
@@ -31286,6 +32706,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_circle_small': IconPack.mdi_circle_small,
   'mdi_circular_saw': IconPack.mdi_circular_saw,
   'mdi_city': IconPack.mdi_city,
+  'mdi_city_switch': IconPack.mdi_city_switch,
   'mdi_city_variant': IconPack.mdi_city_variant,
   'mdi_city_variant_outline': IconPack.mdi_city_variant_outline,
   'mdi_clipboard': IconPack.mdi_clipboard,
@@ -31366,6 +32787,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_clock_plus_outline': IconPack.mdi_clock_plus_outline,
   'mdi_clock_remove': IconPack.mdi_clock_remove,
   'mdi_clock_remove_outline': IconPack.mdi_clock_remove_outline,
+  'mdi_clock_star_four_points': IconPack.mdi_clock_star_four_points,
+  'mdi_clock_star_four_points_outline': IconPack.mdi_clock_star_four_points_outline,
   'mdi_clock_start': IconPack.mdi_clock_start,
   'mdi_clock_time_eight': IconPack.mdi_clock_time_eight,
   'mdi_clock_time_eight_outline': IconPack.mdi_clock_time_eight_outline,
@@ -31410,22 +32833,53 @@ const Map<String, IconData> iconPackMap = {
   'mdi_closed_caption_outline': IconPack.mdi_closed_caption_outline,
   'mdi_cloud': IconPack.mdi_cloud,
   'mdi_cloud_alert': IconPack.mdi_cloud_alert,
+  'mdi_cloud_alert_outline': IconPack.mdi_cloud_alert_outline,
+  'mdi_cloud_arrow_down': IconPack.mdi_cloud_arrow_down,
+  'mdi_cloud_arrow_down_outline': IconPack.mdi_cloud_arrow_down_outline,
+  'mdi_cloud_arrow_left': IconPack.mdi_cloud_arrow_left,
+  'mdi_cloud_arrow_left_outline': IconPack.mdi_cloud_arrow_left_outline,
+  'mdi_cloud_arrow_right': IconPack.mdi_cloud_arrow_right,
+  'mdi_cloud_arrow_right_outline': IconPack.mdi_cloud_arrow_right_outline,
+  'mdi_cloud_arrow_up': IconPack.mdi_cloud_arrow_up,
+  'mdi_cloud_arrow_up_outline': IconPack.mdi_cloud_arrow_up_outline,
   'mdi_cloud_braces': IconPack.mdi_cloud_braces,
+  'mdi_cloud_cancel': IconPack.mdi_cloud_cancel,
+  'mdi_cloud_cancel_outline': IconPack.mdi_cloud_cancel_outline,
   'mdi_cloud_check': IconPack.mdi_cloud_check,
   'mdi_cloud_check_outline': IconPack.mdi_cloud_check_outline,
+  'mdi_cloud_check_variant': IconPack.mdi_cloud_check_variant,
+  'mdi_cloud_check_variant_outline': IconPack.mdi_cloud_check_variant_outline,
   'mdi_cloud_circle': IconPack.mdi_cloud_circle,
+  'mdi_cloud_circle_outline': IconPack.mdi_cloud_circle_outline,
+  'mdi_cloud_clock': IconPack.mdi_cloud_clock,
+  'mdi_cloud_clock_outline': IconPack.mdi_cloud_clock_outline,
+  'mdi_cloud_cog': IconPack.mdi_cloud_cog,
+  'mdi_cloud_cog_outline': IconPack.mdi_cloud_cog_outline,
   'mdi_cloud_download': IconPack.mdi_cloud_download,
   'mdi_cloud_download_outline': IconPack.mdi_cloud_download_outline,
   'mdi_cloud_lock': IconPack.mdi_cloud_lock,
+  'mdi_cloud_lock_open': IconPack.mdi_cloud_lock_open,
+  'mdi_cloud_lock_open_outline': IconPack.mdi_cloud_lock_open_outline,
   'mdi_cloud_lock_outline': IconPack.mdi_cloud_lock_outline,
+  'mdi_cloud_minus': IconPack.mdi_cloud_minus,
+  'mdi_cloud_minus_outline': IconPack.mdi_cloud_minus_outline,
+  'mdi_cloud_off': IconPack.mdi_cloud_off,
   'mdi_cloud_off_outline': IconPack.mdi_cloud_off_outline,
   'mdi_cloud_outline': IconPack.mdi_cloud_outline,
   'mdi_cloud_percent': IconPack.mdi_cloud_percent,
   'mdi_cloud_percent_outline': IconPack.mdi_cloud_percent_outline,
+  'mdi_cloud_plus': IconPack.mdi_cloud_plus,
+  'mdi_cloud_plus_outline': IconPack.mdi_cloud_plus_outline,
   'mdi_cloud_print': IconPack.mdi_cloud_print,
   'mdi_cloud_print_outline': IconPack.mdi_cloud_print_outline,
   'mdi_cloud_question': IconPack.mdi_cloud_question,
+  'mdi_cloud_question_outline': IconPack.mdi_cloud_question_outline,
   'mdi_cloud_refresh': IconPack.mdi_cloud_refresh,
+  'mdi_cloud_refresh_outline': IconPack.mdi_cloud_refresh_outline,
+  'mdi_cloud_refresh_variant': IconPack.mdi_cloud_refresh_variant,
+  'mdi_cloud_refresh_variant_outline': IconPack.mdi_cloud_refresh_variant_outline,
+  'mdi_cloud_remove': IconPack.mdi_cloud_remove,
+  'mdi_cloud_remove_outline': IconPack.mdi_cloud_remove_outline,
   'mdi_cloud_search': IconPack.mdi_cloud_search,
   'mdi_cloud_search_outline': IconPack.mdi_cloud_search_outline,
   'mdi_cloud_sync': IconPack.mdi_cloud_sync,
@@ -31435,6 +32889,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_cloud_upload_outline': IconPack.mdi_cloud_upload_outline,
   'mdi_clouds': IconPack.mdi_clouds,
   'mdi_clover': IconPack.mdi_clover,
+  'mdi_clover_outline': IconPack.mdi_clover_outline,
   'mdi_coach_lamp': IconPack.mdi_coach_lamp,
   'mdi_coach_lamp_variant': IconPack.mdi_coach_lamp_variant,
   'mdi_coat_rack': IconPack.mdi_coat_rack,
@@ -31641,6 +33096,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_cradle_outline': IconPack.mdi_cradle_outline,
   'mdi_crane': IconPack.mdi_crane,
   'mdi_creation': IconPack.mdi_creation,
+  'mdi_creation_outline': IconPack.mdi_creation_outline,
   'mdi_creative_commons': IconPack.mdi_creative_commons,
   'mdi_credit_card': IconPack.mdi_credit_card,
   'mdi_credit_card_check': IconPack.mdi_credit_card_check,
@@ -31743,6 +33199,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_currency_rub': IconPack.mdi_currency_rub,
   'mdi_currency_rupee': IconPack.mdi_currency_rupee,
   'mdi_currency_sign': IconPack.mdi_currency_sign,
+  'mdi_currency_thb': IconPack.mdi_currency_thb,
   'mdi_currency_try': IconPack.mdi_currency_try,
   'mdi_currency_twd': IconPack.mdi_currency_twd,
   'mdi_currency_uah': IconPack.mdi_currency_uah,
@@ -31952,6 +33409,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_domain_off': IconPack.mdi_domain_off,
   'mdi_domain_plus': IconPack.mdi_domain_plus,
   'mdi_domain_remove': IconPack.mdi_domain_remove,
+  'mdi_domain_switch': IconPack.mdi_domain_switch,
   'mdi_dome_light': IconPack.mdi_dome_light,
   'mdi_domino_mask': IconPack.mdi_domino_mask,
   'mdi_donkey': IconPack.mdi_donkey,
@@ -32067,6 +33525,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_email_edit_outline': IconPack.mdi_email_edit_outline,
   'mdi_email_fast': IconPack.mdi_email_fast,
   'mdi_email_fast_outline': IconPack.mdi_email_fast_outline,
+  'mdi_email_heart_outline': IconPack.mdi_email_heart_outline,
   'mdi_email_lock': IconPack.mdi_email_lock,
   'mdi_email_lock_outline': IconPack.mdi_email_lock_outline,
   'mdi_email_mark_as_unread': IconPack.mdi_email_mark_as_unread,
@@ -32078,6 +33537,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_email_off': IconPack.mdi_email_off,
   'mdi_email_off_outline': IconPack.mdi_email_off_outline,
   'mdi_email_open': IconPack.mdi_email_open,
+  'mdi_email_open_heart_outline': IconPack.mdi_email_open_heart_outline,
   'mdi_email_open_multiple': IconPack.mdi_email_open_multiple,
   'mdi_email_open_multiple_outline': IconPack.mdi_email_open_multiple_outline,
   'mdi_email_open_outline': IconPack.mdi_email_open_outline,
@@ -32182,6 +33642,10 @@ const Map<String, IconData> iconPackMap = {
   'mdi_eye_check_outline': IconPack.mdi_eye_check_outline,
   'mdi_eye_circle': IconPack.mdi_eye_circle,
   'mdi_eye_circle_outline': IconPack.mdi_eye_circle_outline,
+  'mdi_eye_lock': IconPack.mdi_eye_lock,
+  'mdi_eye_lock_open': IconPack.mdi_eye_lock_open,
+  'mdi_eye_lock_open_outline': IconPack.mdi_eye_lock_open_outline,
+  'mdi_eye_lock_outline': IconPack.mdi_eye_lock_outline,
   'mdi_eye_minus': IconPack.mdi_eye_minus,
   'mdi_eye_minus_outline': IconPack.mdi_eye_minus_outline,
   'mdi_eye_off': IconPack.mdi_eye_off,
@@ -32290,6 +33754,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_file_document': IconPack.mdi_file_document,
   'mdi_file_document_alert': IconPack.mdi_file_document_alert,
   'mdi_file_document_alert_outline': IconPack.mdi_file_document_alert_outline,
+  'mdi_file_document_arrow_right': IconPack.mdi_file_document_arrow_right,
+  'mdi_file_document_arrow_right_outline': IconPack.mdi_file_document_arrow_right_outline,
   'mdi_file_document_check': IconPack.mdi_file_document_check,
   'mdi_file_document_check_outline': IconPack.mdi_file_document_check_outline,
   'mdi_file_document_edit': IconPack.mdi_file_document_edit,
@@ -32301,6 +33767,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_file_document_outline': IconPack.mdi_file_document_outline,
   'mdi_file_document_plus': IconPack.mdi_file_document_plus,
   'mdi_file_document_plus_outline': IconPack.mdi_file_document_plus_outline,
+  'mdi_file_document_refresh': IconPack.mdi_file_document_refresh,
+  'mdi_file_document_refresh_outline': IconPack.mdi_file_document_refresh_outline,
   'mdi_file_document_remove': IconPack.mdi_file_document_remove,
   'mdi_file_document_remove_outline': IconPack.mdi_file_document_remove_outline,
   'mdi_file_download': IconPack.mdi_file_download,
@@ -32386,6 +33854,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_file_settings_outline': IconPack.mdi_file_settings_outline,
   'mdi_file_sign': IconPack.mdi_file_sign,
   'mdi_file_star': IconPack.mdi_file_star,
+  'mdi_file_star_four_points': IconPack.mdi_file_star_four_points,
+  'mdi_file_star_four_points_outline': IconPack.mdi_file_star_four_points_outline,
   'mdi_file_star_outline': IconPack.mdi_file_star_outline,
   'mdi_file_swap': IconPack.mdi_file_swap,
   'mdi_file_swap_outline': IconPack.mdi_file_swap_outline,
@@ -32685,6 +34155,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_football_australian': IconPack.mdi_football_australian,
   'mdi_football_helmet': IconPack.mdi_football_helmet,
   'mdi_forest': IconPack.mdi_forest,
+  'mdi_forest_outline': IconPack.mdi_forest_outline,
   'mdi_forklift': IconPack.mdi_forklift,
   'mdi_form_dropdown': IconPack.mdi_form_dropdown,
   'mdi_form_select': IconPack.mdi_form_select,
@@ -33163,6 +34634,9 @@ const Map<String, IconData> iconPackMap = {
   'mdi_helicopter': IconPack.mdi_helicopter,
   'mdi_help': IconPack.mdi_help,
   'mdi_help_box': IconPack.mdi_help_box,
+  'mdi_help_box_multiple': IconPack.mdi_help_box_multiple,
+  'mdi_help_box_multiple_outline': IconPack.mdi_help_box_multiple_outline,
+  'mdi_help_box_outline': IconPack.mdi_help_box_outline,
   'mdi_help_circle': IconPack.mdi_help_circle,
   'mdi_help_circle_outline': IconPack.mdi_help_circle_outline,
   'mdi_help_network': IconPack.mdi_help_network,
@@ -33237,6 +34711,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_home_off': IconPack.mdi_home_off,
   'mdi_home_off_outline': IconPack.mdi_home_off_outline,
   'mdi_home_outline': IconPack.mdi_home_outline,
+  'mdi_home_percent': IconPack.mdi_home_percent,
+  'mdi_home_percent_outline': IconPack.mdi_home_percent_outline,
   'mdi_home_plus': IconPack.mdi_home_plus,
   'mdi_home_plus_outline': IconPack.mdi_home_plus_outline,
   'mdi_home_remove': IconPack.mdi_home_remove,
@@ -33246,6 +34722,10 @@ const Map<String, IconData> iconPackMap = {
   'mdi_home_search_outline': IconPack.mdi_home_search_outline,
   'mdi_home_silo': IconPack.mdi_home_silo,
   'mdi_home_silo_outline': IconPack.mdi_home_silo_outline,
+  'mdi_home_sound_in': IconPack.mdi_home_sound_in,
+  'mdi_home_sound_in_outline': IconPack.mdi_home_sound_in_outline,
+  'mdi_home_sound_out': IconPack.mdi_home_sound_out,
+  'mdi_home_sound_out_outline': IconPack.mdi_home_sound_out_outline,
   'mdi_home_switch': IconPack.mdi_home_switch,
   'mdi_home_switch_outline': IconPack.mdi_home_switch_outline,
   'mdi_home_thermometer': IconPack.mdi_home_thermometer,
@@ -33339,8 +34819,10 @@ const Map<String, IconData> iconPackMap = {
   'mdi_image_filter_center_focus_strong_outline': IconPack.mdi_image_filter_center_focus_strong_outline,
   'mdi_image_filter_center_focus_weak': IconPack.mdi_image_filter_center_focus_weak,
   'mdi_image_filter_drama': IconPack.mdi_image_filter_drama,
+  'mdi_image_filter_drama_outline': IconPack.mdi_image_filter_drama_outline,
   'mdi_image_filter_frames': IconPack.mdi_image_filter_frames,
   'mdi_image_filter_hdr': IconPack.mdi_image_filter_hdr,
+  'mdi_image_filter_hdr_outline': IconPack.mdi_image_filter_hdr_outline,
   'mdi_image_filter_none': IconPack.mdi_image_filter_none,
   'mdi_image_filter_tilt_shift': IconPack.mdi_image_filter_tilt_shift,
   'mdi_image_filter_vintage': IconPack.mdi_image_filter_vintage,
@@ -33391,10 +34873,22 @@ const Map<String, IconData> iconPackMap = {
   'mdi_induction': IconPack.mdi_induction,
   'mdi_infinity': IconPack.mdi_infinity,
   'mdi_information': IconPack.mdi_information,
+  'mdi_information_box': IconPack.mdi_information_box,
+  'mdi_information_box_outline': IconPack.mdi_information_box_outline,
   'mdi_information_off': IconPack.mdi_information_off,
   'mdi_information_off_outline': IconPack.mdi_information_off_outline,
   'mdi_information_outline': IconPack.mdi_information_outline,
+  'mdi_information_slab_box': IconPack.mdi_information_slab_box,
+  'mdi_information_slab_box_outline': IconPack.mdi_information_slab_box_outline,
+  'mdi_information_slab_circle': IconPack.mdi_information_slab_circle,
+  'mdi_information_slab_circle_outline': IconPack.mdi_information_slab_circle_outline,
+  'mdi_information_slab_symbol': IconPack.mdi_information_slab_symbol,
+  'mdi_information_symbol': IconPack.mdi_information_symbol,
   'mdi_information_variant': IconPack.mdi_information_variant,
+  'mdi_information_variant_box': IconPack.mdi_information_variant_box,
+  'mdi_information_variant_box_outline': IconPack.mdi_information_variant_box_outline,
+  'mdi_information_variant_circle': IconPack.mdi_information_variant_circle,
+  'mdi_information_variant_circle_outline': IconPack.mdi_information_variant_circle_outline,
   'mdi_instagram': IconPack.mdi_instagram,
   'mdi_instrument_triangle': IconPack.mdi_instrument_triangle,
   'mdi_integrated_circuit_chip': IconPack.mdi_integrated_circuit_chip,
@@ -33453,6 +34947,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_keyboard_backspace': IconPack.mdi_keyboard_backspace,
   'mdi_keyboard_caps': IconPack.mdi_keyboard_caps,
   'mdi_keyboard_close': IconPack.mdi_keyboard_close,
+  'mdi_keyboard_close_outline': IconPack.mdi_keyboard_close_outline,
   'mdi_keyboard_esc': IconPack.mdi_keyboard_esc,
   'mdi_keyboard_f_1': IconPack.mdi_keyboard_f_1,
   'mdi_keyboard_f_1_0': IconPack.mdi_keyboard_f_1_0,
@@ -33514,6 +35009,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_land_plots': IconPack.mdi_land_plots,
   'mdi_land_plots_circle': IconPack.mdi_land_plots_circle,
   'mdi_land_plots_circle_variant': IconPack.mdi_land_plots_circle_variant,
+  'mdi_land_plots_marker': IconPack.mdi_land_plots_marker,
   'mdi_land_rows_horizontal': IconPack.mdi_land_rows_horizontal,
   'mdi_land_rows_vertical': IconPack.mdi_land_rows_vertical,
   'mdi_landslide': IconPack.mdi_landslide,
@@ -33695,6 +35191,12 @@ const Map<String, IconData> iconPackMap = {
   'mdi_lock_open_variant_outline': IconPack.mdi_lock_open_variant_outline,
   'mdi_lock_outline': IconPack.mdi_lock_outline,
   'mdi_lock_pattern': IconPack.mdi_lock_pattern,
+  'mdi_lock_percent': IconPack.mdi_lock_percent,
+  'mdi_lock_percent_open': IconPack.mdi_lock_percent_open,
+  'mdi_lock_percent_open_outline': IconPack.mdi_lock_percent_open_outline,
+  'mdi_lock_percent_open_variant': IconPack.mdi_lock_percent_open_variant,
+  'mdi_lock_percent_open_variant_outline': IconPack.mdi_lock_percent_open_variant_outline,
+  'mdi_lock_percent_outline': IconPack.mdi_lock_percent_outline,
   'mdi_lock_plus': IconPack.mdi_lock_plus,
   'mdi_lock_plus_outline': IconPack.mdi_lock_plus_outline,
   'mdi_lock_question': IconPack.mdi_lock_question,
@@ -33990,6 +35492,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_monitor_speaker': IconPack.mdi_monitor_speaker,
   'mdi_monitor_speaker_off': IconPack.mdi_monitor_speaker_off,
   'mdi_monitor_star': IconPack.mdi_monitor_star,
+  'mdi_monitor_vertical': IconPack.mdi_monitor_vertical,
   'mdi_moon_first_quarter': IconPack.mdi_moon_first_quarter,
   'mdi_moon_full': IconPack.mdi_moon_full,
   'mdi_moon_last_quarter': IconPack.mdi_moon_last_quarter,
@@ -34136,7 +35639,9 @@ const Map<String, IconData> iconPackMap = {
   'mdi_nas': IconPack.mdi_nas,
   'mdi_nativescript': IconPack.mdi_nativescript,
   'mdi_nature': IconPack.mdi_nature,
+  'mdi_nature_outline': IconPack.mdi_nature_outline,
   'mdi_nature_people': IconPack.mdi_nature_people,
+  'mdi_nature_people_outline': IconPack.mdi_nature_people_outline,
   'mdi_navigation': IconPack.mdi_navigation,
   'mdi_navigation_outline': IconPack.mdi_navigation_outline,
   'mdi_navigation_variant': IconPack.mdi_navigation_variant,
@@ -34327,7 +35832,13 @@ const Map<String, IconData> iconPackMap = {
   'mdi_octagon': IconPack.mdi_octagon,
   'mdi_octagon_outline': IconPack.mdi_octagon_outline,
   'mdi_octagram': IconPack.mdi_octagram,
+  'mdi_octagram_edit': IconPack.mdi_octagram_edit,
+  'mdi_octagram_edit_outline': IconPack.mdi_octagram_edit_outline,
+  'mdi_octagram_minus': IconPack.mdi_octagram_minus,
+  'mdi_octagram_minus_outline': IconPack.mdi_octagram_minus_outline,
   'mdi_octagram_outline': IconPack.mdi_octagram_outline,
+  'mdi_octagram_plus': IconPack.mdi_octagram_plus,
+  'mdi_octagram_plus_outline': IconPack.mdi_octagram_plus_outline,
   'mdi_octahedron': IconPack.mdi_octahedron,
   'mdi_octahedron_off': IconPack.mdi_octahedron_off,
   'mdi_odnoklassniki': IconPack.mdi_odnoklassniki,
@@ -34504,6 +36015,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_pencil_remove': IconPack.mdi_pencil_remove,
   'mdi_pencil_remove_outline': IconPack.mdi_pencil_remove_outline,
   'mdi_pencil_ruler': IconPack.mdi_pencil_ruler,
+  'mdi_pencil_ruler_outline': IconPack.mdi_pencil_ruler_outline,
   'mdi_penguin': IconPack.mdi_penguin,
   'mdi_pentagon': IconPack.mdi_pentagon,
   'mdi_pentagon_outline': IconPack.mdi_pentagon_outline,
@@ -34604,6 +36116,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_pine_tree': IconPack.mdi_pine_tree,
   'mdi_pine_tree_box': IconPack.mdi_pine_tree_box,
   'mdi_pine_tree_fire': IconPack.mdi_pine_tree_fire,
+  'mdi_pine_tree_variant': IconPack.mdi_pine_tree_variant,
+  'mdi_pine_tree_variant_outline': IconPack.mdi_pine_tree_variant_outline,
   'mdi_pinterest': IconPack.mdi_pinterest,
   'mdi_pinwheel': IconPack.mdi_pinwheel,
   'mdi_pinwheel_outline': IconPack.mdi_pinwheel_outline,
@@ -34621,6 +36135,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_plane_train': IconPack.mdi_plane_train,
   'mdi_play': IconPack.mdi_play,
   'mdi_play_box': IconPack.mdi_play_box,
+  'mdi_play_box_edit_outline': IconPack.mdi_play_box_edit_outline,
   'mdi_play_box_lock': IconPack.mdi_play_box_lock,
   'mdi_play_box_lock_open': IconPack.mdi_play_box_lock_open,
   'mdi_play_box_lock_open_outline': IconPack.mdi_play_box_lock_open_outline,
@@ -34702,6 +36217,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_power_off': IconPack.mdi_power_off,
   'mdi_power_on': IconPack.mdi_power_on,
   'mdi_power_plug': IconPack.mdi_power_plug,
+  'mdi_power_plug_battery': IconPack.mdi_power_plug_battery,
+  'mdi_power_plug_battery_outline': IconPack.mdi_power_plug_battery_outline,
   'mdi_power_plug_off': IconPack.mdi_power_plug_off,
   'mdi_power_plug_off_outline': IconPack.mdi_power_plug_off_outline,
   'mdi_power_plug_outline': IconPack.mdi_power_plug_outline,
@@ -34741,6 +36258,41 @@ const Map<String, IconData> iconPackMap = {
   'mdi_printer_off_outline': IconPack.mdi_printer_off_outline,
   'mdi_printer_outline': IconPack.mdi_printer_outline,
   'mdi_printer_pos': IconPack.mdi_printer_pos,
+  'mdi_printer_pos_alert': IconPack.mdi_printer_pos_alert,
+  'mdi_printer_pos_alert_outline': IconPack.mdi_printer_pos_alert_outline,
+  'mdi_printer_pos_cancel': IconPack.mdi_printer_pos_cancel,
+  'mdi_printer_pos_cancel_outline': IconPack.mdi_printer_pos_cancel_outline,
+  'mdi_printer_pos_check': IconPack.mdi_printer_pos_check,
+  'mdi_printer_pos_check_outline': IconPack.mdi_printer_pos_check_outline,
+  'mdi_printer_pos_cog': IconPack.mdi_printer_pos_cog,
+  'mdi_printer_pos_cog_outline': IconPack.mdi_printer_pos_cog_outline,
+  'mdi_printer_pos_edit': IconPack.mdi_printer_pos_edit,
+  'mdi_printer_pos_edit_outline': IconPack.mdi_printer_pos_edit_outline,
+  'mdi_printer_pos_minus': IconPack.mdi_printer_pos_minus,
+  'mdi_printer_pos_minus_outline': IconPack.mdi_printer_pos_minus_outline,
+  'mdi_printer_pos_network': IconPack.mdi_printer_pos_network,
+  'mdi_printer_pos_network_outline': IconPack.mdi_printer_pos_network_outline,
+  'mdi_printer_pos_off': IconPack.mdi_printer_pos_off,
+  'mdi_printer_pos_off_outline': IconPack.mdi_printer_pos_off_outline,
+  'mdi_printer_pos_outline': IconPack.mdi_printer_pos_outline,
+  'mdi_printer_pos_pause': IconPack.mdi_printer_pos_pause,
+  'mdi_printer_pos_pause_outline': IconPack.mdi_printer_pos_pause_outline,
+  'mdi_printer_pos_play': IconPack.mdi_printer_pos_play,
+  'mdi_printer_pos_play_outline': IconPack.mdi_printer_pos_play_outline,
+  'mdi_printer_pos_plus': IconPack.mdi_printer_pos_plus,
+  'mdi_printer_pos_plus_outline': IconPack.mdi_printer_pos_plus_outline,
+  'mdi_printer_pos_refresh': IconPack.mdi_printer_pos_refresh,
+  'mdi_printer_pos_refresh_outline': IconPack.mdi_printer_pos_refresh_outline,
+  'mdi_printer_pos_remove': IconPack.mdi_printer_pos_remove,
+  'mdi_printer_pos_remove_outline': IconPack.mdi_printer_pos_remove_outline,
+  'mdi_printer_pos_star': IconPack.mdi_printer_pos_star,
+  'mdi_printer_pos_star_outline': IconPack.mdi_printer_pos_star_outline,
+  'mdi_printer_pos_stop': IconPack.mdi_printer_pos_stop,
+  'mdi_printer_pos_stop_outline': IconPack.mdi_printer_pos_stop_outline,
+  'mdi_printer_pos_sync': IconPack.mdi_printer_pos_sync,
+  'mdi_printer_pos_sync_outline': IconPack.mdi_printer_pos_sync_outline,
+  'mdi_printer_pos_wrench': IconPack.mdi_printer_pos_wrench,
+  'mdi_printer_pos_wrench_outline': IconPack.mdi_printer_pos_wrench_outline,
   'mdi_printer_search': IconPack.mdi_printer_search,
   'mdi_printer_settings': IconPack.mdi_printer_settings,
   'mdi_printer_wireless': IconPack.mdi_printer_wireless,
@@ -34756,6 +36308,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_progress_pencil': IconPack.mdi_progress_pencil,
   'mdi_progress_question': IconPack.mdi_progress_question,
   'mdi_progress_star': IconPack.mdi_progress_star,
+  'mdi_progress_star_four_points': IconPack.mdi_progress_star_four_points,
   'mdi_progress_upload': IconPack.mdi_progress_upload,
   'mdi_progress_wrench': IconPack.mdi_progress_wrench,
   'mdi_projector': IconPack.mdi_projector,
@@ -34830,6 +36383,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_radioactive_circle_outline': IconPack.mdi_radioactive_circle_outline,
   'mdi_radioactive_off': IconPack.mdi_radioactive_off,
   'mdi_radiobox_blank': IconPack.mdi_radiobox_blank,
+  'mdi_radiobox_indeterminate_variant': IconPack.mdi_radiobox_indeterminate_variant,
   'mdi_radiobox_marked': IconPack.mdi_radiobox_marked,
   'mdi_radiology_box': IconPack.mdi_radiology_box,
   'mdi_radiology_box_outline': IconPack.mdi_radiology_box_outline,
@@ -34852,10 +36406,22 @@ const Map<String, IconData> iconPackMap = {
   'mdi_react': IconPack.mdi_react,
   'mdi_read': IconPack.mdi_read,
   'mdi_receipt': IconPack.mdi_receipt,
+  'mdi_receipt_clock': IconPack.mdi_receipt_clock,
+  'mdi_receipt_clock_outline': IconPack.mdi_receipt_clock_outline,
   'mdi_receipt_outline': IconPack.mdi_receipt_outline,
+  'mdi_receipt_send': IconPack.mdi_receipt_send,
+  'mdi_receipt_send_outline': IconPack.mdi_receipt_send_outline,
   'mdi_receipt_text': IconPack.mdi_receipt_text,
+  'mdi_receipt_text_arrow_left': IconPack.mdi_receipt_text_arrow_left,
+  'mdi_receipt_text_arrow_left_outline': IconPack.mdi_receipt_text_arrow_left_outline,
+  'mdi_receipt_text_arrow_right': IconPack.mdi_receipt_text_arrow_right,
+  'mdi_receipt_text_arrow_right_outline': IconPack.mdi_receipt_text_arrow_right_outline,
   'mdi_receipt_text_check': IconPack.mdi_receipt_text_check,
   'mdi_receipt_text_check_outline': IconPack.mdi_receipt_text_check_outline,
+  'mdi_receipt_text_clock': IconPack.mdi_receipt_text_clock,
+  'mdi_receipt_text_clock_outline': IconPack.mdi_receipt_text_clock_outline,
+  'mdi_receipt_text_edit': IconPack.mdi_receipt_text_edit,
+  'mdi_receipt_text_edit_outline': IconPack.mdi_receipt_text_edit_outline,
   'mdi_receipt_text_minus': IconPack.mdi_receipt_text_minus,
   'mdi_receipt_text_minus_outline': IconPack.mdi_receipt_text_minus_outline,
   'mdi_receipt_text_outline': IconPack.mdi_receipt_text_outline,
@@ -34863,6 +36429,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_receipt_text_plus_outline': IconPack.mdi_receipt_text_plus_outline,
   'mdi_receipt_text_remove': IconPack.mdi_receipt_text_remove,
   'mdi_receipt_text_remove_outline': IconPack.mdi_receipt_text_remove_outline,
+  'mdi_receipt_text_send': IconPack.mdi_receipt_text_send,
+  'mdi_receipt_text_send_outline': IconPack.mdi_receipt_text_send_outline,
   'mdi_record': IconPack.mdi_record,
   'mdi_record_circle': IconPack.mdi_record_circle,
   'mdi_record_circle_outline': IconPack.mdi_record_circle_outline,
@@ -34929,7 +36497,10 @@ const Map<String, IconData> iconPackMap = {
   'mdi_remote_off': IconPack.mdi_remote_off,
   'mdi_remote_tv': IconPack.mdi_remote_tv,
   'mdi_remote_tv_off': IconPack.mdi_remote_tv_off,
+  'mdi_rename': IconPack.mdi_rename,
   'mdi_rename_box': IconPack.mdi_rename_box,
+  'mdi_rename_box_outline': IconPack.mdi_rename_box_outline,
+  'mdi_rename_outline': IconPack.mdi_rename_outline,
   'mdi_reorder_horizontal': IconPack.mdi_reorder_horizontal,
   'mdi_reorder_vertical': IconPack.mdi_reorder_vertical,
   'mdi_repeat': IconPack.mdi_repeat,
@@ -34998,8 +36569,10 @@ const Map<String, IconData> iconPackMap = {
   'mdi_robot_outline': IconPack.mdi_robot_outline,
   'mdi_robot_vacuum': IconPack.mdi_robot_vacuum,
   'mdi_robot_vacuum_alert': IconPack.mdi_robot_vacuum_alert,
+  'mdi_robot_vacuum_off': IconPack.mdi_robot_vacuum_off,
   'mdi_robot_vacuum_variant': IconPack.mdi_robot_vacuum_variant,
   'mdi_robot_vacuum_variant_alert': IconPack.mdi_robot_vacuum_variant_alert,
+  'mdi_robot_vacuum_variant_off': IconPack.mdi_robot_vacuum_variant_off,
   'mdi_rocket': IconPack.mdi_rocket,
   'mdi_rocket_launch': IconPack.mdi_rocket_launch,
   'mdi_rocket_launch_outline': IconPack.mdi_rocket_launch_outline,
@@ -35055,6 +36628,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_run_fast': IconPack.mdi_run_fast,
   'mdi_rv_truck': IconPack.mdi_rv_truck,
   'mdi_sack': IconPack.mdi_sack,
+  'mdi_sack_outline': IconPack.mdi_sack_outline,
   'mdi_sack_percent': IconPack.mdi_sack_percent,
   'mdi_safe': IconPack.mdi_safe,
   'mdi_safe_square': IconPack.mdi_safe_square,
@@ -35173,6 +36747,10 @@ const Map<String, IconData> iconPackMap = {
   'mdi_send_lock': IconPack.mdi_send_lock,
   'mdi_send_lock_outline': IconPack.mdi_send_lock_outline,
   'mdi_send_outline': IconPack.mdi_send_outline,
+  'mdi_send_variant': IconPack.mdi_send_variant,
+  'mdi_send_variant_clock': IconPack.mdi_send_variant_clock,
+  'mdi_send_variant_clock_outline': IconPack.mdi_send_variant_clock_outline,
+  'mdi_send_variant_outline': IconPack.mdi_send_variant_outline,
   'mdi_serial_port': IconPack.mdi_serial_port,
   'mdi_server': IconPack.mdi_server,
   'mdi_server_minus': IconPack.mdi_server_minus,
@@ -35202,6 +36780,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_shape_outline': IconPack.mdi_shape_outline,
   'mdi_shape_oval_plus': IconPack.mdi_shape_oval_plus,
   'mdi_shape_plus': IconPack.mdi_shape_plus,
+  'mdi_shape_plus_outline': IconPack.mdi_shape_plus_outline,
   'mdi_shape_polygon_plus': IconPack.mdi_shape_polygon_plus,
   'mdi_shape_rectangle_plus': IconPack.mdi_shape_rectangle_plus,
   'mdi_shape_square_plus': IconPack.mdi_shape_square_plus,
@@ -35520,6 +37099,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_sphere': IconPack.mdi_sphere,
   'mdi_sphere_off': IconPack.mdi_sphere_off,
   'mdi_spider': IconPack.mdi_spider,
+  'mdi_spider_outline': IconPack.mdi_spider_outline,
   'mdi_spider_thread': IconPack.mdi_spider_thread,
   'mdi_spider_web': IconPack.mdi_spider_web,
   'mdi_spirit_level': IconPack.mdi_spirit_level,
@@ -35536,6 +37116,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_sprout_outline': IconPack.mdi_sprout_outline,
   'mdi_square': IconPack.mdi_square,
   'mdi_square_circle': IconPack.mdi_square_circle,
+  'mdi_square_circle_outline': IconPack.mdi_square_circle_outline,
   'mdi_square_edit_outline': IconPack.mdi_square_edit_outline,
   'mdi_square_medium': IconPack.mdi_square_medium,
   'mdi_square_medium_outline': IconPack.mdi_square_medium_outline,
@@ -35580,7 +37161,12 @@ const Map<String, IconData> iconPackMap = {
   'mdi_star_david': IconPack.mdi_star_david,
   'mdi_star_face': IconPack.mdi_star_face,
   'mdi_star_four_points': IconPack.mdi_star_four_points,
+  'mdi_star_four_points_box': IconPack.mdi_star_four_points_box,
+  'mdi_star_four_points_box_outline': IconPack.mdi_star_four_points_box_outline,
+  'mdi_star_four_points_circle': IconPack.mdi_star_four_points_circle,
+  'mdi_star_four_points_circle_outline': IconPack.mdi_star_four_points_circle_outline,
   'mdi_star_four_points_outline': IconPack.mdi_star_four_points_outline,
+  'mdi_star_four_points_small': IconPack.mdi_star_four_points_small,
   'mdi_star_half': IconPack.mdi_star_half,
   'mdi_star_half_full': IconPack.mdi_star_half_full,
   'mdi_star_minus': IconPack.mdi_star_minus,
@@ -35811,6 +37397,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_tag_faces': IconPack.mdi_tag_faces,
   'mdi_tag_heart': IconPack.mdi_tag_heart,
   'mdi_tag_heart_outline': IconPack.mdi_tag_heart_outline,
+  'mdi_tag_hidden': IconPack.mdi_tag_hidden,
   'mdi_tag_minus': IconPack.mdi_tag_minus,
   'mdi_tag_minus_outline': IconPack.mdi_tag_minus_outline,
   'mdi_tag_multiple': IconPack.mdi_tag_multiple,
@@ -35868,6 +37455,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_temple_hindu_outline': IconPack.mdi_temple_hindu_outline,
   'mdi_tennis': IconPack.mdi_tennis,
   'mdi_tennis_ball': IconPack.mdi_tennis_ball,
+  'mdi_tennis_ball_outline': IconPack.mdi_tennis_ball_outline,
   'mdi_tent': IconPack.mdi_tent,
   'mdi_terraform': IconPack.mdi_terraform,
   'mdi_terrain': IconPack.mdi_terrain,
@@ -35922,6 +37510,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_thermostat_auto': IconPack.mdi_thermostat_auto,
   'mdi_thermostat_box': IconPack.mdi_thermostat_box,
   'mdi_thermostat_box_auto': IconPack.mdi_thermostat_box_auto,
+  'mdi_thermostat_cog': IconPack.mdi_thermostat_cog,
   'mdi_thought_bubble': IconPack.mdi_thought_bubble,
   'mdi_thought_bubble_outline': IconPack.mdi_thought_bubble_outline,
   'mdi_thumb_down': IconPack.mdi_thumb_down,
@@ -36037,6 +37626,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_tooltip_outline': IconPack.mdi_tooltip_outline,
   'mdi_tooltip_plus': IconPack.mdi_tooltip_plus,
   'mdi_tooltip_plus_outline': IconPack.mdi_tooltip_plus_outline,
+  'mdi_tooltip_question': IconPack.mdi_tooltip_question,
+  'mdi_tooltip_question_outline': IconPack.mdi_tooltip_question_outline,
   'mdi_tooltip_remove': IconPack.mdi_tooltip_remove,
   'mdi_tooltip_remove_outline': IconPack.mdi_tooltip_remove_outline,
   'mdi_tooltip_text': IconPack.mdi_tooltip_text,
@@ -36049,6 +37640,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_torch': IconPack.mdi_torch,
   'mdi_tortoise': IconPack.mdi_tortoise,
   'mdi_toslink': IconPack.mdi_toslink,
+  'mdi_touch_text_outline': IconPack.mdi_touch_text_outline,
   'mdi_tournament': IconPack.mdi_tournament,
   'mdi_tow_truck': IconPack.mdi_tow_truck,
   'mdi_tower_beach': IconPack.mdi_tower_beach,
@@ -36136,6 +37728,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_tray_plus': IconPack.mdi_tray_plus,
   'mdi_tray_remove': IconPack.mdi_tray_remove,
   'mdi_treasure_chest': IconPack.mdi_treasure_chest,
+  'mdi_treasure_chest_outline': IconPack.mdi_treasure_chest_outline,
   'mdi_tree': IconPack.mdi_tree,
   'mdi_tree_outline': IconPack.mdi_tree_outline,
   'mdi_trello': IconPack.mdi_trello,
@@ -36143,6 +37736,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_trending_neutral': IconPack.mdi_trending_neutral,
   'mdi_trending_up': IconPack.mdi_trending_up,
   'mdi_triangle': IconPack.mdi_triangle,
+  'mdi_triangle_down': IconPack.mdi_triangle_down,
+  'mdi_triangle_down_outline': IconPack.mdi_triangle_down_outline,
   'mdi_triangle_outline': IconPack.mdi_triangle_outline,
   'mdi_triangle_small_down': IconPack.mdi_triangle_small_down,
   'mdi_triangle_small_up': IconPack.mdi_triangle_small_up,
@@ -36347,6 +37942,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_view_gallery': IconPack.mdi_view_gallery,
   'mdi_view_gallery_outline': IconPack.mdi_view_gallery_outline,
   'mdi_view_grid': IconPack.mdi_view_grid,
+  'mdi_view_grid_compact': IconPack.mdi_view_grid_compact,
   'mdi_view_grid_outline': IconPack.mdi_view_grid_outline,
   'mdi_view_grid_plus': IconPack.mdi_view_grid_plus,
   'mdi_view_grid_plus_outline': IconPack.mdi_view_grid_plus_outline,
@@ -36409,6 +38005,8 @@ const Map<String, IconData> iconPackMap = {
   'mdi_wall_sconce_round_variant': IconPack.mdi_wall_sconce_round_variant,
   'mdi_wall_sconce_round_variant_outline': IconPack.mdi_wall_sconce_round_variant_outline,
   'mdi_wallet': IconPack.mdi_wallet,
+  'mdi_wallet_bifold': IconPack.mdi_wallet_bifold,
+  'mdi_wallet_bifold_outline': IconPack.mdi_wallet_bifold_outline,
   'mdi_wallet_giftcard': IconPack.mdi_wallet_giftcard,
   'mdi_wallet_membership': IconPack.mdi_wallet_membership,
   'mdi_wallet_outline': IconPack.mdi_wallet_outline,
@@ -36481,6 +38079,7 @@ const Map<String, IconData> iconPackMap = {
   'mdi_weather_hail': IconPack.mdi_weather_hail,
   'mdi_weather_hazy': IconPack.mdi_weather_hazy,
   'mdi_weather_hurricane': IconPack.mdi_weather_hurricane,
+  'mdi_weather_hurricane_outline': IconPack.mdi_weather_hurricane_outline,
   'mdi_weather_lightning': IconPack.mdi_weather_lightning,
   'mdi_weather_lightning_rainy': IconPack.mdi_weather_lightning_rainy,
   'mdi_weather_night': IconPack.mdi_weather_night,

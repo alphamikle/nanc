@@ -27,7 +27,7 @@ class ManualMenu extends StatelessWidget {
           child: KitMenuItem(
             text: element.title,
             icon: renderer.icon,
-            onPressed: () => manualBloc.selectTag(element, renderer),
+            onPressed: () async => manualBloc.selectTag(element, renderer),
             isActive: isActive,
           ),
         );

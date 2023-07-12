@@ -166,7 +166,7 @@ class CodeFieldState extends State<CodeField> {
       if (line.length > longestLine.length) longestLine = line;
     });
 
-    safeSetState();
+    // safeSetState();
   }
 
   // Wrap the codeField in a horizontal scrollView

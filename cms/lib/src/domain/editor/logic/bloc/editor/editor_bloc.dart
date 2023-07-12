@@ -34,11 +34,9 @@ class EditorBloc extends Cubit<EditorState> {
   StreamSubscription<String?>? fileContentSubscription;
   StreamSubscription<bool>? syncerActiveStatusSubscription;
 
-  void initFromModel(ScreenContentModel model) {
-    controller.text = model.content;
-    emit(state.copyWith(
-      contentType: model.contentType,
-    ));
+  Future<void> initFromModel(ScreenContentModel model) async {
+    await _updateContent(model.content);
+    emit(state.copyWith(contentType: model.contentType));
   }
 
   Future<void> syncWithFile() async {
@@ -51,9 +49,7 @@ class EditorBloc extends Cubit<EditorState> {
     final bool result = await fileSyncer.syncWithFile();
     if (result) {
       this.fileSyncer = fileSyncer;
-      emit(state.copyWith(
-        isSyncedWithFile: true,
-      ));
+      emit(state.copyWith(isSyncedWithFile: true));
     } else {
       await fileContentSubscription?.cancel();
       await syncerActiveStatusSubscription?.cancel();
@@ -65,31 +61,25 @@ class EditorBloc extends Cubit<EditorState> {
   Future<void> closeSync() async {
     await syncerActiveStatusSubscription?.cancel();
     await fileContentSubscription?.cancel();
+    fileContentSubscription = null;
+    syncerActiveStatusSubscription = null;
     await fileSyncer?.dispose();
     fileSyncer = null;
-    emit(state.copyWith(
-      isSyncedWithFile: false,
-    ));
+    emit(state.copyWith(isSyncedWithFile: false));
   }
 
-  void clearEditor() => controller.text = '';
+  Future<void> clearEditor() async => _updateContent('');
 
   @protected
-  void controllerListener() {
-    emit(
-      state.copyWith(
-        markdownContent: controller.text,
-      ),
-    );
-  }
+  void controllerListener() => emit(state.copyWith(markdownContent: controller.text));
 
-  void selectTag(MenuElement tagElement, TagRenderer tagRenderer) {
+  Future<void> selectTag(MenuElement tagElement, TagRenderer tagRenderer) async {
     emit(state.copyWith(
       activeElement: tagElement,
       activeTagRenderer: tagRenderer,
     ));
     final String example = tagRenderer.example.replaceAll(_prettyCodeRegExp, '>\n').trim();
-    initFromModel(
+    await initFromModel(
       ScreenContentModel(
         content: example,
         contentType: ScreenContentType.scrollable,
@@ -99,25 +89,24 @@ class EditorBloc extends Cubit<EditorState> {
 
   void _sendChangedEvent(EditorState state) => eventBus.send(eventId: EditorEvent.changed, request: state);
 
-  void _fileContentListener(String? fileContent) {
-    try {
-      if (fileContent != null && fileContent != controller.text) {
-        controller.text = fileContent;
-      }
-    } catch (error) {
-      // Handle error
-      controller.text = '''
-$fileContent
-<!-- Fix very faint text for TextEditingController -->
-''';
-      controller.text = fileContent!;
-      logg('GOT AN ERROR ON PASTING THE TEXT: $error');
+  Future<void> _fileContentListener(String? fileContent) async {
+    if (fileContent != null && fileContent != controller.text) {
+      await _updateContent(fileContent);
     }
   }
 
   void _syncerStatusListener(bool isActive) {
     if (isActive == false) {
       unawaited(closeSync());
+    }
+  }
+
+  Future<void> _updateContent(String content) async {
+    try {
+      await Future<void>.delayed(const Duration(milliseconds: 30));
+      controller.value = TextEditingValue(text: content);
+    } catch (error, stackTrace) {
+      print(error);
     }
   }
 

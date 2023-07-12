@@ -20,7 +20,7 @@ class ClickDelegate extends InheritedWidget {
   }
 
   Future<void> onPressed(BuildContext context, String event) async {
-    for (final handler in handlers) {
+    for (final ClickHandler handler in handlers) {
       final FutureOr<bool> canHandleRaw = handler.test(context, event);
       bool canHandle = false;
       if (canHandleRaw is Future) {

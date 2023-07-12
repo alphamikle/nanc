@@ -34,7 +34,7 @@ class _ScreenFieldCellState extends State<ScreenFieldCell> with FieldCellHelper<
     } else {
       model = const ScreenContentModel(content: '', contentType: ScreenContentType.scrollable);
     }
-    context.read<EditorBloc>().initFromModel(model);
+    await context.read<EditorBloc>().initFromModel(model);
   }
 
   Widget editorPageBuilder(BuildContext context, CloseContainerActionCallback<String> action) {
@@ -92,11 +92,7 @@ class _ScreenFieldCellState extends State<ScreenFieldCell> with FieldCellHelper<
                 ),
               ),
             ),
-            Positioned.fill(
-              child: KitInkWell(
-                onPressed: action,
-              ),
-            ),
+            Positioned.fill(child: KitInkWell(onPressed: action)),
           ],
         );
       },

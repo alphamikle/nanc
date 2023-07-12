@@ -21,22 +21,26 @@ const String flu = 'flu';
 const String rmx = 'rmx';
 const String box = 'box';
 
-/// ? mdi: /Users/alfa/.pub-cache/hosted/pub.dartlang.org/material_design_icons_flutter-6.0.7096/lib/material_design_icons_flutter.dart
-/// ? flu: /Users/alfa/.pub-cache/hosted/pub.dartlang.org/fluentui_system_icons-1.1.189/lib/src/fluent_icons.dart
-/// ? rmx: /Users/alfa/.pub-cache/hosted/pub.dartlang.org/remixicon-1.0.0/lib/remixicon.dart
-/// ? box: /Users/alfa/.pub-cache/hosted/pub.dartlang.org/flutter_boxicons-3.0.0/lib/flutter_boxicons.dart
+/// ? mdi: /Users/alfa/.pub-cache/hosted/pub.dev/material_design_icons_flutter-7.0.7296/lib/icon_map.dart
+/// ? flu: /Users/alfa/.pub-cache/hosted/pub.dev/fluentui_system_icons-1.1.205/lib/src/fluent_icons.dart
+/// ? rmx: /Users/alfa/.pub-cache/hosted/pub.dev/remixicon-1.0.0/lib/remixicon.dart
+/// ? box: /Users/alfa/.pub-cache/hosted/pub.dev/flutter_boxicons-3.0.0/lib/flutter_boxicons.dart
 
 final Map<String, Parser> parsers = {
   mdi: mdiParser,
   flu: fluParser,
   rmx: rmxParser,
-  box: boxParser,
+  // box: boxParser,
 };
 
 Future<void> main(List<String> arguments) async {
   initArguments(arguments);
   for (final MapEntry<String, Parser> entry in parsers.entries) {
     final String iconPackPath = parsedArguments[entry.key].toString();
+    if (iconPackPath == 'null') {
+      log('Skipping icon pack "${entry.key}" because path is null');
+      continue;
+    }
     final File iconPackFile = File(iconPackPath);
     if (iconPackFile.existsSync()) {
       await entry.value(iconPackFile);
@@ -50,7 +54,7 @@ Future<void> main(List<String> arguments) async {
 Future<void> mdiParser(File file) async {
   final List<RegExpMatch> matches = findMatches(
     file: file,
-    regExp: RegExp(r'^ *static const IconData (?<name>\w+) = const _MdiIconData\((?<code>\w+)\);$', multiLine: true),
+    regExp: RegExp(r" *'(?<name>\w+)': +_MdiIconData\((?<code>\w+)\)", multiLine: true),
   );
   int counter = 0;
   for (final RegExpMatch match in matches) {
@@ -189,6 +193,9 @@ Future<void> createIconPackFile() async {
         '',
     '',
     'abstract class IconPack {',
+    '',
+    '  static IconData fromName(String name) => iconPackMap[name]!;',
+    '  static IconData? fromNameOrNull(String name) => iconPackMap[name];',
   ]);
   iconPackClassCode.addAll([
     '}',

@@ -16,9 +16,6 @@ dependencies:
     path: ../config
   markdown: ^7.1.0
   collection: ^1.17.1 # no update because of flutter
-  material_design_icons_flutter: ^6.0.7096
-  fluentui_system_icons: ^1.1.201
-  flutter_boxicons: ^3.0.0
   html: ^0.15.3
   archive: ^3.3.7
   ulid: ^2.0.0

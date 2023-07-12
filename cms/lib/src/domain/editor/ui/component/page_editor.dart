@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:code_text_field/code_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:highlight/languages/xml.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -8,7 +11,7 @@ import '../../../../service/config/config.dart';
 import '../../logic/bloc/editor/editor_bloc.dart';
 import '../../logic/bloc/editor/editor_state.dart';
 
-class PageEditor extends StatelessWidget {
+class PageEditor extends StatefulWidget {
   const PageEditor({
     this.codeFieldKey,
     super.key,
@@ -17,9 +20,38 @@ class PageEditor extends StatelessWidget {
   final GlobalKey<CodeFieldState>? codeFieldKey;
 
   @override
-  Widget build(BuildContext context) {
+  State<PageEditor> createState() => _PageEditorState();
+}
+
+class _PageEditorState extends State<PageEditor> {
+  late final EditorBloc editorBloc = context.read();
+  final CodeController controller = CodeController(language: xml);
+  final StreamController<String> codeStreamController = StreamController.broadcast();
+
+  void _codeStreamListener(String code) => controller.text = code;
+
+  void _primaryControllerListener() {
     final EditorBloc editorBloc = context.read();
-    final CodeController codeController = editorBloc.controller;
+    final String code = editorBloc.controller.text;
+    codeStreamController.add(code);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    codeStreamController.stream.listen(_codeStreamListener);
+    editorBloc.controller.addListener(_primaryControllerListener);
+  }
+
+  @override
+  void dispose() {
+    unawaited(codeStreamController.close());
+    controller.removeListener(_primaryControllerListener);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final ThemeData theme = context.theme;
 
     return KitInkWell(
@@ -53,23 +85,27 @@ class PageEditor extends StatelessWidget {
             builder: (BuildContext context, EditorState state) {
               final int lines = state.markdownContent.split('\n').length;
 
-              return CodeField(
-                key: codeFieldKey,
-                focusNode: editorBloc.focusNode,
-                expands: true,
-                lineNumberStyle: LineNumberStyle(
-                  margin: 0,
-                  width: (lines.toString()).length * 12 + 25,
-                  background: Colors.transparent,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  border: Border.all(
-                    color: Colors.transparent,
-                    width: 0,
-                  ),
-                ),
-                controller: codeController,
+              return BlocBuilder<EditorBloc, EditorState>(
+                builder: (BuildContext context, EditorState state) {
+                  return CodeField(
+                    key: widget.codeFieldKey,
+                    focusNode: editorBloc.focusNode,
+                    expands: true,
+                    lineNumberStyle: LineNumberStyle(
+                      margin: 0,
+                      width: (lines.toString()).length * 12 + 25,
+                      background: Colors.transparent,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      border: Border.all(
+                        color: Colors.transparent,
+                        width: 0,
+                      ),
+                    ),
+                    controller: state.isSyncedWithFile ? controller : editorBloc.controller,
+                  );
+                },
               );
             },
           ),

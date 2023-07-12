@@ -134,7 +134,7 @@ class _GeneralViewV2State extends State<GeneralViewV2> with SingleTickerProvider
             ),
           ),
 
-          if (kDebugMode && kIsWeb == false)
+          if (kDebugMode && kIsWeb == false && false)
             Positioned(
               top: 12,
               right: 32,
