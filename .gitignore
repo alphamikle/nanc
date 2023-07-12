@@ -1,7 +1,11 @@
 pubspec.lock
 .idea
-.dart_tool
 _examples
 .DS_Store
 .env
 /nanc_demo_cms/frmtr-demo-5bc15fceb581.json
+.dart_tool
+.flutter-plugins
+.flutter-plugins-dependencies
+Podfile
+Podfile.lock
