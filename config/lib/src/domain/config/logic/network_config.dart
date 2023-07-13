@@ -16,6 +16,14 @@ class NetworkConfig {
     NetworkConfig.paginationLimitParameterDefaultValue = paginationLimitParameterDefaultValue;
   }
 
+  NetworkConfig.simple({int paginationLimitParameterDefaultValue = 100}) {
+    NetworkConfig.paginationLimitParameterName = 'limit';
+    NetworkConfig.paginationPageNumberParameterName = 'page';
+    NetworkConfig.paginationDataContainerParameterName = 'data';
+    NetworkConfig.paginationTotalPagesParameterName = 'total_pages';
+    NetworkConfig.paginationLimitParameterDefaultValue = paginationLimitParameterDefaultValue;
+  }
+
   /// ? Examples of parameter: ["limit", "per_page", "itemsPerPage", etc.]
   static late String paginationLimitParameterName;
 
