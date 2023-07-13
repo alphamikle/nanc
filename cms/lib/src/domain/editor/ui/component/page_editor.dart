@@ -1,9 +1,6 @@
-import 'dart:async';
-
 import 'package:code_text_field/code_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:highlight/languages/xml.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -24,34 +21,9 @@ class PageEditor extends StatefulWidget {
 }
 
 class _PageEditorState extends State<PageEditor> {
-  late final EditorBloc editorBloc = context.read();
-  final CodeController controller = CodeController(language: xml);
-  final StreamController<String> codeStreamController = StreamController.broadcast();
-
-  void _codeStreamListener(String code) => controller.text = code;
-
-  void _primaryControllerListener() {
-    final EditorBloc editorBloc = context.read();
-    final String code = editorBloc.controller.text;
-    codeStreamController.add(code);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    codeStreamController.stream.listen(_codeStreamListener);
-    editorBloc.controller.addListener(_primaryControllerListener);
-  }
-
-  @override
-  void dispose() {
-    unawaited(codeStreamController.close());
-    controller.removeListener(_primaryControllerListener);
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
+    final EditorBloc editorBloc = context.read();
     final ThemeData theme = context.theme;
 
     return KitInkWell(
@@ -75,9 +47,7 @@ class _PageEditorState extends State<PageEditor> {
             styles: codeTheme.map(
               (String key, TextStyle value) => MapEntry(
                 key,
-                value.copyWith(
-                  fontSize: 18,
-                ),
+                value.copyWith(fontSize: 18),
               ),
             ),
           ),
@@ -88,6 +58,7 @@ class _PageEditorState extends State<PageEditor> {
               return BlocBuilder<EditorBloc, EditorState>(
                 builder: (BuildContext context, EditorState state) {
                   return CodeField(
+                    readOnly: state.isSyncedWithFile,
                     key: widget.codeFieldKey,
                     focusNode: editorBloc.focusNode,
                     expands: true,
@@ -103,7 +74,7 @@ class _PageEditorState extends State<PageEditor> {
                         width: 0,
                       ),
                     ),
-                    controller: state.isSyncedWithFile ? controller : editorBloc.controller,
+                    controller: editorBloc.controller,
                   );
                 },
               );

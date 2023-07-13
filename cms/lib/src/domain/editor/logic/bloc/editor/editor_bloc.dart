@@ -35,8 +35,11 @@ class EditorBloc extends Cubit<EditorState> {
   StreamSubscription<bool>? syncerActiveStatusSubscription;
 
   Future<void> initFromModel(ScreenContentModel model) async {
-    await _updateContent(model.content);
-    emit(state.copyWith(contentType: model.contentType));
+    if (state.isSyncedWithFile == false) {
+      logg.wrap('Init from model');
+      await _updateContent(model.content);
+      emit(state.copyWith(contentType: model.contentType));
+    }
   }
 
   Future<void> syncWithFile() async {
@@ -70,8 +73,19 @@ class EditorBloc extends Cubit<EditorState> {
 
   Future<void> clearEditor() async => _updateContent('');
 
+  void toggleMode() {
+    emit(state.copyWith(
+      contentType: state.contentType.isScrollable ? ScreenContentType.stack : ScreenContentType.scrollable,
+    ));
+  }
+
   @protected
-  void controllerListener() => emit(state.copyWith(markdownContent: controller.text));
+  void controllerListener() {
+    if (state.isSyncedWithFile == false) {
+      logg.wrap('Controller listener');
+      emit(state.copyWith(markdownContent: controller.text));
+    }
+  }
 
   Future<void> selectTag(MenuElement tagElement, TagRenderer tagRenderer) async {
     emit(state.copyWith(
@@ -91,7 +105,9 @@ class EditorBloc extends Cubit<EditorState> {
 
   Future<void> _fileContentListener(String? fileContent) async {
     if (fileContent != null && fileContent != controller.text) {
+      logg.wrap('File content listener');
       await _updateContent(fileContent);
+      emit(state.copyWith(markdownContent: fileContent));
     }
   }
 

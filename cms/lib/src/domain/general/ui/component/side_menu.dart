@@ -9,10 +9,13 @@ import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../../cms.dart';
 import '../../../../service/config/config.dart';
+import '../../../../service/tools/assets_loader.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../logic/bloc/header/menu_state.dart';
 import '../../logic/bloc/side_menu/menu_bloc.dart';
 import '../../logic/model/menu_element.dart';
+
+const double kLogoSize = 40;
 
 class SideMenu extends StatefulWidget {
   const SideMenu({
@@ -86,22 +89,29 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: kPadding, top: kPadding),
+            padding: const EdgeInsets.only(top: Gap.large),
             child: Row(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: kPadding),
-                    child: KitText(
-                      text: 'NANC',
-                      style: context.theme.textTheme.headlineSmall?.copyWith(
-                        fontFamily: GoogleFonts.rubikMoonrocks().fontFamily,
-                        fontSize: 36,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.fade,
+                Flexible(
+                  child: Image.asset(
+                    prepareAssetPath('assets/images/logo.png'),
+                    height: kLogoSize,
+                    width: kLogoSize,
+                    color: context.theme.colorScheme.primary,
+                  ),
+                ),
+                const SizedBox(width: Gap.regular),
+                Flexible(
+                  child: KitText(
+                    text: 'Nanc',
+                    style: context.theme.textTheme.headlineSmall?.copyWith(
+                      fontFamily: GoogleFonts.poppins().fontFamily,
+                      fontSize: 36,
+                      color: context.theme.colorScheme.primary,
                     ),
+                    maxLines: 1,
+                    overflow: TextOverflow.fade,
                   ),
                 ),
               ],

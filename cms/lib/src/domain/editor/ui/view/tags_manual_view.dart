@@ -24,6 +24,8 @@ class _TagsManualViewState extends State<TagsManualView> {
 
   void toggleDescription() => safeSetState(() => showDescription = !showDescription);
 
+  void toggleMode() => context.read<EditorBloc>().toggleMode();
+
   Widget tagDescription() {
     return BlocBuilder<EditorBloc, EditorState>(
       builder: (BuildContext context, EditorState state) {
@@ -76,6 +78,18 @@ class _TagsManualViewState extends State<TagsManualView> {
                     const Spacer(),
 
                     /// ? SWITCHER OF LIVE EDITOR / DESCRIPTION INFO
+                    Padding(
+                      padding: const EdgeInsets.only(right: Gap.regular),
+                      child: BlocBuilder<EditorBloc, EditorState>(builder: (BuildContext context, EditorState state) {
+                        return KitTooltip(
+                          text: state.contentType.isScrollable ? 'Switch to Stack Mode' : 'Switch to Scrollable Mode',
+                          child: KitIconButton(
+                            icon: state.contentType.isScrollable ? IconPack.flu_stack_regular : IconPack.flu_dual_screen_vertical_scroll_regular,
+                            onPressed: toggleMode,
+                          ),
+                        );
+                      }),
+                    ),
                     KitTooltip(
                       text: showDescription ? 'Switch to demo editor' : 'Switch to widget description',
                       child: KitIconButton(
