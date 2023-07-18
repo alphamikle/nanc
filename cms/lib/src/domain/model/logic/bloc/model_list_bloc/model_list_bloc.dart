@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:config/config.dart';
+import 'package:fields/fields.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
@@ -22,7 +24,10 @@ class ModelListBloc extends Cubit<ModelListState> {
     emit(state.copyWith(isLoading: true, isError: false));
     try {
       final List<Model> models = await modelProvider.fetchModels();
-      await _sortAndSplitModels(modelsFromCode: modelsFromCode, dynamicModels: models);
+      await _sortAndSplitModels(
+        modelsFromCode: modelsFromCode,
+        dynamicModels: models,
+      );
     } catch (error) {
       emit(state.copyWith(
         isError: true,
@@ -34,14 +39,21 @@ class ModelListBloc extends Cubit<ModelListState> {
   }
 
   Future<void> _sortAndSplitModels({required List<Model> modelsFromCode, required List<Model> dynamicModels}) async {
+    final List<Model> devModelsFromCode = [...modelsFromCode];
+    if (Env.isProduction == false) {
+      if (devModelsFromCode.any((Model model) => model.id == modelModel.id || model.id == structureModel.id) == false) {
+        devModelsFromCode.addAll([modelModel, structureModel]);
+      }
+    }
+
     final Set<String> dynamicModelsIds = {};
-    final Set<String> codeFirstModelsIds = modelsFromCode.map((Model model) => model.id).toSet();
+    final Set<String> codeFirstModelsIds = devModelsFromCode.map((Model model) => model.id).toSet();
     final List<Model> dynamicOrHybridModels = dynamicModels.map((Model model) {
       dynamicModelsIds.add(model.id);
       return codeFirstModelsIds.contains(model.id) ? model.copyWith(isHybrid: true) : model;
     }).toList();
 
-    final List<Model> filteredPreloadedModels = modelsFromCode.where((Model entity) => dynamicModelsIds.contains(entity.id) == false).toList();
+    final List<Model> filteredPreloadedModels = devModelsFromCode.where((Model entity) => dynamicModelsIds.contains(entity.id) == false).toList();
     await wait();
     final List<Model> allModels = [...filteredPreloadedModels, ...dynamicOrHybridModels];
     await wait();
@@ -60,7 +72,7 @@ class ModelListBloc extends Cubit<ModelListState> {
     await wait();
 
     emit(state.copyWith(
-      preloadedModels: modelsFromCode,
+      preloadedModels: devModelsFromCode,
       collectionModels: collectionModels,
       soloModels: soloModels,
       hiddenModels: hiddenModels,

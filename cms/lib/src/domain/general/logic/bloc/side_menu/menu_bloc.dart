@@ -45,10 +45,7 @@ class MenuBloc extends Cubit<MenuState> {
       ));
     } else if (endpoint.isEditorEndpoint) {
       logg('Endpoint "$headerSegmentUrl" is EditorSection');
-      List<Model> models = [...modelListBloc.state.allModels];
-      if (Env.isProduction) {
-        models = models.where((Model model) => model.id != modelModel.id && model.id != structureModel.id).toList();
-      }
+      final List<Model> models = [...modelListBloc.state.allModels];
       models.sort(_entitySortingPredicate);
       elements.addAll(
         models.map(

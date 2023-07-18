@@ -42,6 +42,10 @@ class KitTableCell extends StatelessWidget {
       }
     }
     if (field.isString) {
+      // TODO(alphamikle): Here is a some bug with int-value inside of StringField
+      if (value is! String) {
+        return value.toString();
+      }
       return value as String;
     } else if (field.isNumeric) {
       final (isInt, processedValue) = _isInt(value);
