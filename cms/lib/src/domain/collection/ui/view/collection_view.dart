@@ -27,7 +27,7 @@ class _CollectionViewState extends State<CollectionView> {
   CollectionBloc? collectionBloc;
 
   void openRow(Model model, Json rowData) => context.goNamed(
-        Endpoints.collection.model.page.name,
+        Endpoints.collectionPage.name,
         pathParameters: {
           Params.modelId.name: Uri.encodeComponent(model.id),
           Params.pageId.name: Uri.encodeComponent(rowData[model.idField.id].toString()),

@@ -1,3 +1,4 @@
+import 'package:config/config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -6,12 +7,22 @@ abstract class LocalApi {
   @protected
   final DbService dbService = createDbService();
 
+  final Map<ModelId, List<Json>> _preloadedData = {};
+
+  void preloadData(Map<ModelId, List<Json>> preloadedData) {
+    _preloadedData.clear();
+    _preloadedData.addAll(preloadedData);
+  }
+
   @protected
   Future<List<Json>> fetchFullList(Model entity) async {
     late List<Json> data;
     dynamic response;
     if (await dbService.has(entity.id)) {
       response = await dbService.get(entity.id);
+    }
+    if (response == null || (response is List && response.isEmpty)) {
+      response = _preloadedData[entity.id] ?? [];
     }
     if (response is List) {
       final List<Json> tempData = [];

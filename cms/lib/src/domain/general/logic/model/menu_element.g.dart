@@ -21,7 +21,7 @@ abstract class _$MenuElementCWProxy {
 
   MenuElement url(String url);
 
-  MenuElement aliases(List<String> aliases);
+  MenuElement aliases(Set<String> aliases);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `MenuElement(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -32,7 +32,7 @@ abstract class _$MenuElementCWProxy {
   MenuElement call({
     String? title,
     String? url,
-    List<String>? aliases,
+    Set<String>? aliases,
   });
 }
 
@@ -49,7 +49,7 @@ class _$MenuElementCWProxyImpl implements _$MenuElementCWProxy {
   MenuElement url(String url) => this(url: url);
 
   @override
-  MenuElement aliases(List<String> aliases) => this(aliases: aliases);
+  MenuElement aliases(Set<String> aliases) => this(aliases: aliases);
 
   @override
 
@@ -76,7 +76,7 @@ class _$MenuElementCWProxyImpl implements _$MenuElementCWProxy {
       aliases: aliases == const $CopyWithPlaceholder() || aliases == null
           ? _value.aliases
           // ignore: cast_nullable_to_non_nullable
-          : aliases as List<String>,
+          : aliases as Set<String>,
     );
   }
 }
@@ -96,13 +96,13 @@ MenuElement _$MenuElementFromJson(Map<String, dynamic> json) => MenuElement(
       url: json['url'] as String,
       aliases: (json['aliases'] as List<dynamic>?)
               ?.map((e) => e as String)
-              .toList() ??
-          const [],
+              .toSet() ??
+          const {},
     );
 
 Map<String, dynamic> _$MenuElementToJson(MenuElement instance) =>
     <String, dynamic>{
       'title': instance.title,
       'url': instance.url,
-      'aliases': instance.aliases,
+      'aliases': instance.aliases.toList(),
     };

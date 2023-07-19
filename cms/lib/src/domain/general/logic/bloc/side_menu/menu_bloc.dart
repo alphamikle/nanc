@@ -1,6 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:config/config.dart';
-import 'package:fields/fields.dart';
 import 'package:go_router/go_router.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -30,7 +28,11 @@ class MenuBloc extends Cubit<MenuState> {
       elements.addAll(models.map(
         (Model model) => MenuElement(
           title: model.name,
-          url: Endpoints.collection.model.segment(modelId: model.id),
+          url: Endpoints.modelCollection.segment(modelId: model.id),
+          aliases: {
+            Endpoints.collectionPage.fullPath(modelId: model.id, pageId: '.*'),
+            Endpoints.createCollectionPage.fullPath(),
+          },
         ),
       ));
     } else if (endpoint.isSoloEndpoint) {
@@ -40,7 +42,7 @@ class MenuBloc extends Cubit<MenuState> {
       elements.addAll(models.map(
         (Model model) => MenuElement(
           title: model.name,
-          url: Endpoints.solo.page.segment(modelId: model.id),
+          url: Endpoints.soloPage.fullPath(modelId: model.id),
         ),
       ));
     } else if (endpoint.isEditorEndpoint) {
@@ -51,7 +53,7 @@ class MenuBloc extends Cubit<MenuState> {
         models.map(
           (Model model) => MenuElement(
             title: model.name,
-            url: Endpoints.editor.modelEditing.segment(modelId: model.id),
+            url: Endpoints.editModel.fullPath(modelId: model.id),
           ),
         ),
       );
@@ -81,10 +83,26 @@ class MenuBloc extends Cubit<MenuState> {
 
   void selectItem(String selectedItemUrl) {
     final Endpoint? endpoint = Endpoint.tryFromPath(selectedItemUrl);
-    final MenuElement? menuElement = endpoint == null ? null : state.elements.firstWhereOrNull((MenuElement item) => item.url == selectedItemUrl);
+    late final MenuElement? targetMenuElement;
+    if (endpoint != null) {
+      targetMenuElement = state.elements.firstWhereOrNull((MenuElement menuElement) {
+        if (menuElement.url == selectedItemUrl) {
+          return true;
+        }
+        final bool hasMatchedAlias = menuElement.aliases.any((String alias) {
+          final RegExp aliasRegExp = RegExp('^$alias\$');
+
+          return aliasRegExp.hasMatch(selectedItemUrl);
+        });
+        if (hasMatchedAlias) {
+          return true;
+        }
+        return false;
+      });
+    }
 
     emit(state.copyWith(
-      activeElement: menuElement ?? MenuElement.empty(),
+      activeElement: targetMenuElement ?? MenuElement.empty(),
     ));
   }
 

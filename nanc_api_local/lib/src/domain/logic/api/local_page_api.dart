@@ -8,6 +8,12 @@ import '../../../service/db_extension.dart';
 import '../../../service/tools.dart';
 
 class LocalPageApi extends LocalApi implements IPageApi {
+  LocalPageApi({
+    Map<ModelId, List<Json>> preloadedData = const {},
+  }) {
+    preloadData(preloadedData);
+  }
+
   @override
   Future<Json> fetchPageData(Model entity, String id, List<String> subset) async {
     try {
@@ -19,8 +25,8 @@ class LocalPageApi extends LocalApi implements IPageApi {
         response[field] = targetEntity[field];
       }
       return response;
-    } catch (error) {
-      throw Exception('Not found page with id "$id" of model "$entity"');
+    } catch (error, stackTrace) {
+      throw Exception('Not found page with id "$id" of model "$entity"\n$error\n$stackTrace');
     }
   }
 

@@ -20,7 +20,7 @@ class ModelEditorInitialView extends StatelessWidget {
             Align(
               child: KitBigButton(
                 text: 'Create new model',
-                onPressed: () => context.go(Endpoints.editor.modelCreation.segment()),
+                onPressed: () => context.go(Endpoints.createModel.segment()),
               ),
             ),
           ],

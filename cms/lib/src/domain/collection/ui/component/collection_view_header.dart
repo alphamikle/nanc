@@ -28,7 +28,7 @@ class CollectionViewHeader extends StatelessWidget {
       children: [
         KitButton(
           onPressed: () => context.goNamed(
-            Endpoints.collection.model.pageCreation.name,
+            Endpoints.createCollectionPage.name,
             pathParameters: {
               Params.modelId.name: modelId,
             },

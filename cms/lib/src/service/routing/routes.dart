@@ -63,8 +63,8 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
 
           /// ? "/collection/:modelId"
           GoRoute(
-            path: Endpoints.collection.model.segment(),
-            name: Endpoints.collection.model.name,
+            path: Endpoints.modelCollection.segment(),
+            name: Endpoints.modelCollection.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               return defaultTransitionBuilder(
                 child: AsyncView(
@@ -76,8 +76,8 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
             routes: [
               /// ? "/collection/:modelId/create"
               GoRoute(
-                path: Endpoints.collection.model.pageCreation.segment(),
-                name: Endpoints.collection.model.pageCreation.name,
+                path: Endpoints.createCollectionPage.segment(),
+                name: Endpoints.createCollectionPage.name,
                 pageBuilder: (BuildContext context, GoRouterState state) {
                   return defaultTransitionBuilder(
                     child: AsyncView(
@@ -90,8 +90,8 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
 
               /// ? "/collection/:modelId/:pageId
               GoRoute(
-                path: Endpoints.collection.model.page.segment(),
-                name: Endpoints.collection.model.page.name,
+                path: Endpoints.collectionPage.segment(),
+                name: Endpoints.collectionPage.name,
                 pageBuilder: (BuildContext context, GoRouterState state) {
                   return defaultTransitionBuilder(
                     child: AsyncView(
@@ -120,8 +120,8 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
 
           /// ? "/solo/:modelId
           GoRoute(
-            path: Endpoints.solo.page.segment(),
-            name: Endpoints.solo.page.name,
+            path: Endpoints.soloPage.segment(),
+            name: Endpoints.soloPage.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               return defaultTransitionBuilder(
                 child: AsyncView(
@@ -148,8 +148,8 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
 
           /// ? "/editor/model?solo=<bool>"
           GoRoute(
-            path: Endpoints.editor.modelCreation.segment(),
-            name: Endpoints.editor.modelCreation.name,
+            path: Endpoints.createModel.segment(),
+            name: Endpoints.createModel.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               return defaultTransitionBuilder(
                 child: AsyncView(
@@ -162,8 +162,8 @@ GoRouter buildRouter(RoutesPreloadingService preloadingService, RootKey rootKey)
 
           /// ? "/editor/model/:modelId"
           GoRoute(
-            path: Endpoints.editor.modelEditing.segment(),
-            name: Endpoints.editor.modelEditing.name,
+            path: Endpoints.editModel.segment(),
+            name: Endpoints.editModel.name,
             pageBuilder: (BuildContext context, GoRouterState state) {
               return defaultTransitionBuilder(
                 child: AsyncView(

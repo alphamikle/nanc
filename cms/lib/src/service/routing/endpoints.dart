@@ -75,6 +75,7 @@ sealed class Endpoint extends Equatable {
   static Set<Endpoint> get editorEndpoints => _editorEndpoints;
 
   String segment();
+  String fullPath();
   String get route;
   String get name;
 }
@@ -86,6 +87,9 @@ class RootEndpoint extends Endpoint {
 
   @override
   String segment() => '/';
+
+  @override
+  String fullPath() => segment();
 
   @override
   String get route => segment();
@@ -103,6 +107,9 @@ class WelcomeEndpoint extends Endpoint {
   String segment() => '/welcome';
 
   @override
+  String fullPath() => segment();
+
+  @override
   String get route => segment();
 
   @override
@@ -118,9 +125,10 @@ class CollectionEndpoint extends Endpoint {
   String segment() => '/collection';
 
   @override
-  String get route => segment();
+  String fullPath() => segment();
 
-  CollectionOfModelEndpoint get model => CollectionOfModelEndpoint();
+  @override
+  String get route => segment();
 
   @override
   List<Object?> get props => _$props;
@@ -135,9 +143,10 @@ class SoloEndpoint extends Endpoint {
   String segment() => '/solo';
 
   @override
-  String get route => segment();
+  String fullPath() => segment();
 
-  SoloPageEndpoint get page => SoloPageEndpoint();
+  @override
+  String get route => segment();
 
   @override
   List<Object?> get props => _$props;
@@ -152,10 +161,10 @@ class EditorEndpoint extends Endpoint {
   String segment() => '/editor';
 
   @override
-  String get route => segment();
+  String fullPath() => segment();
 
-  ModelEditingEndpoint get modelEditing => ModelEditingEndpoint();
-  ModelCreationEndpoint get modelCreation => ModelCreationEndpoint();
+  @override
+  String get route => segment();
 
   @override
   List<Object?> get props => _$props;
@@ -168,6 +177,9 @@ class RolesEndpoint extends Endpoint {
 
   @override
   String segment() => '/roles';
+
+  @override
+  String fullPath() => segment();
 
   @override
   String get route => segment();
@@ -185,6 +197,9 @@ class SettingsEndpoint extends Endpoint {
   String segment() => '/settings';
 
   @override
+  String fullPath() => segment();
+
+  @override
   String get route => segment();
 
   @override
@@ -198,6 +213,9 @@ class IconsEndpoint extends Endpoint {
 
   @override
   String segment() => '/icons';
+
+  @override
+  String fullPath() => segment();
 
   @override
   String get route => segment();
@@ -216,10 +234,10 @@ class CollectionOfModelEndpoint extends Endpoint {
   String segment({String? modelId}) => '/collection/${modelId ?? Params.modelId.param}';
 
   @override
-  String get route => '/collection/${Params.modelId.param}';
+  String fullPath({String? modelId}) => segment(modelId: modelId);
 
-  PageOfCollectionEndpoint get page => PageOfCollectionEndpoint();
-  PageCreationEndpoint get pageCreation => PageCreationEndpoint();
+  @override
+  String get route => segment();
 
   @override
   List<Object?> get props => _$props;
@@ -235,7 +253,10 @@ class SoloPageEndpoint extends Endpoint {
   String segment({String? modelId}) => '/solo/${modelId ?? Params.modelId.param}';
 
   @override
-  String get route => '/solo/${Params.modelId.param}';
+  String fullPath({String? modelId}) => segment(modelId: modelId);
+
+  @override
+  String get route => segment();
 
   @override
   List<Object?> get props => _$props;
@@ -251,7 +272,10 @@ class PageOfCollectionEndpoint extends Endpoint {
   String segment({String? modelId, String? pageId}) => pageId ?? Params.pageId.param;
 
   @override
-  String get route => '/collection/${Params.modelId.param}/${Params.pageId.param}';
+  String fullPath({String? modelId, String? pageId}) => '/collection/${modelId ?? Params.modelId.param}/${pageId ?? Params.pageId.param}';
+
+  @override
+  String get route => fullPath();
 
   @override
   List<Object?> get props => _$props;
@@ -267,7 +291,10 @@ class PageCreationEndpoint extends Endpoint {
   String segment() => 'create';
 
   @override
-  String get route => '/collection/${Params.modelId.param}/create';
+  String fullPath({String? modelId}) => '/collection/${modelId ?? Params.modelId.param}/create';
+
+  @override
+  String get route => fullPath();
 
   @override
   List<Object?> get props => _$props;
@@ -283,7 +310,10 @@ class ModelEditingEndpoint extends Endpoint {
   String segment({String? modelId}) => '/editor/model/${modelId ?? Params.modelId.param}';
 
   @override
-  String get route => '/editor/model/${Params.modelId.param}';
+  String fullPath({String? modelId}) => segment(modelId: modelId);
+
+  @override
+  String get route => fullPath();
 
   @override
   List<Object?> get props => _$props;
@@ -304,7 +334,10 @@ class ModelCreationEndpoint extends Endpoint {
   }
 
   @override
-  String get route => '/editor/model';
+  String fullPath() => '/editor/model';
+
+  @override
+  String get route => fullPath();
 
   @override
   List<Object?> get props => _$props;
@@ -314,8 +347,14 @@ abstract class Endpoints {
   static RootEndpoint get root => RootEndpoint();
   static WelcomeEndpoint get welcome => WelcomeEndpoint();
   static CollectionEndpoint get collection => CollectionEndpoint();
+  static CollectionOfModelEndpoint get modelCollection => CollectionOfModelEndpoint();
+  static PageOfCollectionEndpoint get collectionPage => PageOfCollectionEndpoint();
+  static PageCreationEndpoint get createCollectionPage => PageCreationEndpoint();
   static SoloEndpoint get solo => SoloEndpoint();
+  static SoloPageEndpoint get soloPage => SoloPageEndpoint();
   static EditorEndpoint get editor => EditorEndpoint();
+  static ModelEditingEndpoint get editModel => ModelEditingEndpoint();
+  static ModelCreationEndpoint get createModel => ModelCreationEndpoint();
   static RolesEndpoint get roles => RolesEndpoint();
   static SettingsEndpoint get settings => SettingsEndpoint();
   static IconsEndpoint get icons => IconsEndpoint();
@@ -346,7 +385,7 @@ extension EndpointRouteToPattern on Endpoint {
 }
 
 extension EndpointsAliases on Set<Endpoint> {
-  List<String> get aliases {
-    return map((Endpoint endpoint) => endpoint.pattern).toList();
+  Set<String> get aliases {
+    return map((Endpoint endpoint) => endpoint.pattern).toSet();
   }
 }

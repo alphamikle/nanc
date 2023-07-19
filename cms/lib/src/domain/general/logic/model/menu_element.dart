@@ -15,7 +15,7 @@ class MenuElement extends Equatable {
   const MenuElement({
     required this.title,
     required this.url,
-    this.aliases = const [],
+    this.aliases = const {},
   });
 
   factory MenuElement.fromJson(dynamic json) => _$MenuElementFromJson(castToJson(json));
@@ -24,7 +24,7 @@ class MenuElement extends Equatable {
 
   final String title;
   final String url;
-  final List<String> aliases;
+  final Set<String> aliases;
 
   Json toJson() => _$MenuElementToJson(this);
 

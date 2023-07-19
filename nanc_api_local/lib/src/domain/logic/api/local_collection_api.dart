@@ -10,18 +10,14 @@ import '../../../service/tools.dart';
 class LocalCollectionApi extends LocalApi implements ICollectionApi {
   LocalCollectionApi({
     Map<ModelId, List<Json>> preloadedData = const {},
-  }) : _preloadedData = preloadedData;
-
-  final Map<ModelId, List<Json>> _preloadedData;
+  }) {
+    preloadData(preloadedData);
+  }
 
   @override
   Future<CollectionResponseDto> fetchPageList(Model entity, List<String> subset, QueryField query, ParamsDto params) async {
     await networkDelay();
-    List<Json> rawData = await fetchFullList(entity);
-    if (rawData.isEmpty) {
-      rawData = _preloadedData[entity.id] ?? [];
-    }
-
+    final List<Json> rawData = await fetchFullList(entity);
     final List<Json> requiredData = rawData.map((Json dataRow) {
       final Json fragment = <String, dynamic>{};
       for (final String field in subset) {

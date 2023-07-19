@@ -51,10 +51,10 @@ class _EntityPageViewState extends State<EntityPageView> {
         if (mounted) {
           final Model model = findModel(context);
           if (soloEntity) {
-            context.go(Endpoints.solo.page.segment(modelId: model.id));
+            context.go(Endpoints.soloPage.segment(modelId: model.id));
           } else {
             context.goNamed(
-              Endpoints.collection.model.page.name,
+              Endpoints.collectionPage.name,
               pathParameters: {
                 Params.modelId.name: model.id,
                 Params.pageId.name: context.read<BasePageBloc>().valueForKey(model.idField.id).toString(),
@@ -80,7 +80,7 @@ class _EntityPageViewState extends State<EntityPageView> {
         context.navigator.pop();
       } else {
         if (modelId != null) {
-          context.goNamed(Endpoints.solo.page.name, pathParameters: {Params.modelId.name: modelId});
+          context.goNamed(Endpoints.soloPage.name, pathParameters: {Params.modelId.name: modelId});
         } else {
           context.goNamed(Endpoints.solo.name);
         }

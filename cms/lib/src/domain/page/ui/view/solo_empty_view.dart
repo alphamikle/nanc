@@ -21,7 +21,7 @@ class SoloEmptyView extends StatelessWidget {
               child: KitBigButton(
                 text: 'Create solo model',
                 onPressed: () => context.goNamed(
-                  Endpoints.editor.modelCreation.name,
+                  Endpoints.createModel.name,
                   queryParameters: {'solo': '${true}'},
                 ),
               ),

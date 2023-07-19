@@ -20,7 +20,7 @@ class EmptyCollectionView extends StatelessWidget {
             Align(
               child: KitBigButton(
                 text: 'Create collection model',
-                onPressed: () => context.go(Endpoints.editor.modelCreation.segment()),
+                onPressed: () => context.go(Endpoints.createModel.segment()),
               ),
             ),
           ],
