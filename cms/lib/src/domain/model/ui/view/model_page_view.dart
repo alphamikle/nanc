@@ -10,6 +10,7 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../../../../cms.dart';
 import '../../../../service/config/config.dart';
 import '../../../../service/routing/endpoints.dart';
+import '../../../document/logic/bloc/page_bloc/page_bloc.dart';
 import '../../logic/bloc/model_page_bloc/model_page_bloc.dart';
 import '../../logic/bloc/model_page_bloc/model_page_state.dart';
 import '../component/add_field_button.dart';

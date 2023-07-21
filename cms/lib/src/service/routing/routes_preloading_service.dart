@@ -4,10 +4,10 @@ import 'package:go_router/go_router.dart';
 import 'package:tools/tools.dart';
 
 import '../../domain/collection/logic/logic/bloc/collection_bloc.dart';
+import '../../domain/document/logic/bloc/page_bloc/page_bloc.dart';
 import '../../domain/general/logic/bloc/header/header_bloc.dart';
 import '../../domain/general/logic/bloc/side_menu/menu_bloc.dart';
 import '../../domain/model/logic/bloc/model_page_bloc/model_page_bloc.dart';
-import '../../domain/page/logic/bloc/page_bloc/page_bloc.dart';
 import 'params_list.dart';
 import 'uri_extension.dart';
 

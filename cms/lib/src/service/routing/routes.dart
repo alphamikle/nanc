@@ -6,11 +6,11 @@ import 'package:tools/tools.dart';
 
 import '../../domain/collection/ui/view/collection_view.dart';
 import '../../domain/collection/ui/view/empty_collection_view.dart';
+import '../../domain/document/ui/view/entity_page_view.dart';
+import '../../domain/document/ui/view/solo_empty_view.dart';
 import '../../domain/general/ui/view/general_view_v2.dart';
 import '../../domain/model/ui/view/model_editor_initial_view.dart';
 import '../../domain/model/ui/view/model_page_view.dart';
-import '../../domain/page/ui/view/entity_page_view.dart';
-import '../../domain/page/ui/view/solo_empty_view.dart';
 import '../../domain/roles/ui/view/roles_view.dart';
 import '../../domain/welcome/ui/view/welcome_view.dart';
 import 'async_view.dart';

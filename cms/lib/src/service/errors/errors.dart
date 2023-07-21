@@ -1,4 +1,4 @@
-import '../../domain/page/logic/bloc/page_bloc/page_state.dart';
+import '../../domain/document/logic/bloc/page_bloc/page_state.dart';
 import 'human_exception.dart';
 
 Never notFoundModelIdError([String? modelId]) => throw HumanException(

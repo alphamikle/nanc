@@ -9,11 +9,17 @@ import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-import '../../../../../cms.dart';
 import '../../../../service/config/config.dart';
+import '../../../../service/errors/ui_error.dart';
 import '../../../../service/routing/endpoints.dart';
+import '../../../../service/routing/params_list.dart';
 import '../../../../service/tools/model_finder.dart';
+import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import '../../../model/logic/bloc/model_list_bloc/model_list_state.dart';
 import '../../../model/ui/component/fields_form.dart';
+import '../../logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
+import '../../logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import '../../logic/bloc/page_bloc/page_bloc.dart';
 
 class EntityPageView extends StatefulWidget {
   const EntityPageView({
@@ -76,9 +82,9 @@ class _EntityPageViewState extends State<EntityPageView> {
     final bool confirmed = await confirmAction(context: context, title: 'Do you really want to delete this page?');
     if (confirmed) {
       await pageBloc.delete(model);
-      if (model.isCollection) {
+      if (mounted && model.isCollection) {
         context.navigator.pop();
-      } else {
+      } else if (mounted) {
         if (modelId != null) {
           context.goNamed(Endpoints.soloPage.name, pathParameters: {Params.modelId.name: modelId});
         } else {

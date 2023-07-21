@@ -9,8 +9,8 @@ import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
-import '../../../page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../../page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import '../../../document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
+import '../../../document/logic/bloc/base_entity_page_bloc/base_page_state.dart';
 import '../../../preview/logic/bloc/preview_bloc.dart';
 import '../../../preview/ui/component/page_preview_with_frame.dart';
 import '../../logic/bloc/editor/editor_bloc.dart';

@@ -4,9 +4,9 @@ import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
-import '../../../../page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../../../page/logic/bloc/page_bloc/page_bloc.dart';
-import '../../../../page/logic/bloc/page_bloc/page_state.dart';
+import '../../../../document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
+import '../../../../document/logic/bloc/page_bloc/page_bloc.dart';
+import '../../../../document/logic/bloc/page_bloc/page_state.dart';
 
 const String _kIdWasChanged = 'idWasChanged';
 

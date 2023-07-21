@@ -10,8 +10,8 @@ import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../model/ui/component/fields_form.dart';
-import '../../../page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../../page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import '../../../document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
+import '../../../document/logic/bloc/base_entity_page_bloc/base_page_state.dart';
 import '../../logic/logic/bloc/collection_bloc.dart';
 import '../../logic/logic/bloc/collection_state.dart';
 

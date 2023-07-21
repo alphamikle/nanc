@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 
 import '../../../../service/init/data_repository.dart';
-import '../../../page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../../page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import '../../../document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
+import '../../../document/logic/bloc/base_entity_page_bloc/base_page_state.dart';
 import '../../logic/bloc/preview_bloc.dart';
 import '../../logic/bloc/preview_state.dart';
 

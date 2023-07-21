@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 
 import '../../../../service/config/config.dart';
-import '../../../page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../../page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import '../../../document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
+import '../../../document/logic/bloc/base_entity_page_bloc/base_page_state.dart';
 import 'fields_form_cell.dart';
 
 class FieldsForm extends StatelessWidget {
