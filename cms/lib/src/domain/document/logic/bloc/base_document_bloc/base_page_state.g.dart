@@ -6,7 +6,7 @@ part of 'base_page_state.dart';
 // AutoequalGenerator
 // **************************************************************************
 
-extension _$BaseEntityPageStateAutoequal on BaseEntityPageState {
+extension _$BaseDocumentStateAutoequal on BaseDocumentState {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [
@@ -24,29 +24,29 @@ extension _$BaseEntityPageStateAutoequal on BaseEntityPageState {
 // CopyWithGenerator
 // **************************************************************************
 
-abstract class _$BaseEntityPageStateCWProxy {
-  BaseEntityPageState data(Map<String, dynamic> data);
+abstract class _$BaseDocumentStateCWProxy {
+  BaseDocumentState data(Map<String, dynamic> data);
 
-  BaseEntityPageState initialData(Map<String, dynamic> initialData);
+  BaseDocumentState initialData(Map<String, dynamic> initialData);
 
-  BaseEntityPageState isLoading(bool isLoading);
+  BaseDocumentState isLoading(bool isLoading);
 
-  BaseEntityPageState isDeleting(bool isDeleting);
+  BaseDocumentState isDeleting(bool isDeleting);
 
-  BaseEntityPageState isSaving(bool isSaving);
+  BaseDocumentState isSaving(bool isSaving);
 
-  BaseEntityPageState isError(bool isError);
+  BaseDocumentState isError(bool isError);
 
-  BaseEntityPageState controllerMap(
+  BaseDocumentState controllerMap(
       Map<String, TextEditingController> controllerMap);
 
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `BaseEntityPageState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `BaseDocumentState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// BaseEntityPageState(...).copyWith(id: 12, name: "My name")
+  /// BaseDocumentState(...).copyWith(id: 12, name: "My name")
   /// ````
-  BaseEntityPageState call({
+  BaseDocumentState call({
     Map<String, dynamic>? data,
     Map<String, dynamic>? initialData,
     bool? isLoading,
@@ -57,46 +57,45 @@ abstract class _$BaseEntityPageStateCWProxy {
   });
 }
 
-/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfBaseEntityPageState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfBaseEntityPageState.copyWith.fieldName(...)`
-class _$BaseEntityPageStateCWProxyImpl implements _$BaseEntityPageStateCWProxy {
-  const _$BaseEntityPageStateCWProxyImpl(this._value);
+/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfBaseDocumentState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfBaseDocumentState.copyWith.fieldName(...)`
+class _$BaseDocumentStateCWProxyImpl implements _$BaseDocumentStateCWProxy {
+  const _$BaseDocumentStateCWProxyImpl(this._value);
 
-  final BaseEntityPageState _value;
-
-  @override
-  BaseEntityPageState data(Map<String, dynamic> data) => this(data: data);
+  final BaseDocumentState _value;
 
   @override
-  BaseEntityPageState initialData(Map<String, dynamic> initialData) =>
+  BaseDocumentState data(Map<String, dynamic> data) => this(data: data);
+
+  @override
+  BaseDocumentState initialData(Map<String, dynamic> initialData) =>
       this(initialData: initialData);
 
   @override
-  BaseEntityPageState isLoading(bool isLoading) => this(isLoading: isLoading);
+  BaseDocumentState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
-  BaseEntityPageState isDeleting(bool isDeleting) =>
-      this(isDeleting: isDeleting);
+  BaseDocumentState isDeleting(bool isDeleting) => this(isDeleting: isDeleting);
 
   @override
-  BaseEntityPageState isSaving(bool isSaving) => this(isSaving: isSaving);
+  BaseDocumentState isSaving(bool isSaving) => this(isSaving: isSaving);
 
   @override
-  BaseEntityPageState isError(bool isError) => this(isError: isError);
+  BaseDocumentState isError(bool isError) => this(isError: isError);
 
   @override
-  BaseEntityPageState controllerMap(
+  BaseDocumentState controllerMap(
           Map<String, TextEditingController> controllerMap) =>
       this(controllerMap: controllerMap);
 
   @override
 
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `BaseEntityPageState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `BaseDocumentState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// BaseEntityPageState(...).copyWith(id: 12, name: "My name")
+  /// BaseDocumentState(...).copyWith(id: 12, name: "My name")
   /// ````
-  BaseEntityPageState call({
+  BaseDocumentState call({
     Object? data = const $CopyWithPlaceholder(),
     Object? initialData = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
@@ -105,7 +104,7 @@ class _$BaseEntityPageStateCWProxyImpl implements _$BaseEntityPageStateCWProxy {
     Object? isError = const $CopyWithPlaceholder(),
     Object? controllerMap = const $CopyWithPlaceholder(),
   }) {
-    return BaseEntityPageState(
+    return BaseDocumentState(
       data: data == const $CopyWithPlaceholder() || data == null
           ? _value.data
           // ignore: cast_nullable_to_non_nullable
@@ -141,19 +140,19 @@ class _$BaseEntityPageStateCWProxyImpl implements _$BaseEntityPageStateCWProxy {
   }
 }
 
-extension $BaseEntityPageStateCopyWith on BaseEntityPageState {
-  /// Returns a callable class that can be used as follows: `instanceOfBaseEntityPageState.copyWith(...)` or like so:`instanceOfBaseEntityPageState.copyWith.fieldName(...)`.
+extension $BaseDocumentStateCopyWith on BaseDocumentState {
+  /// Returns a callable class that can be used as follows: `instanceOfBaseDocumentState.copyWith(...)` or like so:`instanceOfBaseDocumentState.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
-  _$BaseEntityPageStateCWProxy get copyWith =>
-      _$BaseEntityPageStateCWProxyImpl(this);
+  _$BaseDocumentStateCWProxy get copyWith =>
+      _$BaseDocumentStateCWProxyImpl(this);
 }
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-BaseEntityPageState _$BaseEntityPageStateFromJson(Map<String, dynamic> json) =>
-    BaseEntityPageState(
+BaseDocumentState _$BaseDocumentStateFromJson(Map<String, dynamic> json) =>
+    BaseDocumentState(
       data: json['data'] as Map<String, dynamic>,
       initialData: json['initialData'] as Map<String, dynamic>,
       isLoading: json['isLoading'] as bool,
@@ -164,8 +163,7 @@ BaseEntityPageState _$BaseEntityPageStateFromJson(Map<String, dynamic> json) =>
           json['controllerMap'] as Map<String, dynamic>?),
     );
 
-Map<String, dynamic> _$BaseEntityPageStateToJson(
-        BaseEntityPageState instance) =>
+Map<String, dynamic> _$BaseDocumentStateToJson(BaseDocumentState instance) =>
     <String, dynamic>{
       'data': instance.data,
       'initialData': instance.initialData,

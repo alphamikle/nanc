@@ -17,9 +17,9 @@ import '../../../../service/tools/model_finder.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_state.dart';
 import '../../../model/ui/component/fields_form.dart';
-import '../../logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../logic/bloc/base_entity_page_bloc/base_page_state.dart';
-import '../../logic/bloc/page_bloc/page_bloc.dart';
+import '../../logic/bloc/base_document_bloc/base_document_bloc.dart';
+import '../../logic/bloc/base_document_bloc/base_page_state.dart';
+import '../../logic/bloc/document_bloc/document_bloc.dart';
 
 class EntityPageView extends StatefulWidget {
   const EntityPageView({
@@ -38,12 +38,12 @@ class EntityPageView extends StatefulWidget {
 class _EntityPageViewState extends State<EntityPageView> {
   GlobalKey<FormState> formKey = GlobalKey();
 
-  PageBloc get pageBloc {
-    final BasePageBloc bloc = context.read();
-    if (bloc is PageBloc) {
+  DocumentBloc get pageBloc {
+    final BaseDocumentBloc bloc = context.read();
+    if (bloc is DocumentBloc) {
       return bloc;
     }
-    throw Exception('Not found $PageBloc in the widget tree');
+    throw Exception('Not found $DocumentBloc in the widget tree');
   }
 
   bool get creationMode => widget.creationMode;
@@ -63,7 +63,7 @@ class _EntityPageViewState extends State<EntityPageView> {
               Endpoints.collectionPage.name,
               pathParameters: {
                 Params.modelId.name: model.id,
-                Params.pageId.name: context.read<BasePageBloc>().valueForKey(model.idField.id).toString(),
+                Params.pageId.name: context.read<BaseDocumentBloc>().valueForKey(model.idField.id).toString(),
               },
             );
           }
@@ -129,8 +129,8 @@ class _EntityPageViewState extends State<EntityPageView> {
         return KitViewSubContainer(
           child: KitColumn(
             children: [
-              BlocBuilder<BasePageBloc, BaseEntityPageState>(
-                builder: (BuildContext context, BaseEntityPageState state) {
+              BlocBuilder<BaseDocumentBloc, BaseDocumentState>(
+                builder: (BuildContext context, BaseDocumentState state) {
                   return KitViewHeader(
                     children: [
                       if (soloEntity == false)
@@ -222,14 +222,14 @@ class _EntityPageViewState extends State<EntityPageView> {
                   );
                 },
               ),
-              BlocBuilder<BasePageBloc, BaseEntityPageState>(
-                builder: (BuildContext context, BaseEntityPageState state) {
+              BlocBuilder<BaseDocumentBloc, BaseDocumentState>(
+                builder: (BuildContext context, BaseDocumentState state) {
                   return KitPreloaderV2(isLoading: state.isLoading);
                 },
               ),
               Expanded(
-                child: BlocBuilder<BasePageBloc, BaseEntityPageState>(
-                  builder: (BuildContext context, BaseEntityPageState state) {
+                child: BlocBuilder<BaseDocumentBloc, BaseDocumentState>(
+                  builder: (BuildContext context, BaseDocumentState state) {
                     if (state.isLoading) {
                       return const KitPreloaderV3.center();
                     } else if (state.isError) {

@@ -6,7 +6,7 @@ import 'package:tools/tools.dart';
 import '../../../../nanc_api_firebase.dart';
 import '../mapper/firestore_value_mapper.dart';
 
-class FirebasePageApi implements IPageApi {
+class FirebasePageApi implements IDocumentApi {
   FirebasePageApi({
     required FirebaseApi api,
     required IFirebaseCollectionApi firebaseCollectionApi,
@@ -29,7 +29,7 @@ class FirebasePageApi implements IPageApi {
   }
 
   @override
-  Future<void> saveThirdTable(ThirdTable thirdTable, ParentEntityDataId parentModelId, List<ChildEntityDataId> childModelIds) async {
+  Future<void> saveThirdTable(ThirdTable thirdTable, FieldId parentModelId, List<FieldId> childModelIds) async {
     _api.notifyAboutChanges(thirdTable.relationsEntity);
     final CollectionResponseDto oldRelations = await _collectionApi.fetchPageList(
       thirdTable.relationsEntity,
@@ -45,15 +45,15 @@ class FirebasePageApi implements IPageApi {
         sort: Sort(fieldId: thirdTable.relationsEntity.idField.id, order: Order.asc),
       ),
     );
-    final Set<ChildEntityDataId> childIds = childModelIds.toSet();
-    final List<ChildEntityDataId> idsForDeletion = oldRelations.data
+    final Set<FieldId> childIds = childModelIds.toSet();
+    final List<FieldId> idsForDeletion = oldRelations.data
         .map((Json row) => row[thirdTable.relationsEntity.idField.id].toString())
-        .where((ChildEntityDataId id) => childIds.contains(id) == false)
+        .where((FieldId id) => childIds.contains(id) == false)
         .toList();
-    for (final ChildEntityDataId childId in idsForDeletion) {
+    for (final FieldId childId in idsForDeletion) {
       await deletePage(thirdTable.relationsEntity, childId);
     }
-    for (final ChildEntityDataId childId in childModelIds) {
+    for (final FieldId childId in childModelIds) {
       final String uuid = Ulid().toUuid();
       await upsertPage(thirdTable.relationsEntity, uuid, {
         thirdTable.relationsEntity.idField.id: uuid,

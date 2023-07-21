@@ -151,7 +151,7 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
 
   Widget childrenBuilder(BuildContext context, int index) {
     final StructuredFieldItem item = childrenData[index];
-    final BasePageBloc entityPageBloc = ListFieldBloc(
+    final BaseDocumentBloc entityPageBloc = ListFieldBloc(
       structuredItem: item,
       onEdit: (String fieldId, Object? value) => onChildChange(fieldId: fieldId, value: value, index: index),
       draftService: context.read(),

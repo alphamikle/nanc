@@ -47,11 +47,11 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
   bool isError = false;
 
   @override
-  PageBloc get pageBloc {
-    if (super.pageBloc is PageBloc) {
-      return super.pageBloc as PageBloc;
+  DocumentBloc get pageBloc {
+    if (super.pageBloc is DocumentBloc) {
+      return super.pageBloc as DocumentBloc;
     }
-    throw Exception('Not found $PageBloc in the widget tree');
+    throw Exception('Not found $DocumentBloc in the widget tree');
   }
 
   String? get parentModelId {
@@ -63,7 +63,7 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
     if (parentModel == null) {
       notFoundModelError(modelId);
     }
-    final dynamic parentModelId = context.read<BasePageBloc>().valueForKey(parentModel.idField.id);
+    final dynamic parentModelId = context.read<BaseDocumentBloc>().valueForKey(parentModel.idField.id);
     if (parentModelId == null) {
       return null;
     }

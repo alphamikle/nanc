@@ -9,34 +9,30 @@ import 'package:tools/tools.dart';
 import '../../../../../service/errors/errors.dart';
 import '../../../../../service/errors/human_exception.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
-import '../../provider/page_provider.dart';
-import '../base_entity_page_bloc/base_page_bloc.dart';
-import 'page_state.dart';
+import '../../provider/document_provider.dart';
+import '../base_document_bloc/base_document_bloc.dart';
+import 'document_state.dart';
 
 enum PageEvents {
   save,
 }
 
-typedef ModelId = String;
-typedef ParentEntityDataId = String;
-typedef ChildEntityDataId = String;
-
-class PageBloc extends BasePageBloc<PageState> {
-  PageBloc({
+class DocumentBloc extends BaseDocumentBloc<DocumentState> {
+  DocumentBloc({
     required this.modelCollectionBloc,
-    required this.pageProvider,
+    required this.documentProvider,
     required this.eventBus,
     required super.draftService,
-  }) : super(state: PageState.empty());
+  }) : super(state: DocumentState.empty());
 
   final ModelListBloc modelCollectionBloc;
-  final IPageProvider pageProvider;
+  final IDocumentProvider documentProvider;
   final EventBus eventBus;
 
-  Future<void> loadPage(String modelId, String pageId) async {
+  Future<void> loadPage(ModelId modelId, DocumentId documentId) async {
     try {
       this.modelId = modelId;
-      this.pageId = pageId;
+      this.documentId = documentId;
       emit(state.copyWith(isLoading: true, isError: false));
       await wait(duration: const Duration(milliseconds: 50));
       final Model? model = await modelCollectionBloc.tryToFindModelByIdChecked(modelId);
@@ -47,9 +43,9 @@ class PageBloc extends BasePageBloc<PageState> {
       if (draftResult) {
         return;
       }
-      final Json data = await loadPageData(model: model, pageId: pageId);
-      final Json dynamicStructure = await _loadDynamicStructure(model: model, pageId: pageId);
-      final TextControllerMap controllerMap = _mapPageDataToControllerMap(modelId, data);
+      final Json data = await loadPageData(model: model, documentId: documentId);
+      final Json dynamicStructure = await _loadDynamicStructure(model: model, documentId: documentId);
+      final TextControllerMap controllerMap = _mapDocumentDataToControllerMap(modelId, data);
       data.addAll(dynamicStructure);
       emit(state.copyWith(
         data: data,
@@ -61,21 +57,21 @@ class PageBloc extends BasePageBloc<PageState> {
       ));
     } catch (error, stackError) {
       emit(state.copyWith(isLoading: false, isError: true));
-      throw [error, stackError].toHumanException('Page "$pageId" loading failed!');
+      throw [error, stackError].toHumanException('Page "$documentId" loading failed!');
     }
   }
 
   Future<void> save(Model model) async {
     emit(state.copyWith(isSaving: true, isError: false));
     try {
-      final Json savedData = await pageProvider.saveEditedPage(
-        entity: model,
-        id: state.data[model.idField.id].toString(),
+      final Json savedData = await documentProvider.saveDocument(
+        model: model,
+        documentId: state.data[model.idField.id].toString(),
         data: _updateCreatedAtOrUpdatedAtFields(model, _clearData(state.data, model)),
       );
       await _saveThirdTableData();
       await _upsertDynamicFieldStructures(
-        pageId: state.data[model.idField.id].toString(),
+        documentId: state.data[model.idField.id].toString(),
         data: state.data,
         creation: false,
       );
@@ -84,26 +80,26 @@ class PageBloc extends BasePageBloc<PageState> {
         data: savedData,
         initialData: clone(savedData),
         thirdTableData: {},
-        controllerMap: _remapPageDataToControllerMap(model.id, savedData),
+        controllerMap: _remapDocumentDataToControllerMap(model.id, savedData),
         isSaving: false,
       ));
       eventBus.send(eventId: PageEvents.save, request: model);
     } catch (error, stackTrace) {
       emit(state.copyWith(isSaving: false));
-      throw [error, stackTrace].toHumanException('Page saving failed!');
+      throw [error, stackTrace].toHumanException('Document saving failed!');
     }
   }
 
   Future<void> create(Model model) async {
     emit(state.copyWith(isSaving: true, isError: false));
     try {
-      final Json savedData = await pageProvider.createPage(
-        entity: model,
+      final Json savedData = await documentProvider.createDocument(
+        model: model,
         data: _updateCreatedAtOrUpdatedAtFields(model, _clearData(state.data, model)),
       );
       await _saveThirdTableData();
       await _upsertDynamicFieldStructures(
-        pageId: savedData[model.idField.id].toString(),
+        documentId: savedData[model.idField.id].toString(),
         data: state.data,
         creation: true,
       );
@@ -117,16 +113,16 @@ class PageBloc extends BasePageBloc<PageState> {
       eventBus.send(eventId: PageEvents.save, request: model);
     } catch (error) {
       emit(state.copyWith(isSaving: false));
-      throw error.toHumanException('Page creation failed!');
+      throw error.toHumanException('Document creation failed!');
     }
   }
 
   Future<void> _saveThirdTableData() async {
-    for (final MapEntry<ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>> thirdTableEntry in state.thirdTableData.entries) {
-      await pageProvider.saveThirdTable(
+    for (final MapEntry<ModelId, Map<FieldId, List<FieldId>>> thirdTableEntry in state.thirdTableData.entries) {
+      await documentProvider.saveThirdTable(
         thirdTable: state.thirdTable[thirdTableEntry.key] ?? ThirdTable.empty(),
-        parentEntityId: thirdTableEntry.value.keys.first,
-        childEntityIds: thirdTableEntry.value.values.first,
+        parentModelFieldId: thirdTableEntry.value.keys.first,
+        childModelFieldIds: thirdTableEntry.value.values.first,
       );
     }
   }
@@ -134,10 +130,10 @@ class PageBloc extends BasePageBloc<PageState> {
   Future<void> delete(Model model) async {
     emit(state.copyWith(isDeleting: true, isError: false));
     try {
-      await pageProvider.deletePage(model: model, pageId: state.data[model.idField.id].toString());
+      await documentProvider.deletePage(model: model, documentId: state.data[model.idField.id].toString());
       await _deleteDraft();
       modelId = null;
-      pageId = null;
+      documentId = null;
       emit(state.copyWith(isDeleting: false));
     } catch (error) {
       emit(state.copyWith(isDeleting: false));
@@ -151,9 +147,9 @@ class PageBloc extends BasePageBloc<PageState> {
 
   Future<void> prepareForCreation(ModelId modelId) async {
     this.modelId = modelId;
-    pageId = null;
+    documentId = null;
     emit(state.copyWith(isLoading: true));
-    emit(PageState.empty());
+    emit(DocumentState.empty());
     final Model? model = modelCollectionBloc.tryToFindModelById(modelId);
     if (model == null) {
       throw Exception('Error while loading model page with id "$modelId"');
@@ -166,8 +162,8 @@ class PageBloc extends BasePageBloc<PageState> {
     if (model.isCollection == false) {
       pageData[model.idField.id] = model.id;
     }
-    final TextControllerMap controllerMap = _mapPageDataToControllerMap(modelId, pageData);
-    emit(PageState.optional(
+    final TextControllerMap controllerMap = _mapDocumentDataToControllerMap(modelId, pageData);
+    emit(DocumentState.optional(
       data: pageData,
       initialData: clone(pageData),
       controllerMap: controllerMap,
@@ -175,16 +171,16 @@ class PageBloc extends BasePageBloc<PageState> {
     ));
   }
 
-  Future<bool> isPageExist(String modelId, String pageId) async {
+  Future<bool> isPageExist(ModelId modelId, DocumentId documentId) async {
     try {
-      await loadPageData(modelId: modelId, pageId: pageId);
+      await loadPageData(modelId: modelId, documentId: documentId);
       return true;
     } catch (error) {
       return false;
     }
   }
 
-  void updateThirdTableValue(ThirdTable thirdTable, Map<ParentEntityDataId, List<ChildEntityDataId>> thirdTableData) {
+  void updateThirdTableValue(ThirdTable thirdTable, Map<FieldId, List<FieldId>> thirdTableData) {
     emit(state.copyWith(
       thirdTable: {
         ...state.thirdTable,
@@ -197,13 +193,13 @@ class PageBloc extends BasePageBloc<PageState> {
     }));
   }
 
-  bool hasThirdTableData(ModelId entityId) => state.thirdTableData.containsKey(entityId);
+  bool hasThirdTableData(ModelId modelId) => state.thirdTableData.containsKey(modelId);
 
-  Future<bool> _preloadDraft(String modelId) async {
+  Future<bool> _preloadDraft(ModelId modelId) async {
     try {
       if (draftKey != null && await draftService.haveDraft(draftKey!)) {
-        final PageState draftState = PageState.fromJson(await draftService.getDraft(draftKey!));
-        final TextControllerMap controllerMap = _mapPageDataToControllerMap(modelId, draftState.data);
+        final DocumentState draftState = DocumentState.fromJson(await draftService.getDraft(draftKey!));
+        final TextControllerMap controllerMap = _mapDocumentDataToControllerMap(modelId, draftState.data);
         emit(draftState.copyWith(
           isLoading: false,
           controllerMap: controllerMap,
@@ -237,16 +233,16 @@ class PageBloc extends BasePageBloc<PageState> {
         fieldsForDeletion.add(key);
       }
     }
-    for (final String fieldId in fieldsForDeletion) {
+    for (final FieldId fieldId in fieldsForDeletion) {
       clearData.remove(fieldId);
     }
     return clearData;
   }
 
   Future<Json> loadPageData({
-    required String pageId,
+    required DocumentId documentId,
     Model? model,
-    String? modelId,
+    ModelId? modelId,
   }) async {
     assert(model != null || modelId != null);
     await wait(duration: const Duration(milliseconds: 50));
@@ -254,27 +250,27 @@ class PageBloc extends BasePageBloc<PageState> {
     if (effectiveModel == null) {
       notFoundModelError(modelId ?? model!.id);
     }
-    final Json data = await pageProvider.fetchPageData(
+    final Json data = await documentProvider.fetchDocument(
       model: effectiveModel,
-      id: pageId,
+      documentId: documentId,
       subset: effectiveModel.flattenFields.realIds,
     );
     return data;
   }
 
   Future<void> _upsertDynamicFieldStructures({
-    required String pageId,
+    required DocumentId documentId,
     required Json data,
     required bool creation,
   }) async {
     final List<String> structureFields = data.keys.where((String key) => isStructureField(key)).toList();
     if (structureFields.isNotEmpty) {
       for (final String key in structureFields) {
-        final String structureId = await encrypt(generateStructurePageId(key, pageId));
+        final String structureId = await encrypt(generateStructurePageId(key, documentId));
         final Json structure = await generateStructureJson(id: structureId, structure: data[key]);
-        await pageProvider.upsertPage(
-          entity: structureModel,
-          id: structureId,
+        await documentProvider.upsertDocument(
+          model: structureModel,
+          documentId: structureId,
           data: structure,
         );
       }
@@ -283,18 +279,18 @@ class PageBloc extends BasePageBloc<PageState> {
 
   Future<Json> _loadDynamicStructure({
     required Model model,
-    required String pageId,
+    required DocumentId documentId,
   }) async {
     if (model.dynamicFields.isEmpty) {
       return <String, dynamic>{};
     }
     final Json result = <String, dynamic>{};
     for (final String dynamicField in model.dynamicFields) {
-      final String structureId = await encrypt(generateStructurePageId(generateStructureFieldId(dynamicField), pageId));
+      final String structureId = await encrypt(generateStructurePageId(generateStructureFieldId(dynamicField), documentId));
       try {
-        final Json dynamicStructure = await pageProvider.fetchPageData(
+        final Json dynamicStructure = await documentProvider.fetchDocument(
           model: structureModel,
-          id: structureId,
+          documentId: structureId,
           subset: structureModel.flattenFields.map((Field field) => field.id).toList(),
         );
         final String encryptedStructureString = await decrypt(dynamicStructure[kStructureField] as String);
@@ -302,15 +298,15 @@ class PageBloc extends BasePageBloc<PageState> {
         result[generateStructureFieldId(dynamicField)] = encryptedStructureJson;
       } catch (error) {
         // Handle error
-        logg('NOT FOUND A DYNAMIC FIELD FOR THE PAGE ID: $pageId OF MODEL: $model');
+        logg('NOT FOUND A DYNAMIC FIELD FOR THE PAGE ID: $documentId OF MODEL: $model');
       }
     }
     return result;
   }
 
-  TextControllerMap _mapPageDataToControllerMap(String entityId, Json entityData) {
+  TextControllerMap _mapDocumentDataToControllerMap(ModelId modelId, Json data) {
     final TextControllerMap controllerMap = {};
-    for (final MapEntry<String, dynamic> entry in entityData.entries) {
+    for (final MapEntry<FieldId, dynamic> entry in data.entries) {
       final dynamic value = entry.value;
       final bool isNull = value == null;
       controllerMap[entry.key] = TextEditingController(text: isNull ? '' : value.toString());
@@ -318,9 +314,9 @@ class PageBloc extends BasePageBloc<PageState> {
     return controllerMap;
   }
 
-  TextControllerMap _remapPageDataToControllerMap(String entityId, Json entityData) {
+  TextControllerMap _remapDocumentDataToControllerMap(ModelId modelId, Json data) {
     final TextControllerMap controllerMap = {};
-    for (final MapEntry<String, dynamic> entry in entityData.entries) {
+    for (final MapEntry<String, dynamic> entry in data.entries) {
       final String value = (entry.value ?? '').toString();
       final bool hasValue = value.isNotEmpty;
       final String oldValue = controllerFor(entry.key).text.trim();
@@ -354,15 +350,15 @@ class PageBloc extends BasePageBloc<PageState> {
   }
 }
 
-mixin EntityPageBlocStub implements PageBloc {
+mixin EntityPageBlocStub implements DocumentBloc {
   @override
-  Future<void> create(Model entity) => throw UnimplementedError();
+  Future<void> create(Model model) => throw UnimplementedError();
 
   @override
   ModelListBloc get modelCollectionBloc => throw UnimplementedError();
 
   @override
-  PageProvider get pageProvider => throw UnimplementedError();
+  DocumentProvider get documentProvider => throw UnimplementedError();
 
   @override
   EventBus get eventBus => throw UnimplementedError();
@@ -371,17 +367,17 @@ mixin EntityPageBlocStub implements PageBloc {
   bool hasThirdTableData(ModelId entityId) => throw UnimplementedError();
 
   @override
-  Future<void> loadPage(String entityId, String pageId) => throw UnimplementedError();
+  Future<void> loadPage(ModelId modelId, DocumentId pageId) => throw UnimplementedError();
 
   @override
-  Future<void> prepareForCreation(ModelId entityId) => throw UnimplementedError();
+  Future<void> prepareForCreation(ModelId modelId) => throw UnimplementedError();
 
   @override
-  Future<void> save(Model entity) => throw UnimplementedError();
+  Future<void> save(Model model) => throw UnimplementedError();
 
   @override
-  void updateThirdTableValue(ThirdTable thirdTable, Map<ParentEntityDataId, List<ChildEntityDataId>> thirdTableData) {}
+  void updateThirdTableValue(ThirdTable thirdTable, Map<FieldId, List<FieldId>> thirdTableData) {}
 
   @override
-  Future<bool> isPageExist(String entityId, String pageId) => throw UnimplementedError();
+  Future<bool> isPageExist(ModelId modelId, DocumentId documentId) => throw UnimplementedError();
 }

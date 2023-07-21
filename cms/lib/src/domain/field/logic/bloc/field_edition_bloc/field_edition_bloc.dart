@@ -3,21 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
+import '../../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
+import '../../../../document/logic/bloc/document_bloc/document_bloc.dart';
+import '../../../../document/logic/bloc/document_bloc/document_state.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
-import '../../../../document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../../../document/logic/bloc/page_bloc/page_bloc.dart';
-import '../../../../document/logic/bloc/page_bloc/page_state.dart';
 
 const String _kIdWasChanged = 'idWasChanged';
 
 /// Used for creation or edition of fields
-class FieldEditionBloc extends BasePageBloc<PageState> with EntityPageBlocStub implements PageBloc {
+class FieldEditionBloc extends BaseDocumentBloc<DocumentState> with EntityPageBlocStub implements DocumentBloc {
   FieldEditionBloc({
     required Model entity,
     required Field? field,
     required FieldType fieldType,
     required super.draftService,
-  }) : super(state: PageState.empty()) {
+  }) : super(state: DocumentState.empty()) {
     final Json entityFieldsJson = _mapEntityToFieldsJson(entity, field ?? FieldMapper.fieldTypeToField(fieldType));
     final TextControllerMap controllerMap = _mapPageDataToControllerMap(entityFieldsJson);
 
@@ -109,7 +109,7 @@ class FieldEditionBloc extends BasePageBloc<PageState> with EntityPageBlocStub i
   Future<void> reset(Model model) async {}
 
   @override
-  Future<Json> loadPageData({required String pageId, Model? model, String? modelId}) async {
+  Future<Json> loadPageData({required String documentId, Model? model, String? modelId}) async {
     throw UnimplementedError();
   }
 

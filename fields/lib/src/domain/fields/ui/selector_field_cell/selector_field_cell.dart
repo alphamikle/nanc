@@ -139,9 +139,9 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
         safeSetState(() => isPreloading = false);
         return;
       }
-      final Json data = await read<IPageProvider>().fetchPageData(
+      final Json data = await read<IDocumentProvider>().fetchDocument(
         model: model,
-        id: pageId,
+        documentId: pageId,
         subset: [
           model.idField.id,
           ...titleFields.toFieldsIds(),
@@ -165,8 +165,8 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
   Future<void> updateVirtualField(String pageId) async {
     isLoadingFullPageData.add(true);
     try {
-      final Json? data = await safeRead<PageBloc>()?.loadPageData(model: model, pageId: pageId);
-      safeRead<PageBloc>()?.updateValue(virtualField, data);
+      final Json? data = await safeRead<DocumentBloc>()?.loadPageData(model: model, documentId: pageId);
+      safeRead<DocumentBloc>()?.updateValue(virtualField, data);
       isLoadingFullPageData.add(false);
     } catch (error) {
       isLoadingFullPageData.add(false);
@@ -176,8 +176,8 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
 
   Future<void> clearField() async {
     controller.text = '';
-    safeRead<PageBloc>()?.updateValue(fieldId, null);
-    safeRead<PageBloc>()?.updateValue(virtualField, null);
+    safeRead<DocumentBloc>()?.updateValue(fieldId, null);
+    safeRead<DocumentBloc>()?.updateValue(virtualField, null);
   }
 
   @override

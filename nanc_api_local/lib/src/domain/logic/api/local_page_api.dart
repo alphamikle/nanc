@@ -7,7 +7,7 @@ import 'package:tools/tools.dart';
 import '../../../service/db_extension.dart';
 import '../../../service/tools.dart';
 
-class LocalPageApi extends LocalApi implements IPageApi {
+class LocalPageApi extends LocalApi implements IDocumentApi {
   LocalPageApi({
     Map<ModelId, List<Json>> preloadedData = const {},
   }) {
@@ -76,7 +76,7 @@ class LocalPageApi extends LocalApi implements IPageApi {
     thirdTableData.removeWhere((Json row) {
       return row[thirdTable.parentEntityIdName] == parentEntityId;
     });
-    for (final ChildEntityDataId childId in childEntityIds) {
+    for (final FieldId childId in childEntityIds) {
       thirdTableData.add(<String, dynamic>{
         thirdTable.parentEntityIdName: parentEntityId,
         thirdTable.childEntityIdName: childId,

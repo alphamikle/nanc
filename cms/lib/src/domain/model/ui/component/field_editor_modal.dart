@@ -6,8 +6,8 @@ import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
+import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
 import '../../../field/logic/bloc/field_edition_bloc/field_edition_bloc.dart';
-import '../../../document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
 import 'fields_form.dart';
 
 class FieldEditorModal extends StatefulWidget {
@@ -28,7 +28,7 @@ class _FieldEditorModalState extends State<FieldEditorModal> {
   final GlobalKey<FormState> formKey = GlobalKey();
 
   void save() {
-    final BasePageBloc bloc = context.read();
+    final BaseDocumentBloc bloc = context.read();
     if (formKey.currentState != null && formKey.currentState!.validate()) {
       if (bloc is FieldEditionBloc) {
         final Field field = bloc.compileToField();
@@ -91,7 +91,7 @@ Future<Field?> showFieldEditorModal({
   final Field? result = await showDialog<Field>(
     context: context,
     barrierDismissible: false,
-    builder: (BuildContext context) => BlocProvider<BasePageBloc>(
+    builder: (BuildContext context) => BlocProvider<BaseDocumentBloc>(
       create: (BuildContext context) => FieldEditionBloc(
         entity: model,
         field: field,

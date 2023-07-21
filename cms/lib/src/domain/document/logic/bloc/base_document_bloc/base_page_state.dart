@@ -14,8 +14,8 @@ Json _controllerMapToJson(TextControllerMap controllerMap) => <String, dynamic>{
 @autoequal
 @CopyWith(copyWithNull: true)
 @JsonSerializable()
-class BaseEntityPageState extends Equatable {
-  const BaseEntityPageState({
+class BaseDocumentState extends Equatable {
+  const BaseDocumentState({
     required this.data,
     required this.initialData,
     required this.isLoading,
@@ -25,7 +25,7 @@ class BaseEntityPageState extends Equatable {
     required this.controllerMap,
   });
 
-  factory BaseEntityPageState.empty() => const BaseEntityPageState(
+  factory BaseDocumentState.empty() => const BaseDocumentState(
         data: <String, dynamic>{},
         initialData: <String, dynamic>{},
         isLoading: false,
@@ -35,7 +35,7 @@ class BaseEntityPageState extends Equatable {
         controllerMap: {},
       );
 
-  factory BaseEntityPageState.fromJson(dynamic json) => _$BaseEntityPageStateFromJson(castToJson(json));
+  factory BaseDocumentState.fromJson(dynamic json) => _$BaseDocumentStateFromJson(castToJson(json));
 
   final Json data;
   final Json initialData;
@@ -51,11 +51,11 @@ class BaseEntityPageState extends Equatable {
     return const DeepCollectionEquality().equals(data, initialData) == false;
   }
 
-  Json toJson() => _$BaseEntityPageStateToJson(this);
+  Json toJson() => _$BaseDocumentStateToJson(this);
 
   Diff get diff {
     final Diff diff = {};
-    for (final MapEntry<String, dynamic> entry in data.entries) {
+    for (final MapEntry<FieldId, dynamic> entry in data.entries) {
       diff[entry.key] = isTheSame(entry.value, initialData[entry.key]) == false;
     }
     return diff;

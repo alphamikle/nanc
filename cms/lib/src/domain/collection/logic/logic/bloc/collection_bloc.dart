@@ -9,7 +9,7 @@ import 'package:tools/tools.dart';
 
 import '../../../../../service/errors/errors.dart';
 import '../../../../../service/errors/human_exception.dart';
-import '../../../../document/logic/bloc/page_bloc/page_bloc.dart';
+import '../../../../document/logic/bloc/document_bloc/document_bloc.dart';
 import '../../../../field/logic/bloc/local_page_bloc/local_page_bloc.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import 'collection_state.dart';
@@ -38,8 +38,10 @@ class CollectionBloc extends Cubit<CollectionState> {
     if (state.model.id == modelId) {
       return;
     }
+    globalSearchSilenced = true;
     final Model? model = modelCollectionBloc.tryToFindModelById(modelId);
     if (model == null) {
+      globalSearchSilenced = false;
       notFoundModelError(modelId);
     }
     final bool isTheSameCollection = state.model.id == modelId;
@@ -67,6 +69,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     }
     await restoreFiltersBackup();
     await _loadData(modelId: modelId, page: state.currentPage);
+    globalSearchSilenced = false;
   }
 
   Future<void> paginate(int page) async {
@@ -157,7 +160,7 @@ class CollectionBloc extends Cubit<CollectionState> {
   Future<void> _reloadCollection(Model model) async => _loadData(modelId: model.id, page: state.currentPage);
 
   Future<void> _filterTableByGlobalSearch() async {
-    if (state.model.id.isEmpty || globalSearchSilenced || state.globalSearchQuery == null && globalSearchController.text.isEmpty) {
+    if (state.model.id.isEmpty || globalSearchSilenced || (state.globalSearchQuery == null && globalSearchController.text.isEmpty)) {
       return;
     }
     final QueryField? globalSearchQuery = _mapSearchQueryToLanguageQuery(globalSearchController.text, state.model.flattenFields);

@@ -54,8 +54,8 @@ class _EnumFieldCellState extends State<EnumFieldCell> with FieldCellHelper<Enum
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BasePageBloc, BaseEntityPageState>(
-      builder: (BuildContext context, BaseEntityPageState state) {
+    return BlocBuilder<BaseDocumentBloc, BaseDocumentState>(
+      builder: (BuildContext context, BaseDocumentState state) {
         return KitEnumField(
           controller: controller,
           selected: findSelected(),

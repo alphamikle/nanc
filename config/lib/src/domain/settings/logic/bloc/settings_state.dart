@@ -6,7 +6,6 @@ import 'package:tools/tools.dart';
 
 part 'settings_state.g.dart';
 
-typedef ModelId = String;
 typedef FieldIndex = int;
 typedef FieldWidth = double;
 typedef TableWidth = Map<FieldIndex, FieldWidth>;

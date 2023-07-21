@@ -5,24 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
-import '../base_entity_page_bloc/base_page_state.dart';
+import '../base_document_bloc/base_page_state.dart';
 
-part 'page_state.g.dart';
+part 'document_state.g.dart';
 
 TextControllerMap _controllerMapFromJson(Json? json) => {};
 
 Json _controllerMapToJson(TextControllerMap controllerMap) => <String, dynamic>{};
 
-typedef ModelId = String;
-
 /// ? ModelId - it is the ID of the relationships model, such as "user_to_bool_rel" an etc.
-typedef ThirdTableData = Map<ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>>;
+typedef ThirdTableData = Map<ModelId, Map<FieldId, List<FieldId>>>;
 
 @autoequal
 @CopyWith()
 @JsonSerializable()
-class PageState extends BaseEntityPageState {
-  const PageState({
+class DocumentState extends BaseDocumentState {
+  const DocumentState({
     required super.data,
     required super.initialData,
     required super.isLoading,
@@ -34,7 +32,7 @@ class PageState extends BaseEntityPageState {
     required this.thirdTableData,
   });
 
-  factory PageState.optional({
+  factory DocumentState.optional({
     Json? data,
     Json? initialData,
     bool? isLoading,
@@ -45,7 +43,7 @@ class PageState extends BaseEntityPageState {
     Map<ModelId, ThirdTable>? thirdTable,
     ThirdTableData? thirdTableData,
   }) {
-    return PageState(
+    return DocumentState(
       data: data ?? <String, dynamic>{},
       initialData: initialData ?? <String, dynamic>{},
       isLoading: isLoading ?? false,
@@ -54,14 +52,14 @@ class PageState extends BaseEntityPageState {
       isError: isError ?? false,
       controllerMap: controllerMap ?? {},
       thirdTable: thirdTable ?? {},
-      thirdTableData: const <ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>>{},
+      thirdTableData: const <ModelId, Map<FieldId, List<FieldId>>>{},
     );
   }
 
-  factory PageState.empty() => const PageState(
+  factory DocumentState.empty() => const DocumentState(
         data: <String, dynamic>{},
         initialData: <String, dynamic>{},
-        thirdTableData: <ModelId, Map<ParentEntityDataId, List<ChildEntityDataId>>>{},
+        thirdTableData: <ModelId, Map<FieldId, List<FieldId>>>{},
         isLoading: false,
         isDeleting: false,
         isSaving: false,
@@ -70,7 +68,7 @@ class PageState extends BaseEntityPageState {
         thirdTable: {},
       );
 
-  factory PageState.fromJson(dynamic json) => _$PageStateFromJson(castToJson(json));
+  factory DocumentState.fromJson(dynamic json) => _$DocumentStateFromJson(castToJson(json));
 
   final ThirdTableData thirdTableData;
   final Map<ModelId, ThirdTable> thirdTable;
@@ -81,7 +79,7 @@ class PageState extends BaseEntityPageState {
   }
 
   @override
-  Json toJson() => _$PageStateToJson(this);
+  Json toJson() => _$DocumentStateToJson(this);
 
   @override
   List<Object?> get props => [...super.props, ..._$props];

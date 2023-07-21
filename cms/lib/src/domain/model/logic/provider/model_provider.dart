@@ -12,7 +12,7 @@ class ModelProvider {
     required this.modelApi,
   });
 
-  final IPageProvider pageProvider;
+  final IDocumentProvider pageProvider;
   final ICollectionProvider collectionProvider;
   final IModelApi modelApi;
 
@@ -65,9 +65,9 @@ class ModelProvider {
     final Json modelJson = newModel.toJson();
     final String generatedModelId = generateModelId(newModel.id);
     final String secretModelId = await encrypt(generatedModelId);
-    final Json result = await pageProvider.saveEditedPage(
-      entity: modelModel,
-      id: secretModelId,
+    final Json result = await pageProvider.saveDocument(
+      model: modelModel,
+      documentId: secretModelId,
       data: await generateModelJson(
         id: secretModelId,
         model: await encrypt(jsonEncode(modelJson), salt: generatedModelId),
@@ -84,7 +84,7 @@ class ModelProvider {
   Future<void> deleteModel(Model model) async {
     final String secretModelId = await _generateSecretModelId(model.id);
     await modelApi.deleteModel(model);
-    await pageProvider.deletePage(model: modelModel, pageId: secretModelId);
+    await pageProvider.deletePage(model: modelModel, documentId: secretModelId);
   }
 
   Future<Model> createModel(Model newModel) async => saveModel(oldModel: newModel, newModel: newModel);

@@ -2,16 +2,16 @@ import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
-import '../../../../document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../../../document/logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import '../../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
+import '../../../../document/logic/bloc/base_document_bloc/base_page_state.dart';
 
 typedef DataChangesCallback = void Function(Json data);
 
-class LocalPageBloc extends BasePageBloc<BaseEntityPageState> {
+class LocalPageBloc extends BaseDocumentBloc<BaseDocumentState> {
   LocalPageBloc({
     required super.draftService,
     this.onDataChanged,
-  }) : super(state: BaseEntityPageState.empty());
+  }) : super(state: BaseDocumentState.empty());
 
   DataChangesCallback? onDataChanged;
 

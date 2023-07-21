@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:tools/tools.dart';
 
 import '../../domain/collection/logic/logic/bloc/collection_bloc.dart';
-import '../../domain/document/logic/bloc/page_bloc/page_bloc.dart';
+import '../../domain/document/logic/bloc/document_bloc/document_bloc.dart';
 import '../../domain/general/logic/bloc/header/header_bloc.dart';
 import '../../domain/general/logic/bloc/side_menu/menu_bloc.dart';
 import '../../domain/model/logic/bloc/model_page_bloc/model_page_bloc.dart';
@@ -24,7 +24,7 @@ class RoutesPreloadingService {
   });
 
   final ModelPageBloc modelPageBloc;
-  final PageBloc pageBloc;
+  final DocumentBloc pageBloc;
   final HeaderBloc headerBloc;
   final MenuBloc menuBloc;
   final CollectionBloc collectionBloc;

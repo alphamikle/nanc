@@ -9,9 +9,9 @@ import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
+import '../../../document/logic/bloc/base_document_bloc/base_page_state.dart';
 import '../../../model/ui/component/fields_form.dart';
-import '../../../document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../../document/logic/bloc/base_entity_page_bloc/base_page_state.dart';
 import '../../logic/logic/bloc/collection_bloc.dart';
 import '../../logic/logic/bloc/collection_state.dart';
 
@@ -60,12 +60,12 @@ class _CollectionFilterModalState extends State<CollectionFilterModal> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<BasePageBloc>.value(
+    return BlocProvider<BaseDocumentBloc>.value(
       value: collectionBloc.filterStructureBloc,
       child: Builder(
         builder: (BuildContext context) {
-          return BlocBuilder<BasePageBloc, BaseEntityPageState>(
-            builder: (BuildContext context, BaseEntityPageState baseState) {
+          return BlocBuilder<BaseDocumentBloc, BaseDocumentState>(
+            builder: (BuildContext context, BaseDocumentState baseState) {
               return BlocBuilder<CollectionBloc, CollectionState>(
                 builder: (BuildContext context, CollectionState state) {
                   return KitModal(

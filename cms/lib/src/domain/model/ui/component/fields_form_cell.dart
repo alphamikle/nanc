@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-import '../../../document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../../document/logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
+import '../../../document/logic/bloc/base_document_bloc/base_page_state.dart';
 
 class FieldsFormCell extends StatelessWidget {
   const FieldsFormCell({
@@ -24,8 +24,8 @@ class FieldsFormCell extends StatelessWidget {
         top: Gap.regular,
         right: Gap.regular,
       ),
-      child: BlocBuilder<BasePageBloc, BaseEntityPageState>(
-        builder: (BuildContext context, BaseEntityPageState state) => FieldMapper.fieldToInput(
+      child: BlocBuilder<BaseDocumentBloc, BaseDocumentState>(
+        builder: (BuildContext context, BaseDocumentState state) => FieldMapper.fieldToInput(
           field: field,
           creationMode: creationMode,
         ),

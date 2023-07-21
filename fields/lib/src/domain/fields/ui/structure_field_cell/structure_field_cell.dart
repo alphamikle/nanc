@@ -115,7 +115,7 @@ class _StructureFieldCellState extends State<StructureFieldCell> with FieldCellH
 
   Widget childrenBuilder(BuildContext context, int index) {
     final DynamicFieldItem item = childrenData[index];
-    final BasePageBloc entityPageBloc = ListFieldBloc(
+    final BaseDocumentBloc entityPageBloc = ListFieldBloc(
       onEdit: (String fieldId, Object? value) => onChildChange(value, index),
       item: item,
       draftService: context.read(),

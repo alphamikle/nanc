@@ -243,16 +243,16 @@ class _QueryFilterValueFieldCellState extends State<QueryFilterValueFieldCell> w
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<BasePageBloc<BaseEntityPageState>>.value(
+    return BlocProvider<BaseDocumentBloc<BaseDocumentState>>.value(
       value: localPageBloc,
       child: Builder(
         builder: (BuildContext context) {
-          final BasePageBloc bloc = context.read();
+          final BaseDocumentBloc bloc = context.read();
 
           return BlocBuilder<CollectionBloc, CollectionState>(
             builder: (BuildContext context, CollectionState collectionBloc) {
-              return BlocBuilder<BasePageBloc, BaseEntityPageState>(
-                builder: (BuildContext context, BaseEntityPageState state) {
+              return BlocBuilder<BaseDocumentBloc, BaseDocumentState>(
+                builder: (BuildContext context, BaseDocumentState state) {
                   return LayoutBuilder(
                     builder: (BuildContext context, BoxConstraints constraints) {
                       final double widthPerField = (constraints.maxWidth - (Gap.regular * 2)) / 3;

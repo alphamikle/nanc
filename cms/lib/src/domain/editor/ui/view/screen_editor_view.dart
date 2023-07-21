@@ -9,8 +9,8 @@ import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
-import '../../../document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../../document/logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
+import '../../../document/logic/bloc/base_document_bloc/base_page_state.dart';
 import '../../../preview/logic/bloc/preview_bloc.dart';
 import '../../../preview/ui/component/page_preview_with_frame.dart';
 import '../../logic/bloc/editor/editor_bloc.dart';
@@ -87,8 +87,8 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
         child: KitColumn(
           children: [
             /// ? HEADER
-            BlocBuilder<BasePageBloc, BaseEntityPageState>(
-              builder: (BuildContext context, BaseEntityPageState state) {
+            BlocBuilder<BaseDocumentBloc, BaseDocumentState>(
+              builder: (BuildContext context, BaseDocumentState state) {
                 return ColoredBox(
                   color: context.theme.colorScheme.surfaceVariant,
                   child: Padding(
@@ -226,8 +226,8 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                             bottom: kPadding,
                           ),
                           child: isPageJsonAvailable
-                              ? BlocBuilder<BasePageBloc, BaseEntityPageState>(
-                                  builder: (BuildContext context, BaseEntityPageState state) {
+                              ? BlocBuilder<BaseDocumentBloc, BaseDocumentState>(
+                                  builder: (BuildContext context, BaseDocumentState state) {
                                     return PageDataPreview(
                                       data: state.data,
                                       field: field,

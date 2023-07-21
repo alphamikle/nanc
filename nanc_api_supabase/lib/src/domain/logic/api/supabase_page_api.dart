@@ -6,7 +6,7 @@ import 'package:tools/tools.dart';
 
 import 'supabase_api.dart';
 
-class SupabasePageApi implements IPageApi {
+class SupabasePageApi implements IDocumentApi {
   SupabasePageApi({
     required SupabaseApi api,
   }) : _api = api;
@@ -28,14 +28,14 @@ class SupabasePageApi implements IPageApi {
   Future<void> deletePage(Model model, String id) async => await _api.getBuilder(model).delete().eq(model.idField.id, id);
 
   @override
-  Future<void> saveThirdTable(ThirdTable thirdTable, ParentEntityDataId parentModelId, List<ChildEntityDataId> childModelIds) async {
+  Future<void> saveThirdTable(ThirdTable thirdTable, FieldId parentModelId, List<FieldId> childModelIds) async {
     final SupabaseQueryBuilder builder = _api.getBuilder(thirdTable.relationsEntity);
     final Field? primaryIdField = thirdTable.relationsEntity.flattenFields.firstWhereOrNull(
       (Field field) => field is IdField && field.id != thirdTable.parentEntityIdName && field.id != thirdTable.childEntityIdName,
     );
-    final Set<ChildEntityDataId> oldChildrenIds = (await _getOldThirdTableChildrenIds(thirdTable, parentModelId)).toSet();
-    final Set<ChildEntityDataId> newChildrenIds = childModelIds.toSet();
-    final List<ChildEntityDataId> fieldsForDeletion = oldChildrenIds.where((ChildEntityDataId id) => newChildrenIds.contains(id) == false).toList();
+    final Set<FieldId> oldChildrenIds = (await _getOldThirdTableChildrenIds(thirdTable, parentModelId)).toSet();
+    final Set<FieldId> newChildrenIds = childModelIds.toSet();
+    final List<FieldId> fieldsForDeletion = oldChildrenIds.where((FieldId id) => newChildrenIds.contains(id) == false).toList();
 
     await Future.wait(
       childModelIds.map(
@@ -88,7 +88,7 @@ class SupabasePageApi implements IPageApi {
     throw Exception('Incorrect response');
   }
 
-  Future<void> _deleteOldChildrenIds(ThirdTable thirdTable, String parentId, List<ChildEntityDataId> ids) async {
+  Future<void> _deleteOldChildrenIds(ThirdTable thirdTable, String parentId, List<FieldId> ids) async {
     if (ids.isEmpty) {
       return;
     }

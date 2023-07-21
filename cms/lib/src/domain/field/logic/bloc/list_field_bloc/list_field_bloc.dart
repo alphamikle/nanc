@@ -2,18 +2,18 @@ import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
-import '../../../../document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../../../document/logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import '../../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
+import '../../../../document/logic/bloc/base_document_bloc/base_page_state.dart';
 
 typedef FieldChanged = void Function(String fieldId, Object? value);
 
-class ListFieldBloc extends BasePageBloc<BaseEntityPageState> {
+class ListFieldBloc extends BaseDocumentBloc<BaseDocumentState> {
   ListFieldBloc({
     required this.onEdit,
     required super.draftService,
     this.item,
     this.structuredItem,
-  }) : super(state: BaseEntityPageState.empty()) {
+  }) : super(state: BaseDocumentState.empty()) {
     if (item != null) {
       _initStateWithItem(item!);
     } else if (structuredItem != null) {

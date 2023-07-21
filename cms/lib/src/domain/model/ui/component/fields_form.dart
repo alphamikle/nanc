@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
 
 import '../../../../service/config/config.dart';
-import '../../../document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../../document/logic/bloc/base_entity_page_bloc/base_page_state.dart';
+import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
+import '../../../document/logic/bloc/base_document_bloc/base_page_state.dart';
 import 'fields_form_cell.dart';
 
 class FieldsForm extends StatelessWidget {
@@ -52,8 +52,8 @@ class FieldsForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BasePageBloc, BaseEntityPageState>(
-      builder: (BuildContext context, BaseEntityPageState state) {
+    return BlocBuilder<BaseDocumentBloc, BaseDocumentState>(
+      builder: (BuildContext context, BaseDocumentState state) {
         final List<Widget> children = [];
 
         for (int i = 0; i < model.fields.length; i++) {

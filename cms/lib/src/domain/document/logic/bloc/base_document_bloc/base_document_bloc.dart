@@ -5,30 +5,30 @@ import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../draft/logic/draft_service.dart';
-import '../page_bloc/page_state.dart';
+import '../document_bloc/document_state.dart';
 import 'base_page_state.dart';
 
-abstract class BasePageBloc<T extends BaseEntityPageState> extends Cubit<T> {
-  BasePageBloc({
+abstract class BaseDocumentBloc<T extends BaseDocumentState> extends Cubit<T> {
+  BaseDocumentBloc({
     required T state,
     required this.draftService,
   }) : super(state);
 
   final DraftService draftService;
 
-  String? modelId;
-  String? pageId;
+  ModelId? modelId;
+  DocumentId? documentId;
 
   String? get draftKey {
-    if (modelId == null && pageId == null) {
+    if (modelId == null && documentId == null) {
       return null;
     }
-    return DraftService.generateKey([modelId ?? 'no_model_id', pageId ?? 'no_page_id']);
+    return DraftService.generateKey([modelId ?? 'no_model_id', documentId ?? 'no_document_id']);
   }
 
   dynamic valueForKey(String key) => state.data[key];
 
-  void updateValue(String fieldId, dynamic fieldValue) {
+  void updateValue(FieldId fieldId, dynamic fieldValue) {
     final Json data = <String, dynamic>{
       ...state.data,
     };
@@ -42,39 +42,39 @@ abstract class BasePageBloc<T extends BaseEntityPageState> extends Cubit<T> {
   }
 
   void updateValues(Json json) {
-    for (final MapEntry<String, dynamic> entry in json.entries) {
+    for (final MapEntry<FieldId, dynamic> entry in json.entries) {
       updateValue(entry.key, entry.value);
     }
   }
 
-  TextEditingController controllerFor(String fieldCode) {
-    if (state.controllerMap.containsKey(fieldCode) == false) {
-      if (state is PageState) {
-        final PageState pageState = state as PageState;
+  TextEditingController controllerFor(FieldId fieldId) {
+    if (state.controllerMap.containsKey(fieldId) == false) {
+      if (state is DocumentState) {
+        final DocumentState pageState = state as DocumentState;
         emit(pageState.copyWith(controllerMap: {
           ...pageState.controllerMap,
-          fieldCode: TextEditingController(),
+          fieldId: TextEditingController(),
         }) as T);
       } else {
         emit(state.copyWith(controllerMap: {
           ...state.controllerMap,
-          fieldCode: TextEditingController(),
+          fieldId: TextEditingController(),
         }) as T);
       }
     }
-    return state.controllerMap[fieldCode]!;
+    return state.controllerMap[fieldId]!;
   }
 
-  bool fieldWasChanged(String field) {
-    return state.diff[field] ?? false;
+  bool fieldWasChanged(FieldId fieldId) {
+    return state.diff[fieldId] ?? false;
   }
 
   void _updateData(Json data) {
     Json? jsonState;
-    if (state is PageState) {
-      final PageState pageState = state as PageState;
+    if (state is DocumentState) {
+      final DocumentState pageState = state as DocumentState;
       emit(pageState.copyWith(data: data) as T);
-      jsonState = (state as PageState).toJson();
+      jsonState = (state as DocumentState).toJson();
     } else {
       emit(state.copyWith(data: data) as T);
       jsonState = state.toJson();

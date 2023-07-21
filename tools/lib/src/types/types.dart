@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+typedef ModelId = String;
+typedef DocumentId = String;
+typedef FieldId = String;
 typedef Tag = String;
 typedef ChildFallbackBuilder = Widget Function(List<Widget> children);
 typedef Json = Map<String, dynamic>;

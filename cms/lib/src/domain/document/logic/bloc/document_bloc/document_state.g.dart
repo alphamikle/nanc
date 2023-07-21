@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'page_state.dart';
+part of 'document_state.dart';
 
 // **************************************************************************
 // AutoequalGenerator
 // **************************************************************************
 
-extension _$PageStateAutoequal on PageState {
+extension _$DocumentStateAutoequal on DocumentState {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [thirdTableData, thirdTable];
@@ -16,33 +16,33 @@ extension _$PageStateAutoequal on PageState {
 // CopyWithGenerator
 // **************************************************************************
 
-abstract class _$PageStateCWProxy {
-  PageState data(Map<String, dynamic> data);
+abstract class _$DocumentStateCWProxy {
+  DocumentState data(Map<String, dynamic> data);
 
-  PageState initialData(Map<String, dynamic> initialData);
+  DocumentState initialData(Map<String, dynamic> initialData);
 
-  PageState isLoading(bool isLoading);
+  DocumentState isLoading(bool isLoading);
 
-  PageState isDeleting(bool isDeleting);
+  DocumentState isDeleting(bool isDeleting);
 
-  PageState isSaving(bool isSaving);
+  DocumentState isSaving(bool isSaving);
 
-  PageState controllerMap(Map<String, TextEditingController> controllerMap);
+  DocumentState controllerMap(Map<String, TextEditingController> controllerMap);
 
-  PageState isError(bool isError);
+  DocumentState isError(bool isError);
 
-  PageState thirdTable(Map<String, ThirdTable> thirdTable);
+  DocumentState thirdTable(Map<String, ThirdTable> thirdTable);
 
-  PageState thirdTableData(
+  DocumentState thirdTableData(
       Map<String, Map<String, List<String>>> thirdTableData);
 
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `PageState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `DocumentState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// PageState(...).copyWith(id: 12, name: "My name")
+  /// DocumentState(...).copyWith(id: 12, name: "My name")
   /// ````
-  PageState call({
+  DocumentState call({
     Map<String, dynamic>? data,
     Map<String, dynamic>? initialData,
     bool? isLoading,
@@ -55,53 +55,54 @@ abstract class _$PageStateCWProxy {
   });
 }
 
-/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfPageState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfPageState.copyWith.fieldName(...)`
-class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
-  const _$PageStateCWProxyImpl(this._value);
+/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfDocumentState.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfDocumentState.copyWith.fieldName(...)`
+class _$DocumentStateCWProxyImpl implements _$DocumentStateCWProxy {
+  const _$DocumentStateCWProxyImpl(this._value);
 
-  final PageState _value;
-
-  @override
-  PageState data(Map<String, dynamic> data) => this(data: data);
+  final DocumentState _value;
 
   @override
-  PageState initialData(Map<String, dynamic> initialData) =>
+  DocumentState data(Map<String, dynamic> data) => this(data: data);
+
+  @override
+  DocumentState initialData(Map<String, dynamic> initialData) =>
       this(initialData: initialData);
 
   @override
-  PageState isLoading(bool isLoading) => this(isLoading: isLoading);
+  DocumentState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
-  PageState isDeleting(bool isDeleting) => this(isDeleting: isDeleting);
+  DocumentState isDeleting(bool isDeleting) => this(isDeleting: isDeleting);
 
   @override
-  PageState isSaving(bool isSaving) => this(isSaving: isSaving);
+  DocumentState isSaving(bool isSaving) => this(isSaving: isSaving);
 
   @override
-  PageState controllerMap(Map<String, TextEditingController> controllerMap) =>
+  DocumentState controllerMap(
+          Map<String, TextEditingController> controllerMap) =>
       this(controllerMap: controllerMap);
 
   @override
-  PageState isError(bool isError) => this(isError: isError);
+  DocumentState isError(bool isError) => this(isError: isError);
 
   @override
-  PageState thirdTable(Map<String, ThirdTable> thirdTable) =>
+  DocumentState thirdTable(Map<String, ThirdTable> thirdTable) =>
       this(thirdTable: thirdTable);
 
   @override
-  PageState thirdTableData(
+  DocumentState thirdTableData(
           Map<String, Map<String, List<String>>> thirdTableData) =>
       this(thirdTableData: thirdTableData);
 
   @override
 
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `PageState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `DocumentState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// PageState(...).copyWith(id: 12, name: "My name")
+  /// DocumentState(...).copyWith(id: 12, name: "My name")
   /// ````
-  PageState call({
+  DocumentState call({
     Object? data = const $CopyWithPlaceholder(),
     Object? initialData = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
@@ -112,7 +113,7 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
     Object? thirdTable = const $CopyWithPlaceholder(),
     Object? thirdTableData = const $CopyWithPlaceholder(),
   }) {
-    return PageState(
+    return DocumentState(
       data: data == const $CopyWithPlaceholder() || data == null
           ? _value.data
           // ignore: cast_nullable_to_non_nullable
@@ -158,17 +159,18 @@ class _$PageStateCWProxyImpl implements _$PageStateCWProxy {
   }
 }
 
-extension $PageStateCopyWith on PageState {
-  /// Returns a callable class that can be used as follows: `instanceOfPageState.copyWith(...)` or like so:`instanceOfPageState.copyWith.fieldName(...)`.
+extension $DocumentStateCopyWith on DocumentState {
+  /// Returns a callable class that can be used as follows: `instanceOfDocumentState.copyWith(...)` or like so:`instanceOfDocumentState.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
-  _$PageStateCWProxy get copyWith => _$PageStateCWProxyImpl(this);
+  _$DocumentStateCWProxy get copyWith => _$DocumentStateCWProxyImpl(this);
 }
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-PageState _$PageStateFromJson(Map<String, dynamic> json) => PageState(
+DocumentState _$DocumentStateFromJson(Map<String, dynamic> json) =>
+    DocumentState(
       data: json['data'] as Map<String, dynamic>,
       initialData: json['initialData'] as Map<String, dynamic>,
       isLoading: json['isLoading'] as bool,
@@ -190,7 +192,8 @@ PageState _$PageStateFromJson(Map<String, dynamic> json) => PageState(
       ),
     );
 
-Map<String, dynamic> _$PageStateToJson(PageState instance) => <String, dynamic>{
+Map<String, dynamic> _$DocumentStateToJson(DocumentState instance) =>
+    <String, dynamic>{
       'data': instance.data,
       'initialData': instance.initialData,
       'isLoading': instance.isLoading,

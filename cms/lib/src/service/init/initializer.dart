@@ -9,10 +9,10 @@ import 'package:tools/tools.dart';
 
 import '../../domain/collection/logic/logic/bloc/collection_bloc.dart';
 import '../../domain/collection/logic/logic/provider/collection_provider.dart';
-import '../../domain/document/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
-import '../../domain/document/logic/bloc/base_entity_page_bloc/base_page_state.dart';
-import '../../domain/document/logic/bloc/page_bloc/page_bloc.dart';
-import '../../domain/document/logic/provider/page_provider.dart';
+import '../../domain/document/logic/bloc/base_document_bloc/base_document_bloc.dart';
+import '../../domain/document/logic/bloc/base_document_bloc/base_page_state.dart';
+import '../../domain/document/logic/bloc/document_bloc/document_bloc.dart';
+import '../../domain/document/logic/provider/document_provider.dart';
 import '../../domain/draft/logic/draft_service.dart';
 import '../../domain/editor/logic/bloc/editor/editor_bloc.dart';
 import '../../domain/field/logic/bloc/local_page_bloc/local_page_bloc.dart';
@@ -53,7 +53,7 @@ class Initializer {
     final DraftService draftService = DraftService(dbService: dbService);
 
     /// ? PROVIDERS
-    final PageProvider pageProvider = PageProvider(api: config.pageApi);
+    final DocumentProvider pageProvider = DocumentProvider(api: config.pageApi);
     final CollectionProvider collectionProvider = CollectionProvider(api: config.collectionApi);
     final ModelProvider modelProvider = ModelProvider(
       pageProvider: pageProvider,
@@ -82,9 +82,9 @@ class Initializer {
       eventBus: eventBus,
       filterStructureBloc: LocalPageBloc(draftService: draftService),
     );
-    final PageBloc pageBloc = PageBloc(
+    final DocumentBloc pageBloc = DocumentBloc(
       modelCollectionBloc: modelCollectionBloc,
-      pageProvider: pageProvider,
+      documentProvider: pageProvider,
       eventBus: eventBus,
       draftService: draftService,
     );
@@ -123,8 +123,8 @@ class Initializer {
         BlocProvider<MenuBloc>.value(value: menuBloc),
         BlocProvider<ModelListBloc>.value(value: modelCollectionBloc),
         BlocProvider<CollectionBloc>.value(value: collectionBloc),
-        BlocProvider<BasePageBloc<BaseEntityPageState>>.value(value: pageBloc),
-        BlocProvider<PageBloc>.value(value: pageBloc),
+        BlocProvider<BaseDocumentBloc<BaseDocumentState>>.value(value: pageBloc),
+        BlocProvider<DocumentBloc>.value(value: pageBloc),
         BlocProvider<ModelPageBloc>.value(value: modelPageBloc),
         BlocProvider<HeaderBloc>.value(value: headerBloc),
         BlocProvider<TutorialBloc>.value(value: tutorialBloc),
@@ -139,8 +139,8 @@ class Initializer {
         RepositoryProvider<ModelProvider>.value(value: modelProvider),
         RepositoryProvider<ICollectionProvider>.value(value: collectionProvider),
         RepositoryProvider<CollectionProvider>.value(value: collectionProvider),
-        RepositoryProvider<IPageProvider>.value(value: pageProvider),
-        RepositoryProvider<PageProvider>.value(value: pageProvider),
+        RepositoryProvider<IDocumentProvider>.value(value: pageProvider),
+        RepositoryProvider<DocumentProvider>.value(value: pageProvider),
         RepositoryProvider<NetworkConfig>.value(value: config.networkConfig),
         RepositoryProvider<RoutesPreloadingService>.value(value: routesPreloadingService),
         RepositoryProvider<DraftService>.value(value: draftService),

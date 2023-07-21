@@ -46,7 +46,7 @@ abstract class FieldCellWidget<F extends Field> extends StatefulWidget with Fiel
 mixin FieldCellHelper<F extends Field, T extends FieldCellWidget<F>> on State<T> {
   F get field => widget.field;
   String get fieldId => widget.field.id;
-  late final BasePageBloc pageBloc = context.read();
+  late final BaseDocumentBloc pageBloc = context.read();
   Object? currentValue() => pageBloc.valueForKey(fieldId);
   TextEditingController get controller => pageBloc.controllerFor(widget.field.id);
   String get helper => '${field.name}${isRequired ? ' (required)' : ''}';
