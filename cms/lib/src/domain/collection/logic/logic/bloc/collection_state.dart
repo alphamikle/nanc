@@ -3,7 +3,10 @@ import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:model/model.dart';
 import 'package:tools/tools.dart';
+
+import 'model_filters_backup.dart';
 
 part 'collection_state.g.dart';
 
@@ -13,7 +16,7 @@ part 'collection_state.g.dart';
 class CollectionState extends Equatable {
   const CollectionState({
     required this.dataRows,
-    required this.modelId,
+    required this.model,
     required this.currentPage,
     required this.totalPages,
     required this.isLoading,
@@ -22,11 +25,12 @@ class CollectionState extends Equatable {
     required this.query,
     required this.globalSearchQuery,
     required this.sort,
+    required this.filtersBackup,
   });
 
-  factory CollectionState.empty() => const CollectionState(
-        dataRows: [],
-        modelId: '',
+  factory CollectionState.empty() => CollectionState(
+        dataRows: const [],
+        model: Model.empty(),
         currentPage: 0,
         totalPages: 0,
         isLoading: false,
@@ -35,12 +39,13 @@ class CollectionState extends Equatable {
         query: null,
         globalSearchQuery: null,
         sort: null,
+        filtersBackup: const {},
       );
 
   factory CollectionState.fromJson(dynamic json) => _$CollectionStateFromJson(castToJson(json));
 
   final List<Json> dataRows;
-  final String modelId;
+  final Model model;
   final int currentPage;
   final int totalPages;
   final bool isLoading;
@@ -53,7 +58,11 @@ class CollectionState extends Equatable {
   @JsonKey(fromJson: queryFieldFromJson, toJson: queryFieldToJson)
   final QueryField? globalSearchQuery;
 
+  final Map<ModelId, ModelFiltersBackup> filtersBackup;
+
   final Sort? sort;
+
+  ModelFiltersBackup get modelFiltersBackup => filtersBackup[model.id]!;
 
   @override
   List<Object?> get props => _$props;

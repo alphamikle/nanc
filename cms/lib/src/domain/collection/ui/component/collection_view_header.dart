@@ -9,7 +9,6 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../../../service/routing/endpoints.dart';
 import '../../../../service/routing/params_list.dart';
 import '../../logic/logic/bloc/collection_bloc.dart';
-import '../../logic/logic/bloc/collection_filter_bloc.dart';
 import 'collection_filter_modal.dart';
 
 class CollectionViewHeader extends StatelessWidget {
@@ -55,8 +54,8 @@ class CollectionViewHeader extends StatelessWidget {
                   onPressed: () async => showModal(
                     context: context,
                     configuration: const FadeScaleTransitionConfiguration(barrierDismissible: false),
-                    builder: (BuildContext context) => BlocProvider<CollectionFilterBloc>.value(
-                      value: context.read<CollectionFilterBloc>(),
+                    builder: (BuildContext context) => BlocProvider<CollectionBloc>.value(
+                      value: context.read<CollectionBloc>(),
                       child: const CollectionFilterModal(),
                     ),
                   ),

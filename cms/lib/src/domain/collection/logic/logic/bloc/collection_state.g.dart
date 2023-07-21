@@ -11,7 +11,7 @@ extension _$CollectionStateAutoequal on CollectionState {
   List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [
         dataRows,
-        modelId,
+        model,
         currentPage,
         totalPages,
         isLoading,
@@ -19,6 +19,7 @@ extension _$CollectionStateAutoequal on CollectionState {
         notFoundAnything,
         query,
         globalSearchQuery,
+        filtersBackup,
         sort
       ];
 }
@@ -30,7 +31,7 @@ extension _$CollectionStateAutoequal on CollectionState {
 abstract class _$CollectionStateCWProxy {
   CollectionState dataRows(List<Map<String, dynamic>> dataRows);
 
-  CollectionState modelId(String modelId);
+  CollectionState model(Model model);
 
   CollectionState currentPage(int currentPage);
 
@@ -48,6 +49,8 @@ abstract class _$CollectionStateCWProxy {
 
   CollectionState sort(Sort? sort);
 
+  CollectionState filtersBackup(Map<String, ModelFiltersBackup> filtersBackup);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `CollectionState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -56,7 +59,7 @@ abstract class _$CollectionStateCWProxy {
   /// ````
   CollectionState call({
     List<Map<String, dynamic>>? dataRows,
-    String? modelId,
+    Model? model,
     int? currentPage,
     int? totalPages,
     bool? isLoading,
@@ -65,6 +68,7 @@ abstract class _$CollectionStateCWProxy {
     QueryField? query,
     QueryField? globalSearchQuery,
     Sort? sort,
+    Map<String, ModelFiltersBackup>? filtersBackup,
   });
 }
 
@@ -79,7 +83,7 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
       this(dataRows: dataRows);
 
   @override
-  CollectionState modelId(String modelId) => this(modelId: modelId);
+  CollectionState model(Model model) => this(model: model);
 
   @override
   CollectionState currentPage(int currentPage) =>
@@ -109,6 +113,11 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
   CollectionState sort(Sort? sort) => this(sort: sort);
 
   @override
+  CollectionState filtersBackup(
+          Map<String, ModelFiltersBackup> filtersBackup) =>
+      this(filtersBackup: filtersBackup);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `CollectionState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -118,7 +127,7 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
   /// ````
   CollectionState call({
     Object? dataRows = const $CopyWithPlaceholder(),
-    Object? modelId = const $CopyWithPlaceholder(),
+    Object? model = const $CopyWithPlaceholder(),
     Object? currentPage = const $CopyWithPlaceholder(),
     Object? totalPages = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
@@ -127,16 +136,17 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
     Object? query = const $CopyWithPlaceholder(),
     Object? globalSearchQuery = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
+    Object? filtersBackup = const $CopyWithPlaceholder(),
   }) {
     return CollectionState(
       dataRows: dataRows == const $CopyWithPlaceholder() || dataRows == null
           ? _value.dataRows
           // ignore: cast_nullable_to_non_nullable
           : dataRows as List<Map<String, dynamic>>,
-      modelId: modelId == const $CopyWithPlaceholder() || modelId == null
-          ? _value.modelId
+      model: model == const $CopyWithPlaceholder() || model == null
+          ? _value.model
           // ignore: cast_nullable_to_non_nullable
-          : modelId as String,
+          : model as Model,
       currentPage:
           currentPage == const $CopyWithPlaceholder() || currentPage == null
               ? _value.currentPage
@@ -172,6 +182,11 @@ class _$CollectionStateCWProxyImpl implements _$CollectionStateCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as Sort?,
+      filtersBackup:
+          filtersBackup == const $CopyWithPlaceholder() || filtersBackup == null
+              ? _value.filtersBackup
+              // ignore: cast_nullable_to_non_nullable
+              : filtersBackup as Map<String, ModelFiltersBackup>,
     );
   }
 }
@@ -194,7 +209,7 @@ extension $CollectionStateCopyWith on CollectionState {
   }) {
     return CollectionState(
       dataRows: dataRows,
-      modelId: modelId,
+      model: model,
       currentPage: currentPage,
       totalPages: totalPages,
       isLoading: isLoading,
@@ -204,6 +219,7 @@ extension $CollectionStateCopyWith on CollectionState {
       globalSearchQuery:
           globalSearchQuery == true ? null : this.globalSearchQuery,
       sort: sort == true ? null : this.sort,
+      filtersBackup: filtersBackup,
     );
   }
 }
@@ -217,7 +233,7 @@ CollectionState _$CollectionStateFromJson(Map<String, dynamic> json) =>
       dataRows: (json['dataRows'] as List<dynamic>)
           .map((e) => e as Map<String, dynamic>)
           .toList(),
-      modelId: json['modelId'] as String,
+      model: Model.fromJson(json['model']),
       currentPage: json['currentPage'] as int,
       totalPages: json['totalPages'] as int,
       isLoading: json['isLoading'] as bool,
@@ -228,12 +244,15 @@ CollectionState _$CollectionStateFromJson(Map<String, dynamic> json) =>
       sort: json['sort'] == null
           ? null
           : Sort.fromJson(json['sort'] as Map<String, dynamic>),
+      filtersBackup: (json['filtersBackup'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(k, ModelFiltersBackup.fromJson(e)),
+      ),
     );
 
 Map<String, dynamic> _$CollectionStateToJson(CollectionState instance) =>
     <String, dynamic>{
       'dataRows': instance.dataRows,
-      'modelId': instance.modelId,
+      'model': instance.model.toJson(),
       'currentPage': instance.currentPage,
       'totalPages': instance.totalPages,
       'isLoading': instance.isLoading,
@@ -241,5 +260,7 @@ Map<String, dynamic> _$CollectionStateToJson(CollectionState instance) =>
       'notFoundAnything': instance.notFoundAnything,
       'query': queryFieldToJson(instance.query),
       'globalSearchQuery': queryFieldToJson(instance.globalSearchQuery),
+      'filtersBackup':
+          instance.filtersBackup.map((k, e) => MapEntry(k, e.toJson())),
       'sort': instance.sort?.toJson(),
     };

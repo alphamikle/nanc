@@ -21,7 +21,7 @@ abstract class _$CollectionFilterStateCWProxy {
 
   CollectionFilterState query(QueryField? query);
 
-  CollectionFilterState backup(Map<String, dynamic> backup);
+  CollectionFilterState backup(Map<String, Map<String, dynamic>> backup);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `CollectionFilterState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -32,7 +32,7 @@ abstract class _$CollectionFilterStateCWProxy {
   CollectionFilterState call({
     Model? collectionModel,
     QueryField? query,
-    Map<String, dynamic>? backup,
+    Map<String, Map<String, dynamic>>? backup,
   });
 }
 
@@ -51,7 +51,7 @@ class _$CollectionFilterStateCWProxyImpl
   CollectionFilterState query(QueryField? query) => this(query: query);
 
   @override
-  CollectionFilterState backup(Map<String, dynamic> backup) =>
+  CollectionFilterState backup(Map<String, Map<String, dynamic>> backup) =>
       this(backup: backup);
 
   @override
@@ -80,7 +80,7 @@ class _$CollectionFilterStateCWProxyImpl
       backup: backup == const $CopyWithPlaceholder() || backup == null
           ? _value.backup
           // ignore: cast_nullable_to_non_nullable
-          : backup as Map<String, dynamic>,
+          : backup as Map<String, Map<String, dynamic>>,
     );
   }
 }
@@ -90,6 +90,22 @@ extension $CollectionFilterStateCopyWith on CollectionFilterState {
   // ignore: library_private_types_in_public_api
   _$CollectionFilterStateCWProxy get copyWith =>
       _$CollectionFilterStateCWProxyImpl(this);
+
+  /// Copies the object with the specific fields set to `null`. If you pass `false` as a parameter, nothing will be done and it will be ignored. Don't do it. Prefer `copyWith(field: null)` or `CollectionFilterState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  ///
+  /// Usage
+  /// ```dart
+  /// CollectionFilterState(...).copyWithNull(firstField: true, secondField: true)
+  /// ````
+  CollectionFilterState copyWithNull({
+    bool query = false,
+  }) {
+    return CollectionFilterState(
+      collectionModel: collectionModel,
+      query: query == true ? null : this.query,
+      backup: backup,
+    );
+  }
 }
 
 // **************************************************************************
@@ -101,7 +117,9 @@ CollectionFilterState _$CollectionFilterStateFromJson(
     CollectionFilterState(
       collectionModel: Model.fromJson(json['collectionModel']),
       query: queryFieldFromJson(json['query']),
-      backup: json['backup'] as Map<String, dynamic>,
+      backup: (json['backup'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(k, e as Map<String, dynamic>),
+      ),
     );
 
 Map<String, dynamic> _$CollectionFilterStateToJson(

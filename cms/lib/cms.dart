@@ -1,8 +1,8 @@
 library cms;
 
 export 'src/domain/admin_runner.dart';
-export 'src/domain/collection/logic/logic/bloc/collection_filter_bloc.dart';
-export 'src/domain/collection/logic/logic/bloc/collection_filter_state.dart';
+export 'src/domain/collection/logic/logic/bloc/collection_bloc.dart';
+export 'src/domain/collection/logic/logic/bloc/collection_state.dart';
 export 'src/domain/editor/logic/bloc/editor/editor_bloc.dart';
 export 'src/domain/editor/logic/bloc/editor/editor_event.dart';
 export 'src/domain/editor/logic/bloc/editor/editor_state.dart';

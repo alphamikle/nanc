@@ -9,7 +9,7 @@ import 'package:tools/tools.dart';
 part 'collection_filter_state.g.dart';
 
 @autoequal
-@CopyWith()
+@CopyWith(copyWithNull: true)
 @JsonSerializable()
 class CollectionFilterState extends Equatable {
   const CollectionFilterState({
@@ -20,11 +20,11 @@ class CollectionFilterState extends Equatable {
 
   factory CollectionFilterState.fromJson(dynamic json) => _$CollectionFilterStateFromJson(castToJson(json));
 
-  factory CollectionFilterState.empty() => CollectionFilterState(collectionModel: Model.empty(), query: const QueryOrField(), backup: const {});
+  factory CollectionFilterState.empty() => CollectionFilterState(collectionModel: Model.empty(), query: null, backup: const {});
 
   final Model collectionModel;
 
-  final Json backup;
+  final Map<ModelId, Json> backup;
 
   @JsonKey(fromJson: queryFieldFromJson, toJson: queryFieldToJson)
   final QueryField? query;

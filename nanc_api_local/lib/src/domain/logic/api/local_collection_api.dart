@@ -27,6 +27,22 @@ class LocalCollectionApi extends LocalApi implements ICollectionApi {
     }).toList();
 
     final List<Json> filteredData = _searchEngine(requiredData, query);
+    filteredData.sort((Json first, Json second) {
+      final Json a = params.sort.order.isAsc ? first : second;
+      final Json b = params.sort.order.isAsc ? second : first;
+      final dynamic aValue = a[params.sort.fieldId];
+      final dynamic bValue = b[params.sort.fieldId];
+      if (aValue == null || bValue == null) {
+        return 0;
+      }
+      if (aValue is String || bValue is String) {
+        return aValue.toString().compareTo(bValue.toString());
+      }
+      if (aValue is Comparable<dynamic> && bValue is Comparable<dynamic>) {
+        return aValue.compareTo(bValue);
+      }
+      return 0;
+    });
 
     int page = params.page;
     if (page > (filteredData.length / params.limit).round()) {

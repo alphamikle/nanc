@@ -197,9 +197,13 @@ List<Json> _sort(List<Json> data, Sort sort) {
   data.sort((Json a, Json b) {
     final Object? firstField = sort.order.isAsc ? a[sort.fieldId] : b[sort.fieldId];
     final Object? secondField = sort.order.isAsc ? b[sort.fieldId] : a[sort.fieldId];
-    if (firstField is String && secondField is String) {
-      return firstField.compareTo(secondField);
-    } else if (firstField is num && secondField is num) {
+    if (firstField == null || secondField == null) {
+      return 0;
+    }
+    if (firstField is String || secondField is String) {
+      return firstField.toString().compareTo(secondField.toString());
+    }
+    if (firstField is Comparable<dynamic> && secondField is Comparable<dynamic>) {
       return firstField.compareTo(secondField);
     }
     return 0;

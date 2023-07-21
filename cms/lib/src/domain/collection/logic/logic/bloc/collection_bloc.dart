@@ -8,32 +8,36 @@ import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../../cms.dart';
-import 'collection_state.dart';
+import 'model_filters_backup.dart';
 
 class CollectionBloc extends Cubit<CollectionState> {
   CollectionBloc({
     required this.modelCollectionBloc,
     required this.pageListProvider,
+    required this.filterStructureBloc,
     required this.eventBus,
   }) : super(CollectionState.empty()) {
     eventBus.onEvent(consumer: 'CollectionBloc', eventId: PageEvents.save, handler: _reloadCollection);
-    eventBus.onEvent(consumer: 'CollectionBloc', eventId: CollectionFilterEvents.filterChanges, handler: _loadFilteredPages);
-    _initTableSearchListener();
+    globalSearchController.addListener(_filterTableByGlobalSearch);
   }
 
   final ICollectionProvider pageListProvider;
   final ModelListBloc modelCollectionBloc;
+  final LocalPageBloc filterStructureBloc;
   final EventBus eventBus;
   final TextEditingController globalSearchController = TextEditingController();
+  bool globalSearchSilenced = false;
 
-  void clear() => emit(CollectionState.empty());
-
+  /// ? This method will be called when we first open a collection through the interface, or switch to a new collection from some other collection
   Future<void> loadCollection(String modelId) async {
-    if (state.modelId == modelId) {
+    if (state.model.id == modelId) {
       return;
     }
-    eventBus.send(eventId: CollectionFilterEvents.collectionLoad, request: modelId);
-    final bool isTheSameCollection = state.modelId == modelId;
+    final Model? model = modelCollectionBloc.tryToFindModelById(modelId);
+    if (model == null) {
+      notFoundModelError(modelId);
+    }
+    final bool isTheSameCollection = state.model.id == modelId;
     if (isTheSameCollection) {
       emit(state.copyWith(
         isLoading: true,
@@ -45,7 +49,7 @@ class CollectionBloc extends Cubit<CollectionState> {
       emit(state.copyWith(
         isLoading: true,
         notFoundAnything: false,
-        modelId: modelId,
+        model: model,
         totalPages: 1,
         currentPage: 1,
         dataRows: [],
@@ -56,6 +60,7 @@ class CollectionBloc extends Cubit<CollectionState> {
         sort: true,
       ));
     }
+    await restoreFiltersBackup();
     await _loadData(modelId: modelId, page: state.currentPage);
   }
 
@@ -64,7 +69,8 @@ class CollectionBloc extends Cubit<CollectionState> {
       isLoading: true,
       currentPage: page,
     ));
-    await _loadData(modelId: state.modelId, page: page);
+    await makeFiltersBackup();
+    await _loadData(modelId: state.model.id, page: page);
   }
 
   Future<void> sort(Field field, Order order) async {
@@ -73,38 +79,106 @@ class CollectionBloc extends Cubit<CollectionState> {
       isLoading: true,
       sort: sort == state.sort ? null : sort,
     ));
-    await _loadData(modelId: state.modelId);
+    await makeFiltersBackup();
+    await _loadData(modelId: state.model.id);
+  }
+
+  Future<void> makeFiltersBackup() async {
+    final ModelFiltersBackup modelFiltersBackup = ModelFiltersBackup(
+      model: state.model,
+      totalPages: state.totalPages,
+      currentPage: state.currentPage,
+      query: state.query,
+      globalSearchQuery: state.globalSearchQuery,
+      sort: state.sort,
+      globalSearchValue: globalSearchController.text,
+    );
+    emit(state.copyWith(
+      filtersBackup: {
+        ...state.filtersBackup,
+        state.model.id: modelFiltersBackup,
+      },
+    ));
+  }
+
+  Future<void> restoreFiltersBackup() async {
+    if (state.filtersBackup.containsKey(state.model.id)) {
+      final ModelFiltersBackup modelFiltersBackup = state.modelFiltersBackup;
+      emit(state.copyWith(
+        query: modelFiltersBackup.query,
+        sort: modelFiltersBackup.sort,
+        currentPage: modelFiltersBackup.currentPage,
+        totalPages: modelFiltersBackup.totalPages,
+        globalSearchQuery: modelFiltersBackup.globalSearchQuery,
+      ));
+      emit(state.copyWithNull(
+        sort: modelFiltersBackup.sort == null,
+        globalSearchQuery: modelFiltersBackup.globalSearchQuery == null,
+        query: modelFiltersBackup.query == null,
+      ));
+      filterStructureBloc.init(state.query);
+      globalSearchSilenced = true;
+      globalSearchController.text = modelFiltersBackup.globalSearchValue;
+      unawaited(Future<void>.delayed(const Duration(milliseconds: 250)).then((value) => globalSearchSilenced = false));
+    } else {
+      filterStructureBloc.init(null);
+    }
+  }
+
+  Future<void> applyFilters() async {
+    final QueryField? queryField = queryFieldFromJson(mapQueryFieldCellJsonToQueryFieldJson(filterStructureBloc.state.data));
+    if (queryField == null) {
+      emit(state.copyWithNull(query: true));
+    } else {
+      emit(state.copyWith(query: queryField));
+    }
+    await makeFiltersBackup();
+    await _loadData(modelId: state.model.id);
+  }
+
+  Future<void> wipeQueryFilters() async {
+    if (state.filtersBackup.containsKey(state.model.id)) {
+      final ModelFiltersBackup modelFiltersBackup = state.modelFiltersBackup;
+      emit(state.copyWith(
+        filtersBackup: {
+          ...state.filtersBackup,
+          state.model.id: modelFiltersBackup.copyWithNull(query: true),
+        },
+      ));
+      emit(state.copyWithNull(query: true));
+    }
   }
 
   Future<void> _reloadCollection(Model model) async => _loadData(modelId: model.id, page: state.currentPage);
 
   Future<void> _filterTableByGlobalSearch() async {
-    if (state.modelId.isEmpty) {
+    if (state.model.id.isEmpty || globalSearchSilenced || state.globalSearchQuery == null && globalSearchController.text.isEmpty) {
       return;
     }
-    final QueryField? globalSearchQuery = _mapSearchQueryToLanguageQuery(
-      globalSearchController.text,
-      modelCollectionBloc.findModelById(state.modelId).flattenFields,
-    );
+    final QueryField? globalSearchQuery = _mapSearchQueryToLanguageQuery(globalSearchController.text, state.model.flattenFields);
     if (globalSearchQuery != state.globalSearchQuery) {
       emit(state.copyWith(isLoading: true));
       Debouncer.run(
         id: '_filterTableByGlobalSearch',
         () async {
-          emit(state.copyWith(globalSearchQuery: globalSearchQuery));
-          await _loadData(modelId: state.modelId);
+          if (globalSearchQuery != null) {
+            emit(state.copyWith(globalSearchQuery: globalSearchQuery));
+          } else {
+            emit(state.copyWithNull(globalSearchQuery: true));
+          }
+          await makeFiltersBackup();
+          await _loadData(modelId: state.model.id);
         },
       );
     }
   }
-
-  void _initTableSearchListener() => globalSearchController.addListener(_filterTableByGlobalSearch);
 
   Future<void> _loadData({
     required String modelId,
     int page = 1,
     int? limit,
   }) async {
+    logg('LOAD DATA: $modelId\n${StackTrace.current}');
     final Model model = modelCollectionBloc.findModelById(modelId);
     emit(state.copyWith(isError: false));
 
@@ -139,14 +213,6 @@ class CollectionBloc extends Cubit<CollectionState> {
       ));
       throw [error, stackTrace].toHumanException('Collection "${model.name}" loading failed!');
     }
-  }
-
-  Future<void> _loadFilteredPages(QueryField? query) async {
-    emit(state.copyWith(
-      isLoading: true,
-      query: query,
-    ));
-    await _loadData(modelId: state.modelId);
   }
 
   QueryField? _mapSearchQueryToLanguageQuery(String query, List<Field> fields) {

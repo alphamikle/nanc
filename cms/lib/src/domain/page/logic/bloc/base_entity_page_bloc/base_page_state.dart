@@ -12,7 +12,7 @@ TextControllerMap _controllerMapFromJson(Json? json) => {};
 Json _controllerMapToJson(TextControllerMap controllerMap) => <String, dynamic>{};
 
 @autoequal
-@CopyWith()
+@CopyWith(copyWithNull: true)
 @JsonSerializable()
 class BaseEntityPageState extends Equatable {
   const BaseEntityPageState({

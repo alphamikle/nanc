@@ -96,3 +96,72 @@ Json mapQueryFieldCellJsonToQueryFieldJson(dynamic rawFieldCellJson) {
   }
   return {};
 }
+
+/*
+{
+  "type": "or",
+  "fields": [
+    {
+      "type": "contains",
+      "field_id": "name",
+      "value": "ru",
+    },
+    {
+      "type": "notContains",
+      "field_id": "name",
+      "value": "al",
+    },
+    {
+      "type": "and",
+      "fields": [
+        {
+          "type": "notContains",
+          "field_id": "name",
+          "value": "bulka",
+        },
+        {
+          "type": "notStartsWith",
+          "field_id": "name",
+          "value": "lalka",
+        },
+        {
+          "type": "or",
+          "fields": [
+            {
+              "type": "startsWith",
+              "field_id": "name",
+              "value": "celka",
+            },
+            {
+              "type": "notEquals",
+              "field_id": "id",
+              "value": "blabla",
+            }
+          ],
+        }
+      ],
+    }
+  ]
+}
+ */
+
+Json mapQueryFieldJsonToQueryFieldCellJson(dynamic rawQueryFieldJson) {
+  final Json queryFieldJson = castToJson(rawQueryFieldJson);
+  final String? type = queryFieldJson[QueryField.typeKey]?.toString();
+  final bool isConditionField = type == QueryFieldType.or.name || type == QueryFieldType.and.name;
+  final bool isValueField = isConditionField == false && QueryFieldType.values.any((QueryFieldType queryFieldType) => queryFieldType.name == type);
+
+  if (isConditionField) {
+    return {
+      QueryConditionField.conditionWrapperKey: {
+        QueryField.typeKey: type,
+        QueryConditionField.fieldsKey: (queryFieldJson[QueryConditionField.fieldsKey] as List<dynamic>).map(mapQueryFieldJsonToQueryFieldCellJson).toList(),
+      },
+    };
+  } else if (isValueField) {
+    return {
+      QueryValueField.valueWrapperKey: queryFieldJson,
+    };
+  }
+  return {};
+}

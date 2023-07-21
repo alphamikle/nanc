@@ -23,12 +23,12 @@ int i = 0;
 
 class _QueryFilterValueFieldCellState extends State<QueryFilterValueFieldCell> with FieldCellHelper<QueryFilterValueField, QueryFilterValueFieldCell> {
   late final LocalPageBloc localPageBloc = LocalPageBloc(draftService: context.read(), onDataChanged: onDataChanged);
-  late final CollectionFilterBloc collectionFilterBloc = context.read();
+  late final CollectionBloc collectionFilterBloc = context.read();
   late final Set<QueryFieldType> supportedFilters = context.read<DataRepository>().supportedFilters;
 
   Json get data => localPageBloc.state.data;
 
-  Model get collectionModel => collectionFilterBloc.state.collectionModel;
+  Model get collectionModel => collectionFilterBloc.state.model;
 
   Field? get selectedField {
     final String? fieldId = localPageBloc.valueForKey(QueryValueField.fieldIdKey);
@@ -204,8 +204,8 @@ class _QueryFilterValueFieldCellState extends State<QueryFilterValueFieldCell> w
     final LocalPageBloc bloc = localPageBloc;
     final String helper = 'Value${needToShowValueField ? ' (required)' : ''}';
 
-    return BlocBuilder<CollectionFilterBloc, CollectionFilterState>(
-      builder: (BuildContext context, CollectionFilterState state) {
+    return BlocBuilder<CollectionBloc, CollectionState>(
+      builder: (BuildContext context, CollectionState state) {
         final bool isChanged = bloc.fieldWasChanged(QueryValueField.valueKey);
         final TextEditingController controller = bloc.controllerFor(QueryValueField.valueKey);
 
@@ -249,8 +249,8 @@ class _QueryFilterValueFieldCellState extends State<QueryFilterValueFieldCell> w
         builder: (BuildContext context) {
           final BasePageBloc bloc = context.read();
 
-          return BlocBuilder<CollectionFilterBloc, CollectionFilterState>(
-            builder: (BuildContext context, CollectionFilterState filterState) {
+          return BlocBuilder<CollectionBloc, CollectionState>(
+            builder: (BuildContext context, CollectionState collectionBloc) {
               return BlocBuilder<BasePageBloc, BaseEntityPageState>(
                 builder: (BuildContext context, BaseEntityPageState state) {
                   return LayoutBuilder(

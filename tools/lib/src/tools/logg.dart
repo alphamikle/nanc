@@ -2,11 +2,13 @@ import 'dart:convert';
 import 'dart:developer' as dev;
 
 import 'package:flutter/foundation.dart';
+import 'package:logger/logger.dart';
 
 import '../types/types.dart';
 
-const String _rowOpener = '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>';
-const String _rowCloser = '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<';
+final Logger _logger = Logger(
+  printer: PrettyPrinter(stackTraceBeginIndex: 2),
+);
 
 // ignore: camel_case_types
 class logg {
@@ -38,10 +40,7 @@ class logg {
       // ignore: avoid_print
       print(output);
     } else {
-      dev.log(
-        output,
-        name: _name,
-      );
+      _logger.i(output);
     }
   }
 
@@ -52,29 +51,16 @@ class logg {
   }
 
   factory logg.wrap(Object? valueToPrint, {String? prefix}) {
-    return logg('''
-$_rowOpener
-${prefix == null ? '' : '$prefix\n'}$valueToPrint
-$_rowCloser
-''');
+    return logg.raw(valueToPrint.toString());
   }
 
   factory logg.rows(Object? v1, [Object? v2, Object? v3, Object? v4, Object? v5]) {
-    return logg('''
-$_rowOpener
-$v1${v2 == null ? '' : '\n$v2'}${v3 == null ? '' : '\n$v3'}${v4 == null ? '' : '\n$v4'}${v5 == null ? '' : '\n$v5'}
-$_rowCloser
-''');
+    return logg([v1, v2, v3, v4, v5].where((element) => element != null).map((e) => e.toString()).join(' '));
+    // return logg('$v1${v2 == null ? '' : '\n$v2'}${v3 == null ? '' : '\n$v3'}${v4 == null ? '' : '\n$v4'}${v5 == null ? '' : '\n$v5'}');
   }
 
   factory logg.error({Object? error, StackTrace? stackTrace, Object? additionalInfo}) {
-    final logger = logg.raw('ERROR');
-    logger('''
-$_rowOpener
-${error == null ? '' : '$error'}${stackTrace == null ? '' : '\n$stackTrace'}${additionalInfo == null ? '' : '\n$additionalInfo'}
-$_rowCloser
-''');
-    return logger;
+    return logg('${error == null ? '' : '$error'}${stackTrace == null ? '' : '\n$stackTrace'}${additionalInfo == null ? '' : '\n$additionalInfo'}');
   }
 
   void call(

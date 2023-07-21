@@ -12,8 +12,8 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../../model/ui/component/fields_form.dart';
 import '../../../page/logic/bloc/base_entity_page_bloc/base_page_bloc.dart';
 import '../../../page/logic/bloc/base_entity_page_bloc/base_page_state.dart';
-import '../../logic/logic/bloc/collection_filter_bloc.dart';
-import '../../logic/logic/bloc/collection_filter_state.dart';
+import '../../logic/logic/bloc/collection_bloc.dart';
+import '../../logic/logic/bloc/collection_state.dart';
 
 class CollectionFilterModal extends StatefulWidget {
   const CollectionFilterModal({
@@ -25,7 +25,7 @@ class CollectionFilterModal extends StatefulWidget {
 }
 
 class _CollectionFilterModalState extends State<CollectionFilterModal> {
-  late final CollectionFilterBloc collectionFilterBloc = context.read();
+  late final CollectionBloc collectionBloc = context.read();
   GlobalKey<FormState> formKey = GlobalKey();
   final Model filterModel = Model(
     name: 'Filter',
@@ -41,39 +41,33 @@ class _CollectionFilterModalState extends State<CollectionFilterModal> {
   );
 
   void apply() {
-    collectionFilterBloc.apply();
+    unawaited(collectionBloc.applyFilters());
     context.navigator.pop();
   }
 
   void close() {
-    unawaited(Future<void>.delayed(const Duration(seconds: 1)).then((value) => collectionFilterBloc.restoreBackup()));
+    unawaited(Future<void>.delayed(const Duration(seconds: 1)).then((value) => collectionBloc.restoreFiltersBackup()));
     context.navigator.pop();
   }
 
   Future<void> reset() async {
     final bool isConfirmed = await confirmAction(context: context, title: 'Are you sure you want to reset all the filters?');
     if (isConfirmed) {
-      collectionFilterBloc.reset();
+      await collectionBloc.wipeQueryFilters();
       formKey = GlobalKey();
     }
   }
 
   @override
-  void initState() {
-    super.initState();
-    collectionFilterBloc.backup();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocProvider<BasePageBloc>.value(
-      value: collectionFilterBloc.filterStructureBloc,
+      value: collectionBloc.filterStructureBloc,
       child: Builder(
         builder: (BuildContext context) {
           return BlocBuilder<BasePageBloc, BaseEntityPageState>(
             builder: (BuildContext context, BaseEntityPageState baseState) {
-              return BlocBuilder<CollectionFilterBloc, CollectionFilterState>(
-                builder: (BuildContext context, CollectionFilterState state) {
+              return BlocBuilder<CollectionBloc, CollectionState>(
+                builder: (BuildContext context, CollectionState state) {
                   return KitModal(
                     onClose: close,
                     header: const KitText(text: 'Collection filter'),

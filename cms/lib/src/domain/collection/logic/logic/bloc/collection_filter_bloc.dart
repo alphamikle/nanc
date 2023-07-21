@@ -8,58 +8,93 @@ import '../../../../field/logic/bloc/local_page_bloc/local_page_bloc.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import 'collection_filter_state.dart';
 
-enum CollectionFilterEvents {
-  filterChanges,
-  collectionLoad,
-  globalSearchTriggered,
-}
-
-class CollectionFilterBloc extends Cubit<CollectionFilterState> {
-  CollectionFilterBloc({
-    required this.eventBus,
+class CollectionFilterBlocOld extends Cubit<CollectionFilterState> {
+  CollectionFilterBlocOld({
     required this.modelCollectionBloc,
     required this.filterStructureBloc,
   }) : super(CollectionFilterState.empty()) {
-    eventBus.onEvent(consumer: 'CollectionFilterBloc', eventId: CollectionFilterEvents.collectionLoad, handler: _setUpModel);
     filterStructureBloc.onDataChanged = _onFilterStructureChanged;
   }
 
-  final EventBus eventBus;
   final ModelListBloc modelCollectionBloc;
   final LocalPageBloc filterStructureBloc;
 
   void apply() {
+    logg.rows('Apply collection filter:', state.collectionModel.id);
     backup();
-    eventBus.send(eventId: CollectionFilterEvents.filterChanges, request: state.query);
   }
 
   void backup() {
-    emit(state.copyWith(
-      backup: filterStructureBloc.state.data,
-    ));
+    logg.rows('Backup collection filter:', state.collectionModel.id);
+    final QueryField? queryField = queryFieldFromJson(mapQueryFieldCellJsonToQueryFieldJson(filterStructureBloc.state.data));
+    if (queryField != null) {
+      emit(state.copyWith(
+        backup: {
+          ...state.backup,
+          state.collectionModel.id: filterStructureBloc.state.data,
+        },
+      ));
+    }
   }
 
-  void restoreBackup() {
+  void restoreBackup({bool runAfterRestore = false}) {
+    logg.rows('Restore backup collection filter:', state.collectionModel.id);
     filterStructureBloc.clear();
-    filterStructureBloc.updateValues(state.backup);
+    filterStructureBloc.updateValues(state.backup[state.collectionModel.id] ?? {});
   }
 
   void reset() {
+    logg.rows('Reset collection filter:', state.collectionModel.id);
     filterStructureBloc.clear();
-    emit(state.copyWith());
+
+    final Json oldBackup = clone(state.backup);
+    oldBackup.remove(state.collectionModel.id);
+
+    final Map<ModelId, Json> typedOldBackup = {};
+    for (final MapEntry(:key, :value) in oldBackup.entries) {
+      if (value is DJson) {
+        typedOldBackup[key] = castToJson(value);
+      }
+    }
+
+    emit(state.copyWith(backup: typedOldBackup));
     apply();
   }
 
-  void _setUpModel(String modelId) {
+  void setUpModel(String modelId) {
+    logg.rows('Setup model collection filter:', modelId);
     final Model? model = modelCollectionBloc.tryToFindModelById(modelId);
     if (model == null) {
       notFoundModelError(modelId);
     }
-    emit(state.copyWith(collectionModel: model));
+    filterStructureBloc.clear();
+    if (state.backup.containsKey(modelId)) {
+      final QueryField? query = queryFieldFromJson(mapQueryFieldCellJsonToQueryFieldJson(state.backup[model.id]!));
+      if (query == null) {
+        emit(state.copyWithNull(query: true));
+        emit(state.copyWith(collectionModel: model));
+      } else {
+        emit(state.copyWith(
+          collectionModel: model,
+          query: query,
+        ));
+        restoreBackup();
+      }
+    } else {
+      emit(state.copyWithNull(query: true));
+      emit(state.copyWith(collectionModel: model));
+    }
   }
 
   void _onFilterStructureChanged(Json filterStructure) {
     final QueryField? query = queryFieldFromJson(mapQueryFieldCellJsonToQueryFieldJson(filterStructure));
-    emit(state.copyWith(query: query));
+    if (query != state.query) {
+      logg.rows('Filter changed in collection filter:', state.collectionModel.id);
+      if (query == null) {
+        emit(state.copyWithNull(query: true));
+      } else {
+        emit(state.copyWith(query: query));
+      }
+    }
   }
 }

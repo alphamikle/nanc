@@ -68,15 +68,11 @@ class Initializer {
       menuBloc: menuBloc,
     );
     final TutorialBloc tutorialBloc = TutorialBloc(dbService: dbService, rootKey: rootKey);
-    final CollectionFilterBloc collectionFilterBloc = CollectionFilterBloc(
-      eventBus: eventBus,
-      modelCollectionBloc: modelCollectionBloc,
-      filterStructureBloc: LocalPageBloc(draftService: draftService),
-    );
     final CollectionBloc collectionBloc = CollectionBloc(
       modelCollectionBloc: modelCollectionBloc,
       pageListProvider: collectionProvider,
       eventBus: eventBus,
+      filterStructureBloc: LocalPageBloc(draftService: draftService),
     );
     final PageBloc pageBloc = PageBloc(
       modelCollectionBloc: modelCollectionBloc,
@@ -124,7 +120,6 @@ class Initializer {
         BlocProvider<ModelPageBloc>.value(value: modelPageBloc),
         BlocProvider<HeaderBloc>.value(value: headerBloc),
         BlocProvider<TutorialBloc>.value(value: tutorialBloc),
-        BlocProvider<CollectionFilterBloc>.value(value: collectionFilterBloc),
         BlocProvider<SettingsBloc>.value(value: settingsBloc),
       ]);
 
