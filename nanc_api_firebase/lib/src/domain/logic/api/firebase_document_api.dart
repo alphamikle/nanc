@@ -6,8 +6,8 @@ import 'package:tools/tools.dart';
 import '../../../../nanc_api_firebase.dart';
 import '../mapper/firestore_value_mapper.dart';
 
-class FirebasePageApi implements IDocumentApi {
-  FirebasePageApi({
+class FirebaseDocumentApi implements IDocumentApi {
+  FirebaseDocumentApi({
     required FirebaseApi api,
     required IFirebaseCollectionApi firebaseCollectionApi,
   })  : _api = api,

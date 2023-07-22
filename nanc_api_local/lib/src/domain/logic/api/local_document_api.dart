@@ -7,8 +7,8 @@ import 'package:tools/tools.dart';
 import '../../../service/db_extension.dart';
 import '../../../service/tools.dart';
 
-class LocalPageApi extends LocalApi implements IDocumentApi {
-  LocalPageApi({
+class LocalDocumentApi extends LocalApi implements IDocumentApi {
+  LocalDocumentApi({
     Map<ModelId, List<Json>> preloadedData = const {},
   }) {
     preloadData(preloadedData);

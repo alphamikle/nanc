@@ -4,8 +4,8 @@ import 'package:nanc_renderer/nanc_renderer.dart';
 
 import '../../click_handler/logic/click_handler.dart';
 import '../../collection/logic/provider/collection_api_interface.dart';
+import '../../document/logic/provider/document_api_interface.dart';
 import '../../model/logic/api/model_api_interface.dart';
-import '../../page/logic/provider/document_api_interface.dart';
 import 'admin_wrapper_interface.dart';
 import 'image_builder_delegate.dart';
 import 'network_config.dart';
@@ -13,7 +13,7 @@ import 'network_config.dart';
 class CmsConfig {
   const CmsConfig({
     required this.collectionApi,
-    required this.pageApi,
+    required this.documentApi,
     required this.modelApi,
     required this.networkConfig,
     required this.imageBuilderDelegate,
@@ -25,7 +25,7 @@ class CmsConfig {
   });
 
   final ICollectionApi collectionApi;
-  final IDocumentApi pageApi;
+  final IDocumentApi documentApi;
   final IModelApi modelApi;
   final NetworkConfig networkConfig;
   final ImageBuilderDelegate? imageBuilderDelegate;

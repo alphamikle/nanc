@@ -53,7 +53,7 @@ class Initializer {
     final DraftService draftService = DraftService(dbService: dbService);
 
     /// ? PROVIDERS
-    final DocumentProvider pageProvider = DocumentProvider(api: config.pageApi);
+    final DocumentProvider pageProvider = DocumentProvider(api: config.documentApi);
     final CollectionProvider collectionProvider = CollectionProvider(api: config.collectionApi);
     final ModelProvider modelProvider = ModelProvider(
       pageProvider: pageProvider,

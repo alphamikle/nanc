@@ -6,8 +6,8 @@ import 'package:tools/tools.dart';
 
 import 'supabase_api.dart';
 
-class SupabasePageApi implements IDocumentApi {
-  SupabasePageApi({
+class SupabaseDocumentApi implements IDocumentApi {
+  SupabaseDocumentApi({
     required SupabaseApi api,
   }) : _api = api;
 
