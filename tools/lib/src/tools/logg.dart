@@ -117,3 +117,7 @@ Json? _tryToJson(dynamic value) {
     return null;
   }
 }
+
+void logError(Object? message, {Object? error, StackTrace? stackTrace}) {
+  _logger.e(message, error, stackTrace);
+}

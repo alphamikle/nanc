@@ -73,6 +73,7 @@ class _AppState extends State<App> {
   }
 
   Future<void> showError(HumanException exception) async {
+    logError(exception.humanMessage, error: exception, stackTrace: exception.stackTrace);
     await doSomethingWhen(action: () {}, condition: () => rootKey.currentContext != null && mounted, interval: const Duration(milliseconds: 250), maxTries: 50);
     if (rootKey.currentContext != null) {
       if (mounted) {

@@ -135,12 +135,16 @@ class CollectionBloc extends Cubit<CollectionState> {
 
   Future<void> applyFilters() async {
     final QueryField? queryField = queryFieldFromJson(mapQueryFieldCellJsonToQueryFieldJson(filterStructureBloc.state.data));
+    if (queryField == state.query) {
+      return;
+    }
     if (queryField == null) {
       emit(state.copyWithNull(query: true));
     } else {
       emit(state.copyWith(query: queryField));
     }
     await makeFiltersBackup();
+    emit(state.copyWith(isLoading: true));
     await _loadData(modelId: state.model.id);
   }
 
@@ -154,6 +158,8 @@ class CollectionBloc extends Cubit<CollectionState> {
         },
       ));
       emit(state.copyWithNull(query: true));
+      filterStructureBloc.init(null);
+      unawaited(applyFilters());
     }
   }
 

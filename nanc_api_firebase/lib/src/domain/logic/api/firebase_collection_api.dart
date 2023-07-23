@@ -1,4 +1,5 @@
 import 'package:config/config.dart';
+import 'package:fields/fields.dart';
 import 'package:googleapis/firestore/v1.dart' as fs;
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -10,9 +11,13 @@ import 'firebase_collection_api_interface.dart';
 class FirebaseCollectionApi implements IFirebaseCollectionApi {
   FirebaseCollectionApi({
     required FirebaseApi api,
+    this.cacheTTL = Duration.zero,
   }) : _api = api;
 
+  final Duration cacheTTL;
   final FirebaseApi _api;
+  final Map<String, CollectionResponseDto> _cache = {};
+  final Map<String, DateTime> _cacheTimestamp = {};
 
   final Map<String, int> _documentsCount = {};
 
@@ -34,6 +39,15 @@ class FirebaseCollectionApi implements IFirebaseCollectionApi {
 
   @override
   Future<CollectionResponseDto> fetchPageList(Model model, List<String> subset, QueryField query, ParamsDto params) async {
+    final String requestKey = '${model.toString()}:${subset.toString()}:${query.toString()}:${params.toString()}';
+    if (cacheTTL != Duration.zero) {
+      final DateTime? timestamp = _cacheTimestamp[requestKey];
+      await _checkCache();
+      if (timestamp != null && timestamp.add(cacheTTL).isBefore(DateTime.now()) && _cache[requestKey] is CollectionResponseDto) {
+        return _cache[requestKey]!;
+      }
+    }
+
     final fs.RunQueryRequest queryRequest = fs.RunQueryRequest();
     final fs.StructuredQuery structuredQuery = fs.StructuredQuery();
     structuredQuery.from = [
@@ -73,11 +87,16 @@ class FirebaseCollectionApi implements IFirebaseCollectionApi {
       return fetchPageList(model, subset, query, params.copyWith(page: currentPage));
     }
 
-    return CollectionResponseDto(
+    final CollectionResponseDto response = CollectionResponseDto(
       page: currentPage,
       totalPages: totalPages,
       data: data,
     );
+    if (cacheTTL != Duration.zero) {
+      _cache[requestKey] = response;
+      _cacheTimestamp[requestKey] = DateTime.now();
+    }
+    return response;
   }
 
   fs.Filter _processQueryField(fs.Filter filter, QueryField query) {
@@ -106,6 +125,13 @@ class FirebaseCollectionApi implements IFirebaseCollectionApi {
   }
 
   fs.Filter _processValueField(fs.Filter filter, QueryValueField query) {
+    if (query.type.isCommonType) {
+      final fs.UnaryFilter fieldFilter = fs.UnaryFilter();
+      fieldFilter.field = fs.FieldReference(fieldPath: query.fieldId);
+      fieldFilter.op = _processFieldType(query.type, query.value);
+      filter.unaryFilter = fieldFilter;
+      return filter;
+    }
     final fs.FieldFilter fieldFilter = fs.FieldFilter();
     fieldFilter.field = fs.FieldReference(fieldPath: query.fieldId);
     fieldFilter.op = _processFieldType(query.type, query.value);
@@ -124,7 +150,9 @@ class FirebaseCollectionApi implements IFirebaseCollectionApi {
       QueryFieldType.notStartsWith => 'OPERATOR_UNSPECIFIED',
       QueryFieldType.endsWith => 'OPERATOR_UNSPECIFIED',
       QueryFieldType.notEndsWith => 'OPERATOR_UNSPECIFIED',
-      QueryFieldType.contains => 'OPERATOR_UNSPECIFIED',
+
+      /// ? Used for global search as EQUALS
+      QueryFieldType.contains => 'EQUAL',
       QueryFieldType.notContains => 'OPERATOR_UNSPECIFIED',
       QueryFieldType.empty => 'EQUAL',
       QueryFieldType.notEmpty => 'NOT_EQUAL',
@@ -150,7 +178,9 @@ class FirebaseCollectionApi implements IFirebaseCollectionApi {
       QueryFieldType.notStartsWith => true,
       QueryFieldType.endsWith => true,
       QueryFieldType.notEndsWith => true,
-      QueryFieldType.contains => true,
+
+      /// ? Used for global search as EQUALS
+      QueryFieldType.contains => false,
       QueryFieldType.notContains => true,
       QueryFieldType.empty => false,
       QueryFieldType.notEmpty => false,
@@ -168,5 +198,29 @@ class FirebaseCollectionApi implements IFirebaseCollectionApi {
       return null;
     }
     return toFirestoreValue(value);
+  }
+
+  Future<void> _checkCache() async {
+    final List<String> exceededCacheKeys = [];
+    const int syncChunkSize = 100;
+    int i = 0;
+    for (final MapEntry(:key, :value) in _cacheTimestamp.entries) {
+      i++;
+      if (i % syncChunkSize == 0) {
+        await wait();
+      }
+      if (value.add(cacheTTL).isAfter(DateTime.now())) {
+        exceededCacheKeys.add(key);
+      }
+    }
+
+    for (final String key in exceededCacheKeys) {
+      i++;
+      if (i % syncChunkSize == 0) {
+        await wait();
+      }
+      _cache.remove(key);
+      _cacheTimestamp.remove(key);
+    }
   }
 }
