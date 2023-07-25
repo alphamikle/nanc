@@ -7,13 +7,20 @@ TagArgument colorArg([String name = 'color']) => TagArgument(
       {
         '#D5FFFFFF',
         'DA9745',
+        'red',
+        'armadillo',
       },
       '''
-Color value should be a hex representation of the color in the next possible forms:
+Color value can be a hex or human-readable representation of the color in the next possible forms:
 * #FFAADD - HEX value with the "#" prefix
 * FFAADD - HEX value without "#" prefix
 * #A5FFAADD - 8-byte HEX value with the opacity starting numbers "A5" and "#" prefix
 * A5FFAADD - 8-byte HEX value with the opacity starting numbers "A5" and without "#" prefix
+* red
+* blue
+* etc.
+
+Full list of human-readable color names can be found [here](https://github.com/alphamikle/nanc/blob/master/tools/lib/src/tools/named_colors.dart).
 ''',
     );
 

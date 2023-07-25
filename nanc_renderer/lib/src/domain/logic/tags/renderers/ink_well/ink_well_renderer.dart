@@ -68,7 +68,6 @@ The [InkWell](material/InkWell-class.html) widget must have a [Material](materia
         highlightColor: arguments.highlightColor,
         splashColor: arguments.splashColor,
         hoverColor: arguments.hoverColor,
-        // ignore: use_build_context_synchronously
         onTap: handleClick(context, arguments.onPressed),
         child: compactWidgets(extractor.children),
       );

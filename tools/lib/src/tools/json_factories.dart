@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 
 import 'color_tools.dart';
+import 'named_colors.dart';
 
 double? nullableDoubleFromJson(dynamic value) => double.tryParse((value ?? '').toString());
 
@@ -14,6 +15,9 @@ Null toNullJson(dynamic value) => null;
 Color? nullableColorFromJson(String? color) {
   if (color == null) {
     return null;
+  }
+  if (colorsByNames.containsKey(color)) {
+    return colorsByNames[color]!;
   }
   final Color? tempColor = colorFromHex(color);
   if (tempColor != null) {

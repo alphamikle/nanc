@@ -6,6 +6,6 @@ VoidCallback? handleClick(BuildContext context, String? event) {
   if (event == null) {
     return null;
   }
-  // ignore: discarded_futures
-  return () => ClickDelegate.of(context).onPressed(context, event);
+  final ClickDelegate delegate = ClickDelegate.of(context);
+  return () async => delegate.onPressed(context, event);
 }

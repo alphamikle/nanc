@@ -31,6 +31,7 @@ import 'renderers/template/template_renderer.dart';
 import 'renderers/text/text_renderer.dart';
 import 'renderers/text_button/text_button_renderer.dart';
 import 'renderers/tooltip/tooltip_renderer.dart';
+import 'renderers/visibility_notifier/visibility_notifier_renderer.dart';
 import 'tag_renderer.dart';
 import 'types/types.dart';
 
@@ -70,5 +71,6 @@ abstract class TagsCollection {
     aspectRatioRenderer(),
     textButtonRenderer(),
     listViewRenderer(),
+    visibilityNotifierRenderer(),
   ];
 }
