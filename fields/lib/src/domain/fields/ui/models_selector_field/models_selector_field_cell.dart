@@ -99,12 +99,12 @@ class _ModelsSelectorFieldCellState extends State<ModelsSelectorFieldCell> with 
   void initState() {
     super.initState();
     unawaited(preload());
-    eventBus.onEvent(consumer: eventBusId, eventId: PageEvents.save, handler: saveEventHandler);
+    eventBus.onEvent(consumer: eventBusId, eventId: DocumentEvent.documentChanged, handler: saveEventHandler);
   }
 
   @override
   void dispose() {
-    eventBus.unsubscribeFromEvent(consumer: eventBusId, eventId: PageEvents.save);
+    eventBus.unsubscribeFromEvent(consumer: eventBusId, eventId: DocumentEvent.documentChanged);
     super.dispose();
   }
 

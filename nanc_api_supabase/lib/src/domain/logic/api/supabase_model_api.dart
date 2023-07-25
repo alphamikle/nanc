@@ -21,6 +21,7 @@ class SupabaseModelApi implements IModelApi {
   final SupabaseApi _api;
   final SupabaseModelApiConfig config;
 
+  bool get _doNothingMode => config.doNothingMode;
   String get _funcName => config.executorFunctionName;
   String get _sqlQueryName => config.executorSqlArgumentName;
   String get _returnableName => config.executorReturnableArgumentName;
@@ -29,6 +30,9 @@ class SupabaseModelApi implements IModelApi {
 
   @override
   Future<void> createModelRelatedTable(Model newModel, Model? oldModel) async {
+    if (_doNothingMode) {
+      return;
+    }
     final String table = newModel.id;
     final List<String> createCommands = [];
     final List<String> alterCommands = [];

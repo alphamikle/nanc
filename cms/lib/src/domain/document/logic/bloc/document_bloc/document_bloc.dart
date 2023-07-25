@@ -13,8 +13,8 @@ import '../../provider/document_provider.dart';
 import '../base_document_bloc/base_document_bloc.dart';
 import 'document_state.dart';
 
-enum PageEvents {
-  save,
+enum DocumentEvent {
+  documentChanged,
 }
 
 class DocumentBloc extends BaseDocumentBloc<DocumentState> {
@@ -83,7 +83,7 @@ class DocumentBloc extends BaseDocumentBloc<DocumentState> {
         controllerMap: _remapDocumentDataToControllerMap(model.id, savedData),
         isSaving: false,
       ));
-      eventBus.send(eventId: PageEvents.save, request: model);
+      eventBus.send(eventId: DocumentEvent.documentChanged, request: model);
     } catch (error, stackTrace) {
       emit(state.copyWith(isSaving: false));
       throw [error, stackTrace].toHumanException('Document saving failed!');
@@ -110,7 +110,7 @@ class DocumentBloc extends BaseDocumentBloc<DocumentState> {
         thirdTableData: {},
         isSaving: false,
       ));
-      eventBus.send(eventId: PageEvents.save, request: model);
+      eventBus.send(eventId: DocumentEvent.documentChanged, request: model);
     } catch (error) {
       emit(state.copyWith(isSaving: false));
       throw error.toHumanException('Document creation failed!');
@@ -135,6 +135,7 @@ class DocumentBloc extends BaseDocumentBloc<DocumentState> {
       modelId = null;
       documentId = null;
       emit(state.copyWith(isDeleting: false));
+      eventBus.send(eventId: DocumentEvent.documentChanged, request: model);
     } catch (error) {
       emit(state.copyWith(isDeleting: false));
       throw error.toHumanException('Page deletion failed!');

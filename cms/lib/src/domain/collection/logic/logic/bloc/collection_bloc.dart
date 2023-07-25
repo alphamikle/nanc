@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:config/config.dart';
@@ -22,7 +23,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     required this.filterStructureBloc,
     required this.eventBus,
   }) : super(CollectionState.empty()) {
-    eventBus.onEvent(consumer: 'CollectionBloc', eventId: PageEvents.save, handler: _reloadCollection);
+    eventBus.onEvent(consumer: 'CollectionBloc', eventId: DocumentEvent.documentChanged, handler: _reloadCollection);
     globalSearchController.addListener(_filterTableByGlobalSearch);
   }
 
@@ -163,7 +164,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     }
   }
 
-  Future<void> _reloadCollection(Model model) async => _loadData(modelId: model.id, page: state.currentPage);
+  Future<void> _reloadCollection(Model model) async => _loadData(modelId: model.id, page: max(state.currentPage, 1));
 
   Future<void> _filterTableByGlobalSearch() async {
     if (state.model.id.isEmpty || globalSearchSilenced || (state.globalSearchQuery == null && globalSearchController.text.isEmpty)) {
@@ -192,7 +193,6 @@ class CollectionBloc extends Cubit<CollectionState> {
     int page = 1,
     int? limit,
   }) async {
-    logg('LOAD DATA: $modelId\n${StackTrace.current}');
     final Model model = modelCollectionBloc.findModelById(modelId);
     emit(state.copyWith(isError: false));
 

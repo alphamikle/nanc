@@ -184,12 +184,12 @@ class _SelectorFieldCellState extends State<SelectorFieldCell> with FieldCellHel
   void initState() {
     super.initState();
     unawaited(preload());
-    eventBus.onEvent(consumer: eventBusId, eventId: PageEvents.save, handler: saveEventHandler);
+    eventBus.onEvent(consumer: eventBusId, eventId: DocumentEvent.documentChanged, handler: saveEventHandler);
   }
 
   @override
   void dispose() {
-    eventBus.unsubscribeFromEvent(consumer: eventBusId, eventId: PageEvents.save);
+    eventBus.unsubscribeFromEvent(consumer: eventBusId, eventId: DocumentEvent.documentChanged);
     unawaited(isLoadingFullPageData.close());
     super.dispose();
   }

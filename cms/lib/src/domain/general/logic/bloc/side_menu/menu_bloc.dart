@@ -83,7 +83,7 @@ class MenuBloc extends Cubit<MenuState> {
 
   void selectItem(String selectedItemUrl) {
     final Endpoint? endpoint = Endpoint.tryFromPath(selectedItemUrl);
-    late final MenuElement? targetMenuElement;
+    MenuElement? targetMenuElement;
     if (endpoint != null) {
       targetMenuElement = state.elements.firstWhereOrNull((MenuElement menuElement) {
         if (menuElement.url == selectedItemUrl) {

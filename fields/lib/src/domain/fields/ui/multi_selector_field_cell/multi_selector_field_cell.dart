@@ -248,12 +248,12 @@ class _MultiSelectorFieldCellState extends State<MultiSelectorFieldCell>
   @override
   void initState() {
     super.initState();
-    eventBus.onEvent(consumer: eventBusId, eventId: PageEvents.save, handler: saveEventHandler);
+    eventBus.onEvent(consumer: eventBusId, eventId: DocumentEvent.documentChanged, handler: saveEventHandler);
   }
 
   @override
   void dispose() {
-    eventBus.unsubscribeFromEvent(consumer: eventBusId, eventId: PageEvents.save);
+    eventBus.unsubscribeFromEvent(consumer: eventBusId, eventId: DocumentEvent.documentChanged);
     super.dispose();
   }
 
