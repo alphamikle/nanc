@@ -1,5 +1,5 @@
-import '../../renderers/property/mapper/properties_list.dart';
 import '../../tag_description.dart';
+import '../../tools/properties_names.dart';
 import '../arguments/decoration_arguments.dart';
 import 'border.dart';
 import 'border_radius.dart';

@@ -8,8 +8,8 @@ import '../../rich_renderer.dart';
 import '../../tag_description.dart';
 import '../../tag_renderer.dart';
 import '../../tools/enrich_nodes.dart';
+import '../../tools/properties_extractor.dart';
 import '../../tools/widgets_compactor.dart';
-import '../property/mapper/properties_extractor.dart';
 import 'component_arguments.dart';
 
 const String kHashAttribute = r'_$componentDataHash';

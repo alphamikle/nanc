@@ -3,12 +3,12 @@ import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 
 import '../../documentation/documentation.dart';
+import '../../properties/padding/padding_arguments.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';
 import '../../tag_renderer.dart';
+import '../../tools/properties_extractor.dart';
 import '../../tools/widgets_compactor.dart';
-import '../property/mapper/properties_extractor.dart';
-import '../property/properties/padding/padding_arguments.dart';
 
 TagRenderer paddingRenderer() {
   return TagRenderer(

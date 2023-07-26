@@ -8,7 +8,7 @@ import '../../logic/for_storage.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';
 import '../../tag_renderer.dart';
-import '../property/mapper/properties_extractor.dart';
+import '../../tools/properties_extractor.dart';
 import 'for_arguments.dart';
 import 'for_values_parser.dart';
 import 'for_widget.dart';

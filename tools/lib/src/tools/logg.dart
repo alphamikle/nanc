@@ -121,3 +121,7 @@ Json? _tryToJson(dynamic value) {
 void logError(Object? message, {Object? error, StackTrace? stackTrace}) {
   _logger.e(message, error, stackTrace);
 }
+
+void logWarning(Object? message, {Object? error, StackTrace? stackTrace}) {
+  _logger.w(message, error, stackTrace);
+}

@@ -1,3 +1,14 @@
+import 'properties/alignment/alignment_property.dart';
+import 'properties/border/border_property.dart';
+import 'properties/border_radius/border_radius_property.dart';
+import 'properties/button_style/button_style_property.dart';
+import 'properties/color/color_property.dart';
+import 'properties/decoration/decoration_property.dart';
+import 'properties/double/double_property.dart';
+import 'properties/gradient/gradient_property.dart';
+import 'properties/padding/padding_property.dart';
+import 'properties/shadow/shadow_property.dart';
+import 'properties/text_style/text_style_property.dart';
 import 'renderers/align/align_renderer.dart';
 import 'renderers/aspect_ratio/aspect_ratio_renderer.dart';
 import 'renderers/center/center_renderer.dart';
@@ -21,7 +32,6 @@ import 'renderers/padding/padding_renderer.dart';
 import 'renderers/physical_model/physical_model_renderer.dart';
 import 'renderers/placeholder/placeholder_renderer.dart';
 import 'renderers/positioned/positioned_renderer.dart';
-import 'renderers/property/property_renderer.dart';
 import 'renderers/row/row_renderer.dart';
 import 'renderers/safe_area/safe_area_renderer.dart';
 import 'renderers/scale/scale_renderer.dart';
@@ -33,11 +43,28 @@ import 'renderers/text_button/text_button_renderer.dart';
 import 'renderers/tooltip/tooltip_renderer.dart';
 import 'renderers/visibility_notifier/visibility_notifier_renderer.dart';
 import 'tag_renderer.dart';
-import 'types/types.dart';
+import 'tools/properties_names.dart';
 
 abstract class TagsCollection {
   static List<TagRenderer> renderers = [
-    ...propertiesRenderers().map((TagRendererFactory factory) => factory()),
+    /// ? PROPERTIES
+    buttonStyleProperty(buttonStyle),
+    alignmentProperty(alignment),
+    alignmentProperty(begin),
+    alignmentProperty(end),
+    borderProperty(border),
+    paddingProperty(padding),
+    paddingProperty(margin),
+    paddingProperty(minimum),
+    borderRadiusProperty(borderRadius),
+    colorProperty(color),
+    decorationProperty(decoration),
+    doubleProperty(stop),
+    gradientProperty(gradient),
+    shadowProperty(shadow),
+    textStyleProperty(textStyle),
+
+    /// ? WIDGETS
     paddingRenderer(),
     rowRenderer(),
     placeholderRenderer(),
@@ -59,7 +86,6 @@ abstract class TagsCollection {
     componentRenderer(),
     materialRenderer(),
     sizedBoxRenderer(),
-    // codeRenderer(),
     safeAreaRenderer(),
     alignRenderer(),
     fractionalTranslationRenderer(),

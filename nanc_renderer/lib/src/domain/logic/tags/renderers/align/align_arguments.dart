@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
-import '../property/properties/alignment/alignment_arguments.dart';
+import '../../properties/alignment/alignment_arguments.dart';
 
 part 'align_arguments.g.dart';
 

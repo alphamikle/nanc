@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import '../properties/alignment/alignment_arguments.dart';
 import '../renderers/fade_in/curve_enum.dart';
 import '../renderers/list_view/list_view_arguments.dart';
-import '../renderers/property/properties/alignment/alignment_arguments.dart';
-import '../renderers/property/properties/text_style/text_decoration_enum.dart';
+import '../properties/text_style/text_decoration_enum.dart';
 
 part 'documentation_types.g.dart';
 

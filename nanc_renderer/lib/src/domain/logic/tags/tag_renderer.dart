@@ -12,7 +12,7 @@ enum TagType {
 }
 
 /// ? Entity, which configures an any custom tag rendering logic
-class TagRenderer {
+class TagRenderer<T extends Widget> {
   const TagRenderer({
     required this.icon,
     required this.tagType,
@@ -22,7 +22,7 @@ class TagRenderer {
     required this.description,
   });
 
-  factory TagRenderer.empty() => TagRenderer(
+  static TagRenderer empty() => TagRenderer<Widget>(
         icon: IconPack.mdi_help,
         tagType: TagType.widget,
         tag: '',
@@ -36,5 +36,5 @@ class TagRenderer {
   final String tag;
   final String example;
   final TagDescription description;
-  final MarkdownWidgetBuilder builder;
+  final NuiBuilder<T> builder;
 }
