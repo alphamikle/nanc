@@ -16,9 +16,8 @@ import 'text_button_arguments.dart';
 TagRenderer textButtonRenderer() {
   return TagRenderer(
     icon: IconPack.flu_text_case_lowercase_filled,
-    // TODO(alphamikle): Here is a some problem with that tag. Maybe it is forbidden???
-    tag: r'textButton',
-
+    tagType: TagType.widget,
+    tag: 'textButton',
     description: TagDescription(
       description: '''
 # [TextButton](https://api.flutter.dev/flutter/material/TextButton-class.html)

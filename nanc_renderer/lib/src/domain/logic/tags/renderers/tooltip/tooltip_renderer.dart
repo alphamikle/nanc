@@ -14,6 +14,7 @@ import 'tooltip_arguments.dart';
 TagRenderer tooltipRenderer() {
   return TagRenderer(
     icon: IconPack.flu_tooltip_quote_filled,
+    tagType: TagType.widget,
     tag: 'tooltip',
     description: TagDescription(
       description: '''

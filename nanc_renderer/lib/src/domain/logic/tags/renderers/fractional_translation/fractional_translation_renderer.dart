@@ -13,6 +13,7 @@ import 'fractional_translation_arguments.dart';
 TagRenderer fractionalTranslationRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_triangle,
+    tagType: TagType.widget,
     tag: 'fractionalTranslation',
     description: TagDescription(
       description: '''

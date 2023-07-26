@@ -10,6 +10,7 @@ import 'visibility_notifier_arguments.dart';
 TagRenderer visibilityNotifierRenderer() {
   return TagRenderer(
     icon: IconPack.flu_eye_filled,
+    tagType: TagType.widget,
     tag: 'visibilityNotifier',
     description: TagDescription(
       description: '''

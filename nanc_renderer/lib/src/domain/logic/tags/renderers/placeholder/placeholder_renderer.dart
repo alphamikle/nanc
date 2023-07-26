@@ -11,6 +11,7 @@ import 'placeholder_arguments.dart';
 TagRenderer placeholderRenderer() {
   return TagRenderer(
     icon: IconPack.flu_border_all_regular,
+    tagType: TagType.widget,
     tag: 'placeholder',
     description: TagDescription(
       description: '''

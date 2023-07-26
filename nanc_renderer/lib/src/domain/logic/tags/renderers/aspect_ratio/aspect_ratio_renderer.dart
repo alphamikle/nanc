@@ -13,6 +13,7 @@ import 'aspect_ratio_arguments.dart';
 TagRenderer aspectRatioRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_aspect_ratio,
+    tagType: TagType.widget,
     tag: 'aspectRatio',
     description: TagDescription(
       description: '''

@@ -26,6 +26,7 @@ Containers with no children try to be as big as possible unless the incoming con
 TagRenderer containerRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_texture_box,
+    tagType: TagType.widget,
     tag: 'container',
     description: TagDescription(
       description: _description,

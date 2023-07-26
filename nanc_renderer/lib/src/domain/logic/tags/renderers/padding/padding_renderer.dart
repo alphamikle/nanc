@@ -13,6 +13,7 @@ import '../property/properties/padding/padding_arguments.dart';
 TagRenderer paddingRenderer() {
   return TagRenderer(
     icon: IconPack.flu_padding_right_regular,
+    tagType: TagType.widget,
     tag: 'padding',
     description: TagDescription(
       description: '''

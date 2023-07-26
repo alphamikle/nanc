@@ -14,6 +14,7 @@ import 'safe_area_arguments.dart';
 TagRenderer safeAreaRenderer() {
   return TagRenderer(
     icon: IconPack.flu_resize_large_regular,
+    tagType: TagType.widget,
     tag: 'safeArea',
     description: TagDescription(
       description: '''

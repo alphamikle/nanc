@@ -25,6 +25,7 @@ Also, component gives you a possibility to substitute values from the template. 
 TagRenderer componentRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_widgets_outline,
+    tagType: TagType.other,
     tag: 'component',
     // TODO(alphamikle): Components should be of both types - single line and multiline tags
 

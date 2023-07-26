@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
+
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';
 import '../../tag_renderer.dart';
@@ -8,6 +9,7 @@ import '../../tag_renderer.dart';
 TagRenderer unknownRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_timeline_question_outline,
+    tagType: TagType.widget,
     tag: 'unknown',
     description: const TagDescription.empty(),
     example: '''

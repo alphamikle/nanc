@@ -22,6 +22,7 @@ final RegExp cycleRegExp = RegExp(r'cycle\.(?<indexOrValue>[-:\w]+)\.?(?<restOfT
 TagRenderer forRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_reiterate,
+    tagType: TagType.other,
     tag: 'for',
     description: TagDescription(
       description: '''

@@ -15,6 +15,7 @@ import 'ink_well_arguments.dart';
 TagRenderer inkWellRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_button_pointer,
+    tagType: TagType.widget,
     tag: 'inkWell',
     description: TagDescription(
       description: '''

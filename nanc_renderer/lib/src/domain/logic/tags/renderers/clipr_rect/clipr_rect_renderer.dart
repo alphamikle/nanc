@@ -21,6 +21,7 @@ By default, [ClipRRect](widgets/ClipRRect-class.html) uses its own bounds as the
 TagRenderer clipRRectRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_scissors_cutting,
+    tagType: TagType.widget,
     tag: 'clipRRect',
     description: TagDescription(
       description: _description,

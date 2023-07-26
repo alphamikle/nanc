@@ -14,6 +14,7 @@ import 'physical_model_arguments.dart';
 TagRenderer physicalModelRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_box_shadow,
+    tagType: TagType.widget,
     tag: 'physicalModel',
     description: TagDescription(
       description: '''

@@ -14,6 +14,7 @@ import 'material_arguments.dart';
 TagRenderer materialRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_material_design,
+    tagType: TagType.widget,
     tag: 'material',
     description: TagDescription(
       description: '''

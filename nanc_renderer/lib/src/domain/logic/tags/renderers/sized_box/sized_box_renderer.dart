@@ -13,6 +13,7 @@ import 'sized_box_arguments.dart';
 TagRenderer sizedBoxRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_move_resize,
+    tagType: TagType.widget,
     tag: 'sizedBox',
     description: TagDescription(
       description: '''

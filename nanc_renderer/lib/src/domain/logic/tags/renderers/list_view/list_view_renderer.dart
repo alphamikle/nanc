@@ -12,6 +12,7 @@ import 'list_view_arguments.dart';
 TagRenderer listViewRenderer() {
   return TagRenderer(
     icon: IconPack.flu_dual_screen_vertical_scroll_regular,
+    tagType: TagType.widget,
     tag: 'listView',
     description: TagDescription(
       description: '''

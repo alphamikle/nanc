@@ -13,6 +13,7 @@ import 'align_arguments.dart';
 TagRenderer alignRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_align_vertical_center,
+    tagType: TagType.widget,
     tag: 'align',
     description: TagDescription(
       description: '''

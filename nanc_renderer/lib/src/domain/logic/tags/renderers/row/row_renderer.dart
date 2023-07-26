@@ -12,6 +12,7 @@ import 'row_arguments.dart';
 TagRenderer rowRenderer() {
   return TagRenderer(
     icon: IconPack.flu_table_insert_row_regular,
+    tagType: TagType.widget,
     tag: 'row',
     description: TagDescription(
       description: '''

@@ -13,6 +13,7 @@ import 'scale_arguments.dart';
 TagRenderer scaleRenderer() {
   return TagRenderer(
     icon: IconPack.flu_scale_fill_filled,
+    tagType: TagType.widget,
     tag: 'scale',
     description: TagDescription(
       description: '''

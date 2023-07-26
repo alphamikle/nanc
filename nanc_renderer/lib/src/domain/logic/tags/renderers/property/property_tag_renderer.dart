@@ -7,5 +7,5 @@ class PropertyTagRenderer extends TagRenderer {
     required super.tag,
     required super.example,
     required super.builder,
-  }) : super(description: const TagDescription.empty());
+  }) : super(description: const TagDescription.empty(), tagType: TagType.property);
 }

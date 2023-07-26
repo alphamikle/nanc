@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
+
 import 'tag_description.dart';
 import 'types/types.dart';
+
+enum TagType {
+  widget,
+  sliver,
+  property,
+  other,
+}
 
 /// ? Entity, which configures an any custom tag rendering logic
 class TagRenderer {
   const TagRenderer({
     required this.icon,
+    required this.tagType,
     required this.tag,
     required this.example,
     required this.builder,
@@ -15,6 +24,7 @@ class TagRenderer {
 
   factory TagRenderer.empty() => TagRenderer(
         icon: IconPack.mdi_help,
+        tagType: TagType.widget,
         tag: '',
         example: '',
         builder: ($1, $2, $3) => const SizedBox(),
@@ -22,6 +32,7 @@ class TagRenderer {
       );
 
   final IconData icon;
+  final TagType tagType;
   final String tag;
   final String example;
   final TagDescription description;

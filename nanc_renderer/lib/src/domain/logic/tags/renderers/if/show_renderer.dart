@@ -13,6 +13,7 @@ import 'show_arguments.dart';
 TagRenderer showRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_directions_fork,
+    tagType: TagType.widget,
     tag: 'show',
     description: TagDescription(
       description: '''

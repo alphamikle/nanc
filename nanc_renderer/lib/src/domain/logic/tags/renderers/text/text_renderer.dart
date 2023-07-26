@@ -14,6 +14,7 @@ import 'text_arguments.dart';
 TagRenderer textRenderer() {
   return TagRenderer(
     icon: IconPack.flu_text_field_regular,
+    tagType: TagType.widget,
     tag: 'text',
     description: TagDescription(
       description: '''

@@ -21,6 +21,7 @@ This widget will be as big as possible if its dimensions are constrained and [wi
 TagRenderer centerRenderer() {
   return TagRenderer(
     icon: IconPack.flu_center_vertical_regular,
+    tagType: TagType.widget,
     tag: 'center',
     description: TagDescription(
       description: _description,

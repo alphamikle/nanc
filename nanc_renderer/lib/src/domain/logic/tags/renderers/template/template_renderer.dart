@@ -16,6 +16,7 @@ final RegExp _templateRegExp = RegExp(r'template\.(?<valueId>\w+)');
 TagRenderer templateRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_content_copy,
+    tagType: TagType.other,
     tag: 'template',
     description: TagDescription(
       description: '''

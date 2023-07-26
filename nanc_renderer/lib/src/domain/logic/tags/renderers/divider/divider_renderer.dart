@@ -11,6 +11,7 @@ import 'divider_arguments.dart';
 TagRenderer dividerRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_diving_scuba_flag,
+    tagType: TagType.widget,
     tag: 'divider',
     description: TagDescription(
       description: '''

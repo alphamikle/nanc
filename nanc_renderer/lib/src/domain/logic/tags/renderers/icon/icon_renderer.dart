@@ -11,6 +11,7 @@ import 'icon_arguments.dart';
 TagRenderer iconRenderer() {
   return TagRenderer(
     icon: IconPack.flu_paint_brush_regular,
+    tagType: TagType.widget,
     tag: 'icon',
     description: TagDescription(
       description: '''

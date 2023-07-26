@@ -14,6 +14,7 @@ import 'smart_image.dart';
 TagRenderer imageRenderer() {
   return TagRenderer(
     icon: IconPack.flu_image_filled,
+    tagType: TagType.widget,
     tag: 'image',
     description: TagDescription(
       description: '''

@@ -13,6 +13,7 @@ import 'expanded_arguments.dart';
 TagRenderer expandedRenderer() {
   return TagRenderer(
     icon: IconPack.flu_arrow_autofit_content_regular,
+    tagType: TagType.widget,
     tag: 'expanded',
     description: TagDescription(
       description: '''

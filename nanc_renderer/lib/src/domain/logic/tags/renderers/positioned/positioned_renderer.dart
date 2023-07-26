@@ -13,6 +13,7 @@ import 'positioned_arguments.dart';
 TagRenderer positionedRenderer() {
   return TagRenderer(
     icon: IconPack.flu_position_to_front_regular,
+    tagType: TagType.widget,
     tag: 'positioned',
     description: TagDescription(
       description: '''

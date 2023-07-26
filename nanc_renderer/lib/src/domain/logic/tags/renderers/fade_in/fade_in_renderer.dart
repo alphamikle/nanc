@@ -66,6 +66,7 @@ Curve? _mapCurveEnumToCurve(CurveEnum? curveEnum) {
 TagRenderer fadeInRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_circle_opacity,
+    tagType: TagType.widget,
     tag: 'fadeIn',
     description: TagDescription(
       description: '''

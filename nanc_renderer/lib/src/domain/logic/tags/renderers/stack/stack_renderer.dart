@@ -12,6 +12,7 @@ import 'stack_arguments.dart';
 TagRenderer stackRenderer() {
   return TagRenderer(
     icon: IconPack.flu_stack_regular,
+    tagType: TagType.widget,
     tag: 'stack',
     description: TagDescription(
       description: '''

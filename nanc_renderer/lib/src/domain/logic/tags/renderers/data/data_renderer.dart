@@ -12,6 +12,7 @@ import 'data_arguments.dart';
 TagRenderer dataRenderer() {
   return TagRenderer(
     icon: IconPack.mdi_code_json,
+    tagType: TagType.other,
     tag: 'data',
     description: TagDescription(
       description: '''

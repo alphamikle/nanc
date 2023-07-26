@@ -26,6 +26,7 @@ If you only have one child, then consider using [Align](widgets/Align-class.html
 TagRenderer columnRenderer() {
   return TagRenderer(
     icon: IconPack.flu_table_insert_column_regular,
+    tagType: TagType.widget,
     tag: 'column',
     description: TagDescription(
       description: _description,
