@@ -2,9 +2,9 @@ import 'package:fonts/fonts.dart';
 import 'package:model/model.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 
-import '../../click_handler/logic/click_handler.dart';
 import '../../collection/logic/provider/collection_api_interface.dart';
 import '../../document/logic/provider/document_api_interface.dart';
+import '../../event_handler/logic/event_handler.dart';
 import '../../model/logic/api/model_api_interface.dart';
 import 'admin_wrapper_interface.dart';
 import 'image_builder_delegate.dart';
@@ -20,7 +20,7 @@ class CmsConfig {
     required this.adminWrapperBuilder,
     required this.predefinedModels,
     required this.customRenderers,
-    required this.clickHandlers,
+    required this.eventsHandlers,
     required this.customFonts,
   });
 
@@ -32,6 +32,6 @@ class CmsConfig {
   final AdminWrapperBuilder? adminWrapperBuilder;
   final List<Model> predefinedModels;
   final List<TagRenderer> customRenderers;
-  final List<ClickHandler> clickHandlers;
+  final List<EventHandler> eventsHandlers;
   final List<CustomFont> customFonts;
 }

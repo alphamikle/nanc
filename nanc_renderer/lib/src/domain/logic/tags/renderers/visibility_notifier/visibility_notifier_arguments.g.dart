@@ -11,6 +11,7 @@ VisibilityNotifierArguments _$VisibilityNotifierArgumentsFromJson(
     VisibilityNotifierArguments(
       onShow: json['onShow'] as String?,
       onHide: json['onHide'] as String?,
+      lifetime: json['lifetime'] as String?,
     );
 
 Map<String, dynamic> _$VisibilityNotifierArgumentsToJson(
@@ -18,4 +19,5 @@ Map<String, dynamic> _$VisibilityNotifierArgumentsToJson(
     <String, dynamic>{
       'onShow': instance.onShow,
       'onHide': instance.onHide,
+      'lifetime': instance.lifetime,
     };

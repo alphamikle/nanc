@@ -3,24 +3,26 @@ import 'dart:async';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 
-class ClickDelegate extends InheritedWidget {
-  const ClickDelegate({
+class EventDelegate extends InheritedWidget {
+  const EventDelegate({
     required super.child,
     this.handlers = const [],
     super.key,
   });
 
+  final List<EventHandler> handlers;
+
   // ignore: prefer_constructors_over_static_methods
-  static ClickDelegate of(BuildContext context) {
-    final ClickDelegate? delegate = context.dependOnInheritedWidgetOfExactType<ClickDelegate>();
+  static EventDelegate of(BuildContext context) {
+    final EventDelegate? delegate = context.dependOnInheritedWidgetOfExactType<EventDelegate>();
     if (delegate == null) {
-      return const ClickDelegate(child: SizedBox());
+      return const EventDelegate(child: SizedBox());
     }
     return delegate;
   }
 
-  Future<void> onPressed(BuildContext context, String event) async {
-    for (final ClickHandler handler in handlers) {
+  Future<void> onEvent(BuildContext context, String event) async {
+    for (final EventHandler handler in handlers) {
       final FutureOr<bool> canHandleRaw = handler.test(context, event);
       bool canHandle = false;
       if (canHandleRaw is Future) {
@@ -38,8 +40,18 @@ class ClickDelegate extends InheritedWidget {
     }
   }
 
-  final List<ClickHandler> handlers;
-
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => false;
+}
+
+VoidCallback? handleEvent(BuildContext context, String? event) {
+  if (event == null) {
+    return null;
+  }
+  final EventDelegate delegate = EventDelegate.of(context);
+  return () async => delegate.onEvent(context, event);
+}
+
+String generateMetadata(String name, Object? metadata) {
+  return '[[$name:::$metadata]]';
 }

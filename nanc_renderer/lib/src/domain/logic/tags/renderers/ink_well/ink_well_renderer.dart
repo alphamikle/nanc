@@ -3,7 +3,7 @@ import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 
 import '../../documentation/documentation.dart';
-import '../../logic/actions_handler.dart';
+import '../../logic/event_delegate.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';
 import '../../tag_renderer.dart';
@@ -40,7 +40,10 @@ The [InkWell](material/InkWell-class.html) widget must have a [Material](materia
         colorArg('highlightColor'),
         colorArg('splashColor'),
         colorArg('hoverColor'),
-        onPressedArg(),
+        eventArg(),
+        eventArg('onDoubleTap'),
+        eventArg('onLongPress'),
+        eventArg('onHover'),
       ],
       properties: [
         borderRadiusProp(),
@@ -50,7 +53,7 @@ The [InkWell](material/InkWell-class.html) widget must have a [Material](materia
 <safeArea>
     <center>
       <sizedBox height="60" width="60">
-        <inkWell onPressed="snackbar: Here can be any string" hoverColor="14BC5B">
+        <inkWell onPressed="snackbar: Here can be any string" onHover="snackbar: Hovered!" hoverColor="14BC5B">
           <placeholder/>
         </inkWell>
       </sizedBox>
@@ -68,7 +71,13 @@ The [InkWell](material/InkWell-class.html) widget must have a [Material](materia
         highlightColor: arguments.highlightColor,
         splashColor: arguments.splashColor,
         hoverColor: arguments.hoverColor,
-        onTap: handleClick(context, arguments.onPressed),
+        onTap: handleEvent(context, arguments.onPressed),
+        onDoubleTap: handleEvent(context, arguments.onDoubleTap),
+        onLongPress: handleEvent(context, arguments.onLongPress),
+        onHover: (bool isHovered) => handleEvent(
+          context,
+          arguments.onHover == null ? null : '${arguments.onHover}${generateMetadata('isHovered', isHovered)}',
+        )?.call(),
         child: compactWidgets(extractor.children),
       );
     },

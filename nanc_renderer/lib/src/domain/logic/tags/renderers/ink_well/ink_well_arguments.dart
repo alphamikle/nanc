@@ -8,6 +8,9 @@ part 'ink_well_arguments.g.dart';
 class InkWellArguments {
   const InkWellArguments({
     required this.onPressed,
+    required this.onDoubleTap,
+    required this.onLongPress,
+    required this.onHover,
     required this.focusColor,
     required this.overlayColor,
     required this.highlightColor,
@@ -18,6 +21,9 @@ class InkWellArguments {
   factory InkWellArguments.fromJson(dynamic json) => _$InkWellArgumentsFromJson(castToJson(json));
 
   final String? onPressed;
+  final String? onDoubleTap;
+  final String? onLongPress;
+  final String? onHover;
 
   @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
   final Color? focusColor;

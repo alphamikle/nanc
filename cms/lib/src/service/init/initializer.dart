@@ -107,7 +107,7 @@ class Initializer {
     unawaited(headerBloc.initItems());
 
     final DataRepository dataRepository = DataRepository(
-      clickHandlers: config.clickHandlers,
+      eventsHandlers: config.eventsHandlers,
       renderers: [...config.customRenderers, ...TagsCollection.renderers],
       imageLoadingBuilder: config.imageBuilderDelegate?.imageLoadingBuilder,
       imageErrorBuilder: config.imageBuilderDelegate?.imageErrorWidgetBuilder,

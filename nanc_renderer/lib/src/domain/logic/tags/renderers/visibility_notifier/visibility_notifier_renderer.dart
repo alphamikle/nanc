@@ -3,7 +3,6 @@ import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 
 import '../../../../../../nanc_renderer.dart';
-import '../../logic/actions_handler.dart';
 import '../../tools/widgets_compactor.dart';
 import 'visibility_notifier.dart';
 import 'visibility_notifier_arguments.dart';
@@ -19,8 +18,9 @@ TagRenderer visibilityNotifierRenderer() {
 Another logical widget / tag that allows you to send / handle events that occur at the moment of its creation (appearance on the screen) and/or at the moment of its destruction (disappearance from the screen). It can be useful for building analytical events related to tracking the appearance of elements on the screen, as well as for triggering more specific functions.
       ''',
       arguments: [
-        stringArg('onShow', 'The event that will be passed to the event handler when this widget appears on the screen.'),
-        stringArg('onHide', 'The event that will be passed to the event handler when this widget disappears from the screen.'),
+        eventArg('onShow'),
+        eventArg('onHide'),
+        eventArg('lifetime'),
       ],
       properties: [],
     ),
@@ -31,7 +31,19 @@ Another logical widget / tag that allows you to send / handle events that occur 
     <container color="green" height="100" width="250"/>
   </padding>
 </visibilityNotifier>
-<for in="{{ 0...30 }}">
+<for in="{{ 0...15 }}">
+  <padding left="8" right="8" bottom="16">
+    <container color="blue" height="100" width="250"/>
+  </padding>
+</for>
+<show show="true">
+  <visibilityNotifier lifetime="snackbar: Yellow container was alive">
+    <padding left="8" right="8" bottom="16">
+      <container color="yellow" height="100" width="250"/>
+    </padding>
+  </visibilityNotifier>
+</show>
+<for in="{{ 0...15 }}">
   <padding left="8" right="8" bottom="16">
     <container color="blue" height="100" width="250"/>
   </padding>
@@ -53,8 +65,14 @@ Another logical widget / tag that allows you to send / handle events that occur 
       }
 
       return VisibilityNotifier(
-        onShow: arguments.onShow == null ? null : handleClick(context, arguments.onShow),
-        onHide: arguments.onHide == null ? null : handleClick(context, arguments.onHide),
+        onShow: handleEvent(context, arguments.onShow),
+        onHide: handleEvent(context, arguments.onHide),
+        lifetime: arguments.lifetime == null
+            ? null
+            : (int durationMs) => handleEvent(
+                  context,
+                  '${arguments.lifetime}${generateMetadata('ms', durationMs)}',
+                )?.call(),
         child: child,
       );
     },

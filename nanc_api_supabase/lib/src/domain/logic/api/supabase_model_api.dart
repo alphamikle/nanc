@@ -184,7 +184,7 @@ END \$\$;
       StructureField() => 'jsonb',
       StructuredField() => 'jsonb',
       // TODO(alphamikle): Refactor after IdField will be able to store int or "text" data
-      IdField() => 'uuid',
+      IdField() => model.isCollection ? 'uuid' : 'text',
       Field() => 'text',
     };
   }

@@ -17,8 +17,8 @@ class PagePreview extends StatelessWidget {
   Widget build(BuildContext context) {
     final DataRepository dataRepository = context.read();
 
-    return ClickDelegate(
-      handlers: dataRepository.clickHandlers,
+    return EventDelegate(
+      handlers: dataRepository.eventsHandlers,
       child: BlocBuilder<BaseDocumentBloc, BaseDocumentState>(
         builder: (BuildContext context, BaseDocumentState pageState) {
           return BlocBuilder<PreviewBloc, PreviewState>(

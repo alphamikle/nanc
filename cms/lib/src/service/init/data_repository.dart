@@ -4,7 +4,7 @@ import 'package:nanc_renderer/nanc_renderer.dart';
 
 class DataRepository {
   const DataRepository({
-    required this.clickHandlers,
+    required this.eventsHandlers,
     required this.renderers,
     required this.supportedFilters,
     required this.imageLoadingBuilder,
@@ -12,7 +12,7 @@ class DataRepository {
     required this.imageFrameBuilder,
   });
 
-  final List<ClickHandler> clickHandlers;
+  final List<EventHandler> eventsHandlers;
   final List<TagRenderer> renderers;
   final Set<QueryFieldType> supportedFilters;
   final ImageLoadingBuilder? imageLoadingBuilder;

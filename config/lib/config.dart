@@ -1,6 +1,5 @@
 library config;
 
-export 'src/domain/click_handler/logic/click_handler.dart';
 export 'src/domain/collection/logic/dto/collection_response_dto.dart';
 export 'src/domain/collection/logic/dto/params_dto.dart';
 export 'src/domain/collection/logic/dto/query_dto.dart';
@@ -14,10 +13,11 @@ export 'src/domain/config/logic/admin_wrapper_interface.dart';
 export 'src/domain/config/logic/cms_config.dart';
 export 'src/domain/config/logic/image_builder_delegate.dart';
 export 'src/domain/config/logic/network_config.dart';
-export 'src/domain/env/env.dart';
-export 'src/domain/fields/logic/third_table.dart';
-export 'src/domain/model/logic/api/model_api_interface.dart';
 export 'src/domain/document/logic/provider/document_api_interface.dart';
 export 'src/domain/document/logic/provider/document_provider_interface.dart';
+export 'src/domain/env/env.dart';
+export 'src/domain/event_handler/logic/event_handler.dart';
+export 'src/domain/fields/logic/third_table.dart';
+export 'src/domain/model/logic/api/model_api_interface.dart';
 export 'src/domain/settings/logic/bloc/settings_bloc.dart';
 export 'src/domain/settings/logic/bloc/settings_state.dart';

@@ -1363,7 +1363,6 @@ const Map<String, Color> colorsByNames = {
   'green': Color(0xFF008000),
   'lime': Color(0xFF00FF00),
   'forestGreen': Color(0xFF228B22),
-  'royalBlue3': Color(0xFF4169E1),
   'mediumAquaMarine': Color(0xFF66CDAA),
   'oliveDrab': Color(0xFF6B8E23),
   'chartreuse': Color(0xFF7FFF00),

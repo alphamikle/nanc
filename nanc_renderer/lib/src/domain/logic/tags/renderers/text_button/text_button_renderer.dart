@@ -4,7 +4,7 @@ import 'package:markdown/markdown.dart' as md;
 
 import '../../documentation/documentation.dart';
 import '../../documentation/properties/button_style.dart';
-import '../../logic/actions_handler.dart';
+import '../../logic/event_delegate.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';
 import '../../tag_renderer.dart';
@@ -34,7 +34,9 @@ The static [styleFrom](material/TextButton/styleFrom.html) method is a convenien
 If the [onPressed](material/ButtonStyleButton/onPressed.html) and [onLongPress](material/ButtonStyleButton/onLongPress.html) callbacks are null, then this button will be disabled, it will not react to touch.
 ''',
       arguments: [
-        onPressedArg(),
+        eventArg(),
+        eventArg('onLongPress'),
+        eventArg('onHover'),
         stringArg('text'),
       ],
       properties: [
@@ -45,7 +47,7 @@ If the [onPressed](material/ButtonStyleButton/onPressed.html) and [onLongPress](
 <safeArea>
   <center>
     <textButton text="Simple example" onPressed="snackbar: Do nothing">
-      <prop:buttonStyle foregroundColor="#FF88DDFF"/>
+      <prop:buttonStyle foregroundColor="blue"/>
     </textButton>
   </center>
   <center>
@@ -71,7 +73,14 @@ If the [onPressed](material/ButtonStyleButton/onPressed.html) and [onLongPress](
       }
 
       return TextButton(
-        onPressed: handleClick(context, arguments.onPressed),
+        onPressed: handleEvent(context, arguments.onPressed),
+        onLongPress: handleEvent(context, arguments.onLongPress),
+        onHover: arguments.onHover == null
+            ? null
+            : (bool isHovered) => handleEvent(
+                  context,
+                  '${arguments.onHover}${generateMetadata('isHovered', isHovered)}',
+                )?.call(),
         style: extractor.getProperty(buttonStyle),
         child: child,
       );
