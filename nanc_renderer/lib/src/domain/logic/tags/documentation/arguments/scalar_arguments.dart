@@ -1,6 +1,6 @@
 import '../../tag_description.dart';
 
-TagArgument doubleArg(String name, [String description = '']) => TagArgument(name, {'double'}, description);
-TagArgument stringArg(String name, [String description = '']) => TagArgument(name, {'String'}, description);
-TagArgument intArg(String name, [String description = '']) => TagArgument(name, {'int'}, description);
-TagArgument boolArg(String name) => TagArgument(name, {'bool'});
+TagArgument doubleArgument({required String name, String description = ''}) => TagArgument(name, {'double'}, description);
+TagArgument stringArgument({required String name, String description = ''}) => TagArgument(name, {'String'}, description);
+TagArgument intArgument({required String name, String description = ''}) => TagArgument(name, {'int'}, description);
+TagArgument boolArgument({required String name}) => TagArgument(name, {'bool'});

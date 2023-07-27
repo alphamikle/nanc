@@ -31,8 +31,8 @@ The image is painted using [paintImage](painting/paintImage.html), which describ
 Also, if you passed a some image url and don't see the image in the Nanc, potentially you have a problem with CORS and to find a solution, please, go here: https://docs.flutter.dev/development/platform-integration/web/web-images
 ''',
       arguments: [
-        stringArg('ref'),
-        stringArg('blurHash', '''
+        stringArgument(name: 'ref'),
+        stringArgument(name: 'blurHash', description: '''
 > ### Blur hash
 > 
 > Blur hash is a technology, which allows you to create a very lightweight preview of your image and use it as a pre-loader for the image during the loading time.
@@ -52,11 +52,11 @@ Also, if you passed a some image url and don't see the image in the Nanc, potent
 > 
 > For addition info about blur hash, go here: https://blurha.sh/ or here: https://pub.dev/packages/flutter_blurhash
 '''),
-        heightArg(),
-        widthArg(),
-        boxFitArg(),
-        colorArg(),
-        boolArg('useCache'),
+        heightArgument(),
+        widthArgument(),
+        boxFitArgument(name: 'fit'),
+        colorArgument(name: 'color'),
+        boolArgument(name: 'useCache'),
       ],
       properties: [],
     ),

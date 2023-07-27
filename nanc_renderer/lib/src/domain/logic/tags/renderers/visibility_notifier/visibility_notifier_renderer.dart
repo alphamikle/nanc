@@ -19,9 +19,9 @@ TagRenderer visibilityNotifierRenderer() {
 Another logical widget / tag that allows you to send / handle events that occur at the moment of its creation (appearance on the screen) and/or at the moment of its destruction (disappearance from the screen). It can be useful for building analytical events related to tracking the appearance of elements on the screen, as well as for triggering more specific functions.
       ''',
       arguments: [
-        eventArg('onShow'),
-        eventArg('onHide'),
-        eventArg('lifetime'),
+        eventArgument(name: 'onShow'),
+        eventArgument(name: 'onHide'),
+        eventArgument(name: 'lifetime'),
       ],
       properties: [],
     ),

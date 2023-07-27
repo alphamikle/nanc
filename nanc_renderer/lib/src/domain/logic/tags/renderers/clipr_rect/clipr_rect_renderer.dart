@@ -26,11 +26,11 @@ TagRenderer clipRRectRenderer() {
     description: TagDescription(
       description: _description,
       arguments: [
-        topLeftArg(),
-        topRightArg(),
-        bottomRightArg(),
-        bottomLeftArg(),
-        allArg(),
+        topLeftArgument(),
+        topRightArgument(),
+        bottomRightArgument(),
+        bottomLeftArgument(),
+        allArgument(),
       ],
       properties: [],
     ),

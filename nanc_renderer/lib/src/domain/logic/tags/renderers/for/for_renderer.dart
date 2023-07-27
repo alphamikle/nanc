@@ -104,11 +104,11 @@ You also able to create nested cycles, like in example behind, but if you want t
 The last thing about `<for>` is ability to iterate only the part of the array. You can specify the first index (included) of iteration through `from` argument and the last index through `to` argument which will be not included. By default `from` is equal to `0` and `to` is equal to `array.length`. 
 ''',
       arguments: [
-        stringArg('valueName'),
-        stringArg('indexName'),
-        stringArg('in'),
-        intArg('from'),
-        intArg('to'),
+        stringArgument(name: 'valueName'),
+        stringArgument(name: 'indexName'),
+        stringArgument(name: 'in'),
+        intArgument(name: 'from'),
+        intArgument(name: 'to'),
       ],
       properties: [],
     ),

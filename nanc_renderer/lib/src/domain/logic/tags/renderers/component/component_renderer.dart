@@ -32,8 +32,8 @@ TagRenderer componentRenderer() {
     description: TagDescription(
       description: _description,
       arguments: [
-        idArg(),
-        anyArg(),
+        idArgument(),
+        anyArgument(),
       ],
       properties: [],
     ),

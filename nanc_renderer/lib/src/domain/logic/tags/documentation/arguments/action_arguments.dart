@@ -1,7 +1,7 @@
 import '../../tag_description.dart';
 import 'scalar_arguments.dart';
 
-TagArgument eventArg([String name = 'onPressed']) => stringArg(name, '''
+TagArgument eventArgument({required String name}) => stringArgument(name: name, description: '''
 > ### Events handling
 >
 > You can use anything you want as this value and handle these events any way you want.

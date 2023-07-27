@@ -4,13 +4,13 @@ import 'alignment.dart';
 import 'color.dart';
 import 'double.dart';
 
-TagProperty gradientProp([String name = 'gradient']) => TagProperty(
+TagProperty gradientProp({String name = 'gradient'}) => TagProperty(
       name: name,
       arguments: [
-        tileModeArg(),
+        tileModeArgument(name: 'tileMode'),
       ],
       properties: [
-        colorProp('color', '''
+        colorProp(description: '''
 Several `<prop:color>` can be specified, each with its own value.
 For example:
 ```
@@ -21,7 +21,7 @@ For example:
 </prop:gradient>
 ```
 '''),
-        doubleProp('stop', '''
+        doubleProp(name: 'stop', description: '''
 Several `<prop:stop>` can be specified, each with its own value.
 For example:
 ```
@@ -32,7 +32,7 @@ For example:
 </prop:gradient>
 ```
 '''),
-        alignmentProp('begin'),
-        alignmentProp('end'),
+        alignmentProp(name: 'begin'),
+        alignmentProp(name: 'end'),
       ],
     );

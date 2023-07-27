@@ -31,12 +31,12 @@ TagRenderer columnRenderer() {
     description: TagDescription(
       description: _description,
       arguments: [
-        crossAxisAlignmentArg(),
-        mainAxisAlignmentArg(),
-        mainAxisSizeArg(),
-        verticalDirectionArg(),
-        textDirectionArg(),
-        textBaselineArg(),
+        crossAxisAlignmentArgument(),
+        mainAxisAlignmentArgument(),
+        mainAxisSizeArgument(),
+        verticalDirectionArgument(),
+        textDirectionArgument(),
+        textBaselineArgument(),
       ],
       properties: [],
     ),

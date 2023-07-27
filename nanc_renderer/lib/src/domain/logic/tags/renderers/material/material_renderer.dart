@@ -74,8 +74,8 @@ See also:
 *   [m3.material.io/styles/color/the-color-system/color-roles](https://m3.material.io/styles/color/the-color-system/color-roles)
 ''',
       arguments: [
-        materialTypeArg(),
-        colorArg(),
+        materialTypeArgument(name: 'type'),
+        colorArgument(name: 'color'),
       ],
       properties: [
         borderRadiusProp(),

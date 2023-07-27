@@ -24,8 +24,8 @@ Applies a translation transformation before painting its child.
 The translation is expressed as a [Offset](dart-ui/Offset-class.html) scaled to the child's size. For example, an [Offset](dart-ui/Offset-class.html) with a `dx` of 0.25 will result in a horizontal translation of one quarter the width of the child.
 ''',
       arguments: [
-        dxArg(),
-        dyArg(),
+        dxArgument(),
+        dyArgument(),
       ],
       properties: [],
     ),

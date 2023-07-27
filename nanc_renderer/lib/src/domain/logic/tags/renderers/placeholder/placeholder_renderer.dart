@@ -24,11 +24,11 @@ This widget is useful during development to indicate that the interface is not y
 By default, the placeholder is sized to fit its container. If the placeholder is in an unbounded space, it will size itself according to the given [fallbackWidth](widgets/Placeholder/fallbackWidth.html) and [fallbackHeight](widgets/Placeholder/fallbackHeight.html).
 ''',
       arguments: [
-        colorArg(),
-        heightArg(),
-        widthArg(),
-        strokeWidthArg(),
-        stringArg('text'),
+        colorArgument(name: 'color'),
+        heightArgument(),
+        widthArgument(),
+        strokeWidthArgument(),
+        stringArgument(name: 'text'),
       ],
       properties: [],
     ),

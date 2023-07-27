@@ -29,12 +29,12 @@ For a vertical variant, see [Column](widgets/Column-class.html).
 If you only have one child, then consider using [Align](widgets/Align-class.html) or [Center](widgets/Center-class.html) to position the child.
 ''',
       arguments: [
-        crossAxisAlignmentArg(),
-        mainAxisSizeArg(),
-        mainAxisAlignmentArg(),
-        verticalDirectionArg(),
-        textDirectionArg(),
-        textBaselineArg(),
+        crossAxisAlignmentArgument(),
+        mainAxisSizeArgument(),
+        mainAxisAlignmentArgument(),
+        verticalDirectionArgument(),
+        textDirectionArgument(),
+        textBaselineArgument(),
       ],
       properties: [],
     ),

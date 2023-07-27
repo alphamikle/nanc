@@ -1,8 +1,8 @@
 import '../../tag_description.dart';
 import 'scalar_arguments.dart';
 
-TagArgument leftArg([String name = 'left']) => doubleArg(name);
-TagArgument topArg([String name = 'top']) => doubleArg(name);
-TagArgument rightArg([String name = 'right']) => doubleArg(name);
-TagArgument bottomArg([String name = 'bottom']) => doubleArg(name);
-TagArgument allPaddingArg([String name = 'all']) => doubleArg(name);
+TagArgument leftArgument() => doubleArgument(name: 'left');
+TagArgument topArgument() => doubleArgument(name: 'top');
+TagArgument rightArgument() => doubleArgument(name: 'right');
+TagArgument bottomArgument() => doubleArgument(name: 'bottom');
+TagArgument allPaddingArgument() => doubleArgument(name: 'all');

@@ -30,9 +30,9 @@ If not given a child, [SizedBox](widgets/SizedBox-class.html) will try to size i
 The [SizedBox.expand](widgets/SizedBox/SizedBox.expand.html) constructor can be used to make a [SizedBox](widgets/SizedBox-class.html) that sizes itself to fit the parent. It is equivalent to setting [width](widgets/SizedBox/width.html) and [height](widgets/SizedBox/height.html) to [double.infinity](dart-core/double/infinity-constant.html).
 ''',
       arguments: [
-        heightArg(),
-        widthArg(),
-        sizeArg(),
+        heightArgument(),
+        widthArgument(),
+        sizeArgument(),
       ],
       properties: [],
     ),

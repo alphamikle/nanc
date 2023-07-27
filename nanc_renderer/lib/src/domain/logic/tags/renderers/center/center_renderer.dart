@@ -26,8 +26,8 @@ TagRenderer centerRenderer() {
     description: TagDescription(
       description: _description,
       arguments: [
-        doubleArg('heightFactor'),
-        doubleArg('widthFactor'),
+        doubleArgument(name: 'heightFactor'),
+        doubleArgument(name: 'widthFactor'),
       ],
       properties: [],
     ),

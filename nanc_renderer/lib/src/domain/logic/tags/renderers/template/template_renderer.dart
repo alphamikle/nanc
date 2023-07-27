@@ -27,7 +27,7 @@ Template is another custom widget, the blood brother of the `component`. Templat
 At the moment there is support only for parameters passing, but in the near future it will be possible to transfer other components, getting the most flexibility.
 ''',
       arguments: [
-        idArg(),
+        idArgument(),
       ],
       properties: [],
     ),

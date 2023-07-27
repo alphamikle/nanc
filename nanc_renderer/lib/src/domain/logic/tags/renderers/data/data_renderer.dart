@@ -23,8 +23,8 @@ Data - is a special tag, which allows you to store...the data! Who would think t
 Data consumes one required argument "id" and any another arguments, which you want. See example code for more info.
 ''',
       arguments: [
-        idArg(),
-        anyArg(),
+        idArgument(),
+        anyArgument(),
       ],
       properties: [],
     ),

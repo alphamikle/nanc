@@ -42,8 +42,8 @@ Work logic:
 > Future plans are to develop supported logic for conditional (and other) operators, with the ability to compute "in place" as well as logic written in Dart directly in Nanc.
 ''',
       arguments: [
-        boolArg('show'),
-        boolArg('notShow'),
+        boolArgument(name: 'show'),
+        boolArgument(name: 'notShow'),
       ],
       properties: [],
     ),

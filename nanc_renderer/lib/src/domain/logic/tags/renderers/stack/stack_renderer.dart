@@ -33,10 +33,10 @@ If you want to lay a number of children out in a particular pattern, or if you w
 Using a [Stack](widgets/Stack-class.html) you can position widgets over one another.
 ''',
       arguments: [
-        stackFitArg(),
-        doubleArg('x'),
-        doubleArg('y'),
-        alignmentArg(),
+        stackFitArgument(name: 'fit'),
+        xArgument(),
+        yArgument(),
+        alignmentArgument(name: 'align'),
       ],
       properties: [],
     ),

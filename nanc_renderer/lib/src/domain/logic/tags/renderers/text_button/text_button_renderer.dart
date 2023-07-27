@@ -33,10 +33,10 @@ The static [styleFrom](material/TextButton/styleFrom.html) method is a convenien
 If the [onPressed](material/ButtonStyleButton/onPressed.html) and [onLongPress](material/ButtonStyleButton/onLongPress.html) callbacks are null, then this button will be disabled, it will not react to touch.
 ''',
       arguments: [
-        eventArg(),
-        eventArg('onLongPress'),
-        eventArg('onHover'),
-        stringArg('text'),
+        eventArgument(name: 'onPressed'),
+        eventArgument(name: 'onLongPress'),
+        eventArgument(name: 'onHover'),
+        stringArgument(name: 'text'),
       ],
       properties: [
         buttonStyleProp(),

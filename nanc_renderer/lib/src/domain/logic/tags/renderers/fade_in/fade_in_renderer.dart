@@ -77,9 +77,9 @@ Fade in - its a special auto-animated widget, which will show its child after a 
 Also, you are available to change Curve type of animation. More info about curves see in the `curve` argument description.
 ''',
       arguments: [
-        durationArg(),
-        durationArg('delay'),
-        curveArg(),
+        durationArgument(name: 'duration'),
+        durationArgument(name: 'delay'),
+        curveArgument(name: 'curve'),
       ],
       properties: [],
     ),

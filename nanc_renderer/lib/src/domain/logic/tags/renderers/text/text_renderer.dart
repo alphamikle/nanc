@@ -33,13 +33,13 @@ This example shows how to display text using the [Text](widgets/Text-class.html)
 ![If the text overflows, the Text widget displays an ellipsis to trim the overflowing text](https://flutter.github.io/assets-for-api-docs/assets/widgets/text_ellipsis.png)
 ''',
       arguments: [
-        textDirectionArg('direction'),
-        maxLinesArg(),
-        textAlignArg(),
-        textOverflowArg(),
-        boolArg('softWrap'),
-        fontSizeArg(),
-        colorArg(),
+        textDirectionArgument(name: 'direction'),
+        maxLinesArgument(),
+        textAlignArgument(),
+        textOverflowArgument(),
+        boolArgument(name: 'softWrap'),
+        fontSizeArgument(),
+        colorArgument(name: 'color'),
       ],
       properties: [
         textStyleProp(),

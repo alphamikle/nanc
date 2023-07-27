@@ -2,10 +2,10 @@ import '../../tag_description.dart';
 import '../documentation_types.dart';
 import 'scalar_arguments.dart';
 
-TagArgument alignmentArg([String name = 'align']) => TagArgument(name, DocumentationTypes.alignmentEnumValues);
-TagArgument boxFitArg([String name = 'fit']) => TagArgument(name, DocumentationTypes.boxFitValues);
-TagArgument stackFitArg([String name = 'fit']) => TagArgument(name, DocumentationTypes.stackFitValues);
-TagArgument xArg() => doubleArg('x');
-TagArgument yArg() => doubleArg('y');
-TagArgument scaleXArg() => doubleArg('scaleX');
-TagArgument scaleYArg() => doubleArg('scaleY');
+TagArgument alignmentArgument({required String name}) => TagArgument(name, DocumentationTypes.alignmentEnumValues);
+TagArgument boxFitArgument({required String name}) => TagArgument(name, DocumentationTypes.boxFitValues);
+TagArgument stackFitArgument({required String name}) => TagArgument(name, DocumentationTypes.stackFitValues);
+TagArgument xArgument() => doubleArgument(name: 'x');
+TagArgument yArgument() => doubleArgument(name: 'y');
+TagArgument scaleXArgument() => doubleArgument(name: 'scaleX');
+TagArgument scaleYArgument() => doubleArgument(name: 'scaleY');

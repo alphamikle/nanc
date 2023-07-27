@@ -29,12 +29,12 @@ If non-null, the [prototypeItem](widgets/ListView/prototypeItem.html) forces the
 Specifying an [itemExtent](widgets/ListView/itemExtent.html) or an [prototypeItem](widgets/ListView/prototypeItem.html) is more efficient than letting the children determine their own extent because the scrolling machinery can make use of the foreknowledge of the children's extent to save work, for example when the scroll position changes drastically.
       ''',
       arguments: [
-        axisArg(),
-        physicsArg(),
-        cacheExtentArg(),
-        itemExtent(),
-        boolArg('reverse'),
-        boolArg('shrinkWrap'),
+        axisArgument(name: 'axis'),
+        physicsArgument(name: 'physics'),
+        cacheExtentArgument(name: 'cacheExtent'),
+        itemExtentArgument(name: 'itemExtent'),
+        boolArgument(name: 'reverse'),
+        boolArgument(name: 'shrinkWrap'),
       ],
       properties: [],
     ),

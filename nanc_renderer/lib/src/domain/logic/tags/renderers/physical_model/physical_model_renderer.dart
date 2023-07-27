@@ -27,11 +27,11 @@ Physical layers cast shadows based on an [elevation](widgets/PhysicalModel/eleva
 For shapes that cannot be expressed as a rectangle with rounded corners use [PhysicalShape](widgets/PhysicalShape-class.html).
 ''',
       arguments: [
-        colorArg(),
-        clipArg(),
-        elevationArg(),
-        colorArg('shadowColor'),
-        shapeArg(),
+        colorArgument(name: 'color'),
+        clipArgument(name: 'clip'),
+        elevationArgument(),
+        colorArgument(name: 'shadowColor'),
+        shapeArgument(name: 'shape'),
       ],
       properties: [
         borderRadiusProp(),

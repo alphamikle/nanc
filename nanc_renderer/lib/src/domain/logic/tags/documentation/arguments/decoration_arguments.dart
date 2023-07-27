@@ -2,7 +2,7 @@ import '../../tag_description.dart';
 import '../documentation_types.dart';
 import 'scalar_arguments.dart';
 
-TagArgument colorArg([String name = 'color']) => TagArgument(
+TagArgument colorArgument({required String name}) => TagArgument(
       name,
       {
         '#D5FFFFFF',
@@ -24,9 +24,9 @@ Full list of human-readable color names can be found [here](https://github.com/a
 ''',
     );
 
-TagArgument blendModeArg(String name) => TagArgument(name, DocumentationTypes.blendModeValues);
+TagArgument blendModeArgument({required String name}) => TagArgument(name, DocumentationTypes.blendModeValues);
 // TagArgument strokeAlignArg([String name = 'strokeAlign']) => TagArgument(name, DocumentationTypes.strokeAlignValues);
-TagArgument blurStyleArg([String name = 'blurStyle']) => TagArgument(name, DocumentationTypes.blurStyleValues);
-TagArgument tileModeArg([String name = 'tileMode']) => TagArgument(name, DocumentationTypes.tileModeValues);
-TagArgument materialTypeArg([String name = 'type']) => TagArgument(name, DocumentationTypes.materialTypeValues);
-TagArgument elevationArg([String name = 'elevation']) => doubleArg(name);
+TagArgument blurStyleArgument({required String name}) => TagArgument(name, DocumentationTypes.blurStyleValues);
+TagArgument tileModeArgument({required String name}) => TagArgument(name, DocumentationTypes.tileModeValues);
+TagArgument materialTypeArgument({required String name}) => TagArgument(name, DocumentationTypes.materialTypeValues);
+TagArgument elevationArgument([String name = 'elevation']) => doubleArgument(name: name);

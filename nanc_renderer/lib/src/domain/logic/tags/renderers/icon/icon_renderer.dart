@@ -30,9 +30,9 @@ This widget assumes that the rendered icon is squared. Non-squared icons may ren
 > Also, Nanc allows you to use your own custom icons, which is possible when using Nanc compiled from sources.
 ''',
       arguments: [
-        iconArg(),
-        colorArg(),
-        sizeArg(),
+        iconArgument(name: 'icon'),
+        colorArgument(name: 'color'),
+        sizeArgument(),
       ],
       properties: [],
     ),

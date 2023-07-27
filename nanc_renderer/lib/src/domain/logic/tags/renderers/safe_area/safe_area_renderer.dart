@@ -36,14 +36,14 @@ See also:
 *   [dart:ui.FlutterView.padding](dart-ui/FlutterView/padding.html), which reports the padding from the operating system.
 ''',
       arguments: [
-        boolArg('left'),
-        boolArg('top'),
-        boolArg('right'),
-        boolArg('bottom'),
-        boolArg('bottomViewPadding'),
+        boolArgument(name: 'left'),
+        boolArgument(name: 'top'),
+        boolArgument(name: 'right'),
+        boolArgument(name: 'bottom'),
+        boolArgument(name: 'bottomViewPadding'),
       ],
       properties: [
-        paddingProp(minimum),
+        paddingProp(name: minimum),
       ],
     ),
     example: '''

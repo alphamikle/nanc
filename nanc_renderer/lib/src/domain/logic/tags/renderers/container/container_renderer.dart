@@ -36,10 +36,10 @@ TagRenderer containerRenderer() {
         paddingProp(),
       ],
       arguments: [
-        widthArg(),
-        heightArg(),
-        colorArg(),
-        sizeArg(),
+        widthArgument(),
+        heightArgument(),
+        colorArgument(name: 'color'),
+        sizeArgument(),
       ],
     ),
     example: '''

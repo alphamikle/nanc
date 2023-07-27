@@ -26,7 +26,7 @@ Using an [Expanded](widgets/Expanded-class.html) widget makes a child of a [Row]
 An [Expanded](widgets/Expanded-class.html) widget must be a descendant of a [Row](widgets/Row-class.html), [Column](widgets/Column-class.html), or [Flex](widgets/Flex-class.html), and the path from the [Expanded](widgets/Expanded-class.html) widget to its enclosing [Row](widgets/Row-class.html), [Column](widgets/Column-class.html), or [Flex](widgets/Flex-class.html) must contain only [StatelessWidget](widgets/StatelessWidget-class.html)s or [StatefulWidget](widgets/StatefulWidget-class.html)s (not other kinds of widgets, like [RenderObjectWidget](widgets/RenderObjectWidget-class.html)s).
 ''',
       arguments: [
-        flexArg(),
+        flexArgument(),
       ],
       properties: [],
     ),

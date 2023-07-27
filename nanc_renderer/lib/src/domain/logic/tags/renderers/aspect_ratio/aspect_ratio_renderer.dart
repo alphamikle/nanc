@@ -6,8 +6,8 @@ import '../../documentation/documentation.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';
 import '../../tag_renderer.dart';
-import '../../tools/widgets_compactor.dart';
 import '../../tools/properties_extractor.dart';
+import '../../tools/widgets_compactor.dart';
 import 'aspect_ratio_arguments.dart';
 
 TagRenderer aspectRatioRenderer() {
@@ -28,7 +28,7 @@ For example, a 16:9 width:height aspect ratio would have a value of 16.0/9.0. If
 > At the moment Nanc does not support field calculations, so instead of the expression `16.0/9.0` you would have to enter the result of that calculation: `1.7777`
 ''',
       arguments: [
-        doubleArg('ratio', '''
+        doubleArgument(name: 'ratio', description: '''
 > ratio argument should be greater than 0
 > A little helper with values:
 > 1/1 = `1`

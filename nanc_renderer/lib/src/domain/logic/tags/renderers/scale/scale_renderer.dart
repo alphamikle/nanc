@@ -24,9 +24,9 @@ A widget that applies a transformation before painting its child.
 Unlike [RotatedBox](widgets/RotatedBox-class.html), which applies a rotation prior to layout, this object applies its transformation just prior to painting, which means the transformation is not taken into account when calculating how much space this widget's child (and thus this widget) consumes.
 ''',
       arguments: [
-        scaleXArg(),
-        scaleYArg(),
-        allArg(),
+        scaleXArgument(),
+        scaleYArgument(),
+        allArgument(),
       ],
       properties: [],
     ),

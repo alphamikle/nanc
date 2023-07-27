@@ -2,15 +2,15 @@ import '../../tag_description.dart';
 import '../arguments/decoration_arguments.dart';
 import '../arguments/scalar_arguments.dart';
 
-TagProperty shadowProp(String name) => TagProperty(
+TagProperty shadowProp({required String name}) => TagProperty(
       name: name,
       arguments: [
-        colorArg(),
-        doubleArg('blurRadius'),
-        doubleArg('spreadRadius'),
-        doubleArg('offsetX'),
-        doubleArg('offsetY'),
-        blurStyleArg(),
+        colorArgument(name: 'color'),
+        doubleArgument(name: 'blurRadius'),
+        doubleArgument(name: 'spreadRadius'),
+        doubleArgument(name: 'offsetX'),
+        doubleArgument(name: 'offsetY'),
+        blurStyleArgument(name: 'blurStyle'),
       ],
       description: 'Can be used multiple times',
       properties: [],

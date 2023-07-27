@@ -22,8 +22,8 @@ Divider is a custom widget designed to add some empty space to your UI.
 In general, you can use the Divider to achieve the same behavior as Padding, but without nesting.
 ''',
       arguments: [
-        heightArg(),
-        widthArg(),
+        heightArgument(),
+        widthArgument(),
       ],
       properties: [],
     ),

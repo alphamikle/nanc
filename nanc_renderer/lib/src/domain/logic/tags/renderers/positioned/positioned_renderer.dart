@@ -32,12 +32,12 @@ If all three values on a particular axis are null, then the [Stack.alignment](wi
 If all six values are null, the child is a non-positioned child. The [Stack](widgets/Stack-class.html) uses only the non-positioned children to size itself.
 ''',
       arguments: [
-        widthArg(),
-        heightArg(),
-        leftArg(),
-        topArg(),
-        rightArg(),
-        bottomArg(),
+        widthArgument(),
+        heightArgument(),
+        leftArgument(),
+        topArgument(),
+        rightArgument(),
+        bottomArgument(),
       ],
       properties: [],
     ),
