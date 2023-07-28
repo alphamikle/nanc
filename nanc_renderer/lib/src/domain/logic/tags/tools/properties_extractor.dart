@@ -13,19 +13,33 @@ class PropertiesExtractor {
 
   final List<Widget> children = [];
   final List<Widget> _rawChildren;
-  final List<PropertyWidget> _properties = [];
+  final Map<String, List<PropertyWidget>> _properties = {};
 
   T? getProperty<T>(String name) {
-    return _properties.firstWhereOrNull((PropertyWidget widget) => widget.name == name)?.property as T?;
+    final List<PropertyWidget>? properties = _properties[name];
+    if (properties != null && properties.isNotEmpty) {
+      if (properties.first.property is! T) {
+        throw Exception('Wrong type of property "$name". Required type was "$T", but actual type is "${properties.first.runtimeType}".');
+      }
+      return properties.first.property as T;
+    }
+    return null;
   }
 
   List<T> getProperties<T>(String name) {
-    return _properties.where((PropertyWidget widget) => widget.name == name).map((PropertyWidget widget) => widget.property as T).toList();
+    final List<PropertyWidget>? properties = _properties[name];
+    if (properties == null) {
+      return [];
+    }
+    return properties.map((PropertyWidget widget) => widget.property as T).toList();
   }
 
   bool _isPropertyWidget(Widget widget) {
     if (widget is PropertyWidget) {
-      _properties.add(widget);
+      if (_properties.containsKey(widget.name) == false) {
+        _properties[widget.name] = [];
+      }
+      _properties[widget.name]!.add(widget);
       if (widget.runtimeType.toString().startsWith('PropertyWidget')) {
         logg('Generic property widget was found! "${widget.name}" | "${widget.property}"');
       }

@@ -25,8 +25,12 @@ Full list of human-readable color names can be found [here](https://github.com/a
     );
 
 TagArgument blendModeArgument({required String name}) => TagArgument(name, DocumentationTypes.blendModeValues);
-// TagArgument strokeAlignArg([String name = 'strokeAlign']) => TagArgument(name, DocumentationTypes.strokeAlignValues);
 TagArgument blurStyleArgument({required String name}) => TagArgument(name, DocumentationTypes.blurStyleValues);
 TagArgument tileModeArgument({required String name}) => TagArgument(name, DocumentationTypes.tileModeValues);
 TagArgument materialTypeArgument({required String name}) => TagArgument(name, DocumentationTypes.materialTypeValues);
 TagArgument elevationArgument([String name = 'elevation']) => doubleArgument(name: name);
+TagArgument packageArgument({String name = 'package'}) {
+  return TagArgument(name, {'String'}, '''
+The name of the package from which the image is included.
+  ''');
+}

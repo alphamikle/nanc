@@ -66,7 +66,7 @@ Specifying an [itemExtent](widgets/ListView/itemExtent.html) or an [prototypeIte
       return ListView.builder(
         itemBuilder: builder,
         itemCount: children.length,
-        physics: scrollPhysicsEnumToScrollPhysics(arguments.physics),
+        physics: arguments.physics?.toScrollPhysics(),
         scrollDirection: arguments.axis ?? Axis.vertical,
         cacheExtent: arguments.cacheExtent,
         itemExtent: arguments.itemExtent,

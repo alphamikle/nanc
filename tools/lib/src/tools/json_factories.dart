@@ -86,7 +86,7 @@ bool? nullableBoolFromJson(dynamic value) {
   }
   if (value is String) {
     final String string = value.trim().toLowerCase();
-    if (string == 'null' || string == 'undefined') {
+    if (string == 'null' || string == 'undefined' || string.isEmpty) {
       return null;
     }
   }

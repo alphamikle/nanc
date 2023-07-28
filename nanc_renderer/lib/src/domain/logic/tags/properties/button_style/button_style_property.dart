@@ -3,7 +3,6 @@ import 'package:markdown/markdown.dart' as md;
 
 import '../../property_tag_renderer.dart';
 import '../../rich_renderer.dart';
-import '../alignment/alignment_arguments.dart';
 import 'button_style_arguments.dart';
 import 'button_style_property_widget.dart';
 
@@ -17,7 +16,7 @@ PropertyTagRenderer<ButtonStyle> buttonStyleProperty(String tag) {
         name: tag,
         property: ButtonStyle(
           backgroundColor: arguments.backgroundColor == null ? null : MaterialStatePropertyAll(arguments.backgroundColor),
-          alignment: arguments.align == null ? null : alignmentEnumToAlignment(arguments.align!),
+          alignment: arguments.align == null ? null : arguments.align!.toAlignment(),
           elevation: arguments.elevation == null ? null : MaterialStatePropertyAll(arguments.elevation),
           foregroundColor: arguments.foregroundColor == null ? null : MaterialStatePropertyAll(arguments.foregroundColor),
           iconColor: arguments.iconColor == null ? null : MaterialStatePropertyAll(arguments.iconColor),

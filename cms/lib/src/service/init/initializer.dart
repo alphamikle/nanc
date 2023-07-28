@@ -106,9 +106,13 @@ class Initializer {
     unawaited(settingsBloc.preloadSettings());
     unawaited(headerBloc.initItems());
 
+    final List<TagRenderer> allRenderers = [...config.customRenderers, ...TagsCollection.renderers];
+
+    _checkRenderersForUniqueness(allRenderers);
+
     final DataRepository dataRepository = DataRepository(
       eventsHandlers: config.eventsHandlers,
-      renderers: [...config.customRenderers, ...TagsCollection.renderers],
+      renderers: allRenderers,
       imageLoadingBuilder: config.imageBuilderDelegate?.imageLoadingBuilder,
       imageErrorBuilder: config.imageBuilderDelegate?.imageErrorWidgetBuilder,
       imageFrameBuilder: config.imageBuilderDelegate?.imageFrameBuilder,
@@ -148,5 +152,16 @@ class Initializer {
         RepositoryProvider<StreamController<HumanException>>.value(value: errorStreamController),
       ]);
     return true;
+  }
+
+  void _checkRenderersForUniqueness(List<TagRenderer> renderers) {
+    final Set<String> tags = {};
+
+    for (final TagRenderer renderer in renderers) {
+      if (tags.contains(renderer.tag)) {
+        throw Exception('Found duplicate of already registered tag: "${renderer.tag}"');
+      }
+      tags.add(renderer.tag);
+    }
   }
 }

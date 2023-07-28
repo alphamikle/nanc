@@ -11,29 +11,19 @@ enum ScrollPhysicsEnum {
   fixedExtent,
   never,
   page,
-  range,
-}
+  range;
 
-ScrollPhysics? scrollPhysicsEnumToScrollPhysics(ScrollPhysicsEnum? physics) {
-  if (physics == null) {
-    return null;
+  ScrollPhysics toScrollPhysics() {
+    return switch (this) {
+      ScrollPhysicsEnum.always => const AlwaysScrollableScrollPhysics(),
+      ScrollPhysicsEnum.bouncing => const BouncingScrollPhysics(),
+      ScrollPhysicsEnum.clamping => const ClampingScrollPhysics(),
+      ScrollPhysicsEnum.fixedExtent => const FixedExtentScrollPhysics(),
+      ScrollPhysicsEnum.never => const NeverScrollableScrollPhysics(),
+      ScrollPhysicsEnum.page => const PageScrollPhysics(),
+      ScrollPhysicsEnum.range => const RangeMaintainingScrollPhysics(),
+    };
   }
-  if (physics == ScrollPhysicsEnum.always) {
-    return const AlwaysScrollableScrollPhysics();
-  } else if (physics == ScrollPhysicsEnum.bouncing) {
-    return const BouncingScrollPhysics();
-  } else if (physics == ScrollPhysicsEnum.clamping) {
-    return const ClampingScrollPhysics();
-  } else if (physics == ScrollPhysicsEnum.fixedExtent) {
-    return const FixedExtentScrollPhysics();
-  } else if (physics == ScrollPhysicsEnum.never) {
-    return const NeverScrollableScrollPhysics();
-  } else if (physics == ScrollPhysicsEnum.page) {
-    return const PageScrollPhysics();
-  } else if (physics == ScrollPhysicsEnum.range) {
-    return const RangeMaintainingScrollPhysics();
-  }
-  return null;
 }
 
 @JsonSerializable()

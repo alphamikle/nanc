@@ -13,30 +13,21 @@ enum AlignmentEnum {
   centerRight,
   bottomLeft,
   bottomCenter,
-  bottomRight,
-}
+  bottomRight;
 
-Alignment alignmentEnumToAlignment(AlignmentEnum align) {
-  if (align == AlignmentEnum.topLeft) {
-    return Alignment.topLeft;
-  } else if (align == AlignmentEnum.topCenter) {
-    return Alignment.topCenter;
-  } else if (align == AlignmentEnum.topRight) {
-    return Alignment.topRight;
-  } else if (align == AlignmentEnum.centerRight) {
-    return Alignment.centerRight;
-  } else if (align == AlignmentEnum.bottomRight) {
-    return Alignment.bottomRight;
-  } else if (align == AlignmentEnum.bottomCenter) {
-    return Alignment.bottomCenter;
-  } else if (align == AlignmentEnum.bottomLeft) {
-    return Alignment.bottomLeft;
-  } else if (align == AlignmentEnum.centerLeft) {
-    return Alignment.centerLeft;
-  } else if (align == AlignmentEnum.center) {
-    return Alignment.center;
+  Alignment toAlignment() {
+    return switch (this) {
+      AlignmentEnum.topLeft => Alignment.topLeft,
+      AlignmentEnum.topCenter => Alignment.topCenter,
+      AlignmentEnum.topRight => Alignment.topRight,
+      AlignmentEnum.centerLeft => Alignment.centerLeft,
+      AlignmentEnum.center => Alignment.center,
+      AlignmentEnum.centerRight => Alignment.centerRight,
+      AlignmentEnum.bottomLeft => Alignment.bottomLeft,
+      AlignmentEnum.bottomCenter => Alignment.bottomCenter,
+      AlignmentEnum.bottomRight => Alignment.bottomRight,
+    };
   }
-  throw Exception('Unknown AlignmentEnum type: $align');
 }
 
 @JsonSerializable()
@@ -63,7 +54,7 @@ class AlignmentArguments {
       return Alignment(x!, y!);
     }
     if (align != null) {
-      return alignmentEnumToAlignment(align!);
+      return align!.toAlignment();
     }
     return null;
   }

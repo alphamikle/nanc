@@ -1,5 +1,5 @@
-name: nanc_renderer
-description: Nanc XML Renderer
+name: svg_renderer
+description: SVG Renderer Package for the Nanc
 publish_to: none
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io
@@ -12,25 +12,23 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  nanc_renderer:
+    path: ../nanc_renderer
   tools:
     path: ../tools
   icons:
     path: ../icons
-  fonts:
-    path: ../fonts
-  config:
-    path: ../config
-  markdown: ^7.1.0
+  flutter_svg: ^2.0.7
+  vector_graphics: ^1.1.7
   json_annotation: ^4.8.1
   copy_with_extension: ^5.0.2
-  cached_network_image: ^3.2.3
-  flutter_blurhash: ^0.7.0
-  xml: ^6.3.0
 
 dev_dependencies:
-  flutter_lints: ^2.0.1
+  flutter_test:
+    sdk: flutter
   lint:
     path: ../lint
+  flutter_lints: ^2.0.1
   json_serializable: ^6.7.0
   copy_with_extension_gen: ^5.0.2
   build_runner: ^2.4.4

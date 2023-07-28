@@ -20,6 +20,7 @@ class TagRenderer<T extends Widget> {
     required this.example,
     required this.builder,
     required this.description,
+    this.override = false,
   });
 
   static TagRenderer empty() => TagRenderer<Widget>(
@@ -37,4 +38,7 @@ class TagRenderer<T extends Widget> {
   final String example;
   final TagDescription description;
   final NuiBuilder<T> builder;
+
+  /// Set this field to true, to override default renderer with the same tag
+  final bool override;
 }

@@ -8,60 +8,8 @@ import '../../tag_description.dart';
 import '../../tag_renderer.dart';
 import '../../tools/properties_extractor.dart';
 import '../../tools/widgets_compactor.dart';
-import 'curve_enum.dart';
 import 'fade_in.dart';
 import 'fade_in_arguments.dart';
-
-Curve? _mapCurveEnumToCurve(CurveEnum? curveEnum) {
-  if (curveEnum == null) {
-    return null;
-  }
-  const Map<CurveEnum, Curve> map = {
-    CurveEnum.linear: Curves.linear,
-    CurveEnum.decelerate: Curves.decelerate,
-    CurveEnum.fastLinearToSlowEaseIn: Curves.fastLinearToSlowEaseIn,
-    CurveEnum.ease: Curves.ease,
-    CurveEnum.easeIn: Curves.easeIn,
-    CurveEnum.easeInToLinear: Curves.easeInToLinear,
-    CurveEnum.easeInSine: Curves.easeInSine,
-    CurveEnum.easeInQuad: Curves.easeInQuad,
-    CurveEnum.easeInCubic: Curves.easeInCubic,
-    CurveEnum.easeInQuart: Curves.easeInQuart,
-    CurveEnum.easeInQuint: Curves.easeInQuint,
-    CurveEnum.easeInExpo: Curves.easeInExpo,
-    CurveEnum.easeInCirc: Curves.easeInCirc,
-    CurveEnum.easeInBack: Curves.easeInBack,
-    CurveEnum.easeOut: Curves.easeOut,
-    CurveEnum.linearToEaseOut: Curves.linearToEaseOut,
-    CurveEnum.easeOutSine: Curves.easeOutSine,
-    CurveEnum.easeOutQuad: Curves.easeOutQuad,
-    CurveEnum.easeOutCubic: Curves.easeOutCubic,
-    CurveEnum.easeOutQuart: Curves.easeOutQuart,
-    CurveEnum.easeOutQuint: Curves.easeOutQuint,
-    CurveEnum.easeOutExpo: Curves.easeOutExpo,
-    CurveEnum.easeOutCirc: Curves.easeOutCirc,
-    CurveEnum.easeOutBack: Curves.easeOutBack,
-    CurveEnum.easeInOut: Curves.easeInOut,
-    CurveEnum.easeInOutSine: Curves.easeInOutSine,
-    CurveEnum.easeInOutQuad: Curves.easeInOutQuad,
-    CurveEnum.easeInOutCubic: Curves.easeInOutCubic,
-    CurveEnum.easeInOutCubicEmphasized: Curves.easeInOutCubicEmphasized,
-    CurveEnum.easeInOutQuart: Curves.easeInOutQuart,
-    CurveEnum.easeInOutQuint: Curves.easeInOutQuint,
-    CurveEnum.easeInOutExpo: Curves.easeInOutExpo,
-    CurveEnum.easeInOutCirc: Curves.easeInOutCirc,
-    CurveEnum.easeInOutBack: Curves.easeInOutBack,
-    CurveEnum.fastOutSlowIn: Curves.fastOutSlowIn,
-    CurveEnum.slowMiddle: Curves.slowMiddle,
-    CurveEnum.bounceIn: Curves.bounceIn,
-    CurveEnum.bounceOut: Curves.bounceOut,
-    CurveEnum.bounceInOut: Curves.bounceInOut,
-    CurveEnum.elasticIn: Curves.elasticIn,
-    CurveEnum.elasticOut: Curves.elasticOut,
-    CurveEnum.elasticInOut: Curves.elasticInOut,
-  };
-  return map[curveEnum];
-}
 
 TagRenderer fadeInRenderer() {
   return TagRenderer(
@@ -104,7 +52,7 @@ Also, you are available to change Curve type of animation. More info about curve
       return FadeIn(
         duration: arguments.duration == null ? const Duration(milliseconds: 250) : Duration(milliseconds: arguments.duration!),
         delay: arguments.delay == null ? Duration.zero : Duration(milliseconds: arguments.delay!),
-        curve: _mapCurveEnumToCurve(arguments.curve),
+        curve: arguments.curve?.toCurve(),
         child: compactWidgets(extractor.children),
       );
     },
