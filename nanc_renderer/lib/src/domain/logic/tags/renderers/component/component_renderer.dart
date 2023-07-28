@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 
+import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
 import '../../logic/template_storage.dart';
 import '../../rich_renderer.dart';
@@ -51,7 +51,7 @@ TagRenderer componentRenderer() {
   </column>
 </container>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final TemplateStorage templateStorage = TemplateStorage.of(context);
       final ComponentArguments arguments = ComponentArguments.fromJson(element.attributes);
 
@@ -61,12 +61,12 @@ TagRenderer componentRenderer() {
 
       final TemplateId templateId = arguments.id!;
 
-      final List<md.Node> templateContent = templateStorage.findTemplate(templateId) ?? [];
+      final List<TagNode> templateContent = templateStorage.findTemplate(templateId) ?? [];
       if (templateContent.isEmpty) {
         return null;
       }
       final String hash = element.attributes.toString();
-      final List<md.Node>? richComponentContent = enrichNodesWithAttribute(attributeName: kHashAttribute, attributeValue: hash, nodes: templateContent);
+      final List<TagNode>? richComponentContent = enrichNodesWithAttribute(attributeName: kHashAttribute, attributeValue: hash, nodes: templateContent);
       templateStorage.saveArguments(
         templateId: templateId,
         hash: hash,

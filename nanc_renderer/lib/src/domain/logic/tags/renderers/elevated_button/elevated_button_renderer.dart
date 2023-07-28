@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 
 import '../../../../../../nanc_renderer.dart';
+import '../../../model/tag.dart';
 import '../../tools/widgets_compactor.dart';
 import 'elevated_button_arguments.dart';
 
@@ -25,7 +25,7 @@ TagRenderer elevatedButtonRenderer() {
     example: '''
 TODO
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final ElevatedButtonArguments arguments = ElevatedButtonArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 
+import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
 import '../../logic/local_data.dart';
 import '../../logic/template_storage.dart';
@@ -45,7 +45,7 @@ At the moment there is support only for parameters passing, but in the near futu
   </column>
 </container>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final TemplateArguments arguments = TemplateArguments.fromJson(element.attributes);
 
       if (arguments.id == null || arguments.id!.isEmpty) {
@@ -53,9 +53,8 @@ At the moment there is support only for parameters passing, but in the near futu
       }
       final TemplateId templateId = arguments.id!;
 
-      // ignore: use_build_context_synchronously
       final TemplateStorage templateStorage = TemplateStorage.of(context);
-      final List<md.Node> preparedComponents = _prepareTemplateContent(templateId, element.children ?? []);
+      final List<TagNode> preparedComponents = _prepareTemplateContent(templateId, element.children ?? []);
 
       templateStorage.saveTemplate(
         templateId: templateId,
@@ -67,25 +66,32 @@ At the moment there is support only for parameters passing, but in the near futu
   );
 }
 
-List<md.Node> _prepareTemplateContent(TemplateId templateId, List<md.Node> components) {
-  final List<md.Node> preparedComponents = [];
-  for (final md.Node node in components) {
+List<TagNode> _prepareTemplateContent(TemplateId templateId, List<TagNode> components) {
+  final List<TagNode> preparedComponents = [];
+  for (final TagNode node in components) {
     preparedComponents.add(_prepareTemplateChild(templateId, node));
   }
   return preparedComponents;
 }
 
-md.Node _prepareTemplateChild(TemplateId templateId, md.Node child) {
-  if (child is md.Element) {
-    final md.Element newElement = md.Element(child.tag, _prepareTemplateContent(templateId, child.children ?? []));
+TagNode _prepareTemplateChild(TemplateId templateId, TagNode child) {
+  if (child is WidgetTag) {
+    final Map<String, String> attributes = {};
     for (final MapEntry<String, String> attributeEntry in child.attributes.entries) {
-      newElement.attributes[attributeEntry.key] = _replaceSimpleTemplateExpressionWithComplex(templateId, attributeEntry.value);
+      attributes[attributeEntry.key] = _replaceSimpleTemplateExpressionWithComplex(templateId, attributeEntry.value);
     }
-    return newElement;
-  } else if (child is md.Text) {
-    return md.Text(_replaceSimpleTemplateExpressionWithComplex(templateId, child.textContent));
-  } else if (child is md.UnparsedContent) {
-    return md.UnparsedContent(_replaceSimpleTemplateExpressionWithComplex(templateId, child.textContent));
+    return child.copyWith(
+      children: _prepareTemplateContent(templateId, child.children),
+      attributes: attributes,
+    );
+  } else if (child is TextNode) {
+    return child.copyWith(
+      text: _replaceSimpleTemplateExpressionWithComplex(templateId, child.text),
+    );
+  } else if (child is UnknownNode) {
+    return child.copyWith(
+      text: _replaceSimpleTemplateExpressionWithComplex(templateId, child.text),
+    );
   }
   throw Exception('Unknown Node: ${child.runtimeType}');
 }

@@ -1,27 +1,24 @@
-import 'package:markdown/markdown.dart' as md;
+import '../../model/tag.dart';
 
-List<md.Node>? enrichNodesWithAttribute({
+List<TagNode>? enrichNodesWithAttribute({
   required String attributeName,
   required String attributeValue,
-  required List<md.Node>? nodes,
+  required List<TagNode>? nodes,
 }) {
   if (nodes == null) {
     return null;
   }
-  final List<md.Node> output = [];
-  for (final md.Node node in nodes) {
-    if (node is md.Element) {
-      final List<md.Node>? newChildren = node.children == null
-          ? null
-          : enrichNodesWithAttribute(
-              attributeName: attributeName,
-              attributeValue: attributeValue,
-              nodes: node.children!,
-            );
-      final md.Element newNode = md.Element(node.tag, newChildren);
-      newNode.attributes.addAll(node.attributes);
-      newNode.attributes[attributeName] = attributeValue;
-      output.add(newNode);
+  final List<TagNode> output = [];
+  for (final TagNode node in nodes) {
+    if (node is WidgetTag) {
+      final List<TagNode>? newChildren = enrichNodesWithAttribute(
+        attributeName: attributeName,
+        attributeValue: attributeValue,
+        nodes: node.children,
+      );
+      final Map<String, String> attributes = {...node.attributes};
+      attributes[attributeName] = attributeValue;
+      output.add(node.copyWith(children: newChildren ?? [], attributes: attributes));
     } else {
       output.add(node);
     }

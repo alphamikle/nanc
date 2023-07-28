@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
@@ -87,7 +86,7 @@ Path to a file pre-compiled into a special vector format. Details are available 
   </column>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final SvgArguments arguments = SvgArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 

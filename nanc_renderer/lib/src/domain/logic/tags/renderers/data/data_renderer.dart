@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 
+import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
 import '../../logic/local_data.dart';
 import '../../rich_renderer.dart';
@@ -50,7 +50,7 @@ Data consumes one required argument "id" and any another arguments, which you wa
   </container>
 </container>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final DataArguments arguments = DataArguments.fromJson(element.attributes);
 
       if (arguments.id != null && arguments.id!.isNotEmpty) {

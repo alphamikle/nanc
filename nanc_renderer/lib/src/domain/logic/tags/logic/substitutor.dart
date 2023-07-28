@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:markdown/markdown.dart' as md;
 
+import '../../model/tag.dart';
 import '../renderers/component/element_hash_extension.dart';
 import '../renderers/for/for_renderer.dart';
 import '../tools/chain_extractor.dart';
@@ -18,7 +18,7 @@ class Substitutor {
   final RegExp _substitutionRegExp = RegExp(r'{{.*}}');
   final RegExp _clearingRegExp = RegExp(r'(?<start>{{)(?<content>[^}]+)(?<end>}})');
 
-  static md.Element enrichElement({required BuildContext context, required md.Element node}) {
+  static WidgetTag enrichElement({required BuildContext context, required WidgetTag node}) {
     final Substitutor substitutor = Substitutor(context: context);
     final Map<String, String> attributes = {...node.attributes};
     for (final MapEntry<String, String> attributeEntry in node.attributes.entries) {
@@ -27,9 +27,7 @@ class Substitutor {
         attributes['${attributeEntry.key}_old'] = substitutor._clearValue(substitutor._prepareForClearing(attributeEntry.value));
       }
     }
-    final md.Element newNode = md.Element(node.tag, node.children);
-    newNode.attributes.addAll(attributes);
-    return newNode;
+    return node.copyWith(attributes: attributes);
   }
 
   bool haveExpression(String value) => _substitutionRegExp.hasMatch(value);

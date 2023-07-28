@@ -1,5 +1,6 @@
 library nanc_renderer;
 
+export 'src/domain/logic/model/tag.dart';
 export 'src/domain/logic/tags/documentation/documentation.dart';
 export 'src/domain/logic/tags/enums.dart';
 export 'src/domain/logic/tags/logic/event_delegate.dart';

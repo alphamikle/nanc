@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:markdown/markdown.dart' as md;
 import 'package:nanc_renderer/nanc_renderer.dart';
 
 import 'header_arguments.dart';
@@ -12,7 +11,7 @@ const String header = 'header';
 PropertyTagRenderer<Header> headerProperty({String name = header}) {
   return PropertyTagRenderer(
     tag: name,
-    builder: (BuildContext context, md.Element element, RichRenderer renderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer renderer) {
       final HeaderArguments headerArguments = HeaderArguments.fromJson(element.attributes);
 
       if (headerArguments.isEmpty) {

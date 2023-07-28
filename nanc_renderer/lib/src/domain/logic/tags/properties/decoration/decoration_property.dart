@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
 
+import '../../../model/tag.dart';
 import '../../property_tag_renderer.dart';
 import '../../rich_renderer.dart';
 import '../../tools/properties_extractor.dart';
@@ -11,7 +12,7 @@ import 'decoration_property_widget.dart';
 PropertyTagRenderer<Decoration> decorationProperty(String tag) {
   return PropertyTagRenderer(
     tag: tag,
-    builder: (BuildContext context, md.Element element, RichRenderer renderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer renderer) {
       final DecorationArguments arguments = DecorationArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: renderer.renderChildren(context, element.children));
 

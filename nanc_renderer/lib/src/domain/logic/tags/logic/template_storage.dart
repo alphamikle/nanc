@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:markdown/markdown.dart' as md;
+
+import '../../model/tag.dart';
 
 typedef TemplateId = String;
 
@@ -13,7 +14,7 @@ class TemplateStorage extends InheritedWidget {
     super.key,
   });
 
-  final Map<TemplateId, List<md.Node>> _templates = {};
+  final Map<TemplateId, List<TagNode>> _templates = {};
   final Map<TemplateId, Map<String, String>> _templateValues = {};
 
   static TemplateStorage of(BuildContext context) {
@@ -41,7 +42,7 @@ class TemplateStorage extends InheritedWidget {
 
   void saveTemplate({
     required TemplateId templateId,
-    required List<md.Node> components,
+    required List<TagNode> components,
   }) {
     _templates[templateId] = components;
     _templateValues.removeWhere((TemplateId key, Map<String, String> value) => key.startsWith(templateId));
@@ -55,7 +56,7 @@ class TemplateStorage extends InheritedWidget {
     _templateValues['$templateId:$hash'] = arguments;
   }
 
-  List<md.Node>? findTemplate(TemplateId templateId) => _templates[templateId];
+  List<TagNode>? findTemplate(TemplateId templateId) => _templates[templateId];
 
   String? getValue({
     required TemplateId templateId,

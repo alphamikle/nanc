@@ -4,6 +4,7 @@ import 'package:icons/icons.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:tools/tools.dart';
 
+import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';
@@ -105,7 +106,7 @@ Also, if you passed a some image url and don't see the image in the Nanc, potent
   </column>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final ImageArguments arguments = ImageArguments.fromJson(element.attributes);
       final RegExp blurHashRegExp = RegExp(r'[?|&]?bh=(?<hash>[^&]+)');
 
