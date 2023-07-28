@@ -122,7 +122,7 @@ class EditorBloc extends Cubit<EditorState> {
       await Future<void>.delayed(const Duration(milliseconds: 30));
       controller.value = TextEditingValue(text: content);
     } catch (error, stackTrace) {
-      print(error);
+      logError('Error on updating text content', error: error, stackTrace: stackTrace);
     }
   }
 

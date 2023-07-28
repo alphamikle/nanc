@@ -36,10 +36,10 @@ enum QueryFieldType {
   isNotNull('Is not null', false),
   unknown('Unknown', false);
 
+  const QueryFieldType(this.title, [this.needToShowValueField = true]);
+
   final String title;
   final bool needToShowValueField;
-
-  const QueryFieldType(this.title, [this.needToShowValueField = true]);
 
   static List<QueryFieldType> get valueTypes {
     return [

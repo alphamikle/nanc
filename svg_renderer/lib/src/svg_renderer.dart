@@ -25,14 +25,14 @@ And use optimized versions. Details can be found at the following [link](https:/
       ''',
       arguments: [
         const TagArgument(
-          'ref',
-          {'String', 'assets/svg_icons/star.svg', 'https://cdn.ourhost.com/svg_icons/star.svg'},
-          'The path to the SVG file, or the network path, URL, to the SVG file.',
+          name: 'ref',
+          values: {'String', 'assets/svg_icons/star.svg', 'https://cdn.ourhost.com/svg_icons/star.svg'},
+          description: 'The path to the SVG file, or the network path, URL, to the SVG file.',
         ),
         const TagArgument(
-          'vec',
-          {'String', 'assets/svg_icons/star.svg.vec', 'https://cdn.ourhost.com/svg_icons/star.svg.vec'},
-          '''
+          name: 'vec',
+          values: {'String', 'assets/svg_icons/star.svg.vec', 'https://cdn.ourhost.com/svg_icons/star.svg.vec'},
+          description: '''
 Path to a file pre-compiled into a special vector format. Details are available at this [link](https://pub.dev/packages/flutter_svg#precompiling-and-optimizing-svgs).
 ''',
         ),
@@ -52,12 +52,12 @@ Path to a file pre-compiled into a special vector format. Details are available 
           name: header,
           arguments: [
             TagArgument(
-              'name',
-              {'String', 'Cache-Control', 'Authorization'},
+              name: 'name',
+              values: {'String', 'Cache-Control', 'Authorization'},
             ),
             TagArgument(
-              'value',
-              {'String', 'no-cache', 'eyJhbGciOiJIUzI1NiIsInR'},
+              name: 'value',
+              values: {'String', 'no-cache', 'eyJhbGciOiJIUzI1NiIsInR'},
             ),
           ],
           properties: [],

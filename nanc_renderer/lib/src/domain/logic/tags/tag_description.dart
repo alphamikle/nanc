@@ -5,7 +5,10 @@ class TagDescription {
     required this.properties,
   });
 
-  const TagDescription.empty() : description = '', arguments = const [], properties = const [];
+  const TagDescription.empty()
+      : description = '',
+        arguments = const [],
+        properties = const [];
 
   final String description;
   final List<TagArgument> arguments;
@@ -13,7 +16,7 @@ class TagDescription {
 }
 
 class TagArgument {
-  const TagArgument(this.name, this.values, [this.description = '']);
+  const TagArgument({required this.name, required this.values, this.description = ''});
 
   final String name;
   final Set<String> values;

@@ -3,14 +3,14 @@ import '../documentation_types.dart';
 import 'scalar_arguments.dart';
 
 TagArgument colorArgument({required String name}) => TagArgument(
-      name,
-      {
+      name: name,
+      values: {
         '#D5FFFFFF',
         'DA9745',
         'red',
         'armadillo',
       },
-      '''
+      description: '''
 Color value can be a hex or human-readable representation of the color in the next possible forms:
 * #FFAADD - HEX value with the "#" prefix
 * FFAADD - HEX value without "#" prefix
@@ -24,13 +24,13 @@ Full list of human-readable color names can be found [here](https://github.com/a
 ''',
     );
 
-TagArgument blendModeArgument({required String name}) => TagArgument(name, DocumentationTypes.blendModeValues);
-TagArgument blurStyleArgument({required String name}) => TagArgument(name, DocumentationTypes.blurStyleValues);
-TagArgument tileModeArgument({required String name}) => TagArgument(name, DocumentationTypes.tileModeValues);
-TagArgument materialTypeArgument({required String name}) => TagArgument(name, DocumentationTypes.materialTypeValues);
+TagArgument blendModeArgument({required String name}) => TagArgument(name: name, values: DocumentationTypes.blendModeValues);
+TagArgument blurStyleArgument({required String name}) => TagArgument(name: name, values: DocumentationTypes.blurStyleValues);
+TagArgument tileModeArgument({required String name}) => TagArgument(name: name, values: DocumentationTypes.tileModeValues);
+TagArgument materialTypeArgument({required String name}) => TagArgument(name: name, values: DocumentationTypes.materialTypeValues);
 TagArgument elevationArgument([String name = 'elevation']) => doubleArgument(name: name);
 TagArgument packageArgument({String name = 'package'}) {
-  return TagArgument(name, {'String'}, '''
+  return TagArgument(name: name, values: {'String'}, description: '''
 The name of the package from which the image is included.
   ''');
 }

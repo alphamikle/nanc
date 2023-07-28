@@ -2,7 +2,7 @@ import '../../tag_description.dart';
 import '../documentation_types.dart';
 import 'scalar_arguments.dart';
 
-TagArgument curveArgument({required String name}) => TagArgument(name, DocumentationTypes.curveEnumValues, '''
+TagArgument curveArgument({required String name}) => TagArgument(name: name, values: DocumentationTypes.curveEnumValues, description: '''
 Curve is the parameter that determines exactly how the animation will play over time.
 
 You can learn more about Curves from here:

@@ -4,15 +4,15 @@ import 'scalar_arguments.dart';
 
 TagArgument maxLinesArgument({String name = 'maxLines'}) => intArgument(name: name);
 
-TagArgument textAlignArgument({String name = 'align'}) => TagArgument(name, DocumentationTypes.textAlignValues);
+TagArgument textAlignArgument({String name = 'align'}) => TagArgument(name: name, values: DocumentationTypes.textAlignValues);
 
-TagArgument textOverflowArgument({String name = 'overflow'}) => TagArgument(name, DocumentationTypes.textOverflowValues);
+TagArgument textOverflowArgument({String name = 'overflow'}) => TagArgument(name: name, values: DocumentationTypes.textOverflowValues);
 
 TagArgument fontSizeArgument({String name = 'size'}) => doubleArgument(name: name);
 
-TagArgument fontWeightArgument({String name = 'weight'}) => TagArgument(name, DocumentationTypes.fontWeightEnumValues);
+TagArgument fontWeightArgument({String name = 'weight'}) => TagArgument(name: name, values: DocumentationTypes.fontWeightEnumValues);
 
-TagArgument textDecorationArgument({String name = 'decoration'}) => TagArgument(name, DocumentationTypes.textDecorationEnumValues);
+TagArgument textDecorationArgument({String name = 'decoration'}) => TagArgument(name: name, values: DocumentationTypes.textDecorationEnumValues);
 
 TagArgument fontArgument({String name = 'font'}) {
   return stringArgument(name: name, description: '''
