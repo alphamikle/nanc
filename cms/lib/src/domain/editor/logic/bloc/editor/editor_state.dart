@@ -2,6 +2,7 @@ import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fields/fields.dart';
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
@@ -46,7 +47,7 @@ class EditorState extends Equatable {
   final MenuElement activeElement;
 
   @JsonKey(fromJson: _rendererFrom, toJson: _rendererTo)
-  final TagRenderer activeTagRenderer;
+  final TagRenderer<Widget> activeTagRenderer;
 
   @override
   List<Object?> get props => _$props;

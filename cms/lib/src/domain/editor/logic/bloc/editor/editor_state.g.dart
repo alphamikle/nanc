@@ -34,7 +34,7 @@ abstract class _$EditorStateCWProxy {
 
   EditorState activeElement(MenuElement activeElement);
 
-  EditorState activeTagRenderer(TagRenderer activeTagRenderer);
+  EditorState activeTagRenderer(TagRenderer<Widget> activeTagRenderer);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `EditorState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -48,7 +48,7 @@ abstract class _$EditorStateCWProxy {
     ScreenContentType? contentType,
     bool? isSyncedWithFile,
     MenuElement? activeElement,
-    TagRenderer? activeTagRenderer,
+    TagRenderer<Widget>? activeTagRenderer,
   });
 }
 
@@ -78,7 +78,7 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
       this(activeElement: activeElement);
 
   @override
-  EditorState activeTagRenderer(TagRenderer activeTagRenderer) =>
+  EditorState activeTagRenderer(TagRenderer<Widget> activeTagRenderer) =>
       this(activeTagRenderer: activeTagRenderer);
 
   @override
@@ -126,7 +126,7 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
               activeTagRenderer == null
           ? _value.activeTagRenderer
           // ignore: cast_nullable_to_non_nullable
-          : activeTagRenderer as TagRenderer,
+          : activeTagRenderer as TagRenderer<Widget>,
     );
   }
 }
