@@ -21,7 +21,7 @@ class PreviewBloc extends Cubit<PreviewState> {
   void _handleEditorChanges(EditorState editorState) {
     emit(state.copyWith(
       isLoading: editorState.isLoading,
-      markdownContent: editorState.markdownContent,
+      xmlContent: editorState.xmlContent,
       contentType: editorState.contentType,
     ));
   }

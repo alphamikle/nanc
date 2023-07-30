@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/src/blurhash.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 import 'package:tools/tools.dart';
 
 import '../../../model/tag.dart';

@@ -21,7 +21,7 @@ dynamic _rendererTo(dynamic _) => null;
 class EditorState extends Equatable {
   const EditorState({
     required this.isLoading,
-    required this.markdownContent,
+    required this.xmlContent,
     required this.contentType,
     required this.isSyncedWithFile,
     required this.activeElement,
@@ -32,7 +32,7 @@ class EditorState extends Equatable {
 
   factory EditorState.empty() => EditorState(
         isLoading: false,
-        markdownContent: '',
+        xmlContent: '',
         contentType: ScreenContentType.scrollable,
         isSyncedWithFile: false,
         activeElement: MenuElement.empty(),
@@ -40,7 +40,7 @@ class EditorState extends Equatable {
       );
 
   final bool isLoading;
-  final String markdownContent;
+  final String xmlContent;
   final ScreenContentType contentType;
   final bool isSyncedWithFile;
 

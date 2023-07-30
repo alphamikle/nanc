@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 
 import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';

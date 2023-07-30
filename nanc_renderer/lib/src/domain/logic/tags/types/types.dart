@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:markdown/markdown.dart' as md;
 
 import '../../model/tag.dart';
 import '../property_widget.dart';

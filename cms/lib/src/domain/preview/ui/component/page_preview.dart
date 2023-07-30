@@ -27,7 +27,7 @@ class PagePreview extends StatelessWidget {
 
               return NUIWidget(
                 scrollController: context.read<PreviewBloc>().scrollController,
-                xmlContent: previewState.markdownContent,
+                xmlContent: previewState.xmlContent,
                 pageData: pageState.data,
                 renderers: dataRepository.renderers,
                 imageLoadingBuilder: dataRepository.imageLoadingBuilder,

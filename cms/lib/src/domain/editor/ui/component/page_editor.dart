@@ -53,7 +53,7 @@ class _PageEditorState extends State<PageEditor> {
           ),
           child: BlocBuilder<EditorBloc, EditorState>(
             builder: (BuildContext context, EditorState state) {
-              final int lines = state.markdownContent.split('\n').length;
+              final int lines = state.xmlContent.split('\n').length;
 
               return BlocBuilder<EditorBloc, EditorState>(
                 builder: (BuildContext context, EditorState state) {
