@@ -54,7 +54,7 @@ At the moment there is support only for parameters passing, but in the near futu
       final TemplateId templateId = arguments.id!;
 
       final TemplateStorage templateStorage = TemplateStorage.of(context);
-      final List<TagNode> preparedComponents = _prepareTemplateContent(templateId, element.children ?? []);
+      final List<TagNode> preparedComponents = _prepareTemplateContent(templateId, element.children);
 
       templateStorage.saveTemplate(
         templateId: templateId,
@@ -89,6 +89,7 @@ TagNode _prepareTemplateChild(TemplateId templateId, TagNode child) {
       text: _replaceSimpleTemplateExpressionWithComplex(templateId, child.text),
     );
   } else if (child is UnknownNode) {
+    // TODO(alphamikle): Need to test that case, if we will do nothing
     return child.copyWith(
       text: _replaceSimpleTemplateExpressionWithComplex(templateId, child.text),
     );

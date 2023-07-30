@@ -247,7 +247,7 @@ TagNode _prepareCycleChild({
       );
     }
 
-    final WidgetTag newElement = child.copyWith(
+    return child.copyWith(
       children: _prepareCycleContent(
         cycleId: cycleId,
         indexName: indexName,
@@ -257,7 +257,6 @@ TagNode _prepareCycleChild({
       ),
       attributes: attributes,
     );
-    return newElement;
   } else if (child is TextNode) {
     return child.copyWith(
       text: _replaceSimpleCycleExpressionWithComplex(
@@ -269,7 +268,8 @@ TagNode _prepareCycleChild({
       ),
     );
   } else if (child is UnknownNode) {
-    return UnknownNode(
+    // TODO(alphamikle): Need to test that case, if we will do nothing
+    return child.copyWith(
       text: _replaceSimpleCycleExpressionWithComplex(
         cycleId: cycleId,
         indexName: indexName,

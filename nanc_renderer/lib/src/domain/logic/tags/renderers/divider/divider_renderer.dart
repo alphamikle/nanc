@@ -15,9 +15,11 @@ TagRenderer dividerRenderer() {
     tag: 'divider',
     description: TagDescription(
       description: '''
-# Divider
+# [Divider](https://api.flutter.dev/flutter/material/Divider-class.html)
 
-Divider is a custom widget designed to add some empty space to your UI.
+A thin horizontal line, with padding on either side.
+
+In the Material Design language, this represents a divider. Dividers can be used in lists, Drawers, and elsewhere to separate content.
 ''',
       arguments: [
         heightArgument(),

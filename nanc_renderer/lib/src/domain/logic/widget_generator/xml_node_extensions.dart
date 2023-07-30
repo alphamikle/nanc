@@ -1,6 +1,6 @@
 import 'package:xml/xml.dart';
 
-import '../model/tag.dart';
+import '../../../../nanc_renderer.dart';
 
 extension XmlNodeConverter on XmlNode {
   TagNode toTagNode() {
@@ -12,7 +12,7 @@ extension XmlNodeConverter on XmlNode {
       }
       final String tag = self.qualifiedName;
 
-      if (tag.startsWith('prop:')) {
+      if (tag.startsWith(propertyPrefix)) {
         return PropertyTag(
           tag: self.qualifiedName,
           children: self.children.toTagNodes(),

@@ -37,7 +37,7 @@ class ManualMenu extends StatelessWidget {
 
   List<TagRenderer> tagRenderers(BuildContext context) {
     final DataRepository dataRepository = context.read();
-    return dataRepository.renderers.where((TagRenderer renderer) => renderer.tag.startsWith('prop:') == false).toList();
+    return dataRepository.renderers.where((TagRenderer renderer) => renderer.tag.startsWith(propertyPrefix) == false).toList();
   }
 
   @override
