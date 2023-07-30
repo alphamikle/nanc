@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 
 import 'header_arguments.dart';
-import 'headers_property_widget.dart';
+import 'header_property_widget.dart';
 
 typedef Header = MapEntry<String, String>;
 
@@ -18,7 +18,7 @@ PropertyTagRenderer<Header> headerProperty({String name = header}) {
         return null;
       }
 
-      return HeadersPropertyWidget(
+      return HeaderPropertyWidget(
         name: name,
         property: MapEntry(headerArguments.name!, headerArguments.value!),
       );
