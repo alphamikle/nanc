@@ -9,7 +9,7 @@ part of 'preview_state.dart';
 extension _$PreviewStateAutoequal on PreviewState {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [isLoading, markdownContent, contentType];
+  List<Object?> get _$props => [isLoading, xmlContent, contentType];
 }
 
 // **************************************************************************
@@ -19,7 +19,7 @@ extension _$PreviewStateAutoequal on PreviewState {
 abstract class _$PreviewStateCWProxy {
   PreviewState isLoading(bool isLoading);
 
-  PreviewState markdownContent(String markdownContent);
+  PreviewState xmlContent(String xmlContent);
 
   PreviewState contentType(ScreenContentType contentType);
 
@@ -31,7 +31,7 @@ abstract class _$PreviewStateCWProxy {
   /// ````
   PreviewState call({
     bool? isLoading,
-    String? markdownContent,
+    String? xmlContent,
     ScreenContentType? contentType,
   });
 }
@@ -46,8 +46,7 @@ class _$PreviewStateCWProxyImpl implements _$PreviewStateCWProxy {
   PreviewState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
-  PreviewState markdownContent(String markdownContent) =>
-      this(markdownContent: markdownContent);
+  PreviewState xmlContent(String xmlContent) => this(xmlContent: xmlContent);
 
   @override
   PreviewState contentType(ScreenContentType contentType) =>
@@ -63,7 +62,7 @@ class _$PreviewStateCWProxyImpl implements _$PreviewStateCWProxy {
   /// ````
   PreviewState call({
     Object? isLoading = const $CopyWithPlaceholder(),
-    Object? markdownContent = const $CopyWithPlaceholder(),
+    Object? xmlContent = const $CopyWithPlaceholder(),
     Object? contentType = const $CopyWithPlaceholder(),
   }) {
     return PreviewState(
@@ -71,11 +70,11 @@ class _$PreviewStateCWProxyImpl implements _$PreviewStateCWProxy {
           ? _value.isLoading
           // ignore: cast_nullable_to_non_nullable
           : isLoading as bool,
-      markdownContent: markdownContent == const $CopyWithPlaceholder() ||
-              markdownContent == null
-          ? _value.markdownContent
-          // ignore: cast_nullable_to_non_nullable
-          : markdownContent as String,
+      xmlContent:
+          xmlContent == const $CopyWithPlaceholder() || xmlContent == null
+              ? _value.xmlContent
+              // ignore: cast_nullable_to_non_nullable
+              : xmlContent as String,
       contentType:
           contentType == const $CopyWithPlaceholder() || contentType == null
               ? _value.contentType
@@ -97,14 +96,14 @@ extension $PreviewStateCopyWith on PreviewState {
 
 PreviewState _$PreviewStateFromJson(Map<String, dynamic> json) => PreviewState(
       isLoading: json['isLoading'] as bool,
-      markdownContent: json['markdownContent'] as String,
+      xmlContent: json['xmlContent'] as String,
       contentType: $enumDecode(_$ScreenContentTypeEnumMap, json['contentType']),
     );
 
 Map<String, dynamic> _$PreviewStateToJson(PreviewState instance) =>
     <String, dynamic>{
       'isLoading': instance.isLoading,
-      'markdownContent': instance.markdownContent,
+      'xmlContent': instance.xmlContent,
       'contentType': _$ScreenContentTypeEnumMap[instance.contentType]!,
     };
 

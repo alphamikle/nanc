@@ -83,7 +83,7 @@ class EditorBloc extends Cubit<EditorState> {
   void controllerListener() {
     if (state.isSyncedWithFile == false) {
       logg.wrap('Controller listener');
-      emit(state.copyWith(markdownContent: controller.text));
+      emit(state.copyWith(xmlContent: controller.text));
     }
   }
 
@@ -107,7 +107,7 @@ class EditorBloc extends Cubit<EditorState> {
     if (fileContent != null && fileContent != controller.text) {
       logg.wrap('File content listener');
       await _updateContent(fileContent);
-      emit(state.copyWith(markdownContent: fileContent));
+      emit(state.copyWith(xmlContent: fileContent));
     }
   }
 

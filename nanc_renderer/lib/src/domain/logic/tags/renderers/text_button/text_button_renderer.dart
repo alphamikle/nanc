@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 
+import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
 import '../../documentation/properties/button_style.dart';
 import '../../logic/event_delegate.dart';
@@ -58,7 +58,7 @@ If the [onPressed](material/ButtonStyleButton/onPressed.html) and [onLongPress](
   </center>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final TextButtonArguments arguments = TextButtonArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
       Widget? child;

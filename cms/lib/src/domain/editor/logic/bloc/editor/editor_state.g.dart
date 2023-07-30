@@ -11,7 +11,7 @@ extension _$EditorStateAutoequal on EditorState {
   List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [
         isLoading,
-        markdownContent,
+        xmlContent,
         contentType,
         isSyncedWithFile,
         activeElement,
@@ -26,7 +26,7 @@ extension _$EditorStateAutoequal on EditorState {
 abstract class _$EditorStateCWProxy {
   EditorState isLoading(bool isLoading);
 
-  EditorState markdownContent(String markdownContent);
+  EditorState xmlContent(String xmlContent);
 
   EditorState contentType(ScreenContentType contentType);
 
@@ -34,7 +34,7 @@ abstract class _$EditorStateCWProxy {
 
   EditorState activeElement(MenuElement activeElement);
 
-  EditorState activeTagRenderer(TagRenderer activeTagRenderer);
+  EditorState activeTagRenderer(TagRenderer<Widget> activeTagRenderer);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `EditorState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -44,11 +44,11 @@ abstract class _$EditorStateCWProxy {
   /// ````
   EditorState call({
     bool? isLoading,
-    String? markdownContent,
+    String? xmlContent,
     ScreenContentType? contentType,
     bool? isSyncedWithFile,
     MenuElement? activeElement,
-    TagRenderer? activeTagRenderer,
+    TagRenderer<Widget>? activeTagRenderer,
   });
 }
 
@@ -62,8 +62,7 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
   EditorState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
-  EditorState markdownContent(String markdownContent) =>
-      this(markdownContent: markdownContent);
+  EditorState xmlContent(String xmlContent) => this(xmlContent: xmlContent);
 
   @override
   EditorState contentType(ScreenContentType contentType) =>
@@ -78,7 +77,7 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
       this(activeElement: activeElement);
 
   @override
-  EditorState activeTagRenderer(TagRenderer activeTagRenderer) =>
+  EditorState activeTagRenderer(TagRenderer<Widget> activeTagRenderer) =>
       this(activeTagRenderer: activeTagRenderer);
 
   @override
@@ -91,7 +90,7 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
   /// ````
   EditorState call({
     Object? isLoading = const $CopyWithPlaceholder(),
-    Object? markdownContent = const $CopyWithPlaceholder(),
+    Object? xmlContent = const $CopyWithPlaceholder(),
     Object? contentType = const $CopyWithPlaceholder(),
     Object? isSyncedWithFile = const $CopyWithPlaceholder(),
     Object? activeElement = const $CopyWithPlaceholder(),
@@ -102,11 +101,11 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
           ? _value.isLoading
           // ignore: cast_nullable_to_non_nullable
           : isLoading as bool,
-      markdownContent: markdownContent == const $CopyWithPlaceholder() ||
-              markdownContent == null
-          ? _value.markdownContent
-          // ignore: cast_nullable_to_non_nullable
-          : markdownContent as String,
+      xmlContent:
+          xmlContent == const $CopyWithPlaceholder() || xmlContent == null
+              ? _value.xmlContent
+              // ignore: cast_nullable_to_non_nullable
+              : xmlContent as String,
       contentType:
           contentType == const $CopyWithPlaceholder() || contentType == null
               ? _value.contentType
@@ -126,7 +125,7 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
               activeTagRenderer == null
           ? _value.activeTagRenderer
           // ignore: cast_nullable_to_non_nullable
-          : activeTagRenderer as TagRenderer,
+          : activeTagRenderer as TagRenderer<Widget>,
     );
   }
 }
@@ -143,7 +142,7 @@ extension $EditorStateCopyWith on EditorState {
 
 EditorState _$EditorStateFromJson(Map<String, dynamic> json) => EditorState(
       isLoading: json['isLoading'] as bool,
-      markdownContent: json['markdownContent'] as String,
+      xmlContent: json['xmlContent'] as String,
       contentType: $enumDecode(_$ScreenContentTypeEnumMap, json['contentType']),
       isSyncedWithFile: json['isSyncedWithFile'] as bool,
       activeElement: MenuElement.fromJson(json['activeElement']),
@@ -153,7 +152,7 @@ EditorState _$EditorStateFromJson(Map<String, dynamic> json) => EditorState(
 Map<String, dynamic> _$EditorStateToJson(EditorState instance) =>
     <String, dynamic>{
       'isLoading': instance.isLoading,
-      'markdownContent': instance.markdownContent,
+      'xmlContent': instance.xmlContent,
       'contentType': _$ScreenContentTypeEnumMap[instance.contentType]!,
       'isSyncedWithFile': instance.isSyncedWithFile,
       'activeElement': instance.activeElement.toJson(),

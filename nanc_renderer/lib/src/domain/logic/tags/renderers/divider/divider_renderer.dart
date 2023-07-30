@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 
+import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';
@@ -15,11 +15,11 @@ TagRenderer dividerRenderer() {
     tag: 'divider',
     description: TagDescription(
       description: '''
-# Divider
+# [Divider](https://api.flutter.dev/flutter/material/Divider-class.html)
 
-Divider is a custom widget designed to add some empty space to your UI.
+A thin horizontal line, with padding on either side.
 
-In general, you can use the Divider to achieve the same behavior as Padding, but without nesting.
+In the Material Design language, this represents a divider. Dividers can be used in lists, Drawers, and elsewhere to separate content.
 ''',
       arguments: [
         heightArgument(),
@@ -28,26 +28,19 @@ In general, you can use the Divider to achieve the same behavior as Padding, but
       properties: [],
     ),
     example: '''
-<container width="300" height="600" color="#457FDA">
-  <column>
-    <container width="100" height="100" color="#7BDA45">
-    </container>
-    <divider height="50"/>
-    <padding bottom="50">
-      <container width="100" height="100" color="#DA9745">
-      </container>
-    </padding>
-    <container width="100" height="100" color="#7BDA45">
-    </container>
-  </column>
-</container>
+<safeArea>
+  <divider height="50"/>
+</safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final DividerArguments arguments = DividerArguments.fromJson(element.attributes);
 
-      return SizedBox(
-        height: arguments.height ?? 0,
-        width: arguments.width ?? 0,
+      return Divider(
+        height: arguments.height,
+        color: arguments.color,
+        endIndent: arguments.endIndent,
+        indent: arguments.indent,
+        thickness: arguments.thickness,
       );
     },
   );

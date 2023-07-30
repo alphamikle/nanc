@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 
+import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
 import '../../properties/padding/padding_arguments.dart';
 import '../../rich_renderer.dart';
@@ -44,7 +44,7 @@ When passing layout constraints to its child, padding shrinks the constraints by
   </center>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final PaddingArguments arguments = PaddingArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 

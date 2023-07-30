@@ -20,12 +20,13 @@ dependencies:
     path: ../fonts
   config:
     path: ../config
-  markdown: ^7.1.0
   json_annotation: ^4.8.1
   copy_with_extension: ^5.0.2
   cached_network_image: ^3.2.3
   flutter_blurhash: ^0.7.0
   xml: ^6.3.0
+  equatable: ^2.0.5
+  autoequal: ^0.5.1
 
 dev_dependencies:
   flutter_lints: ^2.0.1
@@ -34,5 +35,6 @@ dev_dependencies:
   json_serializable: ^6.7.0
   copy_with_extension_gen: ^5.0.2
   build_runner: ^2.4.4
+  autoequal_gen: ^0.5.1
 
 flutter:

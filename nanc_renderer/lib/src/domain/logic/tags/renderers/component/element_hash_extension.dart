@@ -1,7 +1,7 @@
-import 'package:markdown/markdown.dart' as md;
+import '../../../model/tag.dart';
 import 'component_renderer.dart';
 
-extension ContentElementHash on md.Element {
+extension ContentElementHash on WidgetTag {
   String get contentHash {
     return attributes[kHashAttribute] ?? '';
   }

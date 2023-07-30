@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fonts/fonts.dart';
-import 'package:markdown/markdown.dart' as md;
 import 'package:tools/tools.dart';
 
+import '../../../model/tag.dart';
 import '../../property_tag_renderer.dart';
 import '../../rich_renderer.dart';
 import 'text_style_arguments.dart';
@@ -11,7 +11,7 @@ import 'text_style_property_widget.dart';
 PropertyTagRenderer<TextStyle> textStyleProperty(String tag) {
   return PropertyTagRenderer(
     tag: tag,
-    builder: (BuildContext context, md.Element element, RichRenderer renderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer renderer) {
       final TextStyleArguments arguments = TextStyleArguments.fromJson(element.attributes);
       late TextStyle effectiveStyle;
       if (arguments.font != null && arguments.font!.trim().isNotEmpty) {

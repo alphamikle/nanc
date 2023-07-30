@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 
+import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';
@@ -39,7 +39,7 @@ By default, the placeholder is sized to fit its container. If the placeholder is
   </center>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final PlaceholderArguments arguments = PlaceholderArguments.fromJson(element.attributes);
 
       return Placeholder(

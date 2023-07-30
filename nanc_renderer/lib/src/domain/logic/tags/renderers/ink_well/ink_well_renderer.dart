@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 
+import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
 import '../../logic/event_delegate.dart';
 import '../../rich_renderer.dart';
@@ -61,7 +61,7 @@ The [InkWell](material/InkWell-class.html) widget must have a [Material](materia
     </center>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final InkWellArguments arguments = InkWellArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
 
+import '../../../model/tag.dart';
 import '../../property_tag_renderer.dart';
 import '../../rich_renderer.dart';
 import 'button_style_arguments.dart';
@@ -9,7 +10,7 @@ import 'button_style_property_widget.dart';
 PropertyTagRenderer<ButtonStyle> buttonStyleProperty(String tag) {
   return PropertyTagRenderer(
     tag: tag,
-    builder: (BuildContext context, md.Element element, RichRenderer renderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer renderer) {
       final ButtonStyleArguments arguments = ButtonStyleArguments.fromJson(element.attributes);
 
       return ButtonStylePropertyWidget(

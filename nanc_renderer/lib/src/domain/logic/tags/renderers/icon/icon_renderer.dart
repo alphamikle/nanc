@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 
+import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';
@@ -43,7 +43,7 @@ This widget assumes that the rendered icon is squared. Non-squared icons may ren
   </center>
 </container>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final IconArguments arguments = IconArguments.fromJson(element.attributes);
       // final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 

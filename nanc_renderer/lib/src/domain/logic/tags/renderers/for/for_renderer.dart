@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 import 'package:tools/tools.dart';
 
+import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
 import '../../logic/for_storage.dart';
 import '../../rich_renderer.dart';
@@ -144,7 +144,7 @@ The last thing about `<for>` is ability to iterate only the part of the array. Y
   </for>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final String cycleId = generateEventHash();
       final ForArguments arguments = ForArguments.fromJson(element.attributes);
       final String valueName = arguments.valueName ?? kValue;
@@ -183,15 +183,15 @@ The last thing about `<for>` is ability to iterate only the part of the array. Y
       final ForStorage forStorage = ForStorage.of(context);
       forStorage.saveCycleData(cycleId: cycleId, values: parsedValues);
 
-      final List<md.Node> effectiveChildren = [];
+      final List<TagNode> effectiveChildren = [];
 
       for (int i = fromIndex; i < toIndex; i++) {
-        final List<md.Node> preparedChildren = _prepareCycleContent(
+        final List<TagNode> preparedChildren = _prepareCycleContent(
           cycleId: cycleId,
           indexName: indexName,
           valueName: valueName,
           index: i,
-          children: element.children ?? [],
+          children: element.children,
         );
         effectiveChildren.addAll(preparedChildren);
       }
@@ -205,15 +205,15 @@ The last thing about `<for>` is ability to iterate only the part of the array. Y
   );
 }
 
-List<md.Node> _prepareCycleContent({
+List<TagNode> _prepareCycleContent({
   required CycleId cycleId,
   required String indexName,
   required String valueName,
   required int index,
-  required List<md.Node> children,
+  required List<TagNode> children,
 }) {
-  final List<md.Node> preparedChildren = [];
-  for (final md.Node node in children) {
+  final List<TagNode> preparedChildren = [];
+  for (final TagNode node in children) {
     preparedChildren.add(
       _prepareCycleChild(
         cycleId: cycleId,
@@ -227,26 +227,18 @@ List<md.Node> _prepareCycleContent({
   return preparedChildren;
 }
 
-md.Node _prepareCycleChild({
+TagNode _prepareCycleChild({
   required CycleId cycleId,
   required String indexName,
   required String valueName,
   required int index,
-  required md.Node child,
+  required TagNode child,
 }) {
-  if (child is md.Element) {
-    final md.Element newElement = md.Element(
-      child.tag,
-      _prepareCycleContent(
-        cycleId: cycleId,
-        indexName: indexName,
-        valueName: valueName,
-        index: index,
-        children: child.children ?? [],
-      ),
-    );
+  if (child is WidgetTag) {
+    final Map<String, String> attributes = {};
+
     for (final MapEntry<String, String> attributeEntry in child.attributes.entries) {
-      newElement.attributes[attributeEntry.key] = _replaceSimpleCycleExpressionWithComplex(
+      attributes[attributeEntry.key] = _replaceSimpleCycleExpressionWithComplex(
         cycleId: cycleId,
         indexName: indexName,
         valueName: valueName,
@@ -254,25 +246,36 @@ md.Node _prepareCycleChild({
         value: attributeEntry.value,
       );
     }
-    return newElement;
-  } else if (child is md.Text) {
-    return md.Text(
-      _replaceSimpleCycleExpressionWithComplex(
+
+    return child.copyWith(
+      children: _prepareCycleContent(
         cycleId: cycleId,
         indexName: indexName,
         valueName: valueName,
         index: index,
-        value: child.textContent,
+        children: child.children,
+      ),
+      attributes: attributes,
+    );
+  } else if (child is TextNode) {
+    return child.copyWith(
+      text: _replaceSimpleCycleExpressionWithComplex(
+        cycleId: cycleId,
+        indexName: indexName,
+        valueName: valueName,
+        index: index,
+        value: child.text,
       ),
     );
-  } else if (child is md.UnparsedContent) {
-    return md.UnparsedContent(
-      _replaceSimpleCycleExpressionWithComplex(
+  } else if (child is UnknownNode) {
+    // TODO(alphamikle): Need to test that case, if we will do nothing
+    return child.copyWith(
+      text: _replaceSimpleCycleExpressionWithComplex(
         cycleId: cycleId,
         indexName: indexName,
         valueName: valueName,
         index: index,
-        value: child.textContent,
+        value: child.text,
       ),
     );
   }

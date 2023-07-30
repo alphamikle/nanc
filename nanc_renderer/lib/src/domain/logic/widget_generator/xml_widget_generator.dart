@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:markdown/markdown.dart' as md;
 import 'package:xml/xml.dart';
 
+import '../model/tag.dart';
 import '../tags/renderers/for/for_widget.dart';
 import '../tags/renderers/for/for_widget_filter.dart';
 import '../tags/rich_renderer.dart';
@@ -43,22 +43,20 @@ class XmlWidgetGenerator {
     }
     final XmlElement rootElement = node.children.firstWhere((XmlNode it) => it is XmlElement && it.localName == kRootNode) as XmlElement;
     final List<XmlNode> widgetTags = rootElement.children.toList();
-    final List<md.Node> nodes = widgetTags.toMarkdownNodes();
+    final List<TagNode> nodes = widgetTags.toTagNodes();
 
-    for (final md.Node node in nodes) {
+    for (final TagNode node in nodes) {
       _defaultWidgetsFilter(_buildWidget(node), widgets);
     }
     return widgets;
   }
 
-  Widget? _buildWidget(md.Node node) {
-    if (node is md.Text || node is md.UnparsedContent) {
-      return null;
-    }
-    final String tag = (node as md.Element).tag;
-    if (richRenderer.isRendererRegistered(tag)) {
-      return richRenderer.render(context, node);
-    }
-    return null;
+  Widget? _buildWidget(TagNode node) {
+    return switch (node) {
+      TextNode() => null,
+      UnknownNode() => null,
+      PropertyTag(tag: final String tag) => richRenderer.isRendererRegistered(tag) ? richRenderer.render(context, node) : null,
+      WidgetTag(tag: final String tag) => richRenderer.isRendererRegistered(tag) ? richRenderer.render(context, node) : null,
+    };
   }
 }

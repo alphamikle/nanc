@@ -1,33 +1,45 @@
-import 'package:markdown/markdown.dart' as md;
 import 'package:xml/xml.dart';
 
+import '../../../../nanc_renderer.dart';
+
 extension XmlNodeConverter on XmlNode {
-  md.Node toMarkdownNode() {
+  TagNode toTagNode() {
     if (this is XmlElement) {
       final XmlElement self = this as XmlElement;
-      final md.Element element = md.Element(
-        self.qualifiedName,
-        self.children.toMarkdownNodes(),
-      );
+      final Map<String, String> attributes = {};
       for (final XmlAttribute attribute in self.attributes) {
-        element.attributes[attribute.localName] = attribute.value;
+        attributes[attribute.localName] = attribute.value;
       }
-      return element;
+      final String tag = self.qualifiedName;
+
+      if (tag.startsWith(propertyPrefix)) {
+        return PropertyTag(
+          tag: self.qualifiedName,
+          children: self.children.toTagNodes(),
+          attributes: attributes,
+        );
+      }
+      return WidgetTag(
+        tag: self.qualifiedName,
+        children: self.children.toTagNodes(),
+        attributes: attributes,
+      );
     } else if (this is XmlText) {
       final XmlText self = this as XmlText;
-      final String trimmedText = self.text.trim();
+      final String trimmedText = self.value.trim();
 
       if (trimmedText.isEmpty || trimmedText == '\n') {
-        return md.UnparsedContent(self.text);
+        return UnknownNode(text: self.value);
       }
-      return md.Text(self.text);
+
+      return TextNode(text: self.value);
     }
-    return md.UnparsedContent(text);
+    return UnknownNode(text: value ?? '');
   }
 }
 
 extension XmlNodesConverter on Iterable<XmlNode> {
-  List<md.Node> toMarkdownNodes() {
-    return map((e) => e.toMarkdownNode()).where((md.Node node) => node is! md.UnparsedContent).toList();
+  List<TagNode> toTagNodes() {
+    return map((XmlNode xmlNode) => xmlNode.toTagNode()).where((TagNode node) => node is! UnknownNode).toList();
   }
 }

@@ -13,20 +13,20 @@ part 'preview_state.g.dart';
 class PreviewState extends Equatable {
   const PreviewState({
     required this.isLoading,
-    required this.markdownContent,
+    required this.xmlContent,
     required this.contentType,
   });
 
   factory PreviewState.empty() => const PreviewState(
         isLoading: false,
-        markdownContent: '',
+        xmlContent: '',
         contentType: ScreenContentType.scrollable,
       );
 
   factory PreviewState.fromJson(dynamic json) => _$PreviewStateFromJson(castToJson(json));
 
   final bool isLoading;
-  final String markdownContent;
+  final String xmlContent;
   final ScreenContentType contentType;
 
   Json toJson() => _$PreviewStateToJson(this);

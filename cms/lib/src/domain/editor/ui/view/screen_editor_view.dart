@@ -55,7 +55,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
     pageBloc.updateValue(
       fieldId,
       ScreenContentModel(
-        content: state.markdownContent,
+        content: state.xmlContent,
         contentType: field.screenContentType,
       ).toJson(),
     );
