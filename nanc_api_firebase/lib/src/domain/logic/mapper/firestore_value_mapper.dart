@@ -24,19 +24,24 @@ Value toFirestoreValue(dynamic value, {bool dateAsMs = false}) {
     return result;
   }
 
-  final num? numericValue = value is num
+  /// Can be [num], [double], [int] or [BigInt]
+  final Object? numericValue = value is num || value is BigInt
       ? value
       : value is String
-          ? num.tryParse(value)
+          ? num.tryParse(value) ?? BigInt.tryParse(value)
           : null;
   final bool isNumeric = numericValue != null;
 
   /// ? INTEGER
-  final int? intValue = isNumeric
-      ? numericValue.isInt
-          ? numericValue.toInt()
-          : null
-      : null;
+  /// Can be [int] or [BigInt]
+  late final Object? intValue;
+  if (numericValue is num && numericValue.isInt) {
+    intValue = numericValue.toInt();
+  } else if (numericValue is BigInt) {
+    intValue = numericValue;
+  } else {
+    intValue = null;
+  }
   final bool isInt = intValue != null;
   if (isInt) {
     result.integerValue = intValue.toString();
@@ -44,11 +49,14 @@ Value toFirestoreValue(dynamic value, {bool dateAsMs = false}) {
   }
 
   /// ? DOUBLE
-  final double? doubleValue = isNumeric
-      ? isInt
-          ? null
-          : numericValue.toDouble()
-      : null;
+  late final double? doubleValue;
+  if (isNumeric && numericValue is num) {
+    doubleValue = numericValue.toDouble();
+  } else if (isNumeric && numericValue is BigInt) {
+    throw Exception('Floating point number became BigInt by some reason: "$value"');
+  } else {
+    doubleValue = null;
+  }
   final bool isDouble = doubleValue != null;
   if (isDouble) {
     result.doubleValue = doubleValue;
@@ -102,7 +110,7 @@ T? fromFirestoreValue<T>(Value value) {
   if (value.nullValue != null) {
     return null;
   } else if (value.integerValue != null) {
-    return int.parse(value.integerValue!) as T;
+    return (int.tryParse(value.integerValue!) ?? BigInt.tryParse(value.integerValue!)) as T;
   } else if (value.doubleValue != null) {
     return value.doubleValue! as T;
   } else if (value.timestampValue != null) {
@@ -154,13 +162,4 @@ Document jsonToDocument({required Json json, required String? path, bool dateAsM
     name: path,
     fields: documentFields,
   );
-}
-
-extension _IsInt on num {
-  bool get isInt {
-    if (this is int) {
-      return true;
-    }
-    return truncateToDouble() == toDouble();
-  }
 }

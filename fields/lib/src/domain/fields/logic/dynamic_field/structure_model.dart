@@ -35,7 +35,7 @@ final Model structureModel = Model(
   sort: 9999,
   fields: [
     [
-      IdField(id: kStructureIdField, width: 250),
+      IdField(id: kStructureIdField),
     ],
     [
       StringField(id: kStructureField, name: 'Structure', maxLines: 15),

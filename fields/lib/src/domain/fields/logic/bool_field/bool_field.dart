@@ -21,7 +21,6 @@ class BoolField extends Field {
     super.isRequired,
     super.showInList,
     super.sort,
-    super.width,
     super.validator,
     super.type = FieldType.boolField,
   }) : super(id: id ?? toSnakeCase(name));
@@ -57,7 +56,6 @@ class BoolField extends Field {
         ],
         [
           fieldToModelSort,
-          fieldToModelWidth,
           fieldToModelShowInList,
           fieldToModelDefaultValue,
         ],

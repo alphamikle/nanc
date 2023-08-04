@@ -1,4 +1,3 @@
-import 'package:config/config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -32,7 +31,7 @@ abstract class LocalApi {
       }
       data = tempData;
     } else {
-      logg('No data or incorrect data type: "${response.runtimeType}" / "$response"');
+      logInfo('No data or incorrect data type: "${response.runtimeType}" / "$response"');
       return [];
     }
     return data;

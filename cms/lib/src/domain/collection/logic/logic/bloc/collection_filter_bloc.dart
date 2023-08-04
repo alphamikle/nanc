@@ -20,12 +20,12 @@ class CollectionFilterBlocOld extends Cubit<CollectionFilterState> {
   final LocalPageBloc filterStructureBloc;
 
   void apply() {
-    logg.rows('Apply collection filter:', state.collectionModel.id);
+    logInfo('Apply collection filter: ${state.collectionModel.id}');
     backup();
   }
 
   void backup() {
-    logg.rows('Backup collection filter:', state.collectionModel.id);
+    logInfo('Backup collection filter: ${state.collectionModel.id}');
     final QueryField? queryField = queryFieldFromJson(mapQueryFieldCellJsonToQueryFieldJson(filterStructureBloc.state.data));
     if (queryField != null) {
       emit(state.copyWith(
@@ -38,13 +38,13 @@ class CollectionFilterBlocOld extends Cubit<CollectionFilterState> {
   }
 
   void restoreBackup({bool runAfterRestore = false}) {
-    logg.rows('Restore backup collection filter:', state.collectionModel.id);
+    logInfo('Restore backup collection filter: ${state.collectionModel.id}');
     filterStructureBloc.clear();
     filterStructureBloc.updateValues(state.backup[state.collectionModel.id] ?? {});
   }
 
   void reset() {
-    logg.rows('Reset collection filter:', state.collectionModel.id);
+    logInfo('Reset collection filter: ${state.collectionModel.id}');
     filterStructureBloc.clear();
 
     final Json oldBackup = clone(state.backup);
@@ -62,7 +62,7 @@ class CollectionFilterBlocOld extends Cubit<CollectionFilterState> {
   }
 
   void setUpModel(String modelId) {
-    logg.rows('Setup model collection filter:', modelId);
+    logInfo('Setup model collection filter: $modelId');
     final Model? model = modelCollectionBloc.tryToFindModelById(modelId);
     if (model == null) {
       notFoundModelError(modelId);
@@ -89,7 +89,7 @@ class CollectionFilterBlocOld extends Cubit<CollectionFilterState> {
   void _onFilterStructureChanged(Json filterStructure) {
     final QueryField? query = queryFieldFromJson(mapQueryFieldCellJsonToQueryFieldJson(filterStructure));
     if (query != state.query) {
-      logg.rows('Filter changed in collection filter:', state.collectionModel.id);
+      logInfo('Filter changed in collection filter: ${state.collectionModel.id}');
       if (query == null) {
         emit(state.copyWithNull(query: true));
       } else {

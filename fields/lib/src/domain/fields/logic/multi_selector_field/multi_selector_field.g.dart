@@ -35,8 +35,6 @@ abstract class _$MultiSelectorFieldCWProxy {
 
   MultiSelectorField sort(int sort);
 
-  MultiSelectorField width(double? width);
-
   MultiSelectorField validator(String? Function(Object?)? validator);
 
   MultiSelectorField type(FieldType type);
@@ -57,7 +55,6 @@ abstract class _$MultiSelectorFieldCWProxy {
     bool? showInList,
     bool? isRequired,
     int? sort,
-    double? width,
     String? Function(Object?)? validator,
     FieldType? type,
   });
@@ -102,9 +99,6 @@ class _$MultiSelectorFieldCWProxyImpl implements _$MultiSelectorFieldCWProxy {
   MultiSelectorField sort(int sort) => this(sort: sort);
 
   @override
-  MultiSelectorField width(double? width) => this(width: width);
-
-  @override
   MultiSelectorField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
@@ -129,7 +123,6 @@ class _$MultiSelectorFieldCWProxyImpl implements _$MultiSelectorFieldCWProxy {
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? width = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
   }) {
@@ -174,10 +167,6 @@ class _$MultiSelectorFieldCWProxyImpl implements _$MultiSelectorFieldCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      width: width == const $CopyWithPlaceholder()
-          ? _value.width
-          // ignore: cast_nullable_to_non_nullable
-          : width as double?,
       validator: validator == const $CopyWithPlaceholder()
           ? _value.validator
           // ignore: cast_nullable_to_non_nullable
@@ -212,7 +201,6 @@ MultiSelectorField _$MultiSelectorFieldFromJson(Map<String, dynamic> json) =>
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble(),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.multiSelectorField,
     );
@@ -224,7 +212,6 @@ Map<String, dynamic> _$MultiSelectorFieldToJson(MultiSelectorField instance) =>
       'showInList': instance.showInList,
       'isRequired': instance.isRequired,
       'sort': instance.sort,
-      'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
       'virtualField': instance.virtualField,
       'model': instance.model.toJson(),

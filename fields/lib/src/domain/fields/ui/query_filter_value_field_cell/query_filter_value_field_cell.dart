@@ -214,7 +214,7 @@ class _QueryFilterValueFieldCellState extends State<QueryFilterValueFieldCell> w
             controller: controller,
             helper: helper,
             placeholder: 'Type number here',
-            onChanged: (num? newValue) => bloc.updateValue(QueryValueField.valueKey, newValue),
+            onChanged: (Object? newValue) => bloc.updateValue(QueryValueField.valueKey, newValue),
             isChanged: isChanged,
             isRequired: needToShowValueField || true,
           );

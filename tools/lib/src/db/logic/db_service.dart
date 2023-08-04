@@ -36,7 +36,7 @@ class DbService {
       _initializationState = _DbServiceInitializationState.initialization;
       await Hive.initFlutter();
       if (kIsWeb == false) {
-        logg('Hive directory: file://${(await pp.getApplicationDocumentsDirectory()).path}');
+        logInfo('Hive directory: file://${(await pp.getApplicationDocumentsDirectory()).path}');
       }
       _initializationState = _DbServiceInitializationState.initialized;
     } else if (_initializationState == _DbServiceInitializationState.initialization) {

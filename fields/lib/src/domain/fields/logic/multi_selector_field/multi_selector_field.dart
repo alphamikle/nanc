@@ -35,7 +35,6 @@ class MultiSelectorField extends Field {
     super.showInList,
     super.isRequired,
     super.sort,
-    super.width,
     super.validator,
     super.type = FieldType.multiSelectorField,
   })  : virtualField = virtualField ?? '\$${id ?? toSnakeCase(name)}',
@@ -124,9 +123,6 @@ class MultiSelectorField extends Field {
         ],
         [
           fieldToModelSort,
-          fieldToModelWidth,
-        ],
-        [
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],

@@ -27,8 +27,6 @@ abstract class _$ColorFieldCWProxy {
 
   ColorField sort(int sort);
 
-  ColorField width(double? width);
-
   ColorField validator(String? Function(Object?)? validator);
 
   ColorField type(FieldType type);
@@ -45,7 +43,6 @@ abstract class _$ColorFieldCWProxy {
     bool? showInList,
     bool? isRequired,
     int? sort,
-    double? width,
     String? Function(Object?)? validator,
     FieldType? type,
   });
@@ -73,9 +70,6 @@ class _$ColorFieldCWProxyImpl implements _$ColorFieldCWProxy {
   ColorField sort(int sort) => this(sort: sort);
 
   @override
-  ColorField width(double? width) => this(width: width);
-
-  @override
   ColorField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
@@ -96,7 +90,6 @@ class _$ColorFieldCWProxyImpl implements _$ColorFieldCWProxy {
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? width = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
   }) {
@@ -123,10 +116,6 @@ class _$ColorFieldCWProxyImpl implements _$ColorFieldCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      width: width == const $CopyWithPlaceholder()
-          ? _value.width
-          // ignore: cast_nullable_to_non_nullable
-          : width as double?,
       validator: validator == const $CopyWithPlaceholder()
           ? _value.validator
           // ignore: cast_nullable_to_non_nullable
@@ -155,7 +144,6 @@ ColorField _$ColorFieldFromJson(Map<String, dynamic> json) => ColorField(
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble(),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.colorField,
     );
@@ -167,7 +155,6 @@ Map<String, dynamic> _$ColorFieldToJson(ColorField instance) =>
       'showInList': instance.showInList,
       'isRequired': instance.isRequired,
       'sort': instance.sort,
-      'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
     };
 

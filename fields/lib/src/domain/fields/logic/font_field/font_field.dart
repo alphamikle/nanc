@@ -23,7 +23,6 @@ class FontField extends Field {
     super.showInList,
     super.isRequired,
     super.sort,
-    super.width,
     super.validator,
     super.type = FieldType.fontField,
   }) : super(id: id ?? toSnakeCase(name));
@@ -57,7 +56,6 @@ class FontField extends Field {
         ],
         [
           fieldToModelSort,
-          fieldToModelWidth,
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],

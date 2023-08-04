@@ -23,7 +23,6 @@ class StringField extends Field {
     super.showInList,
     super.isRequired,
     super.sort,
-    super.width,
     super.validator,
     this.maxLines,
     super.type = FieldType.stringField,
@@ -60,7 +59,6 @@ class StringField extends Field {
         ],
         [
           fieldToModelSort,
-          fieldToModelWidth,
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],

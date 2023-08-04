@@ -85,7 +85,7 @@ class RoutesPreloadingService {
       condition: () => isAttached,
       interval: kInterval,
       action: () {
-        logg('Select header menu element: "$route"');
+        logInfo('Select header menu element: "$route"');
         headerBloc.selectItem(route);
         unawaited(menuBloc.initItems(route));
       },
@@ -99,7 +99,7 @@ class RoutesPreloadingService {
       interval: kInterval,
       action: () async {
         if (headerBloc.selectItemIfNoSelected(route)) {
-          logg('Select header menu element if no selected: "$route"');
+          logInfo('Select header menu element if no selected: "$route"');
           await menuBloc.initItemsChecked(route);
           return true;
         }
@@ -114,7 +114,7 @@ class RoutesPreloadingService {
       condition: () => isAttached,
       interval: kInterval,
       action: () {
-        logg('Select side menu element: "${state.location}"');
+        logInfo('Select side menu element: "${state.location}"');
         menuBloc.selectItem(state.location);
       },
     ));

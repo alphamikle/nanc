@@ -36,7 +36,7 @@ class EditorBloc extends Cubit<EditorState> {
 
   Future<void> initFromModel(ScreenContentModel model) async {
     if (state.isSyncedWithFile == false) {
-      logg.wrap('Init from model');
+      logInfo('Init from model');
       await _updateContent(model.content);
       emit(state.copyWith(contentType: model.contentType));
     }
@@ -82,7 +82,7 @@ class EditorBloc extends Cubit<EditorState> {
   @protected
   void controllerListener() {
     if (state.isSyncedWithFile == false) {
-      logg.wrap('Controller listener');
+      logInfo('Controller listener');
       emit(state.copyWith(xmlContent: controller.text));
     }
   }
@@ -105,7 +105,7 @@ class EditorBloc extends Cubit<EditorState> {
 
   Future<void> _fileContentListener(String? fileContent) async {
     if (fileContent != null && fileContent != controller.text) {
-      logg.wrap('File content listener');
+      logInfo('File content listener');
       await _updateContent(fileContent);
       emit(state.copyWith(xmlContent: fileContent));
     }

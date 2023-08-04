@@ -15,12 +15,21 @@ class SupabaseDocumentApi implements IDocumentApi {
 
   @override
   Future<Json> fetchPageData(Model model, String id, List<String> subset) async {
-    final PostgrestFilterBuilder<dynamic> selection = _api.getSelection(model: model, subset: subset);
-    final PostgrestResponse<dynamic> response = await selection.eq(model.idField.id, id).single();
-    if (response.data is DJson) {
-      return castToJson(response.data);
+    try {
+      final PostgrestFilterBuilder<dynamic> selection = _api.getSelection(model: model, subset: subset);
+      final PostgrestResponse<dynamic> response = await selection.eq(model.idField.id, id).single();
+      if (response.data is DJson) {
+        return castToJson(response.data);
+      }
+      throw Exception('Incorrect response');
+    } catch (error, stackTrace) {
+      if (error is PostgrestException && error.details == 'Bad Request' && subset.isNotEmpty) {
+        /// Possibly, that error means, that some of fields in the subset don't exists at the table
+        return fetchPageData(model, id, []);
+      }
+      logError('Error on loading supabase document', error: error, stackTrace: stackTrace);
+      rethrow;
     }
-    throw Exception('Incorrect response');
   }
 
   // TODO(alphamikle): Handle multiple ids

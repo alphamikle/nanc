@@ -29,8 +29,6 @@ abstract class _$EnumFieldCWProxy {
 
   EnumField sort(int sort);
 
-  EnumField width(double? width);
-
   EnumField validator(String? Function(Object?)? validator);
 
   EnumField type(FieldType type);
@@ -48,7 +46,6 @@ abstract class _$EnumFieldCWProxy {
     bool? showInList,
     bool? isRequired,
     int? sort,
-    double? width,
     String? Function(Object?)? validator,
     FieldType? type,
   });
@@ -79,9 +76,6 @@ class _$EnumFieldCWProxyImpl implements _$EnumFieldCWProxy {
   EnumField sort(int sort) => this(sort: sort);
 
   @override
-  EnumField width(double? width) => this(width: width);
-
-  @override
   EnumField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
@@ -103,7 +97,6 @@ class _$EnumFieldCWProxyImpl implements _$EnumFieldCWProxy {
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? width = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
   }) {
@@ -134,10 +127,6 @@ class _$EnumFieldCWProxyImpl implements _$EnumFieldCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      width: width == const $CopyWithPlaceholder()
-          ? _value.width
-          // ignore: cast_nullable_to_non_nullable
-          : width as double?,
       validator: validator == const $CopyWithPlaceholder()
           ? _value.validator
           // ignore: cast_nullable_to_non_nullable
@@ -168,7 +157,6 @@ EnumField _$EnumFieldFromJson(Map<String, dynamic> json) => EnumField(
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble(),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.enumField,
     );
@@ -179,7 +167,6 @@ Map<String, dynamic> _$EnumFieldToJson(EnumField instance) => <String, dynamic>{
       'showInList': instance.showInList,
       'isRequired': instance.isRequired,
       'sort': instance.sort,
-      'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
       'values': instance.values.map((e) => e.toJson()).toList(),
     };

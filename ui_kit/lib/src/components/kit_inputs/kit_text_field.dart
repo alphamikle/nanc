@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tools/tools.dart';
+
 import '../../theme/kit_colors.dart';
 
 const double kDefaultKitFieldSize = 15;
@@ -127,7 +128,7 @@ class KitTextField extends StatelessWidget {
         if (isRequired) isRequiredValidator,
         if (validator != null) validator!,
       ]),
-      autovalidateMode: autovalidateMode,
+      autovalidateMode: autovalidateMode ?? AutovalidateMode.onUserInteraction,
       focusNode: focusNode,
       scrollPadding: kInputScrollPadding,
     );

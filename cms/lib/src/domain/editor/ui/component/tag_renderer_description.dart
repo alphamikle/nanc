@@ -21,7 +21,7 @@ class TagRendererDescription extends StatelessWidget {
   final TagDescription description;
 
   void _handleLinkTap(String text, String? href, String title) {
-    logg('Handle link tap: text: $text, href: $href, title: $title');
+    logInfo('Handle link tap: text: $text, href: $href, title: $title');
     if (href != null) {
       unawaited(launchUrl(Uri.parse(href), mode: LaunchMode.externalApplication));
     }

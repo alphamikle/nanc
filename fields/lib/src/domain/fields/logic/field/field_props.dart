@@ -5,7 +5,6 @@ const String fieldNameProperty = 'name';
 const String fieldShowInListProperty = 'showInList';
 const String fieldIsRequiredProperty = 'isRequired';
 const String fieldSortProperty = 'sort';
-const String fieldWidthProperty = 'width';
 const String fieldTypeProperty = 'type';
 const String fieldValidatorProperty = 'validator';
 const String fieldContentProperty = 'content';
@@ -24,9 +23,13 @@ const String fieldValueProperty = 'value';
 final StringField fieldToModelName = StringField(id: fieldNameProperty, name: 'Field name', isRequired: true, maxLines: 1);
 final IdField fieldToModelId = IdField(id: fieldIdProperty, name: 'Field ID');
 final StringField fieldToModelVirtualField = StringField(id: fieldVirtualFieldProperty, name: 'Virtual field');
-final NumberField fieldToModelSort = NumberField(id: fieldSortProperty, name: 'Sort (in table view)');
+final NumberField fieldToModelSort = NumberField(
+  id: fieldSortProperty,
+  name: 'Sort (in table view)',
+  numberType: NumberType.smallInt,
+  signType: SignType.unsigned,
+);
 final NumberField fieldToModelMaxLines = NumberField(id: fieldMaxLinesProperty, name: 'Maximum lines');
-final NumberField fieldToModelWidth = NumberField(id: fieldWidthProperty, name: 'Width (in table view)');
 final BoolField fieldToModelShowInList = BoolField(id: fieldShowInListProperty, name: 'Show in table view?');
 final BoolField fieldToModelIsRequired = BoolField(id: fieldIsRequiredProperty, name: 'Is field required?');
 final BoolField fieldToModelDefaultValue = BoolField(id: fieldDefaultValueProperty, name: 'Default value');

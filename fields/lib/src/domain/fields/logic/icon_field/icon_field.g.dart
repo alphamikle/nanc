@@ -27,8 +27,6 @@ abstract class _$IconFieldCWProxy {
 
   IconField sort(int sort);
 
-  IconField width(double? width);
-
   IconField validator(String? Function(Object?)? validator);
 
   IconField type(FieldType type);
@@ -45,7 +43,6 @@ abstract class _$IconFieldCWProxy {
     bool? showInList,
     bool? isRequired,
     int? sort,
-    double? width,
     String? Function(Object?)? validator,
     FieldType? type,
   });
@@ -73,9 +70,6 @@ class _$IconFieldCWProxyImpl implements _$IconFieldCWProxy {
   IconField sort(int sort) => this(sort: sort);
 
   @override
-  IconField width(double? width) => this(width: width);
-
-  @override
   IconField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
@@ -96,7 +90,6 @@ class _$IconFieldCWProxyImpl implements _$IconFieldCWProxy {
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? width = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
   }) {
@@ -123,10 +116,6 @@ class _$IconFieldCWProxyImpl implements _$IconFieldCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      width: width == const $CopyWithPlaceholder()
-          ? _value.width
-          // ignore: cast_nullable_to_non_nullable
-          : width as double?,
       validator: validator == const $CopyWithPlaceholder()
           ? _value.validator
           // ignore: cast_nullable_to_non_nullable
@@ -155,7 +144,6 @@ IconField _$IconFieldFromJson(Map<String, dynamic> json) => IconField(
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble(),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.iconField,
     );
@@ -166,7 +154,6 @@ Map<String, dynamic> _$IconFieldToJson(IconField instance) => <String, dynamic>{
       'showInList': instance.showInList,
       'isRequired': instance.isRequired,
       'sort': instance.sort,
-      'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
     };
 

@@ -22,7 +22,6 @@ class DateTimeField extends Field {
     super.showInList,
     super.isRequired,
     super.sort,
-    super.width,
     super.validator,
     super.type = FieldType.dateField,
   }) : super(id: id ?? toSnakeCase(name));
@@ -59,10 +58,9 @@ class DateTimeField extends Field {
         ],
         [
           fieldToModelSort,
-          fieldToModelWidth,
+          fieldToModelShowInList,
         ],
         [
-          fieldToModelShowInList,
           fieldToModelIsRequired,
           BoolField(id: 'isCreatedAtField', name: 'Is createdAt field?'),
           BoolField(id: 'isUpdatedAtField', name: 'Is updatedAt field?'),

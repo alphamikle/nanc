@@ -21,7 +21,6 @@ class IdField extends Field {
     super.showInList = true,
     super.isRequired = true,
     super.sort,
-    super.width,
     this.isStub = false,
     super.type = FieldType.idField,
   }) : super(name: name ?? 'ID', id: id ?? 'id');
@@ -57,7 +56,6 @@ class IdField extends Field {
         ],
         [
           fieldToModelSort,
-          fieldToModelWidth,
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],

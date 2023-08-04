@@ -180,7 +180,7 @@ abstract class FieldMapper {
     }
     // TODO(alphamikle): [FIELDS] Add new fields here
     final String warning = '$field mapper is not implemented!';
-    logg(warning, '\n', StackTrace.current.toString());
+    logInfo('$warning\n${StackTrace.current}');
     return ErrorFieldCell(warning: warning);
   }
 

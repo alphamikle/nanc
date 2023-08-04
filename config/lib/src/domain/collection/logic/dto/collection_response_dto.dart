@@ -13,7 +13,7 @@ int _totalPagesFinder(DJson parentObject, String defaultKey) {
   if (value is int) {
     return value;
   }
-  logg('Not found "${NetworkConfig.paginationTotalPagesParameterName}" key in the parent object with data:\n$parentObject');
+  logWarning('Not found "${NetworkConfig.paginationTotalPagesParameterName}" key in the parent object with data:\n$parentObject');
   return 0;
 }
 
@@ -22,7 +22,7 @@ int _pageNumberFinder(DJson parentObject, String defaultKey) {
   if (value is int) {
     return value;
   }
-  logg('Not found "${NetworkConfig.paginationPageNumberParameterName}" key in the parent object with data:\n$parentObject');
+  logWarning('Not found "${NetworkConfig.paginationPageNumberParameterName}" key in the parent object with data:\n$parentObject');
   return 1;
 }
 
@@ -33,7 +33,7 @@ List<Json> _dataContainerFinder(DJson parentObject, String defaultKey) {
   } else if (value is List<DJson>) {
     return value.map(castToJson).toList();
   }
-  logg('Not found "${NetworkConfig.paginationDataContainerParameterName}" key in the parent object with data:\n$parentObject');
+  logWarning('Not found "${NetworkConfig.paginationDataContainerParameterName}" key in the parent object with data:\n$parentObject');
   return [];
 }
 

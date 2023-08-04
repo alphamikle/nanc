@@ -130,7 +130,7 @@ Future<void> showJsonPreviewModal({
 }) async {
   await showDialog(
     context: context,
-    builder: (_) => KitModal(
+    builder: (BuildContext context) => KitModal(
       onClose: () => context.navigator.pop(),
       header: KitText(text: title),
       child: Padding(

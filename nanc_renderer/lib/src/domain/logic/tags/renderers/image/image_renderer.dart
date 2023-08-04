@@ -134,7 +134,7 @@ Also, if you passed a some image url and don't see the image in the Nanc, potent
         final bool isCorrectHash = validateBlurhash(blurHash);
         if (isCorrectHash == false) {
           blurHash = null;
-          logg('Blur hash is incorrect');
+          logWarning('Blur hash is incorrect');
         }
       }
 

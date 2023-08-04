@@ -23,7 +23,6 @@ class SelectorField extends Field {
     super.showInList,
     super.isRequired,
     super.sort,
-    super.width,
     super.validator,
     super.type = FieldType.selectorField,
   })  : virtualField = virtualField ?? '\$${id ?? toSnakeCase(name)}',
@@ -69,7 +68,6 @@ class SelectorField extends Field {
         ],
         [
           fieldToModelSort,
-          fieldToModelWidth,
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],

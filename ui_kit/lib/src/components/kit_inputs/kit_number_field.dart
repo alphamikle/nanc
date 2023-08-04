@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tools/tools.dart';
 
 import 'kit_text_field.dart';
 
@@ -22,8 +23,10 @@ class KitNumberField extends StatefulWidget {
   final bool isReadOnly;
   final bool isChanged;
   final bool isRequired;
-  final ValueChanged<num?>? onChanged;
-  final FormFieldValidator<dynamic>? validator;
+
+  /// Can be [num], [double], [int] or [BigInt]
+  final ValueChanged<Object?>? onChanged;
+  final FormFieldValidator<String?>? validator;
 
   @override
   State<KitNumberField> createState() => _KitNumberFieldState();
@@ -32,7 +35,21 @@ class KitNumberField extends StatefulWidget {
 class _KitNumberFieldState extends State<KitNumberField> {
   void onChanged(String value) {
     if (widget.onChanged != null) {
-      widget.onChanged!(num.tryParse(value));
+      final bool isFloating = value.contains(RegExp(r'[,.]'));
+      if (isFloating) {
+        widget.onChanged!(double.tryParse(value));
+        return;
+      }
+      final (int? number, NumberParsingErrorType? error, String? message) = detailedIntFromString(value);
+      if (number != null) {
+        widget.onChanged!(number);
+        return;
+      }
+      if (error != null && error.isOutOfLimit) {
+        widget.onChanged!(BigInt.tryParse(value));
+        return;
+      }
+      widget.onChanged!(null);
     }
   }
 

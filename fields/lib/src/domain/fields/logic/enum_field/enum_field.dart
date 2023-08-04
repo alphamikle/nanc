@@ -27,7 +27,6 @@ class EnumField extends Field {
     super.showInList,
     super.isRequired,
     super.sort,
-    super.width,
     super.validator,
     super.type = FieldType.enumField,
   }) : super(id: id ?? toSnakeCase(name));
@@ -67,7 +66,6 @@ class EnumField extends Field {
         ],
         [
           fieldToModelSort,
-          fieldToModelWidth,
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],

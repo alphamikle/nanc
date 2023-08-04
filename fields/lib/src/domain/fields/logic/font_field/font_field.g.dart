@@ -27,8 +27,6 @@ abstract class _$FontFieldCWProxy {
 
   FontField sort(int sort);
 
-  FontField width(double? width);
-
   FontField validator(String? Function(Object?)? validator);
 
   FontField type(FieldType type);
@@ -45,7 +43,6 @@ abstract class _$FontFieldCWProxy {
     bool? showInList,
     bool? isRequired,
     int? sort,
-    double? width,
     String? Function(Object?)? validator,
     FieldType? type,
   });
@@ -73,9 +70,6 @@ class _$FontFieldCWProxyImpl implements _$FontFieldCWProxy {
   FontField sort(int sort) => this(sort: sort);
 
   @override
-  FontField width(double? width) => this(width: width);
-
-  @override
   FontField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
@@ -96,7 +90,6 @@ class _$FontFieldCWProxyImpl implements _$FontFieldCWProxy {
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? width = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
   }) {
@@ -123,10 +116,6 @@ class _$FontFieldCWProxyImpl implements _$FontFieldCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      width: width == const $CopyWithPlaceholder()
-          ? _value.width
-          // ignore: cast_nullable_to_non_nullable
-          : width as double?,
       validator: validator == const $CopyWithPlaceholder()
           ? _value.validator
           // ignore: cast_nullable_to_non_nullable
@@ -155,7 +144,6 @@ FontField _$FontFieldFromJson(Map<String, dynamic> json) => FontField(
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble(),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.fontField,
     );
@@ -166,7 +154,6 @@ Map<String, dynamic> _$FontFieldToJson(FontField instance) => <String, dynamic>{
       'showInList': instance.showInList,
       'isRequired': instance.isRequired,
       'sort': instance.sort,
-      'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
     };
 

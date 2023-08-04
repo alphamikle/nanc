@@ -5,7 +5,6 @@ import 'package:config/config.dart';
 import 'package:tools/tools.dart';
 
 const String _kAnalyticsUserIdKey = 'USER_ID';
-final logger = logg.raw('ANALYTICS');
 
 abstract class Analytics {
   Analytics._();
@@ -22,7 +21,7 @@ abstract class Analytics {
       _wasInitialized = true;
       if (Env.analyticsKey.isEmpty) {
         _analyticsIsDisabled = true;
-        logger('DISABLING ANALYTICS DUE TO EMPTY ANALYTICS KEY...');
+        logInfo('DISABLING ANALYTICS DUE TO EMPTY ANALYTICS KEY...');
         return;
       }
       final DbService dbService = createDbService();
@@ -42,8 +41,8 @@ abstract class Analytics {
       await _amplitude.enableCoppaControl();
       await _amplitude.setUserId(userId, startNewSession: false);
       await _amplitude.trackingSessionEvents(true);
-    } catch (error) {
-      logger('ERROR WAS THROWN ON ANALYTICS INITIALIZATION: $error');
+    } catch (error, stackTrace) {
+      logError('ERROR WAS THROWN ON ANALYTICS INITIALIZATION', error: error, stackTrace: stackTrace);
       _analyticsIsDisabled = true;
     }
   }
@@ -51,7 +50,7 @@ abstract class Analytics {
   static Future<void> _sendEvent(String event, {Map<String, dynamic>? data}) async {
     await _init();
     if (_analyticsIsDisabled) {
-      logger('ANALYTICS IS DISABLED: event: $event, data: $data');
+      logInfo('ANALYTICS IS DISABLED: event: $event, data: $data');
       return;
     }
     try {
@@ -59,9 +58,9 @@ abstract class Analytics {
         event,
         eventProperties: data,
       );
-      logger('$event | $data');
-    } catch (error) {
-      logger('ANALYTICS EVENT SENDING DID\'NT SUCCEED: $error, event: $event, data: $data');
+      logInfo('$event | $data');
+    } catch (error, stackTrace) {
+      logError('ANALYTICS EVENT ($event) SENDING DID\'NT SUCCEED', error: error, stackTrace: stackTrace);
     }
   }
 

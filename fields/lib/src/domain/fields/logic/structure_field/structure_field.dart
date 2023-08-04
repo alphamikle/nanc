@@ -22,7 +22,6 @@ class StructureField extends DynamicField {
     super.showInList,
     super.isRequired,
     super.sort,
-    super.width,
     super.validator,
     super.contentIcon,
     super.contentColor,

@@ -326,7 +326,10 @@ class _ModelPageViewState extends State<ModelPageView> {
                                                   helper: 'Model sorting index at the side menu',
                                                   controller: bloc.findTextEditingControllerForField('sort'),
                                                   placeholder: 'Put model sort index here...',
-                                                  onChanged: (num? value) => bloc.updateModelProperty('sort', (value ?? 0).toInt()),
+                                                  onChanged: (Object? value) {
+                                                    final int integer = value is num ? value.toInt() : 0;
+                                                    bloc.updateModelProperty('sort', integer);
+                                                  },
                                                 ),
                                               ),
                                             ],

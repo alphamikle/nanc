@@ -9,7 +9,7 @@ part of 'number_field.dart';
 extension _$NumberFieldAutoequal on NumberField {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [];
+  List<Object?> get _$props => [numberType, signType];
 }
 
 // **************************************************************************
@@ -21,13 +21,15 @@ abstract class _$NumberFieldCWProxy {
 
   NumberField id(String? id);
 
+  NumberField numberType(NumberType numberType);
+
+  NumberField signType(SignType signType);
+
   NumberField showInList(bool showInList);
 
   NumberField isRequired(bool isRequired);
 
   NumberField sort(int sort);
-
-  NumberField width(double? width);
 
   NumberField validator(String? Function(Object?)? validator);
 
@@ -42,10 +44,11 @@ abstract class _$NumberFieldCWProxy {
   NumberField call({
     String? name,
     String? id,
+    NumberType? numberType,
+    SignType? signType,
     bool? showInList,
     bool? isRequired,
     int? sort,
-    double? width,
     String? Function(Object?)? validator,
     FieldType? type,
   });
@@ -64,6 +67,12 @@ class _$NumberFieldCWProxyImpl implements _$NumberFieldCWProxy {
   NumberField id(String? id) => this(id: id);
 
   @override
+  NumberField numberType(NumberType numberType) => this(numberType: numberType);
+
+  @override
+  NumberField signType(SignType signType) => this(signType: signType);
+
+  @override
   NumberField showInList(bool showInList) => this(showInList: showInList);
 
   @override
@@ -71,9 +80,6 @@ class _$NumberFieldCWProxyImpl implements _$NumberFieldCWProxy {
 
   @override
   NumberField sort(int sort) => this(sort: sort);
-
-  @override
-  NumberField width(double? width) => this(width: width);
 
   @override
   NumberField validator(String? Function(Object?)? validator) =>
@@ -93,10 +99,11 @@ class _$NumberFieldCWProxyImpl implements _$NumberFieldCWProxy {
   NumberField call({
     Object? name = const $CopyWithPlaceholder(),
     Object? id = const $CopyWithPlaceholder(),
+    Object? numberType = const $CopyWithPlaceholder(),
+    Object? signType = const $CopyWithPlaceholder(),
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? width = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
   }) {
@@ -109,6 +116,15 @@ class _$NumberFieldCWProxyImpl implements _$NumberFieldCWProxy {
           ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String?,
+      numberType:
+          numberType == const $CopyWithPlaceholder() || numberType == null
+              ? _value.numberType
+              // ignore: cast_nullable_to_non_nullable
+              : numberType as NumberType,
+      signType: signType == const $CopyWithPlaceholder() || signType == null
+          ? _value.signType
+          // ignore: cast_nullable_to_non_nullable
+          : signType as SignType,
       showInList:
           showInList == const $CopyWithPlaceholder() || showInList == null
               ? _value.showInList
@@ -123,10 +139,6 @@ class _$NumberFieldCWProxyImpl implements _$NumberFieldCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      width: width == const $CopyWithPlaceholder()
-          ? _value.width
-          // ignore: cast_nullable_to_non_nullable
-          : width as double?,
       validator: validator == const $CopyWithPlaceholder()
           ? _value.validator
           // ignore: cast_nullable_to_non_nullable
@@ -152,10 +164,15 @@ extension $NumberFieldCopyWith on NumberField {
 NumberField _$NumberFieldFromJson(Map<String, dynamic> json) => NumberField(
       name: json['name'] as String,
       id: json['id'] as String?,
+      numberType: $enumDecodeNullable(_$NumberTypeEnumMap, json['numberType'],
+              unknownValue: NumberType.float) ??
+          NumberType.float,
+      signType: $enumDecodeNullable(_$SignTypeEnumMap, json['signType'],
+              unknownValue: SignType.signed) ??
+          SignType.signed,
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble(),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.numberField,
     );
@@ -167,9 +184,26 @@ Map<String, dynamic> _$NumberFieldToJson(NumberField instance) =>
       'showInList': instance.showInList,
       'isRequired': instance.isRequired,
       'sort': instance.sort,
-      'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
+      'numberType': _$NumberTypeEnumMap[instance.numberType]!,
+      'signType': _$SignTypeEnumMap[instance.signType]!,
     };
+
+const _$NumberTypeEnumMap = {
+  NumberType.bit: 'bit',
+  NumberType.float: 'float',
+  NumberType.double: 'double',
+  NumberType.tinyInt: 'tinyInt',
+  NumberType.smallInt: 'smallInt',
+  NumberType.mediumInt: 'mediumInt',
+  NumberType.integer: 'integer',
+  NumberType.bigInt: 'bigInt',
+};
+
+const _$SignTypeEnumMap = {
+  SignType.unsigned: 'unsigned',
+  SignType.signed: 'signed',
+};
 
 const _$FieldTypeEnumMap = {
   FieldType.custom: 'custom',

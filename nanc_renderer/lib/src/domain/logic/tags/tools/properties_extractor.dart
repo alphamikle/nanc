@@ -41,7 +41,7 @@ class PropertiesExtractor {
       }
       _properties[widget.name]!.add(widget);
       if (widget.runtimeType.toString().startsWith('PropertyWidget')) {
-        logg('Generic property widget was found! "${widget.name}" | "${widget.property}"');
+        logWarning('Generic property widget was found! "${widget.name}" | "${widget.property}"');
       }
       return true;
     }

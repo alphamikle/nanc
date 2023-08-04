@@ -23,7 +23,6 @@ class QueryFilterField extends DynamicField {
     super.showInList,
     super.isRequired,
     super.sort,
-    super.width,
     super.validator,
     super.contentIcon,
     super.contentColor,
@@ -59,9 +58,6 @@ class QueryFilterField extends DynamicField {
         ],
         [
           fieldToModelSort,
-          fieldToModelWidth,
-        ],
-        [
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],

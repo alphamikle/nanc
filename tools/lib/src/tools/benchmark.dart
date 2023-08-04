@@ -6,7 +6,7 @@ class Bench {
   static void start(dynamic id) {
     final String benchId = id.toString();
     if (_starts.containsKey(benchId)) {
-      logg('Benchmark already have comparing with id=$benchId in time');
+      logInfo('Benchmark already have comparing with id=$benchId in time');
     } else {
       _starts[benchId] = DateTime.now().microsecondsSinceEpoch;
     }
@@ -15,11 +15,11 @@ class Bench {
   static double end(dynamic id) {
     final String benchId = id.toString();
     if (!_starts.containsKey(benchId)) {
-      logg('In Benchmark not placed comparing with id=$benchId');
+      logInfo('In Benchmark not placed comparing with id=$benchId');
       return 0;
     }
     final double diff = (DateTime.now().microsecondsSinceEpoch - _starts[benchId]!) / 1000;
-    logg('''
+    logInfo('''
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 BENCHMARK
 $benchId need ${diff}ms

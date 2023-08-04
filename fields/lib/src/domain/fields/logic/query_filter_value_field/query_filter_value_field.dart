@@ -19,7 +19,6 @@ class QueryFilterValueField extends Field {
     super.showInList,
     super.isRequired,
     super.sort,
-    super.width,
     super.validator,
     super.type = FieldType.queryFilterValueField,
   }) : super(id: id ?? toSnakeCase(name));

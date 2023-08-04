@@ -23,7 +23,6 @@ class IconField extends Field {
     super.showInList,
     super.isRequired,
     super.sort,
-    super.width,
     super.validator,
     super.type = FieldType.iconField,
   }) : super(id: id ?? toSnakeCase(name));
@@ -57,7 +56,6 @@ class IconField extends Field {
         ],
         [
           fieldToModelSort,
-          fieldToModelWidth,
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],

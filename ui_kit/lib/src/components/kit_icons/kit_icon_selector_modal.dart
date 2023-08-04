@@ -50,7 +50,7 @@ class _KitIconSelectorModalState extends State<KitIconSelectorModal> {
     }
     queryTimer = Timer(const Duration(milliseconds: 500), () async {
       queryTimer = null;
-      logg('Will search icon by query "$query"');
+      logInfo('Will search icon by query "$query"');
       final List<EnumValue> icons = await iconFinder(query);
       foundIcons.clear();
       foundIcons.addAll(icons);

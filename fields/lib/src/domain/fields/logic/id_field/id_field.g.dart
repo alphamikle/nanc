@@ -27,8 +27,6 @@ abstract class _$IdFieldCWProxy {
 
   IdField sort(int sort);
 
-  IdField width(double? width);
-
   IdField isStub(bool isStub);
 
   IdField type(FieldType type);
@@ -45,7 +43,6 @@ abstract class _$IdFieldCWProxy {
     bool? showInList,
     bool? isRequired,
     int? sort,
-    double? width,
     bool? isStub,
     FieldType? type,
   });
@@ -73,9 +70,6 @@ class _$IdFieldCWProxyImpl implements _$IdFieldCWProxy {
   IdField sort(int sort) => this(sort: sort);
 
   @override
-  IdField width(double? width) => this(width: width);
-
-  @override
   IdField isStub(bool isStub) => this(isStub: isStub);
 
   @override
@@ -95,7 +89,6 @@ class _$IdFieldCWProxyImpl implements _$IdFieldCWProxy {
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? width = const $CopyWithPlaceholder(),
     Object? isStub = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
   }) {
@@ -122,10 +115,6 @@ class _$IdFieldCWProxyImpl implements _$IdFieldCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      width: width == const $CopyWithPlaceholder()
-          ? _value.width
-          // ignore: cast_nullable_to_non_nullable
-          : width as double?,
       isStub: isStub == const $CopyWithPlaceholder() || isStub == null
           ? _value.isStub
           // ignore: cast_nullable_to_non_nullable
@@ -154,7 +143,6 @@ IdField _$IdFieldFromJson(Map<String, dynamic> json) => IdField(
       showInList: json['showInList'] as bool? ?? true,
       isRequired: json['isRequired'] as bool? ?? true,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble(),
       isStub: json['isStub'] as bool? ?? false,
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.idField,
@@ -166,7 +154,6 @@ Map<String, dynamic> _$IdFieldToJson(IdField instance) => <String, dynamic>{
       'showInList': instance.showInList,
       'isRequired': instance.isRequired,
       'sort': instance.sort,
-      'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
       'isStub': instance.isStub,
     };

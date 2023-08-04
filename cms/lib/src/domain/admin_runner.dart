@@ -24,27 +24,27 @@ Future<void> adminRunner(CmsConfig config) async {
     }
     if (details.exception is HumanException) {
       errorStreamController.add(details.exception as HumanException);
-      logg.error(error: (details.exception as HumanException).humanMessage, stackTrace: (details.exception as HumanException).stackTrace);
+      logError('', error: (details.exception as HumanException).humanMessage, stackTrace: (details.exception as HumanException).stackTrace);
     } else {
       errorStreamController.add(HumanException(
         humanMessage: 'Layout Error',
         originalMessage: details.exception.toString(),
         stackTrace: details.stack,
       ));
-      logg.error(error: details.exception, stackTrace: details.stack);
+      logError('', error: details.exception, stackTrace: details.stack);
     }
   };
   PlatformDispatcher.instance.onError = (Object error, StackTrace stackTrace) {
     if (error is HumanException) {
       errorStreamController.add(error);
-      logg.error(error: error.humanMessage, stackTrace: error.stackTrace);
+      logError('', error: error.humanMessage, stackTrace: error.stackTrace);
     } else {
       errorStreamController.add(HumanException(
         humanMessage: 'Logical Error',
         originalMessage: error.toString(),
         stackTrace: stackTrace,
       ));
-      logg.error(error: error, stackTrace: stackTrace);
+      logError('', error: error, stackTrace: stackTrace);
     }
     return false;
   };

@@ -297,9 +297,9 @@ class DocumentBloc extends BaseDocumentBloc<DocumentState> {
         final String encryptedStructureString = await decrypt(dynamicStructure[kStructureField] as String);
         final dynamic encryptedStructureJson = jsonDecode(encryptedStructureString);
         result[generateStructureFieldId(dynamicField)] = encryptedStructureJson;
-      } catch (error) {
+      } catch (error, stackTrace) {
         // Handle error
-        logg('NOT FOUND A DYNAMIC FIELD FOR THE PAGE ID: $documentId OF MODEL: $model');
+        logError('NOT FOUND A DYNAMIC FIELD FOR THE PAGE ID: $documentId OF MODEL: $model', error: error, stackTrace: stackTrace);
       }
     }
     return result;

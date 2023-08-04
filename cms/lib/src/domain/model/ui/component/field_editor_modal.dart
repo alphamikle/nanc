@@ -32,8 +32,7 @@ class _FieldEditorModalState extends State<FieldEditorModal> {
     if (formKey.currentState != null && formKey.currentState!.validate()) {
       if (bloc is FieldEditionBloc) {
         final Field field = bloc.compileToField();
-        logg('EDITED FIELD -->', prettyJson(FieldMapper.fieldToJson(field)));
-        // TODO(alphamikle): FIX IT AFTER STRUCTURED FIELDS WILL BE DONE
+        logInfo('EDITED FIELD --> ${prettyJson(FieldMapper.fieldToJson(field))}');
         context.navigator.pop(field);
       } else {
         throw Exception('Not found $FieldEditionBloc in the widget tree');

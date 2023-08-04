@@ -22,7 +22,7 @@ class MenuBloc extends Cubit<MenuState> {
     final Endpoint endpoint = Endpoint.fromPath(headerSegmentUrl);
 
     if (endpoint.isCollectionEndpoint) {
-      logg('Endpoint "$headerSegmentUrl" is CollectionSection');
+      logInfo('Endpoint "$headerSegmentUrl" is CollectionSection');
       final List<Model> models = [...modelListBloc.state.collectionModels];
       models.sort(_entitySortingPredicate);
       elements.addAll(models.map(
@@ -36,7 +36,7 @@ class MenuBloc extends Cubit<MenuState> {
         ),
       ));
     } else if (endpoint.isSoloEndpoint) {
-      logg('Endpoint "$headerSegmentUrl" is SoloSection');
+      logInfo('Endpoint "$headerSegmentUrl" is SoloSection');
       final List<Model> models = [...modelListBloc.state.soloModels];
       models.sort(_entitySortingPredicate);
       elements.addAll(models.map(
@@ -46,7 +46,7 @@ class MenuBloc extends Cubit<MenuState> {
         ),
       ));
     } else if (endpoint.isEditorEndpoint) {
-      logg('Endpoint "$headerSegmentUrl" is EditorSection');
+      logInfo('Endpoint "$headerSegmentUrl" is EditorSection');
       final List<Model> models = [...modelListBloc.state.allModels];
       models.sort(_entitySortingPredicate);
       elements.addAll(
@@ -58,7 +58,7 @@ class MenuBloc extends Cubit<MenuState> {
         ),
       );
     } else {
-      logg('Not implemented items loader for "$headerSegmentUrl"');
+      logWarning('Not implemented items loader for "$headerSegmentUrl"');
     }
     emit(state.copyWith(
       elements: elements,

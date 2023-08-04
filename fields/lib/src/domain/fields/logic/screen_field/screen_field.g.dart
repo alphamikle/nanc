@@ -29,8 +29,6 @@ abstract class _$ScreenFieldCWProxy {
 
   ScreenField sort(int sort);
 
-  ScreenField width(double? width);
-
   ScreenField validator(String? Function(Object?)? validator);
 
   ScreenField type(FieldType type);
@@ -48,7 +46,6 @@ abstract class _$ScreenFieldCWProxy {
     bool? showInList,
     bool? isRequired,
     int? sort,
-    double? width,
     String? Function(Object?)? validator,
     FieldType? type,
   });
@@ -80,9 +77,6 @@ class _$ScreenFieldCWProxyImpl implements _$ScreenFieldCWProxy {
   ScreenField sort(int sort) => this(sort: sort);
 
   @override
-  ScreenField width(double? width) => this(width: width);
-
-  @override
   ScreenField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
@@ -104,7 +98,6 @@ class _$ScreenFieldCWProxyImpl implements _$ScreenFieldCWProxy {
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? width = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
   }) {
@@ -136,10 +129,6 @@ class _$ScreenFieldCWProxyImpl implements _$ScreenFieldCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      width: width == const $CopyWithPlaceholder()
-          ? _value.width
-          // ignore: cast_nullable_to_non_nullable
-          : width as double?,
       validator: validator == const $CopyWithPlaceholder()
           ? _value.validator
           // ignore: cast_nullable_to_non_nullable
@@ -170,7 +159,6 @@ ScreenField _$ScreenFieldFromJson(Map<String, dynamic> json) => ScreenField(
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble(),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.screenField,
     );
@@ -182,7 +170,6 @@ Map<String, dynamic> _$ScreenFieldToJson(ScreenField instance) =>
       'showInList': instance.showInList,
       'isRequired': instance.isRequired,
       'sort': instance.sort,
-      'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
       'screenContentType':
           _$ScreenContentTypeEnumMap[instance.screenContentType]!,

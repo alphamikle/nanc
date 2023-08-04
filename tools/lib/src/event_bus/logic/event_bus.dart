@@ -99,7 +99,7 @@ class EventBus {
         response = EventBusResponse<dynamic>(data: result);
       } catch (error, stackTrace) {
         response = EventBusResponse<dynamic>(error: error);
-        logg.error(error: error, stackTrace: stackTrace);
+        logError('Event bus error', error: error, stackTrace: stackTrace);
         rethrow;
       }
 
@@ -109,9 +109,7 @@ class EventBus {
       }
 
       if (!_responses.containsKey(request.eventHash)) {
-        if (kDebugMode) {
-          logg.error(error: 'Response completer for event ${request.eventId} with hash ${request.eventHash} not found');
-        }
+        logError('Response completer for event ${request.eventId} with hash ${request.eventHash} not found');
         continue;
       }
 

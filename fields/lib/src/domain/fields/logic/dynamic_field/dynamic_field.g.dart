@@ -27,8 +27,6 @@ abstract class _$DynamicFieldCWProxy {
 
   DynamicField sort(int sort);
 
-  DynamicField width(double? width);
-
   DynamicField validator(String? Function(Object?)? validator);
 
   DynamicField contentIcon(String? contentIcon);
@@ -49,7 +47,6 @@ abstract class _$DynamicFieldCWProxy {
     bool? showInList,
     bool? isRequired,
     int? sort,
-    double? width,
     String? Function(Object?)? validator,
     String? contentIcon,
     Color? contentColor,
@@ -77,9 +74,6 @@ class _$DynamicFieldCWProxyImpl implements _$DynamicFieldCWProxy {
 
   @override
   DynamicField sort(int sort) => this(sort: sort);
-
-  @override
-  DynamicField width(double? width) => this(width: width);
 
   @override
   DynamicField validator(String? Function(Object?)? validator) =>
@@ -110,7 +104,6 @@ class _$DynamicFieldCWProxyImpl implements _$DynamicFieldCWProxy {
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? width = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
     Object? contentIcon = const $CopyWithPlaceholder(),
     Object? contentColor = const $CopyWithPlaceholder(),
@@ -139,10 +132,6 @@ class _$DynamicFieldCWProxyImpl implements _$DynamicFieldCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      width: width == const $CopyWithPlaceholder()
-          ? _value.width
-          // ignore: cast_nullable_to_non_nullable
-          : width as double?,
       validator: validator == const $CopyWithPlaceholder()
           ? _value.validator
           // ignore: cast_nullable_to_non_nullable
@@ -179,7 +168,6 @@ DynamicField _$DynamicFieldFromJson(Map<String, dynamic> json) => DynamicField(
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble(),
       contentIcon: json['contentIcon'] as String?,
       contentColor: nullableColorFromJson(json['contentColor'] as String?),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
@@ -193,7 +181,6 @@ Map<String, dynamic> _$DynamicFieldToJson(DynamicField instance) =>
       'showInList': instance.showInList,
       'isRequired': instance.isRequired,
       'sort': instance.sort,
-      'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
       'contentIcon': instance.contentIcon,
       'contentColor': colorToJson(instance.contentColor),

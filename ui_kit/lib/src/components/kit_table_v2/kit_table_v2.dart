@@ -276,8 +276,8 @@ class _KitTableV2State extends State<KitTableV2> {
           index++;
         }
       } else {
-        for (final Field field in widget.model.listFields) {
-          columnSizes[index] = field.width ?? _kMinColumnWidth;
+        for (final Field _ in widget.model.listFields) {
+          columnSizes[index] = _kMinColumnWidth;
           index++;
         }
       }

@@ -4,7 +4,7 @@ import 'logg.dart';
 
 Future<bool> copyTextToClipboard(String? value) async {
   if (value != null) {
-    logg.wrap(value, prefix: 'DATA COPIED');
+    logInfo(value);
     await Clipboard.setData(ClipboardData(text: value));
     // await ClipboardWriter.instance.write([
     //   DataWriterItem()..add(Formats.plainText(value)),

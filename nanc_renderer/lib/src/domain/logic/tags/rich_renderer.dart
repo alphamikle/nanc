@@ -25,7 +25,7 @@ class RichRenderer {
       final WidgetTag richNode = Substitutor.enrichElement(context: context, node: node);
       return _builders[richNode.tag]!.builder(context, richNode, this);
     } catch (error, stackTrace) {
-      logg('Got a error while rendering tag', error, stackTrace);
+      logError('Got a error while rendering tag', error: error, stackTrace: stackTrace);
       return ErrorWidget(error);
     }
   }

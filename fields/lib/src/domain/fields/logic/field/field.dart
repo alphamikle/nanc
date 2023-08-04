@@ -19,21 +19,19 @@ abstract class Field extends Equatable {
   const Field({
     required this.id,
     required this.name,
-    bool showInList = false,
+    this.showInList = false,
     this.isRequired = false,
     this.sort = 0,
-    this.width,
     this.realField = true,
     this.validator,
     this.type = FieldType.field,
-  }) : showInList = width == null ? showInList : true;
+  });
 
   final String id;
   final String name;
   final bool showInList;
   final bool isRequired;
   final int sort;
-  final double? width;
   final bool realField;
 
   @JsonKey(ignore: true)
@@ -55,7 +53,6 @@ abstract class Field extends Equatable {
         ],
         [
           fieldToModelSort,
-          fieldToModelWidth,
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],

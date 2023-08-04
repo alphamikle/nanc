@@ -31,8 +31,6 @@ abstract class _$StructuredFieldCWProxy {
 
   StructuredField sort(int sort);
 
-  StructuredField width(double? width);
-
   StructuredField validator(String? Function(Object?)? validator);
 
   StructuredField contentIcon(String? contentIcon);
@@ -55,7 +53,6 @@ abstract class _$StructuredFieldCWProxy {
     bool? showInList,
     bool? isRequired,
     int? sort,
-    double? width,
     String? Function(Object?)? validator,
     String? contentIcon,
     Color? contentColor,
@@ -93,9 +90,6 @@ class _$StructuredFieldCWProxyImpl implements _$StructuredFieldCWProxy {
   StructuredField sort(int sort) => this(sort: sort);
 
   @override
-  StructuredField width(double? width) => this(width: width);
-
-  @override
   StructuredField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
@@ -126,7 +120,6 @@ class _$StructuredFieldCWProxyImpl implements _$StructuredFieldCWProxy {
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? width = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
     Object? contentIcon = const $CopyWithPlaceholder(),
     Object? contentColor = const $CopyWithPlaceholder(),
@@ -164,10 +157,6 @@ class _$StructuredFieldCWProxyImpl implements _$StructuredFieldCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      width: width == const $CopyWithPlaceholder()
-          ? _value.width
-          // ignore: cast_nullable_to_non_nullable
-          : width as double?,
       validator: validator == const $CopyWithPlaceholder()
           ? _value.validator
           // ignore: cast_nullable_to_non_nullable
@@ -209,7 +198,6 @@ StructuredField _$StructuredFieldFromJson(Map<String, dynamic> json) =>
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble(),
       contentIcon: json['contentIcon'] as String?,
       contentColor: nullableColorFromJson(json['contentColor'] as String?),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
@@ -223,7 +211,6 @@ Map<String, dynamic> _$StructuredFieldToJson(StructuredField instance) =>
       'showInList': instance.showInList,
       'isRequired': instance.isRequired,
       'sort': instance.sort,
-      'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
       'contentIcon': instance.contentIcon,
       'contentColor': colorToJson(instance.contentColor),

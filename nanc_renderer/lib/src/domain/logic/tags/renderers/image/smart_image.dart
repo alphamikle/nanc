@@ -31,9 +31,9 @@ class SmartImage extends StatelessWidget {
 
   Widget blurHashLoadingBuilder(BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
     if (loadingProgress != null) {
-      logg('Loading progress of "$ref" is ${loadingProgress.cumulativeBytesLoaded / loadingProgress.cumulativeBytesLoaded}');
+      logInfo('Loading progress of "$ref" is ${loadingProgress.cumulativeBytesLoaded / loadingProgress.cumulativeBytesLoaded}');
     } else {
-      logg('Loading progress is null');
+      logInfo('Loading progress is null');
     }
 
     return AnimatedSwitcher(

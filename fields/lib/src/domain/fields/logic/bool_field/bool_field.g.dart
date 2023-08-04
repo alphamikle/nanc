@@ -29,8 +29,6 @@ abstract class _$BoolFieldCWProxy {
 
   BoolField sort(int sort);
 
-  BoolField width(double? width);
-
   BoolField validator(String? Function(Object?)? validator);
 
   BoolField type(FieldType type);
@@ -48,7 +46,6 @@ abstract class _$BoolFieldCWProxy {
     bool? isRequired,
     bool? showInList,
     int? sort,
-    double? width,
     String? Function(Object?)? validator,
     FieldType? type,
   });
@@ -79,9 +76,6 @@ class _$BoolFieldCWProxyImpl implements _$BoolFieldCWProxy {
   BoolField sort(int sort) => this(sort: sort);
 
   @override
-  BoolField width(double? width) => this(width: width);
-
-  @override
   BoolField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
@@ -103,7 +97,6 @@ class _$BoolFieldCWProxyImpl implements _$BoolFieldCWProxy {
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? showInList = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? width = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
   }) {
@@ -135,10 +128,6 @@ class _$BoolFieldCWProxyImpl implements _$BoolFieldCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      width: width == const $CopyWithPlaceholder()
-          ? _value.width
-          // ignore: cast_nullable_to_non_nullable
-          : width as double?,
       validator: validator == const $CopyWithPlaceholder()
           ? _value.validator
           // ignore: cast_nullable_to_non_nullable
@@ -168,7 +157,6 @@ BoolField _$BoolFieldFromJson(Map<String, dynamic> json) => BoolField(
       isRequired: json['isRequired'] as bool? ?? false,
       showInList: json['showInList'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble(),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.boolField,
     );
@@ -179,7 +167,6 @@ Map<String, dynamic> _$BoolFieldToJson(BoolField instance) => <String, dynamic>{
       'showInList': instance.showInList,
       'isRequired': instance.isRequired,
       'sort': instance.sort,
-      'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
       'defaultValue': instance.defaultValue,
     };

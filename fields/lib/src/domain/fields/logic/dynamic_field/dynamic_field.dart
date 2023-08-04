@@ -20,7 +20,6 @@ class DynamicField extends Field {
     super.showInList,
     super.isRequired,
     super.sort,
-    super.width,
     super.validator,
     this.contentIcon,
     this.contentColor,
@@ -61,7 +60,6 @@ class DynamicField extends Field {
         ],
         [
           fieldToModelSort,
-          fieldToModelWidth,
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],

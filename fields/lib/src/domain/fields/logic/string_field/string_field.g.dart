@@ -27,8 +27,6 @@ abstract class _$StringFieldCWProxy {
 
   StringField sort(int sort);
 
-  StringField width(double? width);
-
   StringField validator(String? Function(Object?)? validator);
 
   StringField maxLines(int? maxLines);
@@ -47,7 +45,6 @@ abstract class _$StringFieldCWProxy {
     bool? showInList,
     bool? isRequired,
     int? sort,
-    double? width,
     String? Function(Object?)? validator,
     int? maxLines,
     FieldType? type,
@@ -76,9 +73,6 @@ class _$StringFieldCWProxyImpl implements _$StringFieldCWProxy {
   StringField sort(int sort) => this(sort: sort);
 
   @override
-  StringField width(double? width) => this(width: width);
-
-  @override
   StringField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
@@ -102,7 +96,6 @@ class _$StringFieldCWProxyImpl implements _$StringFieldCWProxy {
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
     Object? sort = const $CopyWithPlaceholder(),
-    Object? width = const $CopyWithPlaceholder(),
     Object? validator = const $CopyWithPlaceholder(),
     Object? maxLines = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
@@ -130,10 +123,6 @@ class _$StringFieldCWProxyImpl implements _$StringFieldCWProxy {
           ? _value.sort
           // ignore: cast_nullable_to_non_nullable
           : sort as int,
-      width: width == const $CopyWithPlaceholder()
-          ? _value.width
-          // ignore: cast_nullable_to_non_nullable
-          : width as double?,
       validator: validator == const $CopyWithPlaceholder()
           ? _value.validator
           // ignore: cast_nullable_to_non_nullable
@@ -166,7 +155,6 @@ StringField _$StringFieldFromJson(Map<String, dynamic> json) => StringField(
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
-      width: (json['width'] as num?)?.toDouble(),
       maxLines: json['maxLines'] as int?,
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.stringField,
@@ -179,7 +167,6 @@ Map<String, dynamic> _$StringFieldToJson(StringField instance) =>
       'showInList': instance.showInList,
       'isRequired': instance.isRequired,
       'sort': instance.sort,
-      'width': instance.width,
       'type': _$FieldTypeEnumMap[instance.type]!,
       'maxLines': instance.maxLines,
     };

@@ -203,7 +203,6 @@ class _MultiSelectorModalState extends State<MultiSelectorModal> {
                                 totalPages: 0,
                                 currentPage: 0,
                                 paginationEnabled: false,
-                                columnSizes: shortChildEntity.flattenFields.map((Field field) => field.width).toList(),
                                 onRowPressed: (Json rowData) => toggleRow(rowData),
                                 rowBuilder: rowBuilder,
                                 cellBuilder: cellBuilder,

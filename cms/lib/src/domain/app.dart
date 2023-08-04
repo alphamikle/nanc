@@ -151,9 +151,6 @@ class _AppState extends State<App> {
     }
 
     if (width < minWidth) {
-      final double multiplier = width / minWidth;
-
-      logg('Scale', multiplier);
       return MediaQuery(
         data: context.query.copyWith(size: Size(1024, height)),
         child: cmsApp,

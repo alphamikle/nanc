@@ -29,7 +29,6 @@ class StructuredField extends DynamicField {
     super.showInList,
     super.isRequired,
     super.sort,
-    super.width,
     super.validator,
     super.contentIcon,
     super.contentColor,
@@ -67,10 +66,7 @@ class StructuredField extends DynamicField {
         [
           fieldToModelName,
           fieldToModelId,
-        ],
-        [
           fieldToModelSort,
-          fieldToModelWidth,
         ],
         [
           fieldToModelShowInList,

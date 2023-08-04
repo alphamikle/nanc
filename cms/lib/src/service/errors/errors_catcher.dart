@@ -15,6 +15,6 @@ abstract class ErrorsCatcher {
     } else {
       errorStreamController.add([error, stackTrace].toHumanException(error.toString()));
     }
-    logg.error(error: error, stackTrace: stackTrace);
+    logError('Zone error catch', error: error, stackTrace: stackTrace);
   }
 }

@@ -23,7 +23,6 @@ class ModelsSelectorField extends Field {
     super.showInList,
     super.isRequired,
     super.sort,
-    super.width,
     super.validator,
     super.type = FieldType.modelsSelectorField,
   }) : super(id: id ?? toSnakeCase(name));
@@ -60,7 +59,6 @@ class ModelsSelectorField extends Field {
         ],
         [
           fieldToModelSort,
-          fieldToModelWidth,
           fieldToModelShowInList,
           fieldToModelIsRequired,
         ],
