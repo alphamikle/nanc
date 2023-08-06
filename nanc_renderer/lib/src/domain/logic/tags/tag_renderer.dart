@@ -8,7 +8,12 @@ enum TagType {
   widget,
   sliver,
   property,
-  other,
+  other;
+
+  bool get isWidget => this == TagType.widget;
+  bool get isSliver => this == TagType.sliver;
+  bool get isProperty => this == TagType.property;
+  bool get isOther => this == TagType.other;
 }
 
 /// ? Entity, which configures an any custom tag rendering logic

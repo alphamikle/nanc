@@ -36,6 +36,7 @@ import 'renderers/row/row_renderer.dart';
 import 'renderers/safe_area/safe_area_renderer.dart';
 import 'renderers/scale/scale_renderer.dart';
 import 'renderers/sized_box/sized_box_renderer.dart';
+import 'renderers/sliver_persistent_header/sliver_persistent_header_renderer.dart';
 import 'renderers/stack/stack_renderer.dart';
 import 'renderers/template/template_renderer.dart';
 import 'renderers/text/text_renderer.dart';
@@ -98,5 +99,6 @@ abstract class TagsCollection {
     textButtonRenderer(),
     listViewRenderer(),
     visibilityNotifierRenderer(),
+    sliverPersistentHeaderRenderer(),
   ];
 }

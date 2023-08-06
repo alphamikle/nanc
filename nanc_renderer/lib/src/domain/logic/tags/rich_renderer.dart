@@ -30,6 +30,8 @@ class RichRenderer {
     }
   }
 
+  bool isSliver(WidgetTag node) => _builders[node.tag]?.tagType.isSliver ?? false;
+
   List<Widget> renderChildren(BuildContext context, List<TagNode>? nodes) {
     if (nodes == null) {
       return [];

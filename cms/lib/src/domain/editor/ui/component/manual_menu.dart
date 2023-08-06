@@ -10,10 +10,17 @@ import '../../../general/logic/model/menu_element.dart';
 import '../../logic/bloc/editor/editor_bloc.dart';
 import '../../logic/bloc/editor/editor_state.dart';
 
-class ManualMenu extends StatelessWidget {
+class ManualMenu extends StatefulWidget {
   const ManualMenu({
     super.key,
   });
+
+  @override
+  State<ManualMenu> createState() => _ManualMenuState();
+}
+
+class _ManualMenuState extends State<ManualMenu> {
+  late final List<TagRenderer> renderers = tagRenderers(context);
 
   Widget menuItemBuilder(BuildContext context, int index, TagRenderer renderer) {
     return BlocBuilder<EditorBloc, EditorState>(
@@ -37,13 +44,13 @@ class ManualMenu extends StatelessWidget {
 
   List<TagRenderer> tagRenderers(BuildContext context) {
     final DataRepository dataRepository = context.read();
-    return dataRepository.renderers.where((TagRenderer renderer) => renderer.tag.startsWith(propertyPrefix) == false).toList();
+    final List<TagRenderer> renderers = dataRepository.renderers.where((TagRenderer renderer) => renderer.tag.startsWith(propertyPrefix) == false).toList();
+    renderers.sort((TagRenderer<Widget> first, TagRenderer<Widget> second) => first.tag.compareTo(second.tag));
+    return renderers;
   }
 
   @override
   Widget build(BuildContext context) {
-    final List<TagRenderer> renderers = tagRenderers(context);
-
     return Material(
       type: MaterialType.transparency,
       child: ListView.builder(

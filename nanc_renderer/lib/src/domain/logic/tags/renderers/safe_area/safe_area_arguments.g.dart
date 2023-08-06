@@ -8,11 +8,11 @@ part of 'safe_area_arguments.dart';
 
 SafeAreaArguments _$SafeAreaArgumentsFromJson(Map<String, dynamic> json) =>
     SafeAreaArguments(
-      left: json['left'] as bool?,
-      top: json['top'] as bool?,
-      right: json['right'] as bool?,
-      bottom: json['bottom'] as bool?,
-      bottomViewPadding: json['bottomViewPadding'] as bool?,
+      left: nullableBoolFromJson(json['left']),
+      top: nullableBoolFromJson(json['top']),
+      right: nullableBoolFromJson(json['right']),
+      bottom: nullableBoolFromJson(json['bottom']),
+      bottomViewPadding: nullableBoolFromJson(json['bottomViewPadding']),
     );
 
 Map<String, dynamic> _$SafeAreaArgumentsToJson(SafeAreaArguments instance) =>

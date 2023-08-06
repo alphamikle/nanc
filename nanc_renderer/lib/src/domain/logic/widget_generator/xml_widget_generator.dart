@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tools/tools.dart';
 import 'package:xml/xml.dart';
 
 import '../model/tag.dart';
@@ -33,30 +34,39 @@ class XmlWidgetGenerator {
     }
   }
 
-  List<Widget> generate() {
+  (List<Widget> widgets, bool hasSlivers) generate() {
+    final Stopwatch stopwatch = Stopwatch()..start();
     final List<Widget> widgets = [];
     late final XmlNode node;
     try {
       node = parseXmlSync(data);
-    } catch (error) {
-      return [];
+    } catch (error, stackTrace) {
+      logError('Error on generating widgets from the XML', error: error, stackTrace: stackTrace);
+      return ([], false);
     }
     final XmlElement rootElement = node.children.firstWhere((XmlNode it) => it is XmlElement && it.localName == kRootNode) as XmlElement;
     final List<XmlNode> widgetTags = rootElement.children.toList();
     final List<TagNode> nodes = widgetTags.toTagNodes();
+    bool hasSlivers = false;
 
     for (final TagNode node in nodes) {
-      _defaultWidgetsFilter(_buildWidget(node), widgets);
+      final (Widget? widget, bool isSliver) = _buildWidget(node);
+      if (hasSlivers == false && isSliver) {
+        hasSlivers = true;
+      }
+      _defaultWidgetsFilter(widget, widgets);
     }
-    return widgets;
+    stopwatch.stop();
+    logInfo('Time for generate widgets: ${stopwatch.elapsedMicroseconds / 1000}ms');
+    return (widgets, hasSlivers);
   }
 
-  Widget? _buildWidget(TagNode node) {
+  (Widget? widget, bool isSliver) _buildWidget(TagNode node) {
     return switch (node) {
-      TextNode() => null,
-      UnknownNode() => null,
-      PropertyTag(tag: final String tag) => richRenderer.isRendererRegistered(tag) ? richRenderer.render(context, node) : null,
-      WidgetTag(tag: final String tag) => richRenderer.isRendererRegistered(tag) ? richRenderer.render(context, node) : null,
+      TextNode() => (null, false),
+      UnknownNode() => (null, false),
+      PropertyTag(tag: final String tag) => (richRenderer.isRendererRegistered(tag) ? richRenderer.render(context, node) : null, false),
+      WidgetTag(tag: final String tag) => (richRenderer.isRendererRegistered(tag) ? richRenderer.render(context, node) : null, richRenderer.isSliver(node)),
     };
   }
 }

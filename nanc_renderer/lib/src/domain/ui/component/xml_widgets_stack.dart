@@ -57,7 +57,7 @@ class XmlWidgetsStack extends StatelessWidget {
                 return TemplateStorage(
                   child: Builder(
                     builder: (BuildContext context) {
-                      final List<Widget> widgets = createGenerator(context).generate();
+                      final (List<Widget> widgets, bool _) = createGenerator(context).generate();
 
                       return Stack(
                         fit: StackFit.expand,

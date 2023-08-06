@@ -15,10 +15,19 @@ class SafeAreaArguments {
 
   factory SafeAreaArguments.fromJson(dynamic json) => _$SafeAreaArgumentsFromJson(castToJson(json));
 
+  @JsonKey(fromJson: nullableBoolFromJson)
   final bool? left;
+
+  @JsonKey(fromJson: nullableBoolFromJson)
   final bool? top;
+
+  @JsonKey(fromJson: nullableBoolFromJson)
   final bool? right;
+
+  @JsonKey(fromJson: nullableBoolFromJson)
   final bool? bottom;
+
+  @JsonKey(fromJson: nullableBoolFromJson)
   final bool? bottomViewPadding;
 
   Json toJson() => _$SafeAreaArgumentsToJson(this);
