@@ -24,8 +24,6 @@ class _TagsManualViewState extends State<TagsManualView> {
 
   void toggleDescription() => safeSetState(() => showDescription = !showDescription);
 
-  void toggleMode() => context.read<EditorBloc>().toggleMode();
-
   Widget tagDescription() {
     return BlocBuilder<EditorBloc, EditorState>(
       builder: (BuildContext context, EditorState state) {
@@ -77,18 +75,34 @@ class _TagsManualViewState extends State<TagsManualView> {
                     ),
                     const Spacer(),
 
-                    /// ? SWITCHER OF LIVE EDITOR / DESCRIPTION INFO
+                    /// ? SWITCHERS
                     Padding(
                       padding: const EdgeInsets.only(right: Gap.regular),
-                      child: BlocBuilder<EditorBloc, EditorState>(builder: (BuildContext context, EditorState state) {
-                        return KitTooltip(
-                          text: state.contentType.isScrollable ? 'Switch to Stack Mode' : 'Switch to Scrollable Mode',
-                          child: KitIconButton(
-                            icon: state.contentType.isScrollable ? IconPack.flu_stack_regular : IconPack.flu_dual_screen_vertical_scroll_regular,
-                            onPressed: toggleMode,
-                          ),
-                        );
-                      }),
+                      child: BlocBuilder<EditorBloc, EditorState>(
+                        builder: (BuildContext context, EditorState state) {
+                          return KitTooltip(
+                            text: state.asyncMode ? 'Switch to Sync Rendering Mode' : 'Switch to Async Rendering Mode',
+                            child: KitIconButton(
+                              icon: state.asyncMode ? IconPack.flu_arrow_counterclockwise_dashes_filled : IconPack.flu_arrow_clockwise_filled,
+                              onPressed: context.read<EditorBloc>().toggleAsyncRendering,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: Gap.regular),
+                      child: BlocBuilder<EditorBloc, EditorState>(
+                        builder: (BuildContext context, EditorState state) {
+                          return KitTooltip(
+                            text: state.contentType.isScrollable ? 'Switch to Stack Mode' : 'Switch to Scrollable Mode',
+                            child: KitIconButton(
+                              icon: state.contentType.isScrollable ? IconPack.flu_stack_regular : IconPack.flu_dual_screen_vertical_scroll_regular,
+                              onPressed: context.read<EditorBloc>().toggleMode,
+                            ),
+                          );
+                        },
+                      ),
                     ),
                     KitTooltip(
                       text: showDescription ? 'Switch to demo editor' : 'Switch to widget description',

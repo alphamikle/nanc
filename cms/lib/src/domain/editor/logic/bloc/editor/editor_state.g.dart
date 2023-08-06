@@ -12,6 +12,7 @@ extension _$EditorStateAutoequal on EditorState {
   List<Object?> get _$props => [
         isLoading,
         xmlContent,
+        asyncMode,
         contentType,
         isSyncedWithFile,
         activeElement,
@@ -27,6 +28,8 @@ abstract class _$EditorStateCWProxy {
   EditorState isLoading(bool isLoading);
 
   EditorState xmlContent(String xmlContent);
+
+  EditorState asyncMode(bool asyncMode);
 
   EditorState contentType(ScreenContentType contentType);
 
@@ -45,6 +48,7 @@ abstract class _$EditorStateCWProxy {
   EditorState call({
     bool? isLoading,
     String? xmlContent,
+    bool? asyncMode,
     ScreenContentType? contentType,
     bool? isSyncedWithFile,
     MenuElement? activeElement,
@@ -63,6 +67,9 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
 
   @override
   EditorState xmlContent(String xmlContent) => this(xmlContent: xmlContent);
+
+  @override
+  EditorState asyncMode(bool asyncMode) => this(asyncMode: asyncMode);
 
   @override
   EditorState contentType(ScreenContentType contentType) =>
@@ -91,6 +98,7 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
   EditorState call({
     Object? isLoading = const $CopyWithPlaceholder(),
     Object? xmlContent = const $CopyWithPlaceholder(),
+    Object? asyncMode = const $CopyWithPlaceholder(),
     Object? contentType = const $CopyWithPlaceholder(),
     Object? isSyncedWithFile = const $CopyWithPlaceholder(),
     Object? activeElement = const $CopyWithPlaceholder(),
@@ -106,6 +114,10 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
               ? _value.xmlContent
               // ignore: cast_nullable_to_non_nullable
               : xmlContent as String,
+      asyncMode: asyncMode == const $CopyWithPlaceholder() || asyncMode == null
+          ? _value.asyncMode
+          // ignore: cast_nullable_to_non_nullable
+          : asyncMode as bool,
       contentType:
           contentType == const $CopyWithPlaceholder() || contentType == null
               ? _value.contentType
@@ -143,6 +155,7 @@ extension $EditorStateCopyWith on EditorState {
 EditorState _$EditorStateFromJson(Map<String, dynamic> json) => EditorState(
       isLoading: json['isLoading'] as bool,
       xmlContent: json['xmlContent'] as String,
+      asyncMode: json['asyncMode'] as bool,
       contentType: $enumDecode(_$ScreenContentTypeEnumMap, json['contentType']),
       isSyncedWithFile: json['isSyncedWithFile'] as bool,
       activeElement: MenuElement.fromJson(json['activeElement']),
@@ -153,6 +166,7 @@ Map<String, dynamic> _$EditorStateToJson(EditorState instance) =>
     <String, dynamic>{
       'isLoading': instance.isLoading,
       'xmlContent': instance.xmlContent,
+      'asyncMode': instance.asyncMode,
       'contentType': _$ScreenContentTypeEnumMap[instance.contentType]!,
       'isSyncedWithFile': instance.isSyncedWithFile,
       'activeElement': instance.activeElement.toJson(),

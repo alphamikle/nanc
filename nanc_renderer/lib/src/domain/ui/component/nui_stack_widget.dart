@@ -8,9 +8,10 @@ import '../../logic/tags/logic/template_storage.dart';
 import '../../logic/tags/rich_renderer.dart';
 import '../../logic/tags/tag_renderer.dart';
 import '../../logic/widget_generator/xml_widget_generator.dart';
+import 'nui_list_widget.dart';
 
-class XmlWidgetsStack extends StatelessWidget {
-  const XmlWidgetsStack({
+class NuiStackWidget extends StatelessWidget {
+  const NuiStackWidget({
     required this.xmlContent,
     required this.renderers,
     required this.pageData,
@@ -18,6 +19,8 @@ class XmlWidgetsStack extends StatelessWidget {
     this.imageLoadingBuilder,
     this.imageErrorBuilder,
     this.imageFrameBuilder,
+    this.asyncMode = false,
+    this.preloaderBuilder,
     super.key,
   });
 
@@ -28,6 +31,8 @@ class XmlWidgetsStack extends StatelessWidget {
   final ImageLoadingBuilder? imageLoadingBuilder;
   final ImageErrorWidgetBuilder? imageErrorBuilder;
   final ImageFrameBuilder? imageFrameBuilder;
+  final bool asyncMode;
+  final PreloaderBuilder? preloaderBuilder;
 
   RichRenderer get richRenderer => RichRenderer(renderers: renderers);
 
@@ -37,6 +42,37 @@ class XmlWidgetsStack extends StatelessWidget {
       data: xmlContent,
       richRenderer: richRenderer,
       widgetsFilter: widgetsFilter,
+    );
+  }
+
+  Widget asyncBuilder(BuildContext context, AsyncSnapshot<GeneratorResult> snapshot) {
+    final Widget? child = snapshot.hasError || snapshot.hasData == false ? null : builder(snapshot.requireData);
+    if (preloaderBuilder != null) {
+      return preloaderBuilder!(snapshot, child);
+    }
+    if (snapshot.hasError) {
+      return ErrorWidget(snapshot.error!);
+    }
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 250),
+      child: snapshot.hasData
+          ? child!
+          : const Center(
+              child: SizedBox(
+                height: 50,
+                width: 50,
+                child: CircularProgressIndicator(),
+              ),
+            ),
+    );
+  }
+
+  Widget builder(GeneratorResult result) {
+    final (List<Widget> widgets, bool _) = result;
+
+    return Stack(
+      fit: StackFit.expand,
+      children: widgets,
     );
   }
 
@@ -57,11 +93,14 @@ class XmlWidgetsStack extends StatelessWidget {
                 return TemplateStorage(
                   child: Builder(
                     builder: (BuildContext context) {
-                      final (List<Widget> widgets, bool _) = createGenerator(context).generate();
-
-                      return Stack(
-                        fit: StackFit.expand,
-                        children: widgets,
+                      return TemplateStorage(
+                        child: asyncMode
+                            ? FutureBuilder(
+                                // ignore: discarded_futures
+                                future: createGenerator(context).generateAsync(),
+                                builder: asyncBuilder,
+                              )
+                            : builder(createGenerator(context).generate()),
                       );
                     },
                   ),

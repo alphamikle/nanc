@@ -1,6 +1,7 @@
 import 'package:xml/xml.dart';
 
 import '../../../../nanc_renderer.dart';
+import '../../../service/delayer.dart';
 
 extension XmlNodeConverter on XmlNode {
   TagNode toTagNode() {
@@ -40,6 +41,27 @@ extension XmlNodeConverter on XmlNode {
 
 extension XmlNodesConverter on Iterable<XmlNode> {
   List<TagNode> toTagNodes() {
-    return map((XmlNode xmlNode) => xmlNode.toTagNode()).where((TagNode node) => node is! UnknownNode).toList();
+    final List<TagNode> nodes = [];
+    for (final XmlNode xmlNode in this) {
+      final TagNode tagNode = xmlNode.toTagNode();
+      if (tagNode is! UnknownNode) {
+        nodes.add(tagNode);
+      }
+    }
+    return nodes;
+  }
+
+  Future<List<TagNode>> toTagNodesAsync() async {
+    final List<TagNode> nodes = [];
+    for (final XmlNode xmlNode in this) {
+      if (Delayer.needToPause(pauseEveryCycles: 17)) {
+        await Delayer.pause();
+      }
+      final TagNode tagNode = xmlNode.toTagNode();
+      if (tagNode is! UnknownNode) {
+        nodes.add(tagNode);
+      }
+    }
+    return nodes;
   }
 }

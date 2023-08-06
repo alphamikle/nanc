@@ -15,12 +15,14 @@ class PreviewState extends Equatable {
     required this.isLoading,
     required this.xmlContent,
     required this.contentType,
+    required this.asyncMode,
   });
 
   factory PreviewState.empty() => const PreviewState(
         isLoading: false,
         xmlContent: '',
         contentType: ScreenContentType.scrollable,
+        asyncMode: false,
       );
 
   factory PreviewState.fromJson(dynamic json) => _$PreviewStateFromJson(castToJson(json));
@@ -28,6 +30,7 @@ class PreviewState extends Equatable {
   final bool isLoading;
   final String xmlContent;
   final ScreenContentType contentType;
+  final bool asyncMode;
 
   Json toJson() => _$PreviewStateToJson(this);
 

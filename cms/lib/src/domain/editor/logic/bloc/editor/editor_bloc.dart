@@ -79,10 +79,11 @@ class EditorBloc extends Cubit<EditorState> {
     ));
   }
 
+  void toggleAsyncRendering() => emit(state.copyWith(asyncMode: !state.asyncMode));
+
   @protected
   void controllerListener() {
     if (state.isSyncedWithFile == false) {
-      logInfo('Controller listener');
       emit(state.copyWith(xmlContent: controller.text));
     }
   }

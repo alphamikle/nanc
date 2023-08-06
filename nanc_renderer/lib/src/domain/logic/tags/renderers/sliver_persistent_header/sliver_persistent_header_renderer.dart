@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 
-import '../../../model/tag.dart';
-import '../../rich_renderer.dart';
-import '../../tag_description.dart';
-import '../../tag_renderer.dart';
-import '../../tools/properties_extractor.dart';
+import '../../../../../../nanc_renderer.dart';
 import '../../tools/widgets_compactor.dart';
 import 'sliver_persistent_header_arguments.dart';
 
@@ -16,14 +12,22 @@ TagRenderer sliverPersistentHeaderRenderer() {
     tag: 'sliverPersistentHeader',
     description: TagDescription(
       description: '''
+# [Sliver Persistent Header](https://api.flutter.dev/flutter/widgets/SliverPersistentHeader-class.html)
 
+A sliver whose size varies when the sliver is scrolled to the edge of the viewport opposite the sliver's [GrowthDirection](rendering/GrowthDirection.html).
+
+In the normal case of a [CustomScrollView](widgets/CustomScrollView-class.html) with no centered sliver, this sliver will vary its size when scrolled to the leading edge of the viewport.
+
+This is the layout primitive that [SliverAppBar](material/SliverAppBar-class.html) uses for its shrinking/growing effect.
       ''',
       arguments: [
-        // TODO(alphamikle): arguments docs
+        boolArgument(name: 'pinned'),
+        boolArgument(name: 'floating'),
+        doubleArgument(name: 'maxExtent'),
+        doubleArgument(name: 'minExtent'),
+        doubleArgument(name: 'height', description: 'Specifying this field is equivalent to specifying `maxExtent` and `minExtent` of the same value.'),
       ],
-      properties: [
-        // TODO(alphamikle): properties docs
-      ],
+      properties: [],
     ),
     example: '''
 <data id="header" height="150"/>

@@ -24,16 +24,29 @@ class PagePreview extends StatelessWidget {
           return BlocBuilder<PreviewBloc, PreviewState>(
             builder: (BuildContext context, PreviewState previewState) {
               final bool isScrollable = previewState.contentType.isScrollable;
+              final bool asyncMode = previewState.asyncMode;
 
-              return NUIWidget(
-                scrollController: context.read<PreviewBloc>().scrollController,
+              if (isScrollable) {
+                return NuiListWidget(
+                  scrollController: context.read<PreviewBloc>().scrollController,
+                  xmlContent: previewState.xmlContent,
+                  pageData: pageState.data,
+                  renderers: dataRepository.renderers,
+                  imageLoadingBuilder: dataRepository.imageLoadingBuilder,
+                  imageErrorBuilder: dataRepository.imageErrorBuilder,
+                  imageFrameBuilder: dataRepository.imageFrameBuilder,
+                  physics: const BouncingScrollPhysics(),
+                  asyncMode: asyncMode,
+                );
+              }
+              return NuiStackWidget(
                 xmlContent: previewState.xmlContent,
                 pageData: pageState.data,
                 renderers: dataRepository.renderers,
                 imageLoadingBuilder: dataRepository.imageLoadingBuilder,
                 imageErrorBuilder: dataRepository.imageErrorBuilder,
                 imageFrameBuilder: dataRepository.imageFrameBuilder,
-                type: isScrollable ? NUIWidgetType.scrollable : NUIWidgetType.stack,
+                asyncMode: asyncMode,
               );
             },
           );

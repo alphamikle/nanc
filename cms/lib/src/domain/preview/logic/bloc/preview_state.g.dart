@@ -9,7 +9,7 @@ part of 'preview_state.dart';
 extension _$PreviewStateAutoequal on PreviewState {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [isLoading, xmlContent, contentType];
+  List<Object?> get _$props => [isLoading, xmlContent, contentType, asyncMode];
 }
 
 // **************************************************************************
@@ -23,6 +23,8 @@ abstract class _$PreviewStateCWProxy {
 
   PreviewState contentType(ScreenContentType contentType);
 
+  PreviewState asyncMode(bool asyncMode);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `PreviewState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -33,6 +35,7 @@ abstract class _$PreviewStateCWProxy {
     bool? isLoading,
     String? xmlContent,
     ScreenContentType? contentType,
+    bool? asyncMode,
   });
 }
 
@@ -53,6 +56,9 @@ class _$PreviewStateCWProxyImpl implements _$PreviewStateCWProxy {
       this(contentType: contentType);
 
   @override
+  PreviewState asyncMode(bool asyncMode) => this(asyncMode: asyncMode);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `PreviewState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -64,6 +70,7 @@ class _$PreviewStateCWProxyImpl implements _$PreviewStateCWProxy {
     Object? isLoading = const $CopyWithPlaceholder(),
     Object? xmlContent = const $CopyWithPlaceholder(),
     Object? contentType = const $CopyWithPlaceholder(),
+    Object? asyncMode = const $CopyWithPlaceholder(),
   }) {
     return PreviewState(
       isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
@@ -80,6 +87,10 @@ class _$PreviewStateCWProxyImpl implements _$PreviewStateCWProxy {
               ? _value.contentType
               // ignore: cast_nullable_to_non_nullable
               : contentType as ScreenContentType,
+      asyncMode: asyncMode == const $CopyWithPlaceholder() || asyncMode == null
+          ? _value.asyncMode
+          // ignore: cast_nullable_to_non_nullable
+          : asyncMode as bool,
     );
   }
 }
@@ -98,6 +109,7 @@ PreviewState _$PreviewStateFromJson(Map<String, dynamic> json) => PreviewState(
       isLoading: json['isLoading'] as bool,
       xmlContent: json['xmlContent'] as String,
       contentType: $enumDecode(_$ScreenContentTypeEnumMap, json['contentType']),
+      asyncMode: json['asyncMode'] as bool,
     );
 
 Map<String, dynamic> _$PreviewStateToJson(PreviewState instance) =>
@@ -105,6 +117,7 @@ Map<String, dynamic> _$PreviewStateToJson(PreviewState instance) =>
       'isLoading': instance.isLoading,
       'xmlContent': instance.xmlContent,
       'contentType': _$ScreenContentTypeEnumMap[instance.contentType]!,
+      'asyncMode': instance.asyncMode,
     };
 
 const _$ScreenContentTypeEnumMap = {

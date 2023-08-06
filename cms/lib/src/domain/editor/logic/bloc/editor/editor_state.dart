@@ -22,6 +22,7 @@ class EditorState extends Equatable {
   const EditorState({
     required this.isLoading,
     required this.xmlContent,
+    required this.asyncMode,
     required this.contentType,
     required this.isSyncedWithFile,
     required this.activeElement,
@@ -33,6 +34,7 @@ class EditorState extends Equatable {
   factory EditorState.empty() => EditorState(
         isLoading: false,
         xmlContent: '',
+        asyncMode: false,
         contentType: ScreenContentType.scrollable,
         isSyncedWithFile: false,
         activeElement: MenuElement.empty(),
@@ -41,6 +43,7 @@ class EditorState extends Equatable {
 
   final bool isLoading;
   final String xmlContent;
+  final bool asyncMode;
   final ScreenContentType contentType;
   final bool isSyncedWithFile;
 

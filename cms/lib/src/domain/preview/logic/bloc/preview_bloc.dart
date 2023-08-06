@@ -23,6 +23,7 @@ class PreviewBloc extends Cubit<PreviewState> {
       isLoading: editorState.isLoading,
       xmlContent: editorState.xmlContent,
       contentType: editorState.contentType,
+      asyncMode: editorState.asyncMode,
     ));
   }
 
