@@ -242,7 +242,7 @@ class SupabaseModelApi implements IModelApi {
       (NumberType.float, SignType.unsigned) => 'float8', // CHECK ("$fieldId" >= 0)
       (NumberType.double, SignType.signed) => 'float8',
       (NumberType.double, SignType.unsigned) => 'float8', // CHECK ("$fieldId" >= 0)
-      (NumberType.tinyInt, SignType.signed) => 'int2', // CHECK ("$fieldId" >= -127 AND "$fieldId" <= 128)
+      (NumberType.tinyInt, SignType.signed) => 'int2', // CHECK ("$fieldId" >= -128 AND "$fieldId" <= 127)
       (NumberType.tinyInt, SignType.unsigned) => 'int2', // CHECK ("$fieldId" >= 0 AND "$fieldId" <= 255)
       (NumberType.smallInt, SignType.signed) => 'int2',
       (NumberType.smallInt, SignType.unsigned) => 'int4', // CHECK ("$fieldId" >= 0 AND "$fieldId" <= 65535)
@@ -293,7 +293,7 @@ class SupabaseModelApi implements IModelApi {
       (NumberType.float, SignType.unsigned) => ('${fieldId}_unsigned_float$kConstraintSuffix', 'CHECK ("$fieldId" >= 0)'),
       (NumberType.double, SignType.signed) => ('', ''),
       (NumberType.double, SignType.unsigned) => ('${fieldId}_unsigned_double$kConstraintSuffix', 'CHECK ("$fieldId" >= 0)'),
-      (NumberType.tinyInt, SignType.signed) => ('${fieldId}_signed_tiny_int$kConstraintSuffix', 'CHECK ("$fieldId" >= -127 AND "$fieldId" <= 128)'),
+      (NumberType.tinyInt, SignType.signed) => ('${fieldId}_signed_tiny_int$kConstraintSuffix', 'CHECK ("$fieldId" >= -128 AND "$fieldId" <= 127)'),
       (NumberType.tinyInt, SignType.unsigned) => ('${fieldId}_unsigned_tiny_int$kConstraintSuffix', 'CHECK ("$fieldId" >= 0 AND "$fieldId" <= 255)'),
       (NumberType.smallInt, SignType.signed) => ('', ''),
       (NumberType.smallInt, SignType.unsigned) => ('${fieldId}_unsigned_small_int$kConstraintSuffix', 'CHECK ("$fieldId" >= 0 AND "$fieldId" <= 65535)'),

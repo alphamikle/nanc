@@ -55,10 +55,16 @@ class _NumberFieldCellState extends State<NumberFieldCell> with FieldCellHelper<
     }
 
     final NumberType type = field.numberType;
+    final SignType sign = field.signType;
     final bool isIntType = type.isFloat == false && type.isDouble == false;
+    final bool isMinus = value.trim().startsWith('-');
 
     if (isIntType && value.contains(RegExp(r'[,.]'))) {
-      return 'Number should be integer';
+      return 'Value should be integer';
+    }
+
+    if (isMinus && (sign.isUnsigned || type.isBit)) {
+      return 'Value should be >= 0';
     }
 
     if (isIntType) {
@@ -70,71 +76,74 @@ class _NumberFieldCellState extends State<NumberFieldCell> with FieldCellHelper<
 
       if (outOfLimitError) {
         bigInt = BigInt.parse(value);
+      } else if (message != null) {
+        return message;
       } else if (possiblyInt != null) {
         integer = possiblyInt;
       } else {
-        return message ?? 'Unknown error';
-      }
-
-      /// ? UNSIGNED GREATER 0
-      if (field.signType.isUnsigned && (outOfLimitError || integer < 0)) {
-        return 'Unsigned integer should be greater or equal than 0';
+        return 'Invalid integer';
       }
 
       /// ? BIT IS BIT
-      if (field.numberType.isBit && (outOfLimitError || integer > 1)) {
+      if (type.isBit && (outOfLimitError || integer > 1)) {
         return 'Bit should be 0 or 1';
       }
 
       /// ? TINY INT
-      if (field.numberType.isTinyInt) {
-        if (field.signType.isSigned && (outOfLimitError || (integer < -127 || integer > 128))) {
-          return 'Signed tiny int should be in a range -127...128';
+      if (type.isTinyInt) {
+        if (sign.isSigned && (outOfLimitError || (integer < -128 || integer > 127))) {
+          return 'Signed tiny int should be in a range -128...127';
         }
-        if (field.signType.isUnsigned && (outOfLimitError || integer > 255)) {
+        if (sign.isUnsigned && (outOfLimitError || integer > 255)) {
           return 'Unsigned tiny int should be in a range 0...255';
         }
+        return null;
       }
 
       /// ? SMALL INT
-      if (field.numberType.isSmallInt) {
-        if (field.signType.isSigned && (outOfLimitError || (integer < -32768 || integer > 32767))) {
+      if (type.isSmallInt) {
+        if (sign.isSigned && (outOfLimitError || (integer < -32768 || integer > 32767))) {
           return 'Signed small int should be in a range -32 768...32 767';
         }
-        if (field.signType.isUnsigned && (outOfLimitError || integer > 65535)) {
+        if (sign.isUnsigned && (outOfLimitError || integer > 65535)) {
           return 'Unsigned small int should be in a range 0...65 535';
         }
+        return null;
       }
 
       /// ? MEDIUM INT
-      if (field.numberType.isMediumInt) {
-        if (field.signType.isSigned && (outOfLimitError || (integer < -8388608 || integer > 8388607))) {
+      if (type.isMediumInt) {
+        if (sign.isSigned && (outOfLimitError || (integer < -8388608 || integer > 8388607))) {
           return 'Signed medium int should be in a range -8 388 608...8 388 607';
         }
-        if (field.signType.isUnsigned && (outOfLimitError || integer > 16777215)) {
+        if (sign.isUnsigned && (outOfLimitError || integer > 16777215)) {
           return 'Unsigned medium int should be in a range 0...16 777 215';
         }
+        return null;
       }
 
       /// ? INTEGER
-      if (field.numberType.isInteger) {
-        if (field.signType.isSigned && (outOfLimitError || (integer < -2147483648 || integer > 2147483647))) {
+      if (type.isInteger) {
+        if (sign.isSigned && (outOfLimitError || (integer < -2147483648 || integer > 2147483647))) {
           return 'Signed integer should be in a range -2 147 483 648...2 147 483 647';
         }
-        if (field.signType.isUnsigned && (outOfLimitError || integer > 4294967295)) {
+        if (sign.isUnsigned && (outOfLimitError || integer > 4294967295)) {
           return 'Unsigned integer should be in a range 0...4 294 967 295';
         }
+        return null;
       }
 
       /// ? BIG INT
-      if (field.numberType.isBigInt) {
-        if (field.signType.isSigned && outOfLimitError && (bigInt < minSignedBigInt || bigInt > maxSignedBigInt)) {
+      if (type.isBigInt) {
+        if (sign.isSigned && outOfLimitError && (bigInt < minSignedBigInt || bigInt > maxSignedBigInt)) {
           return 'Signed integer should be in a range -2^63...2^63-1';
         }
-        if (field.signType.isUnsigned && outOfLimitError && bigInt > maxUnsignedBigInt) {
+        if (sign.isUnsigned && outOfLimitError && bigInt > maxUnsignedBigInt) {
           return 'Unsigned integer should be in a range 0...2^64-1';
         }
+        return null;
       }
+      return null;
     }
 
     final (double? possiblyDouble, NumberParsingErrorType? error, String? message) = detailedDoubleFromString(value);
@@ -143,7 +152,7 @@ class _NumberFieldCellState extends State<NumberFieldCell> with FieldCellHelper<
       if (error != null && error.isOutOfLimit) {
         return 'Floating point number is infinite';
       }
-      return message ?? 'Unknown error';
+      return message ?? 'Invalid floating number';
     }
     return null;
   }
@@ -154,7 +163,7 @@ class _NumberFieldCellState extends State<NumberFieldCell> with FieldCellHelper<
       controller: controller,
       helper: helper,
       placeholder: placeholder,
-      onChanged: (Object? newValue) => pageBloc.updateValue(fieldId, newValue),
+      onChanged: (Object? newValue) => pageBloc.updateValue(fieldId, newValue is BigInt ? newValue.toString() : newValue),
       isChanged: pageBloc.fieldWasChanged(fieldId),
       validator: groupOfValidators([
         numberValidator,
@@ -164,3 +173,5 @@ class _NumberFieldCellState extends State<NumberFieldCell> with FieldCellHelper<
     );
   }
 }
+
+// 2147483648
