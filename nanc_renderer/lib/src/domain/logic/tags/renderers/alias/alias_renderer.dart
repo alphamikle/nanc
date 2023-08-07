@@ -3,6 +3,7 @@ import 'package:icons/icons.dart';
 
 import '../../../../../../nanc_renderer.dart';
 import '../../tools/widgets_compactor.dart';
+import '../sliver_app_bar/sliver_app_bar_renderer.dart';
 import 'alias_arguments.dart';
 import 'alias_widget.dart';
 
@@ -22,11 +23,7 @@ A special widget used to retrieve named argument widgets. For example, `SliverAp
       ],
       properties: [],
     ),
-    example: '''
-<scaffold>
-
-</scaffold>
-''',
+    example: sliverAppBarRenderer().example,
     builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final AliasArguments arguments = AliasArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));

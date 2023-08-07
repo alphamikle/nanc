@@ -36,6 +36,7 @@ import 'renderers/padding/padding_renderer.dart';
 import 'renderers/physical_model/physical_model_renderer.dart';
 import 'renderers/placeholder/placeholder_renderer.dart';
 import 'renderers/positioned/positioned_renderer.dart';
+import 'renderers/preferred_size/preferred_size_renderer.dart';
 import 'renderers/row/row_renderer.dart';
 import 'renderers/safe_area/safe_area_renderer.dart';
 import 'renderers/scale/scale_renderer.dart';
@@ -122,5 +123,6 @@ abstract class TagsCollection {
     customScrollViewRenderer(),
     sliverPaddingRenderer(),
     sliverAppBarRenderer(),
+    preferredSizeRenderer(),
   ];
 }

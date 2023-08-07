@@ -65,7 +65,7 @@ class PropertiesExtractor {
       if (_aliases.containsKey(widget.name) == false) {
         _aliases[widget.name] = [];
       }
-      _aliases[widget.name]!.add(widget);
+      _aliases[widget.name]!.add(widget.child);
       return true;
     }
     return false;
