@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:config/config.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class EventDelegate extends InheritedWidget {
@@ -44,7 +45,7 @@ class EventDelegate extends InheritedWidget {
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => false;
 }
 
-VoidCallback? handleEvent(BuildContext context, String? event) {
+AsyncCallback? handleEvent(BuildContext context, String? event) {
   if (event == null) {
     return null;
   }

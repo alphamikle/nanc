@@ -24,6 +24,7 @@ class EditorState extends Equatable {
     required this.xmlContent,
     required this.asyncMode,
     required this.contentType,
+    required this.canChangeContentType,
     required this.isSyncedWithFile,
     required this.activeElement,
     required this.activeTagRenderer,
@@ -36,6 +37,7 @@ class EditorState extends Equatable {
         xmlContent: '',
         asyncMode: false,
         contentType: ScreenContentType.scrollable,
+        canChangeContentType: true,
         isSyncedWithFile: false,
         activeElement: MenuElement.empty(),
         activeTagRenderer: TagRenderer.empty(),
@@ -45,6 +47,7 @@ class EditorState extends Equatable {
   final String xmlContent;
   final bool asyncMode;
   final ScreenContentType contentType;
+  final bool canChangeContentType;
   final bool isSyncedWithFile;
 
   final MenuElement activeElement;

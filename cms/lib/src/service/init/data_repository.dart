@@ -10,6 +10,7 @@ class DataRepository {
     required this.imageLoadingBuilder,
     required this.imageErrorBuilder,
     required this.imageFrameBuilder,
+    required this.sliverChecker,
   });
 
   final List<EventHandler> eventsHandlers;
@@ -18,4 +19,5 @@ class DataRepository {
   final ImageLoadingBuilder? imageLoadingBuilder;
   final ImageErrorWidgetBuilder? imageErrorBuilder;
   final ImageFrameBuilder? imageFrameBuilder;
+  final SliverChecker? sliverChecker;
 }

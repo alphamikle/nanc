@@ -6,6 +6,8 @@ import '../../documentation/documentation.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';
 import '../../tag_renderer.dart';
+import '../../tools/properties_extractor.dart';
+import '../../tools/properties_names.dart';
 import 'icon_arguments.dart';
 
 TagRenderer iconRenderer() {
@@ -33,11 +35,16 @@ This widget assumes that the rendered icon is squared. Non-squared icons may ren
         iconArgument(name: 'icon'),
         colorArgument(name: 'color'),
         sizeArgument(),
+        doubleArgument(name: 'weight'),
+        doubleArgument(name: 'fill'),
+        doubleArgument(name: 'opticalSize'),
       ],
-      properties: [],
+      properties: [
+        shadowProp(name: shadow),
+      ],
     ),
     example: '''
-<container width="300" height="300" color="#457FDA">
+<container width="300" height="60" color="#457FDA">
   <center>
     <icon icon="mdi_draw_pen" color="#FFF" size="128"/>
   </center>
@@ -45,7 +52,7 @@ This widget assumes that the rendered icon is squared. Non-squared icons may ren
 ''',
     builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final IconArguments arguments = IconArguments.fromJson(element.attributes);
-      // final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       if (arguments.icon == null) {
         return const SizedBox();
@@ -55,8 +62,10 @@ This widget assumes that the rendered icon is squared. Non-squared icons may ren
         arguments.icon,
         color: arguments.color,
         size: arguments.size,
-        // TODO(alphamikle): Add possibility to use tags in multiline and single-line ways, and after that - enables that thing
-        // shadows: extractor.getProperties(shadow),
+        weight: arguments.weight,
+        fill: arguments.fill,
+        opticalSize: arguments.opticalSize,
+        shadows: extractor.getProperties(shadow),
       );
     },
   );

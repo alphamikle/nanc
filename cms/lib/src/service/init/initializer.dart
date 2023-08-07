@@ -117,6 +117,7 @@ class Initializer {
       imageErrorBuilder: config.imageBuilderDelegate?.imageErrorWidgetBuilder,
       imageFrameBuilder: config.imageBuilderDelegate?.imageFrameBuilder,
       supportedFilters: config.collectionApi.supportedFilters,
+      sliverChecker: config.sliverChecker,
     );
 
     blocProviders

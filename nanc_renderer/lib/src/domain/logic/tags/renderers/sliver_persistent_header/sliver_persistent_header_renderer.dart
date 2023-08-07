@@ -9,6 +9,7 @@ TagRenderer sliverPersistentHeaderRenderer() {
   return TagRenderer(
     icon: IconPack.flu_document_header_regular,
     tagType: TagType.sliver,
+    availableNuiWidget: AvailableNuiWidget.scrollable,
     tag: 'sliverPersistentHeader',
     description: TagDescription(
       description: '''

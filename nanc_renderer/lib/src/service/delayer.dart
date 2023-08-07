@@ -12,7 +12,7 @@ abstract final class Delayer {
     return false;
   }
 
-  static Future<void> pause({Duration duration = Duration.zero}) async {
+  static Future<void> pause({Duration duration = const Duration(milliseconds: 4)}) async {
     await Future<void>.delayed(duration);
   }
 }

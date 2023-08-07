@@ -16,6 +16,16 @@ enum TagType {
   bool get isOther => this == TagType.other;
 }
 
+enum AvailableNuiWidget {
+  any,
+  scrollable,
+  stack;
+
+  bool get isAny => this == AvailableNuiWidget.any;
+  bool get isScrollable => isAny || this == AvailableNuiWidget.scrollable;
+  bool get isStack => isAny || this == AvailableNuiWidget.stack;
+}
+
 /// ? Entity, which configures an any custom tag rendering logic
 class TagRenderer<T extends Widget> {
   const TagRenderer({
@@ -26,6 +36,7 @@ class TagRenderer<T extends Widget> {
     required this.builder,
     required this.description,
     this.override = false,
+    this.availableNuiWidget = AvailableNuiWidget.any,
   });
 
   static TagRenderer empty() => TagRenderer<Widget>(
@@ -43,6 +54,10 @@ class TagRenderer<T extends Widget> {
   final String example;
   final TagDescription description;
   final NuiBuilder<T> builder;
+
+  /// Affects the availability of display type switching in Nanc CMS to avoid interface errors due to incorrectly constructed layout.
+  /// In your own application you are responsible for what type of display / widget [NuiListWidget] or [NuiStackWidget] a tag will be in.
+  final AvailableNuiWidget availableNuiWidget;
 
   /// Set this field to true, to override default renderer with the same tag
   final bool override;

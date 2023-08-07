@@ -14,6 +14,7 @@ extension _$EditorStateAutoequal on EditorState {
         xmlContent,
         asyncMode,
         contentType,
+        canChangeContentType,
         isSyncedWithFile,
         activeElement,
         activeTagRenderer
@@ -33,6 +34,8 @@ abstract class _$EditorStateCWProxy {
 
   EditorState contentType(ScreenContentType contentType);
 
+  EditorState canChangeContentType(bool canChangeContentType);
+
   EditorState isSyncedWithFile(bool isSyncedWithFile);
 
   EditorState activeElement(MenuElement activeElement);
@@ -50,6 +53,7 @@ abstract class _$EditorStateCWProxy {
     String? xmlContent,
     bool? asyncMode,
     ScreenContentType? contentType,
+    bool? canChangeContentType,
     bool? isSyncedWithFile,
     MenuElement? activeElement,
     TagRenderer<Widget>? activeTagRenderer,
@@ -76,6 +80,10 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
       this(contentType: contentType);
 
   @override
+  EditorState canChangeContentType(bool canChangeContentType) =>
+      this(canChangeContentType: canChangeContentType);
+
+  @override
   EditorState isSyncedWithFile(bool isSyncedWithFile) =>
       this(isSyncedWithFile: isSyncedWithFile);
 
@@ -100,6 +108,7 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
     Object? xmlContent = const $CopyWithPlaceholder(),
     Object? asyncMode = const $CopyWithPlaceholder(),
     Object? contentType = const $CopyWithPlaceholder(),
+    Object? canChangeContentType = const $CopyWithPlaceholder(),
     Object? isSyncedWithFile = const $CopyWithPlaceholder(),
     Object? activeElement = const $CopyWithPlaceholder(),
     Object? activeTagRenderer = const $CopyWithPlaceholder(),
@@ -123,6 +132,12 @@ class _$EditorStateCWProxyImpl implements _$EditorStateCWProxy {
               ? _value.contentType
               // ignore: cast_nullable_to_non_nullable
               : contentType as ScreenContentType,
+      canChangeContentType:
+          canChangeContentType == const $CopyWithPlaceholder() ||
+                  canChangeContentType == null
+              ? _value.canChangeContentType
+              // ignore: cast_nullable_to_non_nullable
+              : canChangeContentType as bool,
       isSyncedWithFile: isSyncedWithFile == const $CopyWithPlaceholder() ||
               isSyncedWithFile == null
           ? _value.isSyncedWithFile
@@ -157,6 +172,7 @@ EditorState _$EditorStateFromJson(Map<String, dynamic> json) => EditorState(
       xmlContent: json['xmlContent'] as String,
       asyncMode: json['asyncMode'] as bool,
       contentType: $enumDecode(_$ScreenContentTypeEnumMap, json['contentType']),
+      canChangeContentType: json['canChangeContentType'] as bool,
       isSyncedWithFile: json['isSyncedWithFile'] as bool,
       activeElement: MenuElement.fromJson(json['activeElement']),
       activeTagRenderer: _rendererFrom(json['activeTagRenderer']),
@@ -168,6 +184,7 @@ Map<String, dynamic> _$EditorStateToJson(EditorState instance) =>
       'xmlContent': instance.xmlContent,
       'asyncMode': instance.asyncMode,
       'contentType': _$ScreenContentTypeEnumMap[instance.contentType]!,
+      'canChangeContentType': instance.canChangeContentType,
       'isSyncedWithFile': instance.isSyncedWithFile,
       'activeElement': instance.activeElement.toJson(),
       'activeTagRenderer': _rendererTo(instance.activeTagRenderer),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
+import '../../../service/sliver_checker.dart';
 import '../../logic/tags/logic/for_storage.dart';
 import '../../logic/tags/logic/image_builder_delegate.dart';
 import '../../logic/tags/logic/local_data.dart';
@@ -8,7 +9,6 @@ import '../../logic/tags/logic/page_data.dart';
 import '../../logic/tags/logic/template_storage.dart';
 import '../../logic/tags/rich_renderer.dart';
 import '../../logic/tags/tag_renderer.dart';
-import '../../logic/widget_generator/sliver_checker.dart';
 import '../../logic/widget_generator/xml_widget_generator.dart';
 import 'slivers_container.dart';
 
@@ -31,6 +31,7 @@ class NuiListWidget extends StatelessWidget {
     this.shrinkWrap = false,
     this.asyncMode = false,
     this.preloaderBuilder,
+    this.sliverChecker,
     super.key,
   });
 
@@ -49,6 +50,7 @@ class NuiListWidget extends StatelessWidget {
   final bool shrinkWrap;
   final bool asyncMode;
   final PreloaderBuilder? preloaderBuilder;
+  final SliverChecker? sliverChecker;
 
   RichRenderer get richRenderer => RichRenderer(renderers: renderers);
 
@@ -120,7 +122,7 @@ class NuiListWidget extends StatelessWidget {
     }
     final List<SliversContainer> containers = [];
     for (final Widget widget in widgets) {
-      final bool sliver = isSliver(widget);
+      final bool sliver = isSliver(widget, checker: sliverChecker);
       final bool previousContainerTheSame = containers.isEmpty ? false : containers.last.isSlivers == sliver;
       if (previousContainerTheSame) {
         containers.last.widgets.add(widget);

@@ -54,6 +54,9 @@ class DocumentationTypes {
 
   static Set<String> get axisValues => _$AxisEnumMap.values.toSet();
 
+  static Set<String> get brightnessValues => _$BrightnessEnumMap.values.toSet();
+
+  /// Place some enum here to force create codegen values and use them as a static getters
   CrossAxisAlignment? crossAxisAlignment;
   MainAxisSize? mainAxisSize;
   MainAxisAlignment? mainAxisAlignment;
@@ -76,4 +79,5 @@ class DocumentationTypes {
   CurveEnum? curveEnum;
   ScrollPhysicsEnum? scrollPhysicsEnum;
   Axis? axis;
+  Brightness? brightness;
 }

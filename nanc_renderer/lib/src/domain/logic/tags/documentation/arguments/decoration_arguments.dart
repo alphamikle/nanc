@@ -34,3 +34,5 @@ TagArgument packageArgument({String name = 'package'}) {
 The name of the package from which the image is included.
   ''');
 }
+
+TagArgument brightnessArgument({required String name}) => TagArgument(name: name, values: DocumentationTypes.brightnessValues);

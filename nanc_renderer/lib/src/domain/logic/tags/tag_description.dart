@@ -3,16 +3,19 @@ class TagDescription {
     required this.description,
     required this.arguments,
     required this.properties,
+    this.aliases = const [],
   });
 
   const TagDescription.empty()
       : description = '',
         arguments = const [],
-        properties = const [];
+        properties = const [],
+        aliases = const [];
 
   final String description;
   final List<TagArgument> arguments;
   final List<TagProperty> properties;
+  final List<TagAlias> aliases;
 }
 
 class TagArgument {
@@ -21,6 +24,20 @@ class TagArgument {
   final String name;
   final Set<String> values;
   final String description;
+}
+
+class TagAlias {
+  const TagAlias({
+    required this.name,
+    this.values = const {'Widget'},
+    this.description = '',
+    this.multiple = false,
+  });
+
+  final String name;
+  final Set<String> values;
+  final String description;
+  final bool multiple;
 }
 
 class TagProperty {

@@ -92,12 +92,13 @@ class EditorBloc extends Cubit<EditorState> {
     emit(state.copyWith(
       activeElement: tagElement,
       activeTagRenderer: tagRenderer,
+      canChangeContentType: tagRenderer.availableNuiWidget.isAny,
     ));
     final String example = tagRenderer.example.replaceAll(_prettyCodeRegExp, '>\n').trim();
     await initFromModel(
       ScreenContentModel(
         content: example,
-        contentType: ScreenContentType.scrollable,
+        contentType: tagRenderer.availableNuiWidget.isScrollable ? ScreenContentType.scrollable : ScreenContentType.stack,
       ),
     );
   }

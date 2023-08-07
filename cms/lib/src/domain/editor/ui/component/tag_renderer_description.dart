@@ -44,6 +44,28 @@ class TagRendererDescription extends StatelessWidget {
     return exampleCode;
   }
 
+  List<String> buildAliasCode(String tagName, TagAlias alias) {
+    List<String> aliasCode(int index) => [
+          '  <alias name="${alias.name}">',
+          '    <someWidget${index == 0 ? '' : index.toString()}/>',
+          '  </alias>',
+        ];
+
+    return [
+      '<$tagName ..... >',
+      ...aliasCode(0),
+      if (alias.multiple) ...[
+        '  .....',
+        ...aliasCode(2),
+        '  .....',
+        ...aliasCode(3),
+      ],
+      if (description.properties.isNotEmpty) '  <!-- Properties -->',
+      '  <!-- Children / child widgets -->',
+      '</$tagName>',
+    ];
+  }
+
   Widget buildArgument(String tagName, TagArgument argument) {
     final List<String> exampleCode = buildArgumentCode(tagName, argument);
 
@@ -64,6 +86,41 @@ class TagRendererDescription extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: Gap.regular),
               child: MarkdownBody(
                 data: argument.description,
+                onTapLink: _handleLinkTap,
+              ),
+            ),
+          HighlightView(
+            exampleCode.join('\n'),
+            language: 'html',
+            theme: githubTheme,
+            textStyle: const TextStyle(fontSize: 16),
+            padding: const EdgeInsets.all(12),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildAlias(String tagName, TagAlias alias) {
+    final List<String> exampleCode = buildAliasCode(tagName, alias);
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Gap.large),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: Gap.regular),
+            child: MarkdownBody(
+              data: '### **${alias.name}**',
+              onTapLink: _handleLinkTap,
+            ),
+          ),
+          if (alias.description.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(bottom: Gap.regular),
+              child: MarkdownBody(
+                data: alias.description,
                 onTapLink: _handleLinkTap,
               ),
             ),
@@ -186,6 +243,23 @@ For example:
             ),
           ),
         for (final TagArgument argument in description.arguments) buildArgument(tagName, argument),
+
+        /// ? ALIASES
+        if (description.aliases.isNotEmpty)
+          const Padding(
+            padding: EdgeInsets.only(top: Gap.large, bottom: Gap.large),
+            child: MarkdownBody(
+              data: '''
+## Aliases
+
+A special widget used to retrieve named argument widgets.
+For example, `SliverAppBar` widget has several named widget descendants: `title`, `leading` etc.
+To be able to get a specific widget by its name-location, we need the `alias` tag.
+Also, you can specify several aliases with the same name and then retrieve them all, in this case you will get a list of widgets.
+''',
+            ),
+          ),
+        for (final TagAlias alias in description.aliases) buildAlias(tagName, alias),
 
         /// ? PROPERTIES
         if (description.properties.isNotEmpty)

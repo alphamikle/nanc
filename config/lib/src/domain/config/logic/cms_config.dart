@@ -22,6 +22,7 @@ class CmsConfig {
     required this.customRenderers,
     required this.eventsHandlers,
     required this.customFonts,
+    required this.sliverChecker,
   });
 
   final ICollectionApi collectionApi;
@@ -34,4 +35,5 @@ class CmsConfig {
   final List<TagRenderer> customRenderers;
   final List<EventHandler> eventsHandlers;
   final List<CustomFont> customFonts;
+  final SliverChecker? sliverChecker;
 }

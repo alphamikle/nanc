@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:tools/tools.dart';
 
 import '../property_widget.dart';
+import '../renderers/alias/alias_widget.dart';
 
 class PropertiesExtractor {
   PropertiesExtractor({
@@ -14,6 +15,7 @@ class PropertiesExtractor {
   final List<Widget> children = [];
   final List<Widget> _rawChildren;
   final Map<String, List<PropertyWidget>> _properties = {};
+  final Map<String, List<Widget>> _aliases = {};
 
   T? getProperty<T>(String name) {
     final List<PropertyWidget>? properties = _properties[name];
@@ -34,6 +36,16 @@ class PropertiesExtractor {
     return properties.map((PropertyWidget widget) => widget.property as T).toList();
   }
 
+  Widget? getAlias(String name) {
+    final List<Widget>? aliases = _aliases[name];
+    if (aliases != null && aliases.isNotEmpty) {
+      return aliases.first;
+    }
+    return null;
+  }
+
+  List<Widget> getAliases(String name) => _aliases[name] ?? [];
+
   bool _isPropertyWidget(Widget widget) {
     if (widget is PropertyWidget) {
       if (_properties.containsKey(widget.name) == false) {
@@ -48,9 +60,20 @@ class PropertiesExtractor {
     return false;
   }
 
+  bool _isAliasWidget(Widget widget) {
+    if (widget is AliasWidget) {
+      if (_aliases.containsKey(widget.name) == false) {
+        _aliases[widget.name] = [];
+      }
+      _aliases[widget.name]!.add(widget);
+      return true;
+    }
+    return false;
+  }
+
   void _handleRawChildren() {
     for (final Widget rawChild in _rawChildren) {
-      if (_isPropertyWidget(rawChild) == false) {
+      if (_isPropertyWidget(rawChild) == false && _isAliasWidget(rawChild) == false) {
         children.add(rawChild);
       }
     }

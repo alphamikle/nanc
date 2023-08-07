@@ -94,11 +94,24 @@ class _TagsManualViewState extends State<TagsManualView> {
                       padding: const EdgeInsets.only(right: Gap.regular),
                       child: BlocBuilder<EditorBloc, EditorState>(
                         builder: (BuildContext context, EditorState state) {
+                          String tooltip = state.contentType.isScrollable ? 'Switch to Stack Mode' : 'Switch to Scrollable Mode';
+                          if (state.canChangeContentType == false) {
+                            tooltip = 'Layout Mode changing is disabled for that widget';
+                          }
+
                           return KitTooltip(
-                            text: state.contentType.isScrollable ? 'Switch to Stack Mode' : 'Switch to Scrollable Mode',
-                            child: KitIconButton(
-                              icon: state.contentType.isScrollable ? IconPack.flu_stack_regular : IconPack.flu_dual_screen_vertical_scroll_regular,
-                              onPressed: context.read<EditorBloc>().toggleMode,
+                            text: tooltip,
+                            child: AnimatedOpacity(
+                              duration: const Duration(milliseconds: 250),
+                              opacity: state.canChangeContentType ? 1 : 0.5,
+                              child: KitIconButton(
+                                icon: state.canChangeContentType
+                                    ? state.contentType.isScrollable
+                                        ? IconPack.flu_stack_regular
+                                        : IconPack.flu_dual_screen_vertical_scroll_regular
+                                    : IconPack.mdi_progress_close,
+                                onPressed: state.canChangeContentType ? context.read<EditorBloc>().toggleMode : null,
+                              ),
                             ),
                           );
                         },

@@ -13,3 +13,4 @@ export 'src/domain/logic/tags/tags_collection.dart';
 export 'src/domain/logic/tags/tools/properties_extractor.dart';
 export 'src/domain/ui/component/nui_list_widget.dart';
 export 'src/domain/ui/component/nui_stack_widget.dart';
+export 'src/service/sliver_checker.dart';

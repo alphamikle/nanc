@@ -6,9 +6,12 @@ import 'properties/color/color_property.dart';
 import 'properties/decoration/decoration_property.dart';
 import 'properties/double/double_property.dart';
 import 'properties/gradient/gradient_property.dart';
+import 'properties/icon_theme/icon_theme_property.dart';
 import 'properties/padding/padding_property.dart';
 import 'properties/shadow/shadow_property.dart';
+import 'properties/system_overlay_style/system_overlay_property.dart';
 import 'properties/text_style/text_style_property.dart';
+import 'renderers/alias/alias_renderer.dart';
 import 'renderers/align/align_renderer.dart';
 import 'renderers/aspect_ratio/aspect_ratio_renderer.dart';
 import 'renderers/center/center_renderer.dart';
@@ -16,6 +19,7 @@ import 'renderers/clipr_rect/clipr_rect_renderer.dart';
 import 'renderers/column/column_renderer.dart';
 import 'renderers/component/component_renderer.dart';
 import 'renderers/container/container_renderer.dart';
+import 'renderers/custom_scroll_view/custom_scroll_view_renderer.dart';
 import 'renderers/data/data_renderer.dart';
 import 'renderers/divider/divider_renderer.dart';
 import 'renderers/expanded/expanded_renderer.dart';
@@ -36,7 +40,12 @@ import 'renderers/row/row_renderer.dart';
 import 'renderers/safe_area/safe_area_renderer.dart';
 import 'renderers/scale/scale_renderer.dart';
 import 'renderers/sized_box/sized_box_renderer.dart';
+import 'renderers/sliver_app_bar/sliver_app_bar_renderer.dart';
+import 'renderers/sliver_grid/sliver_grid_renderer.dart';
+import 'renderers/sliver_list/sliver_list_renderer.dart';
+import 'renderers/sliver_padding/sliver_padding_renderer.dart';
 import 'renderers/sliver_persistent_header/sliver_persistent_header_renderer.dart';
+import 'renderers/sliver_to_box_adapter/sliver_to_box_adapter_renderer.dart';
 import 'renderers/stack/stack_renderer.dart';
 import 'renderers/template/template_renderer.dart';
 import 'renderers/text/text_renderer.dart';
@@ -54,6 +63,7 @@ abstract class TagsCollection {
     alignmentProperty(begin),
     alignmentProperty(end),
     borderProperty(border),
+    borderProperty(shape),
     paddingProperty(padding),
     paddingProperty(margin),
     paddingProperty(minimum),
@@ -64,8 +74,14 @@ abstract class TagsCollection {
     gradientProperty(gradient),
     shadowProperty(shadow),
     textStyleProperty(textStyle),
+    textStyleProperty(titleTextStyle),
+    textStyleProperty(toolbarTextStyle),
+    systemOverlayProperty(systemOverlayStyle),
+    iconThemeProperty(iconTheme),
+    iconThemeProperty(actionsIconTheme),
 
     /// ? WIDGETS
+    aliasRenderer(),
     paddingRenderer(),
     rowRenderer(),
     placeholderRenderer(),
@@ -100,5 +116,11 @@ abstract class TagsCollection {
     listViewRenderer(),
     visibilityNotifierRenderer(),
     sliverPersistentHeaderRenderer(),
+    sliverListRenderer(),
+    sliverGridRenderer(),
+    sliverToBoxAdapterRenderer(),
+    customScrollViewRenderer(),
+    sliverPaddingRenderer(),
+    sliverAppBarRenderer(),
   ];
 }

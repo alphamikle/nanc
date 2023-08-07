@@ -37,6 +37,7 @@ class PagePreview extends StatelessWidget {
                   imageFrameBuilder: dataRepository.imageFrameBuilder,
                   physics: const BouncingScrollPhysics(),
                   asyncMode: asyncMode,
+                  sliverChecker: dataRepository.sliverChecker,
                 );
               }
               return NuiStackWidget(
