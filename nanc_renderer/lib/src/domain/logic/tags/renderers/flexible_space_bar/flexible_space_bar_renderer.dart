@@ -19,10 +19,14 @@ TagRenderer flexibleSpaceBarRenderer() {
     tag: 'flexibleSpaceBar',
     description: TagDescription(
       description: '''
-# [Flexible Space Bar]()
+# [Flexible Space Bar](https://api.flutter.dev/flutter/material/FlexibleSpaceBar-class.html)
 
+The part of a Material Design [AppBar](material/AppBar-class.html) that expands, collapses, and stretches.
 
-      ''',
+Most commonly used in the [SliverAppBar.flexibleSpace](material/SliverAppBar/flexibleSpace.html) field, a flexible space bar expands and contracts as the app scrolls so that the [AppBar](material/AppBar-class.html) reaches from the top of the app to the top of the scrolling contents of the app. When using [SliverAppBar.flexibleSpace](material/SliverAppBar/flexibleSpace.html), the [SliverAppBar.expandedHeight](material/SliverAppBar/expandedHeight.html) must be large enough to accommodate the [SliverAppBar.flexibleSpace](material/SliverAppBar/flexibleSpace.html) widget.
+
+Furthermore is included functionality for stretch behavior. When [SliverAppBar.stretch](material/SliverAppBar/stretch.html) is true, and your [ScrollPhysics](widgets/ScrollPhysics-class.html) allow for overscroll, this space will stretch with the overscroll.
+''',
       arguments: [
         boolArgument(name: 'centerTitle'),
         collapseModeArgument(name: 'collapseMode'),
