@@ -24,6 +24,7 @@ import 'renderers/data/data_renderer.dart';
 import 'renderers/divider/divider_renderer.dart';
 import 'renderers/expanded/expanded_renderer.dart';
 import 'renderers/fade_in/fade_in_renderer.dart';
+import 'renderers/flexible_space_bar/flexible_space_bar_renderer.dart';
 import 'renderers/for/for_renderer.dart';
 import 'renderers/fractional_translation/fractional_translation_renderer.dart';
 import 'renderers/icon/icon_renderer.dart';
@@ -124,5 +125,6 @@ abstract class TagsCollection {
     sliverPaddingRenderer(),
     sliverAppBarRenderer(),
     preferredSizeRenderer(),
+    flexibleSpaceBarRenderer(),
   ];
 }

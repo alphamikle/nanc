@@ -69,7 +69,7 @@ Also, if you passed a some image url and don't see the image in the Nanc, potent
     <divider height="50"/>
     
     <container height="250" color="#457FDA">
-      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg" blurHash="L3G[TBtA00-h00VF-?58*0?b+uE2" fit="contain"/>
+      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/puffin.jpg" blurHash="L3G[TBtA00-h00VF-?58*0?b+uE2" fit="contain"/>
     </container>
     <divider height="50"/>
     
@@ -79,7 +79,7 @@ Also, if you passed a some image url and don't see the image in the Nanc, potent
     <divider height="50"/>
     
     <container height="250" color="#457FDA">
-      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg" fit="fitWidth"/>
+      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/puffin.jpg" fit="fitWidth"/>
     </container>
     <divider height="50"/>
     
@@ -89,7 +89,7 @@ Also, if you passed a some image url and don't see the image in the Nanc, potent
     <divider height="50"/>
     
     <container height="250" color="#457FDA">
-      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg" fit="none"/>
+      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/puffin.jpg" fit="none"/>
     </container>
     <divider height="50"/>
     
@@ -99,7 +99,7 @@ Also, if you passed a some image url and don't see the image in the Nanc, potent
     <divider height="50"/>
     
     <container height="250" color="#457FDA">
-      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg" color="#6F7BDA45" width="50"/>
+      <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/puffin.jpg" color="#6F7BDA45" width="50"/>
     </container>
     <divider height="50"/>
   </column>

@@ -43,7 +43,9 @@ DocumentationTypes _$DocumentationTypesFromJson(Map<String, dynamic> json) =>
           _$ScrollPhysicsEnumEnumMap, json['scrollPhysicsEnum'])
       ..axis = $enumDecodeNullable(_$AxisEnumMap, json['axis'])
       ..brightness =
-          $enumDecodeNullable(_$BrightnessEnumMap, json['brightness']);
+          $enumDecodeNullable(_$BrightnessEnumMap, json['brightness'])
+      ..collapseMode =
+          $enumDecodeNullable(_$CollapseModeEnumMap, json['collapseMode']);
 
 Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
     <String, dynamic>{
@@ -75,6 +77,7 @@ Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
           _$ScrollPhysicsEnumEnumMap[instance.scrollPhysicsEnum],
       'axis': _$AxisEnumMap[instance.axis],
       'brightness': _$BrightnessEnumMap[instance.brightness],
+      'collapseMode': _$CollapseModeEnumMap[instance.collapseMode],
     };
 
 const _$CrossAxisAlignmentEnumMap = {
@@ -308,4 +311,10 @@ const _$AxisEnumMap = {
 const _$BrightnessEnumMap = {
   Brightness.dark: 'dark',
   Brightness.light: 'light',
+};
+
+const _$CollapseModeEnumMap = {
+  CollapseMode.parallax: 'parallax',
+  CollapseMode.pin: 'pin',
+  CollapseMode.none: 'none',
 };

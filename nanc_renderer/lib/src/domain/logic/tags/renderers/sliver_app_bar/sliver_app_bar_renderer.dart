@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 
 import '../../../../../../nanc_renderer.dart';
-import '../../documentation/properties/design.dart';
-import '../../documentation/properties/icons.dart';
 import '../../tools/properties_names.dart';
 import 'sliver_app_bar_arguments.dart';
 
@@ -59,7 +57,7 @@ The AppBar displays the toolbar widgets, [leading](material/SliverAppBar/leading
       aliases: [
         const TagAlias(
           name: 'bottom',
-          values: {'PreferredSizeWidget'},
+          values: {'PreferredSizeWidget', '<preferredSize/>'},
           description: '''
 This widget appears across the bottom of the app bar. Typically a [TabBar]. Only widgets that implement [PreferredSizeWidget] can be used at the bottom of an app bar.
 ''',
@@ -85,15 +83,22 @@ This widget is stacked behind the toolbar and the tab bar. Its height will be th
 A flexible space isn't actually flexible unless the [AppBar]'s container changes the [AppBar]'s size. A [SliverAppBar] in a [CustomScrollView] changes the [AppBar]'s height when scrolled.
 
 Typically a [FlexibleSpaceBar]. See [FlexibleSpaceBar] for details.
-'''),
+''', values: {'FlexibleSpaceBar', '<flexibleSpaceBar/>'}),
       ],
     ),
     example: '''
-<sliverAppBar floating="true" stretch="true" onStretchTrigger="snackbar: Stretched">
+<sliverAppBar floating="true" stretch="true" onStretchTrigger="snackbar: Stretched" expandedHeight="100">
   <alias name="title">
-    <text>
+    <text color="white">
       Nanc App
     </text>
+  </alias>
+  <alias name="flexibleSpace">
+    <flexibleSpaceBar blurBackground="true" zoomBackground="true" fadeTitle="true">
+      <alias name="background">
+        <image ref="https://flutter.github.io/assets-for-api-docs/assets/widgets/puffin.jpg" useCache="false" fit="cover"/>
+      </alias>
+    </flexibleSpaceBar>
   </alias>
 </sliverAppBar>
 
@@ -116,6 +121,7 @@ Typically a [FlexibleSpaceBar]. See [FlexibleSpaceBar] for details.
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       final Widget? bottomWidget = extractor.getAlias('bottom');
+      final Widget? flexibleSpace = extractor.getAlias('flexibleSpace');
 
       return SliverAppBar(
         floating: arguments.floating ?? false,
@@ -133,7 +139,7 @@ Typically a [FlexibleSpaceBar]. See [FlexibleSpaceBar] for details.
         centerTitle: arguments.centerTitle,
         collapsedHeight: arguments.collapsedHeight,
         expandedHeight: arguments.expandedHeight,
-        flexibleSpace: extractor.getAlias('flexibleSpace'),
+        flexibleSpace: flexibleSpace is FlexibleSpaceBar ? flexibleSpace : null,
         forceElevated: arguments.forceElevated ?? false,
         forceMaterialTransparency: arguments.forceMaterialTransparency ?? false,
         foregroundColor: arguments.foregroundColor,
