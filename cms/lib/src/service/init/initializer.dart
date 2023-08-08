@@ -62,28 +62,29 @@ class Initializer {
     );
 
     /// ? ENTITY WITH NAV
-    final ModelListBloc modelCollectionBloc = ModelListBloc(modelProvider: modelProvider);
+    final ModelListBloc modelListBloc = ModelListBloc(modelProvider: modelProvider);
 
     /// ? BLOCS
     final PreviewBloc previewBloc = PreviewBloc(eventBus: eventBus);
     final EditorBloc editorBloc = EditorBloc(eventBus: eventBus);
-    final MenuBloc menuBloc = MenuBloc(modelListBloc: modelCollectionBloc);
+    final MenuBloc menuBloc = MenuBloc(modelListBloc: modelListBloc);
     final HeaderBloc headerBloc = HeaderBloc();
     final ModelPageBloc modelPageBloc = ModelPageBloc(
-      modelCollectionBloc: modelCollectionBloc,
+      modelCollectionBloc: modelListBloc,
       rootKey: rootKey,
       modelProvider: modelProvider,
       menuBloc: menuBloc,
+      eventBus: eventBus,
     );
     final TutorialBloc tutorialBloc = TutorialBloc(dbService: dbService, rootKey: rootKey);
     final CollectionBloc collectionBloc = CollectionBloc(
-      modelCollectionBloc: modelCollectionBloc,
+      modelCollectionBloc: modelListBloc,
       pageListProvider: collectionProvider,
       eventBus: eventBus,
       filterStructureBloc: LocalPageBloc(draftService: draftService),
     );
     final DocumentBloc pageBloc = DocumentBloc(
-      modelCollectionBloc: modelCollectionBloc,
+      modelCollectionBloc: modelListBloc,
       documentProvider: pageProvider,
       eventBus: eventBus,
       draftService: draftService,
@@ -101,8 +102,8 @@ class Initializer {
     menuBloc.initRouter(router);
 
     /// ? PRE-INITIALIZATION
-    await modelCollectionBloc.preloadModelsFromCode(config.predefinedModels);
-    unawaited(modelCollectionBloc.loadDynamicModels(config.predefinedModels));
+    await modelListBloc.preloadModelsFromCode(config.predefinedModels);
+    unawaited(modelListBloc.loadDynamicModels(config.predefinedModels));
     unawaited(settingsBloc.preloadSettings());
     unawaited(headerBloc.initItems());
 
@@ -126,7 +127,7 @@ class Initializer {
         BlocProvider<PreviewBloc>.value(value: previewBloc),
         BlocProvider<EditorBloc>.value(value: editorBloc),
         BlocProvider<MenuBloc>.value(value: menuBloc),
-        BlocProvider<ModelListBloc>.value(value: modelCollectionBloc),
+        BlocProvider<ModelListBloc>.value(value: modelListBloc),
         BlocProvider<CollectionBloc>.value(value: collectionBloc),
         BlocProvider<BaseDocumentBloc<BaseDocumentState>>.value(value: pageBloc),
         BlocProvider<DocumentBloc>.value(value: pageBloc),

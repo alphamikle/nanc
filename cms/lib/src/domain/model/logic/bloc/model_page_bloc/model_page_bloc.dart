@@ -22,18 +22,24 @@ enum DifferentIdsDecision {
   bool get needToCancel => this == DifferentIdsDecision.cancel;
 }
 
+enum ModelEvent {
+  saved,
+}
+
 class ModelPageBloc extends Cubit<ModelPageState> {
   ModelPageBloc({
     required this.modelCollectionBloc,
     required this.menuBloc,
     required this.rootKey,
     required this.modelProvider,
+    required this.eventBus,
   }) : super(ModelPageState.empty());
 
   final ModelListBloc modelCollectionBloc;
   final MenuBloc menuBloc;
   final RootKey rootKey;
   final ModelProvider modelProvider;
+  final EventBus eventBus;
 
   Future<void> prepareForModelCreation({bool isSoloCreation = false}) async {
     emit(state.copyWith(
@@ -114,6 +120,7 @@ class ModelPageBloc extends Cubit<ModelPageState> {
         _initControllerMap();
       }
       emit(state.copyWith(isSaving: false));
+      eventBus.send(eventId: ModelEvent.saved);
     } catch (error, stackTrace) {
       emit(state.copyWith(isSaving: false));
       throw [error, stackTrace].toHumanException('Model saving failed!');

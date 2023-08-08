@@ -13,6 +13,7 @@ import '../../../../../service/errors/human_exception.dart';
 import '../../../../document/logic/bloc/document_bloc/document_bloc.dart';
 import '../../../../field/logic/bloc/local_page_bloc/local_page_bloc.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import '../../../../model/logic/bloc/model_page_bloc/model_page_bloc.dart';
 import 'collection_state.dart';
 import 'model_filters_backup.dart';
 
@@ -24,6 +25,7 @@ class CollectionBloc extends Cubit<CollectionState> {
     required this.eventBus,
   }) : super(CollectionState.empty()) {
     eventBus.onEvent(consumer: 'CollectionBloc', eventId: DocumentEvent.documentChanged, handler: _reloadCollection);
+    eventBus.onEvent(consumer: 'CollectionBloc', eventId: ModelEvent.saved, handler: _clearCache);
     globalSearchController.addListener(_filterTableByGlobalSearch);
   }
 
@@ -45,29 +47,20 @@ class CollectionBloc extends Cubit<CollectionState> {
       globalSearchSilenced = false;
       notFoundModelError(modelId);
     }
-    final bool isTheSameCollection = state.model.id == modelId;
-    if (isTheSameCollection) {
-      emit(state.copyWith(
-        isLoading: true,
-        notFoundAnything: false,
-        dataRows: [],
-      ));
-    } else {
-      globalSearchController.clear();
-      emit(state.copyWith(
-        isLoading: true,
-        notFoundAnything: false,
-        model: model,
-        totalPages: 1,
-        currentPage: 1,
-        dataRows: [],
-      ));
-      emit(state.copyWithNull(
-        query: true,
-        globalSearchQuery: true,
-        sort: true,
-      ));
-    }
+    globalSearchController.clear();
+    emit(state.copyWith(
+      isLoading: true,
+      notFoundAnything: false,
+      model: model,
+      totalPages: 1,
+      currentPage: 1,
+      dataRows: [],
+    ));
+    emit(state.copyWithNull(
+      query: true,
+      globalSearchQuery: true,
+      sort: true,
+    ));
     await restoreFiltersBackup();
     await _loadData(modelId: modelId, page: state.currentPage);
     globalSearchSilenced = false;
@@ -165,6 +158,23 @@ class CollectionBloc extends Cubit<CollectionState> {
   }
 
   Future<void> _reloadCollection(Model model) async => _loadData(modelId: model.id, page: max(state.currentPage, 1));
+
+  Future<void> _clearCache(void _) async {
+    /// * Erasing current model and fields to force load it when we will open its collection further
+    emit(state.copyWith(
+      isLoading: false,
+      notFoundAnything: false,
+      model: Model.empty(),
+      totalPages: 1,
+      currentPage: 1,
+      dataRows: [],
+    ));
+    emit(state.copyWithNull(
+      query: true,
+      globalSearchQuery: true,
+      sort: true,
+    ));
+  }
 
   Future<void> _filterTableByGlobalSearch() async {
     if (state.model.id.isEmpty || globalSearchSilenced || (state.globalSearchQuery == null && globalSearchController.text.isEmpty)) {
