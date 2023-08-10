@@ -110,7 +110,7 @@ Also, if you passed a some image url and don't see the image in the Nanc, potent
       final RegExp blurHashRegExp = RegExp(r'[?|&]?bh=(?<hash>[^&]+)');
 
       if (arguments.ref == null || arguments.ref!.isEmpty) {
-        return const SizedBox.shrink();
+        return null;
       }
 
       final Uri uri = Uri.parse(arguments.ref!);
@@ -141,6 +141,7 @@ Also, if you passed a some image url and don't see the image in the Nanc, potent
       final String imageUrl = arguments.ref!.replaceFirst(blurHashRegExp, '');
 
       return SmartImage(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         ref: imageUrl,
         fit: arguments.fit,
         height: arguments.height,

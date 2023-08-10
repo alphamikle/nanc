@@ -1,13 +1,16 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'preferred_size_arguments.g.dart';
 
 @JsonSerializable()
-class PreferredSizeArguments {
+class PreferredSizeArguments extends KeyArgument {
   const PreferredSizeArguments({
     required this.height,
     required this.width,
+    required super.key,
   });
 
   factory PreferredSizeArguments.fromJson(dynamic json) => _$PreferredSizeArgumentsFromJson(castToJson(json));
@@ -18,5 +21,6 @@ class PreferredSizeArguments {
   @JsonKey(fromJson: nullableDoubleFromJson)
   final double? width;
 
+  @override
   Json toJson() => _$PreferredSizeArgumentsToJson(this);
 }

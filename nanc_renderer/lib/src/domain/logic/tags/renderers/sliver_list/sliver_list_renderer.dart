@@ -65,6 +65,7 @@ If the children have a fixed extent in the main axis, consider using [SliverFixe
 
       if (arguments.extent != null && arguments.extent! > 0) {
         return SliverFixedExtentList.builder(
+          key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
           itemExtent: arguments.extent!,
           addAutomaticKeepAlives: arguments.addKeepAlives ?? true,
           addRepaintBoundaries: arguments.addRepaintBoundaries ?? true,
@@ -75,6 +76,7 @@ If the children have a fixed extent in the main axis, consider using [SliverFixe
       }
 
       return SliverList.builder(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         addAutomaticKeepAlives: arguments.addKeepAlives ?? true,
         addRepaintBoundaries: arguments.addRepaintBoundaries ?? true,
         addSemanticIndexes: arguments.addSemanticIndexes ?? true,

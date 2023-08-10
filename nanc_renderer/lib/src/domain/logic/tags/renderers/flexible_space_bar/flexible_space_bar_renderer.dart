@@ -54,6 +54,7 @@ Furthermore is included functionality for stretch behavior. When [SliverAppBar.s
       final bool hasNoAnyMode = blurBackground == false && fadeTitle == false && zoomBackground == false;
 
       return FlexibleSpaceBar(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         centerTitle: arguments.centerTitle,
         collapseMode: arguments.collapseMode ?? CollapseMode.parallax,
         expandedTitleScale: arguments.expandedTitleScale ?? 1.5,

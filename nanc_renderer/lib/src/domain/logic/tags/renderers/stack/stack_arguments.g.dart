@@ -14,10 +14,12 @@ StackArguments _$StackArgumentsFromJson(Map<String, dynamic> json) =>
       y: nullableDoubleFromJson(json['y']),
       align: $enumDecodeNullable(_$AlignmentEnumEnumMap, json['align'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$StackArgumentsToJson(StackArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'x': instance.x,
       'y': instance.y,
       'align': _$AlignmentEnumEnumMap[instance.align],

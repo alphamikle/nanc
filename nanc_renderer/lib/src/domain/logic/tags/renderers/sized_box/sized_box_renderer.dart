@@ -52,6 +52,7 @@ The [SizedBox.expand](widgets/SizedBox/SizedBox.expand.html) constructor can be 
       final double? size = arguments.size;
 
       return SizedBox(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         height: size ?? arguments.height,
         width: size ?? arguments.width,
         child: compactWidgets(extractor.children),

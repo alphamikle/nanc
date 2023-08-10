@@ -3,7 +3,6 @@ import 'package:icons/icons.dart';
 
 import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
-import '../../documentation/properties/button_style.dart';
 import '../../logic/event_delegate.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';
@@ -72,6 +71,7 @@ If the [onPressed](material/ButtonStyleButton/onPressed.html) and [onLongPress](
       }
 
       return TextButton(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         onPressed: handleEvent(context, arguments.onPressed),
         onLongPress: handleEvent(context, arguments.onLongPress),
         onHover: arguments.onHover == null

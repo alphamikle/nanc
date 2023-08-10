@@ -65,6 +65,7 @@ This widget will be as big as possible if its dimensions are constrained and [wi
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return Align(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         alignment: arguments.toAlignment() ?? Alignment.center,
         heightFactor: arguments.heightFactor,
         widthFactor: arguments.widthFactor,

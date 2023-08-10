@@ -15,6 +15,7 @@ class ColumnArguments extends RowArguments {
     required super.verticalDirection,
     required super.textDirection,
     required super.textBaseline,
+    required super.key,
   });
 
   factory ColumnArguments.fromJson(dynamic json) => _$ColumnArgumentsFromJson(castToJson(json));

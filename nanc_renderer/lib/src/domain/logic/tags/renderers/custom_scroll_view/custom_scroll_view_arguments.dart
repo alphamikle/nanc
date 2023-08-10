@@ -3,17 +3,19 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../../nanc_renderer.dart';
+import '../key_argument.dart';
 
 part 'custom_scroll_view_arguments.g.dart';
 
 @JsonSerializable()
-class CustomScrollViewArguments {
+class CustomScrollViewArguments extends KeyArgument {
   const CustomScrollViewArguments({
     required this.physics,
     required this.axis,
     required this.cacheExtent,
     required this.reverse,
     required this.shrinkWrap,
+    required super.key,
   });
 
   factory CustomScrollViewArguments.fromJson(dynamic json) => _$CustomScrollViewArgumentsFromJson(castToJson(json));
@@ -33,5 +35,6 @@ class CustomScrollViewArguments {
   @JsonKey(defaultValue: false)
   final bool shrinkWrap;
 
+  @override
   Json toJson() => _$CustomScrollViewArgumentsToJson(this);
 }

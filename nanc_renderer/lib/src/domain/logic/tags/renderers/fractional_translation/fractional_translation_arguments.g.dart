@@ -11,11 +11,13 @@ FractionalTranslationArguments _$FractionalTranslationArgumentsFromJson(
     FractionalTranslationArguments(
       dx: nullableDoubleFromJson(json['dx']),
       dy: nullableDoubleFromJson(json['dy']),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$FractionalTranslationArgumentsToJson(
         FractionalTranslationArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'dx': instance.dx,
       'dy': instance.dy,
     };

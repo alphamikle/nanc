@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'tooltip_arguments.g.dart';
 
 @JsonSerializable()
-class TooltipArguments {
+class TooltipArguments extends KeyArgument {
   const TooltipArguments({
     required this.height,
     required this.align,
@@ -14,6 +16,7 @@ class TooltipArguments {
     required this.offset,
     required this.showDuration,
     required this.waitDuration,
+    required super.key,
   });
 
   factory TooltipArguments.fromJson(dynamic json) => _$TooltipArgumentsFromJson(castToJson(json));
@@ -37,5 +40,6 @@ class TooltipArguments {
   @JsonKey(fromJson: nullableIntFromJson)
   final int? waitDuration;
 
+  @override
   Json toJson() => _$TooltipArgumentsToJson(this);
 }

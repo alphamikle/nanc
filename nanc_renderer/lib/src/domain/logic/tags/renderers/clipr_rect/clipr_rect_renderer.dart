@@ -49,6 +49,7 @@ TagRenderer clipRRectRenderer() {
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return ClipRRect(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         borderRadius: arguments.toBorderRadius(),
         child: compactWidgets(extractor.children),
       );

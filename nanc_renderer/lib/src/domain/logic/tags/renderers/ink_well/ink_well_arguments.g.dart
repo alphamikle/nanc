@@ -17,10 +17,12 @@ InkWellArguments _$InkWellArgumentsFromJson(Map<String, dynamic> json) =>
       highlightColor: nullableColorFromJson(json['highlightColor'] as String?),
       splashColor: nullableColorFromJson(json['splashColor'] as String?),
       hoverColor: nullableColorFromJson(json['hoverColor'] as String?),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$InkWellArgumentsToJson(InkWellArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'onPressed': instance.onPressed,
       'onDoubleTap': instance.onDoubleTap,
       'onLongPress': instance.onLongPress,

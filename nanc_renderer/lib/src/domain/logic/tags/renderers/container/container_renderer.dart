@@ -74,6 +74,7 @@ TagRenderer containerRenderer() {
       final BoxDecoration? boxDecoration = extractor.getProperty(decoration);
 
       return Container(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         width: arguments.size ?? arguments.width,
         height: arguments.size ?? arguments.height,
         color: boxDecoration != null ? null : arguments.color,

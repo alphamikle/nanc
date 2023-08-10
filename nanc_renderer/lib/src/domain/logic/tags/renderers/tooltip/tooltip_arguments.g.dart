@@ -15,10 +15,12 @@ TooltipArguments _$TooltipArgumentsFromJson(Map<String, dynamic> json) =>
       offset: nullableDoubleFromJson(json['offset']),
       showDuration: nullableIntFromJson(json['showDuration']),
       waitDuration: nullableIntFromJson(json['waitDuration']),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$TooltipArgumentsToJson(TooltipArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'height': instance.height,
       'align': _$TextAlignEnumMap[instance.align],
       'text': instance.text,

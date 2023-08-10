@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../../renderers/key_argument.dart';
+
 part 'border_radius_arguments.g.dart';
 
 @JsonSerializable()
-class BorderRadiusArguments {
+class BorderRadiusArguments extends KeyArgument {
   const BorderRadiusArguments({
     required this.topLeft,
     required this.topRight,
     required this.bottomRight,
     required this.bottomLeft,
     required this.all,
+    required super.key,
   });
 
   factory BorderRadiusArguments.fromJson(dynamic json) => _$BorderRadiusArgumentsFromJson(castToJson(json));
@@ -40,5 +43,6 @@ class BorderRadiusArguments {
     );
   }
 
+  @override
   Json toJson() => _$BorderRadiusArgumentsToJson(this);
 }

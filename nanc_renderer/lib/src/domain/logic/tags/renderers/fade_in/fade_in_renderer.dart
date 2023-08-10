@@ -50,6 +50,7 @@ Also, you are available to change Curve type of animation. More info about curve
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return FadeIn(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         duration: arguments.duration == null ? const Duration(milliseconds: 250) : Duration(milliseconds: arguments.duration!),
         delay: arguments.delay == null ? Duration.zero : Duration(milliseconds: arguments.delay!),
         curve: arguments.curve?.toCurve(),

@@ -47,6 +47,7 @@ The translation is expressed as a [Offset](dart-ui/Offset-class.html) scaled to 
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return FractionalTranslation(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         translation: arguments.toOffset() ?? Offset.zero,
         child: compactWidgets(extractor.children),
       );

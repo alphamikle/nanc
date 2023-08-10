@@ -3,13 +3,16 @@ import 'dart:ui';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'fractional_translation_arguments.g.dart';
 
 @JsonSerializable()
-class FractionalTranslationArguments {
+class FractionalTranslationArguments extends KeyArgument {
   const FractionalTranslationArguments({
     required this.dx,
     required this.dy,
+    required super.key,
   });
 
   factory FractionalTranslationArguments.fromJson(dynamic json) => _$FractionalTranslationArgumentsFromJson(castToJson(json));
@@ -27,5 +30,6 @@ class FractionalTranslationArguments {
     return null;
   }
 
+  @override
   Json toJson() => _$FractionalTranslationArgumentsToJson(this);
 }

@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'divider_arguments.g.dart';
 
 @JsonSerializable()
-class DividerArguments {
+class DividerArguments extends KeyArgument {
   const DividerArguments({
     required this.height,
     required this.color,
     required this.indent,
     required this.endIndent,
     required this.thickness,
+    required super.key,
   });
 
   factory DividerArguments.fromJson(dynamic json) => _$DividerArgumentsFromJson(castToJson(json));
@@ -31,5 +34,6 @@ class DividerArguments {
   @JsonKey(fromJson: nullableDoubleFromJson)
   final double? thickness;
 
+  @override
   Json toJson() => _$DividerArgumentsToJson(this);
 }

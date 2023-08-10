@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'image_arguments.g.dart';
 
 @JsonSerializable()
-class ImageArguments {
+class ImageArguments extends KeyArgument {
   const ImageArguments({
     required this.ref,
     required this.color,
@@ -14,6 +16,7 @@ class ImageArguments {
     required this.fit,
     required this.blurHash,
     this.useCache = true,
+    required super.key,
   });
 
   factory ImageArguments.fromJson(dynamic json) => _$ImageArgumentsFromJson(castToJson(json));
@@ -37,5 +40,6 @@ class ImageArguments {
   @JsonKey(fromJson: boolFromJson)
   final bool useCache;
 
+  @override
   Json toJson() => _$ImageArgumentsToJson(this);
 }

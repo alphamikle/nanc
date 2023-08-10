@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'list_view_arguments.g.dart';
 
 enum ScrollPhysicsEnum {
@@ -27,7 +29,7 @@ enum ScrollPhysicsEnum {
 }
 
 @JsonSerializable()
-class ListViewArguments {
+class ListViewArguments extends KeyArgument {
   const ListViewArguments({
     required this.physics,
     required this.axis,
@@ -35,6 +37,7 @@ class ListViewArguments {
     required this.itemExtent,
     required this.reverse,
     required this.shrinkWrap,
+    required super.key,
   });
 
   factory ListViewArguments.fromJson(dynamic json) => _$ListViewArgumentsFromJson(castToJson(json));
@@ -57,5 +60,6 @@ class ListViewArguments {
   @JsonKey(defaultValue: false)
   final bool shrinkWrap;
 
+  @override
   Json toJson() => _$ListViewArgumentsToJson(this);
 }

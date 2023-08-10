@@ -2,16 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../../renderers/key_argument.dart';
+
 part 'padding_arguments.g.dart';
 
 @JsonSerializable()
-class PaddingArguments {
+class PaddingArguments extends KeyArgument {
   const PaddingArguments({
     required this.left,
     required this.top,
     required this.right,
     required this.bottom,
     required this.all,
+    required super.key,
   });
 
   factory PaddingArguments.fromJson(dynamic json) => _$PaddingArgumentsFromJson(castToJson(json));
@@ -33,5 +36,6 @@ class PaddingArguments {
 
   EdgeInsets toPadding() => EdgeInsets.fromLTRB(all ?? left ?? 0, all ?? top ?? 0, all ?? right ?? 0, all ?? bottom ?? 0);
 
+  @override
   Json toJson() => _$PaddingArgumentsToJson(this);
 }

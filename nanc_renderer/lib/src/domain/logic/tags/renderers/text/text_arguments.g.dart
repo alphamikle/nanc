@@ -18,10 +18,12 @@ TextArguments _$TextArgumentsFromJson(Map<String, dynamic> json) =>
       softWrap: nullableBoolFromJson(json['softWrap']),
       size: nullableDoubleFromJson(json['size']),
       color: nullableColorFromJson(json['color'] as String?),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$TextArgumentsToJson(TextArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'direction': _$TextDirectionEnumMap[instance.direction],
       'maxLines': instance.maxLines,
       'align': _$TextAlignEnumMap[instance.align],

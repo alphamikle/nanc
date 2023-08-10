@@ -67,6 +67,7 @@ Tooltips provide text labels which help explain the function of a button or othe
       }
 
       return Tooltip(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         height: arguments.height,
         padding: extractor.getProperty(padding),
         decoration: extractor.getProperty(decoration),

@@ -12,11 +12,13 @@ ElevatedButtonArguments _$ElevatedButtonArgumentsFromJson(
       onPressed: json['onPressed'] as String?,
       onHover: json['onHover'] as String?,
       onLongPress: json['onLongPress'] as String?,
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$ElevatedButtonArgumentsToJson(
         ElevatedButtonArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'onPressed': instance.onPressed,
       'onHover': instance.onHover,
       'onLongPress': instance.onLongPress,

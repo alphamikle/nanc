@@ -3,15 +3,18 @@ import 'dart:ui';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'container_arguments.g.dart';
 
 @JsonSerializable()
-class ContainerArguments {
+class ContainerArguments extends KeyArgument {
   const ContainerArguments({
     required this.width,
     required this.height,
     required this.size,
     required this.color,
+    required super.key,
   });
 
   factory ContainerArguments.fromJson(dynamic json) => _$ContainerArgumentsFromJson(castToJson(json));
@@ -28,5 +31,6 @@ class ContainerArguments {
   @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
   final Color? color;
 
+  @override
   Json toJson() => _$ContainerArgumentsToJson(this);
 }

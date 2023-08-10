@@ -60,6 +60,7 @@ This widget assumes that the rendered icon is squared. Non-squared icons may ren
 
       return Icon(
         arguments.icon,
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         color: arguments.color,
         size: arguments.size,
         weight: arguments.weight,

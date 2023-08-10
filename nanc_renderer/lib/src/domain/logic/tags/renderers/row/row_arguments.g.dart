@@ -25,10 +25,12 @@ RowArguments _$RowArgumentsFromJson(Map<String, dynamic> json) => RowArguments(
       textBaseline: $enumDecodeNullable(
           _$TextBaselineEnumMap, json['textBaseline'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$RowArgumentsToJson(RowArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'crossAxisAlignment':
           _$CrossAxisAlignmentEnumMap[instance.crossAxisAlignment],
       'mainAxisSize': _$MainAxisSizeEnumMap[instance.mainAxisSize],

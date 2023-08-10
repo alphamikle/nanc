@@ -64,6 +64,7 @@ Specifying an [itemExtent](widgets/ListView/itemExtent.html) or an [prototypeIte
       Widget builder(BuildContext context, int index) => children[index];
 
       return ListView.builder(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         itemBuilder: builder,
         itemCount: children.length,
         physics: arguments.physics?.toScrollPhysics(),

@@ -3,16 +3,19 @@ import 'dart:ui';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'placeholder_arguments.g.dart';
 
 @JsonSerializable()
-class PlaceholderArguments {
+class PlaceholderArguments extends KeyArgument {
   const PlaceholderArguments({
     required this.color,
     required this.height,
     required this.width,
     required this.strokeWidth,
     required this.text,
+    required super.key,
   });
 
   factory PlaceholderArguments.fromJson(dynamic json) => _$PlaceholderArgumentsFromJson(castToJson(json));
@@ -33,6 +36,7 @@ class PlaceholderArguments {
 
   bool get hasText => text != null && text!.trim().isNotEmpty;
 
+  @override
   Json toJson() => _$PlaceholderArgumentsToJson(this);
 
   @override

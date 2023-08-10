@@ -49,6 +49,7 @@ Applying padding in the main extent of the viewport to slivers that have scroll 
       }
 
       return SliverPadding(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         padding: arguments.toPadding(),
         sliver: children.first,
       );

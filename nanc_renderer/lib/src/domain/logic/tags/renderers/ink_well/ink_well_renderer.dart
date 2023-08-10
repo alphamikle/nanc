@@ -66,6 +66,7 @@ The [InkWell](material/InkWell-class.html) widget must have a [Material](materia
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return InkWell(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         borderRadius: extractor.getProperty(borderRadius),
         focusColor: arguments.focusColor,
         overlayColor: arguments.overlayColor == null ? null : MaterialStatePropertyAll(arguments.overlayColor),

@@ -13,10 +13,12 @@ SafeAreaArguments _$SafeAreaArgumentsFromJson(Map<String, dynamic> json) =>
       right: nullableBoolFromJson(json['right']),
       bottom: nullableBoolFromJson(json['bottom']),
       bottomViewPadding: nullableBoolFromJson(json['bottomViewPadding']),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$SafeAreaArgumentsToJson(SafeAreaArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'left': instance.left,
       'top': instance.top,
       'right': instance.right,

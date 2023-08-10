@@ -57,6 +57,7 @@ For example, a 16:9 width:height aspect ratio would have a value of 16.0/9.0. If
       }
 
       return AspectRatio(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         aspectRatio: arguments.ratio!,
         child: compactWidgets(extractor.children),
       );

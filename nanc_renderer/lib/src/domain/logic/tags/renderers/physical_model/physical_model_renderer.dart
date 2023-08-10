@@ -56,6 +56,7 @@ For shapes that cannot be expressed as a rectangle with rounded corners use [Phy
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return PhysicalModel(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         color: arguments.color ?? Colors.transparent,
         borderRadius: extractor.getProperty(borderRadius),
         clipBehavior: arguments.clip ?? Clip.none,

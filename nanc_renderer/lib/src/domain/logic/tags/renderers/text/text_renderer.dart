@@ -87,6 +87,7 @@ This example shows how to display text using the [Text](widgets/Text-class.html)
 
       return Text(
         content.join('\n'),
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         textDirection: arguments.direction,
         maxLines: arguments.maxLines,
         textAlign: arguments.align,

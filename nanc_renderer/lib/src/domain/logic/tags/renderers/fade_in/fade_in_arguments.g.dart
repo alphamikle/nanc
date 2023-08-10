@@ -12,10 +12,12 @@ FadeInArguments _$FadeInArgumentsFromJson(Map<String, dynamic> json) =>
       delay: nullableIntFromJson(json['delay']),
       curve: $enumDecodeNullable(_$CurveEnumEnumMap, json['curve'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$FadeInArgumentsToJson(FadeInArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'duration': instance.duration,
       'delay': instance.delay,
       'curve': _$CurveEnumEnumMap[instance.curve],

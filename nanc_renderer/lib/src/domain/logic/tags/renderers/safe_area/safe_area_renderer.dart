@@ -57,6 +57,7 @@ See also:
       final EdgeInsets? minimumPadding = extractor.getProperty(minimum);
 
       return SafeArea(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         left: arguments.left ?? true,
         top: arguments.top ?? true,
         right: arguments.right ?? true,

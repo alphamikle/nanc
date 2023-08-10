@@ -16,10 +16,12 @@ ListViewArguments _$ListViewArgumentsFromJson(Map<String, dynamic> json) =>
       itemExtent: nullableDoubleFromJson(json['itemExtent']),
       reverse: json['reverse'] as bool? ?? false,
       shrinkWrap: json['shrinkWrap'] as bool? ?? false,
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$ListViewArgumentsToJson(ListViewArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'physics': _$ScrollPhysicsEnumEnumMap[instance.physics],
       'axis': _$AxisEnumMap[instance.axis],
       'cacheExtent': instance.cacheExtent,

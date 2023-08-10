@@ -36,6 +36,7 @@ In the Material Design language, this represents a divider. Dividers can be used
       final DividerArguments arguments = DividerArguments.fromJson(element.attributes);
 
       return Divider(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         height: arguments.height,
         color: arguments.color,
         endIndent: arguments.endIndent,

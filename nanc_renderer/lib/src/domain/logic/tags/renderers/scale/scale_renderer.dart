@@ -48,6 +48,7 @@ Unlike [RotatedBox](widgets/RotatedBox-class.html), which applies a rotation pri
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return Transform.scale(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         scaleX: arguments.all ?? arguments.scaleX,
         scaleY: arguments.all ?? arguments.scaleY,
         child: compactWidgets(extractor.children),

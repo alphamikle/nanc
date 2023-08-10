@@ -1,15 +1,18 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'sliver_list_arguments.g.dart';
 
 @JsonSerializable()
-class SliverListArguments {
+class SliverListArguments extends KeyArgument {
   const SliverListArguments({
     required this.addKeepAlives,
     required this.addRepaintBoundaries,
     required this.addSemanticIndexes,
     required this.extent,
+    required super.key,
   });
 
   factory SliverListArguments.fromJson(dynamic json) => _$SliverListArgumentsFromJson(castToJson(json));
@@ -26,5 +29,6 @@ class SliverListArguments {
   @JsonKey(fromJson: nullableDoubleFromJson)
   final double? extent;
 
+  @override
   Json toJson() => _$SliverListArgumentsToJson(this);
 }

@@ -3,10 +3,12 @@ import 'dart:ui';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'sliver_app_bar_arguments.g.dart';
 
 @JsonSerializable()
-class SliverAppBarArguments {
+class SliverAppBarArguments extends KeyArgument {
   const SliverAppBarArguments({
     required this.floating,
     required this.pinned,
@@ -29,6 +31,7 @@ class SliverAppBarArguments {
     required this.stretchTriggerOffset,
     required this.titleSpacing,
     required this.toolbarHeight,
+    required super.key,
   });
 
   factory SliverAppBarArguments.fromJson(dynamic json) => _$SliverAppBarArgumentsFromJson(castToJson(json));
@@ -95,5 +98,6 @@ class SliverAppBarArguments {
   @JsonKey(fromJson: nullableDoubleFromJson)
   final double? toolbarHeight;
 
+  @override
   Json toJson() => _$SliverAppBarArgumentsToJson(this);
 }

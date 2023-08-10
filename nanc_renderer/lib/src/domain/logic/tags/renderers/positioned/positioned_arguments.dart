@@ -1,10 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'positioned_arguments.g.dart';
 
 @JsonSerializable()
-class PositionedArguments {
+class PositionedArguments extends KeyArgument {
   const PositionedArguments({
     required this.width,
     required this.height,
@@ -13,6 +15,7 @@ class PositionedArguments {
     required this.right,
     required this.bottom,
     required this.all,
+    required super.key,
   });
 
   factory PositionedArguments.fromJson(dynamic json) => _$PositionedArgumentsFromJson(castToJson(json));
@@ -38,5 +41,6 @@ class PositionedArguments {
   @JsonKey(fromJson: nullableDoubleFromJson)
   final double? all;
 
+  @override
   Json toJson() => _$PositionedArgumentsToJson(this);
 }

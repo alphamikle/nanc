@@ -15,11 +15,13 @@ PositionedArguments _$PositionedArgumentsFromJson(Map<String, dynamic> json) =>
       right: nullableDoubleFromJson(json['right']),
       bottom: nullableDoubleFromJson(json['bottom']),
       all: nullableDoubleFromJson(json['all']),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$PositionedArgumentsToJson(
         PositionedArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'width': instance.width,
       'height': instance.height,
       'left': instance.left,

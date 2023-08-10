@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'text_arguments.g.dart';
 
 @JsonSerializable()
-class TextArguments {
+class TextArguments extends KeyArgument {
   const TextArguments({
     required this.direction,
     required this.maxLines,
@@ -14,6 +16,7 @@ class TextArguments {
     required this.softWrap,
     required this.size,
     required this.color,
+    required super.key,
   });
 
   factory TextArguments.fromJson(dynamic json) => _$TextArgumentsFromJson(castToJson(json));
@@ -39,5 +42,6 @@ class TextArguments {
   @JsonKey(fromJson: nullableBoolFromJson)
   final bool? softWrap;
 
+  @override
   Json toJson() => _$TextArgumentsToJson(this);
 }

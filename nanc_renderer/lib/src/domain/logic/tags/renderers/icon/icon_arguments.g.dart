@@ -14,10 +14,12 @@ IconArguments _$IconArgumentsFromJson(Map<String, dynamic> json) =>
       weight: nullableDoubleFromJson(json['weight']),
       fill: nullableDoubleFromJson(json['fill']),
       opticalSize: nullableDoubleFromJson(json['opticalSize']),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$IconArgumentsToJson(IconArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'icon': toNullJson(instance.icon),
       'color': colorToJson(instance.color),
       'size': instance.size,

@@ -3,10 +3,12 @@ import 'package:icons/icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'icon_arguments.g.dart';
 
 @JsonSerializable()
-class IconArguments {
+class IconArguments extends KeyArgument {
   const IconArguments({
     required this.icon,
     required this.color,
@@ -14,6 +16,7 @@ class IconArguments {
     required this.weight,
     required this.fill,
     required this.opticalSize,
+    required super.key,
   });
 
   factory IconArguments.fromJson(dynamic json) => _$IconArgumentsFromJson(castToJson(json));
@@ -36,5 +39,6 @@ class IconArguments {
   @JsonKey(fromJson: nullableDoubleFromJson)
   final double? opticalSize;
 
+  @override
   Json toJson() => _$IconArgumentsToJson(this);
 }

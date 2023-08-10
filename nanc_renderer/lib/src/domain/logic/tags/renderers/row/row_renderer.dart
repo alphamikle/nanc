@@ -54,6 +54,7 @@ If you only have one child, then consider using [Align](widgets/Align-class.html
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return Row(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         crossAxisAlignment: arguments.crossAxisAlignment ?? CrossAxisAlignment.center,
         mainAxisSize: arguments.mainAxisSize ?? MainAxisSize.max,
         mainAxisAlignment: arguments.mainAxisAlignment ?? MainAxisAlignment.start,

@@ -57,6 +57,7 @@ TagRenderer columnRenderer() {
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return Column(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         crossAxisAlignment: arguments.crossAxisAlignment ?? CrossAxisAlignment.center,
         mainAxisSize: arguments.mainAxisSize ?? MainAxisSize.max,
         mainAxisAlignment: arguments.mainAxisAlignment ?? MainAxisAlignment.start,

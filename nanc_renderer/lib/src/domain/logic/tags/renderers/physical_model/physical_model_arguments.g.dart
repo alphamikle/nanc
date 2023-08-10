@@ -16,11 +16,13 @@ PhysicalModelArguments _$PhysicalModelArgumentsFromJson(
       shadowColor: nullableColorFromJson(json['shadowColor'] as String?),
       shape: $enumDecodeNullable(_$BoxShapeEnumMap, json['shape'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$PhysicalModelArgumentsToJson(
         PhysicalModelArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'color': colorToJson(instance.color),
       'clip': _$ClipEnumMap[instance.clip],
       'elevation': instance.elevation,

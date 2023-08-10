@@ -13,6 +13,7 @@ class ClipRRectArguments extends BorderRadiusArguments {
     required super.bottomRight,
     required super.bottomLeft,
     required super.all,
+    required super.key,
   });
 
   factory ClipRRectArguments.fromJson(dynamic json) => _$ClipRRectArgumentsFromJson(castToJson(json));

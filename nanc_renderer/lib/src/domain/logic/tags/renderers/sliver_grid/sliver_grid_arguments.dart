@@ -17,6 +17,7 @@ class SliverGridArguments extends SliverListArguments {
     required this.crossAxisSpacing,
     required this.mainAxisSpacing,
     required this.maxCrossAxisExtent,
+    required super.key,
   });
 
   factory SliverGridArguments.fromJson(dynamic json) => _$SliverGridArgumentsFromJson(castToJson(json));

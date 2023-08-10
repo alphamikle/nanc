@@ -63,6 +63,7 @@ This widget does not impose any constraints on its child, and it doesn't affect 
       }
 
       return PreferredSize(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         preferredSize: Size(arguments.width ?? double.infinity, arguments.height!),
         child: compactWidgets(extractor.children),
       );

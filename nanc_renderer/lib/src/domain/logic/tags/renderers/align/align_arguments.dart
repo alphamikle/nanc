@@ -13,6 +13,7 @@ class AlignArguments extends AlignmentArguments {
     required super.align,
     required this.heightFactor,
     required this.widthFactor,
+    required super.key,
   });
 
   factory AlignArguments.fromJson(dynamic json) => _$AlignArgumentsFromJson(castToJson(json));

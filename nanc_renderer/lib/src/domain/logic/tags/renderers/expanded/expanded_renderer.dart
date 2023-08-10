@@ -49,6 +49,7 @@ An [Expanded](widgets/Expanded-class.html) widget must be a descendant of a [Row
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return Expanded(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         flex: arguments.flex ?? 1,
         child: compactWidgets(extractor.children),
       );

@@ -43,6 +43,7 @@ By default, the placeholder is sized to fit its container. If the placeholder is
       final PlaceholderArguments arguments = PlaceholderArguments.fromJson(element.attributes);
 
       return Placeholder(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         color: arguments.color ?? Colors.black,
         fallbackHeight: arguments.height ?? 400,
         fallbackWidth: arguments.width ?? 400,

@@ -84,6 +84,7 @@ To control the initial scroll offset of the scroll view, provide a [controller](
       }
 
       return CustomScrollView(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         physics: arguments.physics?.toScrollPhysics(),
         scrollDirection: arguments.axis ?? Axis.vertical,
         cacheExtent: arguments.cacheExtent,

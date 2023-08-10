@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'flexible_space_bar_arguments.g.dart';
 
 @JsonSerializable()
-class FlexibleSpaceBarArguments {
+class FlexibleSpaceBarArguments extends KeyArgument {
   const FlexibleSpaceBarArguments({
     required this.centerTitle,
     required this.collapseMode,
@@ -13,6 +15,7 @@ class FlexibleSpaceBarArguments {
     required this.blurBackground,
     required this.fadeTitle,
     required this.zoomBackground,
+    required super.key,
   });
 
   factory FlexibleSpaceBarArguments.fromJson(dynamic json) => _$FlexibleSpaceBarArgumentsFromJson(castToJson(json));
@@ -35,5 +38,6 @@ class FlexibleSpaceBarArguments {
   @JsonKey(fromJson: nullableBoolFromJson)
   final bool? zoomBackground;
 
+  @override
   Json toJson() => _$FlexibleSpaceBarArgumentsToJson(this);
 }

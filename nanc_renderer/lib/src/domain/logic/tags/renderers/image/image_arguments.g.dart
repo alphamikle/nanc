@@ -17,10 +17,12 @@ ImageArguments _$ImageArgumentsFromJson(Map<String, dynamic> json) =>
       blurHash: json['blurHash'] as String?,
       useCache:
           json['useCache'] == null ? true : boolFromJson(json['useCache']),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$ImageArgumentsToJson(ImageArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'ref': instance.ref,
       'color': colorToJson(instance.color),
       'width': instance.width,

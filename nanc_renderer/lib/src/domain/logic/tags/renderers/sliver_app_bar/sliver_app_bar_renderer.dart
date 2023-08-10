@@ -124,6 +124,7 @@ Typically a [FlexibleSpaceBar]. See [FlexibleSpaceBar] for details.
       final Widget? flexibleSpace = extractor.getAlias('flexibleSpace');
 
       return SliverAppBar(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         floating: arguments.floating ?? false,
         pinned: arguments.pinned ?? false,
         bottom: bottomWidget is PreferredSizeWidget ? bottomWidget : null,

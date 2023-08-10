@@ -13,6 +13,7 @@ class StackArguments extends AlignmentArguments {
     required super.x,
     required super.y,
     required super.align,
+    required super.key,
   });
 
   factory StackArguments.fromJson(dynamic json) => _$StackArgumentsFromJson(castToJson(json));

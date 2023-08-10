@@ -67,6 +67,7 @@ If all six values are null, the child is a non-positioned child. The [Stack](wid
       final double? all = arguments.all;
 
       return Positioned(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         width: arguments.width,
         height: arguments.height,
         left: all ?? arguments.left,

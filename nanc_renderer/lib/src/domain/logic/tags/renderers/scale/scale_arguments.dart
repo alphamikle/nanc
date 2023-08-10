@@ -1,14 +1,17 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../key_argument.dart';
+
 part 'scale_arguments.g.dart';
 
 @JsonSerializable()
-class ScaleArguments {
+class ScaleArguments extends KeyArgument {
   const ScaleArguments({
     required this.all,
     required this.scaleX,
     required this.scaleY,
+    required super.key,
   });
 
   factory ScaleArguments.fromJson(dynamic json) => _$ScaleArgumentsFromJson(castToJson(json));
@@ -22,5 +25,6 @@ class ScaleArguments {
   @JsonKey(fromJson: nullableDoubleFromJson)
   final double? scaleY;
 
+  @override
   Json toJson() => _$ScaleArgumentsToJson(this);
 }

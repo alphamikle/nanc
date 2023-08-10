@@ -8,6 +8,7 @@ import '../../tag_renderer.dart';
 import '../../tools/properties_extractor.dart';
 import '../../tools/widgets_compactor.dart';
 import '../custom_scroll_view/custom_scroll_view_renderer.dart';
+import '../key_argument.dart';
 
 TagRenderer sliverToBoxAdapterRenderer() {
   return TagRenderer(
@@ -34,9 +35,11 @@ Rather than using multiple [SliverToBoxAdapter](widgets/SliverToBoxAdapter-class
     ),
     example: customScrollViewRenderer().example,
     builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
+      final KeyArgument keyArgument = KeyArgument.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return SliverToBoxAdapter(
+        key: (keyArgument.key?.isEmpty ?? true) ? null : ValueKey(keyArgument.key),
         child: compactWidgets(extractor.children),
       );
     },

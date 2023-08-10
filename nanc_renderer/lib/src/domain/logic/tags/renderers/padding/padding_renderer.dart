@@ -49,6 +49,7 @@ When passing layout constraints to its child, padding shrinks the constraints by
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return Padding(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         padding: arguments.toPadding(),
         child: compactWidgets(extractor.children),
       );

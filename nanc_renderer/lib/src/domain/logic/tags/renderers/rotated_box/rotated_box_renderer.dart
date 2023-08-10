@@ -43,6 +43,7 @@ Unlike [Transform](widgets/Transform-class.html), which applies a transform just
       }
 
       return RotatedBox(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         quarterTurns: arguments.turns ?? 0,
         child: compactWidgets(extractor.children),
       );

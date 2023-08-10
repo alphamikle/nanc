@@ -14,10 +14,12 @@ AlignArguments _$AlignArgumentsFromJson(Map<String, dynamic> json) =>
           unknownValue: JsonKey.nullForUndefinedEnumValue),
       heightFactor: nullableDoubleFromJson(json['heightFactor']),
       widthFactor: nullableDoubleFromJson(json['widthFactor']),
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$AlignArgumentsToJson(AlignArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'x': instance.x,
       'y': instance.y,
       'align': _$AlignmentEnumEnumMap[instance.align],

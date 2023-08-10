@@ -95,6 +95,7 @@ The main axis direction of a grid is the direction in which it scrolls; the cros
             );
 
       return SliverGrid.builder(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         gridDelegate: gridDelegate,
         itemBuilder: (BuildContext context, int index) => children[index],
         itemCount: children.length,

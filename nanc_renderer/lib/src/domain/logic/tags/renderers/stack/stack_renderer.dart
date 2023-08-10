@@ -65,6 +65,7 @@ Using a [Stack](widgets/Stack-class.html) you can position widgets over one anot
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return Stack(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         fit: arguments.fit ?? StackFit.loose,
         alignment: arguments.toAlignment() ?? Alignment.topLeft,
         children: extractor.children,

@@ -12,11 +12,13 @@ TextButtonArguments _$TextButtonArgumentsFromJson(Map<String, dynamic> json) =>
       onPressed: json['onPressed'] as String?,
       onLongPress: json['onLongPress'] as String?,
       onHover: json['onHover'] as String?,
+      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$TextButtonArgumentsToJson(
         TextButtonArguments instance) =>
     <String, dynamic>{
+      'key': instance.key,
       'text': instance.text,
       'onPressed': instance.onPressed,
       'onLongPress': instance.onLongPress,

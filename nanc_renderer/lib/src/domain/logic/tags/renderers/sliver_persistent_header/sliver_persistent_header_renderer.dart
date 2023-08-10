@@ -63,6 +63,7 @@ This is the layout primitive that [SliverAppBar](material/SliverAppBar-class.htm
       }
 
       return SliverPersistentHeader(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         pinned: arguments.pinned ?? false,
         floating: arguments.floating ?? false,
         delegate: _Delegate(

@@ -105,6 +105,7 @@ See also:
       final BorderRadius? radius = extractor.getProperty<BorderRadius>(borderRadius);
 
       return Material(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         type: arguments.type ?? MaterialType.canvas,
         color: arguments.color,
         borderRadius: radius,

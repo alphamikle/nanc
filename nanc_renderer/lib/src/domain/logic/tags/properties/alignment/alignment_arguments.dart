@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
+import '../../renderers/key_argument.dart';
+
 part 'alignment_arguments.g.dart';
 
 enum AlignmentEnum {
@@ -31,11 +33,12 @@ enum AlignmentEnum {
 }
 
 @JsonSerializable()
-class AlignmentArguments {
+class AlignmentArguments extends KeyArgument {
   const AlignmentArguments({
     required this.x,
     required this.y,
     required this.align,
+    required super.key,
   });
 
   factory AlignmentArguments.fromJson(dynamic json) => _$AlignmentArgumentsFromJson(castToJson(json));
@@ -59,5 +62,6 @@ class AlignmentArguments {
     return null;
   }
 
+  @override
   Json toJson() => _$AlignmentArgumentsToJson(this);
 }
