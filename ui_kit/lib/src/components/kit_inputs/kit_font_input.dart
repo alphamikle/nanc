@@ -53,7 +53,7 @@ class _KitFontInputState extends State<KitFontInput> {
     if (fontName.isEmpty) {
       return null;
     }
-    final String? font = tryToGetFontByName(fontName);
+    final String? font = FontsStorage.tryToGetFontByName(fontName);
     if (font != null) {
       return EnumValue(title: font, value: font);
     }
@@ -62,7 +62,7 @@ class _KitFontInputState extends State<KitFontInput> {
 
   Widget fontItemBuilder(BuildContext context, EnumValue enumValue) {
     final String font = enumValue.title;
-    final bool isCustom = isCustomFontExist(font);
+    final bool isCustom = FontsStorage.isCustomFontExist(font);
     final Widget fontWidget = KitText(text: '$font${isCustom ? ' (custom)' : ''}');
 
     return KitListTile(
@@ -128,7 +128,7 @@ class _KitFontInputState extends State<KitFontInput> {
 
 String? _fontValidator(String? query) {
   if (query != null && query.trim() != '') {
-    if (isGoogleFontExist(query) || isCustomFontExist(query)) {
+    if (FontsStorage.isGoogleFontExist(query) || FontsStorage.isCustomFontExist(query)) {
       return null;
     }
     return 'Font family "$query" don\'t exist';

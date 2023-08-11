@@ -59,9 +59,9 @@ class _KitIconInputState extends State<KitIconInput> with KitFocusStreamMixin {
     if (iconName.isEmpty) {
       return null;
     }
-    final IconData? iconPath = tryToGetIconByName(iconName);
-    if (iconPath != null) {
-      return EnumValue(title: iconName, value: iconPath);
+    final IconData? iconData = IconsStorage.tryToGetIconByName(iconName);
+    if (iconData != null) {
+      return EnumValue(title: iconName, value: iconData);
     }
     return null;
   }
@@ -168,7 +168,7 @@ class _KitIconInputState extends State<KitIconInput> with KitFocusStreamMixin {
 
 String? _iconValidator(String? iconName) {
   if (iconName != null && iconName.trim() != '') {
-    if (isIconExist(iconName)) {
+    if (IconsStorage.isIconExist(iconName)) {
       return null;
     }
     return '"$iconName" is not a valid icon name';

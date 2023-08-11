@@ -90,7 +90,7 @@ class KitTableCell extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: Gap.regular),
             child: Icon(
-              tryToGetIconByName(text),
+              IconsStorage.tryToGetIconByName(text),
             ),
           ),
           cell,

@@ -4,8 +4,7 @@ import 'package:tools/tools.dart';
 
 final List<EnumValue> fontEnums = () {
   final List<EnumValue> values = [];
-  final List<String> allFonts = [...customFonts, ...googleFonts];
-  for (final String font in allFonts) {
+  for (final String font in FontsStorage.allFonts) {
     values.add(EnumValue(title: font, value: font));
   }
   return values;

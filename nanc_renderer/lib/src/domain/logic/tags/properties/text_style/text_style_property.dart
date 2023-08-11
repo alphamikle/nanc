@@ -16,10 +16,10 @@ PropertyTagRenderer<TextStyle> textStyleProperty(String tag) {
       late TextStyle effectiveStyle;
       if (arguments.font != null && arguments.font!.trim().isNotEmpty) {
         try {
-          if (isCustomFontExist(arguments.font!)) {
-            final CustomFont customFont = getCustomFont(arguments.font!);
+          if (FontsStorage.isCustomFontExist(arguments.font!)) {
+            final CustomFont customFont = FontsStorage.getCustomFontByName(arguments.font!);
             effectiveStyle = TextStyle(fontFamily: customFont.font, package: customFont.package);
-          } else if (isGoogleFontExist(arguments.font!)) {
+          } else if (FontsStorage.isGoogleFontExist(arguments.font!)) {
             effectiveStyle = GoogleFonts.getFont(arguments.font!);
           } else {
             effectiveStyle = const TextStyle();

@@ -42,7 +42,7 @@ class HeaderFieldCell extends StatelessWidget {
     const EdgeInsets padding = EdgeInsets.only(top: Gap.large);
 
     if (field.contentIcon != null) {
-      final IconData? iconData = tryToGetIconByName(field.contentIcon);
+      final IconData? iconData = IconsStorage.tryToGetIconByName(field.contentIcon);
       if (iconData != null) {
         return Padding(
           padding: padding,

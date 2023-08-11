@@ -235,7 +235,7 @@ class _DynamicFieldCellState extends State<DynamicFieldCell> with FieldCellHelpe
       customColor: field.contentColor,
     );
     final ThemeData theme = context.theme;
-    final IconData? contentIcon = tryToGetIconByName(field.contentIcon);
+    final IconData? contentIcon = IconsStorage.tryToGetIconByName(field.contentIcon);
     final Color? contentColor = field.contentColor;
 
     return DecoratedBox(

@@ -74,7 +74,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
         buildWhen: (MenuState previous, MenuState current) => previous.activeElement != current.activeElement,
         builder: (BuildContext context, MenuState state) => KitMenuItem(
           text: element.title,
-          icon: tryToGetIconByName(model?.icon ?? '') ?? IconPack.flu_circle_small_regular,
+          icon: IconsStorage.tryToGetIconByName(model?.icon ?? '') ?? IconPack.flu_circle_small_regular,
           onPressed: () => context.go(element.url),
           isActive: state.activeElement == element,
         ),

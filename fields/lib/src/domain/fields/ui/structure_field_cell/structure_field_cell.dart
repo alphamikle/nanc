@@ -183,7 +183,7 @@ class _StructureFieldCellState extends State<StructureFieldCell> with FieldCellH
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = context.theme;
-    final IconData? contentIcon = tryToGetIconByName(field.contentIcon);
+    final IconData? contentIcon = IconsStorage.tryToGetIconByName(field.contentIcon);
     final Color? contentColor = field.contentColor;
 
     return KitEmptyInput(

@@ -4,6 +4,7 @@ import 'package:config/config.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
 import 'package:go_router/go_router.dart';
+import 'package:icons/icons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 
@@ -44,8 +45,13 @@ class Initializer {
   late final GoRouter router;
 
   Future<bool> init() async {
+    /// ? ICONS
+    if (config.customIcons?.isNotEmpty ?? false) {
+      IconsStorage.registerCustomIcons(config.customIcons!);
+    }
+
     /// ? FONTS
-    config.customFonts.forEach(registerCustomFont);
+    FontsStorage.registerCustomFonts(config.customFonts);
 
     /// ? SERVICES
     final EventBus eventBus = EventBus();

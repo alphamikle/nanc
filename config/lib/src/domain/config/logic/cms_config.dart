@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:fonts/fonts.dart';
 import 'package:model/model.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
@@ -9,6 +10,9 @@ import '../../model/logic/api/model_api_interface.dart';
 import 'admin_wrapper_interface.dart';
 import 'image_builder_delegate.dart';
 import 'network_config.dart';
+
+typedef IconName = String;
+typedef CustomIcons = Map<IconName, IconData>;
 
 class CmsConfig {
   const CmsConfig({
@@ -23,6 +27,7 @@ class CmsConfig {
     required this.eventsHandlers,
     required this.customFonts,
     required this.sliverChecker,
+    required this.customIcons,
   });
 
   final ICollectionApi collectionApi;
@@ -36,4 +41,5 @@ class CmsConfig {
   final List<EventHandler> eventsHandlers;
   final List<CustomFont> customFonts;
   final SliverChecker? sliverChecker;
+  final CustomIcons? customIcons;
 }

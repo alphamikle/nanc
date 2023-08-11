@@ -8,7 +8,7 @@ part of 'icon_arguments.dart';
 
 IconArguments _$IconArgumentsFromJson(Map<String, dynamic> json) =>
     IconArguments(
-      icon: tryToGetIconByName(json['icon'] as String?),
+      icon: IconsStorage.tryToGetIconByName(json['icon'] as String?),
       color: nullableColorFromJson(json['color'] as String?),
       size: nullableDoubleFromJson(json['size']),
       weight: nullableDoubleFromJson(json['weight']),

@@ -5,7 +5,10 @@ import 'package:tools/tools.dart';
 
 final List<EnumValue> iconsEnums = () {
   final List<EnumValue> values = [];
-  for (final MapEntry<String, IconData> entry in iconPackMap.entries) {
+
+  final Iterable<MapEntry<String, IconData>> icons = IconsStorage.allIcons.entries;
+
+  for (final MapEntry<String, IconData> entry in icons) {
     values.add(EnumValue(title: entry.key, value: entry.value));
   }
   return values;

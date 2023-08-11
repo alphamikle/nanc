@@ -21,7 +21,7 @@ class IconArguments extends KeyArgument {
 
   factory IconArguments.fromJson(dynamic json) => _$IconArgumentsFromJson(castToJson(json));
 
-  @JsonKey(fromJson: tryToGetIconByName, toJson: toNullJson)
+  @JsonKey(fromJson: IconsStorage.tryToGetIconByName, toJson: toNullJson)
   final IconData? icon;
 
   @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
