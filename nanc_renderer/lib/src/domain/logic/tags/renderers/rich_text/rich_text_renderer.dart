@@ -113,6 +113,7 @@ This sample demonstrates how to mix and match text with different text styles us
       }
 
       return RichText(
+        key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         text: inlineSpan,
         textDirection: arguments.textDirection,
         overflow: arguments.overflow ?? TextOverflow.clip,

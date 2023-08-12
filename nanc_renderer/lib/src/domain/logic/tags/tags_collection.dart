@@ -23,6 +23,7 @@ import 'renderers/component/component_renderer.dart';
 import 'renderers/container/container_renderer.dart';
 import 'renderers/custom_scroll_view/custom_scroll_view_renderer.dart';
 import 'renderers/data/data_renderer.dart';
+import 'renderers/default_text_style/default_text_style_renderer.dart';
 import 'renderers/divider/divider_renderer.dart';
 import 'renderers/expanded/expanded_renderer.dart';
 import 'renderers/fade_in/fade_in_renderer.dart';
@@ -138,5 +139,6 @@ abstract class TagsCollection {
     richTextRenderer(),
     textSpanRenderer(),
     widgetSpanRenderer(),
+    defaultTextStyleRenderer(),
   ];
 }

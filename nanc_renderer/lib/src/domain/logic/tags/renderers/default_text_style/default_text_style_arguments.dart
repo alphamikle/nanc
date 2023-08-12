@@ -4,28 +4,22 @@ import 'package:tools/tools.dart';
 
 import '../key_argument.dart';
 
-part 'rich_text_arguments.g.dart';
+part 'default_text_style_arguments.g.dart';
 
 @JsonSerializable()
-class RichTextArguments extends KeyArgument {
-  const RichTextArguments({
-    required this.textDirection,
+class DefaultTextStyleArguments extends KeyArgument {
+  const DefaultTextStyleArguments({
     required this.overflow,
     required this.maxLines,
-    required this.selectionColor,
     required this.softWrap,
     required this.align,
-    required this.scaleFactor,
-    required this.widthBasis,
-    required this.color,
     required this.size,
+    required this.color,
+    required this.widthBasis,
     required super.key,
   });
 
-  factory RichTextArguments.fromJson(dynamic json) => _$RichTextArgumentsFromJson(castToJson(json));
-
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
-  final TextDirection? textDirection;
+  factory DefaultTextStyleArguments.fromJson(dynamic json) => _$DefaultTextStyleArgumentsFromJson(castToJson(json));
 
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final TextOverflow? overflow;
@@ -33,17 +27,11 @@ class RichTextArguments extends KeyArgument {
   @JsonKey(fromJson: nullableIntFromJson)
   final int? maxLines;
 
-  @JsonKey(fromJson: nullableColorFromJson, toJson: colorToJson)
-  final Color? selectionColor;
-
   @JsonKey(fromJson: nullableBoolFromJson)
   final bool? softWrap;
 
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final TextAlign? align;
-
-  @JsonKey(fromJson: nullableDoubleFromJson)
-  final double? scaleFactor;
 
   @JsonKey(fromJson: nullableDoubleFromJson)
   final double? size;
@@ -55,5 +43,5 @@ class RichTextArguments extends KeyArgument {
   final TextWidthBasis? widthBasis;
 
   @override
-  Json toJson() => _$RichTextArgumentsToJson(this);
+  Json toJson() => _$DefaultTextStyleArgumentsToJson(this);
 }
