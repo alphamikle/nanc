@@ -20,6 +20,8 @@ List<String> extractTextFromChild(BuildContext context, WidgetTag element, {bool
 }
 
 void _collectContent(BuildContext context, TagNode node, String hash, List<String> content, bool recursive, bool skipEmptyLines) {
+  final RegExp indentRegExp = RegExp(r' *\\');
+
   if (node is WidgetTag && recursive) {
     for (final TagNode node in node.children) {
       _collectContent(context, node, hash, content, recursive, skipEmptyLines);
@@ -28,7 +30,7 @@ void _collectContent(BuildContext context, TagNode node, String hash, List<Strin
     final List<String> lines = splitTextByLines(node.text);
     final Substitutor substitutor = Substitutor(context: context);
     for (final String line in lines) {
-      String newLine = line.trim().replaceAll(r'\', '');
+      String newLine = line.trim().replaceAll(indentRegExp, '');
       final bool haveExpression = substitutor.haveExpression(newLine);
       if (haveExpression) {
         newLine = substitutor.substitute(hash, newLine);
