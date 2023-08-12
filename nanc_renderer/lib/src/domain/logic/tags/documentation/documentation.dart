@@ -5,6 +5,7 @@ export './arguments/clip_arguments.dart';
 export './arguments/common.dart';
 export './arguments/decoration_arguments.dart';
 export './arguments/icon_arguments.dart';
+export './arguments/interactivity_arguments.dart';
 export './arguments/layout.dart';
 export './arguments/padding_arguments.dart';
 export './arguments/position_arguments.dart';

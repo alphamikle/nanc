@@ -45,7 +45,16 @@ DocumentationTypes _$DocumentationTypesFromJson(Map<String, dynamic> json) =>
       ..brightness =
           $enumDecodeNullable(_$BrightnessEnumMap, json['brightness'])
       ..collapseMode =
-          $enumDecodeNullable(_$CollapseModeEnumMap, json['collapseMode']);
+          $enumDecodeNullable(_$CollapseModeEnumMap, json['collapseMode'])
+      ..textWidthBasis =
+          $enumDecodeNullable(_$TextWidthBasisEnumMap, json['textWidthBasis'])
+      ..fontStyle = $enumDecodeNullable(_$FontStyleEnumMap, json['fontStyle'])
+      ..leadingDistribution = $enumDecodeNullable(
+          _$TextLeadingDistributionEnumMap, json['leadingDistribution'])
+      ..mouseCursor =
+          $enumDecodeNullable(_$MouseCursorEnumEnumMap, json['mouseCursor'])
+      ..placeholderAlignment = $enumDecodeNullable(
+          _$PlaceholderAlignmentEnumMap, json['placeholderAlignment']);
 
 Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
     <String, dynamic>{
@@ -78,6 +87,13 @@ Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
       'axis': _$AxisEnumMap[instance.axis],
       'brightness': _$BrightnessEnumMap[instance.brightness],
       'collapseMode': _$CollapseModeEnumMap[instance.collapseMode],
+      'textWidthBasis': _$TextWidthBasisEnumMap[instance.textWidthBasis],
+      'fontStyle': _$FontStyleEnumMap[instance.fontStyle],
+      'leadingDistribution':
+          _$TextLeadingDistributionEnumMap[instance.leadingDistribution],
+      'mouseCursor': _$MouseCursorEnumEnumMap[instance.mouseCursor],
+      'placeholderAlignment':
+          _$PlaceholderAlignmentEnumMap[instance.placeholderAlignment],
     };
 
 const _$CrossAxisAlignmentEnumMap = {
@@ -317,4 +333,53 @@ const _$CollapseModeEnumMap = {
   CollapseMode.parallax: 'parallax',
   CollapseMode.pin: 'pin',
   CollapseMode.none: 'none',
+};
+
+const _$TextWidthBasisEnumMap = {
+  TextWidthBasis.parent: 'parent',
+  TextWidthBasis.longestLine: 'longestLine',
+};
+
+const _$FontStyleEnumMap = {
+  FontStyle.normal: 'normal',
+  FontStyle.italic: 'italic',
+};
+
+const _$TextLeadingDistributionEnumMap = {
+  TextLeadingDistribution.proportional: 'proportional',
+  TextLeadingDistribution.even: 'even',
+};
+
+const _$MouseCursorEnumEnumMap = {
+  MouseCursorEnum.none: 'none',
+  MouseCursorEnum.basic: 'basic',
+  MouseCursorEnum.click: 'click',
+  MouseCursorEnum.forbidden: 'forbidden',
+  MouseCursorEnum.wait: 'wait',
+  MouseCursorEnum.progress: 'progress',
+  MouseCursorEnum.contextMenu: 'contextMenu',
+  MouseCursorEnum.help: 'help',
+  MouseCursorEnum.text: 'text',
+  MouseCursorEnum.verticalText: 'verticalText',
+  MouseCursorEnum.cell: 'cell',
+  MouseCursorEnum.precise: 'precise',
+  MouseCursorEnum.move: 'move',
+  MouseCursorEnum.grab: 'grab',
+  MouseCursorEnum.grabbing: 'grabbing',
+  MouseCursorEnum.noDrop: 'noDrop',
+  MouseCursorEnum.alias: 'alias',
+  MouseCursorEnum.copy: 'copy',
+  MouseCursorEnum.disappearing: 'disappearing',
+  MouseCursorEnum.allScroll: 'allScroll',
+  MouseCursorEnum.zoomIn: 'zoomIn',
+  MouseCursorEnum.zoomOut: 'zoomOut',
+};
+
+const _$PlaceholderAlignmentEnumMap = {
+  PlaceholderAlignment.baseline: 'baseline',
+  PlaceholderAlignment.aboveBaseline: 'aboveBaseline',
+  PlaceholderAlignment.belowBaseline: 'belowBaseline',
+  PlaceholderAlignment.top: 'top',
+  PlaceholderAlignment.bottom: 'bottom',
+  PlaceholderAlignment.middle: 'middle',
 };

@@ -156,18 +156,18 @@ class NuiListWidget extends StatelessWidget {
           child: LocalData(
             // ignore: prefer_const_literals_to_create_immutables
             data: {},
-            child: Builder(
-              builder: (BuildContext context) {
-                return TemplateStorage(
-                  child: asyncMode
+            child: TemplateStorage(
+              child: Builder(
+                builder: (BuildContext context) {
+                  return asyncMode
                       ? FutureBuilder(
                           // ignore: discarded_futures
                           future: createGenerator(context).generateAsync(),
                           builder: asyncBuilder,
                         )
-                      : builder(createGenerator(context).generate()),
-                );
-              },
+                      : builder(createGenerator(context).generate());
+                },
+              ),
             ),
           ),
         ),

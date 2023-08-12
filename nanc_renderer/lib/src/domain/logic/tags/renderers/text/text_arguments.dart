@@ -9,6 +9,7 @@ part 'text_arguments.g.dart';
 @JsonSerializable()
 class TextArguments extends KeyArgument {
   const TextArguments({
+    required this.text,
     required this.direction,
     required this.maxLines,
     required this.align,
@@ -16,10 +17,14 @@ class TextArguments extends KeyArgument {
     required this.softWrap,
     required this.size,
     required this.color,
+    required this.separator,
+    required this.skipEmptyLines,
     required super.key,
   });
 
   factory TextArguments.fromJson(dynamic json) => _$TextArgumentsFromJson(castToJson(json));
+
+  final String? text;
 
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final TextDirection? direction;
@@ -41,6 +46,11 @@ class TextArguments extends KeyArgument {
 
   @JsonKey(fromJson: nullableBoolFromJson)
   final bool? softWrap;
+
+  final String? separator;
+
+  @JsonKey(fromJson: nullableBoolFromJson)
+  final bool? skipEmptyLines;
 
   @override
   Json toJson() => _$TextArgumentsToJson(this);

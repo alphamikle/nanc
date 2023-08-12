@@ -18,7 +18,7 @@ TagRenderer textRenderer() {
     tag: 'text',
     description: TagDescription(
       description: '''
-# [Text]()
+# [Text](https://api.flutter.dev/flutter/widgets/Text-class.html)
 
 A run of text with a single style.
 
@@ -31,8 +31,24 @@ This example shows how to display text using the [Text](widgets/Text-class.html)
 ![If the text is shorter than the available space, it is displayed in full without an ellipsis.](https://flutter.github.io/assets-for-api-docs/assets/widgets/text.png)
 
 ![If the text overflows, the Text widget displays an ellipsis to trim the overflowing text](https://flutter.github.io/assets-for-api-docs/assets/widgets/text_ellipsis.png)
+
+You can specify text content inside this widget as just inside a tag:
+
+```html
+<text>
+  Hello world!
+</text>
+```
+
+As well as using the `text` parameter:
+
+```html
+<text text="Hello world!"/>
+```
+
 ''',
       arguments: [
+        stringArgument(name: 'text'),
         textDirectionArgument(name: 'direction'),
         maxLinesArgument(),
         textAlignArgument(),
@@ -40,6 +56,8 @@ This example shows how to display text using the [Text](widgets/Text-class.html)
         boolArgument(name: 'softWrap'),
         fontSizeArgument(),
         colorArgument(name: 'color'),
+        separatorArgument(),
+        skipEmptyLinesArgument(),
       ],
       properties: [
         textStyleProp(),
@@ -56,18 +74,26 @@ This example shows how to display text using the [Text](widgets/Text-class.html)
     Managing content with style and finesse,
     NANC, the CMS we can't resist.
   </text>
+  
   <divider height="50"/>
+  
   <text size="20" color="#AE23A6">
     NANC, the CMS that's best,
     Integrating with ease,
     Updating mobile apps with zest.
   </text>
+  
   <divider height="50"/>
+  
   <text>
     <prop:textStyle color="#23AE53" size="16" font="Merriweather"/>
     Why did the developer choose NANC as their content management system?
     Because it was the only CMS that could manage their content without making a mess!
   </text>
+  
+  <divider height="50"/>
+  
+  <text text="Hello there!"/>
 </safeArea>
 ''',
     builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
@@ -83,10 +109,10 @@ This example shows how to display text using the [Text](widgets/Text-class.html)
       if (style.color == null && arguments.color != null) {
         style = style.copyWith(color: arguments.color);
       }
-      final List<String> content = extractTextFromChildren(context: context, element: element);
+      final List<String> content = extractTextFromChildren(context, element, skipEmptyLines: arguments.skipEmptyLines ?? true);
 
       return Text(
-        content.join('\n'),
+        arguments.text ?? content.join(arguments.separator ?? '\n'),
         key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         textDirection: arguments.direction,
         maxLines: arguments.maxLines,

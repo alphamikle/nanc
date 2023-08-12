@@ -5,6 +5,7 @@ import '../properties/alignment/alignment_arguments.dart';
 import '../properties/text_style/text_decoration_enum.dart';
 import '../renderers/fade_in/curve_enum.dart';
 import '../renderers/list_view/list_view_arguments.dart';
+import '../renderers/rich_text/text_span/text_span_arguments.dart';
 
 part 'documentation_types.g.dart';
 
@@ -58,7 +59,17 @@ class DocumentationTypes {
 
   static Set<String> get collapseModeValues => _$CollapseModeEnumMap.values.toSet();
 
-  /// Place some enum here to force create codegen values and use them as a static getters
+  static Set<String> get textWidthBasisValues => _$TextWidthBasisEnumMap.values.toSet();
+
+  static Set<String> get fontStyleValues => _$FontStyleEnumMap.values.toSet();
+
+  static Set<String> get leadingDistributionValues => _$TextLeadingDistributionEnumMap.values.toSet();
+
+  static Set<String> get mouseCursorEnumValues => _$MouseCursorEnumEnumMap.values.toSet();
+
+  static Set<String> get placeholderAlignmentValues => _$PlaceholderAlignmentEnumMap.values.toSet();
+
+  /// Place some enum here to force codegen create values and use them as a static getters
   CrossAxisAlignment? crossAxisAlignment;
   MainAxisSize? mainAxisSize;
   MainAxisAlignment? mainAxisAlignment;
@@ -83,4 +94,9 @@ class DocumentationTypes {
   Axis? axis;
   Brightness? brightness;
   CollapseMode? collapseMode;
+  TextWidthBasis? textWidthBasis;
+  FontStyle? fontStyle;
+  TextLeadingDistribution? leadingDistribution;
+  MouseCursorEnum? mouseCursor;
+  PlaceholderAlignment? placeholderAlignment;
 }

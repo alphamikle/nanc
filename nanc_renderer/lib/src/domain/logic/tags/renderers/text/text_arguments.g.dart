@@ -8,6 +8,7 @@ part of 'text_arguments.dart';
 
 TextArguments _$TextArgumentsFromJson(Map<String, dynamic> json) =>
     TextArguments(
+      text: json['text'] as String?,
       direction: $enumDecodeNullable(_$TextDirectionEnumMap, json['direction'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
       maxLines: nullableIntFromJson(json['maxLines']),
@@ -18,12 +19,15 @@ TextArguments _$TextArgumentsFromJson(Map<String, dynamic> json) =>
       softWrap: nullableBoolFromJson(json['softWrap']),
       size: nullableDoubleFromJson(json['size']),
       color: nullableColorFromJson(json['color'] as String?),
+      separator: json['separator'] as String?,
+      skipEmptyLines: nullableBoolFromJson(json['skipEmptyLines']),
       key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$TextArgumentsToJson(TextArguments instance) =>
     <String, dynamic>{
       'key': instance.key,
+      'text': instance.text,
       'direction': _$TextDirectionEnumMap[instance.direction],
       'maxLines': instance.maxLines,
       'align': _$TextAlignEnumMap[instance.align],
@@ -31,6 +35,8 @@ Map<String, dynamic> _$TextArgumentsToJson(TextArguments instance) =>
       'size': instance.size,
       'color': colorToJson(instance.color),
       'softWrap': instance.softWrap,
+      'separator': instance.separator,
+      'skipEmptyLines': instance.skipEmptyLines,
     };
 
 const _$TextDirectionEnumMap = {

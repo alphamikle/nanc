@@ -26,3 +26,5 @@ const String shape = 'shape';
 const String systemOverlayStyle = 'systemOverlayStyle';
 const String iconTheme = 'iconTheme';
 const String actionsIconTheme = 'actionsIconTheme';
+const String strutStyle = 'strutStyle';
+const String textHeightBehavior = 'textHeightBehavior';

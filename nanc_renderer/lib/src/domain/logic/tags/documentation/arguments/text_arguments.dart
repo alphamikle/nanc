@@ -23,3 +23,33 @@ TagArgument fontArgument({String name = 'font'}) {
 > For a full list of available fonts you can check the official [google_fonts](https://pub.dev/packages/google_fonts) package.
 ''');
 }
+
+TagArgument textWidthBasisArgument({String name = 'widthBasis'}) => TagArgument(name: name, values: DocumentationTypes.textWidthBasisValues);
+
+TagArgument fontStyleArgument({String name = 'fontStyle'}) => TagArgument(name: name, values: DocumentationTypes.fontStyleValues);
+
+TagArgument textLeadingDistribution({String name = 'leadingDistribution'}) => TagArgument(name: name, values: DocumentationTypes.leadingDistributionValues);
+
+TagArgument separatorArgument({String name = 'separator'}) => stringArgument(name: name, description: r'''
+A string that will be used to merge text content located within the tag itself.
+
+For example, if you have the following UI code:
+
+```html
+<text>
+  Hello Dear Friend,
+  How was your day?
+  Do you have something new?
+</text>
+```
+
+You can either combine strings into a single line using a space as the value, `separator=""`, or into multiple lines using the line break character `separator="\n"` as the value.
+However, `\n` is used by default, so you don't have to change anything.
+''');
+
+TagArgument skipEmptyLinesArgument({String name = 'skipEmptyLines'}) => boolArgument(
+      name: name,
+      description: 'Determines whether blank lines should be discarded, in the content inside the tag.',
+    );
+
+TagArgument placeholderAlignmentArgument({String name = 'alignment'}) => TagArgument(name: name, values: DocumentationTypes.placeholderAlignmentValues);

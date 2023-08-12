@@ -93,15 +93,13 @@ class NuiStackWidget extends StatelessWidget {
                 return TemplateStorage(
                   child: Builder(
                     builder: (BuildContext context) {
-                      return TemplateStorage(
-                        child: asyncMode
-                            ? FutureBuilder(
-                                // ignore: discarded_futures
-                                future: createGenerator(context).generateAsync(),
-                                builder: asyncBuilder,
-                              )
-                            : builder(createGenerator(context).generate()),
-                      );
+                      return asyncMode
+                          ? FutureBuilder(
+                              // ignore: discarded_futures
+                              future: createGenerator(context).generateAsync(),
+                              builder: asyncBuilder,
+                            )
+                          : builder(createGenerator(context).generate());
                     },
                   ),
                 );

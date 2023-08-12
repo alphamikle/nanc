@@ -1,9 +1,6 @@
 import '../../tag_description.dart';
 import '../../tools/properties_names.dart';
-import '../arguments/decoration_arguments.dart';
-import '../arguments/row_column_arguments.dart';
-import '../arguments/size_arguments.dart';
-import '../arguments/text_arguments.dart';
+import '../documentation.dart';
 
 TagProperty textStyleProp({String name = textStyle}) {
   return TagProperty(
@@ -17,6 +14,36 @@ TagProperty textStyleProp({String name = textStyle}) {
       textDecorationArgument(),
       textOverflowArgument(),
       textBaselineArgument(),
+    ],
+    properties: [],
+  );
+}
+
+TagProperty strutStyleProp({String name = strutStyle}) {
+  return TagProperty(
+    name: name,
+    arguments: [
+      heightArgument(),
+      doubleArgument(name: 'leading'),
+      doubleArgument(name: 'size'),
+      stringArgument(name: 'debugLabel'),
+      stringArgument(name: 'font'),
+      fontWeightArgument(),
+      boolArgument(name: 'forceHeight'),
+      stringArgument(name: 'package'),
+      fontStyleArgument(),
+    ],
+    properties: [],
+  );
+}
+
+TagProperty textHeightBehaviorProp({String name = textHeightBehavior}) {
+  return TagProperty(
+    name: name,
+    arguments: [
+      boolArgument(name: 'firstAscent'),
+      boolArgument(name: 'lastDescent'),
+      textLeadingDistribution(),
     ],
     properties: [],
   );

@@ -5,16 +5,24 @@ import '../../model/tag.dart';
 import '../logic/substitutor.dart';
 import '../renderers/component/element_hash_extension.dart';
 
-List<String> extractTextFromChildren({required BuildContext context, required WidgetTag element, bool convertToText = false}) {
+List<String> extractTextFromChildren(BuildContext context, WidgetTag element, {bool skipEmptyLines = true}) {
   final List<String> content = [];
-  _collectContent(context, element, element.contentHash, content, convertToText);
+  _collectContent(context, element, element.contentHash, content, true, skipEmptyLines);
   return content;
 }
 
-void _collectContent(BuildContext context, TagNode node, String hash, List<String> content, bool convertToText) {
-  if (node is WidgetTag) {
+List<String> extractTextFromChild(BuildContext context, WidgetTag element, {bool skipEmptyLines = true}) {
+  final List<String> content = [];
+  for (final TagNode node in element.children) {
+    _collectContent(context, node, element.contentHash, content, false, skipEmptyLines);
+  }
+  return content;
+}
+
+void _collectContent(BuildContext context, TagNode node, String hash, List<String> content, bool recursive, bool skipEmptyLines) {
+  if (node is WidgetTag && recursive) {
     for (final TagNode node in node.children) {
-      _collectContent(context, node, hash, content, convertToText);
+      _collectContent(context, node, hash, content, recursive, skipEmptyLines);
     }
   } else if (node is TextNode) {
     final List<String> lines = splitTextByLines(node.text);
@@ -25,7 +33,7 @@ void _collectContent(BuildContext context, TagNode node, String hash, List<Strin
       if (haveExpression) {
         newLine = substitutor.substitute(hash, newLine);
       }
-      if (newLine.isNotEmpty) {
+      if (skipEmptyLines && newLine.isNotEmpty) {
         content.add(newLine);
       }
     }

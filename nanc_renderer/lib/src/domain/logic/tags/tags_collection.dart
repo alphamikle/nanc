@@ -9,7 +9,9 @@ import 'properties/gradient/gradient_property.dart';
 import 'properties/icon_theme/icon_theme_property.dart';
 import 'properties/padding/padding_property.dart';
 import 'properties/shadow/shadow_property.dart';
+import 'properties/strut_style/strut_style_property.dart';
 import 'properties/system_overlay_style/system_overlay_property.dart';
+import 'properties/text_height_behavior/text_height_behavior_property.dart';
 import 'properties/text_style/text_style_property.dart';
 import 'renderers/alias/alias_renderer.dart';
 import 'renderers/align/align_renderer.dart';
@@ -38,6 +40,9 @@ import 'renderers/physical_model/physical_model_renderer.dart';
 import 'renderers/placeholder/placeholder_renderer.dart';
 import 'renderers/positioned/positioned_renderer.dart';
 import 'renderers/preferred_size/preferred_size_renderer.dart';
+import 'renderers/rich_text/rich_text_renderer.dart';
+import 'renderers/rich_text/text_span/text_span_renderer.dart';
+import 'renderers/rich_text/widget_span/widget_span_renderer.dart';
 import 'renderers/rotated_box/rotated_box_renderer.dart';
 import 'renderers/row/row_renderer.dart';
 import 'renderers/safe_area/safe_area_renderer.dart';
@@ -82,6 +87,8 @@ abstract class TagsCollection {
     systemOverlayProperty(systemOverlayStyle),
     iconThemeProperty(iconTheme),
     iconThemeProperty(actionsIconTheme),
+    strutStyleProperty(strutStyle),
+    textHeightBehaviorProperty(textHeightBehavior),
 
     /// ? WIDGETS
     aliasRenderer(),
@@ -128,5 +135,8 @@ abstract class TagsCollection {
     preferredSizeRenderer(),
     flexibleSpaceBarRenderer(),
     rotatedBoxRenderer(),
+    richTextRenderer(),
+    textSpanRenderer(),
+    widgetSpanRenderer(),
   ];
 }
