@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
+import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -21,6 +22,7 @@ class TagsManualView extends StatefulWidget {
 
 class _TagsManualViewState extends State<TagsManualView> {
   bool showDescription = true;
+  final DataStorage dataStorage = DataStorage();
 
   void toggleDescription() => safeSetState(() => showDescription = !showDescription);
 
@@ -168,14 +170,17 @@ class _TagsManualViewState extends State<TagsManualView> {
                     ),
 
                     /// ? PREVIEW
-                    const Padding(
-                      padding: EdgeInsets.only(
+                    Padding(
+                      padding: const EdgeInsets.only(
                         left: kPadding,
                         top: kPadding,
                         right: kPadding,
                         bottom: kPadding,
                       ),
-                      child: PagePreviewWithFrame(),
+                      child: DataStorageProvider(
+                        dataStorage: dataStorage,
+                        child: const PagePreviewWithFrame(),
+                      ),
                     ),
                   ],
                 ),

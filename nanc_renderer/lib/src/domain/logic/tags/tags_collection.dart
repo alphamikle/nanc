@@ -1,12 +1,15 @@
 import 'properties/alignment/alignment_property.dart';
 import 'properties/border/border_property.dart';
 import 'properties/border_radius/border_radius_property.dart';
+import 'properties/box_constraints/box_constraints_property.dart';
 import 'properties/button_style/button_style_property.dart';
 import 'properties/color/color_property.dart';
 import 'properties/decoration/decoration_property.dart';
 import 'properties/double/double_property.dart';
 import 'properties/gradient/gradient_property.dart';
 import 'properties/icon_theme/icon_theme_property.dart';
+import 'properties/input_border/input_border_property.dart';
+import 'properties/input_decoration/input_decoration_property.dart';
 import 'properties/padding/padding_property.dart';
 import 'properties/shadow/shadow_property.dart';
 import 'properties/strut_style/strut_style_property.dart';
@@ -35,6 +38,7 @@ import 'renderers/if/show_renderer.dart';
 import 'renderers/image/image_renderer.dart';
 import 'renderers/ink_well/ink_well_renderer.dart';
 import 'renderers/list_view/list_view_renderer.dart';
+import 'renderers/list_wheel_scroll_view/list_wheel_scroll_view_renderer.dart';
 import 'renderers/material/material_renderer.dart';
 import 'renderers/padding/padding_renderer.dart';
 import 'renderers/physical_model/physical_model_renderer.dart';
@@ -55,10 +59,13 @@ import 'renderers/sliver_list/sliver_list_renderer.dart';
 import 'renderers/sliver_padding/sliver_padding_renderer.dart';
 import 'renderers/sliver_persistent_header/sliver_persistent_header_renderer.dart';
 import 'renderers/sliver_to_box_adapter/sliver_to_box_adapter_renderer.dart';
+import 'renderers/spacer/spacer_renderer.dart';
 import 'renderers/stack/stack_renderer.dart';
+import 'renderers/storage_builder/storage_builder_renderer.dart';
 import 'renderers/template/template_renderer.dart';
 import 'renderers/text/text_renderer.dart';
 import 'renderers/text_button/text_button_renderer.dart';
+import 'renderers/text_field/text_field_renderer.dart';
 import 'renderers/tooltip/tooltip_renderer.dart';
 import 'renderers/visibility_notifier/visibility_notifier_renderer.dart';
 import 'tag_renderer.dart';
@@ -90,6 +97,23 @@ abstract class TagsCollection {
     iconThemeProperty(actionsIconTheme),
     strutStyleProperty(strutStyle),
     textHeightBehaviorProperty(textHeightBehavior),
+    inputDecorationProperty(inputDecoration),
+    inputBorderProperty(inputBorder),
+    boxConstraintsProperty(constraints),
+    paddingProperty(contentPadding),
+    textStyleProperty(counterStyle),
+    inputBorderProperty(disabledBorder),
+    inputBorderProperty(enabledBorder),
+    textStyleProperty(errorStyle),
+    inputBorderProperty(focusedBorder),
+    inputBorderProperty(focusedErrorBorder),
+    textStyleProperty(helperStyle),
+    textStyleProperty(hintStyle),
+    textStyleProperty(labelStyle),
+    boxConstraintsProperty(prefixIconConstraints),
+    textStyleProperty(prefixStyle),
+    textStyleProperty(suffixStyle),
+    boxConstraintsProperty(suffixIconConstraints),
 
     /// ? WIDGETS
     aliasRenderer(),
@@ -140,5 +164,9 @@ abstract class TagsCollection {
     textSpanRenderer(),
     widgetSpanRenderer(),
     defaultTextStyleRenderer(),
+    spacerRenderer(),
+    listWheelScrollViewRenderer(),
+    textFieldRenderer(),
+    storageBuilderRenderer(),
   ];
 }

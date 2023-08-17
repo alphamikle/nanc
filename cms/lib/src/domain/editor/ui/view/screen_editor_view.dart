@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
+import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -37,6 +38,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
   late final PreviewBloc previewBloc = PreviewBloc(eventBus: localEventBus);
   final GlobalKey<KitScreenPreloaderState> preloaderKey = GlobalKey();
   late final EditorBloc editorBloc = context.read();
+  final DataStorage dataStorage = DataStorage();
   bool isPageJsonAvailable = false;
 
   void toggleJsonView() => safeSetState(() => isPageJsonAvailable = !isPageJsonAvailable);
@@ -237,14 +239,17 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
                               : PageEditor(codeFieldKey: context.read<EditorBloc>().codeFieldKey),
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(
+                      Padding(
+                        padding: const EdgeInsets.only(
                           left: kPadding,
                           top: kPadding,
                           right: kPadding,
                           bottom: kPadding,
                         ),
-                        child: PagePreviewWithFrame(),
+                        child: DataStorageProvider(
+                          dataStorage: dataStorage,
+                          child: const PagePreviewWithFrame(),
+                        ),
                       ),
                     ],
                   ),

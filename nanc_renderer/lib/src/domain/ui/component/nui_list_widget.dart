@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
 import '../../../service/sliver_checker.dart';
+import '../../logic/tags/logic/data_storage.dart';
 import '../../logic/tags/logic/for_storage.dart';
 import '../../logic/tags/logic/image_builder_delegate.dart';
 import '../../logic/tags/logic/local_data.dart';
@@ -32,6 +33,7 @@ class NuiListWidget extends StatelessWidget {
     this.asyncMode = false,
     this.preloaderBuilder,
     this.sliverChecker,
+    this.dataStorage,
     super.key,
   });
 
@@ -51,6 +53,7 @@ class NuiListWidget extends StatelessWidget {
   final bool asyncMode;
   final PreloaderBuilder? preloaderBuilder;
   final SliverChecker? sliverChecker;
+  final DataStorage? dataStorage;
 
   RichRenderer get richRenderer => RichRenderer(renderers: renderers);
 

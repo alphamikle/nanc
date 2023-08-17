@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../properties/alignment/alignment_arguments.dart';
+import '../properties/border/border_arguments.dart';
+import '../properties/input_border/input_border_arguments.dart';
 import '../properties/text_style/text_decoration_enum.dart';
 import '../renderers/fade_in/curve_enum.dart';
 import '../renderers/list_view/list_view_arguments.dart';
 import '../renderers/rich_text/text_span/text_span_arguments.dart';
+import '../renderers/text_field/text_field_arguments.dart';
 
 part 'documentation_types.g.dart';
 
@@ -69,6 +72,20 @@ class DocumentationTypes {
 
   static Set<String> get placeholderAlignmentValues => _$PlaceholderAlignmentEnumMap.values.toSet();
 
+  static Set<String> get autovalidateModeValues => _$AutovalidateModeEnumMap.values.toSet();
+
+  static Set<String> get textInputTypeEnumValues => _$TextInputTypeEnumEnumMap.values.toSet();
+
+  static Set<String> get textCapitalizationValues => _$TextCapitalizationEnumMap.values.toSet();
+
+  static Set<String> get textInputActionValues => _$TextInputActionEnumMap.values.toSet();
+
+  static Set<String> get inputBorderTypeValues => _$InputBorderTypeEnumMap.values.toSet();
+
+  static Set<String> get borderStyleValues => _$BorderStyleEnumMap.values.toSet();
+
+  static Set<String> get strokeAlignEnumValues => _$StrokeAlignEnumEnumMap.values.toSet();
+
   /// Place some enum here to force codegen create values and use them as a static getters
   CrossAxisAlignment? crossAxisAlignment;
   MainAxisSize? mainAxisSize;
@@ -99,4 +116,11 @@ class DocumentationTypes {
   TextLeadingDistribution? leadingDistribution;
   MouseCursorEnum? mouseCursor;
   PlaceholderAlignment? placeholderAlignment;
+  AutovalidateMode? autovalidateMode;
+  TextInputTypeEnum? textInputTypeEnum;
+  TextCapitalization? textCapitalization;
+  TextInputAction? textInputAction;
+  InputBorderType? inputBorderType;
+  BorderStyle? borderStyle;
+  StrokeAlignEnum? strokeAlignEnum;
 }

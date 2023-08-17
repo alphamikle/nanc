@@ -13,6 +13,7 @@ import 'network_config.dart';
 
 typedef IconName = String;
 typedef CustomIcons = Map<IconName, IconData>;
+typedef ThemeDataBuilder = ThemeData Function(BuildContext context);
 
 class CmsConfig {
   const CmsConfig({
@@ -28,6 +29,7 @@ class CmsConfig {
     required this.customFonts,
     required this.sliverChecker,
     required this.customIcons,
+    required this.themeBuilder,
   });
 
   final ICollectionApi collectionApi;
@@ -42,4 +44,5 @@ class CmsConfig {
   final List<CustomFont> customFonts;
   final SliverChecker? sliverChecker;
   final CustomIcons? customIcons;
+  final ThemeDataBuilder? themeBuilder;
 }

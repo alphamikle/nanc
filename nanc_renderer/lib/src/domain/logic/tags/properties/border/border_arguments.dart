@@ -7,16 +7,15 @@ part 'border_arguments.g.dart';
 enum StrokeAlignEnum {
   inside,
   center,
-  outside,
-}
+  outside;
 
-double strokeAlignEnumToStrokeAlign(StrokeAlignEnum? alignEnum) {
-  return switch (alignEnum) {
-    StrokeAlignEnum.inside => BorderSide.strokeAlignInside,
-    StrokeAlignEnum.center => BorderSide.strokeAlignCenter,
-    StrokeAlignEnum.outside => BorderSide.strokeAlignOutside,
-    _ => BorderSide.strokeAlignInside,
-  };
+  double toStrokeAlign() {
+    return switch (this) {
+      StrokeAlignEnum.inside => BorderSide.strokeAlignInside,
+      StrokeAlignEnum.center => BorderSide.strokeAlignCenter,
+      StrokeAlignEnum.outside => BorderSide.strokeAlignOutside,
+    };
+  }
 }
 
 @JsonSerializable()
@@ -43,7 +42,7 @@ class BorderArguments {
 
     return Border.all(
       color: color ?? theme.colorScheme.outline,
-      strokeAlign: strokeAlignEnumToStrokeAlign(strokeAlign),
+      strokeAlign: strokeAlign?.toStrokeAlign() ?? BorderSide.strokeAlignInside,
       width: width ?? 1,
     );
   }

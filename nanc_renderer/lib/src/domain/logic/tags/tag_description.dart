@@ -45,6 +45,7 @@ class TagProperty {
     required this.name,
     required this.arguments,
     required this.properties,
+    this.aliases = const [],
     this.description = '',
   });
 
@@ -52,5 +53,6 @@ class TagProperty {
   final String description;
   final List<TagArgument> arguments;
   final List<TagProperty> properties;
+  final List<TagAlias> aliases;
   bool get withChildren => properties.isNotEmpty;
 }

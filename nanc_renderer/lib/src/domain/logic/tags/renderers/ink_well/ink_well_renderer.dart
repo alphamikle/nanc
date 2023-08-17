@@ -73,12 +73,15 @@ The [InkWell](material/InkWell-class.html) widget must have a [Material](materia
         highlightColor: arguments.highlightColor,
         splashColor: arguments.splashColor,
         hoverColor: arguments.hoverColor,
-        onTap: handleEvent(context, arguments.onPressed),
-        onDoubleTap: handleEvent(context, arguments.onDoubleTap),
-        onLongPress: handleEvent(context, arguments.onLongPress),
-        onHover: (bool isHovered) => handleEvent(
-          context,
-          arguments.onHover == null ? null : '${arguments.onHover}${generateMetadata('isHovered', isHovered)}',
+        onTap: handleEvent(context: context, event: arguments.onPressed),
+        onDoubleTap: handleEvent(context: context, event: arguments.onDoubleTap),
+        onLongPress: handleEvent(context: context, event: arguments.onLongPress),
+        onHover: (bool isHovered) async => handleEvent(
+          context: context,
+          event: arguments.onHover,
+          meta: {
+            'isHovered': isHovered,
+          },
         )?.call(),
         child: compactWidgets(extractor.children),
       );

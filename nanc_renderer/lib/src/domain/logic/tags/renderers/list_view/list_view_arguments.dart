@@ -26,6 +26,8 @@ enum ScrollPhysicsEnum {
       ScrollPhysicsEnum.range => const RangeMaintainingScrollPhysics(),
     };
   }
+
+  bool get isFixedExtent => this == ScrollPhysicsEnum.fixedExtent;
 }
 
 @JsonSerializable()

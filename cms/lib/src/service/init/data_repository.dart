@@ -11,6 +11,7 @@ class DataRepository {
     required this.imageErrorBuilder,
     required this.imageFrameBuilder,
     required this.sliverChecker,
+    required this.themeBuilder,
   });
 
   final List<EventHandler> eventsHandlers;
@@ -20,4 +21,5 @@ class DataRepository {
   final ImageErrorWidgetBuilder? imageErrorBuilder;
   final ImageFrameBuilder? imageFrameBuilder;
   final SliverChecker? sliverChecker;
+  final ThemeDataBuilder? themeBuilder;
 }

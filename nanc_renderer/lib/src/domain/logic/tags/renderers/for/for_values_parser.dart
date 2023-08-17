@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../logic/for_storage.dart';
 import '../../logic/page_data.dart';
 
@@ -10,10 +11,14 @@ class ForValuesParser {
   ForValuesParser({
     required this.context,
     required this.valuesString,
+    required this.from,
+    required this.to,
   });
 
   final BuildContext context;
-  final String valuesString;
+  final String? valuesString;
+  final int? from;
+  final int? to;
 
   Iterable<Object?> get values => _iterator();
 
@@ -24,34 +29,33 @@ class ForValuesParser {
   List<Object?>? _values;
 
   void parseValues() {
-    final RegExpMatch? match = _rangeValuesRegExp.firstMatch(valuesString);
-    if (match != null) {
-      _fromNumber = int.parse(match.namedGroup('from')!);
-      _toNumber = int.parse(match.namedGroup('to')!);
+    if (to != null) {
+      _fromNumber = from ?? 0;
+      _toNumber = to;
       if (_fromNumber! > _toNumber!) {
         final int fromNumber = _fromNumber!;
         _fromNumber = _toNumber;
         _toNumber = fromNumber;
       }
-      if (_fromNumber == _toNumber) {
-        _toNumber = _toNumber! + 1;
-      }
       return;
     }
-    if (_valuesRegExp.hasMatch(valuesString)) {
-      final dynamic values = PageData.findData(context: context, query: valuesString);
-      if (values is Iterable) {
-        _values = List.from(values);
+    if (valuesString != null) {
+      // TODO(alphamikle): Support DataStorage too
+      if (_valuesRegExp.hasMatch(valuesString!)) {
+        final dynamic values = PageData.findData(context: context, query: valuesString);
+        if (values is Iterable) {
+          _values = List.from(values);
+        }
+        return;
       }
-      return;
-    }
-    final RegExpMatch? embedCycleMatch = _embedCycleRegExp.firstMatch(valuesString);
-    if (embedCycleMatch != null) {
-      final dynamic values = ForStorage.findEmbedData(context, valuesString);
-      if (values is Iterable) {
-        _values = List.from(values);
+      final RegExpMatch? embedCycleMatch = _embedCycleRegExp.firstMatch(valuesString!);
+      if (embedCycleMatch != null) {
+        final dynamic values = ForStorage.findEmbedData(context, valuesString!);
+        if (values is Iterable) {
+          _values = List.from(values);
+        }
+        return;
       }
-      return;
     }
     // TODO(alphamikle): Implement search of complex values in the global storage or values resolver
   }

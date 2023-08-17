@@ -11,7 +11,7 @@ String _generateRegExp() {
   const String foundation = r'page\.(?<value>\w+)';
   return [
     foundation,
-    for (int i = 1; i < 25; i++) _nextValue(i),
+    for (int i = 1; i < 15; i++) _nextValue(i),
   ].join();
 }
 

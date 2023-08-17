@@ -77,9 +77,9 @@ A [TextSpan](painting/TextSpan-class.html) object can just have plain text, or i
           children: inlineSpans,
           style: style,
           mouseCursor: arguments.cursor?.toMouseCursor(),
-          onEnter: arguments.onEnter?.isEmpty ?? true ? null : (_) async => handleEvent(context, arguments.onEnter)!.call(),
-          onExit: arguments.onExit?.isEmpty ?? true ? null : (_) async => handleEvent(context, arguments.onEnter)!.call(),
-          recognizer: arguments.onPressed?.isEmpty ?? true ? null : (TapGestureRecognizer()..onTap = handleEvent(context, arguments.onPressed)),
+          onEnter: arguments.onEnter?.isEmpty ?? true ? null : (_) async => handleEvent(context: context, event: arguments.onEnter)!.call(),
+          onExit: arguments.onExit?.isEmpty ?? true ? null : (_) async => handleEvent(context: context, event: arguments.onEnter)!.call(),
+          recognizer: arguments.onPressed?.isEmpty ?? true ? null : (TapGestureRecognizer()..onTap = handleEvent(context: context, event: arguments.onPressed)),
           spellOut: arguments.spellOut,
         ),
       );

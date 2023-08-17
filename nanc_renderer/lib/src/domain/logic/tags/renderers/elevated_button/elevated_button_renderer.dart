@@ -52,14 +52,17 @@ If [onPressed](material/ButtonStyleButton/onPressed.html) and [onLongPress](mate
       return ElevatedButton(
         key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
         style: extractor.getProperty(buttonStyle),
-        onLongPress: handleEvent(context, arguments.onLongPress),
+        onLongPress: handleEvent(context: context, event: arguments.onLongPress),
         onHover: arguments.onHover == null
             ? null
-            : (bool isHovered) => handleEvent(
-                  context,
-                  '${arguments.onHover}${generateMetadata('isHovered', isHovered)}',
+            : (bool isHovered) async => handleEvent(
+                  context: context,
+                  event: arguments.onHover,
+                  meta: {
+                    'isHovered': isHovered,
+                  },
                 )?.call(),
-        onPressed: handleEvent(context, arguments.onPressed),
+        onPressed: handleEvent(context: context, event: arguments.onPressed),
         child: compactWidgets(extractor.children),
       );
     },

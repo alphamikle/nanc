@@ -54,7 +54,21 @@ DocumentationTypes _$DocumentationTypesFromJson(Map<String, dynamic> json) =>
       ..mouseCursor =
           $enumDecodeNullable(_$MouseCursorEnumEnumMap, json['mouseCursor'])
       ..placeholderAlignment = $enumDecodeNullable(
-          _$PlaceholderAlignmentEnumMap, json['placeholderAlignment']);
+          _$PlaceholderAlignmentEnumMap, json['placeholderAlignment'])
+      ..autovalidateMode = $enumDecodeNullable(
+          _$AutovalidateModeEnumMap, json['autovalidateMode'])
+      ..textInputTypeEnum = $enumDecodeNullable(
+          _$TextInputTypeEnumEnumMap, json['textInputTypeEnum'])
+      ..textCapitalization = $enumDecodeNullable(
+          _$TextCapitalizationEnumMap, json['textCapitalization'])
+      ..textInputAction =
+          $enumDecodeNullable(_$TextInputActionEnumMap, json['textInputAction'])
+      ..inputBorderType =
+          $enumDecodeNullable(_$InputBorderTypeEnumMap, json['inputBorderType'])
+      ..borderStyle =
+          $enumDecodeNullable(_$BorderStyleEnumMap, json['borderStyle'])
+      ..strokeAlignEnum = $enumDecodeNullable(
+          _$StrokeAlignEnumEnumMap, json['strokeAlignEnum']);
 
 Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
     <String, dynamic>{
@@ -94,6 +108,15 @@ Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
       'mouseCursor': _$MouseCursorEnumEnumMap[instance.mouseCursor],
       'placeholderAlignment':
           _$PlaceholderAlignmentEnumMap[instance.placeholderAlignment],
+      'autovalidateMode': _$AutovalidateModeEnumMap[instance.autovalidateMode],
+      'textInputTypeEnum':
+          _$TextInputTypeEnumEnumMap[instance.textInputTypeEnum],
+      'textCapitalization':
+          _$TextCapitalizationEnumMap[instance.textCapitalization],
+      'textInputAction': _$TextInputActionEnumMap[instance.textInputAction],
+      'inputBorderType': _$InputBorderTypeEnumMap[instance.inputBorderType],
+      'borderStyle': _$BorderStyleEnumMap[instance.borderStyle],
+      'strokeAlignEnum': _$StrokeAlignEnumEnumMap[instance.strokeAlignEnum],
     };
 
 const _$CrossAxisAlignmentEnumMap = {
@@ -382,4 +405,63 @@ const _$PlaceholderAlignmentEnumMap = {
   PlaceholderAlignment.top: 'top',
   PlaceholderAlignment.bottom: 'bottom',
   PlaceholderAlignment.middle: 'middle',
+};
+
+const _$AutovalidateModeEnumMap = {
+  AutovalidateMode.disabled: 'disabled',
+  AutovalidateMode.always: 'always',
+  AutovalidateMode.onUserInteraction: 'onUserInteraction',
+};
+
+const _$TextInputTypeEnumEnumMap = {
+  TextInputTypeEnum.text: 'text',
+  TextInputTypeEnum.multiline: 'multiline',
+  TextInputTypeEnum.number: 'number',
+  TextInputTypeEnum.phone: 'phone',
+  TextInputTypeEnum.datetime: 'datetime',
+  TextInputTypeEnum.email: 'email',
+  TextInputTypeEnum.url: 'url',
+  TextInputTypeEnum.password: 'password',
+  TextInputTypeEnum.name: 'name',
+  TextInputTypeEnum.address: 'address',
+};
+
+const _$TextCapitalizationEnumMap = {
+  TextCapitalization.words: 'words',
+  TextCapitalization.sentences: 'sentences',
+  TextCapitalization.characters: 'characters',
+  TextCapitalization.none: 'none',
+};
+
+const _$TextInputActionEnumMap = {
+  TextInputAction.none: 'none',
+  TextInputAction.unspecified: 'unspecified',
+  TextInputAction.done: 'done',
+  TextInputAction.go: 'go',
+  TextInputAction.search: 'search',
+  TextInputAction.send: 'send',
+  TextInputAction.next: 'next',
+  TextInputAction.previous: 'previous',
+  TextInputAction.continueAction: 'continueAction',
+  TextInputAction.join: 'join',
+  TextInputAction.route: 'route',
+  TextInputAction.emergencyCall: 'emergencyCall',
+  TextInputAction.newline: 'newline',
+};
+
+const _$InputBorderTypeEnumMap = {
+  InputBorderType.outline: 'outline',
+  InputBorderType.underline: 'underline',
+  InputBorderType.none: 'none',
+};
+
+const _$BorderStyleEnumMap = {
+  BorderStyle.none: 'none',
+  BorderStyle.solid: 'solid',
+};
+
+const _$StrokeAlignEnumEnumMap = {
+  StrokeAlignEnum.inside: 'inside',
+  StrokeAlignEnum.center: 'center',
+  StrokeAlignEnum.outside: 'outside',
 };

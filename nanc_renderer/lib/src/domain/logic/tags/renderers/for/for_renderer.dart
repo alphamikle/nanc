@@ -149,8 +149,8 @@ The last thing about `<for>` is ability to iterate only the part of the array. Y
       final ForArguments arguments = ForArguments.fromJson(element.attributes);
       final String valueName = arguments.valueName ?? kValue;
       final String indexName = arguments.indexName ?? kIndex;
-      String values = arguments.values ?? '0...1';
-      final String oldValues = arguments.oldValues ?? '';
+      String? values = arguments.values;
+      final String? oldValues = arguments.oldValues;
 
       /// Example: original expression was {{ page.mock.friends }}
       /// [values] will be equals to [Link, Morpheus, Niobe, Persephone, The Oracle, Trinity]
@@ -160,32 +160,21 @@ The last thing about `<for>` is ability to iterate only the part of the array. Y
       if (values != oldValues) {
         values = oldValues;
       }
-      final ForValuesParser parser = ForValuesParser(context: context, valuesString: values);
+      final ForValuesParser parser = ForValuesParser(
+        context: context,
+        valuesString: values ?? '',
+        from: arguments.from,
+        to: arguments.to,
+      );
       parser.parseValues();
       final List<Object?> parsedValues = parser.values.toList();
 
-      int fromIndex = arguments.from ?? 0;
-      int toIndex = arguments.to ?? parsedValues.length;
-
-      if (fromIndex < 0) {
-        fromIndex = 0;
-      }
-      if (toIndex > parsedValues.length) {
-        toIndex = parsedValues.length;
-      }
-      if (fromIndex > toIndex) {
-        final int tempFromIndex = fromIndex;
-        fromIndex = toIndex;
-        toIndex = tempFromIndex;
-      }
-
-      // ignore: use_build_context_synchronously
       final ForStorage forStorage = ForStorage.of(context);
       forStorage.saveCycleData(cycleId: cycleId, values: parsedValues);
 
       final List<TagNode> effectiveChildren = [];
 
-      for (int i = fromIndex; i < toIndex; i++) {
+      for (int i = 0; i < parsedValues.length; i++) {
         final List<TagNode> preparedChildren = _prepareCycleContent(
           cycleId: cycleId,
           indexName: indexName,

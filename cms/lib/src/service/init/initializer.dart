@@ -125,6 +125,7 @@ class Initializer {
       imageFrameBuilder: config.imageBuilderDelegate?.imageFrameBuilder,
       supportedFilters: config.collectionApi.supportedFilters,
       sliverChecker: config.sliverChecker,
+      themeBuilder: config.themeBuilder,
     );
 
     blocProviders

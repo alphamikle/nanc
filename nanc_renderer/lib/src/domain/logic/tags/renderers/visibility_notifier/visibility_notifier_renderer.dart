@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 
 import '../../../../../../nanc_renderer.dart';
-import '../../../model/tag.dart';
 import '../../tools/widgets_compactor.dart';
 import 'visibility_notifier.dart';
 import 'visibility_notifier_arguments.dart';
@@ -66,13 +65,16 @@ Another logical widget / tag that allows you to send / handle events that occur 
       }
 
       return VisibilityNotifier(
-        onShow: handleEvent(context, arguments.onShow),
-        onHide: handleEvent(context, arguments.onHide),
+        onShow: handleEvent(context: context, event: arguments.onShow),
+        onHide: handleEvent(context: context, event: arguments.onHide),
         lifetime: arguments.lifetime == null
             ? null
-            : (int durationMs) => handleEvent(
-                  context,
-                  '${arguments.lifetime}${generateMetadata('ms', durationMs)}',
+            : (int durationMs) async => handleEvent(
+                  context: context,
+                  event: arguments.lifetime,
+                  meta: {
+                    'duration_ms': durationMs,
+                  },
                 )?.call(),
         child: child,
       );

@@ -72,13 +72,16 @@ If the [onPressed](material/ButtonStyleButton/onPressed.html) and [onLongPress](
 
       return TextButton(
         key: (arguments.key?.isEmpty ?? true) ? null : ValueKey(arguments.key),
-        onPressed: handleEvent(context, arguments.onPressed),
-        onLongPress: handleEvent(context, arguments.onLongPress),
+        onPressed: handleEvent(context: context, event: arguments.onPressed),
+        onLongPress: handleEvent(context: context, event: arguments.onLongPress),
         onHover: arguments.onHover == null
             ? null
-            : (bool isHovered) => handleEvent(
-                  context,
-                  '${arguments.onHover}${generateMetadata('isHovered', isHovered)}',
+            : (bool isHovered) async => handleEvent(
+                  context: context,
+                  event: arguments.onHover,
+                  meta: {
+                    'isHovered': isHovered,
+                  },
                 )?.call(),
         style: extractor.getProperty(buttonStyle),
         child: child,

@@ -147,7 +147,7 @@ Typically a [FlexibleSpaceBar]. See [FlexibleSpaceBar] for details.
         leadingWidth: arguments.leadingWidth,
         snap: arguments.snap ?? false,
         stretch: arguments.stretch ?? false,
-        onStretchTrigger: handleEvent(context, arguments.onStretchTrigger),
+        onStretchTrigger: handleEvent(context: context, event: arguments.onStretchTrigger),
         scrolledUnderElevation: arguments.scrolledUnderElevation,
         stretchTriggerOffset: arguments.stretchTriggerOffset ?? 100,
         systemOverlayStyle: extractor.getProperty(systemOverlayStyle),

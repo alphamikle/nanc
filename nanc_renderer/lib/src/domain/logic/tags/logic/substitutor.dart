@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../model/tag.dart';
+import '../../../../../nanc_renderer.dart';
 import '../renderers/component/element_hash_extension.dart';
 import '../renderers/for/for_renderer.dart';
 import '../tools/chain_extractor.dart';
@@ -34,7 +34,8 @@ class Substitutor {
 
   String substitute(String hash, String value) {
     final String withLocalData = _replaceWithLocalData(value);
-    final String withTemplateData = _replaceWithTemplateData(hash, withLocalData);
+    final String withDataStorage = _replaceWithDataStorage(withLocalData);
+    final String withTemplateData = _replaceWithTemplateData(hash, withDataStorage);
     final String withPageData = _replaceWithPageData(withTemplateData);
     final String withCycleData = _replaceWithCycleData(withPageData);
     final String preparedForClearingData = _prepareForClearing(withCycleData);
@@ -60,6 +61,25 @@ class Substitutor {
               valueId: valueId,
             ) ??
             'null',
+      );
+    }
+    return replacedValue;
+  }
+
+  String _replaceWithDataStorage(String value) {
+    final Iterable<RegExpMatch> matches = DataStorage.getMatches(value);
+    if (matches.isEmpty) {
+      return value;
+    }
+    String replacedValue = value;
+    final DataStorage pageDataProvider = DataStorage.of(context);
+    for (final RegExpMatch match in matches) {
+      final String? query = match.group(0);
+      final String pageData = pageDataProvider.getValueAsString(query: query) ?? 'null';
+
+      replacedValue = replacedValue.replaceFirst(
+        match.pattern,
+        pageData,
       );
     }
     return replacedValue;

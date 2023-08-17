@@ -16,7 +16,6 @@ import 'editor_params.dart';
 const _middleDot = '·';
 
 class CodeController extends TextEditingController {
-
   CodeController({
     super.text,
     Mode? language,
@@ -31,7 +30,7 @@ class CodeController extends TextEditingController {
     ],
     this.webSpaceFix = true,
     this.onChange,
-  })  : _theme = theme {
+  }) : _theme = theme {
     this.language = language;
 
     // Create modifier map
@@ -168,11 +167,13 @@ class CodeController extends TextEditingController {
 
   /// See webSpaceFix
   static String _spacesToMiddleDots(String str) {
+    return str;
     return str.replaceAll(' ', _middleDot);
   }
 
   /// See webSpaceFix
   static String _middleDotsToSpaces(String str) {
+    return str;
     return str.replaceAll(_middleDot, ' ');
   }
 
