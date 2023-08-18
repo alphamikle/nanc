@@ -125,7 +125,7 @@ For a documentation about the various parameters, see [TextField](material/TextF
         unawaited(handleEvent(context: context, event: arguments.onChanged, meta: {'value': arguments.initialValue})?.call());
       }
 
-      final InputDecoration decoration = extractor.getProperty(inputDecoration);
+      final InputDecoration? decoration = extractor.getProperty(inputDecoration);
 
       return TextFormField(
         textAlign: arguments.align ?? TextAlign.start,

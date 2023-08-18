@@ -1,6 +1,7 @@
 import 'properties/alignment/alignment_property.dart';
 import 'properties/border/border_property.dart';
 import 'properties/border_radius/border_radius_property.dart';
+import 'properties/border_side/border_side_property.dart';
 import 'properties/box_constraints/box_constraints_property.dart';
 import 'properties/button_style/button_style_property.dart';
 import 'properties/color/color_property.dart';
@@ -114,6 +115,7 @@ abstract class TagsCollection {
     textStyleProperty(prefixStyle),
     textStyleProperty(suffixStyle),
     boxConstraintsProperty(suffixIconConstraints),
+    borderSideProperty(borderSide),
 
     /// ? WIDGETS
     aliasRenderer(),

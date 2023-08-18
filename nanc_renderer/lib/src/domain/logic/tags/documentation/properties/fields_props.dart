@@ -35,6 +35,7 @@ TagProperty inputDecorationProp({required String name}) {
       stringArgument(name: 'semanticCounterText'),
       colorArgument(name: 'suffixIconColor'),
       stringArgument(name: 'suffixText'),
+      boolArgument(name: 'simpleBorders'),
     ],
     properties: [
       inputBorderProp(name: inputBorder),

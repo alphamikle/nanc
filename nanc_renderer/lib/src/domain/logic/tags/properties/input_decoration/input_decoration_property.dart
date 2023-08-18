@@ -15,7 +15,10 @@ PropertyTagRenderer<InputDecoration> inputDecorationProperty(String tag) {
       final InputDecorationArguments arguments = InputDecorationArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: renderer.renderChildren(context, element.children));
 
-      return InputDecorationPropertyWidget(
+      final InputBorder? defaultBorder = extractor.getProperty(inputBorder);
+      final bool simple = arguments.simpleBorders ?? false;
+
+      final InputDecorationPropertyWidget result = InputDecorationPropertyWidget(
         name: tag,
         property: InputDecoration(
           error: extractor.getAlias('error'),
@@ -26,16 +29,16 @@ PropertyTagRenderer<InputDecoration> inputDecorationProperty(String tag) {
           prefixIcon: extractor.getAlias('prefixIcon'),
           suffix: extractor.getAlias('suffix'),
           suffixIcon: extractor.getAlias('suffixIcon'),
-          border: extractor.getProperty(inputBorder),
+          border: defaultBorder,
           constraints: extractor.getProperty(constraints),
           contentPadding: extractor.getProperty(contentPadding),
           counterStyle: extractor.getProperty(counterStyle),
-          disabledBorder: extractor.getProperty(disabledBorder),
-          enabledBorder: extractor.getProperty(enabledBorder),
-          errorBorder: extractor.getProperty(errorBorder),
+          disabledBorder: simple ? defaultBorder : extractor.getProperty(disabledBorder),
+          enabledBorder: simple ? defaultBorder : extractor.getProperty(enabledBorder),
+          errorBorder: simple ? defaultBorder : extractor.getProperty(errorBorder),
           errorStyle: extractor.getProperty(errorStyle),
-          focusedBorder: extractor.getProperty(focusedBorder),
-          focusedErrorBorder: extractor.getProperty(focusedErrorBorder),
+          focusedBorder: simple ? defaultBorder : extractor.getProperty(focusedBorder),
+          focusedErrorBorder: simple ? defaultBorder : extractor.getProperty(focusedErrorBorder),
           helperStyle: extractor.getProperty(helperStyle),
           hintStyle: extractor.getProperty(hintStyle),
           labelStyle: extractor.getProperty(labelStyle),
@@ -74,6 +77,8 @@ PropertyTagRenderer<InputDecoration> inputDecorationProperty(String tag) {
           suffixText: arguments.suffixText,
         ),
       );
+
+      return result;
     },
   );
 }

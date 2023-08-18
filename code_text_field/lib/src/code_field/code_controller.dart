@@ -223,7 +223,7 @@ class CodeController extends TextEditingController {
   set value(TextEditingValue newValue) {
     final loc = _insertedLoc(text, newValue.text);
 
-    if (loc != null) {
+    if (loc != null && newValue.text.length > loc) {
       final char = newValue.text[loc];
       final modifier = modifierMap[char];
       final val = modifier?.updateString(rawText, selection, params);

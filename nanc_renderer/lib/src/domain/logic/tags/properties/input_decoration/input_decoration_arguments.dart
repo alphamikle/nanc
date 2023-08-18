@@ -30,6 +30,7 @@ class InputDecorationArguments {
     required this.semanticCounterText,
     required this.suffixIconColor,
     required this.suffixText,
+    required this.simpleBorders,
   });
 
   factory InputDecorationArguments.fromJson(dynamic json) => _$InputDecorationArgumentsFromJson(castToJson(json));
@@ -94,6 +95,9 @@ class InputDecorationArguments {
   final Color? suffixIconColor;
 
   final String? suffixText;
+
+  @JsonKey(fromJson: nullableBoolFromJson)
+  final bool? simpleBorders;
 
   Json toJson() => _$InputDecorationArgumentsToJson(this);
 }

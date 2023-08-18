@@ -13,6 +13,34 @@ import '../component/manual_menu.dart';
 import '../component/page_editor.dart';
 import '../component/tag_renderer_description.dart';
 
+enum DisplayMode {
+  docsWithPreview,
+  xmlWithPreview,
+  onlyDocs;
+
+  bool get isDocsWithPreview => this == DisplayMode.docsWithPreview;
+  bool get isXmlWithPreview => this == DisplayMode.xmlWithPreview;
+  bool get isOnlyDocs => this == DisplayMode.onlyDocs;
+  bool get isPreviewVisible => this == DisplayMode.docsWithPreview || this == DisplayMode.xmlWithPreview;
+  bool get isDocsVisible => this == DisplayMode.docsWithPreview || this == DisplayMode.onlyDocs;
+
+  String get title {
+    return switch (this) {
+      DisplayMode.docsWithPreview => 'Show XML',
+      DisplayMode.xmlWithPreview => 'Show only docs',
+      DisplayMode.onlyDocs => 'Show docs with preview',
+    };
+  }
+
+  IconData get icon {
+    return switch (this) {
+      DisplayMode.docsWithPreview => IconPack.mdi_file_xml_box,
+      DisplayMode.xmlWithPreview => IconPack.flu_document_bullet_list_cube_regular,
+      DisplayMode.onlyDocs => IconPack.flu_clipboard_text_ltr_filled,
+    };
+  }
+}
+
 class TagsManualView extends StatefulWidget {
   const TagsManualView({super.key});
 
@@ -21,10 +49,16 @@ class TagsManualView extends StatefulWidget {
 }
 
 class _TagsManualViewState extends State<TagsManualView> {
-  bool showDescription = true;
+  DisplayMode mode = DisplayMode.docsWithPreview;
   final DataStorage dataStorage = DataStorage();
 
-  void toggleDescription() => safeSetState(() => showDescription = !showDescription);
+  void toggleDescription() => safeSetState(() {
+        mode = switch (mode) {
+          DisplayMode.docsWithPreview => DisplayMode.xmlWithPreview,
+          DisplayMode.xmlWithPreview => DisplayMode.onlyDocs,
+          DisplayMode.onlyDocs => DisplayMode.docsWithPreview,
+        };
+      });
 
   Widget tagDescription() {
     return BlocBuilder<EditorBloc, EditorState>(
@@ -82,6 +116,23 @@ class _TagsManualViewState extends State<TagsManualView> {
                       padding: const EdgeInsets.only(right: Gap.regular),
                       child: BlocBuilder<EditorBloc, EditorState>(
                         builder: (BuildContext context, EditorState state) {
+                          final bool synced = state.isSyncedWithFile;
+
+                          return KitTooltip(
+                            text: synced ? 'Cancel file sync' : 'Sync editor with filesystem for getting more power',
+                            child: KitIconButton(
+                              color: synced ? context.theme.colorScheme.error : null,
+                              icon: synced ? IconPack.flu_arrow_sync_checkmark_filled : IconPack.flu_arrow_sync_circle_filled,
+                              onPressed: synced ? context.read<EditorBloc>().closeSync : context.read<EditorBloc>().syncWithFile,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: Gap.regular),
+                      child: BlocBuilder<EditorBloc, EditorState>(
+                        builder: (BuildContext context, EditorState state) {
                           return KitTooltip(
                             text: state.asyncMode ? 'Switch to Sync Rendering Mode' : 'Switch to Async Rendering Mode',
                             child: KitIconButton(
@@ -120,9 +171,9 @@ class _TagsManualViewState extends State<TagsManualView> {
                       ),
                     ),
                     KitTooltip(
-                      text: showDescription ? 'Switch to demo editor' : 'Switch to widget description',
+                      text: mode.title,
                       child: KitIconButton(
-                        icon: showDescription ? IconPack.mdi_file_xml_box : IconPack.flu_clipboard_text_ltr_filled,
+                        icon: mode.icon,
                         onPressed: toggleDescription,
                       ),
                     ),
@@ -165,23 +216,26 @@ class _TagsManualViewState extends State<TagsManualView> {
                           top: Gap.regular,
                           bottom: Gap.regular,
                         ),
-                        child: showDescription ? tagDescription() : const PageEditor(),
+                        child: mode.isDocsVisible ? tagDescription() : const PageEditor(),
                       ),
                     ),
 
                     /// ? PREVIEW
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        left: kPadding,
-                        top: kPadding,
-                        right: kPadding,
-                        bottom: kPadding,
-                      ),
-                      child: DataStorageProvider(
-                        dataStorage: dataStorage,
-                        child: const PagePreviewWithFrame(),
-                      ),
-                    ),
+                    if (mode.isPreviewVisible)
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: kPadding,
+                          top: kPadding,
+                          right: kPadding,
+                          bottom: kPadding,
+                        ),
+                        child: DataStorageProvider(
+                          dataStorage: dataStorage,
+                          child: const PagePreviewWithFrame(),
+                        ),
+                      )
+                    else
+                      const SizedBox(width: kPadding)
                   ],
                 ),
               ),
