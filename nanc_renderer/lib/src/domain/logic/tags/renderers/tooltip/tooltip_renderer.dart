@@ -41,17 +41,17 @@ Tooltips provide text labels which help explain the function of a button or othe
       ],
     ),
     example: '''
-<data id="text" text="The true measure of a person's worth is not in what they possess, but in what they give to others. Material possessions and wealth may bring temporary happiness and satisfaction, but true fulfillment and purpose come from making a positive impact on the lives of others. It is through selfless acts of kindness and generosity that we truly define ourselves and leave a lasting legacy."/>
+<data text="The true measure of a person's worth is not in what they possess, but in what they give to others. Material possessions and wealth may bring temporary happiness and satisfaction, but true fulfillment and purpose come from making a positive impact on the lives of others. It is through selfless acts of kindness and generosity that we truly define ourselves and leave a lasting legacy."/>
 
 <safeArea>
   <center>
-    <tooltip text="{{ data(text).text }}" showDuration="2000" waitDuration="300" align="left">
+    <tooltip text="{{ data.text }}" showDuration="2000" waitDuration="300" align="left">
       <prop:margin left="30" right="30"/>
       
       <sizedBox width="250">
         <text maxLines="1">
           <prop:textStyle overflow="ellipsis"/>
-          {{ data(text).text }}
+          {{ data.text }}
         </text>
       </sizedBox>
     </tooltip>

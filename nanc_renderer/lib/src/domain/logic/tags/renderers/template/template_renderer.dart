@@ -3,7 +3,6 @@ import 'package:icons/icons.dart';
 
 import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
-import '../../logic/local_data.dart';
 import '../../logic/template_storage.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';

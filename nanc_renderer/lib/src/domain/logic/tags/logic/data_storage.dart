@@ -9,7 +9,7 @@ String _nextValue(int index) {
 }
 
 String _generateRegExp() {
-  const String foundation = r'storage\.(?<value>\w+)';
+  const String foundation = r'data\.(?<value>\w+)';
   return [
     foundation,
     for (int i = 1; i < 15; i++) _nextValue(i),

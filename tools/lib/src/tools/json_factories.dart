@@ -63,18 +63,26 @@ bool boolFromJson(dynamic value) {
     0,
     '0',
     'false',
-    'null',
-    'undefined',
     'no',
     '-',
     false,
     null,
+    [],
+    {},
+    '[]',
+    '{}',
   };
   dynamic formattedValue = value;
   if (formattedValue is String) {
     formattedValue = formattedValue.trim().toLowerCase();
   }
   if (falsyValues.contains(formattedValue)) {
+    return false;
+  }
+  if (falsyValues is List && falsyValues.isEmpty) {
+    return false;
+  }
+  if (falsyValues is Map && falsyValues.isEmpty) {
     return false;
   }
   return true;
@@ -86,7 +94,7 @@ bool? nullableBoolFromJson(dynamic value) {
   }
   if (value is String) {
     final String string = value.trim().toLowerCase();
-    if (string == 'null' || string == 'undefined' || string.isEmpty) {
+    if (string == 'null' || string == 'undefined') {
       return null;
     }
   }

@@ -8,10 +8,10 @@ part of 'data_arguments.dart';
 
 DataArguments _$DataArgumentsFromJson(Map<String, dynamic> json) =>
     DataArguments(
-      id: json['id'] as String?,
+      namespace: json['namespace'] as String?,
     );
 
 Map<String, dynamic> _$DataArgumentsToJson(DataArguments instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'namespace': instance.namespace,
     };

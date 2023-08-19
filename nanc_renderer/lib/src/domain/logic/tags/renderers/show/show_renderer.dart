@@ -20,47 +20,49 @@ TagRenderer showRenderer() {
 # Show
 
 Show is a conditional statement that allows you to show (or hide) nested widgets. The following values can be used as `false`:
-* `''`
+* `''` - empty string
 * `0`
 * `'0'`
 * `'false'`
-* `'null'`
-* `'undefined'`
 * `'no'`
 * `'-'`
 * `false`
-* `null`
+* `null` - null value
+* `[]` - empty arrays
+* `{}` - empty maps
+* `'[]'` - empty array, serialized as string
+* `'{}'` - empty map, serialized as string
 
-And everything, not from this list - will be interpreted as `true`. This means that if you want to display something by some condition, for example - to display a button only if there is a link for it (it is not empty) - it is enough to use the condition `show="your_link"`.
+And everything, not from this list - will be interpreted as `true`. This means that if you want to display something by some condition, for example - to display a button only if there is a link for it (and it is not empty) - it is enough to use the condition `ifTrue="your_link"`.
 
 Work logic:
-* Children will be displayed if `show` is `true` or `notShow` is `false` (the logic for bringing values to `true/false` is described above).
-* Children **will not** be displayed if `show` is `false` or `notShow` is `true` or none of the parameters is specified or both are `null` or `'null'`.
+* Children will be displayed if `ifTrue` is `true` or `ifFalse` is `false` (the logic for bringing values to `true/false` is described above).
+* Children **will not** be displayed if `ifTrue` is `false` or `ifFalse` is `true` or none of the parameters are specified (equals to `null`) or both are `null` or `'null'` or `'undefined'`.
 
-> At the moment, any computations such as `variable1 > variable2` are not supported. However, you can use classical variable substitution. For example `{{ data(name).someCondition }}` or `{{ page.someCondition }}`.
+> At the moment, any computations such as `variable1 > variable2` are not supported. However, you can use classical variable substitution. For example `{{ data.someCondition }}` or `{{ page.someCondition }}`.
 > 
 > Future plans are to develop supported logic for conditional (and other) operators, with the ability to compute "in place" as well as logic written in Dart directly in Nanc.
 ''',
       arguments: [
-        boolArgument(name: 'show'),
-        boolArgument(name: 'notShow'),
+        boolArgument(name: 'ifTrue'),
+        boolArgument(name: 'ifFalse'),
       ],
       properties: [],
     ),
     example: '''
-<data id="showCondition" needToShow="true"/>
+<data needToShow="true"/>
 
 <safeArea>
   <row mainAxisAlignment="spaceBetween">
-    <show show="true">
+    <show ifTrue="true">
       <container width="50" height="50" color="#457FDA">
       </container>
     </show>
-    <show notShow="false">
+    <show ifFalse="false">
       <container width="50" height="50" color="#DA9745">
       </container>
     </show>
-    <show show="{{ data(showCondition).needToShow }}">
+    <show ifTrue="{{ data.needToShow }}">
       <container width="50" height="50" color="#7BDA45">
       </container>
     </show>
@@ -70,10 +72,10 @@ Work logic:
     builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final ShowArguments arguments = ShowArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
-      if (arguments.show ?? false) {
+      if (arguments.ifTrue ?? false) {
         return compactWidgets(extractor.children);
       }
-      if (arguments.notShow == false) {
+      if (arguments.ifFalse == false) {
         return compactWidgets(extractor.children);
       }
       return null;

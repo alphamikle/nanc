@@ -36,7 +36,7 @@ Another logical widget / tag that allows you to send / handle events that occur 
     <container color="blue" height="100" width="250"/>
   </padding>
 </for>
-<show show="true">
+<show ifTrue="true">
   <visibilityNotifier lifetime="snackbar: Yellow container was alive">
     <padding left="8" right="8" bottom="16">
       <container color="yellow" height="100" width="250"/>

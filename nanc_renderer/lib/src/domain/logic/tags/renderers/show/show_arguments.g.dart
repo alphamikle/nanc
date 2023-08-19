@@ -8,12 +8,12 @@ part of 'show_arguments.dart';
 
 ShowArguments _$ShowArgumentsFromJson(Map<String, dynamic> json) =>
     ShowArguments(
-      show: nullableBoolFromJson(json['show']),
-      notShow: nullableBoolFromJson(json['notShow']),
+      ifTrue: nullableBoolFromJson(json['ifTrue']),
+      ifFalse: nullableBoolFromJson(json['ifFalse']),
     );
 
 Map<String, dynamic> _$ShowArgumentsToJson(ShowArguments instance) =>
     <String, dynamic>{
-      'show': instance.show,
-      'notShow': instance.notShow,
+      'ifTrue': instance.ifTrue,
+      'ifFalse': instance.ifFalse,
     };

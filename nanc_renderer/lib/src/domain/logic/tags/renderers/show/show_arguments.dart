@@ -6,17 +6,17 @@ part 'show_arguments.g.dart';
 @JsonSerializable()
 class ShowArguments {
   const ShowArguments({
-    required this.show,
-    required this.notShow,
+    required this.ifTrue,
+    required this.ifFalse,
   });
 
   factory ShowArguments.fromJson(dynamic json) => _$ShowArgumentsFromJson(castToJson(json));
 
   @JsonKey(fromJson: nullableBoolFromJson)
-  final bool? show;
+  final bool? ifTrue;
 
   @JsonKey(fromJson: nullableBoolFromJson)
-  final bool? notShow;
+  final bool? ifFalse;
 
   Json toJson() => _$ShowArgumentsToJson(this);
 }

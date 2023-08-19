@@ -6,12 +6,14 @@ part 'data_arguments.g.dart';
 @JsonSerializable()
 class DataArguments {
   const DataArguments({
-    required this.id,
+    required this.namespace,
   });
 
   factory DataArguments.fromJson(dynamic json) => _$DataArgumentsFromJson(castToJson(json));
 
-  final String? id;
+  static const String namespaceAttributeName = 'namespace';
+
+  final String? namespace;
 
   Json toJson() => _$DataArgumentsToJson(this);
 

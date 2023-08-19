@@ -5,7 +5,6 @@ import '../renderers/component/element_hash_extension.dart';
 import '../renderers/for/for_renderer.dart';
 import '../tools/chain_extractor.dart';
 import 'for_storage.dart';
-import 'local_data.dart';
 import 'page_data.dart';
 import 'template_storage.dart';
 
@@ -33,37 +32,13 @@ class Substitutor {
   bool haveExpression(String value) => _substitutionRegExp.hasMatch(value);
 
   String substitute(String hash, String value) {
-    final String withLocalData = _replaceWithLocalData(value);
-    final String withDataStorage = _replaceWithDataStorage(withLocalData);
+    final String withDataStorage = _replaceWithDataStorage(value);
     final String withTemplateData = _replaceWithTemplateData(hash, withDataStorage);
     final String withPageData = _replaceWithPageData(withTemplateData);
     final String withCycleData = _replaceWithCycleData(withPageData);
     final String preparedForClearingData = _prepareForClearing(withCycleData);
     final String clearValue = _clearValue(preparedForClearingData);
     return clearValue;
-  }
-
-  String _replaceWithLocalData(String value) {
-    final Iterable<RegExpMatch> matches = LocalData.getMatches(value);
-    if (matches.isEmpty) {
-      return value;
-    }
-    String replacedValue = value;
-    for (final RegExpMatch match in matches) {
-      final String dataId = match.namedGroup(kDataId)!;
-      final String valueId = match.namedGroup(kValueId)!;
-
-      replacedValue = replacedValue.replaceFirst(
-        match.pattern,
-        LocalData.findData(
-              context: context,
-              dataId: dataId,
-              valueId: valueId,
-            ) ??
-            'null',
-      );
-    }
-    return replacedValue;
   }
 
   String _replaceWithDataStorage(String value) {

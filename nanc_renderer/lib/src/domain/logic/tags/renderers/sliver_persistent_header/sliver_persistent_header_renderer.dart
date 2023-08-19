@@ -31,10 +31,10 @@ This is the layout primitive that [SliverAppBar](material/SliverAppBar-class.htm
       properties: [],
     ),
     example: '''
-<data id="header" height="150"/>
+<data header.height="150"/>
 
-<sliverPersistentHeader maxExtent="{{ data(header).height }}" minExtent="100" floating="true">
-  <container color="lightBlue" height="{{ data(header).height }}">
+<sliverPersistentHeader maxExtent="{{ data.header.height }}" minExtent="100" floating="true">
+  <container color="lightBlue" height="{{ data.header.height }}">
     <padding left="8">
       <row crossAxisAlignment="center">
         <text align="left">

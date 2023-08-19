@@ -5,6 +5,7 @@ import '../../model/tag.dart';
 typedef TemplateId = String;
 
 const String kTemplateId = 'templateId';
+const String kValueId = 'valueId';
 
 final RegExp _templateRegExp = RegExp(r'template\((?<templateId>[-\w.]+)\)\.(?<valueId>\w+)');
 
