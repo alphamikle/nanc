@@ -1,11 +1,11 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
-part 'storage_builder_arguments.g.dart';
+part 'data_builder_arguments.g.dart';
 
 @JsonSerializable()
-class StorageBuilderArguments {
-  const StorageBuilderArguments({
+class DataBuilderArguments {
+  const DataBuilderArguments({
     required this.buildAlways,
     required this.buildWhen,
     required this.orWhen,
@@ -13,7 +13,7 @@ class StorageBuilderArguments {
     required this.onUpdate,
   });
 
-  factory StorageBuilderArguments.fromJson(dynamic json) => _$StorageBuilderArgumentsFromJson(castToJson(json));
+  factory DataBuilderArguments.fromJson(dynamic json) => _$DataBuilderArgumentsFromJson(castToJson(json));
 
   @JsonKey(fromJson: nullableBoolFromJson)
   final bool? buildAlways;
@@ -26,5 +26,5 @@ class StorageBuilderArguments {
 
   final String? onUpdate;
 
-  Json toJson() => _$StorageBuilderArgumentsToJson(this);
+  Json toJson() => _$DataBuilderArgumentsToJson(this);
 }

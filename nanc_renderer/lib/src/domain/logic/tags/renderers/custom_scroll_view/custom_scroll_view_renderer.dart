@@ -43,7 +43,7 @@ To control the initial scroll offset of the scroll view, provide a [controller](
       <sizedBox height="8"/>
     </sliverToBoxAdapter>
     <sliverList>
-      <for in="{{ 0...10 }}">
+      <for to="10">
         <padding left="8" right="8" bottom="8">
           <container height="100" color="red"/>
         </padding>
@@ -56,7 +56,7 @@ To control the initial scroll offset of the scroll view, provide a [controller](
     </sliverToBoxAdapter>
     <sliverPadding left="8" right="8">
       <sliverList>
-        <for in="{{ 0...5 }}">
+        <for to="5">
           <padding bottom="8">
             <container height="100" color="yellow"/>
           </padding>
@@ -64,7 +64,7 @@ To control the initial scroll offset of the scroll view, provide a [controller](
       </sliverList>
     </sliverPadding>
     <sliverList>
-      <for in="{{ 0...10 }}">
+      <for to="10">
         <padding left="8" right="8" bottom="8">
           <container height="100" color="blue"/>
         </padding>

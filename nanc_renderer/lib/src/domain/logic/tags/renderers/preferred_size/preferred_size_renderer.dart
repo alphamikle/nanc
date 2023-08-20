@@ -42,7 +42,7 @@ This widget does not impose any constraints on its child, and it doesn't affect 
 
 <sizedBox height="8"/>
 
-<for in="{{ 0...10 }}">
+<for to="10">
   <padding left="8" right="8" bottom="8">
     <container height="50" color="#80FF0000"/>
   </padding>

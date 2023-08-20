@@ -8,6 +8,7 @@ import '../properties/text_style/text_decoration_enum.dart';
 import '../renderers/fade_in/curve_enum.dart';
 import '../renderers/list_view/list_view_arguments.dart';
 import '../renderers/rich_text/text_span/text_span_arguments.dart';
+import '../renderers/switch/switch_arguments.dart';
 import '../renderers/text_field/text_field_arguments.dart';
 
 part 'documentation_types.g.dart';
@@ -86,6 +87,8 @@ class DocumentationTypes {
 
   static Set<String> get strokeAlignEnumValues => _$StrokeAlignEnumEnumMap.values.toSet();
 
+  static Set<String> get switchStyleValues => _$StyleEnumMap.values.toSet();
+
   /// Place some enum here to force codegen create values and use them as a static getters
   CrossAxisAlignment? crossAxisAlignment;
   MainAxisSize? mainAxisSize;
@@ -123,4 +126,5 @@ class DocumentationTypes {
   InputBorderType? inputBorderType;
   BorderStyle? borderStyle;
   StrokeAlignEnum? strokeAlignEnum;
+  Style? switchStyle;
 }

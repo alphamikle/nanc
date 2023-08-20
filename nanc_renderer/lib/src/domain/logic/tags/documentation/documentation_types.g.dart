@@ -67,8 +67,9 @@ DocumentationTypes _$DocumentationTypesFromJson(Map<String, dynamic> json) =>
           $enumDecodeNullable(_$InputBorderTypeEnumMap, json['inputBorderType'])
       ..borderStyle =
           $enumDecodeNullable(_$BorderStyleEnumMap, json['borderStyle'])
-      ..strokeAlignEnum = $enumDecodeNullable(
-          _$StrokeAlignEnumEnumMap, json['strokeAlignEnum']);
+      ..strokeAlignEnum =
+          $enumDecodeNullable(_$StrokeAlignEnumEnumMap, json['strokeAlignEnum'])
+      ..switchStyle = $enumDecodeNullable(_$StyleEnumMap, json['switchStyle']);
 
 Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
     <String, dynamic>{
@@ -117,6 +118,7 @@ Map<String, dynamic> _$DocumentationTypesToJson(DocumentationTypes instance) =>
       'inputBorderType': _$InputBorderTypeEnumMap[instance.inputBorderType],
       'borderStyle': _$BorderStyleEnumMap[instance.borderStyle],
       'strokeAlignEnum': _$StrokeAlignEnumEnumMap[instance.strokeAlignEnum],
+      'switchStyle': _$StyleEnumMap[instance.switchStyle],
     };
 
 const _$CrossAxisAlignmentEnumMap = {
@@ -464,4 +466,9 @@ const _$StrokeAlignEnumEnumMap = {
   StrokeAlignEnum.inside: 'inside',
   StrokeAlignEnum.center: 'center',
   StrokeAlignEnum.outside: 'outside',
+};
+
+const _$StyleEnumMap = {
+  Style.material: 'material',
+  Style.hig: 'hig',
 };

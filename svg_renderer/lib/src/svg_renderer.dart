@@ -80,7 +80,7 @@ Path to a file pre-compiled into a special vector format. Details are available 
       <prop:header name="ETag" value="737060cd8c284d8af7ad3082f209582d"/>
       <prop:colorFilter color="yellow" mode="color"/>
     </svg>
-    <for in="{{ 2...10 }}">
+    <for from="2" to="10">
       <svg ref="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/{{ cycle.value }}.svg" size="50"/>
     </for>
   </column>

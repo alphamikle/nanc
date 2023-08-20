@@ -42,7 +42,7 @@ If the children have a fixed extent in the main axis, consider using [SliverFixe
     example: '''
 <sliverList>
   <sizedBox height="8"/>
-  <for in="{{ 0...100 }}">
+  <for to="100">
     <padding left="8" right="8" bottom="8">
       <container height="50" color="green"/>
     </padding>

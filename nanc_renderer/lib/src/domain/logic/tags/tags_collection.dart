@@ -27,6 +27,7 @@ import 'renderers/component/component_renderer.dart';
 import 'renderers/container/container_renderer.dart';
 import 'renderers/custom_scroll_view/custom_scroll_view_renderer.dart';
 import 'renderers/data/data_renderer.dart';
+import 'renderers/data_builder/data_builder_renderer.dart';
 import 'renderers/default_text_style/default_text_style_renderer.dart';
 import 'renderers/divider/divider_renderer.dart';
 import 'renderers/expanded/expanded_renderer.dart';
@@ -62,7 +63,7 @@ import 'renderers/sliver_persistent_header/sliver_persistent_header_renderer.dar
 import 'renderers/sliver_to_box_adapter/sliver_to_box_adapter_renderer.dart';
 import 'renderers/spacer/spacer_renderer.dart';
 import 'renderers/stack/stack_renderer.dart';
-import 'renderers/storage_builder/storage_builder_renderer.dart';
+import 'renderers/switch/switcher_renderer.dart';
 import 'renderers/template/template_renderer.dart';
 import 'renderers/text/text_renderer.dart';
 import 'renderers/text_button/text_button_renderer.dart';
@@ -169,6 +170,7 @@ abstract class TagsCollection {
     spacerRenderer(),
     listWheelScrollViewRenderer(),
     textFieldRenderer(),
-    storageBuilderRenderer(),
+    dataBuilderRenderer(),
+    switchRenderer(),
   ];
 }

@@ -44,11 +44,13 @@ This widget assumes that the rendered icon is squared. Non-squared icons may ren
       ],
     ),
     example: '''
-<container width="300" height="60" color="#457FDA">
-  <center>
-    <icon icon="mdi_draw_pen" color="#FFF" size="128"/>
-  </center>
-</container>
+<safeArea>
+  <container width="300" height="100" color="#457FDA">
+    <center>
+      <icon icon="mdi_draw_pen" color="#FFF" size="75"/>
+    </center>
+  </container>
+</safeArea>
 ''',
     builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final IconArguments arguments = IconArguments.fromJson(element.attributes);

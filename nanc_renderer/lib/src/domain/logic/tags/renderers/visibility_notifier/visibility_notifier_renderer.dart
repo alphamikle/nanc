@@ -31,7 +31,7 @@ Another logical widget / tag that allows you to send / handle events that occur 
     <container color="green" height="100" width="250"/>
   </padding>
 </visibilityNotifier>
-<for in="{{ 0...15 }}">
+<for to="15">
   <padding left="8" right="8" bottom="16">
     <container color="blue" height="100" width="250"/>
   </padding>
@@ -43,7 +43,7 @@ Another logical widget / tag that allows you to send / handle events that occur 
     </padding>
   </visibilityNotifier>
 </show>
-<for in="{{ 0...15 }}">
+<for to="15">
   <padding left="8" right="8" bottom="16">
     <container color="blue" height="100" width="250"/>
   </padding>

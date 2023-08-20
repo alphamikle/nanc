@@ -91,7 +91,7 @@ For a documentation about the various parameters, see [TextField](material/TextF
   <padding left="8" right="8">
     <textField onChanged="emit:test_field" initialValue="50">
       <prop:inputDecoration label="Type some text here" errorText="There are some error">
-        <prop:inputBorder type="none"/>
+        <prop:inputBorder type="outline"/>
       </prop:inputDecoration>
     </textField>
   </padding>
@@ -99,22 +99,22 @@ For a documentation about the various parameters, see [TextField](material/TextF
   <sizedBox height="8"/>
   
   <padding left="8" right="8">
-    <storageBuilder buildWhen="test_field" onUpdate="test_field_updated">
+    <dataBuilder buildWhen="test_field" onUpdate="test_field_updated">
       <text>
         You typed "{{ storage.test_field }}"
       </text>
-    </storageBuilder>
+    </dataBuilder>
   </padding>
   
   <sizedBox height="8"/>
   
-  <storageBuilder buildWhen="test_field" >
+  <dataBuilder buildWhen="test_field" >
     <for from="0" to="{{ storage.test_field }}">
       <padding left="8" right="8" bottom="8">
         <text text="Item #{{ cycle.index }}"/>
       </padding>
     </for>
-  </storageBuilder>
+  </dataBuilder>
 </safeArea>
 ''',
     builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {

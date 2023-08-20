@@ -48,7 +48,7 @@ This is the layout primitive that [SliverAppBar](material/SliverAppBar-class.htm
 
 <sizedBox height="8"/>
 
-<for in="{{ 0...16 }}">
+<for to="16">
   <padding left="8" right="8" bottom="8">
     <container height="80" color="#FFCCCCCC"/>
   </padding>

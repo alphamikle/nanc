@@ -44,19 +44,19 @@ The main axis direction of a grid is the direction in which it scrolls; the cros
     ),
     example: '''
 <sliverGrid crossAxisCount="5" crossAxisSpacing="8" mainAxisSpacing="8" extent="100">
-  <for in="{{ 0...50 }}">
+  <for to="50">
     <container color="red"/>
   </for>
 </sliverGrid>
 <sizedBox height="8"/>
 <sliverGrid crossAxisCount="5" childAspectRatio="1.33" crossAxisSpacing="8" mainAxisSpacing="8">
-  <for in="{{ 0...50 }}">
+  <for to="50">
     <container color="blue"/>
   </for>
 </sliverGrid>
 <sizedBox height="8"/>
 <sliverGrid childAspectRatio="1.33" crossAxisSpacing="8" mainAxisSpacing="8" maxCrossAxisExtent="100">
-  <for in="{{ 0...50 }}">
+  <for to="50">
     <container color="green"/>
   </for>
 </sliverGrid>

@@ -28,18 +28,21 @@ TagRenderer forRenderer() {
       description: '''
 # For (Cycles)
 
-For - is a special tag / widget, that allows you to have a cycles inside your UI markup. To use these cycles you just need to wrap your widget with `<for>` and set up a variable, which you want iterate through. To do so you have two options:
+For - is a special tag / widget, that allows you to have a cycles inside your UI markup.
+To use these cycles you just need to wrap your widget with `<for>` and set up a variable, which you want iterate through. To do so you have two options:
 
 1. Use a numbered range, for example:
 
 ```
-<for in="{{ 0...10 }}">
+<for from="0" to="10">
   <someWidget indexDependentParam="{{ cycle.index }}" valueDependentParam="{{ cycle.value }}"/>
 </for>
 ```
 With this spelling you will display your widget 10 times with the indexes from the 0 till 9 and the values from the 0 till the 9;
 
-If we change numbers to `{{ 10...20 }}` - then the indexes will be the same and values will be from the 10 till the 19.
+If we change numbers to `from="10" to="20"` - then the indexes will be the same and values will be from the 10 till the 19.
+
+You also can omit `from="0"` if you want to iterate by numbers from zero, because zero - is a default value for the `from` property.
 
 2. Use an iterable value from the page context:
 
@@ -100,8 +103,6 @@ And the following code of the UI will be:
 ```
 
 You also able to create nested cycles, like in example behind, but if you want to be able to use variables from the parent cycle in the child - you will need to set up a names for the indexes and the values. To know how you can do it, please - see the example code.
-
-The last thing about `<for>` is ability to iterate only the part of the array. You can specify the first index (included) of iteration through `from` argument and the last index through `to` argument which will be not included. By default `from` is equal to `0` and `to` is equal to `array.length`. 
 ''',
       arguments: [
         stringArgument(name: 'valueName'),
@@ -114,7 +115,7 @@ The last thing about `<for>` is ability to iterate only the part of the array. Y
     ),
     example: '''
 <safeArea>
-  <for in="{{ 10...20 }}">
+  <for from="10" to="20">
     <padding bottom="{{ cycle.value }}">
       <container color="#EF5757">
         <padding all="{{ cycle.value }}">

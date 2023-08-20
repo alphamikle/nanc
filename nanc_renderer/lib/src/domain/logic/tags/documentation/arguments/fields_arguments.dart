@@ -14,3 +14,5 @@ TagArgument inputBorderTypeArgument({required String name}) => TagArgument(name:
 TagArgument borderStyleArgument({required String name}) => TagArgument(name: name, values: DocumentationTypes.borderStyleValues);
 
 TagArgument strokeAlignArgument({required String name}) => TagArgument(name: name, values: DocumentationTypes.strokeAlignEnumValues);
+
+TagArgument switchStyleArgument({String name = 'style'}) => TagArgument(name: name, values: DocumentationTypes.switchStyleValues);

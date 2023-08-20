@@ -1,14 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'storage_builder_arguments.dart';
+part of 'data_builder_arguments.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-StorageBuilderArguments _$StorageBuilderArgumentsFromJson(
+DataBuilderArguments _$DataBuilderArgumentsFromJson(
         Map<String, dynamic> json) =>
-    StorageBuilderArguments(
+    DataBuilderArguments(
       buildAlways: nullableBoolFromJson(json['buildAlways']),
       buildWhen: json['buildWhen'] as String?,
       orWhen: json['orWhen'] as String?,
@@ -16,8 +16,8 @@ StorageBuilderArguments _$StorageBuilderArgumentsFromJson(
       onUpdate: json['onUpdate'] as String?,
     );
 
-Map<String, dynamic> _$StorageBuilderArgumentsToJson(
-        StorageBuilderArguments instance) =>
+Map<String, dynamic> _$DataBuilderArgumentsToJson(
+        DataBuilderArguments instance) =>
     <String, dynamic>{
       'buildAlways': instance.buildAlways,
       'buildWhen': instance.buildWhen,

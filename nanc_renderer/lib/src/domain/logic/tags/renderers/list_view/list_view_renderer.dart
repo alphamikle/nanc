@@ -42,7 +42,7 @@ Specifying an [itemExtent](widgets/ListView/itemExtent.html) or an [prototypeIte
 <safeArea>
   <sizedBox height="100">
     <listView axis="horizontal">
-      <for in="{{ 1...100 }}">
+      <for from="1" to="100">
         <padding right="10">
           <placeholder width="100" height="100" text="{{ cycle.value }}"/>
         </padding>
