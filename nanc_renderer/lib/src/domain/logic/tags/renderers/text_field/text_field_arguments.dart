@@ -74,6 +74,7 @@ class TextFieldArguments {
     required this.showCursor,
     required this.textCapitalization,
     required this.textInputAction,
+    required this.onTapOutside,
   });
 
   factory TextFieldArguments.fromJson(dynamic json) => _$TextFieldArgumentsFromJson(castToJson(json));
@@ -153,6 +154,8 @@ class TextFieldArguments {
   final String? obscuringCharacter;
 
   final String? onEditingComplete;
+
+  final String? onTapOutside;
 
   final String? onFieldSubmitted;
 

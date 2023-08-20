@@ -60,7 +60,7 @@ You can build the following logic chains to update your UI only when specific da
         stringArgument(name: 'buildWhen'),
         stringArgument(name: 'orWhen'),
         stringArgument(name: 'andWhen'),
-        stringArgument(name: 'onUpdate'),
+        eventArgument(name: 'onUpdate', metaName: 'state', metaValue: 'String with corresponding deserialized DataStorage state'),
       ],
       properties: [],
     ),

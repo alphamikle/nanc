@@ -61,6 +61,7 @@ TextFieldArguments _$TextFieldArgumentsFromJson(Map<String, dynamic> json) =>
       textInputAction: $enumDecodeNullable(
           _$TextInputActionEnumMap, json['textInputAction'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
+      onTapOutside: json['onTapOutside'] as String?,
     );
 
 Map<String, dynamic> _$TextFieldArgumentsToJson(TextFieldArguments instance) =>
@@ -92,6 +93,7 @@ Map<String, dynamic> _$TextFieldArgumentsToJson(TextFieldArguments instance) =>
       'obscureText': instance.obscureText,
       'obscuringCharacter': instance.obscuringCharacter,
       'onEditingComplete': instance.onEditingComplete,
+      'onTapOutside': instance.onTapOutside,
       'onFieldSubmitted': instance.onFieldSubmitted,
       'onSaved': instance.onSaved,
       'readOnly': instance.readOnly,

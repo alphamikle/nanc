@@ -44,7 +44,7 @@ The [InkWell](material/InkWell-class.html) widget must have a [Material](materia
         eventArgument(name: 'onPressed'),
         eventArgument(name: 'onDoubleTap'),
         eventArgument(name: 'onLongPress'),
-        eventArgument(name: 'onHover'),
+        eventArgument(name: 'onHover', metaName: 'isHovered', metaValue: 'bool'),
       ],
       properties: [
         borderRadiusProp(),

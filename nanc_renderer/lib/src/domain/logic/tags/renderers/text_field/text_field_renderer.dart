@@ -48,7 +48,8 @@ For a documentation about the various parameters, see [TextField](material/TextF
         textDirectionArgument(),
         clipArgument(name: 'clip'),
         eventArgument(name: 'onTap'),
-        eventArgument(name: 'onChanged'),
+        eventArgument(name: 'onTapOutside', metaName: 'event', metaValue: 'PointerDownEvent'),
+        eventArgument(name: 'onChanged', metaName: 'value', metaValue: 'String'),
         boolArgument(name: 'autocorrect'),
         boolArgument(name: 'autofocus'),
         autovalidateModeArgument(name: 'autovalidateMode'),
@@ -69,9 +70,9 @@ For a documentation about the various parameters, see [TextField](material/TextF
         cursorArgument(),
         boolArgument(name: 'obscureText'),
         stringArgument(name: 'obscuringCharacter'),
-        eventArgument(name: 'onEditingComplete'),
-        eventArgument(name: 'onFieldSubmitted'),
-        eventArgument(name: 'onSaved'),
+        eventArgument(name: 'onEditingComplete', metaName: 'value', metaValue: 'String'),
+        eventArgument(name: 'onFieldSubmitted', metaName: 'value', metaValue: 'String'),
+        eventArgument(name: 'onSaved', metaName: 'value', metaValue: 'String'),
         boolArgument(name: 'readOnly'),
         boolArgument(name: 'scribbleEnabled'),
         doubleArgument(name: 'scrollPadding'),
@@ -176,16 +177,16 @@ For a documentation about the various parameters, see [TextField](material/TextF
         )?.call(),
         onSaved: (String? value) async => handleEvent(
           context: context,
-          event: arguments.onFieldSubmitted,
+          event: arguments.onSaved,
           meta: {
             'value': value,
           },
         )?.call(),
-        onTapOutside: (PointerDownEvent value) async => handleEvent(
+        onTapOutside: (PointerDownEvent event) async => handleEvent(
           context: context,
-          event: arguments.onFieldSubmitted,
+          event: arguments.onTapOutside,
           meta: {
-            'value': value,
+            'event': event,
           },
         )?.call(),
         readOnly: arguments.readOnly ?? false,

@@ -34,7 +34,7 @@ If the [onPressed](material/ButtonStyleButton/onPressed.html) and [onLongPress](
       arguments: [
         eventArgument(name: 'onPressed'),
         eventArgument(name: 'onLongPress'),
-        eventArgument(name: 'onHover'),
+        eventArgument(name: 'onHover', metaName: 'isHovered', metaValue: 'bool'),
         stringArgument(name: 'text'),
       ],
       properties: [

@@ -20,7 +20,7 @@ Another logical widget / tag that allows you to send / handle events that occur 
       arguments: [
         eventArgument(name: 'onShow'),
         eventArgument(name: 'onHide'),
-        eventArgument(name: 'lifetime'),
+        eventArgument(name: 'lifetime', metaName: 'duration_ms', metaValue: 'int'),
       ],
       properties: [],
     ),

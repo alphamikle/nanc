@@ -28,7 +28,7 @@ The children are rendered as if rotating on a wheel instead of scrolling on a pl
         doubleArgument(name: 'magnification'),
         doubleArgument(name: 'offAxisFraction'),
         doubleArgument(name: 'offAxisFraction'),
-        stringArgument(name: 'onSelectedItemChanged'),
+        eventArgument(name: 'onSelectedItemChanged', metaName: 'index', metaValue: 'int'),
         doubleArgument(name: 'overAndUnderCenterOpacity'),
         doubleArgument(name: 'perspective'),
         boolArgument(name: 'renderChildrenOutsideViewport'),
