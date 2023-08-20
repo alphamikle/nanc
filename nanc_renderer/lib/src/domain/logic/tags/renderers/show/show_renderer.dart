@@ -46,6 +46,9 @@ Work logic:
       arguments: [
         boolArgument(name: 'ifTrue'),
         boolArgument(name: 'ifFalse'),
+        boolArgument(
+            name: 'nullAsFalse',
+            description: "If equal to `true` - then the absence of an `ifFalse` value, or `null` | `'null'` - will be interpreted as `false`."),
       ],
       properties: [],
     ),
@@ -75,7 +78,8 @@ Work logic:
       if (arguments.ifTrue ?? false) {
         return compactWidgets(extractor.children);
       }
-      if (arguments.ifFalse == false) {
+      final bool nullAsFalse = arguments.nullAsFalse ?? false;
+      if (nullAsFalse ? arguments.ifFalse != true : arguments.ifFalse == false) {
         return compactWidgets(extractor.children);
       }
       return null;

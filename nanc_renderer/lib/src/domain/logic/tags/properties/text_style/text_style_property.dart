@@ -39,6 +39,7 @@ PropertyTagRenderer<TextStyle> textStyleProperty(String tag) {
         decoration: arguments.decoration?.toTextDecoration(),
         overflow: arguments.overflow,
         textBaseline: arguments.baseline,
+        fontFamily: arguments.font,
       );
 
       return TextStylePropertyWidget(

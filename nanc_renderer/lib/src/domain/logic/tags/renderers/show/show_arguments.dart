@@ -8,6 +8,7 @@ class ShowArguments {
   const ShowArguments({
     required this.ifTrue,
     required this.ifFalse,
+    required this.nullAsFalse,
   });
 
   factory ShowArguments.fromJson(dynamic json) => _$ShowArgumentsFromJson(castToJson(json));
@@ -17,6 +18,9 @@ class ShowArguments {
 
   @JsonKey(fromJson: nullableBoolFromJson)
   final bool? ifFalse;
+
+  @JsonKey(fromJson: nullableBoolFromJson)
+  final bool? nullAsFalse;
 
   Json toJson() => _$ShowArgumentsToJson(this);
 }
