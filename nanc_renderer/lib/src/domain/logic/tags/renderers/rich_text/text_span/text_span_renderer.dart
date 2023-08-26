@@ -62,7 +62,8 @@ A [TextSpan](painting/TextSpan-class.html) object can just have plain text, or i
         return null;
       }
 
-      TextStyle? style = extractor.getProperty(textStyle) ?? const TextStyle();
+      // TODO(alphamikle): Need to check
+      TextStyle? style = extractor.getProperty(textStyle) ?? const TextStyle(inherit: false);
 
       if (style.fontSize == null && arguments.size != null) {
         style = style.copyWith(fontSize: arguments.size);
