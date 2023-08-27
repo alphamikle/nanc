@@ -38,8 +38,11 @@ class DataStorage extends Cubit<Json> {
       return null;
     }
 
-    /// ? Remove "storage" item at start
-    final List<String> queryPieces = query.split('.')..removeAt(0);
+    /// ? Remove "data" item at start
+    final List<String> queryPieces = query.split('.');
+    if (queryPieces.isNotEmpty && queryPieces.first == 'data') {
+      queryPieces.removeAt(0);
+    }
     return _valueFinder(queryPieces);
   }
 
@@ -50,8 +53,11 @@ class DataStorage extends Cubit<Json> {
       return null;
     }
 
-    /// ? Remove "page" item at start
-    final List<String> queryPieces = query.split('.')..removeAt(0);
+    /// ? Remove "data" item at start
+    final List<String> queryPieces = query.split('.');
+    if (queryPieces.isNotEmpty && queryPieces.first == 'data') {
+      queryPieces.removeAt(0);
+    }
     return _valueAsStringFinder(queryPieces);
   }
 
