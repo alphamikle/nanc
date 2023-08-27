@@ -39,15 +39,20 @@ TagRenderer componentRenderer() {
     ),
     example: '''
 <template id="exampleCard">
-  <container width="{{ template.size }}" height="{{ template.size }}" color="{{ template.color }}">
-  </container>
+  <container width="{{ template.size }}" height="{{ template.size }}" color="{{ template.color }}"/>
+  <!-- Slots in development for now -->
+  <!-- <slot name="bottom"/> -->
 </template>
 
 <container width="300" height="600" color="#457FDA">
   <column>
     <component id="exampleCard" size="100" color="#7BDA45"/>
     <component id="exampleCard" size="150" color="#A5DA9745"/>
-    <component id="exampleCard" size="100" color="#7BDA45"/>
+    <component id="exampleCard" size="100" color="#7BDA45">
+      <alias name="bottom">
+        <text text="I'm a bottom component"/>
+      </alias>
+    </component>
   </column>
 </container>
 ''',

@@ -1,21 +1,72 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
-import '../../../../../nanc_renderer.dart';
+import '../../model/tag.dart';
 import '../renderers/component/element_hash_extension.dart';
-import '../renderers/for/for_renderer.dart';
-import '../tools/chain_extractor.dart';
+import 'data_storage.dart';
+import 'document_storage.dart';
 import 'for_storage.dart';
-import 'page_data.dart';
+import 'handlers/brackets_expression_handler.dart';
+import 'handlers/calculation_expression_handler.dart';
+import 'handlers/cycle_expression_handler.dart';
+import 'handlers/data_storage_expression_handler.dart';
+import 'handlers/document_storage_expression_handler.dart';
+import 'handlers/template_expression_handler.dart';
 import 'template_storage.dart';
+
+typedef ExpressionHandler = String Function(String expression);
+
+final RegExp _substitutionRegExp = RegExp(r'{{[^}]+}}');
 
 class Substitutor {
   Substitutor({
-    required this.context,
-  });
+    required BuildContext context,
+  })  : _context = context,
+        _testDataStorage = null,
+        _testTemplateStorage = null,
+        _testPageData = null,
+        _testForStorage = null;
 
-  final BuildContext context;
-  final RegExp _substitutionRegExp = RegExp(r'{{.*}}');
-  final RegExp _clearingRegExp = RegExp(r'(?<start>{{)(?<content>[^}]+)(?<end>}})');
+  @visibleForTesting
+  Substitutor.test({
+    required DataStorage dataStorage,
+    required TemplateStorage templateStorage,
+    required DocumentStorage pageData,
+    required ForStorage forStorage,
+  })  : _context = null,
+        _testDataStorage = dataStorage,
+        _testTemplateStorage = templateStorage,
+        _testPageData = pageData,
+        _testForStorage = forStorage;
+
+  final BuildContext? _context;
+
+  bool get _isTest => kDebugMode && _context == null;
+
+  final DataStorage? _testDataStorage;
+  final TemplateStorage? _testTemplateStorage;
+  final DocumentStorage? _testPageData;
+  final ForStorage? _testForStorage;
+
+  @visibleForTesting
+  final List<RegExpMatch> testExpressions = [];
+
+  List<ExpressionHandler> _createHandlers({
+    required DataStorage dataStorage,
+    required String hash,
+    required TemplateStorage templateStorage,
+    required DocumentStorage pageDataStorage,
+    required ForStorage forStorage,
+  }) {
+    return [
+      bracketsExpressionHandler,
+      dataStorageExpressionHandler(dataStorage),
+      templateExpressionHandler(hash, templateStorage),
+      documentStorageExpressionHandler(pageDataStorage),
+      cycleExpressionHandler(forStorage),
+      calculationExpressionHandler,
+    ];
+  }
 
   static WidgetTag enrichElement({required BuildContext context, required WidgetTag node}) {
     final Substitutor substitutor = Substitutor(context: context);
@@ -23,7 +74,7 @@ class Substitutor {
     for (final MapEntry<String, String> attributeEntry in node.attributes.entries) {
       if (substitutor.haveExpression(attributeEntry.value)) {
         attributes[attributeEntry.key] = substitutor.substitute(node.contentHash, attributeEntry.value);
-        attributes['${attributeEntry.key}_old'] = substitutor._clearValue(substitutor._prepareForClearing(attributeEntry.value));
+        attributes['${attributeEntry.key}_old'] = bracketsExpressionHandler(attributeEntry.value);
       }
     }
     return node.copyWith(attributes: attributes);
@@ -32,126 +83,27 @@ class Substitutor {
   bool haveExpression(String value) => _substitutionRegExp.hasMatch(value);
 
   String substitute(String hash, String value) {
-    final String withDataStorage = _replaceWithDataStorage(value);
-    final String withTemplateData = _replaceWithTemplateData(hash, withDataStorage);
-    final String withPageData = _replaceWithPageData(withTemplateData);
-    final String withCycleData = _replaceWithCycleData(withPageData);
-    final String preparedForClearingData = _prepareForClearing(withCycleData);
-    final String clearValue = _clearValue(preparedForClearingData);
-    return clearValue;
-  }
-
-  String _replaceWithDataStorage(String value) {
-    final Iterable<RegExpMatch> matches = DataStorage.getMatches(value);
-    if (matches.isEmpty) {
-      return value;
+    if (_isTest) {
+      final Iterable<RegExpMatch> expressions = _substitutionRegExp.allMatches(value);
+      testExpressions.addAll(expressions);
     }
-    String replacedValue = value;
-    final DataStorage pageDataProvider = DataStorage.of(context);
-    for (final RegExpMatch match in matches) {
-      final String? query = match.group(0);
-      final String pageData = pageDataProvider.getValueAsString(query: query) ?? 'null';
 
-      replacedValue = replacedValue.replaceFirst(
-        match.pattern,
-        pageData,
-      );
-    }
-    return replacedValue;
-  }
+    final List<ExpressionHandler> handlers = _createHandlers(
+      dataStorage: _isTest ? _testDataStorage! : DataStorage.of(_context!),
+      hash: hash,
+      templateStorage: _isTest ? _testTemplateStorage! : TemplateStorage.of(_context!),
+      pageDataStorage: _isTest ? _testPageData! : DocumentStorage.of(_context!),
+      forStorage: _isTest ? _testForStorage! : ForStorage.of(_context!),
+    );
 
-  String _replaceWithTemplateData(String hash, String value) {
-    final Iterable<RegExpMatch> matches = TemplateStorage.getMatches(value);
-    if (matches.isEmpty) {
-      return value;
-    }
-    String replacedValue = value;
-    for (final RegExpMatch match in matches) {
-      final String templateId = match.namedGroup(kTemplateId)!;
-      final String valueId = match.namedGroup(kValueId)!;
-      final String data = TemplateStorage.findData(
-            context: context,
-            templateId: templateId,
-            valueId: valueId,
-            hash: hash,
-          ) ??
-          'null';
-      replacedValue = replacedValue.replaceFirst(match.pattern, data);
-    }
-    return replacedValue;
-  }
-
-  String _replaceWithPageData(String value) {
-    final Iterable<RegExpMatch> matches = PageData.getMatches(value);
-    if (matches.isEmpty) {
-      return value;
-    }
-    String replacedValue = value;
-    final PageData pageDataProvider = PageData.of(context);
-    for (final RegExpMatch match in matches) {
-      final String? query = match.group(0);
-      final String pageData = pageDataProvider.getValueAsString(query: query) ?? 'null';
-
-      replacedValue = replacedValue.replaceFirst(
-        match.pattern,
-        pageData,
-      );
-    }
-    return replacedValue;
-  }
-
-  String _replaceWithCycleData(String value) {
-    final Iterable<RegExpMatch> matches = ForStorage.getMatches(value);
-    if (matches.isEmpty) {
-      return value;
-    }
-    String replacedValue = value;
-    final ForStorage forStorage = ForStorage.of(context);
-    for (final RegExpMatch match in matches) {
-      final String cycleId = match.namedGroup('cycleId')!;
-      final int index = int.parse(match.namedGroup('index')!);
-      final String paramName = match.namedGroup('paramName')!;
-      final String? expression = match.namedGroup('expression');
-      final List<Object?>? values = forStorage.getCycleData(cycleId);
-      final bool isNull = index < 0 || values == null || values.isEmpty || values.length <= index;
-      final bool isIndex = paramName.startsWith(kIndex);
-      final bool isSimpleValue = paramName.startsWith(kValue) && expression == null;
-
-      String cycleData = 'null';
-      if (isNull == false) {
-        if (isIndex) {
-          cycleData = index.toString();
-        } else if (isSimpleValue) {
-          cycleData = values![index].toString();
-        } else {
-          final dynamic value = values![index];
-          cycleData = extractValueByChain(value, expression!.split('.')).toString();
-        }
+    final String result = value.replaceAllMapped(_substitutionRegExp, (Match match) {
+      final String originalExpression = match.group(0)!;
+      String expression = originalExpression;
+      for (final ExpressionHandler handler in handlers) {
+        expression = handler(expression);
       }
-
-      replacedValue = replacedValue.replaceFirst(
-        match.pattern,
-        cycleData,
-      );
-    }
-    return replacedValue;
-  }
-
-  String _prepareForClearing(String value) {
-    return value.replaceAll(RegExp(r'{{ *'), '{{').replaceAll(RegExp(r' *}}'), '}}');
-  }
-
-  String _clearValue(String value) {
-    final Iterable<RegExpMatch> matches = _clearingRegExp.allMatches(value);
-    if (matches.isEmpty) {
-      return value;
-    }
-    String clearValue = value;
-
-    for (final RegExpMatch match in matches) {
-      final String content = match.namedGroup('content')!;
-      clearValue = clearValue.replaceFirst(match.pattern, content);
-    }
-    return clearValue;
+      return expression;
+    });
+    return result;
   }
 }

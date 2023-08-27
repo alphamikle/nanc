@@ -4,22 +4,12 @@ import 'package:tools/tools.dart';
 
 import '../tools/chain_extractor.dart';
 
-String _nextValue(int index) {
-  return '(\\.(?<value$index>\\w+))?';
-}
-
-String _generateRegExp() {
-  const String foundation = r'data\.(?<value>\w+)';
-  return [
-    foundation,
-    for (int i = 1; i < 15; i++) _nextValue(i),
-  ].join();
-}
-
-final RegExp _storageRegExp = RegExp(_generateRegExp());
+final RegExp _storageRegExp = RegExp(r'data(\.\w+)+');
 
 class DataStorage extends Cubit<Json> {
-  DataStorage() : super(const {});
+  DataStorage({
+    Json data = const {},
+  }) : super(data);
 
   static DataStorage of(BuildContext context) {
     final DataStorage? dataStorage = context.read();

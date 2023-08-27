@@ -17,8 +17,8 @@ String _generateRegExp() {
 
 final RegExp _pageDataQueryRegExp = RegExp(_generateRegExp());
 
-class PageData extends InheritedWidget {
-  const PageData({
+class DocumentStorage extends InheritedWidget {
+  const DocumentStorage({
     required super.child,
     required this.data,
     super.key,
@@ -26,10 +26,10 @@ class PageData extends InheritedWidget {
 
   final Map<String, dynamic> data;
 
-  static PageData of(BuildContext context) {
-    final PageData? pageData = context.dependOnInheritedWidgetOfExactType<PageData>();
+  static DocumentStorage of(BuildContext context) {
+    final DocumentStorage? pageData = context.dependOnInheritedWidgetOfExactType<DocumentStorage>();
     if (pageData == null) {
-      throw Exception('Not found PageData at the widget tree');
+      throw Exception('Not found DocumentStorage at the widget tree');
     }
     return pageData;
   }
@@ -43,7 +43,7 @@ class PageData extends InheritedWidget {
     if (query == null) {
       return null;
     }
-    return PageData.of(context).getValueAsString(query: query);
+    return DocumentStorage.of(context).getValueAsString(query: query);
   }
 
   static dynamic findData({
@@ -53,7 +53,7 @@ class PageData extends InheritedWidget {
     if (query == null) {
       return null;
     }
-    return PageData.of(context).getValue(query: query);
+    return DocumentStorage.of(context).getValue(query: query);
   }
 
   String? getValueAsString({
@@ -95,5 +95,5 @@ class PageData extends InheritedWidget {
   }
 
   @override
-  bool updateShouldNotify(PageData oldWidget) => oldWidget.data != data;
+  bool updateShouldNotify(DocumentStorage oldWidget) => oldWidget.data != data;
 }

@@ -3,9 +3,9 @@ import 'package:tools/tools.dart';
 
 import '../../../service/sliver_checker.dart';
 import '../../logic/tags/logic/data_storage.dart';
+import '../../logic/tags/logic/document_storage.dart';
 import '../../logic/tags/logic/for_storage.dart';
 import '../../logic/tags/logic/image_builder_delegate.dart';
-import '../../logic/tags/logic/page_data.dart';
 import '../../logic/tags/logic/template_storage.dart';
 import '../../logic/tags/rich_renderer.dart';
 import '../../logic/tags/tag_renderer.dart';
@@ -153,7 +153,7 @@ class NuiListWidget extends StatelessWidget {
       errorBuilder: imageErrorBuilder,
       frameBuilder: imageFrameBuilder,
       child: ForStorage(
-        child: PageData(
+        child: DocumentStorage(
           data: pageData,
           child: TemplateStorage(
             child: Builder(

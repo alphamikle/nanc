@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../logic/tags/logic/document_storage.dart';
 import '../../logic/tags/logic/for_storage.dart';
 import '../../logic/tags/logic/image_builder_delegate.dart';
-import '../../logic/tags/logic/page_data.dart';
 import '../../logic/tags/logic/template_storage.dart';
 import '../../logic/tags/rich_renderer.dart';
 import '../../logic/tags/tag_renderer.dart';
@@ -82,7 +82,7 @@ class NuiStackWidget extends StatelessWidget {
       errorBuilder: imageErrorBuilder,
       frameBuilder: imageFrameBuilder,
       child: ForStorage(
-        child: PageData(
+        child: DocumentStorage(
           data: pageData,
           child: Builder(
             builder: (BuildContext context) {

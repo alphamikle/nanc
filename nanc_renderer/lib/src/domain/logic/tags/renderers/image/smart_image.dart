@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
-import 'package:tools/tools.dart';
 
 import '../../logic/image_builder_delegate.dart';
 
@@ -30,11 +29,13 @@ class SmartImage extends StatelessWidget {
   bool get withBlurHash => blurHash != null && blurHash != '' && blurHash != 'null';
 
   Widget blurHashLoadingBuilder(BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
-    if (loadingProgress != null) {
-      logInfo('Loading progress of "$ref" is ${loadingProgress.cumulativeBytesLoaded / loadingProgress.cumulativeBytesLoaded}');
-    } else {
-      logInfo('Loading progress is null');
-    }
+    // if (kDebugMode) {
+    //   if (loadingProgress != null) {
+    //     logInfo('Loading progress of "$ref" is ${loadingProgress.cumulativeBytesLoaded / loadingProgress.cumulativeBytesLoaded}');
+    //   } else {
+    //     logInfo('Loading progress is null');
+    //   }
+    // }
 
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 250),

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 
 import 'color_tools.dart';
@@ -41,7 +39,6 @@ Color? nullableColorFromJson(String? color) {
     }
     return Color(int.parse(clearColor));
   }
-  log('Unsupported Color format: $color', name: 'WARNING');
   return null;
 }
 

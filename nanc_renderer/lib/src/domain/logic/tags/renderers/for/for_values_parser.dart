@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../logic/document_storage.dart';
 import '../../logic/for_storage.dart';
-import '../../logic/page_data.dart';
 
 final RegExp _rangeValuesRegExp = RegExp(r'(?<from>\d+)\.\.\.(?<to>\d+)');
 final RegExp _valuesRegExp = RegExp(r'page.(?<expression>[-\w.]+)');
@@ -42,7 +42,7 @@ class ForValuesParser {
     if (valuesString != null) {
       // TODO(alphamikle): Support DataStorage too
       if (_valuesRegExp.hasMatch(valuesString!)) {
-        final dynamic values = PageData.findData(context: context, query: valuesString);
+        final dynamic values = DocumentStorage.findData(context: context, query: valuesString);
         if (values is Iterable) {
           _values = List.from(values);
         }
