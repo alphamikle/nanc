@@ -7,6 +7,7 @@ import '../../logic/template_storage.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';
 import '../../tag_renderer.dart';
+import '../component/component_renderer.dart';
 import 'template_arguments.dart';
 
 const String kTemplate = 'template';
@@ -21,29 +22,20 @@ TagRenderer templateRenderer() {
       description: '''
 # Template
 
-Template is another custom widget, the blood brother of the `component`. Template allows you to describe a complex widget and then easily reuse it in your UI. It can be compared to a custom Flutter widget written by your own hands.
+Template is another custom widget, the blood brother of the `component`.
+Template allows you to describe a complex widget and then easily reuse it in your UI.
+It can be compared to a custom Flutter widget written by your own hands.
 
-At the moment there is support only for parameters passing, but in the near future it will be possible to transfer other components, getting the most flexibility.
+> Also, you can use `slot` and `alias` - special tags designed to pass other widgets/tags as arguments, inside templates.
+
+For more clarity, take a look at the examples.
 ''',
       arguments: [
         idArgument(),
       ],
       properties: [],
     ),
-    example: '''
-<template id="exampleCard">
-  <container width="{{ template.size }}" height="{{ template.size }}" color="{{ template.color }}">
-  </container>
-</template>
-
-<container width="300" height="600" color="#457FDA">
-  <column>
-    <component id="exampleCard" size="100" color="#7BDA45"/>
-    <component id="exampleCard" size="150" color="#A5DA9745"/>
-    <component id="exampleCard" size="100" color="#7BDA45"/>
-  </column>
-</container>
-''',
+    example: componentRenderer().example,
     builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final TemplateArguments arguments = TemplateArguments.fromJson(element.attributes);
 

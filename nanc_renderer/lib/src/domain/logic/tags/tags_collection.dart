@@ -61,6 +61,7 @@ import 'renderers/sliver_list/sliver_list_renderer.dart';
 import 'renderers/sliver_padding/sliver_padding_renderer.dart';
 import 'renderers/sliver_persistent_header/sliver_persistent_header_renderer.dart';
 import 'renderers/sliver_to_box_adapter/sliver_to_box_adapter_renderer.dart';
+import 'renderers/slot/slot_renderer.dart';
 import 'renderers/spacer/spacer_renderer.dart';
 import 'renderers/stack/stack_renderer.dart';
 import 'renderers/switch/switcher_renderer.dart';
@@ -172,5 +173,6 @@ abstract class TagsCollection {
     textFieldRenderer(),
     dataBuilderRenderer(),
     switchRenderer(),
+    slotRenderer(),
   ];
 }

@@ -7,19 +7,26 @@ import '../sliver_app_bar/sliver_app_bar_renderer.dart';
 import 'alias_arguments.dart';
 import 'alias_widget.dart';
 
+const String kAliasTag = 'alias';
+const String kAliasName = 'name';
+
 TagRenderer aliasRenderer() {
   return TagRenderer(
     icon: IconPack.flu_box_multiple_search_regular,
     tagType: TagType.widget,
-    tag: 'alias',
+    tag: kAliasTag,
     description: TagDescription(
       description: '''
 # Alias
 
-A special widget used to retrieve named argument widgets. For example, `SliverAppBar` widget has several named widget descendants: `title`, `leading` etc. To be able to get a specific widget by its name-location, we need the `alias` tag. Also, you can specify several aliases with the same name and then retrieve them all, in this case you will get a list of widgets. For more clarity, take a look at the examples.
+A special widget used to retrieve named argument widgets.
+For example, `SliverAppBar` widget has several named widget descendants: `title`, `leading` etc.
+To be able to get a specific widget by its name-location, we need the `alias` tag.
+Also, you can specify several aliases with the same name and then retrieve them all, in this case you will get a list of widgets.
+For more clarity, take a look at the examples.
       ''',
       arguments: [
-        stringArgument(name: 'name'),
+        stringArgument(name: kAliasName),
       ],
       properties: [],
     ),

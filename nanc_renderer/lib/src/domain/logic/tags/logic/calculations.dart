@@ -1,3 +1,5 @@
+import 'package:decimal/decimal.dart';
+import 'package:eval_ex/built_ins.dart';
 import 'package:eval_ex/expression.dart';
 import 'package:tools/tools.dart';
 
@@ -67,7 +69,7 @@ abstract final class Calculations {
   static String _calculate(String expression) {
     try {
       final Stopwatch sw = Stopwatch()..start();
-      final String result = Expression(expression).eval().toString();
+      final String result = _createExpression(expression).eval().toString();
       sw.stop();
       sw.reset();
       return result;
@@ -83,5 +85,48 @@ abstract final class Calculations {
     }
 
     return functions.hasMatch(expression) || mathOperators.hasMatch(expression);
+  }
+
+  static Expression _createExpression(String expression) {
+    final Expression result = Expression(expression);
+    result.addOperator(
+      OperatorImpl(
+        'and',
+        Expression.operatorPrecedenceAnd,
+        false,
+        booleanOperator: true,
+        fEval: (v1, v2) {
+          final bool b1 = v1.compareTo(Decimal.zero) != 0;
+
+          if (!b1) {
+            return Decimal.zero;
+          }
+
+          final bool b2 = v2.compareTo(Decimal.zero) != 0;
+
+          return b2 ? Decimal.one : Decimal.zero;
+        },
+      ),
+    );
+    result.addOperator(
+      OperatorImpl(
+        'or',
+        Expression.operatorPrecedenceOr,
+        false,
+        booleanOperator: true,
+        fEval: (v1, v2) {
+          final bool b1 = v1.compareTo(Decimal.zero) != 0;
+
+          if (b1) {
+            return Decimal.one;
+          }
+
+          final bool b2 = v2.compareTo(Decimal.zero) != 0;
+
+          return b2 ? Decimal.one : Decimal.zero;
+        },
+      ),
+    );
+    return result;
   }
 }
