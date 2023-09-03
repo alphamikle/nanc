@@ -31,13 +31,15 @@ An [Expanded](widgets/Expanded-class.html) widget must be a descendant of a [Row
       properties: [],
     ),
     example: '''
+<data filled="65"/>
+
 <safeArea>
   <row>
-    <expanded flex="2">
+    <expanded flex="{{ data.filled }}">
       <container height="50" color="#457FDA">
       </container>
     </expanded>
-    <expanded flex="1">
+    <expanded flex="{{ 100 - data.filled }}">
       <container height="50" color="#7BDA45">
       </container>
     </expanded>

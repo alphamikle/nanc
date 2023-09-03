@@ -53,11 +53,11 @@ Work logic:
       properties: [],
     ),
     example: '''
-<data needToShow="true"/>
+<data showFirst="true" hideThird="false"/>
 
 <safeArea>
   <row mainAxisAlignment="spaceBetween">
-    <show ifTrue="true">
+    <show ifTrue="{{ data.showFirst }}">
       <container width="50" height="50" color="#457FDA">
       </container>
     </show>
@@ -65,8 +65,12 @@ Work logic:
       <container width="50" height="50" color="#DA9745">
       </container>
     </show>
-    <show ifTrue="{{ data.needToShow }}">
+    <show ifFalse="{{ data.hideThird }}">
       <container width="50" height="50" color="#7BDA45">
+      </container>
+    </show>
+    <show ifTrue="{{ data.showFirst && data.hideThird }}">
+      <container width="50" height="50" color="pink">
       </container>
     </show>
   </row>
