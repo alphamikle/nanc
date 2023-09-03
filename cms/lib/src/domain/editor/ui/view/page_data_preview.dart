@@ -15,11 +15,14 @@ class PageDataPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String? binaryScreenFieldId = field is ScreenField ? (field as ScreenField).binaryDataFieldId : null;
+
     return KitJsonPreview(
       data: data,
       excludedKeys: {
         field.id,
         RegExp(kStructureKey),
+        if (binaryScreenFieldId != null && binaryScreenFieldId.isNotEmpty) binaryScreenFieldId,
       },
     );
   }

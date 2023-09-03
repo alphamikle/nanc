@@ -206,6 +206,7 @@ const _$FieldTypeEnumMap = {
   FieldType.structureField: 'structureField',
   FieldType.colorField: 'colorField',
   FieldType.screenField: 'screenField',
+  FieldType.binaryField: 'binaryField',
   FieldType.headerField: 'headerField',
   FieldType.groupField: 'groupField',
   FieldType.fontField: 'fontField',

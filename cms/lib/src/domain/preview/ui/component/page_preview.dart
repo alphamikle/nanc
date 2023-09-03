@@ -30,6 +30,8 @@ class PagePreview extends StatelessWidget {
                 return NuiListWidget(
                   scrollController: context.read<PreviewBloc>().scrollController,
                   xmlContent: previewState.xmlContent,
+                  nodes: null,
+                  binary: null,
                   pageData: pageState.data,
                   renderers: dataRepository.renderers,
                   imageLoadingBuilder: dataRepository.imageLoadingBuilder,
@@ -42,6 +44,8 @@ class PagePreview extends StatelessWidget {
               }
               return NuiStackWidget(
                 xmlContent: previewState.xmlContent,
+                nodes: null,
+                binary: null,
                 pageData: pageState.data,
                 renderers: dataRepository.renderers,
                 imageLoadingBuilder: dataRepository.imageLoadingBuilder,

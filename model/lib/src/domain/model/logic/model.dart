@@ -28,7 +28,15 @@ class Model extends Equatable {
     this.isHybrid = false,
   }) : id = id ?? toSnakeCase(name) {
     /// ? FLATTEN FIELDS
-    flattenFields = fields.fold(<Field>[], (List<Field> previousValue, List<Field> element) => previousValue..addAll(element));
+    flattenFields = fields.fold(<Field>[], (List<Field> allFields, List<Field> currentRowFields) {
+      for (final Field field in currentRowFields) {
+        allFields.add(field);
+        if (field.virtualFields.isNotEmpty) {
+          allFields.addAll(field.virtualFields);
+        }
+      }
+      return allFields;
+    });
 
     /// ? LIST FIELDS
     final List<Field> listFieldsTemp = flattenFields.where((Field field) => field.showInList).toList();

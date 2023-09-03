@@ -18,6 +18,7 @@ export 'src/tools/clone.dart';
 export 'src/tools/color_tools.dart';
 export 'src/tools/common.dart';
 export 'src/tools/debouncer.dart';
+export 'src/tools/delayer.dart';
 export 'src/tools/encryption.dart';
 export 'src/tools/extractor.dart';
 export 'src/tools/html.dart';

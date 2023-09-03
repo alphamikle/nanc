@@ -169,7 +169,7 @@ class _EntityPageViewState extends State<EntityPageView> {
                           onPressed: () async => showJsonPreviewModal(
                             context: context,
                             title: 'Page data',
-                            structure: filterJsonFromStructures(pageBloc.state.data),
+                            structure: filterDocumentData(pageBloc.state.data),
                           ),
                           color: context.kitColors.successColor,
                           child: const Row(

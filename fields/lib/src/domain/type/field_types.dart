@@ -17,6 +17,7 @@ enum FieldType {
   structureField('Structure'),
   colorField('String'),
   screenField('String'),
+  binaryField('Bytes'),
   headerField('Header'),
   groupField('Group'),
   fontField('String'),

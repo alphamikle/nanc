@@ -6,7 +6,15 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
-import '../../../../../fields.dart';
+import '../../../type/field_types.dart';
+import '../binary_field/binary_field.dart';
+import '../enum_field/enum_field.dart';
+import '../enum_field/enum_value.dart';
+import '../field/field.dart';
+import '../field/field_description.dart';
+import '../field/field_props.dart';
+import '../string_field/string_field.dart';
+import 'screen_content_model.dart';
 
 part 'screen_field.g.dart';
 
@@ -17,6 +25,7 @@ class ScreenField extends Field {
   ScreenField({
     required super.name,
     required this.screenContentType,
+    this.binaryDataFieldId,
     String? id,
     super.showInList,
     super.isRequired,
@@ -30,6 +39,18 @@ class ScreenField extends Field {
   factory ScreenField.fromJson(dynamic json) => _$ScreenFieldFromJson(castToJson(json));
 
   final ScreenContentType screenContentType;
+  final String? binaryDataFieldId;
+
+  @override
+  List<Field> get virtualFields {
+    return [
+      if (binaryDataFieldId != null && binaryDataFieldId!.isNotEmpty)
+        BinaryField(
+          name: '$name - Binary($binaryDataFieldId)',
+          id: binaryDataFieldId,
+        ),
+    ];
+  }
 
   @override
   FieldDescription description([BuildContext? context]) {
@@ -53,6 +74,7 @@ class ScreenField extends Field {
         [
           fieldToModelName,
           fieldToModelId,
+          StringField(name: 'Binary Data Field ID', id: 'binaryDataFieldId', maxLines: 1),
         ],
         [
           fieldToModelSort,

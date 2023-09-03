@@ -1,5 +1,9 @@
-import 'package:flutter/material.dart';
+import 'dart:typed_data';
 
+import 'package:flutter/material.dart';
+import 'package:tools/tools.dart';
+
+import '../../logic/model/tag.dart';
 import '../../logic/tags/logic/document_storage.dart';
 import '../../logic/tags/logic/for_storage.dart';
 import '../../logic/tags/logic/image_builder_delegate.dart';
@@ -12,6 +16,8 @@ import 'nui_list_widget.dart';
 class NuiStackWidget extends StatelessWidget {
   const NuiStackWidget({
     required this.xmlContent,
+    required this.nodes,
+    required this.binary,
     required this.renderers,
     required this.pageData,
     this.widgetsFilter,
@@ -21,11 +27,60 @@ class NuiStackWidget extends StatelessWidget {
     this.asyncMode = false,
     this.preloaderBuilder,
     super.key,
-  });
+  }) : assert(xmlContent != null || nodes != null || binary != null);
 
-  final String xmlContent;
+  const NuiStackWidget.xml({
+    required String xml,
+    required this.renderers,
+    required this.pageData,
+    this.widgetsFilter,
+    this.imageLoadingBuilder,
+    this.imageErrorBuilder,
+    this.imageFrameBuilder,
+    this.asyncMode = false,
+    this.preloaderBuilder,
+    super.key,
+  })  : xmlContent = xml,
+        nodes = null,
+        binary = null;
+
+  const NuiStackWidget.nodes({
+    required List<TagNode> nodes,
+    required this.renderers,
+    required this.pageData,
+    this.widgetsFilter,
+    this.imageLoadingBuilder,
+    this.imageErrorBuilder,
+    this.imageFrameBuilder,
+    this.asyncMode = false,
+    this.preloaderBuilder,
+    super.key,
+  })  : xmlContent = null,
+        // ignore: prefer_initializing_formals
+        nodes = nodes,
+        binary = null;
+
+  const NuiStackWidget.binary({
+    required Uint8List binary,
+    required this.renderers,
+    required this.pageData,
+    this.widgetsFilter,
+    this.imageLoadingBuilder,
+    this.imageErrorBuilder,
+    this.imageFrameBuilder,
+    this.asyncMode = false,
+    this.preloaderBuilder,
+    super.key,
+  })  : xmlContent = null,
+        nodes = null,
+        // ignore: prefer_initializing_formals
+        binary = binary;
+
+  final String? xmlContent;
+  final List<TagNode>? nodes;
+  final Uint8List? binary;
   final List<TagRenderer> renderers;
-  final Map<String, dynamic> pageData;
+  final Json pageData;
   final WidgetsFilter? widgetsFilter;
   final ImageLoadingBuilder? imageLoadingBuilder;
   final ImageErrorWidgetBuilder? imageErrorBuilder;
@@ -33,13 +88,13 @@ class NuiStackWidget extends StatelessWidget {
   final bool asyncMode;
   final PreloaderBuilder? preloaderBuilder;
 
-  RichRenderer get richRenderer => RichRenderer(renderers: renderers);
-
   XmlWidgetGenerator createGenerator(BuildContext context) {
     return XmlWidgetGenerator(
       context: context,
       data: xmlContent,
-      richRenderer: richRenderer,
+      nodes: nodes,
+      binary: binary,
+      richRenderer: RichRenderer(renderers: renderers),
       widgetsFilter: widgetsFilter,
     );
   }
@@ -89,13 +144,15 @@ class NuiStackWidget extends StatelessWidget {
               return TemplateStorage(
                 child: Builder(
                   builder: (BuildContext context) {
+                    final XmlWidgetGenerator generator = createGenerator(context);
+
                     return asyncMode
                         ? FutureBuilder(
                             // ignore: discarded_futures
-                            future: createGenerator(context).generateAsync(),
+                            future: generator.generateAsync(),
                             builder: asyncBuilder,
                           )
-                        : builder(createGenerator(context).generate());
+                        : builder(generator.generate());
                   },
                 ),
               );

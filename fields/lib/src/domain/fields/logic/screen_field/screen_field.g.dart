@@ -9,7 +9,7 @@ part of 'screen_field.dart';
 extension _$ScreenFieldAutoequal on ScreenField {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [screenContentType];
+  List<Object?> get _$props => [screenContentType, binaryDataFieldId];
 }
 
 // **************************************************************************
@@ -20,6 +20,8 @@ abstract class _$ScreenFieldCWProxy {
   ScreenField name(String name);
 
   ScreenField screenContentType(ScreenContentType screenContentType);
+
+  ScreenField binaryDataFieldId(String? binaryDataFieldId);
 
   ScreenField id(String? id);
 
@@ -42,6 +44,7 @@ abstract class _$ScreenFieldCWProxy {
   ScreenField call({
     String? name,
     ScreenContentType? screenContentType,
+    String? binaryDataFieldId,
     String? id,
     bool? showInList,
     bool? isRequired,
@@ -63,6 +66,10 @@ class _$ScreenFieldCWProxyImpl implements _$ScreenFieldCWProxy {
   @override
   ScreenField screenContentType(ScreenContentType screenContentType) =>
       this(screenContentType: screenContentType);
+
+  @override
+  ScreenField binaryDataFieldId(String? binaryDataFieldId) =>
+      this(binaryDataFieldId: binaryDataFieldId);
 
   @override
   ScreenField id(String? id) => this(id: id);
@@ -94,6 +101,7 @@ class _$ScreenFieldCWProxyImpl implements _$ScreenFieldCWProxy {
   ScreenField call({
     Object? name = const $CopyWithPlaceholder(),
     Object? screenContentType = const $CopyWithPlaceholder(),
+    Object? binaryDataFieldId = const $CopyWithPlaceholder(),
     Object? id = const $CopyWithPlaceholder(),
     Object? showInList = const $CopyWithPlaceholder(),
     Object? isRequired = const $CopyWithPlaceholder(),
@@ -111,6 +119,10 @@ class _$ScreenFieldCWProxyImpl implements _$ScreenFieldCWProxy {
           ? _value.screenContentType
           // ignore: cast_nullable_to_non_nullable
           : screenContentType as ScreenContentType,
+      binaryDataFieldId: binaryDataFieldId == const $CopyWithPlaceholder()
+          ? _value.binaryDataFieldId
+          // ignore: cast_nullable_to_non_nullable
+          : binaryDataFieldId as String?,
       id: id == const $CopyWithPlaceholder()
           ? _value.id
           // ignore: cast_nullable_to_non_nullable
@@ -155,6 +167,7 @@ ScreenField _$ScreenFieldFromJson(Map<String, dynamic> json) => ScreenField(
       name: json['name'] as String,
       screenContentType:
           $enumDecode(_$ScreenContentTypeEnumMap, json['screenContentType']),
+      binaryDataFieldId: json['binaryDataFieldId'] as String?,
       id: json['id'] as String?,
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
@@ -173,6 +186,7 @@ Map<String, dynamic> _$ScreenFieldToJson(ScreenField instance) =>
       'type': _$FieldTypeEnumMap[instance.type]!,
       'screenContentType':
           _$ScreenContentTypeEnumMap[instance.screenContentType]!,
+      'binaryDataFieldId': instance.binaryDataFieldId,
     };
 
 const _$ScreenContentTypeEnumMap = {
@@ -199,6 +213,7 @@ const _$FieldTypeEnumMap = {
   FieldType.structureField: 'structureField',
   FieldType.colorField: 'colorField',
   FieldType.screenField: 'screenField',
+  FieldType.binaryField: 'binaryField',
   FieldType.headerField: 'headerField',
   FieldType.groupField: 'groupField',
   FieldType.fontField: 'fontField',

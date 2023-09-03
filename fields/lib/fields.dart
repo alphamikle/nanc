@@ -1,5 +1,6 @@
 library fields;
 
+export 'src/domain/fields/logic/binary_field/binary_field.dart';
 export 'src/domain/fields/logic/bool_field/bool_field.dart';
 export 'src/domain/fields/logic/color_field/color_field.dart';
 export 'src/domain/fields/logic/date_time_field/date_time_field.dart';

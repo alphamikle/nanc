@@ -1,10 +1,10 @@
+import 'package:tools/tools.dart';
 import 'package:xml/xml.dart';
 
 import '../../../../nanc_renderer.dart';
-import '../../../service/delayer.dart';
 
 extension XmlNodeConverter on XmlNode {
-  TagNode toTagNode() {
+  TagNode toTag() {
     if (this is XmlElement) {
       final XmlElement self = this as XmlElement;
       final Map<String, String> attributes = {};
@@ -16,13 +16,13 @@ extension XmlNodeConverter on XmlNode {
       if (tag.startsWith(propertyPrefix)) {
         return PropertyTag(
           tag: self.qualifiedName,
-          children: self.children.toTagNodes(),
+          children: self.children.toTags(),
           attributes: attributes,
         );
       }
       return WidgetTag(
         tag: self.qualifiedName,
-        children: self.children.toTagNodes(),
+        children: self.children.toTags(),
         attributes: attributes,
       );
     } else if (this is XmlText) {
@@ -40,10 +40,10 @@ extension XmlNodeConverter on XmlNode {
 }
 
 extension XmlNodesConverter on Iterable<XmlNode> {
-  List<TagNode> toTagNodes() {
+  List<TagNode> toTags() {
     final List<TagNode> nodes = [];
     for (final XmlNode xmlNode in this) {
-      final TagNode tagNode = xmlNode.toTagNode();
+      final TagNode tagNode = xmlNode.toTag();
       if (tagNode is! UnknownNode) {
         nodes.add(tagNode);
       }
@@ -51,13 +51,13 @@ extension XmlNodesConverter on Iterable<XmlNode> {
     return nodes;
   }
 
-  Future<List<TagNode>> toTagNodesAsync() async {
+  Future<List<TagNode>> toTagsAsync() async {
     final List<TagNode> nodes = [];
     for (final XmlNode xmlNode in this) {
       if (Delayer.needToPause(pauseEveryCycles: 17)) {
         await Delayer.pause();
       }
-      final TagNode tagNode = xmlNode.toTagNode();
+      final TagNode tagNode = xmlNode.toTag();
       if (tagNode is! UnknownNode) {
         nodes.add(tagNode);
       }

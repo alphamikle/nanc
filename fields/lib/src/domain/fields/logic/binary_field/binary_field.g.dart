@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'query_filter_value_field.dart';
+part of 'binary_field.dart';
 
 // **************************************************************************
 // AutoequalGenerator
 // **************************************************************************
 
-extension _$QueryFilterValueFieldAutoequal on QueryFilterValueField {
+extension _$BinaryFieldAutoequal on BinaryField {
   @Deprecated(r'Use _$props instead')
   List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [];
@@ -16,28 +16,28 @@ extension _$QueryFilterValueFieldAutoequal on QueryFilterValueField {
 // CopyWithGenerator
 // **************************************************************************
 
-abstract class _$QueryFilterValueFieldCWProxy {
-  QueryFilterValueField name(String name);
+abstract class _$BinaryFieldCWProxy {
+  BinaryField name(String name);
 
-  QueryFilterValueField id(String? id);
+  BinaryField id(String? id);
 
-  QueryFilterValueField showInList(bool showInList);
+  BinaryField showInList(bool showInList);
 
-  QueryFilterValueField isRequired(bool isRequired);
+  BinaryField isRequired(bool isRequired);
 
-  QueryFilterValueField sort(int sort);
+  BinaryField sort(int sort);
 
-  QueryFilterValueField validator(String? Function(Object?)? validator);
+  BinaryField validator(String? Function(Object?)? validator);
 
-  QueryFilterValueField type(FieldType type);
+  BinaryField type(FieldType type);
 
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `QueryFilterValueField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `BinaryField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// QueryFilterValueField(...).copyWith(id: 12, name: "My name")
+  /// BinaryField(...).copyWith(id: 12, name: "My name")
   /// ````
-  QueryFilterValueField call({
+  BinaryField call({
     String? name,
     String? id,
     bool? showInList,
@@ -48,46 +48,43 @@ abstract class _$QueryFilterValueFieldCWProxy {
   });
 }
 
-/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfQueryFilterValueField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfQueryFilterValueField.copyWith.fieldName(...)`
-class _$QueryFilterValueFieldCWProxyImpl
-    implements _$QueryFilterValueFieldCWProxy {
-  const _$QueryFilterValueFieldCWProxyImpl(this._value);
+/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfBinaryField.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfBinaryField.copyWith.fieldName(...)`
+class _$BinaryFieldCWProxyImpl implements _$BinaryFieldCWProxy {
+  const _$BinaryFieldCWProxyImpl(this._value);
 
-  final QueryFilterValueField _value;
-
-  @override
-  QueryFilterValueField name(String name) => this(name: name);
+  final BinaryField _value;
 
   @override
-  QueryFilterValueField id(String? id) => this(id: id);
+  BinaryField name(String name) => this(name: name);
 
   @override
-  QueryFilterValueField showInList(bool showInList) =>
-      this(showInList: showInList);
+  BinaryField id(String? id) => this(id: id);
 
   @override
-  QueryFilterValueField isRequired(bool isRequired) =>
-      this(isRequired: isRequired);
+  BinaryField showInList(bool showInList) => this(showInList: showInList);
 
   @override
-  QueryFilterValueField sort(int sort) => this(sort: sort);
+  BinaryField isRequired(bool isRequired) => this(isRequired: isRequired);
 
   @override
-  QueryFilterValueField validator(String? Function(Object?)? validator) =>
+  BinaryField sort(int sort) => this(sort: sort);
+
+  @override
+  BinaryField validator(String? Function(Object?)? validator) =>
       this(validator: validator);
 
   @override
-  QueryFilterValueField type(FieldType type) => this(type: type);
+  BinaryField type(FieldType type) => this(type: type);
 
   @override
 
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `QueryFilterValueField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `BinaryField(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// QueryFilterValueField(...).copyWith(id: 12, name: "My name")
+  /// BinaryField(...).copyWith(id: 12, name: "My name")
   /// ````
-  QueryFilterValueField call({
+  BinaryField call({
     Object? name = const $CopyWithPlaceholder(),
     Object? id = const $CopyWithPlaceholder(),
     Object? showInList = const $CopyWithPlaceholder(),
@@ -96,7 +93,7 @@ class _$QueryFilterValueFieldCWProxyImpl
     Object? validator = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
   }) {
-    return QueryFilterValueField(
+    return BinaryField(
       name: name == const $CopyWithPlaceholder() || name == null
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
@@ -131,31 +128,27 @@ class _$QueryFilterValueFieldCWProxyImpl
   }
 }
 
-extension $QueryFilterValueFieldCopyWith on QueryFilterValueField {
-  /// Returns a callable class that can be used as follows: `instanceOfQueryFilterValueField.copyWith(...)` or like so:`instanceOfQueryFilterValueField.copyWith.fieldName(...)`.
+extension $BinaryFieldCopyWith on BinaryField {
+  /// Returns a callable class that can be used as follows: `instanceOfBinaryField.copyWith(...)` or like so:`instanceOfBinaryField.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
-  _$QueryFilterValueFieldCWProxy get copyWith =>
-      _$QueryFilterValueFieldCWProxyImpl(this);
+  _$BinaryFieldCWProxy get copyWith => _$BinaryFieldCWProxyImpl(this);
 }
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-QueryFilterValueField _$QueryFilterValueFieldFromJson(
-        Map<String, dynamic> json) =>
-    QueryFilterValueField(
+BinaryField _$BinaryFieldFromJson(Map<String, dynamic> json) => BinaryField(
       name: json['name'] as String,
       id: json['id'] as String?,
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       sort: json['sort'] as int? ?? 0,
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
-          FieldType.queryFilterValueField,
+          FieldType.binaryField,
     );
 
-Map<String, dynamic> _$QueryFilterValueFieldToJson(
-        QueryFilterValueField instance) =>
+Map<String, dynamic> _$BinaryFieldToJson(BinaryField instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

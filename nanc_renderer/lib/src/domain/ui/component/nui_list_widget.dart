@@ -1,8 +1,10 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
 import '../../../service/sliver_checker.dart';
-import '../../logic/tags/logic/data_storage.dart';
+import '../../logic/model/tag.dart';
 import '../../logic/tags/logic/document_storage.dart';
 import '../../logic/tags/logic/for_storage.dart';
 import '../../logic/tags/logic/image_builder_delegate.dart';
@@ -17,6 +19,8 @@ typedef PreloaderBuilder = Widget Function(AsyncSnapshot<GeneratorResult> snapsh
 class NuiListWidget extends StatelessWidget {
   const NuiListWidget({
     required this.xmlContent,
+    required this.nodes,
+    required this.binary,
     required this.renderers,
     required this.pageData,
     this.scrollController,
@@ -32,11 +36,80 @@ class NuiListWidget extends StatelessWidget {
     this.asyncMode = false,
     this.preloaderBuilder,
     this.sliverChecker,
-    this.dataStorage,
     super.key,
-  });
+  }) : assert(xmlContent != null || nodes != null || binary != null);
 
-  final String xmlContent;
+  const NuiListWidget.xml({
+    required String xml,
+    required this.renderers,
+    required this.pageData,
+    this.scrollController,
+    this.widgetsFilter,
+    this.imageLoadingBuilder,
+    this.imageErrorBuilder,
+    this.imageFrameBuilder,
+    this.physics,
+    this.reverse = false,
+    this.scrollDirection = Axis.vertical,
+    this.cacheExtent,
+    this.shrinkWrap = false,
+    this.asyncMode = false,
+    this.preloaderBuilder,
+    this.sliverChecker,
+    super.key,
+  })  : xmlContent = xml,
+        nodes = null,
+        binary = null;
+
+  const NuiListWidget.nodes({
+    required List<TagNode> nodes,
+    required this.renderers,
+    required this.pageData,
+    this.scrollController,
+    this.widgetsFilter,
+    this.imageLoadingBuilder,
+    this.imageErrorBuilder,
+    this.imageFrameBuilder,
+    this.physics,
+    this.reverse = false,
+    this.scrollDirection = Axis.vertical,
+    this.cacheExtent,
+    this.shrinkWrap = false,
+    this.asyncMode = false,
+    this.preloaderBuilder,
+    this.sliverChecker,
+    super.key,
+  })  : xmlContent = null,
+        // ignore: prefer_initializing_formals
+        nodes = nodes,
+        binary = null;
+
+  const NuiListWidget.binary({
+    required Uint8List binary,
+    required this.renderers,
+    required this.pageData,
+    this.scrollController,
+    this.widgetsFilter,
+    this.imageLoadingBuilder,
+    this.imageErrorBuilder,
+    this.imageFrameBuilder,
+    this.physics,
+    this.reverse = false,
+    this.scrollDirection = Axis.vertical,
+    this.cacheExtent,
+    this.shrinkWrap = false,
+    this.asyncMode = false,
+    this.preloaderBuilder,
+    this.sliverChecker,
+    super.key,
+  })  : xmlContent = null,
+        nodes = null,
+        // ignore: prefer_initializing_formals
+        binary = binary;
+
+  final String? xmlContent;
+  final List<TagNode>? nodes;
+  final Uint8List? binary;
   final List<TagRenderer> renderers;
   final ScrollController? scrollController;
   final Json pageData;
@@ -52,15 +125,14 @@ class NuiListWidget extends StatelessWidget {
   final bool asyncMode;
   final PreloaderBuilder? preloaderBuilder;
   final SliverChecker? sliverChecker;
-  final DataStorage? dataStorage;
-
-  RichRenderer get richRenderer => RichRenderer(renderers: renderers);
 
   XmlWidgetGenerator createGenerator(BuildContext context) {
     return XmlWidgetGenerator(
       context: context,
       data: xmlContent,
-      richRenderer: richRenderer,
+      nodes: nodes,
+      binary: binary,
+      richRenderer: RichRenderer(renderers: renderers),
       widgetsFilter: widgetsFilter,
     );
   }
@@ -158,13 +230,15 @@ class NuiListWidget extends StatelessWidget {
           child: TemplateStorage(
             child: Builder(
               builder: (BuildContext context) {
+                final XmlWidgetGenerator generator = createGenerator(context);
+
                 return asyncMode
                     ? FutureBuilder(
                         // ignore: discarded_futures
-                        future: createGenerator(context).generateAsync(),
+                        future: generator.generateAsync(),
                         builder: asyncBuilder,
                       )
-                    : builder(createGenerator(context).generate());
+                    : builder(generator.generate());
               },
             ),
           ),

@@ -15,6 +15,7 @@ export 'src/domain/logic/tags/tag_renderer.dart';
 export 'src/domain/logic/tags/tags_collection.dart';
 export 'src/domain/logic/tags/tools/properties_extractor.dart';
 export 'src/domain/logic/tags/tools/text_extractor.dart';
+export 'src/domain/logic/widget_generator/tags_converter.dart';
 export 'src/domain/ui/component/data_storage_provider.dart';
 export 'src/domain/ui/component/nui_list_widget.dart';
 export 'src/domain/ui/component/nui_stack_widget.dart';

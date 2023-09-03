@@ -53,7 +53,17 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
     );
   }
 
-  void onScreenContentChange(EditorState state) {
+  void updateBinaryForm(String xml) {
+    if (field.binaryDataFieldId != null && field.binaryDataFieldId!.isNotEmpty) {
+      final Uint8List? binaryForm = TagsConverter.toBinaryFromXml(xml);
+      pageBloc.updateValue(
+        field.binaryDataFieldId!,
+        binaryForm?.toList(growable: false),
+      );
+    }
+  }
+
+  Future<void> onScreenContentChange(EditorState state) async {
     pageBloc.updateValue(
       fieldId,
       ScreenContentModel(
@@ -61,6 +71,7 @@ class _ScreenEditorState extends State<ScreenEditor> with FieldCellHelper<Screen
         contentType: field.screenContentType,
       ).toJson(),
     );
+    updateBinaryForm(state.xmlContent);
   }
 
   Future<void> preload() async {

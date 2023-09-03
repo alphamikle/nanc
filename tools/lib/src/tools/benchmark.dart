@@ -12,6 +12,10 @@ class Bench {
     }
   }
 
+  static void startSilent(String id) {
+    _starts[id] = DateTime.now().microsecondsSinceEpoch;
+  }
+
   static double end(dynamic id) {
     final String benchId = id.toString();
     if (!_starts.containsKey(benchId)) {
@@ -27,5 +31,15 @@ $benchId need ${diff}ms
 ''');
     _starts.remove(benchId);
     return diff;
+  }
+
+  static double endSilent(String id) {
+    final int now = DateTime.now().microsecondsSinceEpoch;
+    if (_starts.containsKey(id)) {
+      final double result = (now - _starts[id]!) / 1000;
+      _starts.remove(id);
+      return result;
+    }
+    return 0;
   }
 }

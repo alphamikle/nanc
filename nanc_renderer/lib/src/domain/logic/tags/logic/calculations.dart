@@ -57,6 +57,8 @@ final List<String> customFunctions = Calculator.registeredFunctions;
 
 final RegExp mathOperators = RegExp(r'\d+ ?(\+|-|\*|\/|%|\^|(&&)|(\|\|)|>=|<=|!=|<>|>|<|==|=) ?\d+');
 final RegExp functions = RegExp([...customFunctions, ...defaultFunctions].join('|'));
+// 2023-02-03T17:46:57.175029
+final RegExp dateTimeRegExp = RegExp(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.?\d{0,6}$');
 
 abstract final class Calculations {
   static String calculate(String expression) {
@@ -81,6 +83,9 @@ abstract final class Calculations {
 
   static bool _needToCalculate(String expression) {
     if (expression.startsWith('http')) {
+      return false;
+    }
+    if (dateTimeRegExp.hasMatch(expression)) {
       return false;
     }
 

@@ -1,4 +1,5 @@
 import 'package:code_text_field/code_text_field.dart';
+import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:highlight/languages/json.dart';
 import 'package:tools/tools.dart';
@@ -139,4 +140,25 @@ Future<void> showJsonPreviewModal({
       ),
     ),
   );
+}
+
+dynamic filterDocumentData(dynamic json) {
+  if (json is List) {
+    final List shortenList = json.length > 25 ? json.sublist(0, 25) : json;
+    return shortenList.map((dynamic it) => filterDocumentData(it)).toList();
+  } else if (json is Map) {
+    final Json filteredJson = {};
+    for (final MapEntry<dynamic, dynamic> entry in json.entries) {
+      final String key = entry.key.toString();
+      if (key.contains(kStructureKey) == false) {
+        filteredJson[key] = filterDocumentData(entry.value);
+      }
+    }
+    return filteredJson;
+  } else {
+    if (json is String && json.length > 100) {
+      return json.substring(0, 100);
+    }
+    return json;
+  }
 }

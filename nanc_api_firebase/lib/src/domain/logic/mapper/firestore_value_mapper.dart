@@ -13,6 +13,13 @@ Value toFirestoreValue(dynamic value, {bool dateAsMs = false}) {
     return result;
   }
 
+  /// ? Only [Uint8List.toList()] will be a such type
+  final bool isBinaryValue = value is List<int>;
+  if (isBinaryValue) {
+    result.bytesValueAsBytes = value;
+    return result;
+  }
+
   /// ? BOOLEAN
   final bool? booleanValue = value is bool
       ? value
@@ -129,6 +136,8 @@ T? fromFirestoreValue<T>(Value value) {
       result[key] = fromFirestoreValue(value);
     }
     return result as T;
+  } else if (value.bytesValue != null) {
+    return value.bytesValueAsBytes as T;
   }
   return null;
 }

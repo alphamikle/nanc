@@ -19,3 +19,16 @@ targets:
           generic_argument_factories: false
           ignore_unannotated: false
           include_if_null: true
+
+      proto_generator:protoBuilder:
+        options:
+          useWellKnownWrappers: false
+          useWellKnownDuration: false
+          useWellKnownTimestamp: false
+          useProtoFieldNamingConventions: true
+          packageName: io.nanc.nanc
+          wellKnownDurationType: $Duration
+          wellKnownTimestampType: $Timestamp
+          defaultIntPrecision: int32
+          outProtoPath: proto/tags.proto
+          decimalEncoding: binary

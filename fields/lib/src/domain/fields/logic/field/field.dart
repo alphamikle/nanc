@@ -34,6 +34,8 @@ abstract class Field extends Equatable {
   final int sort;
   final bool realField;
 
+  List<Field> get virtualFields => [];
+
   @JsonKey(ignore: true)
   final FormFieldValidator<Object>? validator;
   final FieldType type;

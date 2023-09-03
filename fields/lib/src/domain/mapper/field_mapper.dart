@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
+import '../fields/logic/binary_field/binary_field.dart';
 import '../fields/logic/bool_field/bool_field.dart';
 import '../fields/logic/color_field/color_field.dart';
 import '../fields/logic/date_time_field/date_time_field.dart';
@@ -53,7 +54,9 @@ abstract class FieldMapper {
   static T deepClone<T extends Field>(T field) {
     final FieldType type = field.type;
 
-    if (type == FieldType.boolField) {
+    if (type == FieldType.binaryField) {
+      return (field as BinaryField).copyWith() as T;
+    } else if (type == FieldType.boolField) {
       return (field as BoolField).copyWith() as T;
     } else if (type == FieldType.colorField) {
       return (field as ColorField).copyWith() as T;
@@ -123,7 +126,10 @@ abstract class FieldMapper {
     /// ? Dynamic field recursive initial data
     List<DynamicFieldItem>? initialChildrenData,
   }) {
-    if (field is BoolField) {
+    if (field is BinaryField) {
+      // TODO(alphamikle): If the binary field will be used - it's need to be implemented
+      return const SizedBox.shrink();
+    } else if (field is BoolField) {
       return BoolFieldCell(field: field, creationMode: creationMode);
     } else if (field is ColorField) {
       return ColorFieldCell(field: field, creationMode: creationMode);
@@ -187,7 +193,9 @@ abstract class FieldMapper {
   static Json fieldToJson(Field field) {
     final String fieldTypeRepresentation = field.runtimeType.toString();
 
-    if (field is BoolField) {
+    if (field is BinaryField) {
+      return field.toJson();
+    } else if (field is BoolField) {
       return field.toJson();
     } else if (field is ColorField) {
       return field.toJson();
@@ -235,7 +243,9 @@ abstract class FieldMapper {
     if (type == null) {
       throw Exception('Json representation of "$Field" should contain a value with key "$fieldTypeProperty"');
     }
-    if (type == FieldType.boolField.name) {
+    if (type == FieldType.binaryField.name) {
+      return BinaryField.fromJson(json) as T;
+    } else if (type == FieldType.boolField.name) {
       return BoolField.fromJson(json) as T;
     } else if (type == FieldType.colorField.name) {
       return ColorField.fromJson(json) as T;
@@ -279,7 +289,9 @@ abstract class FieldMapper {
   }
 
   static Model fieldTypeToEntity(FieldType fieldType) {
-    if (fieldType == FieldType.boolField) {
+    if (fieldType == FieldType.binaryField) {
+      return BinaryField.empty().toModel();
+    } else if (fieldType == FieldType.boolField) {
       return BoolField.empty().toModel();
     } else if (fieldType == FieldType.colorField) {
       return ColorField.empty().toModel();
@@ -323,7 +335,9 @@ abstract class FieldMapper {
   }
 
   static T fieldTypeToField<T extends Field>(FieldType fieldType) {
-    if (fieldType == FieldType.boolField) {
+    if (fieldType == FieldType.binaryField) {
+      return BinaryField.empty() as T;
+    } else if (fieldType == FieldType.boolField) {
       return BoolField.empty() as T;
     } else if (fieldType == FieldType.colorField) {
       return ColorField.empty() as T;
@@ -386,6 +400,7 @@ abstract class FieldMapper {
       ScreenField.empty(),
 
       /// ? THIS FIELD IS FOR PRIVATE USE ONLY
+      // BinaryField.empty(),
       // ModelsSelectorField.empty(),
       // StructureField.empty(),
       // QueryFilterField.empty(),

@@ -205,6 +205,7 @@ class SupabaseModelApi implements IModelApi {
 
   String fieldToSupabaseType(Model model, Field field) {
     return switch (field) {
+      BinaryField() => 'bytea',
       BoolField() => 'bool',
       ColorField() => 'varchar(10)',
       // TODO(alphamikle): Refactor after splitting DateTime to Date / Time / DateTime fields
@@ -257,6 +258,7 @@ class SupabaseModelApi implements IModelApi {
 
   (String name, String code) fieldToSupabaseCheckCondition(Model model, Field field) {
     return switch (field) {
+      BinaryField() => ('', ''),
       BoolField() => ('', ''),
       ColorField() => ('', ''),
       DateTimeField() => ('', ''),
