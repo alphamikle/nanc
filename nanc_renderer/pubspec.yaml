@@ -6,8 +6,8 @@ homepage: https://nanc.io
 version: 0.0.1
 
 environment:
-  sdk: '>=3.2.0-42.0.dev <4.0.0'
-  flutter: ">=3.10.5"
+  sdk: '>=3.2.6 <4.0.0'
+  flutter: ">=3.16.9"
 
 dependencies:
   flutter:
@@ -22,8 +22,8 @@ dependencies:
     path: ../config
   json_annotation: ^4.8.1
   copy_with_extension: ^5.0.2
-  cached_network_image: ^3.2.3
-  flutter_blurhash: ^0.7.0
+  cached_network_image: ^3.3.1
+  flutter_blurhash: ^0.8.2
   xml: ^6.3.0
   equatable: ^2.0.5
   autoequal: ^0.5.1

@@ -39,6 +39,20 @@ class Substitutor {
         _testPageData = pageData,
         _testForStorage = forStorage;
 
+  // static final Map<String, String> _cache = {};
+
+  static WidgetTag enrichElement({required BuildContext context, required WidgetTag node}) {
+    final Substitutor substitutor = Substitutor(context: context);
+    final Map<String, String> attributes = {...node.attributes};
+    for (final MapEntry<String, String> attributeEntry in node.attributes.entries) {
+      if (substitutor.haveExpression(attributeEntry.value)) {
+        attributes[attributeEntry.key] = substitutor.substitute(node.contentHash, attributeEntry.value);
+        attributes['${attributeEntry.key}_old'] = bracketsExpressionHandler(attributeEntry.value);
+      }
+    }
+    return node.copyWith(attributes: attributes);
+  }
+
   final BuildContext? _context;
 
   bool get _isTest => kDebugMode && _context == null;
@@ -68,18 +82,6 @@ class Substitutor {
     ];
   }
 
-  static WidgetTag enrichElement({required BuildContext context, required WidgetTag node}) {
-    final Substitutor substitutor = Substitutor(context: context);
-    final Map<String, String> attributes = {...node.attributes};
-    for (final MapEntry<String, String> attributeEntry in node.attributes.entries) {
-      if (substitutor.haveExpression(attributeEntry.value)) {
-        attributes[attributeEntry.key] = substitutor.substitute(node.contentHash, attributeEntry.value);
-        attributes['${attributeEntry.key}_old'] = bracketsExpressionHandler(attributeEntry.value);
-      }
-    }
-    return node.copyWith(attributes: attributes);
-  }
-
   bool haveExpression(String value) => _substitutionRegExp.hasMatch(value);
 
   String substitute(String hash, String value) {
@@ -98,12 +100,28 @@ class Substitutor {
 
     final String result = value.replaceAllMapped(_substitutionRegExp, (Match match) {
       final String originalExpression = match.group(0)!;
+      // final String? cachedValue = _getFromCache(originalExpression);
+      // if (cachedValue != null) {
+      //   return cachedValue;
+      // }
       String expression = originalExpression;
       for (final ExpressionHandler handler in handlers) {
         expression = handler(expression);
       }
+      // _updateCacheValue(originalExpression, expression);
       return expression;
     });
     return result;
   }
+
+  // String? _getFromCache(String expression) {
+  //   if (_cache.containsKey(expression)) {
+  //     return _cache[expression];
+  //   }
+  //   return null;
+  // }
+  //
+  // void _updateCacheValue(String originalExpression, String result) {
+  //   _cache[originalExpression] = result;
+  // }
 }
