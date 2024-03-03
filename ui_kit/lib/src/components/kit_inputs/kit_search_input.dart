@@ -29,6 +29,7 @@ class KitSearchInput extends StatelessWidget {
 
     return KitTextField(
       controller: controller,
+      maxLines: 1,
       decoration: InputDecoration(
         border: border,
         enabledBorder: border,
@@ -38,7 +39,7 @@ class KitSearchInput extends StatelessWidget {
         focusedErrorBorder: border,
         hintText: placeholder,
         isDense: true,
-        contentPadding: const EdgeInsets.only(left: Gap.large, top: Gap.regular, right: Gap.large, bottom: Gap.regular),
+        contentPadding: const EdgeInsets.only(left: Gap.large, right: Gap.large, bottom: Gap.large),
       ),
       prefixIcon: prefixIcon,
     );

@@ -89,11 +89,14 @@ class _CollectionFilterModalState extends State<CollectionFilterModal> {
                       children: [
                         const KitPreloaderV2(isLoading: false),
                         Expanded(
-                          child: FieldsForm(
-                            formKey: formKey,
-                            model: filterModel,
-                            creationMode: false,
-                            withBottomPadding: true,
+                          child: Padding(
+                            padding: const EdgeInsets.all(Gap.regular),
+                            child: FieldsForm(
+                              formKey: formKey,
+                              model: filterModel,
+                              creationMode: false,
+                              withBottomPadding: true,
+                            ),
                           ),
                         ),
                         Padding(

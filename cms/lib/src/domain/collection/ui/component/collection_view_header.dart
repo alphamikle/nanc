@@ -71,7 +71,9 @@ class CollectionViewHeader extends StatelessWidget {
         ),
         SizedBox(
           width: 250,
-          child: KitSearchInput(controller: context.read<CollectionBloc>().globalSearchController),
+          child: KitSearchInput(
+            controller: context.read<CollectionBloc>().globalSearchController,
+          ),
         ),
       ],
     );
