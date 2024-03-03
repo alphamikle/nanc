@@ -36,8 +36,8 @@ class FieldCardFunctionalWrapper extends StatefulWidget {
 }
 
 class _FieldCardFunctionalWrapperState extends State<FieldCardFunctionalWrapper> with SingleTickerProviderStateMixin {
-  AnimationController? controller;
-  Animation<double>? animation;
+  late final AnimationController controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 350));
+  late final Animation<double> animation = CurvedAnimation(parent: controller!, curve: Curves.easeInOutQuart);
 
   bool _isFunctionalElementsExists = false;
 
@@ -52,28 +52,19 @@ class _FieldCardFunctionalWrapperState extends State<FieldCardFunctionalWrapper>
   Future<void> _showElements() async {
     safeSetState(() => _isFunctionalElementsExists = true);
     await wait(duration: const Duration(milliseconds: 10));
-    if (controller?.isDismissed ?? controller?.isCompleted ?? false) {
-      unawaited(controller?.forward());
-    }
+    await controller.forward();
   }
 
   Future<void> _hideElements() async {
-    await controller?.animateBack(0);
+    await controller.animateBack(0);
     if (mounted) {
       safeSetState(() => _isFunctionalElementsExists = false);
     }
   }
 
   @override
-  void initState() {
-    super.initState();
-    controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 350));
-    animation = CurvedAnimation(parent: controller!, curve: Curves.easeInOutQuart);
-  }
-
-  @override
   void dispose() {
-    controller?.dispose();
+    controller.dispose();
     super.dispose();
   }
 
@@ -87,20 +78,20 @@ class _FieldCardFunctionalWrapperState extends State<FieldCardFunctionalWrapper>
       customHeight: widget.customSize,
     );
 
-    if (_isFunctionalElementsExists && controller != null) {
+    if (_isFunctionalElementsExists) {
       return KitInkWell(
         onPressed: () {},
         noReaction: true,
         onHover: _toggleFunctionalElementsVisibility,
         child: AnimatedBuilder(
-          animation: animation!,
+          animation: animation,
           builder: (BuildContext context, Widget? child) {
             return Stack(
               children: [
                 child!,
                 Positioned.fill(
                   child: Opacity(
-                    opacity: animation!.value,
+                    opacity: animation.value,
                     child: FieldCardMover(
                       onChange: widget.onChange,
                       availableDirections: widget.availableDirections,
@@ -110,7 +101,7 @@ class _FieldCardFunctionalWrapperState extends State<FieldCardFunctionalWrapper>
                 ),
                 Positioned.fill(
                   child: Opacity(
-                    opacity: animation!.value,
+                    opacity: animation.value,
                     child: FieldCardDeleter(
                       onDelete: widget.onDelete,
                       onExpand: widget.onExpand,

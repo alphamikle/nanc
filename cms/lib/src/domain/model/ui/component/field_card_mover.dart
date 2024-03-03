@@ -5,10 +5,10 @@ import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-const double _kWidth = 40;
-const double _kHeight = 40;
-const double _kMinSize = 5;
-const double _kRadius = 40;
+const double _kWidth = 45;
+const double _kHeight = 38;
+const double _kMinSize = 10;
+const double _kRadius = 45;
 const double _minOpacity = 0.25;
 const double _maxOpacity = 1;
 

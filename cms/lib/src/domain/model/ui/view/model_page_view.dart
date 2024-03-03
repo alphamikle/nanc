@@ -42,16 +42,16 @@ class _ModelPageViewState extends State<ModelPageView> {
       model: model,
       field: field,
     );
-    if (editedField != null && mounted) {
+    if (context.mounted && editedField != null) {
       context.read<ModelPageBloc>().updateModelField(row: row, column: column, field: editedField);
     }
   }
 
   Future<void> addField(BuildContext context, int rowIndex) async {
     final FieldType? selectedField = await showFieldTypeSelectorModal(context);
-    if (selectedField != null && mounted) {
+    if (context.mounted && selectedField != null) {
       final Field? createdField = await showFieldCreationModal(context, selectedField);
-      if (createdField != null && mounted) {
+      if (context.mounted && createdField != null) {
         context.read<ModelPageBloc>().addModelField(createdField, rowIndex);
       }
     }

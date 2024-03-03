@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fonts/fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
@@ -94,26 +94,34 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Flexible(
-                  child: Image.asset(
-                    prepareAssetPath('assets/images/logo.png'),
+                  child: SvgPicture.asset(
+                    prepareAssetPath('assets/images/logo_light.svg'),
                     height: kLogoSize,
                     width: kLogoSize,
-                    color: context.theme.colorScheme.primary,
+                    colorFilter: ColorFilter.mode(context.theme.colorScheme.primary, BlendMode.srcIn),
                   ),
                 ),
                 const SizedBox(width: Gap.regular),
                 Flexible(
-                  child: KitText(
-                    text: 'Nanc',
-                    style: context.theme.textTheme.headlineSmall?.copyWith(
-                      fontFamily: GoogleFonts.poppins().fontFamily,
-                      fontSize: 36,
-                      color: context.theme.colorScheme.primary,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.fade,
+                  child: SvgPicture.asset(
+                    prepareAssetPath('assets/images/name_light.svg'),
+                    height: kLogoSize,
+                    width: kLogoSize,
+                    colorFilter: ColorFilter.mode(context.theme.colorScheme.primary, BlendMode.srcIn),
                   ),
                 ),
+                // Flexible(
+                //   child: KitText(
+                //     text: 'Nanc',
+                //     style: context.theme.textTheme.headlineSmall?.copyWith(
+                //       fontFamily: GoogleFonts.poppins().fontFamily,
+                //       fontSize: 36,
+                //       color: context.theme.colorScheme.primary,
+                //     ),
+                //     maxLines: 1,
+                //     overflow: TextOverflow.fade,
+                //   ),
+                // ),
               ],
             ),
           ),

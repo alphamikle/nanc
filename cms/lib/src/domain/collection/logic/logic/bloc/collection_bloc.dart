@@ -221,13 +221,14 @@ class CollectionBloc extends Cubit<CollectionState> {
         ),
         query: state.query ?? state.globalSearchQuery,
       );
-      emit(state.copyWith.isLoading(false));
-      await _uiDelay();
+      // emit(state.copyWith.isLoading(false));
+      // await _uiDelay();
       emit(state.copyWith(
         dataRows: dto.data,
         totalPages: dto.totalPages,
         currentPage: dto.page,
         notFoundAnything: dto.data.isEmpty,
+        isLoading: false,
       ));
     } catch (error, stackTrace) {
       emit(state.copyWith(
