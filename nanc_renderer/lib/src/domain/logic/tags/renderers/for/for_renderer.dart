@@ -16,6 +16,8 @@ import 'for_widget.dart';
 const String _cycle = 'cycle';
 const String kIndex = 'index';
 const String kValue = 'value';
+const String kIsFirst = 'isFirst';
+const String kIsLast = 'isLast';
 const String kCycleId = r'_$cycle:::cfa87eee-8b16-43ff-8cb9-4300f01a37b9';
 final RegExp cycleRegExp = RegExp(r'cycle\.(?<indexOrValue>[-:\w]+)\.?(?<restOfTheExpression>[.\w]+)?');
 
@@ -33,9 +35,14 @@ To use these cycles you just need to wrap your widget with `<for>` and set up a 
 
 1. Use a numbered range, for example:
 
-```
+```xml
 <for from="0" to="10">
-  <someWidget indexDependentParam="{{ cycle.index }}" valueDependentParam="{{ cycle.value }}"/>
+  <someWidget
+      indexDependentParam="{{ cycle.index }}"
+      valueDependentParam="{{ cycle.value }}"
+      firstItemDependentParam={{ cycle.isFirst }}
+      lastItemDependentParam={{ cycle.isLast }}
+  />
 </for>
 ```
 With this spelling you will display your widget 10 times with the indexes from the 0 till 9 and the values from the 0 till the 9;
@@ -47,7 +54,8 @@ You also can omit `from="0"` if you want to iterate by numbers from zero, becaus
 2. Use an iterable value from the page context:
 
 For example, page context will contain the next data:
-```
+
+```json
 {
   'user': {
     'age': 37,
@@ -91,12 +99,15 @@ For example, page context will contain the next data:
 ```
 
 And the following code of the UI will be:
-```
+
+```xml
 <for valueName="friend" indexName="friendIndex" in="{{ page.friends }}">
   <for valueName="enemy" indexName="enemyIndex" in="{{ page.enemies }}">
     <text>
       Friend #{{ cycle.friendIndex }}: {{ cycle.friend }}
       Enemy #{{ cycle.enemyIndex }}: {{ cycle.enemy.name }}
+      Is first: {{ cycle.isFirst }}
+      Is last: {{ cycle.isLast }}
     </text>
   </for>
 </for>
@@ -122,6 +133,8 @@ You also able to create nested cycles, like in example behind, but if you want t
           <text size="{{ cycle.value }}">
             <prop:textStyle overflow="ellipsis" color="#FFFFFF"/>
             - This is the {{ cycle.index }}-th item with the value {{ cycle.value }}
+            - This item is first: {{ cycle.isFirst }}
+            - This item is last: {{ cycle.isLast }}
           </text>
         </padding>
       </container>
@@ -176,12 +189,17 @@ You also able to create nested cycles, like in example behind, but if you want t
       final List<TagNode> effectiveChildren = [];
 
       for (int i = 0; i < parsedValues.length; i++) {
+        final bool isFirst = i == 0;
+        final bool isLast = i == parsedValues.length - 1;
+
         final List<TagNode> preparedChildren = _prepareCycleContent(
           cycleId: cycleId,
           indexName: indexName,
           valueName: valueName,
           index: i,
           children: element.children,
+          isFirst: isFirst,
+          isLast: isLast,
         );
         effectiveChildren.addAll(preparedChildren);
       }
@@ -201,6 +219,8 @@ List<TagNode> _prepareCycleContent({
   required String valueName,
   required int index,
   required List<TagNode> children,
+  required bool isFirst,
+  required bool isLast,
 }) {
   final List<TagNode> preparedChildren = [];
   for (final TagNode node in children) {
@@ -211,6 +231,8 @@ List<TagNode> _prepareCycleContent({
         valueName: valueName,
         index: index,
         child: node,
+        isFirst: isFirst,
+        isLast: isLast,
       ),
     );
   }
@@ -223,6 +245,8 @@ TagNode _prepareCycleChild({
   required String valueName,
   required int index,
   required TagNode child,
+  required bool isFirst,
+  required bool isLast,
 }) {
   if (child is WidgetTag) {
     final Map<String, String> attributes = {};
@@ -234,6 +258,8 @@ TagNode _prepareCycleChild({
         valueName: valueName,
         index: index,
         value: attributeEntry.value,
+        isFirst: isFirst,
+        isLast: isLast,
       );
     }
 
@@ -244,6 +270,8 @@ TagNode _prepareCycleChild({
         valueName: valueName,
         index: index,
         children: child.children,
+        isFirst: isFirst,
+        isLast: isLast,
       ),
       attributes: attributes,
     );
@@ -255,6 +283,8 @@ TagNode _prepareCycleChild({
         valueName: valueName,
         index: index,
         value: child.text,
+        isFirst: isFirst,
+        isLast: isLast,
       ),
     );
   } else if (child is UnknownNode) {
@@ -266,6 +296,8 @@ TagNode _prepareCycleChild({
         valueName: valueName,
         index: index,
         value: child.text,
+        isFirst: isFirst,
+        isLast: isLast,
       ),
     );
   }
@@ -278,6 +310,8 @@ String _replaceSimpleCycleExpressionWithComplex({
   required String valueName,
   required int index,
   required String value,
+  required bool isFirst,
+  required bool isLast,
 }) {
   final String normalizedIndexName = '$kIndex:::$indexName';
   final String normalizedValueName = '$kValue:::$valueName';
@@ -298,11 +332,11 @@ String _replaceSimpleCycleExpressionWithComplex({
 
   String enrichmentValue = normalizedValue;
   for (final RegExpMatch match in matches) {
-    final String indexOrValue = match.namedGroup('indexOrValue')!;
-    if (indexOrValue == normalizedIndexName || indexOrValue == normalizedValueName) {
+    final String cycleParam = match.namedGroup('indexOrValue')!;
+    if (cycleParam == normalizedIndexName || cycleParam == normalizedValueName || cycleParam == kIsFirst || cycleParam == kIsLast) {
       enrichmentValue = enrichmentValue.replaceFirst(
-        '$_cycle.$indexOrValue',
-        '$_cycle($cycleId)($index)($indexOrValue)',
+        '$_cycle.$cycleParam',
+        '$_cycle($cycleId)($index)($isFirst)($isLast)($cycleParam)',
       );
     }
   }

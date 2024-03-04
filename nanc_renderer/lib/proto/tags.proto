@@ -1,93 +1,50 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-  
+
 syntax = "proto3";
-    
+
 package io.nanc.nanc;
-    
 
-    
-
-
-
-message GFieldsOfTagNode
-{
-
+message GFieldsOfTagNode {
   GTagNodeType type = 2;
-
 }
-    
-  
-message GTagNode
-{
+
+message GTagNode {
   oneof props {
     GFieldsOfTagNode tag_node = 1;
-
     GWidgetTag widget_tag = 2;
     GPropertyTag property_tag = 3;
     GTextNode text_node = 4;
     GUnknownNode unknown_node = 5;
-
   }
-    
-}   
+}
 
-
-
-  
-message GTagsContainer
-{
-
+message GTagsContainer {
   repeated GTagNode nodes = 2;
+}
 
-}   
-
-
-
-  
-message GWidgetTag
-{
-
+message GWidgetTag {
   GTagNodeType type = 2;
   string tag = 3;
   repeated GTagNode children = 4;
   map<string, string> attributes = 5;
+}
 
-}   
-
-
-
-  
-message GPropertyTag
-{
-
+message GPropertyTag {
   GTagNodeType type = 2;
   string tag = 3;
   repeated GTagNode children = 4;
   map<string, string> attributes = 5;
+}
 
-}   
-
-
-
-  
-message GTextNode
-{
-
+message GTextNode {
   GTagNodeType type = 2;
   string text = 3;
+}
 
-}   
-
-
-
-  
-message GUnknownNode
-{
-
+message GUnknownNode {
   GTagNodeType type = 2;
   string text = 3;
-
-}   
+}
 
 enum GTagNodeType {
   G_TAG_NODE_TYPE_WIDGET = 0;

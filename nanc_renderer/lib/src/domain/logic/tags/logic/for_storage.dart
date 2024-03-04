@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
 import '../tools/chain_extractor.dart';
 
 typedef CycleId = String;
-final RegExp _cycleRegExp = RegExp(r'cycle\((?<cycleId>[-:\w]+)\)\((?<index>\d+)\)\((?<paramName>[-:\w]+)\)\.?(?<expression>[-\w.]*)?');
+final RegExp _cycleRegExp =
+    RegExp(r'cycle\((?<cycleId>[-:\w]+)\)\((?<index>\d+)\)\((?<isFirst>\w+)\)\((?<isLast>\w+)\)\((?<paramName>[-:\w]+)\)\.?(?<expression>[-\w.]*)?');
 
 class ForStorage extends InheritedWidget {
   ForStorage({
