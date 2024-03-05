@@ -71,10 +71,10 @@ abstract final class Calculations {
 
   static String _calculate(String expression) {
     try {
-      final Stopwatch sw = Stopwatch()..start();
+      // final Stopwatch sw = Stopwatch()..start();
       final String result = _createExpression(expression).eval().toString();
-      sw.stop();
-      sw.reset();
+      // sw.stop();
+      // sw.reset();
       return result;
     } catch (error) {
       logError('Error on calculation expression "$expression":\n$error');
@@ -86,10 +86,12 @@ abstract final class Calculations {
     if (expression.startsWith('http')) {
       return false;
     }
+    if (expression.startsWith('[')) {
+      return false;
+    }
     if (dateTimeRegExp.hasMatch(expression)) {
       return false;
     }
-
     return logicOperators.hasMatch(expression) || functions.hasMatch(expression) || mathOperators.hasMatch(expression);
   }
 
