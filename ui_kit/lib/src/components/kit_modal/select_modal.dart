@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:super_sliver_list/super_sliver_list.dart';
 import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';
@@ -61,7 +62,7 @@ class KitSelectModal<T> extends StatelessWidget {
               ),
         bottom: SizedBox(
           height: 36,
-          child: ListView(
+          child: SuperListView(
             scrollDirection: Axis.horizontal,
             children: values.map((SelectValue<T> value) {
               return Padding(

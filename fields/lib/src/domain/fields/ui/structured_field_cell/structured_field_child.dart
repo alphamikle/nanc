@@ -145,7 +145,7 @@ class _StructuredFieldChildState extends State<StructuredFieldChild> with Single
 
   @override
   Widget build(BuildContext context) {
-    final Widget childFields = ListView.builder(
+    final Widget childFields = SuperListView.builder(
       itemBuilder: fieldRowBuilder,
       itemCount: rowsCount,
       shrinkWrap: true,

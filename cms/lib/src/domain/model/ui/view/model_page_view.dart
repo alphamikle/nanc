@@ -1,7 +1,7 @@
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/src/router.dart';
+import 'package:go_router/go_router.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -263,7 +263,7 @@ class _ModelPageViewState extends State<ModelPageView> {
                                       top: kPadding,
                                       right: kPadding,
                                     ),
-                                    sliver: SliverList(
+                                    sliver: SuperSliverList(
                                       delegate: SliverChildListDelegate(
                                         /// ? FIELDS OF MODEL ITSELF
                                         [
@@ -344,7 +344,7 @@ class _ModelPageViewState extends State<ModelPageView> {
                                       top: Gap.large,
                                       right: Gap.regular,
                                     ),
-                                    sliver: SliverList(
+                                    sliver: SuperSliverList(
                                       delegate: SliverChildBuilderDelegate(
                                         buildFieldsRow,
                                         childCount: state.editableModel.fields.length,

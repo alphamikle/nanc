@@ -1,6 +1,7 @@
 library ui_kit;
 
 export 'package:animations/animations.dart';
+export 'package:super_sliver_list/super_sliver_list.dart';
 
 export 'src/animation/animated_state.dart';
 export 'src/animation/kit_auto_animated_transition.dart';

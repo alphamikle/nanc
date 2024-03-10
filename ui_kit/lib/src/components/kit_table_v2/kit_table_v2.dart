@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:model/model.dart';
+import 'package:super_sliver_list/super_sliver_list.dart';
 import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';
@@ -377,7 +378,8 @@ class _KitTableV2State extends State<KitTableV2> {
                   ),
                 ),
               if (widget.dataRows.isNotEmpty)
-                SliverList(
+                SuperSliverList(
+                  extentEstimation: (int index, double crossAxisExtent) => _kRowHeight,
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) => _rowBuilder(context, index),
                     childCount: widget.dataRows.length,

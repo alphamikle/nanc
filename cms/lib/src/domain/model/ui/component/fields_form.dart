@@ -2,6 +2,7 @@ import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:model/model.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
@@ -72,7 +73,9 @@ class FieldsForm extends StatelessWidget {
 
         return Form(
           key: formKey,
-          child: ListView(
+          child: SuperListView(
+            cacheExtent: 500,
+            delayPopulatingCacheArea: true,
             children: children,
           ),
         );

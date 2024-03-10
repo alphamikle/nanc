@@ -279,7 +279,7 @@ class _StructuredFieldCellState extends State<StructuredFieldCell> with FieldCel
               : Padding(
                   padding: EdgeInsets.only(left: singleObject ? Gap.regular : Gap.large, right: Gap.regular),
                   key: childrenKey,
-                  child: ListView.builder(
+                  child: SuperListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: childrenBuilder,
                     itemCount: childrenData.length,
