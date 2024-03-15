@@ -1,4 +1,3 @@
-import 'package:config/config.dart';
 import 'package:encrypt/encrypt.dart';
 
 const int _kIV = 8;
@@ -21,7 +20,7 @@ String decryptSync(String value, {String? salt}) {
 Encrypter _createCrypto(String salt) => Encrypter(Salsa20(Key.fromUtf8(salt)));
 
 String _salt(String? salt) {
-  String rawSalt = [salt ?? 'NO_SALT', String.fromCharCodes(Env.theSomething.toList()), Env.theAught].join();
+  String rawSalt = [salt ?? 'NO_SALT'].join();
   if (rawSalt.length != _kKey) {
     if (rawSalt.length < _kKey) {
       rawSalt = [rawSalt, ''.padLeft(_kKey - rawSalt.length, '.')].join();

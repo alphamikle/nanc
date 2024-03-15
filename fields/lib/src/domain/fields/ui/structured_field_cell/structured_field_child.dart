@@ -146,6 +146,7 @@ class _StructuredFieldChildState extends State<StructuredFieldChild> with Single
   @override
   Widget build(BuildContext context) {
     final Widget childFields = SuperListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: fieldRowBuilder,
       itemCount: rowsCount,
       shrinkWrap: true,

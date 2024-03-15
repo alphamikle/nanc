@@ -158,6 +158,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
                           child: Material(
                             type: MaterialType.transparency,
                             child: ListView.builder(
+                              physics: currentElements.length < 10 ? const NeverScrollableScrollPhysics() : null,
                               itemBuilder: (BuildContext context, int index) => menuItemBuilder(context, index),
                               itemCount: currentElements.length,
                             ),
