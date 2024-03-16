@@ -9,4 +9,5 @@ abstract class Env {
   static const int errorDuration = int.fromEnvironment('ERROR_DURATION', defaultValue: 30);
   static const String analyticsKey = String.fromEnvironment('ANALYTICS_KEY');
   static const String analyticsProject = String.fromEnvironment('ANALYTICS_PROJECT');
+  static const bool showCalculationErrors = bool.fromEnvironment('CALCULATION_ERRORS');
 }

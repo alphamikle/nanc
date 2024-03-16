@@ -1,6 +1,8 @@
+import 'package:config/config.dart';
 import 'package:decimal/decimal.dart';
 import 'package:eval_ex/built_ins.dart';
 import 'package:eval_ex/expression.dart';
+import 'package:flutter/foundation.dart';
 import 'package:tools/tools.dart';
 
 import 'calculator.dart';
@@ -77,7 +79,9 @@ abstract final class Calculations {
       // sw.reset();
       return result;
     } catch (error) {
-      logError('Error on calculation expression "$expression":\n$error');
+      if (kDebugMode && Env.showCalculationErrors) {
+        logError('Error on calculation expression "$expression":\n$error');
+      }
     }
     return expression;
   }
