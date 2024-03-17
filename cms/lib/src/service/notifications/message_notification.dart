@@ -28,7 +28,10 @@ void showMessageNotification(BuildContext context, String message) {
           ],
         ),
       ),
-      child: (_) => KitText(text: message),
+      child: (_) => Padding(
+        padding: const EdgeInsets.all(Gap.regular),
+        child: KitText(text: message),
+      ),
     ),
   );
 }
