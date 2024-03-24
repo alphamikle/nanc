@@ -1,7 +1,7 @@
-import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 
 import '../data_storage.dart';
+import '../events/event_handler.dart';
 import '../events/model/event.dart';
 
 final RegExp _updateRegExp = RegExp(r'^emit:(?<valueId>.*)$');

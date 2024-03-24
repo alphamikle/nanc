@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:config/config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
+import '../service/config/cms_config.dart';
 import '../service/errors/errors_catcher.dart';
 import '../service/errors/human_exception.dart';
 import 'app.dart';

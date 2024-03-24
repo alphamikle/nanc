@@ -17,6 +17,7 @@ export 'src/domain/model/logic/bloc/model_list_bloc/model_list_state.dart';
 export 'src/domain/model/ui/component/field_creation_modal.dart';
 export 'src/domain/model/ui/component/field_editor_modal.dart';
 export 'src/domain/model/ui/component/field_type_selector_modal.dart';
+export 'src/service/config/cms_config.dart';
 export 'src/service/errors/errors.dart';
 export 'src/service/errors/errors_catcher.dart';
 export 'src/service/errors/human_exception.dart';

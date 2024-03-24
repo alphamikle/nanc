@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:config/config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'default_event_handlers/data_storage_event_handler.dart';
+import 'events/event_handler.dart';
 import 'events/model/event.dart';
 
 class EventDelegate extends InheritedWidget {

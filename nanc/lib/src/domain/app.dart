@@ -12,6 +12,7 @@ import 'package:local_notifications/local_notifications.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../service/config/cms_config.dart';
 import '../service/errors/human_exception.dart';
 import '../service/init/initializer.dart';
 

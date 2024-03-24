@@ -12,8 +12,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  config:
-    path: ../config
   collection: ^1.17.1 # no update because of flutter
   html: ^0.15.3
   archive: ^3.3.7

@@ -14,8 +14,6 @@ dependencies:
     sdk: flutter
   tools:
     path: ../tools
-  nanc_renderer:
-    path: ../nanc_renderer
   fonts:
     path: ../fonts
   copy_with_extension: ^5.0.2

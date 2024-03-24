@@ -1,8 +1,8 @@
-import 'package:config/config.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../service/config/cms_config.dart';
 import '../../../../service/init/data_repository.dart';
 import '../../../../service/scroll/always_touch_scroll_behavior.dart';
 import 'page_preview.dart';

@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+
+import 'model/event.dart';
 
 typedef EventTest = FutureOr<bool> Function(BuildContext context, Event event);
 typedef Handler = FutureOr<void> Function(BuildContext context, Event event);

@@ -2,6 +2,8 @@ import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 
+import '../config/cms_config.dart';
+
 class DataRepository {
   const DataRepository({
     required this.eventsHandlers,

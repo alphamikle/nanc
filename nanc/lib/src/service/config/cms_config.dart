@@ -1,15 +1,7 @@
+import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:fonts/fonts.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
-
-import '../../collection/logic/provider/collection_api_interface.dart';
-import '../../document/logic/provider/document_api_interface.dart';
-import '../../event_handler/logic/event_handler.dart';
-import '../../model/logic/api/model_api_interface.dart';
-import '../../model/logic/model/model_interface.dart';
-import 'admin_wrapper_interface.dart';
-import 'image_builder_delegate.dart';
-import 'network_config.dart';
 
 typedef IconName = String;
 typedef CustomIcons = Map<IconName, IconData>;

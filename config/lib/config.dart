@@ -10,13 +10,11 @@ export 'src/domain/collection/logic/provider/collection_provider_interface.dart'
 export 'src/domain/collection/logic/query_language/fields/query_field.dart';
 export 'src/domain/collection/logic/query_language/mapper/query_field_mapper.dart';
 export 'src/domain/config/logic/admin_wrapper_interface.dart';
-export 'src/domain/config/logic/cms_config.dart';
 export 'src/domain/config/logic/image_builder_delegate.dart';
 export 'src/domain/config/logic/network_config.dart';
 export 'src/domain/document/logic/provider/document_api_interface.dart';
 export 'src/domain/document/logic/provider/document_provider_interface.dart';
 export 'src/domain/env/env.dart';
-export 'src/domain/event_handler/logic/event_handler.dart';
 export 'src/domain/field/logic/model/field_interface.dart';
 export 'src/domain/field/logic/model/id_field_interface.dart';
 export 'src/domain/field/logic/model/third_table_interface.dart';

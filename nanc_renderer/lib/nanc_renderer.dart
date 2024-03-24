@@ -6,6 +6,7 @@ export 'src/domain/logic/tags/documentation/documentation.dart';
 export 'src/domain/logic/tags/enums.dart';
 export 'src/domain/logic/tags/logic/data_storage.dart';
 export 'src/domain/logic/tags/logic/event_delegate.dart';
+export 'src/domain/logic/tags/logic/events/event_handler.dart';
 export 'src/domain/logic/tags/logic/events/model/event.dart';
 export 'src/domain/logic/tags/property_tag_renderer.dart';
 export 'src/domain/logic/tags/property_widget.dart';

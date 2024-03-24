@@ -1,0 +1,135 @@
+Table nanc {
+  id int PK
+  nanc_renderer int [ref: > nanc_renderer.id]
+  nanc_code_text_field int [ref: > nanc_code_text_field.id]
+  tools int [ref: > tools.id]
+  nanc_fields int [ref: > nanc_fields.id]
+  model int [ref: > model.id]
+  ui_kit int [ref: > ui_kit.id]
+  config int [ref: > config.id]
+  animation_debugger int [ref: > animation_debugger.id]
+  file_syncer int [ref: > file_syncer.id]
+  icons int [ref: > icons.id]
+  analytics int [ref: > analytics.id]
+  fonts int [ref: > fonts.id]
+  nanc_api_supabase int [ref: > nanc_api_supabase.id]
+  local_notifications int [ref: > local_notifications.id]
+}
+
+Table nanc_renderer {
+  id int PK
+  tools int [ref: > tools.id]
+  icons int [ref: > icons.id]
+  fonts int [ref: > fonts.id]
+  config int [ref: > config.id]
+  tag_converter int [ref: > tag_converter.id]
+}
+
+Table nanc_code_text_field {
+  id int PK
+  tools int [ref: > tools.id]
+}
+
+Table tools {
+  id int PK
+  config int [ref: > config.id]
+}
+
+Table nanc_fields {
+  id int PK
+  tools int [ref: > tools.id]
+  model int [ref: > model.id] // Probably need to remove
+  ui_kit int [ref: > ui_kit.id]
+  nanc int [ref: > nanc.id] // Need to remove
+  icons int [ref: > icons.id]
+  config int [ref: > config.id]
+}
+
+Table model {
+  id int PK
+  tools int [ref: > tools.id]
+  nanc_fields int [ref: > nanc_fields.id] // Probably need to remove
+  icons int [ref: > icons.id]
+}
+
+Table ui_kit {
+  id int PK
+  tools int [ref: > tools.id]
+  nanc_fields int [ref: > nanc_fields.id] // Need to remove
+  model int [ref: > model.id] // Need to remove
+  nanc int [ref: > nanc.id] // Need to remove
+  icons int [ref: > icons.id]
+  fonts int [ref: > fonts.id]
+  nanc_code_text_field int [ref: > nanc_code_text_field.id]
+  config int [ref: > config.id]
+}
+
+Table config {
+  id int PK
+  tools int [ref: > tools.id]
+  model int [ref: > model.id] // Need to remove
+  nanc_renderer int [ref: > nanc_renderer.id] // Need to remove
+  fonts int [ref: > fonts.id]
+}
+
+Table animation_debugger {
+  id int PK
+}
+
+Table file_syncer {
+  id int PK
+}
+
+Table icons {
+  id int PK
+  tools int [ref: > tools.id]
+}
+
+Table analytics {
+  id int PK
+}
+
+Table fonts {
+  id int PK
+  tools int [ref: > tools.id]
+}
+
+Table nanc_api_supabase {
+  id int PK
+  config int [ref: > config.id]
+  model int [ref: > model.id]
+  tools int [ref: > tools.id]
+  nanc_fields int [ref: > nanc_fields.id]
+}
+
+Table local_notifications {
+  id int PK
+  ui_kit int [ref: > ui_kit.id]
+  tools int [ref: > tools.id]
+}
+
+Table nanc_api_firebase {
+  id int PK
+  config int [ref: > config.id]
+  model int [ref: > model.id]
+  tools int [ref: > tools.id]
+  nanc_fields int [ref: > nanc_fields.id]
+}
+
+Table nanc_api_local {
+  id int PK
+  tools int [ref: > tools.id]
+  model int [ref: > model.id]
+  config int [ref: > config.id]
+}
+
+Table svg_renderer {
+  id int PK
+  nanc_renderer int [ref: > nanc_renderer.id]
+  tools int [ref: > tools.id]
+  icons int [ref: > icons.id]
+}
+
+Table tag_converter {
+  id int PK
+}
