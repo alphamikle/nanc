@@ -7,9 +7,11 @@ part of 'collection_filter_state.dart';
 // **************************************************************************
 
 extension _$CollectionFilterStateAutoequal on CollectionFilterState {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [collectionModel, backup, query];
+  List<Object?> get _$props => [
+        collectionModel,
+        backup,
+        query,
+      ];
 }
 
 // **************************************************************************

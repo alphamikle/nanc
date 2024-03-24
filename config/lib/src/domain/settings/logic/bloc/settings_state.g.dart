@@ -7,8 +7,6 @@ part of 'settings_state.dart';
 // **************************************************************************
 
 extension _$SettingsStateAutoequal on SettingsState {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [tablesWidths];
 }
 

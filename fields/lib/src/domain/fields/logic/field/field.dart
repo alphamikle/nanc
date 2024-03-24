@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:autoequal/autoequal.dart';
+import 'package:config/config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ import 'field_props.dart';
 part 'field.g.dart';
 
 @autoequal
-abstract class Field extends Equatable {
+abstract class Field extends Equatable implements IField {
   const Field({
     required this.id,
     required this.name,
@@ -27,23 +28,41 @@ abstract class Field extends Equatable {
     this.type = FieldType.field,
   });
 
+  @override
   final String id;
+
+  @override
   final String name;
+
+  @override
   final bool showInList;
+
+  @override
   final bool isRequired;
+
+  @override
   final int sort;
+
+  @override
   final bool realField;
 
+  @override
   List<Field> get virtualFields => [];
 
+  @override
   @JsonKey(ignore: true)
   final FormFieldValidator<Object>? validator;
+
+  @override
   final FieldType type;
 
+  @override
   FieldDescription description([BuildContext? context]);
 
+  @override
   Json toJson();
 
+  @override
   Model toModel() {
     return Model(
       name: description().title,
@@ -66,11 +85,13 @@ abstract class Field extends Equatable {
     );
   }
 
+  @override
   Set<String> get defaultValues => {
         fieldIsRequiredProperty,
         fieldShowInListProperty,
       };
 
+  @override
   bool get isEmpty;
 
   @override

@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:tag_converter/tag_converter.dart';
 import 'package:tools/tools.dart';
 
-import '../../logic/model/tag.dart';
 import '../../logic/tags/logic/document_storage.dart';
 import '../../logic/tags/logic/for_storage.dart';
 import '../../logic/tags/logic/image_builder_delegate.dart';

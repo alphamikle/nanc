@@ -7,10 +7,21 @@ part of 'header_field.dart';
 // **************************************************************************
 
 extension _$HeaderFieldAutoequal on HeaderField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props =>
-      [content, contentIcon, contentColor, contentFontSize, useAsDivider];
+  List<Object?> get _$props => [
+        content,
+        contentIcon,
+        contentColor,
+        contentFontSize,
+        useAsDivider,
+        id,
+        name,
+        showInList,
+        isRequired,
+        sort,
+        realField,
+        validator,
+        type,
+      ];
 }
 
 // **************************************************************************

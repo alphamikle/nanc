@@ -7,9 +7,10 @@ part of 'enum_value.dart';
 // **************************************************************************
 
 extension _$EnumValueAutoequal on EnumValue {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [title, value];
+  List<Object?> get _$props => [
+        title,
+        value,
+      ];
 }
 
 // **************************************************************************

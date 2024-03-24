@@ -7,9 +7,11 @@ part of 'collection_response_dto.dart';
 // **************************************************************************
 
 extension _$CollectionResponseDtoAutoequal on CollectionResponseDto {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [page, totalPages, data];
+  List<Object?> get _$props => [
+        page,
+        totalPages,
+        data,
+      ];
 }
 
 // **************************************************************************

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:tag_converter/tag_converter.dart';
 
 final List<TagNode> testTagNodes = listOfTagNodesFromJson(jsonDecode(r'''
 [

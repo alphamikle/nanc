@@ -7,21 +7,25 @@ part of 'query_field.dart';
 // **************************************************************************
 
 extension _$QueryAndFieldAutoequal on QueryAndField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [fields, type];
+  List<Object?> get _$props => [
+        fields,
+        type,
+      ];
 }
 
 extension _$QueryOrFieldAutoequal on QueryOrField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [fields, type];
+  List<Object?> get _$props => [
+        fields,
+        type,
+      ];
 }
 
 extension _$QueryValueFieldAutoequal on QueryValueField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [fieldId, value, type];
+  List<Object?> get _$props => [
+        fieldId,
+        value,
+        type,
+      ];
 }
 
 // **************************************************************************

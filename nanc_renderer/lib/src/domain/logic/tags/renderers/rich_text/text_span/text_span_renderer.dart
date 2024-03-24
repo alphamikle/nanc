@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
+import 'package:tag_converter/tag_converter.dart';
 
-import '../../../../model/tag.dart';
 import '../../../documentation/documentation.dart';
 import '../../../logic/event_delegate.dart';
 import '../../../rich_renderer.dart';

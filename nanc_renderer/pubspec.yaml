@@ -20,13 +20,14 @@ dependencies:
     path: ../fonts
   config:
     path: ../config
+  tag_converter:
+    path: ../tag_converter
   json_annotation: ^4.8.1
   copy_with_extension: ^5.0.2
   cached_network_image: ^3.3.1
   flutter_blurhash: ^0.8.2
   xml: ^6.3.0
   equatable: ^2.0.5
-  autoequal: ^0.5.1
   flutter_bloc: ^8.1.3
   eval_ex: ^1.1.8
   decimal: ^2.3.3
@@ -38,10 +39,9 @@ dev_dependencies:
   flutter_lints: ^2.0.1
   lint:
     path: ../lint
-  json_serializable: ^6.7.0
-  copy_with_extension_gen: ^5.0.2
-  build_runner: ^2.4.4
-  autoequal_gen: ^0.5.1
-  proto_generator: ^4.1.0
+  json_serializable: ^6.7.1
+  copy_with_extension_gen: ^5.0.4
+  build_runner: ^2.4.8
+  proto_generator: ^4.3.0
 
 flutter:

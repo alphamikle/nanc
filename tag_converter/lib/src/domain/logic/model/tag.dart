@@ -5,8 +5,9 @@ import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:proto_annotations/proto_annotations.dart';
-import 'package:tools/tools.dart';
 
+import '../../../service/serialization.dart';
+import '../service/mapper/tag_mapper.dart';
 import 'grpc/tags.grpc.dart';
 
 part 'tag.g.dart';
@@ -31,42 +32,10 @@ enum TagNodeType {
   bool get isUnknown => this == TagNodeType.unknown;
 }
 
-TagNode tagNodeFromJson(dynamic rawJson) {
-  if (rawJson is DJson) {
-    return switch (rawJson['type']) {
-      'widget' => WidgetTag.fromJson(rawJson),
-      'property' => PropertyTag.fromJson(rawJson),
-      'text' => TextNode.fromJson(rawJson),
-      'unknown' => UnknownNode.fromJson(rawJson),
-      _ => throw Exception('Incorrect type of json: ${rawJson.runtimeType}'),
-    } as TagNode;
-  }
-  throw Exception('Incorrect type of json: ${rawJson.runtimeType}');
-}
-
-Json tagNodeToJson(TagNode tagNode) {
-  return switch (tagNode) {
-    PropertyTag() => tagNode.toJson(),
-    WidgetTag() => tagNode.toJson(),
-    TextNode() => tagNode.toJson(),
-    UnknownNode() => tagNode.toJson(),
-  };
-}
-
-List<TagNode> listOfTagNodesFromJson(dynamic rawJson) {
-  if (rawJson is List) {
-    return rawJson.map(tagNodeFromJson).toList();
-  }
-  logWarning('Incorrect type of json: ${rawJson.runtimeType}');
-  return [];
-}
-
-List<Json> listOfTagNodesToJson(List<TagNode> tagNodes) => tagNodes.map(tagNodeToJson).toList();
-
 @Proto(knownSubClassMap: {
-  WidgetTag: 2,
-  PropertyTag: 3,
-  TextNode: 4,
+  PropertyTag: 2,
+  TextNode: 3,
+  WidgetTag: 4,
   UnknownNode: 5,
 })
 sealed class TagNode {
@@ -77,7 +46,7 @@ sealed class TagNode {
   @ProtoField(2)
   final TagNodeType type;
 
-  Json toJson();
+  Json toJson() => tagNodeToJson(this);
 }
 
 @proto

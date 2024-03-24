@@ -7,9 +7,12 @@ part of 'preview_state.dart';
 // **************************************************************************
 
 extension _$PreviewStateAutoequal on PreviewState {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [isLoading, xmlContent, contentType, asyncMode];
+  List<Object?> get _$props => [
+        isLoading,
+        xmlContent,
+        contentType,
+        asyncMode,
+      ];
 }
 
 // **************************************************************************

@@ -7,9 +7,11 @@ part of 'menu_element.dart';
 // **************************************************************************
 
 extension _$MenuElementAutoequal on MenuElement {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [title, url, aliases];
+  List<Object?> get _$props => [
+        title,
+        url,
+        aliases,
+      ];
 }
 
 // **************************************************************************

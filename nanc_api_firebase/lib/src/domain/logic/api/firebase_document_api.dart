@@ -1,4 +1,5 @@
 import 'package:config/config.dart';
+import 'package:fields/fields.dart';
 import 'package:googleapis/firestore/v1.dart' as fs;
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -30,10 +31,13 @@ class FirebaseDocumentApi implements IDocumentApi {
 
   @override
   Future<void> saveThirdTable(ThirdTable thirdTable, FieldId parentModelId, List<FieldId> childModelIds) async {
-    _api.notifyAboutChanges(thirdTable.relationsEntity);
+    final Model relationsModel = thirdTable.relationsEntity;
+
+    _api.notifyAboutChanges(relationsModel);
+
     final CollectionResponseDto oldRelations = await _collectionApi.fetchPageList(
-      thirdTable.relationsEntity,
-      thirdTable.relationsEntity.flattenFields.ids,
+      relationsModel,
+      relationsModel.flattenFields.ids,
       QueryValueField(
         fieldId: thirdTable.parentEntityIdName,
         value: parentModelId,
@@ -42,21 +46,23 @@ class FirebaseDocumentApi implements IDocumentApi {
       ParamsDto(
         page: 1,
         limit: 49999,
-        sort: Sort(fieldId: thirdTable.relationsEntity.idField.id, order: Order.asc),
+        sort: Sort(fieldId: relationsModel.idField.id, order: Order.asc),
       ),
     );
     final Set<FieldId> childIds = childModelIds.toSet();
     final List<FieldId> idsForDeletion = oldRelations.data
-        .map((Json row) => row[thirdTable.relationsEntity.idField.id].toString())
+        .map(
+          (Json row) => row[relationsModel.idField.id].toString(),
+        )
         .where((FieldId id) => childIds.contains(id) == false)
         .toList();
     for (final FieldId childId in idsForDeletion) {
-      await deletePage(thirdTable.relationsEntity, childId);
+      await deletePage(relationsModel, childId);
     }
     for (final FieldId childId in childModelIds) {
       final String uuid = Ulid().toUuid();
-      await upsertPage(thirdTable.relationsEntity, uuid, {
-        thirdTable.relationsEntity.idField.id: uuid,
+      await upsertPage(relationsModel, uuid, {
+        relationsModel.idField.id: uuid,
         thirdTable.parentEntityIdName: parentModelId,
         thirdTable.childEntityIdName: childId,
       });

@@ -7,8 +7,6 @@ part of 'model_filters_backup.dart';
 // **************************************************************************
 
 extension _$ModelFiltersBackupAutoequal on ModelFiltersBackup {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [
         model,
         totalPages,
@@ -16,7 +14,7 @@ extension _$ModelFiltersBackupAutoequal on ModelFiltersBackup {
         globalSearchValue,
         query,
         globalSearchQuery,
-        sort
+        sort,
       ];
 }
 

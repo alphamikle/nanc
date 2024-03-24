@@ -7,9 +7,19 @@ part of 'selector_field.dart';
 // **************************************************************************
 
 extension _$SelectorFieldAutoequal on SelectorField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [virtualField, model, titleFields];
+  List<Object?> get _$props => [
+        virtualField,
+        model,
+        titleFields,
+        id,
+        name,
+        showInList,
+        isRequired,
+        sort,
+        realField,
+        validator,
+        type,
+      ];
 }
 
 // **************************************************************************

@@ -2,10 +2,7 @@ import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:model/model.dart';
 import 'package:tools/tools.dart';
-
-import '../../../config/logic/network_config.dart';
 
 part 'params_dto.g.dart';
 
@@ -26,11 +23,6 @@ class ParamsDto extends Equatable {
     required this.limit,
     required this.sort,
   });
-
-  ParamsDto.initial(Model model)
-      : page = 1,
-        limit = NetworkConfig.paginationLimitParameterDefaultValue,
-        sort = Sort(fieldId: model.idField.id, order: Order.asc);
 
   final int page;
   final int limit;

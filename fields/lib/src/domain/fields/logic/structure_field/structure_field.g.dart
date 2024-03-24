@@ -7,9 +7,18 @@ part of 'structure_field.dart';
 // **************************************************************************
 
 extension _$StructureFieldAutoequal on StructureField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [];
+  List<Object?> get _$props => [
+        contentIcon,
+        contentColor,
+        id,
+        name,
+        showInList,
+        isRequired,
+        sort,
+        realField,
+        validator,
+        type,
+      ];
 }
 
 // **************************************************************************

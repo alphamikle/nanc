@@ -7,9 +7,12 @@ part of 'dynamic_field_item.dart';
 // **************************************************************************
 
 extension _$DynamicFieldItemAutoequal on DynamicFieldItem {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [controller, value, field, children];
+  List<Object?> get _$props => [
+        controller,
+        value,
+        field,
+        children,
+      ];
 }
 
 // **************************************************************************

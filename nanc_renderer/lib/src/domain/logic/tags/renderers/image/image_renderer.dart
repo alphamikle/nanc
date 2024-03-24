@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/src/blurhash.dart';
 import 'package:icons/icons.dart';
+import 'package:tag_converter/tag_converter.dart';
 import 'package:tools/tools.dart';
 
-import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';

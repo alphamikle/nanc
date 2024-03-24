@@ -1,0 +1,3899 @@
+[
+  {
+    "type": "widget",
+    "tag": "data",
+    "children": [],
+    "attributes": {
+      "namespace": "colors",
+      "primary": "#FF0B59D5",
+      "primaryDarken": "#FF0A50C0",
+      "primaryDarkest": "#FF0948AD",
+      "secondary": "#FFFFFFFF",
+      "secondaryDarken": "#FFCDDEF7",
+      "secondaryAccent": "#FFE9F2F9",
+      "tertiary": "#FFFCB61A",
+      "quaternary": "#FF999999",
+      "quaternaryDarken": "#FF696E70",
+      "quaternaryLighten": "#FFEEEEEE",
+      "text.basic": "#FF000000",
+      "text.light": "#FFDCDCDC"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "data",
+    "children": [],
+    "attributes": {
+      "namespace": "header",
+      "height": "215"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "data",
+    "children": [],
+    "attributes": {
+      "namespace": "gap",
+      "x1": "4",
+      "x2": "8",
+      "x3": "16",
+      "x4": "24",
+      "x5": "32",
+      "x6": "48"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "data",
+    "children": [],
+    "attributes": {
+      "namespace": "font",
+      "main": "DM Sans"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "data",
+    "children": [],
+    "attributes": {
+      "namespace": "star",
+      "empty": "{{ page.icons.star.empty }}",
+      "half": "{{ page.icons.star.half }}",
+      "full": "{{ page.icons.star.full }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "data",
+    "children": [],
+    "attributes": {
+      "cart.count": "{{ page.header.items_in_cart }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "padding",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "row",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "show",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "sizedBox",
+                    "children": [],
+                    "attributes": {
+                      "width": "{{ data.gap.x3 }}"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "ifFalse": "{{ template.noPrefix }}"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "aspectRatio",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "container",
+                    "children": [
+                      {
+                        "type": "property",
+                        "tag": "prop:decoration",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:borderRadius",
+                            "children": [],
+                            "attributes": {
+                              "all": "8"
+                            }
+                          },
+                          {
+                            "type": "property",
+                            "tag": "prop:shadow",
+                            "children": [],
+                            "attributes": {
+                              "color": "#0F000000",
+                              "blurRadius": "8",
+                              "offsetY": "4"
+                            }
+                          }
+                        ],
+                        "attributes": {}
+                      },
+                      {
+                        "type": "widget",
+                        "tag": "column",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "expanded",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "clipRRect",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "image",
+                                    "children": [],
+                                    "attributes": {
+                                      "ref": "{{ template.image }}",
+                                      "fit": "cover",
+                                      "blurHash": "{{ template.blurHash }}"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "topLeft": "8",
+                                  "topRight": "8"
+                                }
+                              }
+                            ],
+                            "attributes": {}
+                          },
+                          {
+                            "type": "widget",
+                            "tag": "padding",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "row",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "sizedBox",
+                                    "children": [],
+                                    "attributes": {
+                                      "width": "{{ data.gap.x2 }}"
+                                    }
+                                  },
+                                  {
+                                    "type": "widget",
+                                    "tag": "column",
+                                    "children": [
+                                      {
+                                        "type": "widget",
+                                        "tag": "component",
+                                        "children": [],
+                                        "attributes": {
+                                          "id": "subtitle",
+                                          "text": "{{ template.title }}"
+                                        }
+                                      },
+                                      {
+                                        "type": "widget",
+                                        "tag": "component",
+                                        "children": [],
+                                        "attributes": {
+                                          "id": "smallBody",
+                                          "text": "{{ template.subtitle }}"
+                                        }
+                                      }
+                                    ],
+                                    "attributes": {
+                                      "crossAxisAlignment": "start"
+                                    }
+                                  },
+                                  {
+                                    "type": "widget",
+                                    "tag": "spacer",
+                                    "children": [],
+                                    "attributes": {}
+                                  },
+                                  {
+                                    "type": "widget",
+                                    "tag": "padding",
+                                    "children": [
+                                      {
+                                        "type": "widget",
+                                        "tag": "sizedBox",
+                                        "children": [
+                                          {
+                                            "type": "widget",
+                                            "tag": "svg",
+                                            "children": [],
+                                            "attributes": {
+                                              "ref": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/circle_chevron_right.svg"
+                                            }
+                                          }
+                                        ],
+                                        "attributes": {
+                                          "size": "24"
+                                        }
+                                      }
+                                    ],
+                                    "attributes": {
+                                      "top": "{{ data.gap.x2 }}",
+                                      "right": "{{ data.gap.x2 }}"
+                                    }
+                                  }
+                                ],
+                                "attributes": {}
+                              }
+                            ],
+                            "attributes": {
+                              "all": "{{ data.gap.x2 }}"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "crossAxisAlignment": "start"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "color": "{{ data.colors.secondary }}"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "ratio": "1.3"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "sizedBox",
+                "children": [],
+                "attributes": {
+                  "width": "{{ data.gap.x3 }}"
+                }
+              }
+            ],
+            "attributes": {
+              "mainAxisSize": "min"
+            }
+          }
+        ],
+        "attributes": {
+          "top": "12",
+          "bottom": "12"
+        }
+      }
+    ],
+    "attributes": {
+      "id": "adCard"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "text",
+        "children": [
+          {
+            "type": "property",
+            "tag": "prop:textStyle",
+            "children": [],
+            "attributes": {
+              "weight": "w500",
+              "height": "1.25",
+              "font": "{{ data.font.main }}"
+            }
+          }
+        ],
+        "attributes": {
+          "text": "{{ template.text }}",
+          "size": "18"
+        }
+      }
+    ],
+    "attributes": {
+      "id": "subtitle"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "show",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "text",
+            "children": [
+              {
+                "type": "property",
+                "tag": "prop:textStyle",
+                "children": [],
+                "attributes": {
+                  "font": "{{ data.font.main }}"
+                }
+              }
+            ],
+            "attributes": {
+              "text": "{{ template.text }}",
+              "size": "12",
+              "color": "{{ template.color }}"
+            }
+          }
+        ],
+        "attributes": {
+          "ifTrue": "{{ template.color }}"
+        }
+      },
+      {
+        "type": "widget",
+        "tag": "show",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "text",
+            "children": [
+              {
+                "type": "property",
+                "tag": "prop:textStyle",
+                "children": [],
+                "attributes": {
+                  "font": "{{ data.font.main }}"
+                }
+              }
+            ],
+            "attributes": {
+              "text": "{{ template.text }}",
+              "size": "12",
+              "color": "{{ data.colors.quaternary }}"
+            }
+          }
+        ],
+        "attributes": {
+          "ifFalse": "{{ template.color }}",
+          "nullAsFalse": "true"
+        }
+      }
+    ],
+    "attributes": {
+      "id": "smallBody"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "text",
+        "children": [
+          {
+            "type": "property",
+            "tag": "prop:textStyle",
+            "children": [],
+            "attributes": {
+              "font": "{{ data.font.main }}"
+            }
+          }
+        ],
+        "attributes": {
+          "text": "{{ template.text }}",
+          "size": "14",
+          "color": "{{ data.colors.text.basic }}",
+          "maxLines": "2",
+          "overflow": "ellipsis"
+        }
+      }
+    ],
+    "attributes": {
+      "id": "middleBody"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "stack",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "container",
+            "children": [
+              {
+                "type": "property",
+                "tag": "prop:decoration",
+                "children": [
+                  {
+                    "type": "property",
+                    "tag": "prop:borderRadius",
+                    "children": [],
+                    "attributes": {
+                      "all": "30"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "color": "{{ template.color }}"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "padding",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "row",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "show",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "padding",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "sizedBox",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "center",
+                                    "children": [
+                                      {
+                                        "type": "widget",
+                                        "tag": "svg",
+                                        "children": [],
+                                        "attributes": {
+                                          "ref": "{{ template.prefix }}"
+                                        }
+                                      }
+                                    ],
+                                    "attributes": {}
+                                  }
+                                ],
+                                "attributes": {
+                                  "size": "20"
+                                }
+                              }
+                            ],
+                            "attributes": {
+                              "left": "2",
+                              "right": "4"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "ifTrue": "{{ template.prefix }}"
+                        }
+                      },
+                      {
+                        "type": "widget",
+                        "tag": "show",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "sizedBox",
+                            "children": [],
+                            "attributes": {
+                              "width": "6"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "ifFalse": "{{ template.prefix }}",
+                          "nullAsFalse": "true"
+                        }
+                      },
+                      {
+                        "type": "widget",
+                        "tag": "text",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:textStyle",
+                            "children": [],
+                            "attributes": {
+                              "font": "{{ data.font.main }}",
+                              "color": "{{ template.textColor }}",
+                              "weight": "w600"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "text": "{{ template.text }}",
+                          "size": "14"
+                        }
+                      },
+                      {
+                        "type": "widget",
+                        "tag": "show",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "padding",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "sizedBox",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "svg",
+                                    "children": [],
+                                    "attributes": {
+                                      "ref": "{{ template.suffix }}"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "size": "10"
+                                }
+                              }
+                            ],
+                            "attributes": {
+                              "left": "6",
+                              "right": "6"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "ifTrue": "{{ template.suffix }}"
+                        }
+                      },
+                      {
+                        "type": "widget",
+                        "tag": "show",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "sizedBox",
+                            "children": [],
+                            "attributes": {
+                              "width": "6"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "ifFalse": "{{ template.suffix }}",
+                          "nullAsFalse": "true"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "mainAxisSize": "min"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "left": "6",
+                  "top": "6",
+                  "right": "6",
+                  "bottom": "6"
+                }
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "positioned",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "material",
+                    "children": [
+                      {
+                        "type": "property",
+                        "tag": "prop:borderRadius",
+                        "children": [],
+                        "attributes": {
+                          "all": "30"
+                        }
+                      },
+                      {
+                        "type": "widget",
+                        "tag": "inkWell",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:borderRadius",
+                            "children": [],
+                            "attributes": {
+                              "all": "30"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "onPressed": "{{ template.onPressed }}"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "type": "transparency"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "all": "0"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.onPressed }}"
+            }
+          }
+        ],
+        "attributes": {}
+      }
+    ],
+    "attributes": {
+      "id": "roundButton"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "show",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "container",
+                "children": [
+                  {
+                    "type": "property",
+                    "tag": "prop:decoration",
+                    "children": [
+                      {
+                        "type": "property",
+                        "tag": "prop:borderRadius",
+                        "children": [],
+                        "attributes": {
+                          "all": "20"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "color": "{{ data.colors.primary }}"
+                    }
+                  },
+                  {
+                    "type": "widget",
+                    "tag": "center",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "container",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:decoration",
+                            "children": [
+                              {
+                                "type": "property",
+                                "tag": "prop:borderRadius",
+                                "children": [],
+                                "attributes": {
+                                  "all": "16"
+                                }
+                              }
+                            ],
+                            "attributes": {
+                              "color": "{{ data.colors.secondary }}"
+                            }
+                          },
+                          {
+                            "type": "widget",
+                            "tag": "center",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "container",
+                                "children": [
+                                  {
+                                    "type": "property",
+                                    "tag": "prop:decoration",
+                                    "children": [
+                                      {
+                                        "type": "property",
+                                        "tag": "prop:borderRadius",
+                                        "children": [],
+                                        "attributes": {
+                                          "all": "12"
+                                        }
+                                      }
+                                    ],
+                                    "attributes": {
+                                      "color": "{{ data.colors.primary }}"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "size": "12"
+                                }
+                              }
+                            ],
+                            "attributes": {}
+                          }
+                        ],
+                        "attributes": {
+                          "size": "16"
+                        }
+                      }
+                    ],
+                    "attributes": {}
+                  }
+                ],
+                "attributes": {
+                  "size": "20"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.current }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "sizedBox",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "center",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "container",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:decoration",
+                            "children": [
+                              {
+                                "type": "property",
+                                "tag": "prop:borderRadius",
+                                "children": [],
+                                "attributes": {
+                                  "all": "12"
+                                }
+                              }
+                            ],
+                            "attributes": {
+                              "color": "{{ data.colors.primary }}"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "size": "12"
+                        }
+                      }
+                    ],
+                    "attributes": {}
+                  }
+                ],
+                "attributes": {
+                  "height": "20"
+                }
+              }
+            ],
+            "attributes": {
+              "ifFalse": "{{ template.current }}",
+              "nullAsFalse": "true"
+            }
+          }
+        ],
+        "attributes": {
+          "ifTrue": "{{ template.active }}"
+        }
+      },
+      {
+        "type": "widget",
+        "tag": "show",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "sizedBox",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "center",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "container",
+                    "children": [
+                      {
+                        "type": "property",
+                        "tag": "prop:decoration",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:borderRadius",
+                            "children": [],
+                            "attributes": {
+                              "all": "12"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "color": "{{ data.colors.quaternaryDarken }}"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "size": "12"
+                    }
+                  }
+                ],
+                "attributes": {}
+              }
+            ],
+            "attributes": {
+              "height": "20"
+            }
+          }
+        ],
+        "attributes": {
+          "ifFalse": "{{ template.active }}"
+        }
+      }
+    ],
+    "attributes": {
+      "id": "point"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "stack",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "positioned",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "line",
+                  "active": "{{ template.active }}"
+                }
+              }
+            ],
+            "attributes": {
+              "left": "11",
+              "top": "10",
+              "right": "0"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "positioned",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "point",
+                  "active": "{{ template.active }}"
+                }
+              }
+            ],
+            "attributes": {
+              "left": "0",
+              "top": "1"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "sizedBox",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "align",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "show",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "text",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:textStyle",
+                            "children": [],
+                            "attributes": {
+                              "color": "{{ data.colors.primary }}",
+                              "size": "12"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "text": "{{ template.title }}"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "ifTrue": "{{ template.active }}"
+                    }
+                  },
+                  {
+                    "type": "widget",
+                    "tag": "show",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "text",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:textStyle",
+                            "children": [],
+                            "attributes": {
+                              "color": "{{ data.colors.quaternaryDarken }}",
+                              "size": "12"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "text": "{{ template.title }}"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "ifFalse": "{{ template.active }}"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "align": "bottomLeft"
+                }
+              }
+            ],
+            "attributes": {
+              "height": "50"
+            }
+          }
+        ],
+        "attributes": {}
+      }
+    ],
+    "attributes": {
+      "id": "leftDot"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "stack",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "positioned",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "row",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "expanded",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "component",
+                        "children": [],
+                        "attributes": {
+                          "id": "line",
+                          "active": "{{ template.leftActive }}"
+                        }
+                      }
+                    ],
+                    "attributes": {}
+                  },
+                  {
+                    "type": "widget",
+                    "tag": "expanded",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "component",
+                        "children": [],
+                        "attributes": {
+                          "id": "line",
+                          "active": "{{ template.rightActive }}"
+                        }
+                      }
+                    ],
+                    "attributes": {}
+                  }
+                ],
+                "attributes": {}
+              }
+            ],
+            "attributes": {
+              "left": "0",
+              "top": "10",
+              "right": "0"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "positioned",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "align",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "component",
+                    "children": [],
+                    "attributes": {
+                      "id": "point",
+                      "active": "{{ template.active }}",
+                      "current": "{{ template.current }}"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "align": "topCenter"
+                }
+              }
+            ],
+            "attributes": {
+              "left": "0",
+              "top": "1",
+              "right": "0"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "sizedBox",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "align",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "show",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "text",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:textStyle",
+                            "children": [],
+                            "attributes": {
+                              "color": "{{ data.colors.primary }}",
+                              "size": "12"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "text": "{{ template.title }}"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "ifTrue": "{{ template.active }}"
+                    }
+                  },
+                  {
+                    "type": "widget",
+                    "tag": "show",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "text",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:textStyle",
+                            "children": [],
+                            "attributes": {
+                              "color": "{{ data.colors.quaternaryDarken }}",
+                              "size": "12"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "text": "{{ template.title }}"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "ifFalse": "{{ template.active }}"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "align": "bottomLeft"
+                }
+              }
+            ],
+            "attributes": {
+              "height": "50"
+            }
+          }
+        ],
+        "attributes": {}
+      }
+    ],
+    "attributes": {
+      "id": "dot"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "stack",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "positioned",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "line",
+                  "active": "{{ template.active }}"
+                }
+              }
+            ],
+            "attributes": {
+              "left": "0",
+              "top": "10",
+              "right": "11"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "positioned",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "point",
+                  "active": "{{ template.active }}"
+                }
+              }
+            ],
+            "attributes": {
+              "top": "1",
+              "right": "0"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "sizedBox",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "align",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "show",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "text",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:textStyle",
+                            "children": [],
+                            "attributes": {
+                              "color": "{{ data.colors.primary }}",
+                              "size": "12"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "text": "{{ template.title }}"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "ifTrue": "{{ template.active }}"
+                    }
+                  },
+                  {
+                    "type": "widget",
+                    "tag": "show",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "text",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:textStyle",
+                            "children": [],
+                            "attributes": {
+                              "color": "{{ data.colors.quaternaryDarken }}",
+                              "size": "12"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "text": "{{ template.title }}"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "ifFalse": "{{ template.active }}"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "align": "bottomLeft"
+                }
+              }
+            ],
+            "attributes": {
+              "height": "50"
+            }
+          }
+        ],
+        "attributes": {}
+      }
+    ],
+    "attributes": {
+      "id": "rightDot"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "show",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "container",
+            "children": [
+              {
+                "type": "property",
+                "tag": "prop:decoration",
+                "children": [],
+                "attributes": {
+                  "color": "{{ data.colors.primary }}"
+                }
+              }
+            ],
+            "attributes": {
+              "height": "2",
+              "width": "100"
+            }
+          }
+        ],
+        "attributes": {
+          "ifTrue": "{{ template.active }}"
+        }
+      },
+      {
+        "type": "widget",
+        "tag": "show",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "container",
+            "children": [
+              {
+                "type": "property",
+                "tag": "prop:decoration",
+                "children": [],
+                "attributes": {
+                  "color": "{{ data.colors.quaternaryDarken }}"
+                }
+              }
+            ],
+            "attributes": {
+              "height": "2",
+              "width": "100"
+            }
+          }
+        ],
+        "attributes": {
+          "ifFalse": "{{ template.active }}"
+        }
+      }
+    ],
+    "attributes": {
+      "id": "line"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "sizedBox",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "stack",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "positioned",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "component",
+                    "children": [],
+                    "attributes": {
+                      "id": "line",
+                      "active": "{{ template.active }}"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "left": "0",
+                  "top": "10",
+                  "right": "0"
+                }
+              }
+            ],
+            "attributes": {
+              "fix": "expand"
+            }
+          }
+        ],
+        "attributes": {
+          "height": "50"
+        }
+      }
+    ],
+    "attributes": {
+      "id": "lineSpacer"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "aspectRatio",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "stack",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "container",
+                "children": [
+                  {
+                    "type": "property",
+                    "tag": "prop:decoration",
+                    "children": [
+                      {
+                        "type": "property",
+                        "tag": "prop:border",
+                        "children": [],
+                        "attributes": {
+                          "color": "{{ data.colors.quaternaryLighten }}",
+                          "width": "1.6"
+                        }
+                      },
+                      {
+                        "type": "property",
+                        "tag": "prop:borderRadius",
+                        "children": [],
+                        "attributes": {
+                          "all": "8"
+                        }
+                      }
+                    ],
+                    "attributes": {}
+                  },
+                  {
+                    "type": "widget",
+                    "tag": "column",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "expanded",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "center",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "padding",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "image",
+                                    "children": [],
+                                    "attributes": {
+                                      "ref": "{{ template.image }}",
+                                      "blurHash": "{{ template.blurHash }}"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "top": "4",
+                                  "bottom": "4"
+                                }
+                              }
+                            ],
+                            "attributes": {}
+                          }
+                        ],
+                        "attributes": {}
+                      },
+                      {
+                        "type": "widget",
+                        "tag": "expanded",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "column",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "padding",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "column",
+                                    "children": [
+                                      {
+                                        "type": "widget",
+                                        "tag": "component",
+                                        "children": [],
+                                        "attributes": {
+                                          "id": "smallBody",
+                                          "text": "{{ template.subtitle }}"
+                                        }
+                                      },
+                                      {
+                                        "type": "widget",
+                                        "tag": "component",
+                                        "children": [],
+                                        "attributes": {
+                                          "id": "middleBody",
+                                          "text": "{{ template.title }}"
+                                        }
+                                      },
+                                      {
+                                        "type": "widget",
+                                        "tag": "sizedBox",
+                                        "children": [],
+                                        "attributes": {
+                                          "height": "{{ data.gap.x2 }}"
+                                        }
+                                      },
+                                      {
+                                        "type": "widget",
+                                        "tag": "richText",
+                                        "children": [
+                                          {
+                                            "type": "widget",
+                                            "tag": "textSpan",
+                                            "children": [
+                                              {
+                                                "type": "property",
+                                                "tag": "prop:textStyle",
+                                                "children": [],
+                                                "attributes": {
+                                                  "color": "{{ data.colors.text.basic }}",
+                                                  "size": "14"
+                                                }
+                                              }
+                                            ],
+                                            "attributes": {
+                                              "text": "{{ template.price }}"
+                                            }
+                                          },
+                                          {
+                                            "type": "widget",
+                                            "tag": "textSpan",
+                                            "children": [
+                                              {
+                                                "type": "property",
+                                                "tag": "prop:textStyle",
+                                                "children": [],
+                                                "attributes": {
+                                                  "color": "{{ data.colors.text.light }}",
+                                                  "size": "14"
+                                                }
+                                              }
+                                            ],
+                                            "attributes": {
+                                              "text": "  {{ template.pricePerUnit }}"
+                                            }
+                                          }
+                                        ],
+                                        "attributes": {}
+                                      }
+                                    ],
+                                    "attributes": {
+                                      "crossAxisAlignment": "start"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "left": "{{ data.gap.x2 }}",
+                                  "right": "{{ data.gap.x2 }}",
+                                  "bottom": "{{ data.gap.x2 }}"
+                                }
+                              },
+                              {
+                                "type": "widget",
+                                "tag": "container",
+                                "children": [],
+                                "attributes": {
+                                  "height": "1.6",
+                                  "width": "500",
+                                  "color": "{{ data.colors.quaternaryLighten }}"
+                                }
+                              },
+                              {
+                                "type": "widget",
+                                "tag": "expanded",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "center",
+                                    "children": [
+                                      {
+                                        "type": "widget",
+                                        "tag": "padding",
+                                        "children": [
+                                          {
+                                            "type": "widget",
+                                            "tag": "row",
+                                            "children": [
+                                              {
+                                                "type": "widget",
+                                                "tag": "show",
+                                                "children": [
+                                                  {
+                                                    "type": "widget",
+                                                    "tag": "component",
+                                                    "children": [],
+                                                    "attributes": {
+                                                      "id": "smallBody",
+                                                      "text": "In stock",
+                                                      "color": "{{ data.colors.text.basic }}"
+                                                    }
+                                                  }
+                                                ],
+                                                "attributes": {
+                                                  "ifTrue": "{{ template.inStock }}"
+                                                }
+                                              },
+                                              {
+                                                "type": "widget",
+                                                "tag": "show",
+                                                "children": [
+                                                  {
+                                                    "type": "widget",
+                                                    "tag": "component",
+                                                    "children": [],
+                                                    "attributes": {
+                                                      "id": "smallBody",
+                                                      "text": "Out of stock",
+                                                      "color": "{{ data.colors.text.basic }}"
+                                                    }
+                                                  }
+                                                ],
+                                                "attributes": {
+                                                  "ifFalse": "{{ template.inStock }}",
+                                                  "nullAsFalse": "true"
+                                                }
+                                              },
+                                              {
+                                                "type": "widget",
+                                                "tag": "padding",
+                                                "children": [
+                                                  {
+                                                    "type": "widget",
+                                                    "tag": "container",
+                                                    "children": [],
+                                                    "attributes": {
+                                                      "width": "1",
+                                                      "height": "14",
+                                                      "color": "{{ data.colors.text.basic }}"
+                                                    }
+                                                  }
+                                                ],
+                                                "attributes": {
+                                                  "left": "8",
+                                                  "right": "8"
+                                                }
+                                              },
+                                              {
+                                                "type": "widget",
+                                                "tag": "sizedBox",
+                                                "children": [
+                                                  {
+                                                    "type": "widget",
+                                                    "tag": "svg",
+                                                    "children": [],
+                                                    "attributes": {
+                                                      "ref": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/location_dark.svg"
+                                                    }
+                                                  }
+                                                ],
+                                                "attributes": {
+                                                  "size": "20"
+                                                }
+                                              },
+                                              {
+                                                "type": "widget",
+                                                "tag": "sizedBox",
+                                                "children": [],
+                                                "attributes": {
+                                                  "width": "2"
+                                                }
+                                              },
+                                              {
+                                                "type": "widget",
+                                                "tag": "component",
+                                                "children": [],
+                                                "attributes": {
+                                                  "id": "smallBody",
+                                                  "text": "S23",
+                                                  "color": "{{ data.colors.text.basic }}"
+                                                }
+                                              }
+                                            ],
+                                            "attributes": {}
+                                          }
+                                        ],
+                                        "attributes": {
+                                          "left": "{{ data.gap.x2 }}",
+                                          "right": "{{ data.gap.x2 }}"
+                                        }
+                                      }
+                                    ],
+                                    "attributes": {}
+                                  }
+                                ],
+                                "attributes": {}
+                              }
+                            ],
+                            "attributes": {
+                              "crossAxisAlignment": "start"
+                            }
+                          }
+                        ],
+                        "attributes": {}
+                      }
+                    ],
+                    "attributes": {
+                      "crossAxisAlignment": "start"
+                    }
+                  }
+                ],
+                "attributes": {}
+              },
+              {
+                "type": "widget",
+                "tag": "positioned",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "material",
+                    "children": [
+                      {
+                        "type": "property",
+                        "tag": "prop:borderRadius",
+                        "children": [],
+                        "attributes": {
+                          "all": "8"
+                        }
+                      },
+                      {
+                        "type": "widget",
+                        "tag": "inkWell",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:borderRadius",
+                            "children": [],
+                            "attributes": {
+                              "all": "8"
+                            }
+                          },
+                          {
+                            "type": "widget",
+                            "tag": "container",
+                            "children": [],
+                            "attributes": {
+                              "color": "#00FFFFFF"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "onPressed": "{{ template.onPressed }}",
+                          "splashColor": "{{ template.splashColor }}",
+                          "highlightColor": "#00FFFFFF"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "type": "transparency"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "all": "0"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "positioned",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "component",
+                    "children": [],
+                    "attributes": {
+                      "id": "roundButton",
+                      "text": "Add",
+                      "color": "{{ data.colors.primary }}",
+                      "textColor": "{{ data.colors.secondary }}",
+                      "prefix": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/plus.svg",
+                      "onPressed": "addToCart"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "top": "8",
+                  "right": "8"
+                }
+              }
+            ],
+            "attributes": {}
+          }
+        ],
+        "attributes": {
+          "ratio": "0.65"
+        }
+      }
+    ],
+    "attributes": {
+      "id": "groceryCard"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "padding",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "sizedBox",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "svg",
+                "children": [],
+                "attributes": {
+                  "ref": "{{ template.ref }}"
+                }
+              }
+            ],
+            "attributes": {
+              "size": "16"
+            }
+          }
+        ],
+        "attributes": {
+          "right": "{{ data.gap.x1 }}"
+        }
+      }
+    ],
+    "attributes": {
+      "id": "star"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "row",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.empty }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating < 0.5 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.half }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating >= 0.5 and template.rating < 1 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.full }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating >= 1 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.empty }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating < 1.5 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.half }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating >= 1.5 and template.rating < 2 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.full }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating >= 2 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.empty }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating < 2.5 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.half }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating >= 2.5 and template.rating < 3 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.full }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating >= 3 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.empty }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating < 3.5 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.half }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating >= 3.5 and template.rating < 4 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.full }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating >= 4 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.empty }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating < 4.5 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.half }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating >= 4.5 and template.rating < 5 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "show",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "star",
+                  "ref": "{{ data.star.full }}"
+                }
+              }
+            ],
+            "attributes": {
+              "ifTrue": "{{ template.rating >= 5 }}"
+            }
+          }
+        ],
+        "attributes": {}
+      }
+    ],
+    "attributes": {
+      "id": "rating"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "aspectRatio",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "stack",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "container",
+                "children": [
+                  {
+                    "type": "property",
+                    "tag": "prop:decoration",
+                    "children": [
+                      {
+                        "type": "property",
+                        "tag": "prop:border",
+                        "children": [],
+                        "attributes": {
+                          "color": "{{ data.colors.quaternaryLighten }}",
+                          "width": "1.6"
+                        }
+                      },
+                      {
+                        "type": "property",
+                        "tag": "prop:borderRadius",
+                        "children": [],
+                        "attributes": {
+                          "all": "8"
+                        }
+                      }
+                    ],
+                    "attributes": {}
+                  },
+                  {
+                    "type": "widget",
+                    "tag": "column",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "expanded",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "center",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "padding",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "image",
+                                    "children": [],
+                                    "attributes": {
+                                      "ref": "{{ template.image }}",
+                                      "blurHash": "{{ template.blurHash }}"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "top": "4",
+                                  "bottom": "4"
+                                }
+                              }
+                            ],
+                            "attributes": {}
+                          }
+                        ],
+                        "attributes": {}
+                      },
+                      {
+                        "type": "widget",
+                        "tag": "expanded",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "column",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "padding",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "column",
+                                    "children": [
+                                      {
+                                        "type": "widget",
+                                        "tag": "component",
+                                        "children": [],
+                                        "attributes": {
+                                          "id": "smallBody",
+                                          "text": "{{ template.subtitle }}"
+                                        }
+                                      },
+                                      {
+                                        "type": "widget",
+                                        "tag": "component",
+                                        "children": [],
+                                        "attributes": {
+                                          "id": "middleBody",
+                                          "text": "{{ template.title }}"
+                                        }
+                                      },
+                                      {
+                                        "type": "widget",
+                                        "tag": "sizedBox",
+                                        "children": [],
+                                        "attributes": {
+                                          "height": "{{ data.gap.x2 }}"
+                                        }
+                                      },
+                                      {
+                                        "type": "widget",
+                                        "tag": "richText",
+                                        "children": [
+                                          {
+                                            "type": "widget",
+                                            "tag": "textSpan",
+                                            "children": [
+                                              {
+                                                "type": "property",
+                                                "tag": "prop:textStyle",
+                                                "children": [],
+                                                "attributes": {
+                                                  "color": "{{ data.colors.text.basic }}",
+                                                  "size": "14"
+                                                }
+                                              }
+                                            ],
+                                            "attributes": {
+                                              "text": "{{ template.pricePerMonth }}"
+                                            }
+                                          },
+                                          {
+                                            "type": "widget",
+                                            "tag": "textSpan",
+                                            "children": [
+                                              {
+                                                "type": "property",
+                                                "tag": "prop:textStyle",
+                                                "children": [],
+                                                "attributes": {
+                                                  "color": "{{ data.colors.text.light }}",
+                                                  "size": "14"
+                                                }
+                                              }
+                                            ],
+                                            "attributes": {
+                                              "text": "  {{ template.price }}"
+                                            }
+                                          }
+                                        ],
+                                        "attributes": {}
+                                      }
+                                    ],
+                                    "attributes": {
+                                      "crossAxisAlignment": "start"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "left": "{{ data.gap.x2 }}",
+                                  "right": "{{ data.gap.x2 }}",
+                                  "bottom": "{{ data.gap.x2 }}"
+                                }
+                              },
+                              {
+                                "type": "widget",
+                                "tag": "container",
+                                "children": [],
+                                "attributes": {
+                                  "height": "1.6",
+                                  "width": "500",
+                                  "color": "{{ data.colors.quaternaryLighten }}"
+                                }
+                              },
+                              {
+                                "type": "widget",
+                                "tag": "expanded",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "center",
+                                    "children": [
+                                      {
+                                        "type": "widget",
+                                        "tag": "padding",
+                                        "children": [
+                                          {
+                                            "type": "widget",
+                                            "tag": "row",
+                                            "children": [
+                                              {
+                                                "type": "widget",
+                                                "tag": "component",
+                                                "children": [],
+                                                "attributes": {
+                                                  "id": "rating",
+                                                  "rating": "{{ template.rating }}"
+                                                }
+                                              },
+                                              {
+                                                "type": "widget",
+                                                "tag": "sizedBox",
+                                                "children": [],
+                                                "attributes": {
+                                                  "width": "{{ data.gap.x1 }}"
+                                                }
+                                              },
+                                              {
+                                                "type": "widget",
+                                                "tag": "component",
+                                                "children": [],
+                                                "attributes": {
+                                                  "id": "smallBody",
+                                                  "text": "({{ template.count }})",
+                                                  "color": "{{ data.colors.text.light }}"
+                                                }
+                                              }
+                                            ],
+                                            "attributes": {}
+                                          }
+                                        ],
+                                        "attributes": {
+                                          "left": "{{ data.gap.x2 }}",
+                                          "right": "{{ data.gap.x2 }}"
+                                        }
+                                      }
+                                    ],
+                                    "attributes": {}
+                                  }
+                                ],
+                                "attributes": {}
+                              }
+                            ],
+                            "attributes": {
+                              "crossAxisAlignment": "start"
+                            }
+                          }
+                        ],
+                        "attributes": {}
+                      }
+                    ],
+                    "attributes": {
+                      "crossAxisAlignment": "start"
+                    }
+                  }
+                ],
+                "attributes": {}
+              },
+              {
+                "type": "widget",
+                "tag": "positioned",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "material",
+                    "children": [
+                      {
+                        "type": "property",
+                        "tag": "prop:borderRadius",
+                        "children": [],
+                        "attributes": {
+                          "all": "8"
+                        }
+                      },
+                      {
+                        "type": "widget",
+                        "tag": "inkWell",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:borderRadius",
+                            "children": [],
+                            "attributes": {
+                              "all": "8"
+                            }
+                          },
+                          {
+                            "type": "widget",
+                            "tag": "container",
+                            "children": [],
+                            "attributes": {
+                              "color": "#00FFFFFF"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "onPressed": "{{ template.onPressed }}",
+                          "splashColor": "{{ template.splashColor }}",
+                          "highlightColor": "#00FFFFFF"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "type": "transparency"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "all": "0"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "positioned",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "component",
+                    "children": [],
+                    "attributes": {
+                      "id": "roundButton",
+                      "text": "Add",
+                      "color": "{{ data.colors.primary }}",
+                      "textColor": "{{ data.colors.secondary }}",
+                      "prefix": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/plus.svg",
+                      "onPressed": "addToCart"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "top": "8",
+                  "right": "8"
+                }
+              }
+            ],
+            "attributes": {}
+          }
+        ],
+        "attributes": {
+          "ratio": "0.65"
+        }
+      }
+    ],
+    "attributes": {
+      "id": "electronicsCard"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "template",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "padding",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "stack",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "sizedBox",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "svg",
+                    "children": [],
+                    "attributes": {
+                      "ref": "{{ template.image }}"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "size": "72"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "positioned",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "material",
+                    "children": [
+                      {
+                        "type": "property",
+                        "tag": "prop:borderRadius",
+                        "children": [],
+                        "attributes": {
+                          "all": "100"
+                        }
+                      },
+                      {
+                        "type": "widget",
+                        "tag": "inkWell",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:borderRadius",
+                            "children": [],
+                            "attributes": {
+                              "all": "100"
+                            }
+                          },
+                          {
+                            "type": "widget",
+                            "tag": "container",
+                            "children": [],
+                            "attributes": {
+                              "color": "#00FFFFFF"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "onPressed": "snackbar: Brand!"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "type": "transparency"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "all": "0"
+                }
+              }
+            ],
+            "attributes": {}
+          }
+        ],
+        "attributes": {
+          "right": "{{ data.gap.x3 }}"
+        }
+      }
+    ],
+    "attributes": {
+      "id": "brand"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sliverPersistentHeader",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "container",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "column",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "sizedBox",
+                "children": [],
+                "attributes": {
+                  "height": "44"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "padding",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "row",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "expanded",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "row",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "sizedBox",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "image",
+                                    "children": [],
+                                    "attributes": {
+                                      "ref": "{{ page.header.avatar_image }}"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "size": "32"
+                                }
+                              },
+                              {
+                                "type": "widget",
+                                "tag": "sizedBox",
+                                "children": [],
+                                "attributes": {
+                                  "width": "{{ data.gap.x2 }}"
+                                }
+                              },
+                              {
+                                "type": "widget",
+                                "tag": "text",
+                                "children": [
+                                  {
+                                    "type": "property",
+                                    "tag": "prop:textStyle",
+                                    "children": [],
+                                    "attributes": {
+                                      "color": "{{ data.colors.secondary }}",
+                                      "size": "14",
+                                      "font": "{{ data.font.main }}"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "text": "{{ page.header.greetings }}"
+                                }
+                              }
+                            ],
+                            "attributes": {
+                              "mainAxisSize": "min"
+                            }
+                          }
+                        ],
+                        "attributes": {}
+                      },
+                      {
+                        "type": "widget",
+                        "tag": "expanded",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "sizedBox",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "svg",
+                                "children": [],
+                                "attributes": {
+                                  "ref": "{{ page.header.logo_image }}"
+                                }
+                              }
+                            ],
+                            "attributes": {
+                              "size": "39"
+                            }
+                          }
+                        ],
+                        "attributes": {}
+                      },
+                      {
+                        "type": "widget",
+                        "tag": "expanded",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "row",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "text",
+                                "children": [
+                                  {
+                                    "type": "property",
+                                    "tag": "prop:textStyle",
+                                    "children": [],
+                                    "attributes": {
+                                      "color": "{{ data.colors.secondaryDarken }}"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "text": "{{ page.header.cart_amount }}"
+                                }
+                              },
+                              {
+                                "type": "widget",
+                                "tag": "sizedBox",
+                                "children": [],
+                                "attributes": {
+                                  "width": "{{ data.gap.x2 }}"
+                                }
+                              },
+                              {
+                                "type": "widget",
+                                "tag": "stack",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "padding",
+                                    "children": [
+                                      {
+                                        "type": "widget",
+                                        "tag": "sizedBox",
+                                        "children": [
+                                          {
+                                            "type": "widget",
+                                            "tag": "svg",
+                                            "children": [],
+                                            "attributes": {
+                                              "ref": "{{ page.icons.cart }}"
+                                            }
+                                          }
+                                        ],
+                                        "attributes": {
+                                          "size": "24"
+                                        }
+                                      }
+                                    ],
+                                    "attributes": {
+                                      "top": "4",
+                                      "right": "4"
+                                    }
+                                  },
+                                  {
+                                    "type": "widget",
+                                    "tag": "positioned",
+                                    "children": [
+                                      {
+                                        "type": "widget",
+                                        "tag": "container",
+                                        "children": [
+                                          {
+                                            "type": "property",
+                                            "tag": "prop:decoration",
+                                            "children": [
+                                              {
+                                                "type": "property",
+                                                "tag": "prop:borderRadius",
+                                                "children": [],
+                                                "attributes": {
+                                                  "all": "14"
+                                                }
+                                              }
+                                            ],
+                                            "attributes": {
+                                              "color": "{{ data.colors.tertiary }}"
+                                            }
+                                          },
+                                          {
+                                            "type": "widget",
+                                            "tag": "center",
+                                            "children": [
+                                              {
+                                                "type": "widget",
+                                                "tag": "dataBuilder",
+                                                "children": [
+                                                  {
+                                                    "type": "widget",
+                                                    "tag": "text",
+                                                    "children": [],
+                                                    "attributes": {
+                                                      "text": "{{ data.cart.count }}",
+                                                      "size": "9"
+                                                    }
+                                                  }
+                                                ],
+                                                "attributes": {
+                                                  "buildWhen": "cart.count"
+                                                }
+                                              }
+                                            ],
+                                            "attributes": {}
+                                          }
+                                        ],
+                                        "attributes": {
+                                          "size": "14"
+                                        }
+                                      }
+                                    ],
+                                    "attributes": {
+                                      "top": "0",
+                                      "right": "0"
+                                    }
+                                  }
+                                ],
+                                "attributes": {}
+                              }
+                            ],
+                            "attributes": {
+                              "mainAxisAlignment": "end"
+                            }
+                          }
+                        ],
+                        "attributes": {}
+                      }
+                    ],
+                    "attributes": {}
+                  }
+                ],
+                "attributes": {
+                  "left": "{{ data.gap.x3 }}",
+                  "top": "{{ data.gap.x2 }}",
+                  "right": "{{ data.gap.x3 }}",
+                  "bottom": "{{ data.gap.x2 }}"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "padding",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "textField",
+                    "children": [
+                      {
+                        "type": "property",
+                        "tag": "prop:inputDecoration",
+                        "children": [
+                          {
+                            "type": "property",
+                            "tag": "prop:inputBorder",
+                            "children": [
+                              {
+                                "type": "property",
+                                "tag": "prop:borderRadius",
+                                "children": [],
+                                "attributes": {
+                                  "all": "60"
+                                }
+                              },
+                              {
+                                "type": "property",
+                                "tag": "prop:borderSide",
+                                "children": [],
+                                "attributes": {
+                                  "color": "#00FFFFFF",
+                                  "width": "0"
+                                }
+                              }
+                            ],
+                            "attributes": {
+                              "type": "outline"
+                            }
+                          },
+                          {
+                            "type": "property",
+                            "tag": "prop:contentPadding",
+                            "children": [],
+                            "attributes": {
+                              "left": "30"
+                            }
+                          },
+                          {
+                            "type": "widget",
+                            "tag": "alias",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "padding",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "sizedBox",
+                                    "children": [
+                                      {
+                                        "type": "widget",
+                                        "tag": "center",
+                                        "children": [
+                                          {
+                                            "type": "widget",
+                                            "tag": "svg",
+                                            "children": [],
+                                            "attributes": {
+                                              "ref": "{{ page.icons.search }}",
+                                              "size": "21"
+                                            }
+                                          }
+                                        ],
+                                        "attributes": {}
+                                      }
+                                    ],
+                                    "attributes": {
+                                      "size": "21"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "left": "8",
+                                  "top": "3"
+                                }
+                              }
+                            ],
+                            "attributes": {
+                              "name": "prefixIcon"
+                            }
+                          },
+                          {
+                            "type": "property",
+                            "tag": "prop:hintStyle",
+                            "children": [],
+                            "attributes": {
+                              "color": "{{ data.colors.quaternary }}",
+                              "size": "14",
+                              "font": "{{ data.font.main }}"
+                            }
+                          },
+                          {
+                            "type": "widget",
+                            "tag": "alias",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "padding",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "sizedBox",
+                                    "children": [
+                                      {
+                                        "type": "widget",
+                                        "tag": "center",
+                                        "children": [
+                                          {
+                                            "type": "widget",
+                                            "tag": "material",
+                                            "children": [
+                                              {
+                                                "type": "property",
+                                                "tag": "prop:borderRadius",
+                                                "children": [],
+                                                "attributes": {
+                                                  "all": "3"
+                                                }
+                                              },
+                                              {
+                                                "type": "widget",
+                                                "tag": "inkWell",
+                                                "children": [
+                                                  {
+                                                    "type": "property",
+                                                    "tag": "prop:borderRadius",
+                                                    "children": [],
+                                                    "attributes": {
+                                                      "all": "3"
+                                                    }
+                                                  },
+                                                  {
+                                                    "type": "widget",
+                                                    "tag": "svg",
+                                                    "children": [],
+                                                    "attributes": {
+                                                      "ref": "{{ page.icons.barcode }}",
+                                                      "size": "21"
+                                                    }
+                                                  }
+                                                ],
+                                                "attributes": {
+                                                  "onPressed": "snackbar: Let's go scan!"
+                                                }
+                                              }
+                                            ],
+                                            "attributes": {
+                                              "type": "transparent"
+                                            }
+                                          }
+                                        ],
+                                        "attributes": {}
+                                      }
+                                    ],
+                                    "attributes": {
+                                      "size": "21"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "right": "8"
+                                }
+                              }
+                            ],
+                            "attributes": {
+                              "name": "suffixIcon"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "filled": "true",
+                          "simpleBorders": "true",
+                          "fillColor": "{{ data.colors.secondary }}",
+                          "dense": "false",
+                          "hint": "{{ page.search.search_field_hint }}"
+                        }
+                      }
+                    ],
+                    "attributes": {
+                      "maxLines": "1",
+                      "onChanged": "emit:search"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "all": "{{ data.gap.x3 }}"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "row",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "expanded",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "container",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "row",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "padding",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "sizedBox",
+                                    "children": [
+                                      {
+                                        "type": "widget",
+                                        "tag": "svg",
+                                        "children": [],
+                                        "attributes": {
+                                          "ref": "{{ page.icons.home }}"
+                                        }
+                                      }
+                                    ],
+                                    "attributes": {
+                                      "size": "20"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "left": "{{ data.gap.x3 }}",
+                                  "right": "{{ data.gap.x1 }}"
+                                }
+                              },
+                              {
+                                "type": "widget",
+                                "tag": "text",
+                                "children": [
+                                  {
+                                    "type": "property",
+                                    "tag": "prop:textStyle",
+                                    "children": [],
+                                    "attributes": {
+                                      "color": "{{ data.colors.secondary }}",
+                                      "size": "12",
+                                      "font": "{{ data.font.main }}"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "text": "{{ page.address.shop_name }}",
+                                  "color": "{{ data.colors.secondary }}",
+                                  "overflow": "ellipsis",
+                                  "maxLines": "1"
+                                }
+                              }
+                            ],
+                            "attributes": {
+                              "mainAxisSize": "min"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "height": "36",
+                          "color": "{{ data.colors.primaryDarken }}"
+                        }
+                      }
+                    ],
+                    "attributes": {}
+                  },
+                  {
+                    "type": "widget",
+                    "tag": "expanded",
+                    "children": [
+                      {
+                        "type": "widget",
+                        "tag": "container",
+                        "children": [
+                          {
+                            "type": "widget",
+                            "tag": "row",
+                            "children": [
+                              {
+                                "type": "widget",
+                                "tag": "padding",
+                                "children": [
+                                  {
+                                    "type": "widget",
+                                    "tag": "sizedBox",
+                                    "children": [
+                                      {
+                                        "type": "widget",
+                                        "tag": "svg",
+                                        "children": [],
+                                        "attributes": {
+                                          "ref": "{{ page.icons.geo }}"
+                                        }
+                                      }
+                                    ],
+                                    "attributes": {
+                                      "size": "20"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "left": "{{ data.gap.x3 }}",
+                                  "right": "{{ data.gap.x1 }}"
+                                }
+                              },
+                              {
+                                "type": "widget",
+                                "tag": "text",
+                                "children": [
+                                  {
+                                    "type": "property",
+                                    "tag": "prop:textStyle",
+                                    "children": [],
+                                    "attributes": {
+                                      "color": "{{ data.colors.secondary }}",
+                                      "size": "12",
+                                      "font": "{{ data.font.main }}"
+                                    }
+                                  }
+                                ],
+                                "attributes": {
+                                  "text": "{{ page.address.shop_address }}",
+                                  "color": "{{ data.colors.secondary }}"
+                                }
+                              }
+                            ],
+                            "attributes": {
+                              "mainAxisSize": "min"
+                            }
+                          }
+                        ],
+                        "attributes": {
+                          "height": "36",
+                          "color": "{{ data.colors.primaryDarkest }}"
+                        }
+                      }
+                    ],
+                    "attributes": {}
+                  }
+                ],
+                "attributes": {}
+              }
+            ],
+            "attributes": {}
+          }
+        ],
+        "attributes": {
+          "color": "{{ data.colors.primary }}",
+          "height": "{{ data.header.height }}"
+        }
+      }
+    ],
+    "attributes": {
+      "maxExtent": "{{ data.header.height }}",
+      "minExtent": "{{ data.header.height }}",
+      "floating": "true"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [],
+    "attributes": {
+      "height": "{{ data.gap.x1 }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "listView",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "for",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "adCard",
+                  "image": "{{ cycle.value.image }}",
+                  "title": "{{ cycle.value.title }}",
+                  "noPrefix": "{{ cycle.index }}",
+                  "subtitle": "{{ cycle.value.description }}",
+                  "blurHash": "{{ cycle.value.blur_hash }}"
+                }
+              }
+            ],
+            "attributes": {
+              "in": "{{ page.ads }}"
+            }
+          }
+        ],
+        "attributes": {
+          "axis": "horizontal"
+        }
+      }
+    ],
+    "attributes": {
+      "height": "280"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "padding",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "column",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "row",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "column",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "component",
+                    "children": [],
+                    "attributes": {
+                      "id": "subtitle",
+                      "text": "{{ page.order.title }}"
+                    }
+                  },
+                  {
+                    "type": "widget",
+                    "tag": "component",
+                    "children": [],
+                    "attributes": {
+                      "id": "smallBody",
+                      "text": "{{ page.order.arrival_time }}"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "mainAxisSize": "min",
+                  "crossAxisAlignment": "start"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "spacer",
+                "children": [],
+                "attributes": {}
+              },
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "roundButton",
+                  "text": "{{ page.buttons.track.title }}",
+                  "prefix": "{{ page.icons.geo }}",
+                  "color": "{{ data.colors.primary }}",
+                  "textColor": "{{ data.colors.secondary }}",
+                  "onPressed": "snackbar: Go to track!"
+                }
+              }
+            ],
+            "attributes": {}
+          },
+          {
+            "type": "widget",
+            "tag": "sizedBox",
+            "children": [],
+            "attributes": {
+              "height": "{{ data.gap.x4 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "row",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "leftDot",
+                  "active": "{{ page.order.statuses.placed.is_active }}",
+                  "current": "{{ page.order.statuses.placed.is_current }}",
+                  "title": "{{ page.order.statuses.placed.title }}"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "expanded",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "component",
+                    "children": [],
+                    "attributes": {
+                      "id": "lineSpacer",
+                      "active": "{{ page.order.statuses.preparing.is_active }}"
+                    }
+                  }
+                ],
+                "attributes": {}
+              },
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "dot",
+                  "leftActive": "{{ page.order.statuses.placed.is_active }}",
+                  "active": "{{ page.order.statuses.preparing.is_active }}",
+                  "current": "{{ page.order.statuses.preparing.is_current }}",
+                  "rightActive": "{{ page.order.statuses.on_the_way.is_active }}",
+                  "title": "{{ page.order.statuses.preparing.title }}"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "expanded",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "component",
+                    "children": [],
+                    "attributes": {
+                      "id": "lineSpacer",
+                      "active": "{{ page.order.statuses.on_the_way.is_active }}"
+                    }
+                  }
+                ],
+                "attributes": {}
+              },
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "dot",
+                  "leftActive": "{{ page.order.statuses.placed.is_active }}",
+                  "active": "{{ page.order.statuses.on_the_way.is_active }}",
+                  "current": "{{ page.order.statuses.on_the_way.is_current }}",
+                  "rightActive": "{{ page.order.statuses.delivered.is_active }}",
+                  "title": "{{ page.order.statuses.on_the_way.title }}"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "expanded",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "component",
+                    "children": [],
+                    "attributes": {
+                      "id": "lineSpacer",
+                      "active": "{{ page.order.statuses.delivered.is_active }}"
+                    }
+                  }
+                ],
+                "attributes": {}
+              },
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "rightDot",
+                  "active": "{{ page.order.statuses.delivered.is_active }}",
+                  "current": "{{ page.order.statuses.delivered.is_current }}",
+                  "title": "{{ page.order.statuses.delivered.title }}"
+                }
+              }
+            ],
+            "attributes": {}
+          }
+        ],
+        "attributes": {
+          "mainAxisSize": "min",
+          "crossAxisAlignment": "start"
+        }
+      }
+    ],
+    "attributes": {
+      "left": "{{ data.gap.x3 }}",
+      "top": "{{ data.gap.x5 }}",
+      "right": "{{ data.gap.x3 }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [],
+    "attributes": {
+      "height": "{{ data.gap.x4 }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "listView",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "sizedBox",
+            "children": [],
+            "attributes": {
+              "width": "{{ data.gap.x3 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "for",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "roundButton",
+                  "color": "{{ data.colors.secondaryAccent }}",
+                  "text": "{{ cycle.value.title }}",
+                  "onPressed": "{{ cycle.value.action }}",
+                  "prefix": "{{ cycle.value.prefix_icon }}",
+                  "suffix": "{{ cycle.value.postfix_icon }}"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "show",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "sizedBox",
+                    "children": [],
+                    "attributes": {
+                      "width": "{{ data.gap.x2 }}"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "ifFalse": "{{ cycle.isLast }}"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "show",
+                "children": [
+                  {
+                    "type": "widget",
+                    "tag": "sizedBox",
+                    "children": [],
+                    "attributes": {
+                      "width": "{{ data.gap.x3 }}"
+                    }
+                  }
+                ],
+                "attributes": {
+                  "ifTrue": "{{ cycle.isLast }}"
+                }
+              }
+            ],
+            "attributes": {
+              "in": "{{ page.filter_buttons }}"
+            }
+          }
+        ],
+        "attributes": {
+          "axis": "horizontal"
+        }
+      }
+    ],
+    "attributes": {
+      "height": "34"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [],
+    "attributes": {
+      "height": "{{ data.gap.x4 }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "padding",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "richText",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "textSpan",
+            "children": [
+              {
+                "type": "property",
+                "tag": "prop:textStyle",
+                "children": [],
+                "attributes": {
+                  "weight": "w500",
+                  "height": "1.25",
+                  "font": "{{ data.font.main }}"
+                }
+              }
+            ],
+            "attributes": {
+              "text": "{{ page.groceries_header.title }}",
+              "size": "18",
+              "color": "{{ data.colors.text.basic }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "textSpan",
+            "children": [
+              {
+                "type": "property",
+                "tag": "prop:textStyle",
+                "children": [],
+                "attributes": {
+                  "weight": "w500",
+                  "height": "1.25",
+                  "font": "{{ data.font.main }}"
+                }
+              }
+            ],
+            "attributes": {
+              "text": "{{ page.groceries_header.amount }}",
+              "size": "18",
+              "color": "{{ data.colors.text.light }}"
+            }
+          }
+        ],
+        "attributes": {}
+      }
+    ],
+    "attributes": {
+      "left": "{{ data.gap.x3 }}",
+      "right": "{{ data.gap.x3 }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [],
+    "attributes": {
+      "height": "{{ data.gap.x3 }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "listView",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "for",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "sizedBox",
+                "children": [],
+                "attributes": {
+                  "width": "{{ data.gap.x3 }}"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "groceryCard",
+                  "image": "{{ cycle.value.image }}",
+                  "subtitle": "{{ cycle.value.subtitle }}",
+                  "title": "{{ cycle.value.title }}",
+                  "price": "{{ cycle.value.price }}",
+                  "pricePerUnit": "{{ cycle.value.price_per_unit }}",
+                  "inStock": "{{ cycle.value.is_in_stock }}",
+                  "onPressed": "{{ cycle.value.action }}",
+                  "splashColor": "{{ cycle.value.color }}"
+                }
+              }
+            ],
+            "attributes": {
+              "in": "{{ page.groceries_list }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "sizedBox",
+            "children": [],
+            "attributes": {
+              "width": "{{ data.gap.x3 }}"
+            }
+          }
+        ],
+        "attributes": {
+          "axis": "horizontal"
+        }
+      }
+    ],
+    "attributes": {
+      "height": "252"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [],
+    "attributes": {
+      "height": "{{ data.gap.x5 }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "padding",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "component",
+        "children": [],
+        "attributes": {
+          "id": "subtitle",
+          "text": "{{ page.brands_header.title }}"
+        }
+      }
+    ],
+    "attributes": {
+      "left": "{{ data.gap.x3 }}",
+      "right": "{{ data.gap.x3 }}",
+      "bottom": "{{ data.gap.x4 }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "listView",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "sizedBox",
+            "children": [],
+            "attributes": {
+              "width": "{{ data.gap.x3 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "for",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "brand",
+                  "image": "{{ cycle.value.image }}"
+                }
+              }
+            ],
+            "attributes": {
+              "in": "{{ page.brands_list }}"
+            }
+          }
+        ],
+        "attributes": {
+          "axis": "horizontal"
+        }
+      }
+    ],
+    "attributes": {
+      "height": "72"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [],
+    "attributes": {
+      "height": "{{ data.gap.x6 }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "padding",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "richText",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "textSpan",
+            "children": [
+              {
+                "type": "property",
+                "tag": "prop:textStyle",
+                "children": [],
+                "attributes": {
+                  "weight": "w500",
+                  "height": "1.25",
+                  "font": "{{ data.font.main }}"
+                }
+              }
+            ],
+            "attributes": {
+              "text": "{{ page.electronics_header.title }}",
+              "size": "18",
+              "color": "{{ data.colors.text.basic }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "textSpan",
+            "children": [
+              {
+                "type": "property",
+                "tag": "prop:textStyle",
+                "children": [],
+                "attributes": {
+                  "weight": "w500",
+                  "height": "1.25",
+                  "font": "{{ data.font.main }}"
+                }
+              }
+            ],
+            "attributes": {
+              "text": "{{ page.electronics_header.amount }}",
+              "size": "18",
+              "color": "{{ data.colors.text.light }}"
+            }
+          }
+        ],
+        "attributes": {}
+      }
+    ],
+    "attributes": {
+      "left": "{{ data.gap.x3 }}",
+      "right": "{{ data.gap.x3 }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [],
+    "attributes": {
+      "height": "{{ data.gap.x3 }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [
+      {
+        "type": "widget",
+        "tag": "listView",
+        "children": [
+          {
+            "type": "widget",
+            "tag": "sizedBox",
+            "children": [],
+            "attributes": {
+              "width": "{{ data.gap.x3 }}"
+            }
+          },
+          {
+            "type": "widget",
+            "tag": "for",
+            "children": [
+              {
+                "type": "widget",
+                "tag": "component",
+                "children": [],
+                "attributes": {
+                  "id": "electronicsCard",
+                  "image": "{{ cycle.value.image }}",
+                  "subtitle": "{{ cycle.value.subtitle }}",
+                  "title": "{{ cycle.value.title }}",
+                  "price": "{{ cycle.value.price }}",
+                  "pricePerMonth": "{{ cycle.value.price_per_month }}",
+                  "onPressed": "{{ cycle.value.action }}",
+                  "splashColor": "{{ cycle.value.color }}",
+                  "rating": "{{ cycle.value.rating }}",
+                  "count": "{{ cycle.value.reviews_count }}"
+                }
+              },
+              {
+                "type": "widget",
+                "tag": "sizedBox",
+                "children": [],
+                "attributes": {
+                  "width": "{{ data.gap.x3 }}"
+                }
+              }
+            ],
+            "attributes": {
+              "in": "{{ page.electronics_list }}"
+            }
+          }
+        ],
+        "attributes": {
+          "axis": "horizontal"
+        }
+      }
+    ],
+    "attributes": {
+      "height": "252"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [],
+    "attributes": {
+      "height": "{{ data.gap.x5 }}"
+    }
+  },
+  {
+    "type": "widget",
+    "tag": "sizedBox",
+    "children": [],
+    "attributes": {
+      "height": "100"
+    }
+  }
+]

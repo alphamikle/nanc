@@ -7,9 +7,20 @@ part of 'structured_field.dart';
 // **************************************************************************
 
 extension _$StructuredFieldAutoequal on StructuredField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [structure, singleObject];
+  List<Object?> get _$props => [
+        structure,
+        singleObject,
+        contentIcon,
+        contentColor,
+        id,
+        name,
+        showInList,
+        isRequired,
+        sort,
+        realField,
+        validator,
+        type,
+      ];
 }
 
 // **************************************************************************

@@ -38,8 +38,9 @@ class SupabaseDocumentApi implements IDocumentApi {
 
   @override
   Future<void> saveThirdTable(ThirdTable thirdTable, FieldId parentModelId, List<FieldId> childModelIds) async {
-    final SupabaseQueryBuilder builder = _api.getBuilder(thirdTable.relationsEntity);
-    final Field? primaryIdField = thirdTable.relationsEntity.flattenFields.firstWhereOrNull(
+    final Model relationsModel = thirdTable.relationsEntity;
+    final SupabaseQueryBuilder builder = _api.getBuilder(relationsModel);
+    final Field? primaryIdField = relationsModel.flattenFields.firstWhereOrNull(
       (Field field) => field is IdField && field.id != thirdTable.parentEntityIdName && field.id != thirdTable.childEntityIdName,
     );
     final Set<FieldId> oldChildrenIds = (await _getOldThirdTableChildrenIds(thirdTable, parentModelId)).toSet();
@@ -84,7 +85,8 @@ class SupabaseDocumentApi implements IDocumentApi {
   }
 
   Future<List<String>> _getOldThirdTableChildrenIds(ThirdTable thirdTable, String parentPageId) async {
-    final PostgrestFilterBuilder<dynamic> selection = _api.getSelection(model: thirdTable.relationsEntity, subset: []);
+    final Model relationsModel = thirdTable.relationsEntity;
+    final PostgrestFilterBuilder<dynamic> selection = _api.getSelection(model: relationsModel, subset: []);
     final PostgrestResponse<dynamic> response = await selection.eq(thirdTable.parentEntityIdName, parentPageId);
     if (response.data is List<dynamic>) {
       return (response.data as List<dynamic>).map((dynamic row) {
@@ -101,6 +103,7 @@ class SupabaseDocumentApi implements IDocumentApi {
     if (ids.isEmpty) {
       return;
     }
-    await _api.getBuilder(thirdTable.relationsEntity).delete().in_(thirdTable.childEntityIdName, ids).eq(thirdTable.parentEntityIdName, parentId);
+    final Model relationsModel = thirdTable.relationsEntity;
+    await _api.getBuilder(relationsModel).delete().in_(thirdTable.childEntityIdName, ids).eq(thirdTable.parentEntityIdName, parentId);
   }
 }

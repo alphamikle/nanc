@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
+import 'package:tag_converter/tag_converter.dart';
 import 'package:tools/tools.dart';
 
-import '../../../model/tag.dart';
 import '../../documentation/documentation.dart';
 import '../../logic/for_storage.dart';
 import '../../rich_renderer.dart';

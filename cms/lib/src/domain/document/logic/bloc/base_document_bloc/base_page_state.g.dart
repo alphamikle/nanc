@@ -7,8 +7,6 @@ part of 'base_page_state.dart';
 // **************************************************************************
 
 extension _$BaseDocumentStateAutoequal on BaseDocumentState {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [
         data,
         initialData,
@@ -16,7 +14,7 @@ extension _$BaseDocumentStateAutoequal on BaseDocumentState {
         isSaving,
         isError,
         isDeleting,
-        controllerMap
+        controllerMap,
       ];
 }
 

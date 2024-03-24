@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:markdown/markdown.dart' as md;
+import 'package:tag_converter/tag_converter.dart';
 
-import '../../../model/tag.dart';
 import '../../property_tag_renderer.dart';
 import '../../rich_renderer.dart';
 import 'button_style_arguments.dart';
@@ -17,7 +16,7 @@ PropertyTagRenderer<ButtonStyle> buttonStyleProperty(String tag) {
         name: tag,
         property: ButtonStyle(
           backgroundColor: arguments.backgroundColor == null ? null : MaterialStatePropertyAll(arguments.backgroundColor),
-          alignment: arguments.align == null ? null : arguments.align!.toAlignment(),
+          alignment: arguments.align?.toAlignment(),
           elevation: arguments.elevation == null ? null : MaterialStatePropertyAll(arguments.elevation),
           foregroundColor: arguments.foregroundColor == null ? null : MaterialStatePropertyAll(arguments.foregroundColor),
           iconColor: arguments.iconColor == null ? null : MaterialStatePropertyAll(arguments.iconColor),

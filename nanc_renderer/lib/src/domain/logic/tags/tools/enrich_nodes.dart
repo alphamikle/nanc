@@ -1,4 +1,4 @@
-import '../../model/tag.dart';
+import 'package:tag_converter/tag_converter.dart';
 
 List<TagNode>? enrichNodesWithAttribute({
   required String attributeName,

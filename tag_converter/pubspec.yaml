@@ -1,0 +1,33 @@
+name: tag_converter
+description: "Converter from XML to JSON or gRPC for tags"
+publish_to: none
+repository: https://github.com/alphamikle/nanc
+homepage: https://nanc.io
+version: 0.0.1
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  protobuf: ^3.1.0
+  proto_annotations: ^3.0.1
+  equatable: ^2.0.5
+  autoequal: ^0.9.1
+  xml: ^6.3.0
+  json_annotation: ^4.8.1
+  copy_with_extension: ^5.0.2
+  args: ^2.4.2
+  path: ^1.9.0
+
+dev_dependencies:
+  test: ^1.25.2
+  lint:
+    path: ../lint
+  flutter_lints: ^2.0.1
+  json_serializable: ^6.7.1
+  copy_with_extension_gen: ^5.0.4
+  build_runner: ^2.4.8
+  autoequal_gen: ^0.9.1
+  proto_generator: ^4.3.0
+
+flutter:

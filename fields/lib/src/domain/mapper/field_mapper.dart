@@ -1,4 +1,3 @@
-import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
@@ -48,6 +47,7 @@ import '../fields/ui/selector_field_cell/selector_field_cell.dart';
 import '../fields/ui/structure_field_cell/structure_field_cell.dart';
 import '../fields/ui/structured_field_cell/structured_field_cell.dart';
 import '../fields/ui/structured_field_cell/structured_field_item.dart';
+import '../third_table/third_table.dart';
 import '../type/field_types.dart';
 
 abstract class FieldMapper {

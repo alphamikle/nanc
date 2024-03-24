@@ -1,5 +1,4 @@
 import 'package:autoequal/autoequal.dart';
-import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -7,6 +6,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
+import '../../../third_table/third_table.dart';
 import '../../../type/field_types.dart';
 import '../enum_field/enum_field.dart';
 import '../enum_field/enum_value.dart';

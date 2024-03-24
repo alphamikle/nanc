@@ -7,9 +7,17 @@ part of 'bool_field.dart';
 // **************************************************************************
 
 extension _$BoolFieldAutoequal on BoolField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [defaultValue];
+  List<Object?> get _$props => [
+        defaultValue,
+        id,
+        name,
+        showInList,
+        isRequired,
+        sort,
+        realField,
+        validator,
+        type,
+      ];
 }
 
 // **************************************************************************

@@ -1,4 +1,5 @@
 import 'package:autoequal/autoequal.dart';
+import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
@@ -13,7 +14,7 @@ part 'id_field.g.dart';
 @autoequal
 @CopyWith()
 @JsonSerializable()
-class IdField extends Field {
+class IdField extends Field implements IIdField {
   // ignore: prefer_const_constructors_in_immutables
   IdField({
     String? id,
@@ -39,6 +40,7 @@ class IdField extends Field {
     );
   }
 
+  @override
   final bool isStub;
 
   @override

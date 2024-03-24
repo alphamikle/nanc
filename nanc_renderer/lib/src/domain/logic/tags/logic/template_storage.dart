@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../model/tag.dart';
+import 'package:tag_converter/tag_converter.dart';
 
 typedef TemplateId = String;
 

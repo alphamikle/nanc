@@ -4,7 +4,7 @@
 //
 // @dart = 2.12
 
-// ignore_for_file: annotate_overrides, camel_case_types
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
 // ignore_for_file: constant_identifier_names, library_prefixes
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
@@ -18,7 +18,15 @@ import 'tags.pbenum.dart';
 export 'tags.pbenum.dart';
 
 class GFieldsOfTagNode extends $pb.GeneratedMessage {
-  factory GFieldsOfTagNode() => create();
+  factory GFieldsOfTagNode({
+    GTagNodeType? type,
+  }) {
+    final $result = create();
+    if (type != null) {
+      $result.type = type;
+    }
+    return $result;
+  }
   GFieldsOfTagNode._() : super();
   factory GFieldsOfTagNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GFieldsOfTagNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
@@ -69,7 +77,31 @@ enum GTagNode_Props {
 }
 
 class GTagNode extends $pb.GeneratedMessage {
-  factory GTagNode() => create();
+  factory GTagNode({
+    GFieldsOfTagNode? tagNode,
+    GWidgetTag? widgetTag,
+    GPropertyTag? propertyTag,
+    GTextNode? textNode,
+    GUnknownNode? unknownNode,
+  }) {
+    final $result = create();
+    if (tagNode != null) {
+      $result.tagNode = tagNode;
+    }
+    if (widgetTag != null) {
+      $result.widgetTag = widgetTag;
+    }
+    if (propertyTag != null) {
+      $result.propertyTag = propertyTag;
+    }
+    if (textNode != null) {
+      $result.textNode = textNode;
+    }
+    if (unknownNode != null) {
+      $result.unknownNode = unknownNode;
+    }
+    return $result;
+  }
   GTagNode._() : super();
   factory GTagNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GTagNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
@@ -173,7 +205,15 @@ class GTagNode extends $pb.GeneratedMessage {
 }
 
 class GTagsContainer extends $pb.GeneratedMessage {
-  factory GTagsContainer() => create();
+  factory GTagsContainer({
+    $core.Iterable<GTagNode>? nodes,
+  }) {
+    final $result = create();
+    if (nodes != null) {
+      $result.nodes.addAll(nodes);
+    }
+    return $result;
+  }
   GTagsContainer._() : super();
   factory GTagsContainer.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GTagsContainer.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
@@ -209,7 +249,27 @@ class GTagsContainer extends $pb.GeneratedMessage {
 }
 
 class GWidgetTag extends $pb.GeneratedMessage {
-  factory GWidgetTag() => create();
+  factory GWidgetTag({
+    GTagNodeType? type,
+    $core.String? tag,
+    $core.Iterable<GTagNode>? children,
+    $core.Map<$core.String, $core.String>? attributes,
+  }) {
+    final $result = create();
+    if (type != null) {
+      $result.type = type;
+    }
+    if (tag != null) {
+      $result.tag = tag;
+    }
+    if (children != null) {
+      $result.children.addAll(children);
+    }
+    if (attributes != null) {
+      $result.attributes.addAll(attributes);
+    }
+    return $result;
+  }
   GWidgetTag._() : super();
   factory GWidgetTag.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GWidgetTag.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
@@ -269,7 +329,27 @@ class GWidgetTag extends $pb.GeneratedMessage {
 }
 
 class GPropertyTag extends $pb.GeneratedMessage {
-  factory GPropertyTag() => create();
+  factory GPropertyTag({
+    GTagNodeType? type,
+    $core.String? tag,
+    $core.Iterable<GTagNode>? children,
+    $core.Map<$core.String, $core.String>? attributes,
+  }) {
+    final $result = create();
+    if (type != null) {
+      $result.type = type;
+    }
+    if (tag != null) {
+      $result.tag = tag;
+    }
+    if (children != null) {
+      $result.children.addAll(children);
+    }
+    if (attributes != null) {
+      $result.attributes.addAll(attributes);
+    }
+    return $result;
+  }
   GPropertyTag._() : super();
   factory GPropertyTag.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GPropertyTag.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
@@ -329,7 +409,19 @@ class GPropertyTag extends $pb.GeneratedMessage {
 }
 
 class GTextNode extends $pb.GeneratedMessage {
-  factory GTextNode() => create();
+  factory GTextNode({
+    GTagNodeType? type,
+    $core.String? text,
+  }) {
+    final $result = create();
+    if (type != null) {
+      $result.type = type;
+    }
+    if (text != null) {
+      $result.text = text;
+    }
+    return $result;
+  }
   GTextNode._() : super();
   factory GTextNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GTextNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
@@ -381,7 +473,19 @@ class GTextNode extends $pb.GeneratedMessage {
 }
 
 class GUnknownNode extends $pb.GeneratedMessage {
-  factory GUnknownNode() => create();
+  factory GUnknownNode({
+    GTagNodeType? type,
+    $core.String? text,
+  }) {
+    final $result = create();
+    if (type != null) {
+      $result.type = type;
+    }
+    if (text != null) {
+      $result.text = text;
+    }
+    return $result;
+  }
   GUnknownNode._() : super();
   factory GUnknownNode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GUnknownNode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);

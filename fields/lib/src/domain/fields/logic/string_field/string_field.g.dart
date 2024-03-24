@@ -7,9 +7,17 @@ part of 'string_field.dart';
 // **************************************************************************
 
 extension _$StringFieldAutoequal on StringField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [maxLines];
+  List<Object?> get _$props => [
+        maxLines,
+        id,
+        name,
+        showInList,
+        isRequired,
+        sort,
+        realField,
+        validator,
+        type,
+      ];
 }
 
 // **************************************************************************

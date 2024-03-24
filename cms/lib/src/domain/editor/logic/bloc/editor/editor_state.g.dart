@@ -7,8 +7,6 @@ part of 'editor_state.dart';
 // **************************************************************************
 
 extension _$EditorStateAutoequal on EditorState {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [
         isLoading,
         xmlContent,
@@ -17,7 +15,7 @@ extension _$EditorStateAutoequal on EditorState {
         canChangeContentType,
         isSyncedWithFile,
         activeElement,
-        activeTagRenderer
+        activeTagRenderer,
       ];
 }
 

@@ -44,7 +44,7 @@ class _ManualMenuState extends State<ManualMenu> {
 
   List<TagRenderer> tagRenderers(BuildContext context) {
     final DataRepository dataRepository = context.read();
-    final List<TagRenderer> renderers = dataRepository.renderers.where((TagRenderer renderer) => renderer.tag.startsWith(propertyPrefix) == false).toList();
+    final List<TagRenderer> renderers = dataRepository.renderers.where((TagRenderer renderer) => renderer.tag.startsWith(kPropertyPrefix) == false).toList();
     renderers.sort((TagRenderer<Widget> first, TagRenderer<Widget> second) => first.tag.compareTo(second.tag));
     return renderers;
   }

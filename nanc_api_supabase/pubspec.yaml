@@ -24,7 +24,7 @@ dependencies:
   equatable: ^2.0.5
   json_annotation: ^4.8.1
   copy_with_extension: ^5.0.2
-  autoequal: ^0.5.1
+  autoequal: ^0.9.1
 
 dev_dependencies:
   flutter_test:
@@ -35,4 +35,4 @@ dev_dependencies:
   json_serializable: ^6.7.0
   copy_with_extension_gen: ^5.0.2
   build_runner: ^2.4.4
-  autoequal_gen: ^0.5.1
+  autoequal_gen: ^0.9.1

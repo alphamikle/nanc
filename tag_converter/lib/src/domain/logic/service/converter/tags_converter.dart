@@ -1,11 +1,14 @@
+import 'dart:developer';
 import 'dart:typed_data';
 
-import 'package:tools/tools.dart';
 import 'package:xml/xml.dart';
 
-import '../model/tag.dart';
+import '../../model/grpc/tags.pb.dart';
+import '../../model/tag.dart';
+import '../mapper/tag_mapper.dart';
 import '../xml_parser/xml_parser_expo.dart';
-import 'xml_node_extensions.dart';
+
+const String kPropertyPrefix = 'prop:';
 
 abstract final class TagsConverter {
   static List<TagNode> fromXml(String xml) {
@@ -14,14 +17,13 @@ abstract final class TagsConverter {
       final XmlElement rootElement = node.children.firstWhere((XmlNode it) => it is XmlElement && it.localName == kRootNode) as XmlElement;
       return rootElement.children.toTags();
     } catch (error, stackTrace) {
-      logError('Error on generating widgets from the XML', error: error, stackTrace: stackTrace);
+      log('Error on generating widgets from the XML', error: error, stackTrace: stackTrace);
       return [];
     }
   }
 
-  // TODO(alphamikle): Optimize xml parsing and make it able to do asynchronously
   static Future<List<TagNode>> fromXmlAsync(String xml) {
-    throw UnimplementedError();
+    throw UnimplementedError('Async converting not ready for now');
   }
 
   static List<TagNode> fromBinary(Uint8List binary) {
@@ -36,6 +38,7 @@ abstract final class TagsConverter {
     if (nodes.isEmpty) {
       return null;
     }
-    return TagsContainer(nodes: nodes).toProto().writeToBuffer();
+    final GTagsContainer protoForm = TagsContainer(nodes: nodes).toProto();
+    return protoForm.writeToBuffer();
   }
 }

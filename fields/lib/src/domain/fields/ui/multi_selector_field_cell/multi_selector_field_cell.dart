@@ -8,6 +8,7 @@ import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../../third_table/third_table.dart';
 import '../../logic/field/field.dart';
 import '../../logic/multi_selector_field/multi_selector_field.dart';
 import '../../logic/selector_field/title_fields.dart';

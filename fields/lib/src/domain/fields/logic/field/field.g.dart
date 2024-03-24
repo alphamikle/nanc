@@ -7,8 +7,14 @@ part of 'field.dart';
 // **************************************************************************
 
 extension _$FieldAutoequal on Field {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props =>
-      [id, name, showInList, isRequired, sort, realField, validator, type];
+  List<Object?> get _$props => [
+        id,
+        name,
+        showInList,
+        isRequired,
+        sort,
+        realField,
+        validator,
+        type,
+      ];
 }

@@ -7,9 +7,16 @@ part of 'binary_field.dart';
 // **************************************************************************
 
 extension _$BinaryFieldAutoequal on BinaryField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [];
+  List<Object?> get _$props => [
+        id,
+        name,
+        showInList,
+        isRequired,
+        sort,
+        realField,
+        validator,
+        type,
+      ];
 }
 
 // **************************************************************************

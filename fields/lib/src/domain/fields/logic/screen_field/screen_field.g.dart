@@ -7,9 +7,18 @@ part of 'screen_field.dart';
 // **************************************************************************
 
 extension _$ScreenFieldAutoequal on ScreenField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [screenContentType, binaryDataFieldId];
+  List<Object?> get _$props => [
+        screenContentType,
+        binaryDataFieldId,
+        id,
+        name,
+        showInList,
+        isRequired,
+        sort,
+        realField,
+        validator,
+        type,
+      ];
 }
 
 // **************************************************************************

@@ -58,6 +58,7 @@ export 'src/domain/fields/ui/structured_field_cell/structured_field_children.dar
 export 'src/domain/fields/ui/structured_field_cell/structured_field_item.dart';
 export 'src/domain/mapper/field_mapper.dart';
 export 'src/domain/mapper/is_single_line_field_extension.dart';
+export 'src/domain/third_table/third_table.dart';
 export 'src/domain/type/field_types.dart';
 export 'src/service/tools/field_filter_extension.dart';
 export 'src/service/tools/field_types_extension.dart';

@@ -7,15 +7,13 @@ part of 'model_page_state.dart';
 // **************************************************************************
 
 extension _$ModelPageStateAutoequal on ModelPageState {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [
         editableModel,
         initialModel,
         controllerMap,
         idWasChanged,
         isSaving,
-        isDeleting
+        isDeleting,
       ];
 }
 

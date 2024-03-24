@@ -202,7 +202,7 @@ class TagRendererDescription extends StatelessWidget {
       ),
     );
     for (final TagProperty childProperty in property.properties) {
-      result.addAll(buildProperty('$propertyPrefix${property.name}', childProperty, property.name));
+      result.addAll(buildProperty('$kPropertyPrefix${property.name}', childProperty, property.name));
     }
 
     return result;

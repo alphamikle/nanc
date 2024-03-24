@@ -4,9 +4,7 @@ syntax = "proto3";
 
 package io.nanc.nanc;
 
-message GFieldsOfTagNode {
-  GTagNodeType type = 2;
-}
+message GFieldsOfTagNode { GTagNodeType type = 2; }
 
 message GTagNode {
   oneof props {
@@ -18,9 +16,7 @@ message GTagNode {
   }
 }
 
-message GTagsContainer {
-  repeated GTagNode nodes = 2;
-}
+message GTagsContainer { repeated GTagNode nodes = 2; }
 
 message GWidgetTag {
   GTagNodeType type = 2;
@@ -51,5 +47,4 @@ enum GTagNodeType {
   G_TAG_NODE_TYPE_PROPERTY = 1;
   G_TAG_NODE_TYPE_TEXT = 2;
   G_TAG_NODE_TYPE_UNKNOWN = 3;
-}   
-
+}

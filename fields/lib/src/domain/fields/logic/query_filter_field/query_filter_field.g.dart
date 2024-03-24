@@ -7,9 +7,18 @@ part of 'query_filter_field.dart';
 // **************************************************************************
 
 extension _$QueryFilterFieldAutoequal on QueryFilterField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [];
+  List<Object?> get _$props => [
+        contentIcon,
+        contentColor,
+        id,
+        name,
+        showInList,
+        isRequired,
+        sort,
+        realField,
+        validator,
+        type,
+      ];
 }
 
 // **************************************************************************

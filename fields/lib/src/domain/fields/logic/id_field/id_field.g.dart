@@ -7,9 +7,17 @@ part of 'id_field.dart';
 // **************************************************************************
 
 extension _$IdFieldAutoequal on IdField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [isStub];
+  List<Object?> get _$props => [
+        isStub,
+        id,
+        name,
+        showInList,
+        isRequired,
+        sort,
+        realField,
+        validator,
+        type,
+      ];
 }
 
 // **************************************************************************

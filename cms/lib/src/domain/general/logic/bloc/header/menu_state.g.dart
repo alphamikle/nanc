@@ -7,10 +7,12 @@ part of 'menu_state.dart';
 // **************************************************************************
 
 extension _$MenuStateAutoequal on MenuState {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props =>
-      [activeElement, elements, isLoading, activeHeaderSegment];
+  List<Object?> get _$props => [
+        activeElement,
+        elements,
+        isLoading,
+        activeHeaderSegment,
+      ];
 }
 
 // **************************************************************************

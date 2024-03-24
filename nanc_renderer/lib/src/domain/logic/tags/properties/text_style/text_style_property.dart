@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fonts/fonts.dart';
+import 'package:tag_converter/tag_converter.dart';
 import 'package:tools/tools.dart';
 
-import '../../../model/tag.dart';
 import '../../property_tag_renderer.dart';
 import '../../rich_renderer.dart';
 import 'text_style_arguments.dart';

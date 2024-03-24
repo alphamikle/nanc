@@ -7,9 +7,18 @@ part of 'date_time_field.dart';
 // **************************************************************************
 
 extension _$DateTimeFieldAutoequal on DateTimeField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [isCreatedAtField, isUpdatedAtField];
+  List<Object?> get _$props => [
+        isCreatedAtField,
+        isUpdatedAtField,
+        id,
+        name,
+        showInList,
+        isRequired,
+        sort,
+        realField,
+        validator,
+        type,
+      ];
 }
 
 // **************************************************************************

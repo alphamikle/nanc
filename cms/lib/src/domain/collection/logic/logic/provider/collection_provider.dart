@@ -15,6 +15,16 @@ class CollectionProvider implements ICollectionProvider {
     QueryField? query,
     ParamsDto? params,
   }) async {
-    return api.fetchPageList(model, subset, query ?? const QueryOrField(), params ?? ParamsDto.initial(model));
+    return api.fetchPageList(
+      model,
+      subset,
+      query ?? const QueryOrField(),
+      params ??
+          ParamsDto(
+            page: 1,
+            limit: NetworkConfig.paginationLimitParameterDefaultValue,
+            sort: Sort(fieldId: model.idField.id, order: Order.asc),
+          ),
+    );
   }
 }

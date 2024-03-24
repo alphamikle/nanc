@@ -7,9 +7,18 @@ part of 'number_field.dart';
 // **************************************************************************
 
 extension _$NumberFieldAutoequal on NumberField {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [numberType, signType];
+  List<Object?> get _$props => [
+        numberType,
+        signType,
+        id,
+        name,
+        showInList,
+        isRequired,
+        sort,
+        realField,
+        validator,
+        type,
+      ];
 }
 
 // **************************************************************************

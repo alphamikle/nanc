@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tag_converter/tag_converter.dart';
 import 'package:tools/tools.dart';
 
-import '../model/tag.dart';
 import 'logic/substitutor.dart';
 import 'renderers/for/for_widget_filter.dart';
 import 'tag_renderer.dart';

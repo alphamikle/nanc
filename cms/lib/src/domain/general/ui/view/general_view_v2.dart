@@ -134,13 +134,14 @@ class _GeneralViewV2State extends State<GeneralViewV2> with SingleTickerProvider
             ),
           ),
 
-          if (kDebugMode && kIsWeb == false && false)
+          if (kDebugMode && kIsWeb == false)
             Positioned(
               top: 12,
               right: 32,
               child: Opacity(
                 opacity: 0.25,
                 child: KitText(
+                  style: const TextStyle(fontSize: 10),
                   text: '''
 Current url $currentUrl
 Current route $currentRoute

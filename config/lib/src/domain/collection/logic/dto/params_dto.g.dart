@@ -7,15 +7,18 @@ part of 'params_dto.dart';
 // **************************************************************************
 
 extension _$ParamsDtoAutoequal on ParamsDto {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [page, limit, sort];
+  List<Object?> get _$props => [
+        page,
+        limit,
+        sort,
+      ];
 }
 
 extension _$SortAutoequal on Sort {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [fieldId, order];
+  List<Object?> get _$props => [
+        fieldId,
+        order,
+      ];
 }
 
 // **************************************************************************

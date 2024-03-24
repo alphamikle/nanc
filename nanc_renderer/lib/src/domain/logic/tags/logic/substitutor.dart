@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:tag_converter/tag_converter.dart';
 
-import '../../model/tag.dart';
 import '../renderers/component/element_hash_extension.dart';
 import 'data_storage.dart';
 import 'document_storage.dart';

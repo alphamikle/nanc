@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icons/icons.dart';
+import 'package:model/model.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 
@@ -108,8 +109,10 @@ class Initializer {
     menuBloc.initRouter(router);
 
     /// ? PRE-INITIALIZATION
-    await modelListBloc.preloadModelsFromCode(config.predefinedModels);
-    unawaited(modelListBloc.loadDynamicModels(config.predefinedModels));
+    final List<Model> predefinedModels = config.predefinedModels.cast<Model>();
+
+    await modelListBloc.preloadModelsFromCode(predefinedModels);
+    unawaited(modelListBloc.loadDynamicModels(predefinedModels));
     unawaited(settingsBloc.preloadSettings());
     unawaited(headerBloc.initItems());
 

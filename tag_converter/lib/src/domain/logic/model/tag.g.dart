@@ -7,33 +7,39 @@ part of 'tag.dart';
 // **************************************************************************
 
 extension _$TagsContainerAutoequal on TagsContainer {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
   List<Object?> get _$props => [nodes];
 }
 
 extension _$WidgetTagAutoequal on WidgetTag {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [type, tag, children, attributes];
+  List<Object?> get _$props => [
+        type,
+        tag,
+        children,
+        attributes,
+      ];
 }
 
 extension _$PropertyTagAutoequal on PropertyTag {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [type, tag, children, attributes];
+  List<Object?> get _$props => [
+        type,
+        tag,
+        children,
+        attributes,
+      ];
 }
 
 extension _$TextNodeAutoequal on TextNode {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [type, text];
+  List<Object?> get _$props => [
+        type,
+        text,
+      ];
 }
 
 extension _$UnknownNodeAutoequal on UnknownNode {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [type, text];
+  List<Object?> get _$props => [
+        type,
+        text,
+      ];
 }
 
 // **************************************************************************
@@ -489,11 +495,6 @@ GFieldsOfTagNode _$TagNodeToFieldsOfProto(TagNode instance) {
 GTagNode _$TagNodeToProto(TagNode instance) {
   var proto = GTagNode();
 
-  if (instance is WidgetTag) {
-    proto.widgetTag = (const $WidgetTagProtoMapper()).toProto(instance);
-    return proto;
-  }
-
   if (instance is PropertyTag) {
     proto.propertyTag = (const $PropertyTagProtoMapper()).toProto(instance);
     return proto;
@@ -501,6 +502,11 @@ GTagNode _$TagNodeToProto(TagNode instance) {
 
   if (instance is TextNode) {
     proto.textNode = (const $TextNodeProtoMapper()).toProto(instance);
+    return proto;
+  }
+
+  if (instance is WidgetTag) {
+    proto.widgetTag = (const $WidgetTagProtoMapper()).toProto(instance);
     return proto;
   }
 
@@ -515,16 +521,16 @@ GTagNode _$TagNodeToProto(TagNode instance) {
 }
 
 TagNode _$TagNodeFromProto(GTagNode sInstance) {
-  if (sInstance.hasWidgetTag()) {
-    return sInstance.widgetTag.toWidgetTag();
-  }
-
   if (sInstance.hasPropertyTag()) {
     return sInstance.propertyTag.toPropertyTag();
   }
 
   if (sInstance.hasTextNode()) {
     return sInstance.textNode.toTextNode();
+  }
+
+  if (sInstance.hasWidgetTag()) {
+    return sInstance.widgetTag.toWidgetTag();
   }
 
   if (sInstance.hasUnknownNode()) {

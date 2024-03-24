@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tag_converter/tag_converter.dart';
 
-import '../../../model/tag.dart';
 import '../../property_tag_renderer.dart';
 import '../../rich_renderer.dart';
 import 'border_side_arguments.dart';

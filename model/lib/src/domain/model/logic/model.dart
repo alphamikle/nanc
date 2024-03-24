@@ -1,4 +1,5 @@
 import 'package:autoequal/autoequal.dart';
+import 'package:config/config.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fields/fields.dart';
@@ -15,7 +16,7 @@ bool _codeFirstFlagToJson(dynamic value) => false;
 @autoequal
 @CopyWith()
 @JsonSerializable()
-class Model extends Equatable {
+class Model extends Equatable implements IModel {
   Model({
     required this.name,
     required this.icon,
@@ -98,37 +99,56 @@ class Model extends Equatable {
   static String sortPropertyName = 'sort';
   static String showInMenuPropertyName = 'showInMenu';
 
+  @override
   final String id;
+
+  @override
   final String name;
+
+  @override
   final String icon;
+
+  @override
   final bool isCollection;
+
+  @override
   final int sort;
+
+  @override
   final bool showInMenu;
 
+  @override
   @JsonKey(fromJson: fieldsFromJson, toJson: fieldsToJson)
   final List<List<Field>> fields;
 
   /// This field will always being [true] if model is created from the code
   /// and always being [false] if it is a dynamic model, created via admin panel
   /// ans stored on the backend side
+  @override
   @JsonKey(fromJson: _codeFirstFlagFromJson, toJson: _codeFirstFlagToJson, defaultValue: false)
   final bool codeFirstEntity;
 
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   final bool isHybrid;
 
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   late final List<Field> flattenFields;
 
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   late final List<Field> listFields;
 
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   late final IdField idField;
 
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   late final List<String> dynamicFields;
 
+  @override
   Field? fieldById(String fieldId) {
     final List<Field> fields = flattenFields;
     for (final Field field in fields) {
@@ -139,6 +159,7 @@ class Model extends Equatable {
     return null;
   }
 
+  @override
   Json createEmptyData() {
     final Json result = <String, dynamic>{};
     for (final Field field in flattenFields) {
@@ -147,8 +168,10 @@ class Model extends Equatable {
     return result;
   }
 
+  @override
   Json toJson() => _$ModelToJson(this);
 
+  @override
   Model deepClone() {
     final List<List<Field>> fields = [];
     for (int i = 0; i < this.fields.length; i++) {

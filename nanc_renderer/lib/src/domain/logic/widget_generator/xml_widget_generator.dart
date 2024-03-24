@@ -1,11 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:tag_converter/tag_converter.dart';
 
-import '../model/tag.dart';
 import '../tags/renderers/for/for_widget.dart';
 import '../tags/renderers/for/for_widget_filter.dart';
 import '../tags/rich_renderer.dart';
-import 'tags_converter.dart';
 
 typedef MarkdownFormatter = String Function(BuildContext context, String rawMarkdown);
 typedef WidgetsFilter = void Function(Widget nodeWidget, List<Widget> output);
