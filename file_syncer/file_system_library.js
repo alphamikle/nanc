@@ -2,7 +2,7 @@
 
 /**
  * @description This file is the original source code of the web logic implementation
- * To use it - copy-paste if to the cms/web
+ * To use it - copy-paste if to the nanc/web
  */
 
 'use strict';

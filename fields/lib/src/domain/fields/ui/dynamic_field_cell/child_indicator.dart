@@ -3,7 +3,7 @@
 import 'dart:math';
 import 'dart:ui' as ui;
 
-import 'package:cms/src/service/config/config.dart';
+import 'package:nanc/src/service/config/config.dart';
 import 'package:flutter/material.dart';
 
 enum IndicatorPosition {

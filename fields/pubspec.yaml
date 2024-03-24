@@ -18,8 +18,8 @@ dependencies:
     path: ../model
   ui_kit:
     path: ../ui_kit
-  cms:
-    path: ../cms
+  nanc:
+    path: ../nanc
   icons:
     path: ../icons
   config:

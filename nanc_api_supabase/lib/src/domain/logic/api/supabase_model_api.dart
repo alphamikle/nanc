@@ -93,7 +93,7 @@ class SupabaseModelApi implements IModelApi {
       }
 
       if (field is NumberField) {
-        /// DROPPING ALL NANC CONSTRAINTS FOR THE FIELD
+        /// DROPPING ALL Nanc CONSTRAINTS FOR THE FIELD
         constraintCommands.add('''
         BEGIN
           EXECUTE (

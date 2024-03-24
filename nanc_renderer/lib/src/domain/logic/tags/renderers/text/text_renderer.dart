@@ -67,18 +67,18 @@ As well as using the `text` parameter:
 <safeArea>
   <text size="18">
     <prop:textStyle font="Rowdies"/>
-    NANC, the content management system,
+    Nanc, the content management system,
     A tool that's easy to use,
     With features that stand out from the rest,
-    NANC helps businesses grow and thrive,
+    Nanc helps businesses grow and thrive,
     Managing content with style and finesse,
-    NANC, the CMS we can't resist.
+    Nanc, the CMS we can't resist.
   </text>
   
   <divider height="50"/>
   
   <text size="20" color="#AE23A6">
-    NANC, the CMS that's best,
+    Nanc, the CMS that's best,
     Integrating with ease,
     Updating mobile apps with zest.
   </text>
@@ -87,7 +87,7 @@ As well as using the `text` parameter:
   
   <text>
     <prop:textStyle color="#23AE53" size="16" font="Merriweather"/>
-    Why did the developer choose NANC as their content management system?
+    Why did the developer choose Nanc as their content management system?
     Because it was the only CMS that could manage their content without making a mess!
   </text>
   

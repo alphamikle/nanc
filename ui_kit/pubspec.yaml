@@ -1,5 +1,5 @@
 name: ui_kit
-description: The UI KIT for the NANC project
+description: The UI KIT for the Nanc project
 publish_to: none
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io
@@ -18,8 +18,8 @@ dependencies:
     path: ../fields
   model:
     path: ../model
-  cms:
-    path: ../cms
+  nanc:
+    path: ../nanc
   icons:
     path: ../icons
   fonts:

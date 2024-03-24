@@ -1,5 +1,5 @@
-name: flutter_admin_monorepo
-description: This package add you ability to easily create any md-tags and convert them into the widgets
+name: nanc_monorepo
+description: Nanc monorepo
 version: 1.0.0
 verified publisher:
   - alphamikle@gmail.com
