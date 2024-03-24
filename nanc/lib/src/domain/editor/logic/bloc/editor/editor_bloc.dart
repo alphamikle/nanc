@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:code_text_field/code_text_field.dart';
+import 'package:nanc_code_text_field/nanc_code_text_field.dart';
 import 'package:fields/fields.dart';
 import 'package:file_syncer/file_syncer.dart';
 import 'package:flutter/material.dart';

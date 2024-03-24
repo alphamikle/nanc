@@ -24,8 +24,8 @@ dependencies:
     path: ../icons
   fonts:
     path: ../fonts
-  code_text_field:
-    path: ../code_text_field
+  nanc_code_text_field:
+    path: ../nanc_code_text_field
   config:
     path: ../config
   flutter_typeahead: ^4.4.0

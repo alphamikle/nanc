@@ -1,4 +1,4 @@
-import 'package:code_text_field/code_text_field.dart';
+import 'package:nanc_code_text_field/nanc_code_text_field.dart';
 import 'package:fields/fields.dart';
 import 'package:flutter/material.dart';
 import 'package:highlight/languages/json.dart';

@@ -13,8 +13,8 @@ dependencies:
     sdk: flutter
   nanc_renderer:
     path: ../nanc_renderer
-  code_text_field:
-    path: ../code_text_field
+  nanc_code_text_field:
+    path: ../nanc_code_text_field
   tools:
     path: ../tools
   fields:

@@ -2,7 +2,7 @@
 
 A customizable code text field supporting syntax highlighting
 
-[![Pub](https://img.shields.io/pub/v/code_text_field.svg)](https://pub.dev/packages/code_text_field)
+[![Pub](https://img.shields.io/pub/v/nanc_code_text_field.svg)](https://pub.dev/packages/nanc_code_text_field)
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://bertrandbev.github.io/code_field/)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://raw.githubusercontent.com/BertrandBev/code_field/master/LICENSE)
 [![Awesome Flutter](https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square)](https://github.com/Solido/awesome-flutter)
@@ -45,15 +45,15 @@ In the `pubspec.yaml` of your flutter project, add the following dependency:
 ```yaml
 dependencies:
   ...
-  code_text_field: <latest_version>
+  nanc_code_text_field: <latest_version>
 ```
 
-[latest version](https://pub.dev/packages/code_text_field/install)
+[latest version](https://pub.dev/packages/nanc_code_text_field/install)
 
 In your library add the following import:
 
 ```dart
-import 'package:code_text_field/code_field.dart';
+import 'package:nanc_code_text_field/code_field.dart';
 ```
 
 
@@ -63,7 +63,7 @@ A CodeField widget works with a **CodeController** which dynamically parses the 
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:code_text_field/code_field.dart';
+import 'package:nanc_code_text_field/code_field.dart';
 // Import the language & theme
 import 'package:highlight/languages/dart.dart';
 import 'package:flutter_highlight/themes/monokai-sublime.dart';
