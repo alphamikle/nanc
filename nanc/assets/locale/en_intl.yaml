@@ -37,6 +37,6 @@ modelEditorPage:
     existRowTooltip: Add field to the current row
     newRowTooltip: Add field to the new row
 
-#fields:
+#nanc_fields:
 #  enum_field:
 #    placeholder: Select value...

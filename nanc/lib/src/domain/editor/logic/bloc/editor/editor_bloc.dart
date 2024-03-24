@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:nanc_code_text_field/nanc_code_text_field.dart';
-import 'package:fields/fields.dart';
 import 'package:file_syncer/file_syncer.dart';
 import 'package:flutter/material.dart';
 import 'package:highlight/languages/xml.dart';
+import 'package:nanc_code_text_field/nanc_code_text_field.dart';
+import 'package:nanc_fields/nanc_fields.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 

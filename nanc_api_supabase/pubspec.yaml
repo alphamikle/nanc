@@ -18,8 +18,8 @@ dependencies:
     path: ../model
   tools:
     path: ../tools
-  fields:
-    path: ../fields
+  nanc_fields:
+    path: ../nanc_fields
   supabase_flutter: ^1.10.0
   equatable: ^2.0.5
   json_annotation: ^4.8.1

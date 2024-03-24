@@ -16,8 +16,8 @@ dependencies:
     path: ../tools
   config:
     path: ../config
-  fields:
-    path: ../fields
+  nanc_fields:
+    path: ../nanc_fields
   icons:
     path: ../icons
   equatable: ^2.0.5

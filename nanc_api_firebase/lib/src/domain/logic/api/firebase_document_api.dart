@@ -1,5 +1,5 @@
 import 'package:config/config.dart';
-import 'package:fields/fields.dart';
+import 'package:nanc_fields/nanc_fields.dart';
 import 'package:googleapis/firestore/v1.dart' as fs;
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';

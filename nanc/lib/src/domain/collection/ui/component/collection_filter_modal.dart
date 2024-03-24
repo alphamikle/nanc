@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:config/config.dart';
-import 'package:fields/fields.dart';
+import 'package:nanc_fields/nanc_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';

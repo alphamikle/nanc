@@ -18,8 +18,8 @@ dependencies:
     path: ../model
   tools:
     path: ../tools
-  fields:
-    path: ../fields
+  nanc_fields:
+    path: ../nanc_fields
   equatable: ^2.0.5
   json_annotation: ^4.8.1
   copy_with_extension: ^5.0.2

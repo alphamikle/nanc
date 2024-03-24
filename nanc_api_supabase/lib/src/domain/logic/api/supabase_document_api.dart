@@ -1,5 +1,5 @@
 import 'package:config/config.dart';
-import 'package:fields/fields.dart';
+import 'package:nanc_fields/nanc_fields.dart';
 import 'package:model/model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:tools/tools.dart';

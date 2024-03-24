@@ -7,7 +7,7 @@ get_deps() {
 
   # Check if 'pubspec.yaml' exists
   if [ -f pubspec.yaml ]; then
-    flutter pub get || exit
+    flutter pub get
   fi
 
   # Change back to the parent directory

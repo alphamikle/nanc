@@ -17,8 +17,8 @@ dependencies:
     path: ../nanc_code_text_field
   tools:
     path: ../tools
-  fields:
-    path: ../fields
+  nanc_fields:
+    path: ../nanc_fields
   model:
     path: ../model
   ui_kit:
