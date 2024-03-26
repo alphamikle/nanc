@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:config/config.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:model/model.dart';
+import 'package:nanc_fields/nanc_fields.dart';
 import 'package:super_sliver_list/super_sliver_list.dart';
 import 'package:tools/tools.dart';
 

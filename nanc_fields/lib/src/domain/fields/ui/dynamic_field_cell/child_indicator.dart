@@ -3,8 +3,8 @@
 import 'dart:math';
 import 'dart:ui' as ui;
 
-import 'package:nanc/src/service/config/config.dart';
 import 'package:flutter/material.dart';
+import 'package:nanc/src/service/config/config.dart';
 
 enum IndicatorPosition {
   middle,

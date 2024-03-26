@@ -304,7 +304,7 @@ class ColorPickerSlider extends StatelessWidget {
             id: _SliderLayout.gestureContainer,
             child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints box) {
-                RenderBox? getBox = context.findRenderObject() as RenderBox?;
+                final RenderBox? getBox = context.findRenderObject() as RenderBox?;
                 return GestureDetector(
                   onPanDown: (DragDownDetails details) => getBox != null ? slideEvent(getBox, box, details.globalPosition) : null,
                   onPanUpdate: (DragUpdateDetails details) => getBox != null ? slideEvent(getBox, box, details.globalPosition) : null,

@@ -41,6 +41,7 @@ dependencies:
   loading_animation_widget: ^1.2.0+4
   super_sliver_list: ^0.2.1
 
+  google_fonts: any
 dev_dependencies:
   flutter_lints: ^2.0.1
   lint:

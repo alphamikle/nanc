@@ -3,7 +3,6 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../../nanc_renderer.dart';
-import '../key_argument.dart';
 
 part 'custom_scroll_view_arguments.g.dart';
 

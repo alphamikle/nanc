@@ -15,8 +15,7 @@ class ImageArguments extends KeyArgument {
     required this.height,
     required this.fit,
     required this.blurHash,
-    this.useCache = true,
-    required super.key,
+    required super.key, this.useCache = true,
   });
 
   factory ImageArguments.fromJson(dynamic json) => _$ImageArgumentsFromJson(castToJson(json));

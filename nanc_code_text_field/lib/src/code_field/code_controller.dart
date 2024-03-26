@@ -291,7 +291,7 @@ class CodeController extends TextEditingController {
     var currentSpans = children;
     final stack = <List<TextSpan>>[];
 
-    void _traverse(Node node) {
+    void traverse(Node node) {
       var val = node.value;
       final nodeChildren = node.children;
       final nodeStyle = widgetTheme?.styles[node.className] ?? _theme?[node.className];
@@ -309,7 +309,7 @@ class CodeController extends TextEditingController {
 
         currentSpans.add(child);
       } else if (nodeChildren != null) {
-        List<TextSpan> tmp = [];
+        final List<TextSpan> tmp = [];
 
         currentSpans.add(TextSpan(
           children: tmp,
@@ -320,7 +320,7 @@ class CodeController extends TextEditingController {
         currentSpans = tmp;
 
         for (final n in nodeChildren) {
-          _traverse(n);
+          traverse(n);
           if (n == nodeChildren.last) {
             currentSpans = stack.isEmpty ? children : stack.removeLast();
           }
@@ -329,7 +329,7 @@ class CodeController extends TextEditingController {
     }
 
     if (nodes != null) {
-      nodes.forEach(_traverse);
+      nodes.forEach(traverse);
     }
 
     return TextSpan(style: style, children: children);

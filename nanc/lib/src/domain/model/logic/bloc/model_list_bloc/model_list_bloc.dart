@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:config/config.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:model/model.dart';
+import 'package:nanc_fields/nanc_fields.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../service/errors/errors.dart';

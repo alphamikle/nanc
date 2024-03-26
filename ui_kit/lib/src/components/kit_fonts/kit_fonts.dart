@@ -1,5 +1,5 @@
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:fonts/fonts.dart';
+import 'package:nanc_fields/nanc_fields.dart';
 import 'package:tools/tools.dart';
 
 final List<EnumValue> fontEnums = () {
