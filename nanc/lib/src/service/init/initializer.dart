@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icons/icons.dart';
-import 'package:model/model.dart';
+import 'package:nanc_model/nanc_model.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 

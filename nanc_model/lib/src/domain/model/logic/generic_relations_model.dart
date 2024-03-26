@@ -1,7 +1,7 @@
 import 'package:icons/icons.dart';
 import 'package:nanc_fields/nanc_fields.dart';
 
-import '../../../../model.dart';
+import 'model.dart';
 
 Model genericRelationsModel({
   required String firstModelId,

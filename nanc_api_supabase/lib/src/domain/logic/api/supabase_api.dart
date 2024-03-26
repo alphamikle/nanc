@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:model/model.dart';
+import 'package:nanc_model/nanc_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseApi {

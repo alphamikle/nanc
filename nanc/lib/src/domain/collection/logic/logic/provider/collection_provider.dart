@@ -1,5 +1,5 @@
 import 'package:config/config.dart';
-import 'package:model/model.dart';
+import 'package:nanc_model/nanc_model.dart';
 
 class CollectionProvider implements ICollectionProvider {
   CollectionProvider({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:model/model.dart';
+import 'package:nanc_model/nanc_model.dart';
 import 'package:tools/tools.dart';
 
 import '../fields/logic/binary_field/binary_field.dart';

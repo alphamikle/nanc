@@ -1,4 +1,4 @@
-name: model
+name: nanc_model
 description: Package for holding models logic of Nanc
 publish_to: none
 repository: https://github.com/alphamikle/nanc

@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:config/config.dart';
-import 'package:model/model.dart';
+import 'package:nanc_model/nanc_model.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../service/errors/errors.dart';

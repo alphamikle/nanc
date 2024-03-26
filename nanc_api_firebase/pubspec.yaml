@@ -14,8 +14,8 @@ dependencies:
     sdk: flutter
   config:
     path: ../config
-  model:
-    path: ../model
+  nanc_model:
+    path: ../nanc_model
   tools:
     path: ../tools
   nanc_fields:

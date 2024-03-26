@@ -14,8 +14,8 @@ dependencies:
     sdk: flutter
   tools:
     path: ../tools
-  model:
-    path: ../model
+  nanc_model:
+    path: ../nanc_model
   ui_kit:
     path: ../ui_kit
   nanc:

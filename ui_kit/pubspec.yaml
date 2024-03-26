@@ -16,8 +16,8 @@ dependencies:
     path: ../tools
   nanc_fields:
     path: ../nanc_fields
-  model:
-    path: ../model
+  nanc_model:
+    path: ../nanc_model
   nanc:
     path: ../nanc
   icons:
