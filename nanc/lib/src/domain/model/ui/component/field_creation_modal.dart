@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nanc_model/nanc_model.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
 import '../../../field/logic/bloc/field_edition_bloc/field_edition_bloc.dart';
+import '../../../field/logic/fields/field/field.dart';
+import '../../../field/logic/mapper/field_mapper.dart';
+import '../../../field/logic/type/field_types.dart';
+import '../../logic/model/logic/model.dart';
 import 'fields_form.dart';
 
 class FieldCreationModal extends StatefulWidget {

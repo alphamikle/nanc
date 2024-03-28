@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nanc_model/nanc_model.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../service/routing/endpoints.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import '../../../../model/logic/model/logic/model.dart';
 import '../../model/menu_element.dart';
 import '../header/menu_state.dart';
 

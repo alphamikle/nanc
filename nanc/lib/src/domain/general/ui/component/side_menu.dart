@@ -3,13 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icons/icons.dart';
-import 'package:nanc_model/nanc_model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../../service/tools/assets_loader.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import '../../../model/logic/model/logic/model.dart';
 import '../../logic/bloc/header/menu_state.dart';
 import '../../logic/bloc/side_menu/menu_bloc.dart';
 import '../../logic/model/menu_element.dart';

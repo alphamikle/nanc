@@ -4,16 +4,18 @@ import 'dart:math';
 import 'package:bloc/bloc.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
-import 'package:nanc_model/nanc_model.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:tools/tools.dart';
-
 import '../../../../../service/errors/errors.dart';
 import '../../../../../service/errors/human_exception.dart';
 import '../../../../document/logic/bloc/document_bloc/document_bloc.dart';
 import '../../../../field/logic/bloc/local_page_bloc/local_page_bloc.dart';
+import '../../../../field/logic/fields/field/field.dart';
+import '../../../../field/logic/fields/id_field/id_field.dart';
+import '../../../../field/logic/fields/selector_field/selector_field.dart';
+import '../../../../field/logic/tools/field_types_extension.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../../../model/logic/bloc/model_page_bloc/model_page_bloc.dart';
+import '../../../../model/logic/model/logic/model.dart';
 import 'collection_state.dart';
 import 'model_filters_backup.dart';
 

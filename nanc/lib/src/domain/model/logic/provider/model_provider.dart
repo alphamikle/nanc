@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:config/config.dart';
-import 'package:nanc_model/nanc_model.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:tools/tools.dart';
+
+import '../../../field/logic/fields/field/field_props.dart';
+import '../model/logic/model.dart';
+import '../model/logic/model_model.dart';
 
 class ModelProvider {
   ModelProvider({

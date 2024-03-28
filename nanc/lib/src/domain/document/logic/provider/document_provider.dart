@@ -1,7 +1,8 @@
 import 'package:config/config.dart';
-import 'package:nanc_model/nanc_model.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:tools/tools.dart';
+
+import '../../../field/logic/third_table/third_table.dart';
+import '../../../model/logic/model/logic/model.dart';
 
 class DocumentProvider implements IDocumentProvider {
   DocumentProvider({

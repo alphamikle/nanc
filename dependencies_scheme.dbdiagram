@@ -4,7 +4,7 @@ Table nanc {
   nanc_code_text_field int [ref: > nanc_code_text_field.id]
   tools int [ref: > tools.id]
   nanc_fields int [ref: > nanc_fields.id]
-  model int [ref: > model.id]
+  nanc_model int [ref: > nanc_model.id]
   ui_kit int [ref: > ui_kit.id]
   config int [ref: > config.id]
   animation_debugger int [ref: > animation_debugger.id]
@@ -32,20 +32,19 @@ Table nanc_code_text_field {
 
 Table tools {
   id int PK
-  config int [ref: > config.id]
 }
 
 Table nanc_fields {
   id int PK
   tools int [ref: > tools.id]
-  model int [ref: > model.id] // Probably need to remove
+  nanc_model int [ref: > nanc_model.id] // Probably need to remove
   ui_kit int [ref: > ui_kit.id]
   nanc int [ref: > nanc.id] // Need to remove
   icons int [ref: > icons.id]
   config int [ref: > config.id]
 }
 
-Table model {
+Table nanc_model {
   id int PK
   tools int [ref: > tools.id]
   nanc_fields int [ref: > nanc_fields.id] // Probably need to remove
@@ -56,7 +55,7 @@ Table ui_kit {
   id int PK
   tools int [ref: > tools.id]
   nanc_fields int [ref: > nanc_fields.id] // Need to remove
-  model int [ref: > model.id] // Need to remove
+  nanc_model int [ref: > nanc_model.id] // Need to remove
   nanc int [ref: > nanc.id] // Need to remove
   icons int [ref: > icons.id]
   fonts int [ref: > fonts.id]
@@ -67,8 +66,6 @@ Table ui_kit {
 Table config {
   id int PK
   tools int [ref: > tools.id]
-  model int [ref: > model.id] // Need to remove
-  nanc_renderer int [ref: > nanc_renderer.id] // Need to remove
   fonts int [ref: > fonts.id]
 }
 
@@ -97,7 +94,7 @@ Table fonts {
 Table nanc_api_supabase {
   id int PK
   config int [ref: > config.id]
-  model int [ref: > model.id]
+  nanc_model int [ref: > nanc_model.id]
   tools int [ref: > tools.id]
   nanc_fields int [ref: > nanc_fields.id]
 }
@@ -111,7 +108,7 @@ Table local_notifications {
 Table nanc_api_firebase {
   id int PK
   config int [ref: > config.id]
-  model int [ref: > model.id]
+  nanc_model int [ref: > nanc_model.id]
   tools int [ref: > tools.id]
   nanc_fields int [ref: > nanc_fields.id]
 }
@@ -119,7 +116,7 @@ Table nanc_api_firebase {
 Table nanc_api_local {
   id int PK
   tools int [ref: > tools.id]
-  model int [ref: > model.id]
+  nanc_model int [ref: > nanc_model.id]
   config int [ref: > config.id]
 }
 

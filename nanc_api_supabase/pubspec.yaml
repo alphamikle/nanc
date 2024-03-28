@@ -14,12 +14,10 @@ dependencies:
     sdk: flutter
   config:
     path: ../config
-  nanc_model:
-    path: ../nanc_model
+  nanc:
+    path: ../nanc
   tools:
     path: ../tools
-  nanc_fields:
-    path: ../nanc_fields
   supabase_flutter: ^1.10.0
   equatable: ^2.0.5
   json_annotation: ^4.8.1

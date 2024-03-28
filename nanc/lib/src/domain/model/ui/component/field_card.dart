@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
+import '../../../field/logic/fields/field/field.dart';
 
 class FieldCard extends StatelessWidget {
   const FieldCard({

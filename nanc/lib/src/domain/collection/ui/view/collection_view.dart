@@ -2,13 +2,13 @@ import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nanc_model/nanc_model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/errors/ui_error.dart';
 import '../../../../service/routing/endpoints.dart';
 import '../../../../service/routing/params_list.dart';
+import '../../../model/logic/model/logic/model.dart';
 import '../../logic/logic/bloc/collection_bloc.dart';
 import '../../logic/logic/bloc/collection_state.dart';
 import '../component/collection_view_header.dart';

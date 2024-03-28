@@ -14,10 +14,6 @@ dependencies:
     sdk: flutter
   tools:
     path: ../tools
-  nanc_fields:
-    path: ../nanc_fields
-  nanc_model:
-    path: ../nanc_model
   nanc:
     path: ../nanc
   icons:

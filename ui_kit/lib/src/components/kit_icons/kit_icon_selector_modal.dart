@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:nanc_fields/nanc_fields.dart';
+import 'package:nanc/fields.dart';
 import 'package:tools/tools.dart';
 
 import '../../constants/gap.dart';

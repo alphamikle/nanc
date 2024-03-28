@@ -2,13 +2,16 @@ import 'dart:convert';
 
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
-import 'package:nanc_model/nanc_model.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../service/errors/errors.dart';
 import '../../../../../service/errors/human_exception.dart';
+import '../../../../field/logic/fields/date_time_field/date_time_field.dart';
+import '../../../../field/logic/fields/dynamic_field/structure_model.dart';
+import '../../../../field/logic/fields/field/field.dart';
+import '../../../../field/logic/third_table/third_table.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import '../../../../model/logic/model/logic/model.dart';
 import '../../provider/document_provider.dart';
 import '../base_document_bloc/base_document_bloc.dart';
 import 'document_state.dart';

@@ -1,13 +1,16 @@
+library nanc_model;
+
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:config/config.dart';
-import 'package:nanc_model/nanc_model.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../service/errors/errors.dart';
 import '../../../../../service/errors/human_exception.dart';
+import '../../../../field/logic/fields/dynamic_field/structure_model.dart';
+import '../../model/logic/model.dart';
+import '../../model/logic/model_model.dart';
 import '../../provider/model_provider.dart';
 import 'model_list_state.dart';
 

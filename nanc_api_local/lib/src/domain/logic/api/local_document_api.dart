@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:config/config.dart';
-import 'package:nanc_model/nanc_model.dart';
-import 'package:nanc_fields/nanc_fields.dart';
+import 'package:nanc/fields.dart';
+import 'package:nanc/model.dart';
 import 'package:tools/tools.dart';
 
 import '../../../service/db_extension.dart';
@@ -87,7 +87,7 @@ class LocalDocumentApi extends LocalApi implements IDocumentApi {
     await saveFullList(relationsModel, thirdTableData);
   }
 
-  Future<List<Json>> _clearFromDuplicates(Model entity, String id, List<Json> data) async {
+  Future<List<Json>> _clearFromDuplicates(IModel entity, String id, List<Json> data) async {
     final List<Json> clearData = [];
     final Set<int> indexesForDeletion = {};
     for (int i = 0; i < data.length; i++) {

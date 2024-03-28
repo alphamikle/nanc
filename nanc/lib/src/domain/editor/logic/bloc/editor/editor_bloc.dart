@@ -5,10 +5,10 @@ import 'package:file_syncer/file_syncer.dart';
 import 'package:flutter/material.dart';
 import 'package:highlight/languages/xml.dart';
 import 'package:nanc_code_text_field/nanc_code_text_field.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 
+import '../../../../field/logic/fields/screen_field/screen_content_model.dart';
 import '../../../../general/logic/model/menu_element.dart';
 import 'editor_event.dart';
 import 'editor_state.dart';

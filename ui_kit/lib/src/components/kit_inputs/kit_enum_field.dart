@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nanc_fields/nanc_fields.dart';
+import 'package:nanc/fields.dart';
 
 import '../kit_list_tile.dart';
 import 'kit_autocomplete_text_field.dart';

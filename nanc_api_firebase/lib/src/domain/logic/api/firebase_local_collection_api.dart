@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:config/config.dart';
 import 'package:googleapis/firestore/v1.dart' as fs;
-import 'package:nanc_model/nanc_model.dart';
+import 'package:nanc/model.dart';
 import 'package:tools/tools.dart';
 
 import '../mapper/firestore_value_mapper.dart';

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../../field/logic/fields/field/field.dart';
+import '../../../field/logic/mapper/field_mapper.dart';
+import '../../../field/logic/type/field_types.dart';
 import 'field_card.dart';
 
 class FieldTypeSelectorModal extends StatelessWidget {

@@ -1,10 +1,9 @@
 import 'package:config/config.dart';
-import 'package:nanc_model/nanc_model.dart';
 
 class LocalModelApi implements IModelApi {
   @override
-  Future<void> createModelRelatedTable(Model newModel, Model? oldModel) async {}
+  Future<void> createModelRelatedTable(IModel newModel, IModel? oldModel) async {}
 
   @override
-  Future<void> deleteModel(Model model) async {}
+  Future<void> deleteModel(IModel model) async {}
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fonts/fonts.dart';
 import 'package:icons/icons.dart';
-import 'package:nanc_fields/nanc_fields.dart';
+import 'package:nanc/fields.dart';
 import 'package:tools/tools.dart';
 
 import '../kit_buttons/kit_icon_button_v2.dart';

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:nanc_model/nanc_model.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
 import '../../../../document/logic/bloc/document_bloc/document_bloc.dart';
 import '../../../../document/logic/bloc/document_bloc/document_state.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import '../../../../model/logic/model/logic/model.dart';
+import '../../fields/field/field.dart';
+import '../../fields/field/field_props.dart';
+import '../../mapper/field_mapper.dart';
+import '../../type/field_types.dart';
 
 const String _kIdWasChanged = 'idWasChanged';
 
@@ -31,14 +34,14 @@ class FieldEditionBloc extends BaseDocumentBloc<DocumentState> with EntityPageBl
   }
 
   @override
-  TextEditingController controllerFor(String fieldCode) {
-    if (!state.controllerMap.containsKey(fieldCode)) {
+  TextEditingController controllerFor(String fieldId) {
+    if (!state.controllerMap.containsKey(fieldId)) {
       emit(state.copyWith.controllerMap({
         ...state.controllerMap,
-        fieldCode: TextEditingController(),
+        fieldId: TextEditingController(),
       }));
     }
-    return state.controllerMap[fieldCode]!;
+    return state.controllerMap[fieldId]!;
   }
 
   @override
@@ -68,7 +71,7 @@ class FieldEditionBloc extends BaseDocumentBloc<DocumentState> with EntityPageBl
   }
 
   @override
-  bool fieldWasChanged(String field) => false;
+  bool fieldWasChanged(String fieldId) => false;
 
   @override
   Future<void> delete(Model model) async => throw UnimplementedError('"delete" method not implemented for the "field_edition_bloc"');

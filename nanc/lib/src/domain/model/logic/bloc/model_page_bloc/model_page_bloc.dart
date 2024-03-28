@@ -1,13 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:nanc_model/nanc_model.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../../service/errors/errors.dart';
 import '../../../../../service/errors/human_exception.dart';
+import '../../../../field/logic/fields/field/field.dart';
 import '../../../../general/logic/bloc/side_menu/menu_bloc.dart';
+import '../../model/logic/model.dart';
 import '../../provider/model_provider.dart';
 import '../model_list_bloc/model_list_bloc.dart';
 import 'model_page_state.dart';

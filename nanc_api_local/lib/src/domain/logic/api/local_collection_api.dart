@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:config/config.dart';
-import 'package:nanc_model/nanc_model.dart';
+import 'package:nanc/model.dart';
 import 'package:tools/tools.dart';
 
 import '../../../service/db_extension.dart';
@@ -15,9 +15,9 @@ class LocalCollectionApi extends LocalApi implements ICollectionApi {
   }
 
   @override
-  Future<CollectionResponseDto> fetchPageList(Model entity, List<String> subset, QueryField query, ParamsDto params) async {
+  Future<CollectionResponseDto> fetchPageList(Model model, List<String> subset, QueryField query, ParamsDto params) async {
     await networkDelay();
-    final List<Json> rawData = await fetchFullList(entity);
+    final List<Json> rawData = await fetchFullList(model);
     final List<Json> requiredData = rawData.map((Json dataRow) {
       final Json fragment = <String, dynamic>{};
       for (final String field in subset) {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nanc_model/nanc_model.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:ui_kit/ui_kit.dart';
-
 import '../../../../service/config/config.dart';
 import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
 import '../../../document/logic/bloc/base_document_bloc/base_page_state.dart';
+import '../../../field/logic/fields/field/field.dart';
+import '../../../field/logic/fields/id_field/id_field.dart';
+import '../../logic/model/logic/model.dart';
 import 'fields_form_cell.dart';
 
 class FieldsForm extends StatelessWidget {

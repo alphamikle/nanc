@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icons/icons.dart';
-import 'package:nanc_model/nanc_model.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -15,6 +14,7 @@ import '../../../../service/routing/params_list.dart';
 import '../../../../service/tools/model_finder.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_state.dart';
+import '../../../model/logic/model/logic/model.dart';
 import '../../../model/ui/component/fields_form.dart';
 import '../../logic/bloc/base_document_bloc/base_document_bloc.dart';
 import '../../logic/bloc/base_document_bloc/base_page_state.dart';

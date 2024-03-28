@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
 import '../../../../document/logic/bloc/base_document_bloc/base_page_state.dart';
+import '../../../ui/structured_field_cell/structured_field_item.dart';
+import '../../fields/dynamic_field/dynamic_field_item.dart';
 
 typedef FieldChanged = void Function(String fieldId, Object? value);
 
@@ -26,8 +27,8 @@ class ListFieldBloc extends BaseDocumentBloc<BaseDocumentState> {
   final StructuredFieldItem? structuredItem;
 
   @override
-  TextEditingController controllerFor(String fieldCode) {
-    if (!state.controllerMap.containsKey(fieldCode)) {
+  TextEditingController controllerFor(String fieldId) {
+    if (!state.controllerMap.containsKey(fieldId)) {
       final List<String> oldKeys = state.data.keys.toList();
       dynamic fieldValue;
       if (oldKeys.isNotEmpty) {
@@ -46,11 +47,11 @@ class ListFieldBloc extends BaseDocumentBloc<BaseDocumentState> {
       emit(state.copyWith(
         controllerMap: {
           ...state.controllerMap,
-          fieldCode: TextEditingController(text: text),
+          fieldId: TextEditingController(text: text),
         },
       ));
     }
-    return state.controllerMap[fieldCode]!;
+    return state.controllerMap[fieldId]!;
   }
 
   @override

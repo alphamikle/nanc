@@ -17,16 +17,10 @@ dependencies:
     path: ../nanc_code_text_field
   tools:
     path: ../tools
-  nanc_fields:
-    path: ../nanc_fields
-  nanc_model:
-    path: ../nanc_model
   ui_kit:
     path: ../ui_kit
   config:
     path: ../config
-  animation_debugger:
-    path: ../../../../3_open_source_projects/animation_debugger
   file_syncer:
     path: ../file_syncer
   icons:
@@ -35,10 +29,9 @@ dependencies:
     path: ../analytics
   fonts:
     path: ../fonts
-  nanc_api_supabase:
-    path: ../nanc_api_supabase
   local_notifications:
     path: ../local_notifications
+  animation_debugger: ^1.0.0
   cupertino_icons: ^1.0.5
   device_frame: ^1.1.0
   bloc: ^8.1.2

@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:config/config.dart';
-import 'package:nanc_model/nanc_model.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../service/errors/errors.dart';
 import '../../../../field/logic/bloc/local_page_bloc/local_page_bloc.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
+import '../../../../model/logic/model/logic/model.dart';
 import 'collection_filter_state.dart';
 
 class CollectionFilterBlocOld extends Cubit<CollectionFilterState> {
