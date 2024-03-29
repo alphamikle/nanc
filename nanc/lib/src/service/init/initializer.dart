@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
 import 'package:go_router/go_router.dart';

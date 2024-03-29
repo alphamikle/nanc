@@ -18,8 +18,8 @@ dependencies:
     path: ../icons
   fonts:
     path: ../fonts
-  config:
-    path: ../config
+  nanc_configuration:
+    path: ../nanc_configuration
   tag_converter:
     path: ../tag_converter
   json_annotation: ^4.8.1

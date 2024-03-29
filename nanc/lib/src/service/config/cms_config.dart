@@ -1,4 +1,4 @@
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:fonts/fonts.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';

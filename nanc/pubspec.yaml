@@ -17,8 +17,8 @@ dependencies:
     path: ../nanc_code_text_field
   tools:
     path: ../tools
-  config:
-    path: ../config
+  nanc_configuration:
+    path: ../nanc_configuration
   file_syncer:
     path: ../file_syncer
   icons:

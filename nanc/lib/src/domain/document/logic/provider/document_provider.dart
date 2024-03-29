@@ -1,4 +1,4 @@
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:tools/tools.dart';
 
 import '../../../field/logic/third_table/third_table.dart';

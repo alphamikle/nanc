@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:collection/collection.dart';
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 
 import '../../../../../service/routing/endpoints.dart';
 import '../../model/menu_element.dart';

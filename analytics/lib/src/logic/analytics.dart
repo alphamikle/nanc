@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:amplitude_flutter/amplitude.dart';
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:tools/tools.dart';
 
 const String _kAnalyticsUserIdKey = 'USER_ID';

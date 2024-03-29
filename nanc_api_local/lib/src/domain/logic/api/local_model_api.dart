@@ -1,4 +1,4 @@
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 
 class LocalModelApi implements IModelApi {
   @override

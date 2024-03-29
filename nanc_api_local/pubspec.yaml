@@ -16,8 +16,8 @@ dependencies:
     path: ../../nanc/tools
   nanc:
     path: ../../nanc/nanc
-  config:
-    path: ../../nanc/config
+  nanc_configuration:
+    path: ../../nanc/nanc_configuration
 
 dev_dependencies:
   flutter_test:

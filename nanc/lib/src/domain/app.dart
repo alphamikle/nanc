@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:analytics/analytics.dart';
 import 'package:animation_debugger/animation_debugger.dart';
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,4 +1,4 @@
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:googleapis/firestore/v1.dart' as fs;
 import 'package:nanc/fields.dart';
 import 'package:nanc/model.dart';

@@ -1,5 +1,5 @@
-name: config
-description: Nanc project config
+name: nanc_configuration
+description: Nanc CMS configuration
 publish_to: none
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io

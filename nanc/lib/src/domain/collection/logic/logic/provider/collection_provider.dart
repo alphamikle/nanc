@@ -1,4 +1,4 @@
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 
 import '../../../../model/logic/model/logic/model.dart';
 

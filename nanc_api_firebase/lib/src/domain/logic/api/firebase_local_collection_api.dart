@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:googleapis/firestore/v1.dart' as fs;
 import 'package:nanc/model.dart';
 import 'package:tools/tools.dart';

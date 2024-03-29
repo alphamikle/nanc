@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc/model.dart';
 import 'package:tools/tools.dart';
 

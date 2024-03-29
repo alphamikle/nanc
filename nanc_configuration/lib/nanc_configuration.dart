@@ -1,4 +1,4 @@
-library config;
+library nanc_configuration;
 
 export 'src/domain/collection/logic/dto/collection_response_dto.dart';
 export 'src/domain/collection/logic/dto/params_dto.dart';
