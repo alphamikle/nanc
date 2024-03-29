@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ui_kit/ui_kit.dart';
+import 'package:super_sliver_list/super_sliver_list.dart';
+
 import '../../../../service/config/config.dart';
 import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
 import '../../../document/logic/bloc/base_document_bloc/base_page_state.dart';

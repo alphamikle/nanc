@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
+import '../../domain/ui_kit/domain/ui/components/kit_text.dart';
 import 'episode.dart';
 import 'scenario.dart';
 

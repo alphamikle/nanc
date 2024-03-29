@@ -1,13 +1,18 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../editor/logic/bloc/editor/editor_bloc.dart';
 import '../../../editor/ui/view/screen_editor_view.dart';
+import '../../../ui_kit/domain/ui/components/kit_container_transition.dart';
+import '../../../ui_kit/domain/ui/components/kit_ink_well.dart';
+import '../../../ui_kit/domain/ui/components/kit_inputs/kit_segmented_field/kit_segmented_field_ui.dart';
+import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/ui/theme/kit_borders.dart';
 import '../../logic/fields/screen_field/screen_content_model.dart';
 import '../../logic/fields/screen_field/screen_field.dart';
 import '../field_cell_mixin.dart';

@@ -3,7 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
+
+import '../../../ui_kit/domain/ui/animation/animated_state.dart';
+import '../../../ui_kit/domain/ui/components/kit_ink_well.dart';
+import '../../../ui_kit/domain/ui/components/kit_tooltip.dart';
 
 const double _kWidth = 45;
 const double _kHeight = 38;

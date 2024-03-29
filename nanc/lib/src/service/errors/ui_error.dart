@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
+import '../../domain/ui_kit/domain/ui/components/kit_divider.dart';
+import '../../domain/ui_kit/domain/ui/components/kit_text.dart';
+import '../../domain/ui_kit/domain/ui/constants/gap.dart';
 import '../animations/knight.dart';
 import 'human_exception.dart';
 

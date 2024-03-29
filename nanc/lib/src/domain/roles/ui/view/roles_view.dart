@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/constants.dart';
 import '../../../../service/tools/assets_loader.dart';
+import '../../../ui_kit/domain/ui/components/kit_view/kit_view_sub_container.dart';
 import '../component/multi_colored_text.dart';
 
 class RolesView extends StatelessWidget {

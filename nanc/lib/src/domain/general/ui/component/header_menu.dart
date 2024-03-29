@@ -3,12 +3,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../tutorial/content/tutorial_content.dart';
 import '../../../tutorial/logic/bloc/tutorial_bloc.dart';
 import '../../../tutorial/ui/component/tutorial_target.dart';
+import '../../../ui_kit/domain/ui/components/kit_buttons/kit_text_indicated_button.dart';
+import '../../../ui_kit/domain/ui/components/kit_icons/kit_icon_selector_modal.dart';
 import '../../logic/bloc/header/header_bloc.dart';
 import '../../logic/bloc/header/menu_state.dart';
 import '../../logic/model/menu_element.dart';

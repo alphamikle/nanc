@@ -2,8 +2,11 @@ import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
+import '../../domain/ui_kit/domain/ui/components/kit_buttons/kit_button.dart';
+import '../../domain/ui_kit/domain/ui/components/kit_divider.dart';
+import '../../domain/ui_kit/domain/ui/components/kit_text.dart';
+import '../../domain/ui_kit/domain/ui/constants/gap.dart';
 import 'human_exception.dart';
 
 class ErrorToaster extends StatelessWidget {

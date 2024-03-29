@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../field/logic/fields/field/field.dart';
+import '../../../ui_kit/domain/ui/components/kit_ink_well.dart';
 import 'field_card.dart';
 import 'field_card_deleter.dart';
 import 'field_card_mover.dart';

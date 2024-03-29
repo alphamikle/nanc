@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
 import '../../../document/logic/bloc/base_document_bloc/base_page_state.dart';
+import '../../../ui_kit/domain/ui/components/kit_inputs/kit_enum_field.dart';
 import '../../logic/fields/enum_field/enum_field.dart';
 import '../../logic/fields/enum_field/enum_value.dart';
 import '../field_cell_mixin.dart';

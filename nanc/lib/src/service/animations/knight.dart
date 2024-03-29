@@ -3,8 +3,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-import 'package:ui_kit/ui_kit.dart';
 
+import '../../domain/ui_kit/domain/ui/animation/animated_state.dart';
 import 'rive_state_machine_widget.dart';
 
 const int _delay = 9;

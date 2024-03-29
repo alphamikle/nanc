@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
+import '../../../ui_kit/domain/ui/components/kit_inputs/kit_number_field.dart';
 import '../../logic/fields/number_field/number_field.dart';
 import '../field_cell_mixin.dart';
 

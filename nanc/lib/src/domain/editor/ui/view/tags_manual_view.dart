@@ -3,11 +3,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../general/ui/view/general_view_v2.dart';
 import '../../../preview/ui/component/page_preview_with_frame.dart';
+import '../../../ui_kit/domain/ui/components/kit_buttons/kit_icon_button.dart';
+import '../../../ui_kit/domain/ui/components/kit_text.dart';
+import '../../../ui_kit/domain/ui/components/kit_tooltip.dart';
+import '../../../ui_kit/domain/ui/components/kit_view/kit_view_container.dart';
+import '../../../ui_kit/domain/ui/components/kit_view/kit_view_header.dart';
+import '../../../ui_kit/domain/ui/constants/gap.dart';
 import '../../logic/bloc/editor/editor_bloc.dart';
 import '../../logic/bloc/editor/editor_state.dart';
 import '../component/manual_menu.dart';

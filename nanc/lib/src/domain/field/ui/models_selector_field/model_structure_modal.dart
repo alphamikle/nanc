@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
+
+import '../../../ui_kit/domain/ui/components/kit_code_preview/kit_json_preview.dart';
+import '../../../ui_kit/domain/ui/components/kit_modal/kit_modal.dart';
+import '../../../ui_kit/domain/ui/constants/gap.dart';
 
 class ModelStructureModal extends StatelessWidget {
   const ModelStructureModal({

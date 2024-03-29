@@ -1,12 +1,12 @@
 import 'dart:async';
 
+import 'package:animations/animations.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
@@ -16,6 +16,17 @@ import '../../../field/logic/fields/screen_field/screen_field.dart';
 import '../../../field/ui/field_cell_mixin.dart';
 import '../../../preview/logic/bloc/preview_bloc.dart';
 import '../../../preview/ui/component/page_preview_with_frame.dart';
+import '../../../ui_kit/domain/ui/components/kit_buttons/kit_button.dart';
+import '../../../ui_kit/domain/ui/components/kit_buttons/kit_icon_button.dart';
+import '../../../ui_kit/domain/ui/components/kit_column.dart';
+import '../../../ui_kit/domain/ui/components/kit_container_transition.dart';
+import '../../../ui_kit/domain/ui/components/kit_divider.dart';
+import '../../../ui_kit/domain/ui/components/kit_icons/kit_icon_selector_modal.dart';
+import '../../../ui_kit/domain/ui/components/kit_screen_preloader.dart';
+import '../../../ui_kit/domain/ui/components/kit_text.dart';
+import '../../../ui_kit/domain/ui/components/kit_tooltip.dart';
+import '../../../ui_kit/domain/ui/components/kit_view/kit_view_container.dart';
+import '../../../ui_kit/domain/ui/components/kit_view/kit_view_header.dart';
 import '../../logic/bloc/editor/editor_bloc.dart';
 import '../../logic/bloc/editor/editor_state.dart';
 import '../component/page_editor.dart';

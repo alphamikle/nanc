@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:local_notifications/local_notifications.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
+
+import '../../domain/ui_kit/domain/ui/components/kit_text.dart';
+import '../../domain/ui_kit/domain/ui/constants/gap.dart';
 
 void showMessageNotification(BuildContext context, String message) {
   LocalNotificator.show(

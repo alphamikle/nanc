@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:ui_kit/ui_kit.dart';
+
+import '../../domain/ui_kit/domain/ui/components/kit_preloader_v3.dart';
 
 class AsyncView extends StatelessWidget {
   const AsyncView({

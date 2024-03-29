@@ -4,11 +4,16 @@ import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/errors/human_exception.dart';
 import '../../../document/logic/bloc/document_bloc/document_bloc.dart';
 import '../../../model/logic/model/logic/model.dart';
+import '../../../ui_kit/domain/ui/components/kit_circle_preloader.dart';
+import '../../../ui_kit/domain/ui/components/kit_inputs/kit_autocomplete_text_field.dart';
+import '../../../ui_kit/domain/ui/components/kit_list_tile.dart';
+import '../../../ui_kit/domain/ui/components/kit_shimmer_switcher.dart';
+import '../../../ui_kit/domain/ui/components/kit_tooltip.dart';
+import '../../../ui_kit/domain/ui/theme/kit_colors.dart';
 import '../../logic/fields/selector_field/selector_field.dart';
 import '../../logic/fields/selector_field/title_fields.dart';
 import '../../logic/tools/complex_title_tools.dart';

@@ -5,9 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
+import '../../../ui_kit/domain/ui/components/kit_buttons/kit_button.dart';
+import '../../../ui_kit/domain/ui/components/kit_buttons/kit_popup_button.dart';
+import '../../../ui_kit/domain/ui/components/kit_divider.dart';
+import '../../../ui_kit/domain/ui/components/kit_inputs/kit_segmented_field/kit_segmented_field_ui.dart';
+import '../../../ui_kit/domain/ui/components/kit_modal/confirm_modal.dart';
+import '../../../ui_kit/domain/ui/components/kit_text.dart';
+import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/ui/theme/kit_borders.dart';
+import '../../../ui_kit/domain/ui/theme/kit_colors.dart';
 import '../../logic/bloc/list_field_bloc/list_field_bloc.dart';
 import '../../logic/fields/dynamic_field/dynamic_field_item.dart';
 import '../../logic/fields/field/field.dart';

@@ -10,11 +10,13 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:icons/icons.dart';
 import 'package:local_notifications/local_notifications.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../service/config/cms_config.dart';
 import '../service/errors/human_exception.dart';
 import '../service/init/initializer.dart';
+import 'ui_kit/domain/ui/components/kit_text.dart';
+import 'ui_kit/domain/ui/constants/gap.dart';
+import 'ui_kit/domain/ui/theme/theme_builder.dart';
 
 class App extends StatefulWidget {
   const App({

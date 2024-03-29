@@ -52,6 +52,14 @@ dependencies:
   go_router: ^8.0.3
   stack_trace: ^1.11.0
   flutter_svg: ^2.0.10+1
+  flutter_typeahead: ^4.4.0
+  dropdown_search: ^5.0.6
+  flex_color_scheme: ^7.3.1
+  shimmer: ^3.0.0
+  linked_scroll_controller: ^0.2.0
+  loading_animation_widget: ^1.2.0+4
+  super_sliver_list: ^0.2.1
+  google_fonts: any
 
 dev_dependencies:
   lint:

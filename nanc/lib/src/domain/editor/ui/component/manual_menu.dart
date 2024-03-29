@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../../service/init/data_repository.dart';
 import '../../../general/logic/model/menu_element.dart';
+import '../../../ui_kit/domain/ui/components/kit_menu_item.dart';
 import '../../logic/bloc/editor/editor_bloc.dart';
 import '../../logic/bloc/editor/editor_state.dart';
 

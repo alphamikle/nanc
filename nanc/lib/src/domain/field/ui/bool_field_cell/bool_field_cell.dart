@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
+import '../../../ui_kit/domain/ui/components/kit_inputs/kit_boolean_input.dart';
 import '../../logic/fields/bool_field/bool_field.dart';
 import '../field_cell_mixin.dart';
 

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/animations/robot_cleaner.dart';
 import '../../../../service/routing/endpoints.dart';
+import '../../../ui_kit/domain/ui/components/kit_buttons/kit_big_button.dart';
+import '../../../ui_kit/domain/ui/components/kit_view/kit_view_sub_container.dart';
 
 class ModelEditorInitialView extends StatelessWidget {
   const ModelEditorInitialView({

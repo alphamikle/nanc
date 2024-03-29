@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_kit/ui_kit.dart';
 
+import '../../../ui_kit/domain/ui/components/kit_inputs/kit_id_input.dart';
 import '../../logic/fields/id_field/id_field.dart';
 import '../field_cell_mixin.dart';
 

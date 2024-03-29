@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
+import '../../../ui_kit/domain/ui/animation/animated_state.dart';
+import '../../../ui_kit/domain/ui/components/kit_ink_well.dart';
+import '../../../ui_kit/domain/ui/components/kit_inputs/kit_empty_input.dart';
+import '../../../ui_kit/domain/ui/constants/gap.dart';
 import '../../logic/fields/field/field.dart';
 import '../dynamic_field_cell/dynamic_field_child_panel.dart';
 

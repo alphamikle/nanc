@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../field/logic/fields/dynamic_field/structure_model.dart';
 import '../../../field/logic/fields/field/field.dart';
 import '../../../field/logic/fields/screen_field/screen_field.dart';
+import '../../../ui_kit/domain/ui/components/kit_code_preview/kit_json_preview.dart';
 
 class PageDataPreview extends StatelessWidget {
   const PageDataPreview({

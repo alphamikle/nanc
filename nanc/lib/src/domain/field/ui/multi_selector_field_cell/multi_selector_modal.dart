@@ -4,11 +4,17 @@ import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/errors/human_exception.dart';
 import '../../../../service/errors/ui_error.dart';
 import '../../../model/logic/model/logic/model.dart';
+import '../../../ui_kit/domain/ui/components/kit_centered_text.dart';
+import '../../../ui_kit/domain/ui/components/kit_inputs/kit_text_field.dart';
+import '../../../ui_kit/domain/ui/components/kit_modal/kit_base_modal_bottom.dart';
+import '../../../ui_kit/domain/ui/components/kit_modal/kit_modal.dart';
+import '../../../ui_kit/domain/ui/components/kit_preloader_v2.dart';
+import '../../../ui_kit/domain/ui/components/kit_table_v2/kit_table_v2.dart';
+import '../../../ui_kit/domain/ui/constants/gap.dart';
 import '../../logic/fields/field/field.dart';
 import '../../logic/fields/multi_selector_field/multi_selector_field.dart';
 import '../../logic/fields/selector_field/title_fields.dart';

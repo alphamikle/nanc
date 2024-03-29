@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
@@ -9,6 +8,11 @@ import '../../../field/logic/bloc/field_edition_bloc/field_edition_bloc.dart';
 import '../../../field/logic/fields/field/field.dart';
 import '../../../field/logic/mapper/field_mapper.dart';
 import '../../../field/logic/type/field_types.dart';
+import '../../../ui_kit/domain/ui/components/kit_column.dart';
+import '../../../ui_kit/domain/ui/components/kit_modal/kit_base_modal_bottom.dart';
+import '../../../ui_kit/domain/ui/components/kit_modal/kit_modal.dart';
+import '../../../ui_kit/domain/ui/components/kit_preloader_v2.dart';
+import '../../../ui_kit/domain/ui/components/kit_text.dart';
 import '../../logic/model/logic/model.dart';
 import 'fields_form.dart';
 
