@@ -14,8 +14,8 @@ dependencies:
     sdk: flutter
   tools:
     path: ../tools
-  fonts:
-    path: ../fonts
+  nanc_fonts:
+    path: ../nanc_fonts
   copy_with_extension: ^5.0.2
   json_annotation: ^4.8.1
   equatable: ^2.0.5

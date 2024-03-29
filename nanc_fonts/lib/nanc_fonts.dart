@@ -1,4 +1,4 @@
-library fonts;
+library nanc_fonts;
 
 export 'package:google_fonts/google_fonts.dart';
 

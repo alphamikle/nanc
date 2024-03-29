@@ -16,8 +16,8 @@ dependencies:
     path: ../tools
   icons:
     path: ../icons
-  fonts:
-    path: ../fonts
+  nanc_fonts:
+    path: ../nanc_fonts
   nanc_configuration:
     path: ../nanc_configuration
   tag_converter:
