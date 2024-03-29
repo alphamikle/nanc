@@ -19,8 +19,6 @@ dependencies:
     path: ../tools
   nanc_configuration:
     path: ../nanc_configuration
-  file_syncer:
-    path: ../file_syncer
   nanc_icons:
     path: ../nanc_icons
   analytics:
@@ -56,6 +54,8 @@ dependencies:
   loading_animation_widget: ^1.2.0+4
   super_sliver_list: ^0.2.1
   google_fonts: any
+  file_picker: ^5.3.1
+  js: ^0.6.7
 
 dev_dependencies:
   lint:
