@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/gap.dart';
+import '../../../logic/constants/gap.dart';
 
 class KitViewHeader extends StatelessWidget {
   const KitViewHeader({

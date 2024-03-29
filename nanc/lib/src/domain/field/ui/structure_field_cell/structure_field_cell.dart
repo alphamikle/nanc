@@ -12,7 +12,7 @@ import '../../../model/ui/component/field_type_selector_modal.dart';
 import '../../../ui_kit/domain/ui/components/kit_buttons/kit_button.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_empty_input.dart';
 import '../../../ui_kit/domain/ui/components/kit_modal/confirm_modal.dart';
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../logic/bloc/list_field_bloc/list_field_bloc.dart';
 import '../../logic/fields/dynamic_field/dynamic_field_item.dart';
 import '../../logic/fields/field/field.dart';

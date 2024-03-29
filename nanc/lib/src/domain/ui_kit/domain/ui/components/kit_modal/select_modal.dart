@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:super_sliver_list/super_sliver_list.dart';
 import 'package:tools/tools.dart';
 
-import '../../constants/gap.dart';
+import '../../../logic/constants/gap.dart';
 import '../kit_buttons/kit_button.dart';
 import '../kit_divider.dart';
 import '../kit_line.dart';

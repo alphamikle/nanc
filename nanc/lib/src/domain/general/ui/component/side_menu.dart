@@ -12,7 +12,7 @@ import '../../../model/logic/model/logic/model.dart';
 import '../../../ui_kit/domain/ui/animation/animated_state.dart';
 import '../../../ui_kit/domain/ui/animation/kit_wave_transition.dart';
 import '../../../ui_kit/domain/ui/components/kit_menu_item.dart';
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../logic/bloc/header/menu_state.dart';
 import '../../logic/bloc/side_menu/menu_bloc.dart';
 import '../../logic/model/menu_element.dart';

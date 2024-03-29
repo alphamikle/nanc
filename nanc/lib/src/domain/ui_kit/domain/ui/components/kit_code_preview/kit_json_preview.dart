@@ -4,7 +4,7 @@ import 'package:nanc_code_text_field/nanc_code_text_field.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../field/logic/fields/dynamic_field/structure_model.dart';
-import '../../constants/gap.dart';
+import '../../../logic/constants/gap.dart';
 import '../kit_modal/kit_modal.dart';
 import '../kit_text.dart';
 import 'code_theme.dart';

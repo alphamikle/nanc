@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import '../constants/gap.dart';
+import '../../logic/constants/gap.dart';
 
 class KitContainerTransition<T> extends StatelessWidget {
   const KitContainerTransition({

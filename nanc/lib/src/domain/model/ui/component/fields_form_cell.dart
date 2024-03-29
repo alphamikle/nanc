@@ -5,7 +5,7 @@ import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart'
 import '../../../document/logic/bloc/base_document_bloc/base_page_state.dart';
 import '../../../field/logic/fields/field/field.dart';
 import '../../../field/logic/mapper/field_mapper.dart';
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 
 class FieldsFormCell extends StatelessWidget {
   const FieldsFormCell({

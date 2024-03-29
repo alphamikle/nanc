@@ -5,7 +5,7 @@ import 'package:tools/tools.dart';
 
 import '../../../../../../field/logic/fields/field/field.dart';
 import '../../../../../../field/logic/tools/field_types_extension.dart';
-import '../../../constants/gap.dart';
+import '../../../../logic/constants/gap.dart';
 import '../../kit_text.dart';
 
 PopupMenuItem<T> sortMenuItem<T>({

@@ -14,7 +14,7 @@ import '../../../ui_kit/domain/ui/components/kit_modal/kit_base_modal_bottom.dar
 import '../../../ui_kit/domain/ui/components/kit_modal/kit_modal.dart';
 import '../../../ui_kit/domain/ui/components/kit_preloader_v2.dart';
 import '../../../ui_kit/domain/ui/components/kit_table_v2/kit_table_v2.dart';
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../logic/fields/field/field.dart';
 import '../../logic/fields/multi_selector_field/multi_selector_field.dart';
 import '../../logic/fields/selector_field/title_fields.dart';

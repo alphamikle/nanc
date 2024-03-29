@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 
-import '../../constants/gap.dart';
+import '../../../logic/constants/gap.dart';
 import 'kit_text_field.dart';
 
 class KitSearchInput extends StatelessWidget {

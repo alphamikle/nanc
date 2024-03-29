@@ -15,7 +15,7 @@ import '../../../ui_kit/domain/ui/components/kit_inputs/kit_search_input.dart';
 import '../../../ui_kit/domain/ui/components/kit_text.dart';
 import '../../../ui_kit/domain/ui/components/kit_tooltip.dart';
 import '../../../ui_kit/domain/ui/components/kit_view/kit_view_header.dart';
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/theme/kit_colors.dart';
 import '../../logic/logic/bloc/collection_bloc.dart';
 import 'collection_filter_modal.dart';

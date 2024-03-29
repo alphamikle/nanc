@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 
-import '../../constants/gap.dart';
+import '../../../logic/constants/gap.dart';
 import '../kit_buttons/kit_icon_button.dart';
 import '../kit_tooltip.dart';
 

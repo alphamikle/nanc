@@ -24,7 +24,7 @@ import '../../../ui_kit/domain/ui/components/kit_text.dart';
 import '../../../ui_kit/domain/ui/components/kit_tooltip.dart';
 import '../../../ui_kit/domain/ui/components/kit_view/kit_view_header.dart';
 import '../../../ui_kit/domain/ui/components/kit_view/kit_view_sub_container.dart';
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../logic/bloc/model_page_bloc/model_page_bloc.dart';
 import '../../logic/bloc/model_page_bloc/model_page_state.dart';

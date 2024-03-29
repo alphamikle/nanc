@@ -11,7 +11,7 @@ import '../../../editor/ui/view/screen_editor_view.dart';
 import '../../../ui_kit/domain/ui/components/kit_container_transition.dart';
 import '../../../ui_kit/domain/ui/components/kit_ink_well.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_segmented_field/kit_segmented_field_ui.dart';
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/theme/kit_borders.dart';
 import '../../logic/fields/screen_field/screen_content_model.dart';
 import '../../logic/fields/screen_field/screen_field.dart';

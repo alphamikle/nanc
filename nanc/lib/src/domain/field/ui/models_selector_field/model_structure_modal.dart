@@ -3,7 +3,7 @@ import 'package:tools/tools.dart';
 
 import '../../../ui_kit/domain/ui/components/kit_code_preview/kit_json_preview.dart';
 import '../../../ui_kit/domain/ui/components/kit_modal/kit_modal.dart';
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 
 class ModelStructureModal extends StatelessWidget {
   const ModelStructureModal({

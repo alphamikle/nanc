@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/gap.dart';
+import '../../../logic/constants/gap.dart';
 import '../kit_buttons/kit_big_button.dart';
 import '../kit_centered_text.dart';
 

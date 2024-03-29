@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
-import '../../constants/gap.dart';
+import '../../../logic/constants/gap.dart';
 import '../../theme/kit_borders.dart';
 import '../kit_ink_well.dart';
 import '../kit_text.dart';

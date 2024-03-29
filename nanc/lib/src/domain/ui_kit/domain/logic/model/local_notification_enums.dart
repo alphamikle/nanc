@@ -1,6 +1,23 @@
 import 'package:flutter/material.dart';
 
-import 'enums.dart';
+enum AnimationType {
+  fromLeft,
+  fromRight,
+  fromTop,
+  fromBottom,
+}
+
+enum NotificationPosition {
+  center,
+  centerRight,
+  centerLeft,
+  topCenter,
+  topRight,
+  topLeft,
+  bottomCenter,
+  bottomRight,
+  bottomLeft,
+}
 
 extension NotificationPositionExtension on NotificationPosition {
   Alignment get alignment {

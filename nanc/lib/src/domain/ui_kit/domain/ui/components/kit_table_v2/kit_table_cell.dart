@@ -9,7 +9,7 @@ import '../../../../../field/logic/fields/icon_field/icon_field.dart';
 import '../../../../../field/logic/fields/multi_selector_field/multi_selector_field.dart';
 import '../../../../../field/logic/fields/structured_field/structured_field.dart';
 import '../../../../../field/logic/tools/field_types_extension.dart';
-import '../../constants/gap.dart';
+import '../../../logic/constants/gap.dart';
 import '../kit_text.dart';
 import '../kit_tooltip.dart';
 

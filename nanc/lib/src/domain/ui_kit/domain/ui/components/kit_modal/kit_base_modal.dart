@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../constants/gap.dart';
+import '../../../logic/constants/gap.dart';
 
 class KitBaseModal extends StatelessWidget {
   const KitBaseModal({

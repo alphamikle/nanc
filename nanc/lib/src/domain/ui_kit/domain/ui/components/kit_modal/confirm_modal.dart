@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
-import '../../constants/gap.dart';
+import '../../../logic/constants/gap.dart';
 import '../kit_divider.dart';
 import '../kit_line.dart';
 import '../kit_text.dart';

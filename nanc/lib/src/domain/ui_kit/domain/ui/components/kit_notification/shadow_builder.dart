@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
+
+import '../../animation/animated_state.dart';
+import '../kit_ink_well.dart';
 
 class ShadowBuilder extends StatefulWidget {
   const ShadowBuilder({

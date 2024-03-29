@@ -15,7 +15,7 @@ import '../../../ui_kit/domain/ui/components/kit_divider.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_autocomplete_text_field.dart';
 import '../../../ui_kit/domain/ui/components/kit_list_tile.dart';
 import '../../../ui_kit/domain/ui/components/kit_shimmer_switcher.dart';
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../logic/fields/field/field_props.dart';
 import '../../logic/fields/models_selector_field/models_selector_field.dart';
 import '../../logic/fields/selector_field/title_fields.dart';

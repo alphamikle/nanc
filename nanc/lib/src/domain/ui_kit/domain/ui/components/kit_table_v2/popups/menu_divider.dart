@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
-import '../../../constants/gap.dart';
+import '../../../../logic/constants/gap.dart';
 
 class MenuDivider extends PopupMenuEntry<Never> {
   const MenuDivider({

@@ -7,7 +7,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 
 class TagRendererDescription extends StatelessWidget {
   const TagRendererDescription({

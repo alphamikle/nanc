@@ -20,7 +20,7 @@ import '../../../ui_kit/domain/ui/components/kit_modal/kit_modal.dart';
 import '../../../ui_kit/domain/ui/components/kit_preloader_v2.dart';
 import '../../../ui_kit/domain/ui/components/kit_text.dart';
 import '../../../ui_kit/domain/ui/components/kit_tooltip.dart';
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../logic/logic/bloc/collection_bloc.dart';
 import '../../logic/logic/bloc/collection_state.dart';
 

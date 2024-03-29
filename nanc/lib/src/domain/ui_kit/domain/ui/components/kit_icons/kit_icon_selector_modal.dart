@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../field/logic/fields/enum_field/enum_value.dart';
-import '../../constants/gap.dart';
+import '../../../logic/constants/gap.dart';
 import '../../theme/kit_borders.dart';
 import '../../theme/kit_colors.dart';
 import '../kit_centered_text.dart';

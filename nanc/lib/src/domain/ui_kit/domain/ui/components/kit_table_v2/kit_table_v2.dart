@@ -10,7 +10,7 @@ import 'package:tools/tools.dart';
 
 import '../../../../../field/logic/fields/field/field.dart';
 import '../../../../../model/logic/model/logic/model.dart';
-import '../../constants/gap.dart';
+import '../../../logic/constants/gap.dart';
 import '../kit_text.dart';
 import 'kit_table_cell.dart';
 import 'popups/kit_table_popup_button.dart';

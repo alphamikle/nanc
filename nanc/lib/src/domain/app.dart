@@ -8,15 +8,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:icons/icons.dart';
-import 'package:local_notifications/local_notifications.dart';
 import 'package:tools/tools.dart';
 
 import '../service/config/cms_config.dart';
 import '../service/errors/human_exception.dart';
 import '../service/init/initializer.dart';
+import 'ui_kit/domain/logic/service/local_notificator.dart';
+import 'ui_kit/domain/ui/components/kit_notification/local_notification.dart';
 import 'ui_kit/domain/ui/components/kit_text.dart';
-import 'ui_kit/domain/ui/constants/gap.dart';
+import 'ui_kit/domain/logic/constants/gap.dart';
 import 'ui_kit/domain/ui/theme/theme_builder.dart';
+import 'ui_kit/domain/logic/model/local_notification_enums.dart';
 
 class App extends StatefulWidget {
   const App({

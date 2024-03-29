@@ -18,7 +18,7 @@ import '../../../ui_kit/domain/ui/components/kit_inputs/kit_segmented_field/kit_
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_segmented_field/kit_segmented_field.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_text_field.dart';
 import '../../../ui_kit/domain/ui/components/kit_shimmer_switcher.dart';
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/theme/kit_colors.dart';
 import '../../../ui_kit/domain/ui/theme/kit_input_decorations.dart';
 import '../../logic/fields/field/field.dart';

@@ -30,7 +30,7 @@ import '../../../ui_kit/domain/ui/components/kit_view/kit_view_header.dart';
 import '../../../ui_kit/domain/ui/components/kit_view/kit_view_sub_container.dart';
 import '../../../ui_kit/domain/ui/components/not_found/kit_not_found_entity_by_id.dart';
 import '../../../ui_kit/domain/ui/components/not_found/kit_not_found_entity_id.dart';
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/theme/kit_colors.dart';
 import '../../logic/bloc/base_document_bloc/base_document_bloc.dart';
 import '../../logic/bloc/base_document_bloc/base_page_state.dart';

@@ -36,8 +36,8 @@ class FieldCardFunctionalWrapper extends StatefulWidget {
 }
 
 class _FieldCardFunctionalWrapperState extends State<FieldCardFunctionalWrapper> with SingleTickerProviderStateMixin {
-  late final AnimationController controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 350));
-  late final Animation<double> animation = CurvedAnimation(parent: controller, curve: Curves.easeInOutQuart);
+  late final AnimationController controller;
+  late final Animation<double> animation;
 
   bool _isFunctionalElementsExists = false;
 
@@ -60,6 +60,13 @@ class _FieldCardFunctionalWrapperState extends State<FieldCardFunctionalWrapper>
     if (mounted) {
       safeSetState(() => _isFunctionalElementsExists = false);
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 350));
+    animation = CurvedAnimation(parent: controller, curve: Curves.easeInOutQuart);
   }
 
   @override

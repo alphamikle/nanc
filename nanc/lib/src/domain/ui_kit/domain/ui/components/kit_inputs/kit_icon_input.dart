@@ -3,7 +3,7 @@ import 'package:icons/icons.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../field/logic/fields/enum_field/enum_value.dart';
-import '../../constants/gap.dart';
+import '../../../logic/constants/gap.dart';
 import '../../theme/kit_colors.dart';
 import '../../theme/kit_input_decorations.dart';
 import '../kit_buttons/kit_input_button.dart';

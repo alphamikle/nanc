@@ -13,7 +13,7 @@ import '../../../ui_kit/domain/ui/components/kit_divider.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_enum_field.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_number_field.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_text_field.dart';
-import '../../../ui_kit/domain/ui/constants/gap.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../logic/bloc/local_page_bloc/local_page_bloc.dart';
 import '../../logic/fields/enum_field/enum_value.dart';
 import '../../logic/fields/field/field.dart';
