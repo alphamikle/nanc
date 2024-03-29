@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
 import '../../../document/logic/bloc/document_bloc/document_bloc.dart';

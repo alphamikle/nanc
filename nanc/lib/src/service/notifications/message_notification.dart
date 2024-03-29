@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
 import '../../domain/ui_kit/domain/logic/service/local_notificator.dart';

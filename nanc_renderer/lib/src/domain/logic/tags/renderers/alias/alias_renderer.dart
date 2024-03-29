@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 
 import '../../../../../../nanc_renderer.dart';
 import '../../tools/widgets_compactor.dart';

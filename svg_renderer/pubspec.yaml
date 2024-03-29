@@ -16,8 +16,8 @@ dependencies:
     path: ../nanc_renderer
   tools:
     path: ../tools
-  icons:
-    path: ../icons
+  nanc_icons:
+    path: ../nanc_icons
   flutter_svg: ^2.0.7
   vector_graphics: ^1.1.7
   json_annotation: ^4.8.1

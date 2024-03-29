@@ -1,7 +1,7 @@
 import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/tools.dart';
 

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../../../nanc_renderer.dart';

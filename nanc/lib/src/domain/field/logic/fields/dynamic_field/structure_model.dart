@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../model/logic/model/logic/model.dart';

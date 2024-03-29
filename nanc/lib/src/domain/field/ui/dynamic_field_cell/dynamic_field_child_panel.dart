@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
 import '../../../ui_kit/domain/ui/components/kit_ink_well.dart';

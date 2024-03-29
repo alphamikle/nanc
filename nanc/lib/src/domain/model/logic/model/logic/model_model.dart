@@ -1,4 +1,4 @@
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../field/logic/fields/field/field_props.dart';

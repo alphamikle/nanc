@@ -21,8 +21,8 @@ dependencies:
     path: ../nanc_configuration
   file_syncer:
     path: ../file_syncer
-  icons:
-    path: ../icons
+  nanc_icons:
+    path: ../nanc_icons
   analytics:
     path: ../analytics
   nanc_fonts:

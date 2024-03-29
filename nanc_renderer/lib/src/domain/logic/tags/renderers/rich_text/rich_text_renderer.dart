@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tag_converter/tag_converter.dart';
 
 import '../../documentation/documentation.dart';
@@ -119,7 +119,8 @@ This sample demonstrates how to mix and match text with different text styles us
         overflow: arguments.overflow ?? TextOverflow.clip,
         maxLines: arguments.maxLines,
         selectionColor: arguments.selectionColor,
-        softWrap: arguments.softWrap ?? true, textScaler: TextScaler.linear(arguments.scaleFactor ?? 1),
+        softWrap: arguments.softWrap ?? true,
+        textScaler: TextScaler.linear(arguments.scaleFactor ?? 1),
         strutStyle: extractor.getProperty(strutStyle),
         textAlign: arguments.align ?? TextAlign.start,
         textHeightBehavior: extractor.getProperty(textHeightBehavior),

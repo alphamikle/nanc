@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 

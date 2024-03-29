@@ -1,6 +1,6 @@
 import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
 import '../../domain/ui_kit/domain/ui/components/kit_buttons/kit_button.dart';

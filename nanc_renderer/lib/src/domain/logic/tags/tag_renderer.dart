@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 
 import 'tag_description.dart';
 import 'types/types.dart';
