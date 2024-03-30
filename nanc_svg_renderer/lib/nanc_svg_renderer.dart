@@ -1,4 +1,4 @@
-library svg_renderer;
+library nanc_svg_renderer;
 
 export 'src/properties/color_filter/color_filter_property.dart';
 export 'src/properties/header/header_property.dart';

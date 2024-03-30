@@ -1,4 +1,4 @@
-name: svg_renderer
+name: nanc_svg_renderer
 description: SVG Renderer Package for the Nanc
 publish_to: none
 repository: https://github.com/alphamikle/nanc
