@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
 import 'properties/color_filter/color_filter_property.dart';

@@ -3,13 +3,14 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:highlight/languages/xml.dart';
-import 'package:nanc_code_text_field/nanc_code_text_field.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../../field/logic/fields/screen_field/screen_content_model.dart';
 import '../../../../file_syncer/logic/file_syncer_interface.dart';
 import '../../../../general/logic/model/menu_element.dart';
+import '../../../../ui_kit/domain/ui/components/code_text_field/code_field/code_controller.dart';
+import '../../../../ui_kit/domain/ui/components/code_text_field/code_field/code_field.dart';
 import 'editor_event.dart';
 import 'editor_state.dart';
 

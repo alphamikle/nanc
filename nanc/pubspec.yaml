@@ -11,10 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc_renderer:
-    path: ../nanc_renderer
-  nanc_code_text_field:
-    path: ../nanc_code_text_field
+  nui:
+    path: ../nui
   nanc_tools:
     path: ../nanc_tools
   nanc_configuration:

@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc_fonts/nanc_fonts.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../domain/collection/logic/logic/bloc/collection_bloc.dart';

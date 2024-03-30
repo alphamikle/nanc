@@ -1,4 +1,4 @@
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 
 import 'header_property.dart';
 

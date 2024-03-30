@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:highlight/languages/json.dart';
-import 'package:nanc_code_text_field/nanc_code_text_field.dart';
 import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../../../field/logic/fields/dynamic_field/structure_model.dart';
 import '../../../logic/constants/gap.dart';
+import '../code_text_field/code_field/code_controller.dart';
+import '../code_text_field/code_field/code_field.dart';
+import '../code_text_field/code_theme/code_theme.dart';
+import '../code_text_field/code_theme/code_theme_data.dart';
+import '../code_text_field/line_numbers/line_number_style.dart';
 import '../kit_modal/kit_modal.dart';
 import '../kit_text.dart';
 import 'code_theme.dart';
@@ -129,7 +133,7 @@ Future<void> showJsonPreviewModal({
   required String title,
   required dynamic structure,
 }) async {
-  await showDialog(
+  await showDialog<void>(
     context: context,
     builder: (BuildContext context) => KitModal(
       onClose: () => context.navigator.pop(),
@@ -144,7 +148,7 @@ Future<void> showJsonPreviewModal({
 
 dynamic filterDocumentData(dynamic json) {
   if (json is List) {
-    final List shortenList = json.length > 25 ? json.sublist(0, 25) : json;
+    final List<dynamic> shortenList = json.length > 25 ? json.sublist(0, 25) : json;
     return shortenList.map((dynamic it) => filterDocumentData(it)).toList();
   } else if (json is Map) {
     final Json filteredJson = {};

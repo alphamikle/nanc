@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 
 import '../../../../service/init/data_repository.dart';
 import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';

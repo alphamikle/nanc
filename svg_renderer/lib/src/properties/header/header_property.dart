@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 
 import 'header_arguments.dart';
 import 'header_property_widget.dart';
