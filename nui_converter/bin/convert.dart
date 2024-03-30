@@ -3,8 +3,8 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:args/args.dart';
-import 'package:path/path.dart' as p;
 import 'package:nui_converter/nui_converter.dart';
+import 'package:path/path.dart' as p;
 
 final ArgParser parser = initParser();
 

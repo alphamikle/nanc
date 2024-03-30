@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:nui/src/domain/logic/tags/tools/chain_extractor.dart';
 import 'package:nanc_tools/nanc_tools.dart';
+import 'package:nui/src/domain/logic/tags/tools/chain_extractor.dart';
 
 void main() {
   group('Chain Extractor Tests', () {

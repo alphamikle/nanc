@@ -5,8 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:nui/nui.dart';
 import 'package:nanc_tools/nanc_tools.dart';
+import 'package:nui/nui.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';

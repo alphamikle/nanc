@@ -1,8 +1,8 @@
 import 'package:nanc/fields.dart';
 import 'package:nanc/model.dart';
 import 'package:nanc_configuration/nanc_configuration.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:nanc_tools/nanc_tools.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'supabase_api.dart';
 

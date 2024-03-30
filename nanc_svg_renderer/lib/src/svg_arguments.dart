@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nui/nui.dart';
 import 'package:nanc_tools/nanc_tools.dart';
+import 'package:nui/nui.dart';
 
 part 'svg_arguments.g.dart';
 

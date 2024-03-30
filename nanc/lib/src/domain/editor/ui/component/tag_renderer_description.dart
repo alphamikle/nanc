@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/github.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:nui/nui.dart';
 import 'package:nanc_tools/nanc_tools.dart';
+import 'package:nui/nui.dart';
 
 import '../../../ui_kit/domain/logic/constants/gap.dart';
 

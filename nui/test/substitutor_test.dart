@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 import 'package:nui/nui.dart';
 import 'package:nui/src/domain/logic/tags/logic/document_storage.dart';
 import 'package:nui/src/domain/logic/tags/logic/for_storage.dart';
 import 'package:nui/src/domain/logic/tags/logic/substitutor.dart';
 import 'package:nui/src/domain/logic/tags/logic/template_storage.dart';
-import 'package:nanc_tools/nanc_tools.dart';
 
 import 'data/substitutor_data.dart';
 

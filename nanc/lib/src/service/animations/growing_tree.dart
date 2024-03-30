@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:animation_debugger/animation_debugger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:rive/rive.dart';
 import 'package:nanc_tools/nanc_tools.dart';
+import 'package:rive/rive.dart';
 
 import '../../domain/ui_kit/domain/ui/animation/animated_state.dart';
 import '../tools/assets_loader.dart';

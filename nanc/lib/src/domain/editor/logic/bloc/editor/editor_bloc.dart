@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:highlight/languages/xml.dart';
-import 'package:nui/nui.dart';
 import 'package:nanc_tools/nanc_tools.dart';
+import 'package:nui/nui.dart';
 
 import '../../../../field/logic/fields/screen_field/screen_content_model.dart';
 import '../../../../file_syncer/logic/file_syncer_interface.dart';
