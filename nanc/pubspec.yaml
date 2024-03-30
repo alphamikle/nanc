@@ -58,9 +58,8 @@ dependencies:
   js: ^0.6.7
 
 dev_dependencies:
-  lint:
-    path: ../lint
-  flutter_lints: ^2.0.1
+  nanc_lints:
+    path: ../nanc_lints
   json_serializable: ^6.7.0
   copy_with_extension_gen: ^5.0.2
   build_runner: ^2.4.4

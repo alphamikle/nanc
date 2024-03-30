@@ -72,7 +72,7 @@ class FirebaseDocumentApi implements IDocumentApi {
   @override
   Future<Json> upsertPage(Model model, String? id, Json pageData) async {
     _api.notifyAboutChanges(model);
-    final fs.Document document = await _api.upsertDocument(modelId: model.id, pageId: id ?? pageData[model.idField.id], data: pageData);
+    final fs.Document document = await _api.upsertDocument(modelId: model.id, pageId: id ?? pageData[model.idField.id]?.toString(), data: pageData);
     return documentToJson(model, document);
   }
 }

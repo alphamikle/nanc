@@ -90,8 +90,8 @@ void main(List<String> arguments) {
     );
   }
 
-  final bool toJson = results[json] ?? false;
-  final bool toProto = results[proto] ?? false;
+  final bool toJson = (results[json] as bool?) ?? false;
+  final bool toProto = (results[proto] as bool?) ?? false;
 
   if (toJson == false && toProto == false) {
     throw Exception(

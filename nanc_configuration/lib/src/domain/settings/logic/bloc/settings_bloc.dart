@@ -51,9 +51,9 @@ TablesWidths _convertDynamicMapToTablesWidths(DJson json) {
       if (innerEntry.key is! int || innerEntry.value is! double) {
         continue;
       }
-      tableWidth[innerEntry.key] = innerEntry.value;
+      tableWidth[innerEntry.key as int] = innerEntry.value as double;
     }
-    tablesWidths[entry.key] = tableWidth;
+    tablesWidths[entry.key as String] = tableWidth;
   }
   return tablesWidths;
 }

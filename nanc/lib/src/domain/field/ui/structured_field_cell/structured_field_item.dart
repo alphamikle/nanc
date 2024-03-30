@@ -65,7 +65,7 @@ class StructuredFieldItem extends Equatable {
 
 bool _isConditionFieldData(Json json) {
   final bool isWrapped = json.containsKey(QueryConditionField.conditionWrapperKey);
-  final String? type = json[QueryField.typeKey];
+  final String? type = json[QueryField.typeKey]?.toString();
   final bool conditionalType = type == QueryFieldType.or.name || type == QueryFieldType.and.name;
   return isWrapped || conditionalType;
 }

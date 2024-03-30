@@ -20,9 +20,8 @@ dependencies:
   flutter_boxicons: ^3.0.0
 
 dev_dependencies:
-  flutter_lints: ^2.0.1
-  lint:
-    path: ../lint
+  nanc_lints:
+    path: ../nanc_lints
   path: ^1.8.3
   basic_utils: ^5.5.4
   args: ^2.4.1

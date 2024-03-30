@@ -336,13 +336,13 @@ class SupabaseModelApi implements IModelApi {
         _sqlQueryName: requestQuery,
         _returnableName: true,
       },
-    );
+    ) as String?;
     if (response == null) {
       return;
     }
     final Set<String> newFieldsIds = realFields.ids.toSet();
     final List<String> deleteOldFieldCommands = [];
-    final List<dynamic> rawJson = jsonDecode(response);
+    final List<dynamic> rawJson = jsonDecode(response) as List<dynamic>;
     final List<ColumnInfoDto> columnsInfo = rawJson.map(ColumnInfoDto.fromJson).toList();
     for (final ColumnInfoDto(:String columnName) in columnsInfo) {
       if (newFieldsIds.contains(columnName) == false) {

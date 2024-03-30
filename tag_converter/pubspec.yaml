@@ -21,9 +21,8 @@ dependencies:
 
 dev_dependencies:
   test: ^1.25.2
-  lint:
-    path: ../lint
-  flutter_lints: ^2.0.1
+  nanc_lints:
+    path: ../nanc_lints
   json_serializable: ^6.7.1
   copy_with_extension_gen: ^5.0.4
   build_runner: ^2.4.8

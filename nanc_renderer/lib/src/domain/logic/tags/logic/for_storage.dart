@@ -38,8 +38,8 @@ class ForStorage extends InheritedWidget {
     if (cycleData == null) {
       return [];
     }
-    final dynamic embedData = extractValueByChain(cycleData, [index, ...expression.split('.')]) ?? [];
-    return embedData;
+    final dynamic embedData = extractValueByChain(cycleData, [index, ...expression.split('.')]) ?? <Object?>[];
+    return embedData as Iterable<Object?>;
   }
 
   void saveCycleData({required CycleId cycleId, required List<Object?> values}) {

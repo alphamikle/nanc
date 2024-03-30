@@ -17,7 +17,7 @@ class SupabaseDocumentApi implements IDocumentApi {
   Future<Json> fetchPageData(Model model, String id, List<String> subset) async {
     try {
       final PostgrestFilterBuilder<dynamic> selection = _api.getSelection(model: model, subset: subset);
-      final PostgrestResponse<dynamic> response = await selection.eq(model.idField.id, id).single();
+      final PostgrestResponse<dynamic> response = await selection.eq(model.idField.id, id).single() as PostgrestResponse<dynamic>;
       if (response.data is DJson) {
         return castToJson(response.data);
       }
@@ -87,7 +87,7 @@ class SupabaseDocumentApi implements IDocumentApi {
   Future<List<String>> _getOldThirdTableChildrenIds(ThirdTable thirdTable, String parentPageId) async {
     final Model relationsModel = thirdTable.relationsEntity;
     final PostgrestFilterBuilder<dynamic> selection = _api.getSelection(model: relationsModel, subset: []);
-    final PostgrestResponse<dynamic> response = await selection.eq(thirdTable.parentEntityIdName, parentPageId);
+    final PostgrestResponse<dynamic> response = await selection.eq(thirdTable.parentEntityIdName, parentPageId) as PostgrestResponse<dynamic>;
     if (response.data is List<dynamic>) {
       return (response.data as List<dynamic>).map((dynamic row) {
         if (row is DJson) {

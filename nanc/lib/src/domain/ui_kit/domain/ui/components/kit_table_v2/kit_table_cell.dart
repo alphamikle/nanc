@@ -54,7 +54,7 @@ class KitTableCell extends StatelessWidget {
       }
       return value as String;
     } else if (field.isNumeric) {
-      final (isInt, processedValue) = _isInt(value);
+      final (isInt, processedValue) = _isInt(value as num);
       if (isInt) {
         return processedValue.toString();
       }

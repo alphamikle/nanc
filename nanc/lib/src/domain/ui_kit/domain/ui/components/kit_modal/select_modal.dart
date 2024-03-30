@@ -97,10 +97,13 @@ Future<T> selectAction<T>({
     modal = wrapper(context, modal);
   }
 
-  final T result = await showDialog(
+  final T? result = await showDialog<T>(
     context: context,
     barrierDismissible: false,
     builder: (BuildContext context) => modal,
   );
+  if (result == null) {
+    throw Exception('Result should always be not a null');
+  }
   return result;
 }

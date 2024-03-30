@@ -17,7 +17,7 @@ class FirebaseApi {
   static Future<FirebaseApi> create(String base64JsonKey, {String databaseId = '(default)'}) async {
     assert(base64JsonKey.isNotEmpty, 'Firestore service account json key, encoded in Base64 format - is empty');
     final String encodedJson = String.fromCharCodes(base64Decode(base64JsonKey));
-    final DJson jsonServiceKey = jsonDecode(encodedJson);
+    final DJson jsonServiceKey = jsonDecode(encodedJson) as DJson;
     assert(jsonServiceKey.containsKey(_kProjectId));
     final ServiceAccountCredentials serviceAccountCredentials = ServiceAccountCredentials.fromJson(jsonServiceKey);
     final AutoRefreshingAuthClient client = await clientViaServiceAccount(serviceAccountCredentials, [_kScope]);

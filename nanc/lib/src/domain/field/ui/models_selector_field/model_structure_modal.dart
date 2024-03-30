@@ -19,7 +19,7 @@ class ModelStructureModal extends StatelessWidget {
     final List<String> output = [];
     if (structure.containsKey('fields') && structure['fields'] is List) {
       final List<dynamic> flattedFields = [];
-      final List<dynamic> fields = structure['fields'];
+      final List<dynamic> fields = structure['fields'] as List<dynamic>;
       for (final dynamic fieldsRow in fields) {
         if (fieldsRow is List<dynamic>) {
           flattedFields.addAll(fieldsRow);

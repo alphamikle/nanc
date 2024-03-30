@@ -230,13 +230,13 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
         _handleValue(value);
       }
     } else if (values is DJson) {
-      final String? type = values[QueryField.typeKey];
+      final String? type = values[QueryField.typeKey]?.toString();
       if (type == QueryFieldType.and.name) {
         safeSetState(() {
           isAnd = true;
         });
       }
-      final List<dynamic>? fields = values[QueryConditionField.fieldsKey];
+      final List<dynamic>? fields = values[QueryConditionField.fieldsKey] as List<dynamic>?;
       if (fields != null) {
         _handleValue(fields);
         return;

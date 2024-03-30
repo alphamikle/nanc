@@ -1,5 +1,5 @@
-name: lint
-description: A set of rules for the monorepo
+name: nanc_lints
+description: A set of rules for the Nanc CMS
 publish_to: none
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io
@@ -12,10 +12,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_lints: ^3.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
 
 flutter:

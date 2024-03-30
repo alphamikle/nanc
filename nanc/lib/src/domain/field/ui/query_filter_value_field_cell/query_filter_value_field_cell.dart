@@ -42,7 +42,7 @@ class _QueryFilterValueFieldCellState extends State<QueryFilterValueFieldCell> w
   Model get collectionModel => collectionFilterBloc.state.model;
 
   Field? get selectedField {
-    final String? fieldId = localPageBloc.valueForKey(QueryValueField.fieldIdKey);
+    final String? fieldId = localPageBloc.valueForKey(QueryValueField.fieldIdKey)?.toString();
     if (fieldId == null) {
       return null;
     }
@@ -50,7 +50,7 @@ class _QueryFilterValueFieldCellState extends State<QueryFilterValueFieldCell> w
   }
 
   QueryFieldType? get selectedCondition {
-    final String? conditionName = localPageBloc.valueForKey(QueryField.typeKey);
+    final String? conditionName = localPageBloc.valueForKey(QueryField.typeKey)?.toString();
     if (conditionName == null) {
       return null;
     }
@@ -115,7 +115,7 @@ class _QueryFilterValueFieldCellState extends State<QueryFilterValueFieldCell> w
 
   void preload() {
     isPreloading = true;
-    final DJson? rawJson = pageBloc.valueForKey(fieldId);
+    final DJson? rawJson = pageBloc.valueForKey(fieldId) as DJson?;
     if (rawJson != null) {
       final Json json = castToJson(rawJson);
       localPageBloc.updateValues(json);

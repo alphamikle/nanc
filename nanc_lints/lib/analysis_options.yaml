@@ -5,11 +5,11 @@ include: package:flutter_lints/flutter.yaml
 # https://dart-lang.github.io/linter/lints/index.html
 
 analyzer:
-  enable-experiment:
-    - const-functions
-    - macros
-    - inference-update-2
-    - inline-class
+#  enable-experiment:
+#    - const-functions
+#    - macros
+#    - inference-update-2
+#    - inline-class
   errors:
     todo: warning
     missing_return: error
@@ -22,6 +22,10 @@ analyzer:
     sort_constructors_first: warning
     sort_unnamed_constructors_first: warning
     use_super_parameters: warning
+  language:
+    strict-raw-types: true
+    strict-casts: true
+    strict-inference: true
   exclude:
     - "**.g.dart"
 

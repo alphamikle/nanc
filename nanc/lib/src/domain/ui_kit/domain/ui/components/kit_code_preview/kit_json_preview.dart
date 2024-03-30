@@ -30,11 +30,11 @@ class _KitJsonPreviewState extends State<KitJsonPreview> {
 
   String get code {
     if (widget.data is Json) {
-      final String code = prettyJson(filterJson(widget.data), indent: '  ');
+      final String code = prettyJson(filterJson(widget.data as Json), indent: '  ');
       return code.replaceAll(badCharactersRegExp, '');
     } else if (widget.data is List<dynamic>) {
       final List<dynamic> output = [];
-      for (final dynamic rawJson in widget.data) {
+      for (final dynamic rawJson in widget.data as List<dynamic>) {
         try {
           final Json json = castToJson(rawJson);
           output.add(filterJson(json));

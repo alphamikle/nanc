@@ -89,7 +89,7 @@ class _ModelsSelectorFieldCellState extends State<ModelsSelectorFieldCell> with 
       safeSetState(() => isPreloading = false);
       return;
     }
-    final List<String> titleSegments = titleFields.toTitleSegments(json);
+    final List<String> titleSegments = titleFields.toTitleSegments(json as DJson);
     final String title = titleSegments.join();
     controller.text = title;
     if (mounted) {
@@ -103,7 +103,7 @@ class _ModelsSelectorFieldCellState extends State<ModelsSelectorFieldCell> with 
         context: context,
         builder: (_) => ModelStructureModal(
           modelName: controller.text.isEmpty ? 'Empty' : controller.text,
-          structure: pageBloc.valueForKey(fieldId) ?? <String, dynamic>{},
+          structure: (pageBloc.valueForKey(fieldId) as Json?) ?? <String, dynamic>{},
         ),
       ),
     );

@@ -62,7 +62,7 @@ void _updateByChain({
       object[key] = <String, dynamic>{};
     }
     if (object[key] is Map) {
-      _updateByChain(object: object[key], value: value, keyChain: [...keyChain], initialObject: initialObject, initialKeyChain: initialKeyChain);
+      _updateByChain(object: object[key] as Json, value: value, keyChain: [...keyChain], initialObject: initialObject, initialKeyChain: initialKeyChain);
       if (value == null && object[key] is Map && (object[key] as Map).isEmpty) {
         object.remove(key);
       }

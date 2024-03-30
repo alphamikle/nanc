@@ -16,7 +16,7 @@ Json? queryFieldToJson(QueryField? field) {
 }
 
 QueryField? queryFieldFromJson(dynamic json) {
-  final String? type = json[QueryField.typeKey];
+  final String? type = json[QueryField.typeKey]?.toString();
   if (type == null) {
     return null;
   }
