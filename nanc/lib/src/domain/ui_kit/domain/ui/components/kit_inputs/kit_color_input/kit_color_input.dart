@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../theme/kit_borders.dart';
 import '../../kit_color_picker/kit_color_picker.dart';

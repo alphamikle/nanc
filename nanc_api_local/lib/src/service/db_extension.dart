@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:nanc/model.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 abstract class LocalApi {
   @protected

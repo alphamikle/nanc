@@ -6,7 +6,7 @@ import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc_icons/nanc_icons.dart';
 import 'package:super_sliver_list/super_sliver_list.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../../../field/logic/fields/field/field.dart';
 import '../../../../../model/logic/model/logic/model.dart';

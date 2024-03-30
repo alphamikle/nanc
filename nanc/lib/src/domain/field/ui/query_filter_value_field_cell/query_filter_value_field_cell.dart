@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc_configuration/nanc_configuration.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../../service/init/data_repository.dart';
 import '../../../collection/logic/logic/bloc/collection_bloc.dart';

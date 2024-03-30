@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:super_sliver_list/super_sliver_list.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../logic/constants/gap.dart';
 import '../kit_buttons/kit_button.dart';

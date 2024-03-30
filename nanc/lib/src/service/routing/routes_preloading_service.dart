@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:go_router/go_router.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../domain/collection/logic/logic/bloc/collection_bloc.dart';
 import '../../domain/document/logic/bloc/document_bloc/document_bloc.dart';

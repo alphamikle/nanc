@@ -1,4 +1,4 @@
-library tools;
+library nanc_tools;
 
 export 'package:collection/collection.dart';
 export 'package:package_info_plus/package_info_plus.dart' show PackageInfo;

@@ -12,8 +12,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  tools:
-    path: ../tools
+  nanc_tools:
+    path: ../nanc_tools
   linked_scroll_controller: ^0.2.0
   highlight: ^0.7.0
   flutter_highlight: ^0.7.0

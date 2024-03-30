@@ -1,5 +1,5 @@
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../../field/logic/fields/field/field_props.dart';
 import '../../../../field/logic/fields/string_field/string_field.dart';

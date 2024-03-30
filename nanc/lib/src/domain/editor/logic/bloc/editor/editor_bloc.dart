@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:highlight/languages/xml.dart';
 import 'package:nanc_code_text_field/nanc_code_text_field.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../../field/logic/fields/screen_field/screen_content_model.dart';
 import '../../../../file_syncer/logic/file_syncer_interface.dart';

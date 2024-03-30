@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nanc_configuration/nanc_configuration.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
 import '../../../../document/logic/bloc/base_document_bloc/base_page_state.dart';

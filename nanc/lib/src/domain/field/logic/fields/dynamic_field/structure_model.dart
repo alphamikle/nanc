@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../../model/logic/model/logic/model.dart';
 import '../id_field/id_field.dart';

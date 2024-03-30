@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_number_field.dart';
 import '../../logic/fields/number_field/number_field.dart';

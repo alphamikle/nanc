@@ -1,6 +1,6 @@
 import 'package:googleapis/firestore/v1.dart';
 import 'package:nanc/model.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 final RegExp _documentIdRegExp = RegExp(r'.*/(?<id>.*)$');
 

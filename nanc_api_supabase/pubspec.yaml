@@ -16,8 +16,8 @@ dependencies:
     path: ../nanc_configuration
   nanc:
     path: ../nanc
-  tools:
-    path: ../tools
+  nanc_tools:
+    path: ../nanc_tools
   supabase_flutter: ^1.10.0
   equatable: ^2.0.5
   json_annotation: ^4.8.1

@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../domain/ui_kit/domain/logic/constants/gap.dart';
 import '../../domain/ui_kit/domain/logic/model/local_notification_enums.dart';

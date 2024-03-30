@@ -1,4 +1,4 @@
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../field/logic/model/third_table_interface.dart';
 import '../../../model/logic/model/model_interface.dart';

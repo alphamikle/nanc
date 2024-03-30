@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../ui_kit/domain/ui/animation/animated_state.dart';
 import '../../../ui_kit/domain/ui/components/kit_ink_well.dart';

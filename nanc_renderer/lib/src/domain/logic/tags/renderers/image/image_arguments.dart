@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../key_argument.dart';
 
@@ -15,7 +15,8 @@ class ImageArguments extends KeyArgument {
     required this.height,
     required this.fit,
     required this.blurHash,
-    required super.key, this.useCache = true,
+    required super.key,
+    this.useCache = true,
   });
 
   factory ImageArguments.fromJson(dynamic json) => _$ImageArgumentsFromJson(castToJson(json));

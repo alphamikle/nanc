@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../ui/components/kit_notification/local_notification.dart';
 import '../../ui/components/kit_notification/shadow_builder.dart';

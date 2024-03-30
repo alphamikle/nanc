@@ -1,4 +1,4 @@
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import 'human_exception.dart';
 

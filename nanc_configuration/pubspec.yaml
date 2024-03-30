@@ -12,8 +12,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  tools:
-    path: ../tools
+  nanc_tools:
+    path: ../nanc_tools
   nanc_fonts:
     path: ../nanc_fonts
   copy_with_extension: ^5.0.2

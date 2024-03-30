@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import 'icon_pack.dart';
 

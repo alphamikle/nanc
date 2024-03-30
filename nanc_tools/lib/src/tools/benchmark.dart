@@ -1,4 +1,4 @@
-import '../../tools.dart';
+import 'logg.dart';
 
 class Bench {
   static final Map<String, int> _starts = <String, int>{};

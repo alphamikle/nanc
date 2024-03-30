@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc_code_text_field/nanc_code_text_field.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../ui_kit/domain/ui/components/kit_code_preview/code_theme.dart';

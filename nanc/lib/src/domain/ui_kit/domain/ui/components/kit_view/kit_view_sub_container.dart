@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 class KitViewSubContainer extends StatelessWidget {
   const KitViewSubContainer({

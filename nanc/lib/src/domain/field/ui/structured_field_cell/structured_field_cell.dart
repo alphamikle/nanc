@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc_icons/nanc_icons.dart';
 import 'package:super_sliver_list/super_sliver_list.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
 import '../../../ui_kit/domain/logic/constants/gap.dart';

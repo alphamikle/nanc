@@ -14,8 +14,8 @@ dependencies:
     sdk: flutter
   nanc_configuration:
     path: ../nanc_configuration
-  tools:
-    path: ../tools
+  nanc_tools:
+    path: ../nanc_tools
   nanc:
     path: ../nanc
   equatable: ^2.0.5

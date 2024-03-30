@@ -15,8 +15,8 @@ dependencies:
     path: ../nanc_renderer
   nanc_code_text_field:
     path: ../nanc_code_text_field
-  tools:
-    path: ../tools
+  nanc_tools:
+    path: ../nanc_tools
   nanc_configuration:
     path: ../nanc_configuration
   nanc_icons:

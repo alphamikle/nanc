@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../field/logic/fields/field/field.dart';
 import '../../../ui_kit/domain/ui/components/kit_ink_well.dart';

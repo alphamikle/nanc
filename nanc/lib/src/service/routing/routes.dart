@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../domain/collection/ui/view/collection_view.dart';
 import '../../domain/collection/ui/view/empty_collection_view.dart';

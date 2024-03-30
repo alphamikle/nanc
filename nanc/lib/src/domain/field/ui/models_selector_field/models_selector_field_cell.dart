@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../document/logic/bloc/document_bloc/document_bloc.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';

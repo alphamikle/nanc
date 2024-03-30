@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/src/blurhash.dart';
 import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nui_converter/nui_converter.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../documentation/documentation.dart';
 import '../../rich_renderer.dart';

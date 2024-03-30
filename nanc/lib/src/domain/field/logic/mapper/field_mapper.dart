@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../model/logic/model/logic/model.dart';
 import '../../ui/bool_field_cell/bool_field_cell.dart';

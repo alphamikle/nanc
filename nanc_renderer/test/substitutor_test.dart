@@ -5,7 +5,7 @@ import 'package:nanc_renderer/src/domain/logic/tags/logic/document_storage.dart'
 import 'package:nanc_renderer/src/domain/logic/tags/logic/for_storage.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/logic/substitutor.dart';
 import 'package:nanc_renderer/src/domain/logic/tags/logic/template_storage.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import 'data/substitutor_data.dart';
 

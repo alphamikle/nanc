@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_boolean_input.dart';
 import '../../logic/fields/bool_field/bool_field.dart';

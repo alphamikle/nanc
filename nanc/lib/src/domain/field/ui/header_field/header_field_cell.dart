@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../logic/fields/header_field/header_field.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:highlight/languages/json.dart';
 import 'package:nanc_code_text_field/nanc_code_text_field.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../../../field/logic/fields/dynamic_field/structure_model.dart';
 import '../../../logic/constants/gap.dart';

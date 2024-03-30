@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../logic/constants/gap.dart';
 import '../kit_buttons/kit_icon_button.dart';

@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:googleapis/firestore/v1.dart';
 import 'package:googleapis_auth/auth_io.dart';
 import 'package:nanc/model.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../mapper/firestore_value_mapper.dart';
 

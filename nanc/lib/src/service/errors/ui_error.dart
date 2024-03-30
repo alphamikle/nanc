@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../domain/ui_kit/domain/logic/constants/gap.dart';
 import '../../domain/ui_kit/domain/ui/components/kit_divider.dart';

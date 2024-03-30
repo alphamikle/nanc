@@ -1,4 +1,4 @@
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 String? extractValueAsStringByChain(dynamic object, List<String> keyChain) {
   final dynamic value = extractValueByChain(object, keyChain);

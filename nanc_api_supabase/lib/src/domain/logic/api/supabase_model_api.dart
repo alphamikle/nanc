@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:nanc/fields.dart';
 import 'package:nanc/model.dart';
 import 'package:nanc_configuration/nanc_configuration.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../dto/column_info_dto.dart';
 import 'supabase_api.dart';

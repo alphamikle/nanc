@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:nanc_configuration/nanc_configuration.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../../../service/errors/errors.dart';
 import '../../../../field/logic/bloc/local_page_bloc/local_page_bloc.dart';

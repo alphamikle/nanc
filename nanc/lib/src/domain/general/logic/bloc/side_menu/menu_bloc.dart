@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../../../service/routing/endpoints.dart';
 import '../../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';

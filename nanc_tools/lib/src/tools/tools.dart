@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
 
-import '../../tools.dart';
+import 'waiter.dart';
 
 typedef Action<T> = FutureOr<T> Function();
 typedef Condition = FutureOr<bool> Function();

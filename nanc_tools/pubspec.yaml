@@ -1,5 +1,5 @@
-name: tools
-description: Tools for all modules
+name: nanc_tools
+description: nanc_tools for all Nanc modules
 publish_to: none
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io

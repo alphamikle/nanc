@@ -1,5 +1,5 @@
 import 'package:nanc_configuration/nanc_configuration.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../../field/logic/third_table/third_table.dart';
 import '../../../model/logic/model/logic/model.dart';

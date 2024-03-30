@@ -1,6 +1,6 @@
 library query_language;
 
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../fields/query_field.dart';
 
