@@ -22,7 +22,7 @@ Table nanc_renderer {
   icons int [ref: > icons.id]
   fonts int [ref: > fonts.id]
   config int [ref: > config.id]
-  tag_converter int [ref: > tag_converter.id]
+  nui_converter int [ref: > nui_converter.id]
 }
 
 Table nanc_code_text_field {
@@ -127,6 +127,6 @@ Table svg_renderer {
   icons int [ref: > icons.id]
 }
 
-Table tag_converter {
+Table nui_converter {
   id int PK
 }

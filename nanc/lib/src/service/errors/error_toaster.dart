@@ -1,12 +1,12 @@
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
+import '../../domain/ui_kit/domain/logic/constants/gap.dart';
 import '../../domain/ui_kit/domain/ui/components/kit_buttons/kit_button.dart';
 import '../../domain/ui_kit/domain/ui/components/kit_divider.dart';
 import '../../domain/ui_kit/domain/ui/components/kit_text.dart';
-import '../../domain/ui_kit/domain/logic/constants/gap.dart';
 import 'human_exception.dart';
 
 class ErrorToaster extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:tag_converter/tag_converter.dart';
+import 'package:nui_converter/nui_converter.dart';
 
 import 'property_widget.dart';
 import 'tag_description.dart';

@@ -1,6 +1,6 @@
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc/fields.dart';
 import 'package:nanc/model.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:tools/tools.dart';
 

@@ -2,23 +2,23 @@ import 'dart:async';
 
 import 'package:analytics/analytics.dart';
 import 'package:animation_debugger/animation_debugger.dart';
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
 import '../service/config/cms_config.dart';
 import '../service/errors/human_exception.dart';
 import '../service/init/initializer.dart';
+import 'ui_kit/domain/logic/constants/gap.dart';
+import 'ui_kit/domain/logic/model/local_notification_enums.dart';
 import 'ui_kit/domain/logic/service/local_notificator.dart';
 import 'ui_kit/domain/ui/components/kit_notification/local_notification.dart';
 import 'ui_kit/domain/ui/components/kit_text.dart';
-import 'ui_kit/domain/logic/constants/gap.dart';
 import 'ui_kit/domain/ui/theme/theme_builder.dart';
-import 'ui_kit/domain/logic/model/local_notification_enums.dart';
 
 class App extends StatefulWidget {
   const App({

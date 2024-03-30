@@ -1,5 +1,5 @@
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc/model.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 
 class FirebaseModelApi implements IModelApi {
   @override

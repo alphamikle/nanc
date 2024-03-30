@@ -1,4 +1,4 @@
-name: tag_converter
+name: nui_converter
 description: "Converter from XML to JSON or gRPC for tags"
 publish_to: none
 repository: https://github.com/alphamikle/nanc

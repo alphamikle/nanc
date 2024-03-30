@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc/fields.dart';
 import 'package:nanc/model.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:tools/tools.dart';
 
 import '../dto/column_info_dto.dart';

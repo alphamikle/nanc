@@ -20,8 +20,8 @@ dependencies:
     path: ../nanc_fonts
   nanc_configuration:
     path: ../nanc_configuration
-  tag_converter:
-    path: ../tag_converter
+  nui_converter:
+    path: ../nui_converter
   json_annotation: ^4.8.1
   copy_with_extension: ^5.0.2
   cached_network_image: ^3.3.1

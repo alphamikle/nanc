@@ -11,7 +11,7 @@ class Lights extends StatefulWidget {
 }
 
 class _LightsState extends State<Lights> {
-  late final RiveAnimationController controller = SimpleAnimation('Animation 1');
+  late final RiveAnimationController<dynamic> controller = SimpleAnimation('Animation 1');
 
   @override
   Widget build(BuildContext context) {

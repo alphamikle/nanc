@@ -1,19 +1,19 @@
 import 'dart:async';
 
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
 import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/components/kit_buttons/kit_button.dart';
 import '../../../ui_kit/domain/ui/components/kit_buttons/kit_popup_button.dart';
 import '../../../ui_kit/domain/ui/components/kit_divider.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_segmented_field/kit_segmented_field_ui.dart';
 import '../../../ui_kit/domain/ui/components/kit_modal/confirm_modal.dart';
 import '../../../ui_kit/domain/ui/components/kit_text.dart';
-import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/theme/kit_borders.dart';
 import '../../../ui_kit/domain/ui/theme/kit_colors.dart';
 import '../../logic/bloc/list_field_bloc/list_field_bloc.dart';

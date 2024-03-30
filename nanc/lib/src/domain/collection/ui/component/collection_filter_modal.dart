@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
@@ -12,6 +12,7 @@ import '../../../field/logic/fields/id_field/id_field.dart';
 import '../../../field/logic/fields/query_filter_field/query_filter_field.dart';
 import '../../../model/logic/model/logic/model.dart';
 import '../../../model/ui/component/fields_form.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/components/kit_buttons/kit_icon_button.dart';
 import '../../../ui_kit/domain/ui/components/kit_column.dart';
 import '../../../ui_kit/domain/ui/components/kit_modal/confirm_modal.dart';
@@ -20,7 +21,6 @@ import '../../../ui_kit/domain/ui/components/kit_modal/kit_modal.dart';
 import '../../../ui_kit/domain/ui/components/kit_preloader_v2.dart';
 import '../../../ui_kit/domain/ui/components/kit_text.dart';
 import '../../../ui_kit/domain/ui/components/kit_tooltip.dart';
-import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../logic/logic/bloc/collection_bloc.dart';
 import '../../logic/logic/bloc/collection_state.dart';
 

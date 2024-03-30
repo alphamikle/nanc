@@ -9,10 +9,10 @@ import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart'
 import '../../../model/ui/component/field_creation_modal.dart';
 import '../../../model/ui/component/field_editor_modal.dart';
 import '../../../model/ui/component/field_type_selector_modal.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/components/kit_buttons/kit_button.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_segmented_field/kit_segmented_field_ui.dart';
 import '../../../ui_kit/domain/ui/components/kit_modal/confirm_modal.dart';
-import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/theme/kit_borders.dart';
 import '../../../ui_kit/domain/ui/theme/kit_colors.dart';
 import '../../logic/bloc/list_field_bloc/list_field_bloc.dart';

@@ -1,7 +1,7 @@
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:googleapis/firestore/v1.dart' as fs;
 import 'package:nanc/fields.dart';
 import 'package:nanc/model.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../nanc_api_firebase.dart';

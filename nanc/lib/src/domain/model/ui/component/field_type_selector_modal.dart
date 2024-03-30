@@ -4,11 +4,11 @@ import 'package:tools/tools.dart';
 import '../../../field/logic/fields/field/field.dart';
 import '../../../field/logic/mapper/field_mapper.dart';
 import '../../../field/logic/type/field_types.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/components/kit_divider.dart';
 import '../../../ui_kit/domain/ui/components/kit_modal/kit_modal.dart';
 import '../../../ui_kit/domain/ui/components/kit_preloader_v2.dart';
 import '../../../ui_kit/domain/ui/components/kit_text.dart';
-import '../../../ui_kit/domain/logic/constants/gap.dart';
 import 'field_card.dart';
 
 class FieldTypeSelectorModal extends StatelessWidget {

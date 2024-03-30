@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
-import 'package:nanc_icons/nanc_icons.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:super_sliver_list/super_sliver_list.dart';
 import 'package:tools/tools.dart';
 

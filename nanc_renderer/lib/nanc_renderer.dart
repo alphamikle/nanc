@@ -1,6 +1,6 @@
 library nanc_renderer;
 
-export 'package:tag_converter/tag_converter.dart';
+export 'package:nui_converter/nui_converter.dart';
 
 export 'src/domain/logic/tags/documentation/documentation.dart';
 export 'src/domain/logic/tags/enums.dart';

@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../service/errors/errors.dart';
@@ -13,12 +13,12 @@ import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart'
 import '../../../document/logic/bloc/document_bloc/document_bloc.dart';
 import '../../../model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 import '../../../model/logic/model/logic/model.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_button_field_wrapper.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_segmented_field/kit_focus_stream_mixin.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_segmented_field/kit_segmented_field.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_text_field.dart';
 import '../../../ui_kit/domain/ui/components/kit_shimmer_switcher.dart';
-import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/theme/kit_colors.dart';
 import '../../../ui_kit/domain/ui/theme/kit_input_decorations.dart';
 import '../../logic/fields/field/field.dart';

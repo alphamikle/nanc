@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:super_sliver_list/super_sliver_list.dart';
 
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/animation/animated_state.dart';
 import '../../../ui_kit/domain/ui/components/kit_divider.dart';
 import '../../../ui_kit/domain/ui/components/kit_ink_well.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_empty_input.dart';
-import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../logic/fields/dynamic_field/dynamic_field_item.dart';
 import '../../logic/fields/field/field.dart';
 import '../../logic/mapper/field_mapper.dart';

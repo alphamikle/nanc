@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:tag_converter/tag_converter.dart';
+import 'package:nui_converter/nui_converter.dart';
 
 final List<TagNode> testTagNodes = listOfTagNodesFromJson(jsonDecode(r'''
 [

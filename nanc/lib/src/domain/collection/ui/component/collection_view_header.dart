@@ -1,13 +1,14 @@
 import 'package:animations/animations.dart';
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
 import '../../../../service/routing/endpoints.dart';
 import '../../../../service/routing/params_list.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/components/kit_buttons/kit_button.dart';
 import '../../../ui_kit/domain/ui/components/kit_buttons/kit_icon_button.dart';
 import '../../../ui_kit/domain/ui/components/kit_divider.dart';
@@ -15,7 +16,6 @@ import '../../../ui_kit/domain/ui/components/kit_inputs/kit_search_input.dart';
 import '../../../ui_kit/domain/ui/components/kit_text.dart';
 import '../../../ui_kit/domain/ui/components/kit_tooltip.dart';
 import '../../../ui_kit/domain/ui/components/kit_view/kit_view_header.dart';
-import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/theme/kit_colors.dart';
 import '../../logic/logic/bloc/collection_bloc.dart';
 import 'collection_filter_modal.dart';

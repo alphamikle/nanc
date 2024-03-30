@@ -3,8 +3,8 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:path/path.dart' as p;
-import 'package:tag_converter/src/domain/logic/model/tag.dart';
-import 'package:tag_converter/src/domain/logic/service/converter/tags_converter.dart';
+import 'package:nui_converter/src/domain/logic/model/tag.dart';
+import 'package:nui_converter/src/domain/logic/service/converter/tags_converter.dart';
 import 'package:test/test.dart';
 
 import 'data/small_node.dart';

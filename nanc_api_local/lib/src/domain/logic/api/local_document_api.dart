@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc/fields.dart';
 import 'package:nanc/model.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:tools/tools.dart';
 
 import '../../../service/db_extension.dart';

@@ -196,7 +196,7 @@ class ModelPageBloc extends Cubit<ModelPageState> {
     required AxisDirection direction,
   }) {
     final List<List<Field>> fieldsRows = [
-      ...state.editableModel.fields.map((List<Field> fieldRow) => [...fieldRow]).toList()
+      ...state.editableModel.fields.map((List<Field> fieldRow) => [...fieldRow])
     ];
     final Field currentField = fieldsRows[row][column];
 
@@ -234,7 +234,7 @@ class ModelPageBloc extends Cubit<ModelPageState> {
     required int column,
   }) {
     final List<List<Field>> fieldsRows = [
-      ...state.editableModel.fields.map((List<Field> fieldRow) => [...fieldRow]).toList()
+      ...state.editableModel.fields.map((List<Field> fieldRow) => [...fieldRow])
     ];
     final List<Field> newCurrentRow = [fieldsRows[row].removeAt(column)];
     fieldsRows.insert(row, newCurrentRow);
@@ -326,7 +326,7 @@ class ModelPageBloc extends Cubit<ModelPageState> {
 
   Future<void> deleteModelField(int row, int column) async {
     final List<List<Field>> fieldsRows = [
-      ...state.editableModel.fields.map((List<Field> fieldRow) => [...fieldRow]).toList()
+      ...state.editableModel.fields.map((List<Field> fieldRow) => [...fieldRow])
     ];
     final List<Field> currentRow = fieldsRows[row];
     final Field currentField = currentRow[column];

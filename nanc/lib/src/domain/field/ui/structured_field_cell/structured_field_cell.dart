@@ -7,10 +7,10 @@ import 'package:super_sliver_list/super_sliver_list.dart';
 import 'package:tools/tools.dart';
 
 import '../../../document/logic/bloc/base_document_bloc/base_document_bloc.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/components/kit_buttons/kit_button.dart';
 import '../../../ui_kit/domain/ui/components/kit_inputs/kit_segmented_field/kit_segmented_field_ui.dart';
 import '../../../ui_kit/domain/ui/components/kit_modal/confirm_modal.dart';
-import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/theme/kit_borders.dart';
 import '../../../ui_kit/domain/ui/theme/kit_colors.dart';
 import '../../logic/bloc/list_field_bloc/list_field_bloc.dart';

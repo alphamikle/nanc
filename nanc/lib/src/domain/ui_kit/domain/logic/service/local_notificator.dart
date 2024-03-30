@@ -2,9 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tools/tools.dart';
 
-import '../model/local_notification_enums.dart';
 import '../../ui/components/kit_notification/local_notification.dart';
 import '../../ui/components/kit_notification/shadow_builder.dart';
+import '../model/local_notification_enums.dart';
 
 typedef NotificationBuilder = LocalNotification Function(GlobalKey<LocalNotificationState> key, AsyncCallback onClose);
 typedef NotificationCloseCallback = AsyncCallback;

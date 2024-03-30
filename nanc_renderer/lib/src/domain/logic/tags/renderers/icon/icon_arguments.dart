@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nanc_icons/nanc_icons.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
 import '../key_argument.dart';

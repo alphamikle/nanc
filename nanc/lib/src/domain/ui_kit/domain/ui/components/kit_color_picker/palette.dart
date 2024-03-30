@@ -1,6 +1,7 @@
 /// The components of HSV Color Picker
 ///
 /// Try to create a Color Picker with other layout on your own :)
+library;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

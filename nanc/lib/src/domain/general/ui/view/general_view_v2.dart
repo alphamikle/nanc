@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tools/tools.dart';
 
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/animation/animated_state.dart';
 import '../../../ui_kit/domain/ui/components/kit_text.dart';
 import '../../../ui_kit/domain/ui/components/kit_view/kit_view_container.dart';
-import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../logic/bloc/header/menu_state.dart';
 import '../../logic/bloc/side_menu/menu_bloc.dart';
 import '../component/header_menu.dart';

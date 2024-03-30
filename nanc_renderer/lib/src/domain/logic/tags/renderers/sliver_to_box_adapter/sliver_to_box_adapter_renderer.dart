@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:tag_converter/tag_converter.dart';
+import 'package:nui_converter/nui_converter.dart';
 
 import '../../rich_renderer.dart';
 import '../../tag_description.dart';

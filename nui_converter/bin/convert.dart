@@ -4,7 +4,7 @@ import 'dart:typed_data';
 
 import 'package:args/args.dart';
 import 'package:path/path.dart' as p;
-import 'package:tag_converter/tag_converter.dart';
+import 'package:nui_converter/nui_converter.dart';
 
 final ArgParser parser = initParser();
 
@@ -24,7 +24,7 @@ const String helpAbbr = 'h';
 const String helpContent = '''
 Convert NUI Server Driven XML content to JSON or/and Protobuf
 
-Usage: dart run tag_converter:convert [arguments]
+Usage: dart run nui_converter:convert [arguments]
 -h, --help                    Print this usage information.
 
 Required options:

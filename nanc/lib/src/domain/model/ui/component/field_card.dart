@@ -3,10 +3,10 @@ import 'package:tools/tools.dart';
 
 import '../../../../service/config/config.dart';
 import '../../../field/logic/fields/field/field.dart';
+import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/components/kit_column.dart';
 import '../../../ui_kit/domain/ui/components/kit_icons/kit_icon_container.dart';
 import '../../../ui_kit/domain/ui/components/kit_text.dart';
-import '../../../ui_kit/domain/logic/constants/gap.dart';
 import '../../../ui_kit/domain/ui/theme/kit_colors.dart';
 
 class FieldCard extends StatelessWidget {
