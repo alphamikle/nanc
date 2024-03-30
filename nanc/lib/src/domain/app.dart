@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:analytics/analytics.dart';
+import 'package:nanc_analytics/nanc_analytics.dart';
 import 'package:animation_debugger/animation_debugger.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

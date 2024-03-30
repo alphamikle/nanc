@@ -1,5 +1,5 @@
-name: analytics
-description: A new Flutter package project.
+name: nanc_analytics
+description: Analytics for the Nanc CMS
 publish_to: none
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io

@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 
-import '../../analytics.dart';
+import 'analytics.dart';
 
 typedef VRouterNavigationEventObserver = Future<void> Function(GoRouterState vRedirector);
 

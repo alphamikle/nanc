@@ -21,8 +21,8 @@ dependencies:
     path: ../nanc_configuration
   nanc_icons:
     path: ../nanc_icons
-  analytics:
-    path: ../analytics
+  nanc_analytics:
+    path: ../nanc_analytics
   nanc_fonts:
     path: ../nanc_fonts
   animation_debugger: ^1.0.0
