@@ -6,6 +6,8 @@ import '../tools/chain_extractor.dart';
 
 final RegExp _storageRegExp = RegExp(r'data(\.\w+)+');
 
+final DataStorage _defaultDataStorage = DataStorage(data: {});
+
 class DataStorage extends Cubit<Json> {
   DataStorage({
     Json data = const {},
@@ -14,7 +16,7 @@ class DataStorage extends Cubit<Json> {
   static DataStorage of(BuildContext context) {
     final DataStorage? dataStorage = context.read();
     if (dataStorage == null) {
-      throw Exception('Not found DataStorage at the widget tree');
+      return _defaultDataStorage;
     }
     return dataStorage;
   }
