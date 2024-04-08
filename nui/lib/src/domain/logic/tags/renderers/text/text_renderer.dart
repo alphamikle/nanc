@@ -67,12 +67,20 @@ As well as using the `text` parameter:
 <safeArea>
   <text size="18">
     <prop:textStyle font="Rowdies"/>
-    Nanc, the content management system,
-    A tool that's easy to use,
-    With features that stand out from the rest,
-    Nanc helps businesses grow and thrive,
-    Managing content with style and finesse,
-    Nanc, the CMS we can't resist.
+    In the world of code and fancy trance,
+    Lives a tool that's known as Nanc.
+    It twists and turns, through data it dances,
+    Making devs smile with second chances.
+  
+    No more headaches, no more fuss,
+    Nanc's here to help, without a cuss.
+    With a click and a drag, it's all so clear,
+    Building apps, we now cheer!
+  
+    So here's to Nanc, our digital lance,
+    Cutting through problems, giving us a chance.
+    In the land of code, it takes a stance,
+    Thank you, dear Nanc, for enhancing our dance!
   </text>
   
   <divider height="50"/>
