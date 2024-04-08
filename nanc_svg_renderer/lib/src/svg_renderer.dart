@@ -88,7 +88,6 @@ Path to a file pre-compiled into a special vector format. Details are available 
 ''',
     builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final SvgArguments arguments = SvgArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       if ((arguments.ref == null || arguments.ref!.isEmpty) && (arguments.vec == null || arguments.vec!.isEmpty)) {
         return null;
@@ -97,6 +96,8 @@ Path to a file pre-compiled into a special vector format. Details are available 
       final bool isVector = arguments.vec != null && arguments.vec!.isNotEmpty;
       final String ref = isVector ? arguments.vec! : arguments.ref!;
       final bool isNetworkLink = ref.startsWith('http');
+
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       ColorFilter? effectiveColorFilter = extractor.getProperty(colorFilter);
 
