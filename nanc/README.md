@@ -1,3 +1,5 @@
+![Narrow Logo](./assets/images/narrow_logo.png)
+
 # Nanc - Not A Normal CMS
 
 Nanc - CMS of new generation. Extensible, adaptable and powerful. You can use it with **your existing backend** (wrote by your hands) or with existed Firebase / Supabase / **any other kind project**, managing your content / data / applications from one place or you can start your new creation using Nanc as a management tool in combination with **any kind of data source** - any cloud or custom backend in the ordinary sense of the word.
