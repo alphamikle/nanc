@@ -1,5 +1,5 @@
 packages:
-  nanc: 0.0.1
+  nanc: 0.0.3
   nanc_analytics: 0.0.1
   nanc_api_firebase: local
   nanc_api_local: local
