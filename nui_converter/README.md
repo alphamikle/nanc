@@ -23,3 +23,5 @@ Or, just run the script:
 ```bash
 dart ./nui_converter/bin/convert.dart --help
 ```
+
+**To learn more visit [https://nanc.io](https://nanc.io).**
