@@ -1,5 +1,5 @@
 name: nanc
-description: Nanc - Not a normal, next-gen backend-agnostic CMS
+description: Nanc - Not a normal, next-gen backend-agnostic CMS with Server Driven UI for Flutter
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io
 version: 0.0.1
@@ -11,18 +11,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nui:
-    path: ../nui
-  nanc_tools:
-    path: ../nanc_tools
-  nanc_configuration:
-    path: ../nanc_configuration
-  nanc_icons:
-    path: ../nanc_icons
-  nanc_analytics:
-    path: ../nanc_analytics
-  nanc_fonts:
-    path: ../nanc_fonts
+  nui: ^0.0.2
+  nanc_tools: ^0.0.2
+  nanc_configuration: ^0.0.1
+  nanc_icons: ^0.0.1
+  nanc_analytics: ^0.0.1
+  nanc_fonts: ^0.0.1
   animation_debugger: ^1.0.0
   cupertino_icons: ^1.0.5
   device_frame: ^1.1.0
@@ -51,13 +45,12 @@ dependencies:
   linked_scroll_controller: ^0.2.0
   loading_animation_widget: ^1.2.0+4
   super_sliver_list: ^0.2.1
-  google_fonts: any
+  google_fonts: ^4.0.5
   file_picker: ^5.3.1
   js: ^0.6.7
 
 dev_dependencies:
-  nanc_lints:
-    path: ../nanc_lints
+  nanc_lints: ^1.0.0
   json_serializable: ^6.7.0
   copy_with_extension_gen: ^5.0.2
   build_runner: ^2.4.4

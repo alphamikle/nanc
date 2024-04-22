@@ -1,5 +1,5 @@
 packages:
-  nanc: local
+  nanc: 0.0.1
   nanc_analytics: 0.0.1
   nanc_api_firebase: local
   nanc_api_local: local
@@ -8,7 +8,7 @@ packages:
   nanc_fonts: 0.0.1
   nanc_icons: 0.0.1
   nanc_lints: 1.0.0
-  nui_svg_renderer: local
+  nui_svg_renderer: 1.0.0
   nanc_tools: 0.0.2
   nui: 0.0.2
   nui_converter: 0.0.1

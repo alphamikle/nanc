@@ -13,10 +13,12 @@ Nanc allows you to manage data and content of any complexity, and provides an in
 - You want a content management system, but don't want to use cumbersome Open Source "admin panels" or write everything from scratch for "a lot of money"
 - You use Firebase as a backend, and you don't have enough functionality in its UI to make sense of your data
 - You are building or have an existing Flutter application, and you want to accelerate the speed of delivery of features to production
-- You are building or have a Flutter application and want to be able to test different hypotheses in it **very quickly**
-- You create or have a Flutter application and want to update it without long and unpredictable reviews by stores
+- You create or have a Flutter application and want to update it without long and, sometimes, unpredictable reviews by stores
 - You create or have a Flutter application and want to be able to change any aspect of its look and feel in an instant, spending a few minutes of development time instead of hours, days or weeks
+- You want to have the easiest and the fastest way to do A/B tests
+- You want to check your new hypothesis as fast as it possible on the web
+- You want to create rich and beautiful Terms & Conditions, Readme, FAQ, intros, in-app notifications, etc. in your app
 
-## How to use?
+**To learn more about Nanc visit [https://nanc.io](https://nanc.io).**
 
-To get a full understanding of Nanc's capabilities - visit our [website](https://nanc.io) with documentation detailing all aspects of use.
+**And to learn more about Nui visit [https://nanc.io/docs/nui/server_driven_ui](https://nanc.io/docs/nui/server_driven_ui).**
