@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../logic/document_storage.dart';
 import '../../logic/for_storage.dart';
 
-final RegExp _rangeValuesRegExp = RegExp(r'(?<from>\d+)\.\.\.(?<to>\d+)');
 final RegExp _valuesRegExp = RegExp(r'page.(?<expression>[-\w.]+)');
 final RegExp _embedCycleRegExp = RegExp(r'cycle\(.*\)\(\d+\)\(value:::(?<valueName>.+)\)(?<expression>[-\w.]+)');
 
@@ -23,6 +22,7 @@ class ForValuesParser {
   Iterable<Object?> get values => _iterator();
 
   bool get _isNumberedIterator => _fromNumber != null && _toNumber != null;
+
   bool get _isValuesIterator => _values != null;
   int? _fromNumber;
   int? _toNumber;

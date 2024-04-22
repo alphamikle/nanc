@@ -14,11 +14,11 @@ class PropertiesExtractor {
 
   final List<Widget> children = [];
   final List<Widget> _rawChildren;
-  final Map<String, List<PropertyWidget>> _properties = {};
+  final Map<String, List<PropertyWidget<dynamic>>> _properties = {};
   final Map<String, List<Widget>> _aliases = {};
 
   T? getProperty<T>(String name) {
-    final List<PropertyWidget>? properties = _properties[name];
+    final List<PropertyWidget<dynamic>>? properties = _properties[name];
     if (properties != null && properties.isNotEmpty) {
       if (properties.first.property is! T) {
         throw Exception('Wrong type of property "$name". Required type was "$T", but actual type is "${properties.first.runtimeType}".');
@@ -29,11 +29,11 @@ class PropertiesExtractor {
   }
 
   List<T> getProperties<T>(String name) {
-    final List<PropertyWidget>? properties = _properties[name];
+    final List<PropertyWidget<dynamic>>? properties = _properties[name];
     if (properties == null) {
       return [];
     }
-    return properties.map((PropertyWidget widget) => widget.property as T).toList();
+    return properties.map((PropertyWidget<dynamic> widget) => widget.property as T).toList();
   }
 
   Widget? getAlias(String name) {

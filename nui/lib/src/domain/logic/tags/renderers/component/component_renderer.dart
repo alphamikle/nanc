@@ -37,8 +37,6 @@ TagRenderer componentRenderer() {
     icon: IconPack.mdi_widgets_outline,
     tagType: TagType.other,
     tag: 'component',
-    // TODO(alphamikle): Components should be of both types - single line and multiline tags
-
     description: TagDescription(
       description: _description,
       arguments: [

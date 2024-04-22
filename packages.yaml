@@ -11,4 +11,4 @@ packages:
   nanc_svg_renderer: local
   nanc_tools: 0.0.2
   nui: local
-  nui_converter: local
+  nui_converter: 0.0.1
