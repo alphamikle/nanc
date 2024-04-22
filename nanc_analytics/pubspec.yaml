@@ -1,6 +1,5 @@
 name: nanc_analytics
 description: Analytics for the Nanc CMS
-publish_to: none
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io
 version: 0.0.1
@@ -12,17 +11,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc_configuration:
-    path: ../nanc_configuration
-  nanc_tools:
-    path: ../nanc_tools
+  nanc_configuration: ^0.0.1
+  nanc_tools: ^0.0.2
   amplitude_flutter: ^3.14.0
   go_router: ^8.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  nanc_lints:
-    path: ../nanc_lints
+  nanc_lints: ^1.0.0
 
 flutter:
