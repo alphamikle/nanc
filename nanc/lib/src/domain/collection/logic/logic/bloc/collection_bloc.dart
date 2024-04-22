@@ -130,9 +130,9 @@ class CollectionBloc extends Cubit<CollectionState> {
     }
   }
 
-  Future<void> applyFilters() async {
+  Future<void> applyFilters({bool enforced = false}) async {
     final QueryField? queryField = queryFieldFromJson(mapQueryFieldCellJsonToQueryFieldJson(filterStructureBloc.state.data));
-    if (queryField == state.query) {
+    if (queryField == state.query && enforced == false) {
       return;
     }
     if (queryField == null) {
@@ -156,7 +156,7 @@ class CollectionBloc extends Cubit<CollectionState> {
       ));
       emit(state.copyWithNull(query: true));
       filterStructureBloc.init(null);
-      unawaited(applyFilters());
+      unawaited(applyFilters(enforced: true));
     }
   }
 
