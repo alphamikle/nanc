@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import '../types/types.dart';
 
-// TODO(alphamikle): Make it faster, not by using json logic
+// TODO(alphamikle): Make it faster, not by using json logic (use deepClone and write tests for it)
 Json clone(Json json) {
   return jsonDecode(jsonEncode(json)) as Json;
 }

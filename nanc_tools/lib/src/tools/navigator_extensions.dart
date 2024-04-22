@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+// ignore: implementation_imports
 import 'package:go_router/src/match.dart';
 
 extension NavigatorFromContext on BuildContext {

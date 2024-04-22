@@ -2,8 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-const String _kValidHexPattern = r'^#?[0-9a-fA-F]{1,8}';
-
 const String _kCompleteValidHexPattern = r'^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$';
 
 String _padRadix(int value) => value.toRadixString(16).padLeft(2, '0');

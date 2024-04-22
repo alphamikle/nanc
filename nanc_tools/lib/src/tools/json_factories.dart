@@ -64,8 +64,8 @@ bool boolFromJson(dynamic value) {
     '-',
     false,
     null,
-    [],
-    {},
+    <dynamic>[],
+    <dynamic>{},
     '[]',
     '{}',
   };
