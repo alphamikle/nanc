@@ -2,7 +2,7 @@ name: nanc_tools
 description: nanc_tools for all Nanc modules
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io
-version: 0.0.1
+version: 0.0.2
 
 environment:
   sdk: '>=3.2.6 <4.0.0'
@@ -29,7 +29,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  nanc_lints:
-    path: ../nanc_lints
+  nanc_lints: ^1.0.0
 
 flutter:

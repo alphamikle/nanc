@@ -1,9 +1,8 @@
 name: nanc_lints
 description: A set of rules for the Nanc CMS
-publish_to: none
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io
-version: 0.0.1
+version: 1.0.0
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
