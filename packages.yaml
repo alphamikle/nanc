@@ -8,7 +8,7 @@ packages:
   nanc_fonts: 0.0.1
   nanc_icons: 0.0.1
   nanc_lints: 1.0.0
-  nanc_svg_renderer: local
+  nui_svg_renderer: local
   nanc_tools: 0.0.2
-  nui: local
+  nui: 0.0.2
   nui_converter: 0.0.1
