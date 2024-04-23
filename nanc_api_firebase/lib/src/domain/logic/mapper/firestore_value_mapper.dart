@@ -101,7 +101,7 @@ Value toFirestoreValue(dynamic value, {bool dateAsMs = false}) {
     final MapValue mapValue = MapValue();
     mapValue.fields = {};
 
-    final Iterable<MapEntry> entries = value.entries;
+    final Iterable<MapEntry<dynamic, dynamic>> entries = value.entries;
     for (final MapEntry(:dynamic key, :dynamic value) in entries) {
       mapValue.fields![key.toString()] = toFirestoreValue(value);
     }
@@ -128,12 +128,12 @@ T? fromFirestoreValue<T>(Value value) {
   } else if (value.stringValue != null) {
     return value.stringValue! as T;
   } else if (value.arrayValue != null) {
-    return value.arrayValue!.values!.map(fromFirestoreValue).toList() as T;
+    return value.arrayValue!.values!.map((Value it) => fromFirestoreValue<dynamic>(it)).toList() as T;
   } else if (value.mapValue != null) {
     final DJson result = {};
     final Iterable<MapEntry<String, Value>> entries = value.mapValue!.fields!.entries;
     for (final MapEntry(:String key, :Value value) in entries) {
-      result[key] = fromFirestoreValue(value);
+      result[key] = fromFirestoreValue<dynamic>(value);
     }
     return result as T;
   } else if (value.bytesValue != null) {

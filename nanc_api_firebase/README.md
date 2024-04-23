@@ -1,12 +1,7 @@
-# How to:
+# Nanc Firebase API
 
-1. Create Firebase Firestore project
-2. Create app in it
-3. Create Service Account in Google IAM
-4. Create a key to that Service Account in JSON format
-- https://console.firebase.google.com/u/0/project/nanc-firebase-api/settings/serviceaccounts/adminsdk
-- https://firebase.google.com/support/guides/service-accounts
-- https://github.com/firebase/firebase-functions/issues/679#issuecomment-1089042238
+This package is designed to easily and quickly integrate Nanc with Firebase as a Backend/Data Provider.
 
-About "OR": https://cloud.google.com/firestore/docs/query-data/queries#web-version-9_14
-About querying and filtering: https://cloud.google.com/firestore/docs/query-data/queries#web-version-9_14
+All detailed information on how to set up a connection to Firebase, how to create a project, etc. is described in the Nanc documentation, which you can find [here](https://nanc.io/docs/modules/api/nanc_api_firebase).
+
+**To learn more about Nanc visit [https://nanc.io](https://nanc.io).**
