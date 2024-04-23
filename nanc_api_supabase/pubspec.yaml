@@ -1,9 +1,8 @@
 name: nanc_api_supabase
 description: Supabase API Implementation for Nanc
-publish_to: none
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io
-version: 0.0.1
+version: 1.0.0
 
 environment:
   sdk: '>=3.2.6 <4.0.0'
@@ -12,12 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc_configuration:
-    path: ../nanc_configuration
-  nanc:
-    path: ../nanc
-  nanc_tools:
-    path: ../nanc_tools
+  nanc_configuration: ^0.0.1
+  nanc: ^0.0.3
+  nanc_tools: ^0.0.2
   supabase_flutter: ^1.10.0
   equatable: ^2.0.5
   json_annotation: ^4.8.1
@@ -27,8 +23,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  nanc_lints:
-    path: ../nanc_lints
+  nanc_lints: ^1.0.0
   json_serializable: ^6.7.0
   copy_with_extension_gen: ^5.0.2
   build_runner: ^2.4.4

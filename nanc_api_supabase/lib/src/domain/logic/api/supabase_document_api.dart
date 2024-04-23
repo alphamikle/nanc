@@ -73,11 +73,11 @@ class SupabaseDocumentApi implements IDocumentApi {
         pageData[field.id] = null;
       }
     }
-    PostgrestFilterBuilder updater = builder.upsert(pageData);
+    PostgrestFilterBuilder<dynamic> updater = builder.upsert(pageData);
     if (id != null) {
       updater = updater.eq(model.idField.id, id);
     }
-    final dynamic response = await updater.select(model.flattenFields.realIds.join(',')).single();
+    final dynamic response = await updater.select<dynamic>(model.flattenFields.realIds.join(',')).single();
     if (response is DJson) {
       return castToJson(response);
     }
