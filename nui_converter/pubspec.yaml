@@ -26,3 +26,6 @@ dev_dependencies:
   build_runner: ^2.4.8
   autoequal_gen: ^0.9.1
   proto_generator: ^4.3.0
+
+executables:
+  ncov: convert

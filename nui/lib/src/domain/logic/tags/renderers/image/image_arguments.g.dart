@@ -15,9 +15,9 @@ ImageArguments _$ImageArgumentsFromJson(Map<String, dynamic> json) =>
       fit: $enumDecodeNullable(_$BoxFitEnumMap, json['fit'],
           unknownValue: JsonKey.nullForUndefinedEnumValue),
       blurHash: json['blurHash'] as String?,
+      key: json['key'] as String?,
       useCache:
           json['useCache'] == null ? true : boolFromJson(json['useCache']),
-      key: json['key'] as String?,
     );
 
 Map<String, dynamic> _$ImageArgumentsToJson(ImageArguments instance) =>

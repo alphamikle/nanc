@@ -30,3 +30,4 @@ migrate_working_dir/
 build/
 output/
 node_modules/
+pubspec_overrides.yaml

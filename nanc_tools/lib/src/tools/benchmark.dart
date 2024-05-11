@@ -1,5 +1,7 @@
 import 'logg.dart';
 
+void _emptyFunction() {}
+
 class Bench {
   static final Map<String, int> _starts = <String, int>{};
 
@@ -41,5 +43,23 @@ $benchId need ${diff}ms
       return result;
     }
     return 0;
+  }
+
+  static int endRaw(String id, {bool compensate = false}) {
+    final int now = DateTime.now().microsecondsSinceEpoch;
+    final int result = now - _starts[id]!;
+    _starts.remove(id);
+
+    /// Compensation for the overhead carried by benchmark itself
+    if (compensate) {
+      const String tempId = '288013ba-66f8-4e6c-b25b-9a54bd12e169';
+      Bench.startSilent(tempId);
+      _emptyFunction();
+      final int baseNow = DateTime.now().microsecondsSinceEpoch;
+      final int baseResult = baseNow - _starts[tempId]!;
+      _starts.remove(tempId);
+      return (result - baseResult);
+    }
+    return result;
   }
 }

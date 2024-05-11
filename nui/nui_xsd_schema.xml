@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="sizedBox">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="height" type="xs:double"/>
+            <xs:attribute name="width" type="xs:double"/>
+            <xs:attribute name="all" type="xs:double"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

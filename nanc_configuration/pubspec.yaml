@@ -28,6 +28,3 @@ dev_dependencies:
   copy_with_extension_gen: ^5.0.2
   build_runner: ^2.4.4
   autoequal_gen: ^0.9.1
-
-flutter:
-  uses-material-design: true
