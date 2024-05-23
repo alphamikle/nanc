@@ -181,7 +181,7 @@ NumberField _$NumberFieldFromJson(Map<String, dynamic> json) => NumberField(
           SignType.signed,
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
-      sort: json['sort'] as int? ?? 0,
+      sort: (json['sort'] as num?)?.toInt() ?? 0,
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.numberField,
     );

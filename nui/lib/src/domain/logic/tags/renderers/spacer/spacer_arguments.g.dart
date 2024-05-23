@@ -8,7 +8,7 @@ part of 'spacer_arguments.dart';
 
 SpacerArguments _$SpacerArgumentsFromJson(Map<String, dynamic> json) =>
     SpacerArguments(
-      flex: json['flex'] as int?,
+      flex: (json['flex'] as num?)?.toInt(),
       key: json['key'] as String?,
     );
 

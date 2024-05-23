@@ -161,8 +161,8 @@ extension $SortCopyWith on Sort {
 // **************************************************************************
 
 ParamsDto _$ParamsDtoFromJson(Map<String, dynamic> json) => ParamsDto(
-      page: json['page'] as int,
-      limit: json['limit'] as int,
+      page: (json['page'] as num).toInt(),
+      limit: (json['limit'] as num).toInt(),
       sort: Sort.fromJson(json['sort'] as Map<String, dynamic>),
     );
 

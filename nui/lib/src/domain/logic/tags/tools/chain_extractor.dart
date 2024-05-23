@@ -51,6 +51,7 @@ void _updateByChain({
   }
 
   final String key = keyChain.removeAt(0);
+
   if (keyChain.isEmpty) {
     if (value == null) {
       object.remove(key);

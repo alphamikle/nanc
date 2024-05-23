@@ -2,7 +2,7 @@ name: nanc_api_supabase
 description: Supabase API Implementation for Nanc
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io
-version: 1.0.0
+version: 1.0.1
 
 environment:
   sdk: '>=3.2.6 <4.0.0'

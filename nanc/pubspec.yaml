@@ -2,7 +2,7 @@ name: nanc
 description: Nanc - Not a normal, next-gen backend-agnostic CMS with Server Driven UI for Flutter
 repository: https://github.com/alphamikle/nanc/tree/master/nanc
 homepage: https://nanc.io
-version: 0.0.3
+version: 0.0.4
 
 environment:
   sdk: '>=3.2.6 <4.0.0'

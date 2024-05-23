@@ -48,6 +48,17 @@ class DataStorage extends Cubit<Json> {
     return _valueFinder(queryPieces);
   }
 
+  T? getTypedValue<T>({
+    required String? query,
+  }) {
+    final Object? value = getValue(query: query);
+    if (value is T) {
+      return value;
+    }
+    logWarning('A value "$value" is not of "$T" type');
+    return null;
+  }
+
   String? getValueAsString({
     required String? query,
   }) {

@@ -101,8 +101,8 @@ extension $CollectionResponseDtoCopyWith on CollectionResponseDto {
 CollectionResponseDto _$CollectionResponseDtoFromJson(
         Map<String, dynamic> json) =>
     CollectionResponseDto(
-      page: _pageNumberFinder(json, 'page') as int,
-      totalPages: _totalPagesFinder(json, 'totalPages') as int,
+      page: (_pageNumberFinder(json, 'page') as num).toInt(),
+      totalPages: (_totalPagesFinder(json, 'totalPages') as num).toInt(),
       data: (_dataContainerFinder(json, 'data') as List<dynamic>)
           .map((e) => e as Map<String, dynamic>)
           .toList(),

@@ -211,7 +211,7 @@ MultiSelectorField _$MultiSelectorFieldFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
-      sort: json['sort'] as int? ?? 0,
+      sort: (json['sort'] as num?)?.toInt() ?? 0,
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.multiSelectorField,
     );

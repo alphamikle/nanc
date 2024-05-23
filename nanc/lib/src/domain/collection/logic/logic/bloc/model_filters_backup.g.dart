@@ -174,8 +174,8 @@ extension $ModelFiltersBackupCopyWith on ModelFiltersBackup {
 ModelFiltersBackup _$ModelFiltersBackupFromJson(Map<String, dynamic> json) =>
     ModelFiltersBackup(
       model: Model.fromJson(json['model']),
-      totalPages: json['totalPages'] as int,
-      currentPage: json['currentPage'] as int,
+      totalPages: (json['totalPages'] as num).toInt(),
+      currentPage: (json['currentPage'] as num).toInt(),
       globalSearchValue: json['globalSearchValue'] as String,
       query: queryFieldFromJson(json['query']),
       globalSearchQuery: queryFieldFromJson(json['globalSearchQuery']),

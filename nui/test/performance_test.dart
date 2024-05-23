@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -13,7 +14,7 @@ Json getContextData() {
   return castToJson(jsonDecode(rawJson));
 }
 
-const int iterations = 1000;
+const int iterations = 50;
 
 const String xmlId = 'Time to handle XML';
 const String jsonId = 'Time to handle JSON';
@@ -80,53 +81,28 @@ void main() {
     });
   });
 
-  group('Scrolling performance metrics', () {
-    /// Default cacheExtent
-    /// Metrics of "Native scrolling with frames: 2666"
-    /// Average time: 3531 microseconds
-    /// Median time: 3182 microseconds
-    /// 95 percentile time: 5600 microseconds
-    ///
-    /// Cache extent = 0
-    /// Metrics of "Native scrolling with frames: 3210"
-    /// Average time: 3458 microseconds
-    /// Median time: 3139 microseconds
-    /// 95 percentile time: 5299 microseconds
-    test('Native UI metrics', () async {
-      final String source = readFileAsString('native_full_screen_tracing.json');
-      final Diagnostics diagnostics = Diagnostics.fromJson(jsonDecode(source));
+  group('Rendering performance', () {
+    test('Initial rendering performance metrics', () async {
+      final Directory metricsDataDir = Directory('${Directory.current.path}/test/data/performance_metrics');
+      final List<File> metricsFiles = metricsDataDir.listSync().whereType<File>().toList();
+      final List<String> pathsToMetrics = metricsFiles.map((File it) => it.path.replaceFirst(it.parent.path, 'performance_metrics')).toList();
 
-      final List<FlutterFrame> framesInfo = diagnostics.performance?.flutterFrames ?? [];
+      for (final String path in pathsToMetrics) {
+        final String source = readFileAsString(path);
+        final Diagnostics diagnostics = Diagnostics.fromJson(jsonDecode(source));
 
-      final List<int> elapsedTimings = framesInfo.map((FlutterFrame frame) => frame.elapsed).toList();
+        final List<FlutterFrame> framesInfo = diagnostics.performance?.flutterFrames ?? [];
 
-      final Metrics metrics = calculateMetrics(elapsedTimings);
+        final List<int> elapsedTimings = framesInfo.map((FlutterFrame frame) => frame.elapsed).toList();
 
-      printMetrics('Native scrolling with frames: ${elapsedTimings.length}', metrics);
-    });
+        elapsedTimings.sort((int a, int b) => b.compareTo(a));
 
-    /// Default cacheExtent
-    /// Metrics of "Nui scrolling with frames: 2833"
-    /// Average time: 3505 microseconds
-    /// Median time: 2928 microseconds
-    /// 95 percentile time: 5232 microseconds
-    ///
-    /// Cache extent = 0
-    /// Metrics of "Nui scrolling with frames: 3176"
-    /// Average time: 3498 microseconds
-    /// Median time: 3099 microseconds
-    /// 95 percentile time: 5425 microseconds
-    test('Nui metrics', () async {
-      final String source = readFileAsString('nui_full_screen_tracing.json');
-      final Diagnostics diagnostics = Diagnostics.fromJson(jsonDecode(source));
+        final List<int> worstCases = elapsedTimings.sublist(0, iterations);
 
-      final List<FlutterFrame> framesInfo = diagnostics.performance?.flutterFrames ?? [];
+        final Metrics metrics = calculateMetrics(worstCases);
 
-      final List<int> elapsedTimings = framesInfo.map((FlutterFrame frame) => frame.elapsed).toList();
-
-      final Metrics metrics = calculateMetrics(elapsedTimings);
-
-      printMetrics('Nui scrolling with frames: ${elapsedTimings.length}', metrics);
+        printMetrics(path, metrics);
+      }
     });
   });
 }

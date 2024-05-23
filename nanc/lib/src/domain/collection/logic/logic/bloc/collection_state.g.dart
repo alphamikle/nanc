@@ -232,8 +232,8 @@ CollectionState _$CollectionStateFromJson(Map<String, dynamic> json) =>
           .map((e) => e as Map<String, dynamic>)
           .toList(),
       model: Model.fromJson(json['model']),
-      currentPage: json['currentPage'] as int,
-      totalPages: json['totalPages'] as int,
+      currentPage: (json['currentPage'] as num).toInt(),
+      totalPages: (json['totalPages'] as num).toInt(),
       isLoading: json['isLoading'] as bool,
       isError: json['isError'] as bool,
       notFoundAnything: json['notFoundAnything'] as bool,

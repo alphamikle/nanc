@@ -3,6 +3,7 @@ import 'dart:convert';
 import '../types/types.dart';
 
 // TODO(alphamikle): Make it faster, not by using json logic (use deepClone and write tests for it)
+@Deprecated('Use deepClone instead')
 Json clone(Json json) {
   return jsonDecode(jsonEncode(json)) as Json;
 }
@@ -26,7 +27,7 @@ Json _cloneMap(Json map) {
 
 List<dynamic> _cloneList(List<dynamic> list) {
   final List<dynamic> result = [];
-  for (final dynamic value in result) {
+  for (final dynamic value in list) {
     result.add(deepClone(value));
   }
   return result;

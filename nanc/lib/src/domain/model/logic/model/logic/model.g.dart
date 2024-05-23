@@ -178,7 +178,7 @@ Model _$ModelFromJson(Map<String, dynamic> json) => Model(
       icon: json['icon'] as String,
       fields: fieldsFromJson(json['fields'] as List),
       isCollection: json['isCollection'] as bool? ?? true,
-      sort: json['sort'] as int? ?? 0,
+      sort: (json['sort'] as num?)?.toInt() ?? 0,
       showInMenu: json['showInMenu'] as bool? ?? true,
       id: json['id'] as String?,
       codeFirstEntity: json['codeFirstEntity'] == null

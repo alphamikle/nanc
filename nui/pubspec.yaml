@@ -2,7 +2,7 @@ name: nui
 description: Server Driven UI Engine and the part of Nanc CMS
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io
-version: 0.0.2
+version: 0.0.3
 
 environment:
   sdk: '>=3.2.6 <4.0.0'

@@ -114,7 +114,8 @@ ColumnInfoDto _$ColumnInfoDtoFromJson(Map<String, dynamic> json) =>
       dataType: json['data_type'] as String,
       columnName: json['column_name'] as String,
       isNullable: json['is_nullable'] as String,
-      characterMaximumLength: json['character_maximum_length'] as int?,
+      characterMaximumLength:
+          (json['character_maximum_length'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$ColumnInfoDtoToJson(ColumnInfoDto instance) =>

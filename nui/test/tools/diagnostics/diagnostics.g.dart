@@ -55,7 +55,7 @@ Performance _$PerformanceFromJson(Map<String, dynamic> json) => Performance(
       flutterFrames: (json['flutterFrames'] as List<dynamic>?)
           ?.map(FlutterFrame.fromJson)
           .toList(),
-      displayRefreshRate: json['displayRefreshRate'] as int?,
+      displayRefreshRate: (json['displayRefreshRate'] as num?)?.toInt(),
       selectedEvent: json['selectedEvent'] == null
           ? null
           : CpuProfile.fromJson(json['selectedEvent']),
@@ -85,12 +85,12 @@ Map<String, dynamic> _$CpuProfileToJson(CpuProfile instance) =>
     <String, dynamic>{};
 
 FlutterFrame _$FlutterFrameFromJson(Map<String, dynamic> json) => FlutterFrame(
-      number: json['number'] as int,
-      startTime: json['startTime'] as int,
-      elapsed: json['elapsed'] as int,
-      build: json['build'] as int,
-      raster: json['raster'] as int,
-      vsyncOverhead: json['vsyncOverhead'] as int,
+      number: (json['number'] as num).toInt(),
+      startTime: (json['startTime'] as num).toInt(),
+      elapsed: (json['elapsed'] as num).toInt(),
+      build: (json['build'] as num).toInt(),
+      raster: (json['raster'] as num).toInt(),
+      vsyncOverhead: (json['vsyncOverhead'] as num).toInt(),
     );
 
 Map<String, dynamic> _$FlutterFrameToJson(FlutterFrame instance) =>
@@ -105,10 +105,10 @@ Map<String, dynamic> _$FlutterFrameToJson(FlutterFrame instance) =>
 
 TraceEvent _$TraceEventFromJson(Map<String, dynamic> json) => TraceEvent(
       name: json['name'] as String?,
-      pid: json['pid'] as int?,
-      tid: json['tid'] as int?,
+      pid: (json['pid'] as num?)?.toInt(),
+      tid: (json['tid'] as num?)?.toInt(),
       args: json['args'] == null ? null : Args.fromJson(json['args']),
-      ts: json['ts'] as int?,
+      ts: (json['ts'] as num?)?.toInt(),
       s: json['s'] as String?,
       id: json['id'] as String?,
     );

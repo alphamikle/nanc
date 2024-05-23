@@ -96,7 +96,10 @@ You can build the following logic chains to update your UI only when specific da
           bool needToUpdate = false;
           if (arguments.buildWhen?.isNotEmpty ?? false) {
             final List<String> keychain = arguments.buildWhen!.split('.');
-            needToUpdate = extractValueByChain(previous, keychain) != extractValueByChain(current, keychain);
+            final Object? oldValue = extractValueByChain(previous, keychain);
+            final Object? newValue = extractValueByChain(current, keychain);
+
+            needToUpdate = oldValue != newValue;
           }
           if (needToUpdate && (arguments.andWhen?.isNotEmpty ?? false)) {
             final List<String> keychain = arguments.andWhen!.split('.');
@@ -110,7 +113,8 @@ You can build the following logic chains to update your UI only when specific da
         },
         builder: (BuildContext context, Json state) {
           final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
-          return compactWidgets(extractor.children);
+          final Widget widgets = compactWidgets(extractor.children);
+          return widgets;
         },
       );
       if (arguments.onUpdate?.isNotEmpty ?? false) {

@@ -184,6 +184,8 @@ You also able to create nested cycles, like in example behind, but if you want t
       final List<Object?> parsedValues = parser.values.toList();
 
       final ForStorage forStorage = ForStorage.of(context);
+
+      // TODO(alphamikle): Here can be a memory leak, probably 🙃
       forStorage.saveCycleData(cycleId: cycleId, values: parsedValues);
 
       final List<TagNode> effectiveChildren = [];
@@ -204,10 +206,7 @@ You also able to create nested cycles, like in example behind, but if you want t
         effectiveChildren.addAll(preparedChildren);
       }
 
-      final PropertiesExtractor extractor = PropertiesExtractor(
-        context: context,
-        rawChildren: richRenderer.renderChildren(context, effectiveChildren),
-      );
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, effectiveChildren));
       return ForWidget(children: extractor.children);
     },
   );

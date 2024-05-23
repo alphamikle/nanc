@@ -26,6 +26,7 @@ class NuiStackWidget extends StatelessWidget {
     this.imageFrameBuilder,
     this.asyncMode = false,
     this.preloaderBuilder,
+    this.fit = StackFit.expand,
     super.key,
   }) : assert(xmlContent != null || nodes != null || binary != null);
 
@@ -39,6 +40,7 @@ class NuiStackWidget extends StatelessWidget {
     this.imageFrameBuilder,
     this.asyncMode = false,
     this.preloaderBuilder,
+    this.fit = StackFit.expand,
     super.key,
   })  : xmlContent = xml,
         nodes = null,
@@ -54,6 +56,7 @@ class NuiStackWidget extends StatelessWidget {
     this.imageFrameBuilder,
     this.asyncMode = false,
     this.preloaderBuilder,
+    this.fit = StackFit.expand,
     super.key,
   })  : xmlContent = null,
         // ignore: prefer_initializing_formals
@@ -70,6 +73,7 @@ class NuiStackWidget extends StatelessWidget {
     this.imageFrameBuilder,
     this.asyncMode = false,
     this.preloaderBuilder,
+    this.fit = StackFit.expand,
     super.key,
   })  : xmlContent = null,
         nodes = null,
@@ -87,6 +91,7 @@ class NuiStackWidget extends StatelessWidget {
   final ImageFrameBuilder? imageFrameBuilder;
   final bool asyncMode;
   final PreloaderBuilder? preloaderBuilder;
+  final StackFit fit;
 
   XmlWidgetGenerator createGenerator(BuildContext context) {
     return XmlWidgetGenerator(
@@ -125,7 +130,7 @@ class NuiStackWidget extends StatelessWidget {
     final (List<Widget> widgets, bool _) = result;
 
     return Stack(
-      fit: StackFit.expand,
+      fit: fit,
       children: widgets,
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 import 'package:nui_converter/nui_converter.dart';
 
 import '../renderers/component/element_hash_extension.dart';
@@ -86,6 +87,8 @@ class Substitutor {
 
   String substitute(String hash, String value) {
     if (_isTest) {
+      logInfo('Using test environment in Substitutor');
+
       final Iterable<RegExpMatch> expressions = _substitutionRegExp.allMatches(value);
       testExpressions.addAll(expressions);
     }

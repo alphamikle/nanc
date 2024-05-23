@@ -2,7 +2,7 @@ name: nanc_configuration
 description: Nanc CMS configuration
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io
-version: 0.0.1
+version: 0.0.2
 
 environment:
   sdk: '>=3.2.6 <4.0.0'

@@ -164,7 +164,7 @@ BoolField _$BoolFieldFromJson(Map<String, dynamic> json) => BoolField(
       defaultValue: json['defaultValue'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
       showInList: json['showInList'] as bool? ?? false,
-      sort: json['sort'] as int? ?? 0,
+      sort: (json['sort'] as num?)?.toInt() ?? 0,
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.boolField,
     );

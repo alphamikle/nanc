@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../../nui.dart';
 import '../../logic/document_storage.dart';
 import '../../logic/for_storage.dart';
 
-final RegExp _valuesRegExp = RegExp(r'page.(?<expression>[-\w.]+)');
+final RegExp _valuesRegExp = RegExp(r'page|data.(?<expression>[-\w.]+)');
 final RegExp _embedCycleRegExp = RegExp(r'cycle\(.*\)\(\d+\)\(value:::(?<valueName>.+)\)(?<expression>[-\w.]+)');
 
 class ForValuesParser {
@@ -40,9 +41,12 @@ class ForValuesParser {
       return;
     }
     if (valuesString != null) {
-      // TODO(alphamikle): Support DataStorage too
       if (_valuesRegExp.hasMatch(valuesString!)) {
-        final dynamic values = DocumentStorage.findData(context: context, query: valuesString);
+        final bool isPageData = valuesString!.startsWith('page');
+        final DocumentStorage documentStorage = DocumentStorage.of(context);
+        final DataStorage dataStorage = DataStorage.of(context);
+
+        final dynamic values = isPageData ? documentStorage.getValue(query: valuesString) : dataStorage.getValue(query: valuesString);
         if (values is Iterable) {
           _values = List.from(values);
         }

@@ -162,8 +162,8 @@ StringField _$StringFieldFromJson(Map<String, dynamic> json) => StringField(
       id: json['id'] as String?,
       showInList: json['showInList'] as bool? ?? false,
       isRequired: json['isRequired'] as bool? ?? false,
-      sort: json['sort'] as int? ?? 0,
-      maxLines: json['maxLines'] as int?,
+      sort: (json['sort'] as num?)?.toInt() ?? 0,
+      maxLines: (json['maxLines'] as num?)?.toInt(),
       type: $enumDecodeNullable(_$FieldTypeEnumMap, json['type']) ??
           FieldType.stringField,
     );
