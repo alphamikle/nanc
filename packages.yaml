@@ -4,7 +4,7 @@ packages:
   nanc_api_firebase: 1.0.0
   nanc_api_local: 1.0.1
   nanc_api_supabase: 1.0.0 -> 1.0.1
-  nanc_configuration: 0.0.1 -> 0.0.2
+  nanc_configuration: 0.0.1 -> 0.0.2 -> 0.0.3
   nanc_fonts: 0.0.1
   nanc_icons: 0.0.1
   nanc_lints: 1.0.0

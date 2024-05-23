@@ -11,9 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nui: ^0.0.2
-  nanc_tools: ^0.0.2
-  nanc_configuration: ^0.0.1
+  nui: ^0.0.3
+  nanc_tools: ^0.0.3
+  nanc_configuration: ^0.0.3
   nanc_icons: ^0.0.1
   nanc_analytics: ^0.0.1
   nanc_fonts: ^0.0.1

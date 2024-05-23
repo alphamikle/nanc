@@ -11,9 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc_configuration: ^0.0.1
-  nanc: ^0.0.3
-  nanc_tools: ^0.0.2
+  nanc_configuration: ^0.0.3
+  nanc: ^0.0.4
+  nanc_tools: ^0.0.3
   supabase_flutter: ^1.10.0
   equatable: ^2.0.5
   json_annotation: ^4.8.1

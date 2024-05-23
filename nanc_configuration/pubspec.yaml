@@ -2,7 +2,7 @@ name: nanc_configuration
 description: Nanc CMS configuration
 repository: https://github.com/alphamikle/nanc
 homepage: https://nanc.io
-version: 0.0.2
+version: 0.0.3
 
 environment:
   sdk: '>=3.2.6 <4.0.0'
@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc_tools: ^0.0.2
+  nanc_tools: ^0.0.3
   nanc_fonts: ^0.0.1
   copy_with_extension: ^5.0.2
   json_annotation: ^4.8.1
