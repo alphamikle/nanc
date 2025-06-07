@@ -1,0 +1,39 @@
+name: nui
+description: Server Driven UI Engine and the part of Nanc CMS
+repository: https://github.com/alphamikle/nanc
+homepage: https://nanc.io
+version: 0.0.3
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+  flutter: ">=3.16.9"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  nanc_tools: ^0.0.3
+  nanc_icons: ^0.0.1
+  nanc_fonts: ^0.0.1
+  nanc_configuration: ^0.0.3
+  nui_converter: ^0.0.1
+  json_annotation: ^4.9.0
+  copy_with_extension: ^6.0.1
+  cached_network_image: ^3.4.1
+  flutter_blurhash: ^0.9.1
+  xml: ^6.5.0
+  equatable: ^2.0.7
+  flutter_bloc: ^9.1.1
+  eval_ex: ^1.2.0
+  decimal: ^3.2.1
+  proto_annotations: ^5.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  nanc_lints: ^1.0.0
+  json_serializable: ^6.9.5
+  copy_with_extension_gen: ^6.0.1
+  build_runner: ^2.4.15
+  proto_generator: ^6.0.0
+
+flutter:
