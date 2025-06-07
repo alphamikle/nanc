@@ -11,13 +11,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc_tools: ^0.0.2
+  nanc_tools: ^0.0.3
   material_design_icons_flutter: ^7.0.7296
-  fluentui_system_icons: ^1.1.205
-  remixicon: ^1.0.0
+  fluentui_system_icons: ^1.1.273
+  remixicon: ^1.4.1
 
 dev_dependencies:
   nanc_lints: ^1.0.0
-  path: ^1.8.3
-  basic_utils: ^5.5.4
-  args: ^2.4.1
+  path: ^1.9.1
+  basic_utils: ^5.8.2
+  args: ^2.7.0

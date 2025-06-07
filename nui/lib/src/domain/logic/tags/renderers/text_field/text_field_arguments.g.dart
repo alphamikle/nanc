@@ -131,6 +131,7 @@ const _$AutovalidateModeEnumMap = {
   AutovalidateMode.disabled: 'disabled',
   AutovalidateMode.always: 'always',
   AutovalidateMode.onUserInteraction: 'onUserInteraction',
+  AutovalidateMode.onUnfocus: 'onUnfocus',
 };
 
 const _$BrightnessEnumMap = {

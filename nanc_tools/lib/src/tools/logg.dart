@@ -24,13 +24,13 @@ Json? _tryToJson(dynamic value) {
 }
 
 void logInfo(Object? message, {Object? error, StackTrace? stackTrace}) {
-  _logger.i(message, error, stackTrace);
+  _logger.i(message, error: error, stackTrace: stackTrace);
 }
 
 void logWarning(Object? message, {Object? error, StackTrace? stackTrace}) {
-  _logger.w(message, error, stackTrace);
+  _logger.w(message, error: error, stackTrace: stackTrace);
 }
 
 void logError(Object? message, {Object? error, StackTrace? stackTrace}) {
-  _logger.e(message, error, stackTrace);
+  _logger.e(message, error: error, stackTrace: stackTrace);
 }

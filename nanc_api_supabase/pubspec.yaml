@@ -14,17 +14,19 @@ dependencies:
   nanc_configuration: ^0.0.3
   nanc: ^0.0.4
   nanc_tools: ^0.0.3
-  supabase_flutter: ^1.10.0
-  equatable: ^2.0.5
-  json_annotation: ^4.8.1
-  copy_with_extension: ^5.0.2
-  autoequal: ^0.9.1
+  supabase_flutter: ^2.9.0
+  equatable: ^2.0.7
+  json_annotation: ^4.9.0
+  copy_with_extension: ^5.0.4
+  equatable_annotations: ^1.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   nanc_lints: ^1.0.0
-  json_serializable: ^6.7.0
-  copy_with_extension_gen: ^5.0.2
-  build_runner: ^2.4.4
-  autoequal_gen: ^0.9.1
+  json_serializable: ^6.9.5
+  copy_with_extension_gen: ^5.0.4
+  build_runner: ^2.4.15
+  equatable_gen: ^1.0.4
+dependency_overrides:
+  analyzer: ^6.0.0

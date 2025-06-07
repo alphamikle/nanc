@@ -11,8 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc_tools: ^0.0.2
-  google_fonts: ^4.0.4
+  nanc_tools: ^0.0.3
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:

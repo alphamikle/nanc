@@ -11,9 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc_tools: ^0.0.2
-  nanc: ^0.0.3
-  nanc_configuration: ^0.0.1
+  nanc_tools: ^0.0.3
+  nanc: ^0.0.4
+  nanc_configuration: ^0.0.3
 
 dev_dependencies:
   flutter_test:
