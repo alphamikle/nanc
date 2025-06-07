@@ -20,3 +20,5 @@ dev_dependencies:
   nanc_lints: ^1.0.0
 
 flutter:
+dependency_overrides:
+  analyzer: ^7.0.0

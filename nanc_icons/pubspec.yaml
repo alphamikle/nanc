@@ -21,3 +21,5 @@ dev_dependencies:
   path: ^1.9.1
   basic_utils: ^5.8.2
   args: ^2.7.0
+dependency_overrides:
+  analyzer: ^7.0.0
