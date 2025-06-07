@@ -335,7 +335,7 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
                       },
                       itemBuilder: (BuildContext context) {
                         return [
-                          PopupMenuItem(
+                          PopupMenuItem<void>(
                             onTap: addCondition,
                             child: const Row(
                               children: [
@@ -347,7 +347,7 @@ class _StructuredFieldCellState extends State<QueryFilterCell> with FieldCellHel
                               ],
                             ),
                           ),
-                          PopupMenuItem(
+                          PopupMenuItem<void>(
                             onTap: addValue,
                             child: const Row(
                               children: [

@@ -40,8 +40,6 @@ extension NotificationPositionExtension on NotificationPosition {
         return Alignment.bottomRight;
       case NotificationPosition.bottomLeft:
         return Alignment.bottomLeft;
-      default:
-        return Alignment.topCenter;
     }
   }
 }

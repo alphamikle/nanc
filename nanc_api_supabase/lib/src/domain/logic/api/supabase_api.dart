@@ -24,7 +24,7 @@ class SupabaseApi {
   PostgrestFilterBuilder<dynamic> getSelection({required Model model, required List<String> subset}) {
     final SupabaseQueryBuilder builder = getBuilder(model);
     final String effectiveSubset = subset.isEmpty ? '*' : subset.join(', ');
-    final PostgrestFilterBuilder<dynamic> selection = builder.select(effectiveSubset, const FetchOptions(count: CountOption.exact));
+    final PostgrestFilterBuilder<dynamic> selection = builder.select(effectiveSubset);
     return selection;
   }
 }

@@ -20,15 +20,6 @@ class TimeMask extends MaskTextInputFormatter {
     updateMask(filter: newFilter, mask: _defaultMask);
   }
 
-  static const Map<int, String> _numbersMapping = {
-    0: 'H',
-    1: 'h',
-    2: 'M',
-    3: 'm',
-    4: 'S',
-    5: 's',
-  };
-
   @override
   TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
     final List<String> items = newValue.text.replaceAll(':', '').split('');

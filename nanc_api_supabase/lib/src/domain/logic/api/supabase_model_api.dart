@@ -190,7 +190,7 @@ class SupabaseModelApi implements IModelApi {
 
     try {
       await deleteOutdatedFields(newModel, newModel.flattenFields.realFields);
-      await _api.client.rpc(
+      await _api.client.rpc<void>(
         _funcName,
         params: {
           _sqlQueryName: sql,
@@ -330,13 +330,13 @@ class SupabaseModelApi implements IModelApi {
       FROM information_schema.columns
       WHERE table_name = '${model.id}';
     ''';
-    final String? response = await _api.client.rpc(
+    final String? response = await _api.client.rpc<String>(
       _funcName,
       params: {
         _sqlQueryName: requestQuery,
         _returnableName: true,
       },
-    ) as String?;
+    );
     if (response == null) {
       return;
     }
@@ -354,7 +354,7 @@ class SupabaseModelApi implements IModelApi {
         ALTER TABLE ${model.id}
         ${deleteOldFieldCommands.join(',\n')}
       ''';
-      await _api.client.rpc(
+      await _api.client.rpc<void>(
         _funcName,
         params: {
           _sqlQueryName: deleteQuery,

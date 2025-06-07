@@ -9,9 +9,9 @@ VRouterNavigationEventObserver analyticsObserver(String eventName) {
     Analytics.sendEvent(
       eventName,
       data: <String, dynamic>{
-        'to_url': state.location,
+        'to_url': state.uri.toString(),
         'path_parameters': state.pathParameters,
-        'query_parameters': state.queryParameters,
+        'query_parameters': state.uri.queryParameters,
       },
     );
   };

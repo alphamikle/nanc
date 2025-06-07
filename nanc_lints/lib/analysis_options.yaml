@@ -14,7 +14,6 @@ analyzer:
     todo: warning
     missing_return: error
     prefer_relative_imports: error
-    division_optimization: error
     must_call_super: error
     always_put_required_named_parameters_first: warning
     unnecessary_await_in_return: error
@@ -53,7 +52,6 @@ linter:
     flutter_style_todos: true
     join_return_with_assignment: true
     leading_newlines_in_multiline_strings: true
-    package_api_docs: true
     prefer_asserts_in_initializer_lists: true
     prefer_constructors_over_static_methods: true
     prefer_final_in_for_each: true

@@ -274,5 +274,3 @@ class CollectionBloc extends Cubit<CollectionState> {
     return QueryOrField(fields: valueFields);
   }
 }
-
-Future<void> _uiDelay([Duration delay = const Duration(milliseconds: 100)]) async => wait(duration: delay);

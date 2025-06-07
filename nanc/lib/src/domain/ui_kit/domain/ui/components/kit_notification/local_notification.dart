@@ -129,7 +129,6 @@ class LocalNotificationState extends State<LocalNotification> with SingleTickerP
           ),
         );
         break;
-      default:
     }
 
     WidgetsBinding.instance.addPostFrameCallback((_) => slideController.forward());
@@ -165,7 +164,7 @@ class LocalNotificationState extends State<LocalNotification> with SingleTickerP
             boxShadow: widget.enableShadow
                 ? [
                     BoxShadow(
-                      color: widget.shadowColor.withOpacity(0.2),
+                      color: widget.shadowColor.withValues(alpha: 0.2),
                       spreadRadius: 1,
                       blurRadius: 1,
                       offset: const Offset(0, 1),

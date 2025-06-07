@@ -66,7 +66,6 @@ class _IndicatorPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final double x = size.width;
     const double xStart = 0;
-    final double xCenter = x / 2;
     final double xEnd = x;
 
     final double y = size.height;

@@ -77,7 +77,7 @@ class SupabaseDocumentApi implements IDocumentApi {
     if (id != null) {
       updater = updater.eq(model.idField.id, id);
     }
-    final dynamic response = await updater.select<dynamic>(model.flattenFields.realIds.join(',')).single();
+    final dynamic response = await updater.select(model.flattenFields.realIds.join(',')).single();
     if (response is DJson) {
       return castToJson(response);
     }
@@ -104,6 +104,6 @@ class SupabaseDocumentApi implements IDocumentApi {
       return;
     }
     final Model relationsModel = thirdTable.relationsEntity;
-    await _api.getBuilder(relationsModel).delete().in_(thirdTable.childEntityIdName, ids).eq(thirdTable.parentEntityIdName, parentId);
+    await _api.getBuilder(relationsModel).delete().inFilter(thirdTable.childEntityIdName, ids).eq(thirdTable.parentEntityIdName, parentId);
   }
 }

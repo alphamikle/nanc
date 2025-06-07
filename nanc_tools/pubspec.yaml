@@ -15,13 +15,13 @@ dependencies:
   html: ^0.15.6
   archive: ^4.0.7
   ulid: ^2.0.1
-  basic_utils: ^5.8.2
+  basic_utils: ^5.7.0
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   package_info_plus: ^8.3.0
   path_provider: ^2.1.5
   url_launcher: ^6.3.1
-  # ! encrypt: ^5.0.3 # Need a replacement because of too old dependencies
+  encrypt: ^5.0.3
   provider: ^6.1.5
   go_router: ^15.1.2
   logger: ^2.5.0

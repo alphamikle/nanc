@@ -15,9 +15,6 @@ class HexTextMask extends MaskTextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
     TextEditingValue output = super.formatEditUpdate(oldValue, newValue);
-    final String oldText = oldValue.text;
-    final String newText = newValue.text;
-    final String formattedText = output.text;
 
     /// ? Here, we in the situation, when default formatted drop the value to ""
     if (output.text.isEmpty) {
@@ -30,7 +27,6 @@ class HexTextMask extends MaskTextInputFormatter {
       }
       output = output.copyWith(text: resultSymbols.join());
     }
-    final String fixedText = output.text;
     return output.copyWith(text: output.text.toUpperCase());
   }
 }

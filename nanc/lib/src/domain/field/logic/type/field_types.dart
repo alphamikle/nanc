@@ -25,7 +25,7 @@ enum FieldType {
   titleFieldsField('Title');
   // TODO(alphamikle): Add new field types here
 
-  final String humanReadableType;
-
   const FieldType(this.humanReadableType);
+
+  final String humanReadableType;
 }

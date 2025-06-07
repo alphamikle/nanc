@@ -71,7 +71,7 @@ class RoutesPreloadingService {
   }
 
   Future<void> prepareModelForCreation(GoRouterState state) async {
-    final QueryParameters query = state.queryParameters;
+    final QueryParameters query = state.uri.queryParameters;
     bool isSoloCreation = false;
     if (query['solo'] == '${true}') {
       isSoloCreation = true;
@@ -80,7 +80,7 @@ class RoutesPreloadingService {
   }
 
   void _selectHeaderMenuElement(GoRouterState state) {
-    final String route = state.location;
+    final String route = state.uri.toString();
     unawaited(doSomethingWhen(
       condition: () => isAttached,
       interval: kInterval,
@@ -93,7 +93,7 @@ class RoutesPreloadingService {
   }
 
   Future<bool> _selectHeaderMenuElementIfNoSelected(GoRouterState state) async {
-    final String route = state.location;
+    final String route = state.uri.toString();
     final bool? result = await doSomethingWhen(
       condition: () => isAttached,
       interval: kInterval,
@@ -114,8 +114,8 @@ class RoutesPreloadingService {
       condition: () => isAttached,
       interval: kInterval,
       action: () {
-        logInfo('Select side menu element: "${state.location}"');
-        menuBloc.selectItem(state.location);
+        logInfo('Select side menu element: "${state.uri.toString()}"');
+        menuBloc.selectItem(state.uri.toString());
       },
     ));
   }

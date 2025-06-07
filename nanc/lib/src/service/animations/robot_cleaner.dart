@@ -11,8 +11,8 @@ class RobotCleaner extends StatefulWidget {
 }
 
 class _RobotCleanerState extends State<RobotCleaner> with AutomaticKeepAliveClientMixin {
-  late final RiveAnimationController robotController = SimpleAnimation('Test');
-  late final RiveAnimationController dustController = SimpleAnimation('dust_fly');
+  late final RiveAnimationController<dynamic> robotController = SimpleAnimation('Test');
+  late final RiveAnimationController<dynamic> dustController = SimpleAnimation('dust_fly');
 
   @override
   bool get wantKeepAlive => true;

@@ -27,7 +27,7 @@ class ErrorToaster extends StatelessWidget {
         decoration: BoxDecoration(
           color: context.theme.colorScheme.errorContainer,
           borderRadius: const BorderRadius.all(Radius.circular(Gap.small)),
-          border: Border.all(color: context.theme.colorScheme.onErrorContainer.withOpacity(0.5)),
+          border: Border.all(color: context.theme.colorScheme.onErrorContainer.withValues(alpha: 0.5)),
         ),
         child: Padding(
           padding: const EdgeInsets.all(Gap.large),

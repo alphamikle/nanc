@@ -30,17 +30,6 @@ class DateMask extends MaskTextInputFormatter {
     }
   }
 
-  static const Map<int, String> _numbersMapping = {
-    0: 'Y',
-    1: 'y',
-    2: 'y',
-    3: 'y',
-    4: 'M',
-    5: 'm',
-    6: 'D',
-    7: 'd',
-  };
-
   @override
   TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
     TextEditingValue formattedValue = super.formatEditUpdate(oldValue, newValue);
@@ -74,7 +63,6 @@ class DateMask extends MaskTextInputFormatter {
       final String m = items[5];
       final String D = items[6];
       final String month = '$M$m';
-      const Set<String> months30 = {'04', '06', '09', '11'};
       if (month == '02' && D == '3') {
         formattedValue = formattedValue.copyWith(
           text: formattedValue.text.replaceAll('$year-$month-$D', '$year-$month-2'),

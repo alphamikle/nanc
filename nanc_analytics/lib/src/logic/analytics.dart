@@ -39,7 +39,7 @@ abstract class Analytics {
       _amplitude = Amplitude.getInstance(instanceName: Env.analyticsProject);
       await _amplitude.init(Env.analyticsKey);
       await _amplitude.enableCoppaControl();
-      await _amplitude.setUserId(userId, startNewSession: false);
+      await _amplitude.setUserId(userId);
       await _amplitude.trackingSessionEvents(true);
     } catch (error, stackTrace) {
       logError('ERROR WAS THROWN ON ANALYTICS INITIALIZATION', error: error, stackTrace: stackTrace);

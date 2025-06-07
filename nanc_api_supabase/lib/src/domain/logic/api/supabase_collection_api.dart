@@ -34,7 +34,7 @@ class SupabaseCollectionApi implements ICollectionApi {
       selection.appendSearchParams(_processFieldType(effectiveQuery.type, null, showValue: false), filter);
     }
     final PostgrestResponse<dynamic> response = await selection.range(from, to).order(sort.fieldId, ascending: sort.order.isAsc) as PostgrestResponse<dynamic>;
-    final int count = response.count ?? 0;
+    final int count = response.count;
     final int totalPages = params.limit > 0 ? (count / params.limit).ceil() : 0;
     final int page = max(min(params.page, totalPages), 0);
     final List<Json> data = response.data is List<dynamic> ? (response.data as List<dynamic>).map(castToJson).toList() : [];
