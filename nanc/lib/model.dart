@@ -1,5 +1,3 @@
-library model;
-
 export 'src/domain/model/logic/bloc/model_list_bloc/model_list_bloc.dart';
 export 'src/domain/model/logic/bloc/model_list_bloc/model_list_state.dart';
 export 'src/domain/model/logic/model/logic/generic_relations_model.dart';

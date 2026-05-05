@@ -1,5 +1,3 @@
-library services;
-
 export 'src/service/config/cms_config.dart';
 export 'src/service/errors/errors.dart';
 export 'src/service/errors/errors_catcher.dart';

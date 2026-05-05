@@ -7,18 +7,19 @@ import '../../../field/logic/fields/field/field.dart';
 import '../../../ui_kit/domain/ui/components/kit_ink_well.dart';
 import 'field_card.dart';
 import 'field_card_deleter.dart';
-import 'field_card_mover.dart';
+import 'field_card_draggable.dart';
 
 class FieldCardFunctionalWrapper extends StatefulWidget {
   const FieldCardFunctionalWrapper({
     required this.field,
     required this.creationMode,
-    required this.onChange,
+    required this.onDragCompleted,
     required this.onPressed,
-    required this.availableDirections,
     this.onDelete,
     this.onExpand,
     this.customSize,
+    this.row = 0,
+    this.column = 0,
     super.key,
   });
 
@@ -26,9 +27,10 @@ class FieldCardFunctionalWrapper extends StatefulWidget {
   final bool creationMode;
   final VoidCallback? onDelete;
   final VoidCallback? onExpand;
-  final ValueChanged<AxisDirection> onChange;
+  final Function(int sourceRow, int sourceColumn, int targetRow, int targetColumn, DropPosition position) onDragCompleted;
   final VoidCallback onPressed;
-  final List<AxisDirection> availableDirections;
+  final int row;
+  final int column;
   final double? customSize;
 
   @override
@@ -87,6 +89,15 @@ class _FieldCardFunctionalWrapperState extends State<FieldCardFunctionalWrapper>
       customHeight: widget.customSize,
     );
 
+    // Wrap the field card with the draggable functionality
+    final Widget draggableFieldCard = FieldCardDraggable(
+      field: widget.field,
+      row: widget.row,
+      column: widget.column,
+      onDragCompleted: widget.onDragCompleted,
+      child: fieldCard,
+    );
+
     if (_isFunctionalElementsExists) {
       return KitInkWell(
         onPressed: () {},
@@ -101,16 +112,6 @@ class _FieldCardFunctionalWrapperState extends State<FieldCardFunctionalWrapper>
                 Positioned.fill(
                   child: Opacity(
                     opacity: animation.value,
-                    child: FieldCardMover(
-                      onChange: widget.onChange,
-                      availableDirections: widget.availableDirections,
-                      child: const SizedBox(),
-                    ),
-                  ),
-                ),
-                Positioned.fill(
-                  child: Opacity(
-                    opacity: animation.value,
                     child: FieldCardDeleter(
                       onDelete: widget.onDelete,
                       onExpand: widget.onExpand,
@@ -121,7 +122,7 @@ class _FieldCardFunctionalWrapperState extends State<FieldCardFunctionalWrapper>
               ],
             );
           },
-          child: fieldCard,
+          child: draggableFieldCard,
         ),
       );
     }
@@ -129,7 +130,7 @@ class _FieldCardFunctionalWrapperState extends State<FieldCardFunctionalWrapper>
       onPressed: () {},
       noReaction: true,
       onHover: _toggleFunctionalElementsVisibility,
-      child: fieldCard,
+      child: draggableFieldCard,
     );
   }
 }

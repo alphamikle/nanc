@@ -1,5 +1,3 @@
-library fields;
-
 export 'src/domain/field/logic/bloc/list_field_bloc/list_field_bloc.dart';
 export 'src/domain/field/logic/bloc/local_page_bloc/local_page_bloc.dart';
 export 'src/domain/field/logic/fields/binary_field/binary_field.dart';

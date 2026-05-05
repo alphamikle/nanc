@@ -30,6 +30,7 @@ import '../../logic/bloc/model_page_bloc/model_page_bloc.dart';
 import '../../logic/bloc/model_page_bloc/model_page_state.dart';
 import '../../logic/model/logic/model.dart';
 import '../component/add_field_button.dart';
+import '../component/field_card_draggable.dart';
 import '../component/field_card_functional_wrapper.dart';
 import '../component/field_creation_modal.dart';
 import '../component/field_editor_modal.dart';
@@ -95,20 +96,37 @@ class _ModelPageViewState extends State<ModelPageView> {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.only(bottom: Gap.regular),
-            child: FieldCardFunctionalWrapper(
-              onPressed: () async => editField(context: context, model: field.toModel(), field: field, row: index, column: i),
-              availableDirections: [
-                if (i > 0) AxisDirection.left,
-                if (index > 0) AxisDirection.up,
-                if (isLast == false) AxisDirection.right,
-                if (isLastRow == false || rowFields.length > 1) AxisDirection.down,
-              ],
-              creationMode: widget.creationMode,
-              field: field,
-              onChange: (AxisDirection direction) => context.read<ModelPageBloc>().moveField(row: index, column: i, direction: direction),
-              onDelete: () async => context.read<ModelPageBloc>().deleteModelField(index, i),
-              onExpand: () => context.read<ModelPageBloc>().expandField(row: index, column: i),
-              customSize: customSize,
+            child: FieldDropTarget(
+              row: index,
+              column: i,
+              onDragCompleted: (sourceRow, sourceColumn, targetRow, targetColumn, position) {
+                context.read<ModelPageBloc>().moveFieldByDragDrop(
+                  sourceRow: sourceRow,
+                  sourceColumn: sourceColumn,
+                  targetRow: targetRow,
+                  targetColumn: targetColumn,
+                  position: position,
+                );
+              },
+              child: FieldCardFunctionalWrapper(
+                onPressed: () async => editField(context: context, model: field.toModel(), field: field, row: index, column: i),
+                creationMode: widget.creationMode,
+                field: field,
+                row: index,
+                column: i,
+                onDragCompleted: (sourceRow, sourceColumn, targetRow, targetColumn, position) {
+                  context.read<ModelPageBloc>().moveFieldByDragDrop(
+                    sourceRow: sourceRow,
+                    sourceColumn: sourceColumn,
+                    targetRow: targetRow,
+                    targetColumn: targetColumn,
+                    position: position,
+                  );
+                },
+                onDelete: () async => context.read<ModelPageBloc>().deleteModelField(index, i),
+                onExpand: () => context.read<ModelPageBloc>().expandField(row: index, column: i),
+                customSize: customSize,
+              ),
             ),
           ),
         ),
@@ -135,13 +153,47 @@ class _ModelPageViewState extends State<ModelPageView> {
       children: fieldCards,
     );
 
+    // Add a drop target for new row at the bottom of each row
+    final Widget rowWithDropTarget = Column(
+      key: ValueKey('row_$index'),
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        fieldsRow,
+        // Drop target for expanding a field to a new row
+        SizedBox(
+          height: 20,
+          child: FieldDropTarget(
+            row: index,
+            column: 0,
+            isNewRowTarget: true,
+            onDragCompleted: (sourceRow, sourceColumn, targetRow, targetColumn, position) {
+              context.read<ModelPageBloc>().moveFieldByDragDrop(
+                sourceRow: sourceRow,
+                sourceColumn: sourceColumn,
+                targetRow: targetRow,
+                targetColumn: targetColumn,
+                position: DropPosition.newRow,
+              );
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.transparent),
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+
     if (index == allFields.length - 1) {
       return Column(
         key: const ValueKey('fieldWithButton'),
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          fieldsRow,
+          rowWithDropTarget,
           Padding(
             padding: const EdgeInsets.only(left: Gap.regular, bottom: Gap.regular),
             child: SizedBox(
@@ -158,7 +210,7 @@ class _ModelPageViewState extends State<ModelPageView> {
       );
     }
 
-    return fieldsRow;
+    return rowWithDropTarget;
   }
 
   Future<void> upsert() async {

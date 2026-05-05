@@ -8,6 +8,7 @@ import '../../../../field/logic/fields/field/field.dart';
 import '../../../../general/logic/bloc/side_menu/menu_bloc.dart';
 import '../../../../ui_kit/domain/ui/components/kit_modal/confirm_modal.dart';
 import '../../../../ui_kit/domain/ui/components/kit_modal/select_modal.dart';
+import '../../../ui/component/field_card_draggable.dart';
 import '../../model/logic/model.dart';
 import '../../provider/model_provider.dart';
 import '../model_list_bloc/model_list_bloc.dart';
@@ -238,6 +239,67 @@ class ModelPageBloc extends Cubit<ModelPageState> {
     ];
     final List<Field> newCurrentRow = [fieldsRows[row].removeAt(column)];
     fieldsRows.insert(row, newCurrentRow);
+    emit(state.copyWith(
+      editableModel: state.editableModel.copyWith(
+        fields: fieldsRows,
+      ),
+    ));
+  }
+
+  /// Handles drag-n-drop operations for field movement
+  void moveFieldByDragDrop({
+    required int sourceRow,
+    required int sourceColumn,
+    required int targetRow,
+    required int targetColumn,
+    required DropPosition position,
+  }) {
+    final List<List<Field>> fieldsRows = [
+      ...state.editableModel.fields.map((List<Field> fieldRow) => [...fieldRow])
+    ];
+
+    // Skip if source and target are the same
+    if (sourceRow == targetRow && sourceColumn == targetColumn) {
+      return;
+    }
+
+    // Get the field being moved
+    final Field movingField = fieldsRows[sourceRow][sourceColumn];
+
+    // Remove the field from its original position
+    fieldsRows[sourceRow].removeAt(sourceColumn);
+    if (fieldsRows[sourceRow].isEmpty) {
+      fieldsRows.removeAt(sourceRow);
+      // Adjust target row index if it's after the removed row
+      if (targetRow > sourceRow) {
+        targetRow--;
+      }
+    }
+
+    // Handle different drop positions
+    switch (position) {
+      case DropPosition.left:
+        // Insert to the left of the target
+        fieldsRows[targetRow].insert(targetColumn, movingField);
+        break;
+      case DropPosition.right:
+        // Insert to the right of the target
+        fieldsRows[targetRow].insert(targetColumn + 1, movingField);
+        break;
+      case DropPosition.above:
+        // Create a new row above with just this field
+        fieldsRows.insert(targetRow, [movingField]);
+        break;
+      case DropPosition.below:
+        // Create a new row below with just this field
+        fieldsRows.insert(targetRow + 1, [movingField]);
+        break;
+      case DropPosition.newRow:
+        // Create a new row with just this field (used for expanding to full row)
+        fieldsRows.insert(targetRow + 1, [movingField]);
+        break;
+    }
+
     emit(state.copyWith(
       editableModel: state.editableModel.copyWith(
         fields: fieldsRows,

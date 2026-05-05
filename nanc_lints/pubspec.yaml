@@ -17,6 +17,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-flutter:
 dependency_overrides:
-  analyzer: ^7.0.0
+  analyzer: ^7.5.7
+
+flutter:

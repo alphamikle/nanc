@@ -23,12 +23,12 @@ dev_dependencies:
   nanc_lints: ^1.0.0
   json_serializable: ^6.9.5
   copy_with_extension_gen: ^6.0.1
-  build_runner: ^2.4.15
+  build_runner: ^2.5.4
   equatable_gen: ^1.0.4
-  proto_generator: ^5.0.0
+  proto_generator: ^6.0.0
 
 dependency_overrides:
-  analyzer: ^6.0.0
+  analyzer: ^7.5.7
 
 executables:
   ncov: convert

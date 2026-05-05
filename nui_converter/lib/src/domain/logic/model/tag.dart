@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:autoequal/autoequal.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:proto_annotations/proto_annotations.dart';
 
@@ -50,7 +50,7 @@ sealed class TagNode {
 }
 
 @proto
-@autoequal
+@generateProps
 @CopyWith()
 @JsonSerializable()
 class TagsContainer extends Equatable {
@@ -73,7 +73,7 @@ class TagsContainer extends Equatable {
 }
 
 @proto
-@autoequal
+@generateProps
 @CopyWith()
 @JsonSerializable()
 class WidgetTag extends Equatable implements TagNode {
@@ -108,7 +108,7 @@ class WidgetTag extends Equatable implements TagNode {
 }
 
 @proto
-@autoequal
+@generateProps
 @CopyWith()
 @JsonSerializable()
 class PropertyTag extends Equatable implements WidgetTag {
@@ -146,7 +146,7 @@ class PropertyTag extends Equatable implements WidgetTag {
 }
 
 @proto
-@autoequal
+@generateProps
 @CopyWith()
 @JsonSerializable()
 class TextNode extends Equatable implements TagNode {
@@ -172,7 +172,7 @@ class TextNode extends Equatable implements TagNode {
 }
 
 @proto
-@autoequal
+@generateProps
 @CopyWith()
 @JsonSerializable()
 class UnknownNode extends Equatable implements TagNode {
